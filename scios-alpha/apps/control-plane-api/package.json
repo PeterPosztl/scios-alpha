@@ -1,0 +1,26 @@
+{
+  "name": "@scios/control-plane-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/server.ts",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "demo": "tsx src/demo.ts"
+  },
+  "dependencies": {
+    "@scios/data-fabric": "workspace:*",
+    "@scios/feature-store": "workspace:*",
+    "@scios/observability": "workspace:*",
+    "@scios/governance-engine": "workspace:*",
+    "@scios/model-registry": "workspace:*",
+    "@scios/meta-intelligence": "workspace:*",
+    "@scios/vertical-slice": "workspace:*",
+    "tsx": "^4.19.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.3"
+  }
+}

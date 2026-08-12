@@ -1,0 +1,93 @@
+{
+  "at": "2026-08-12T13:28:53.296Z",
+  "source": "filtered.json",
+  "adaptersRoot": "diagnostics-export/orchestrator/adapters",
+  "scaffolds": [
+    {
+      "surfaceId": "@scios/cockpit-ui",
+      "dir": "diagnostics-export/orchestrator/adapters/@scios_cockpit-ui",
+      "readme": "diagnostics-export/orchestrator/adapters/@scios_cockpit-ui/README.md",
+      "index": "diagnostics-export/orchestrator/adapters/@scios_cockpit-ui/index.ts",
+      "scanStatus": "NEEDS_CLONE"
+    },
+    {
+      "surfaceId": "@scios/control-plane-api",
+      "dir": "diagnostics-export/orchestrator/adapters/@scios_control-plane-api",
+      "readme": "diagnostics-export/orchestrator/adapters/@scios_control-plane-api/README.md",
+      "index": "diagnostics-export/orchestrator/adapters/@scios_control-plane-api/index.ts",
+      "scanStatus": "NEEDS_CLONE"
+    },
+    {
+      "surfaceId": "@scios/execution-simulator",
+      "dir": "diagnostics-export/orchestrator/adapters/@scios_execution-simulator",
+      "readme": "diagnostics-export/orchestrator/adapters/@scios_execution-simulator/README.md",
+      "index": "diagnostics-export/orchestrator/adapters/@scios_execution-simulator/index.ts",
+      "scanStatus": "NEEDS_CLONE"
+    },
+    {
+      "surfaceId": "@scios/meta-recovery-control-plane",
+      "dir": "diagnostics-export/orchestrator/adapters/@scios_meta-recovery-control-plane",
+      "readme": "diagnostics-export/orchestrator/adapters/@scios_meta-recovery-control-plane/README.md",
+      "index": "diagnostics-export/orchestrator/adapters/@scios_meta-recovery-control-plane/index.ts",
+      "scanStatus": "NEEDS_CLONE"
+    },
+    {
+      "surfaceId": "@scios/mock-api",
+      "dir": "diagnostics-export/orchestrator/adapters/@scios_mock-api",
+      "readme": "diagnostics-export/orchestrator/adapters/@scios_mock-api/README.md",
+      "index": "diagnostics-export/orchestrator/adapters/@scios_mock-api/index.ts",
+      "scanStatus": "NEEDS_CLONE"
+    },
+    {
+      "surfaceId": "@scios/prediction-engine",
+      "dir": "diagnostics-export/orchestrator/adapters/@scios_prediction-engine",
+      "readme": "diagnostics-export/orchestrator/adapters/@scios_prediction-engine/README.md",
+      "index": "diagnostics-export/orchestrator/adapters/@scios_prediction-engine/index.ts",
+      "scanStatus": "NEEDS_CLONE"
+    },
+    {
+      "surfaceId": "@scios/risk-engine",
+      "dir": "diagnostics-export/orchestrator/adapters/@scios_risk-engine",
+      "readme": "diagnostics-export/orchestrator/adapters/@scios_risk-engine/README.md",
+      "index": "diagnostics-export/orchestrator/adapters/@scios_risk-engine/index.ts",
+      "scanStatus": "NEEDS_CLONE"
+    },
+    {
+      "surfaceId": "@scios/alpha-loop",
+      "dir": "diagnostics-export/orchestrator/adapters/@scios_alpha-loop",
+      "readme": "diagnostics-export/orchestrator/adapters/@scios_alpha-loop/README.md",
+      "index": "diagnostics-export/orchestrator/adapters/@scios_alpha-loop/index.ts",
+      "scanStatus": "NEEDS_CLONE"
+    },
+    {
+      "surfaceId": "@scios/experiment-tracker",
+      "dir": "diagnostics-export/orchestrator/adapters/@scios_experiment-tracker",
+      "readme": "diagnostics-export/orchestrator/adapters/@scios_experiment-tracker/README.md",
+      "index": "diagnostics-export/orchestrator/adapters/@scios_experiment-tracker/index.ts",
+      "scanStatus": "NEEDS_CLONE"
+    },
+    {
+      "surfaceId": "@scios/meta-intelligence",
+      "dir": "diagnostics-export/orchestrator/adapters/@scios_meta-intelligence",
+      "readme": "diagnostics-export/orchestrator/adapters/@scios_meta-intelligence/README.md",
+      "index": "diagnostics-export/orchestrator/adapters/@scios_meta-intelligence/index.ts",
+      "scanStatus": "NEEDS_CLONE"
+    },
+    {
+      "surfaceId": "@scios/meta-recovery",
+      "dir": "diagnostics-export/orchestrator/adapters/@scios_meta-recovery",
+      "readme": "diagnostics-export/orchestrator/adapters/@scios_meta-recovery/README.md",
+      "index": "diagnostics-export/orchestrator/adapters/@scios_meta-recovery/index.ts",
+      "scanStatus": "NEEDS_CLONE"
+    },
+    {
+      "surfaceId": "@scios/vertical-slice",
+      "dir": "diagnostics-export/orchestrator/adapters/@scios_vertical-slice",
+      "readme": "diagnostics-export/orchestrator/adapters/@scios_vertical-slice/README.md",
+      "index": "diagnostics-export/orchestrator/adapters/@scios_vertical-slice/index.ts",
+      "scanStatus": "NEEDS_CLONE"
+    }
+  ],
+  "deployed": false,
+  "note": "Constitution: propose-only; never auto-deploy"
+}

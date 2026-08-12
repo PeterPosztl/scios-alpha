@@ -1,0 +1,9 @@
+{
+  "at": "2026-07-17T00:18:17.868Z",
+  "gate": "manual-convergence-loop",
+  "firstCleanStartup": { "verdict": "DEGRADED", "exit": 0 },
+  "shutdown": { "exit": 0, "stopped": ["alpha-loop-noncanonical", "control-plane-api"] },
+  "secondCleanStartup": { "verdict": "DEGRADED", "exit": 0 },
+  "secondProof": { "verdict": "STARTUP_CONVERGED_DEGRADED", "exit": 0 },
+  "finalVerdict": "STARTUP_CONVERGED_DEGRADED"
+}

@@ -1,0 +1,161 @@
+{
+  "at": "2026-07-17T00:21:39.327Z",
+  "profile": "local-foundation",
+  "selections": {
+    "repositoryRoot": {
+      "selected": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+      "evidence": "resolve-app-root + package.json name scios-alpha",
+      "rejected": [
+        "sci-os-10",
+        "sci-os-x10-ccu-supra"
+      ],
+      "owner": "bootstrap-kernel",
+      "healthProbe": null
+    },
+    "packageManager": {
+      "selected": "pnpm@9.15.0",
+      "evidence": "package.json packageManager field",
+      "rejected": [
+        "npm",
+        "yarn"
+      ],
+      "owner": "root"
+    },
+    "lockfile": {
+      "selected": "pnpm-lock.yaml",
+      "evidence": "exists at repo root",
+      "rejected": [
+        "package-lock.json",
+        "yarn.lock"
+      ],
+      "owner": "root"
+    },
+    "nodeRuntime": {
+      "selected": "system node >=20",
+      "evidence": "resolve-node-runtime",
+      "rejected": [
+        "electron as node"
+      ],
+      "owner": "bootstrap-kernel"
+    },
+    "backendEntry": {
+      "selected": "apps/control-plane-api/src/server.ts",
+      "evidence": "resolve-runtime-entries",
+      "rejected": [
+        "src/master.ts",
+        "packages/alpha-loop"
+      ],
+      "aliases": [
+        "pnpm --filter @scios/control-plane-api start"
+      ],
+      "owner": "process-supervisor",
+      "healthProbe": "http://127.0.0.1:5200/healthz",
+      "readinessProbe": "http://127.0.0.1:5200/readyz"
+    },
+    "workerEntry": {
+      "selected": "embedded-foundation-worker (control-plane)",
+      "evidence": "no BullMQ package; local-foundation uses in-process smoke worker",
+      "rejected": [
+        "external FastAPI engines as required"
+      ],
+      "owner": "control-plane-api",
+      "healthProbe": "http://127.0.0.1:5200/readyz"
+    },
+    "riskControlEntry": {
+      "selected": "packages/governance-engine (embedded)",
+      "evidence": "control-plane imports @scios/governance-engine",
+      "rejected": [
+        "external production governance SaaS"
+      ],
+      "owner": "control-plane-api",
+      "healthProbe": "http://127.0.0.1:5200/readyz"
+    },
+    "cockpitEntry": {
+      "selected": "apps/cockpit-ui/src/index.js",
+      "evidence": "resolve-runtime-entries",
+      "rejected": [
+        "Vite on :4000 from other trees"
+      ],
+      "aliases": [
+        "pnpm --filter @scios/cockpit-ui start"
+      ],
+      "owner": "process-supervisor",
+      "healthProbe": "http://127.0.0.1:5230/healthz"
+    },
+    "desktopEntry": {
+      "selected": "HTTP cockpit open via start-sci-os (Electron ABSENT)",
+      "evidence": "no apps/desktop",
+      "rejected": [
+        "Electron placeholder"
+      ],
+      "owner": "start-sci-os",
+      "healthProbe": "http://127.0.0.1:5230/"
+    },
+    "configLoader": {
+      "selected": "installer/scripts/startup/validate-config.cjs",
+      "evidence": "canonical config",
+      "rejected": [
+        "per-package silent .env without precedence"
+      ],
+      "owner": "startup-pack"
+    },
+    "migrationCommand": {
+      "selected": "SKIPPED (no DATABASE_URL in local-foundation)",
+      "evidence": "migration-gate.cjs",
+      "rejected": [],
+      "owner": "migration-gate"
+    },
+    "startupOrchestrator": {
+      "selected": "installer/scripts/start-sci-os.cjs",
+      "evidence": "canonical; pnpm sci:start",
+      "rejected": [
+        "scripts/boot as user launcher",
+        "meta-recovery as primary start"
+      ],
+      "aliases": [
+        "SCI OS ×10.bat → cascade may wrap"
+      ],
+      "owner": "startup-recovery-pack"
+    },
+    "repairOrchestrator": {
+      "selected": "installer/scripts/repair-sci-os.cjs",
+      "evidence": "pnpm sci:repair",
+      "rejected": [],
+      "owner": "startup-recovery-pack"
+    },
+    "startupProofCommand": {
+      "selected": "installer/scripts/convergence/startup-proof.cjs",
+      "evidence": "pnpm sci:proof — startup-specific, not CI feature gate",
+      "rejected": [
+        "ci:prediction-foundation-gate as sole startup proof"
+      ],
+      "owner": "convergence"
+    },
+    "healthEndpoint": {
+      "selected": "/healthz",
+      "evidence": "control-plane + cockpit",
+      "rejected": [],
+      "owner": "apps"
+    },
+    "readinessEndpoint": {
+      "selected": "/readyz",
+      "evidence": "control-plane local-foundation readiness",
+      "rejected": [],
+      "owner": "control-plane-api"
+    },
+    "ports": {
+      "api": 5200,
+      "cockpit": 5230,
+      "note": "Do not use :3000/:4000 — those belong to other SCI trees on this machine"
+    }
+  },
+  "optionalFrozen": [
+    "production OIDC",
+    "live OpenTelemetry backend",
+    "production HSM",
+    "external secrets manager",
+    "broker/bookmaker adapters",
+    "real-money execution",
+    "cloud-only integrations"
+  ]
+}

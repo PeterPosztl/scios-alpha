@@ -1,0 +1,30 @@
+﻿{
+    "at":  "2026-08-04T16:24:03.9113257Z",
+    "coreOk":  true,
+    "secondStartup":  {
+                          "exit":  0,
+                          "probes":  {
+                                         "workerBody":  "{\"jobId\":\"smoke_1785860643792\",\"status\":\"completed\",\"acknowledged\":true,\"persisted\":true,\"duplicate\":false,\"worker\":\"foundation-smoke-worker\",\"at\":\"2026-08-04T16:24:03.792Z\"}",
+                                         "cockpit":  200,
+                                         "workerSmoke":  200,
+                                         "readyz":  200,
+                                         "healthz":  200
+                                     }
+                      },
+    "shutdown":  {
+                     "cockpitDown":  true,
+                     "apiDown":  true,
+                     "exit":  0
+                 },
+    "chain":  [
+                  "Redis PING",
+                  "worker smoke",
+                  "backend health",
+                  "readiness",
+                  "cockpit API",
+                  "desktop launch",
+                  "shutdown",
+                  "second clean startup"
+              ],
+    "redisFromStep1":  "see redis discovery"
+}

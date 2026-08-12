@@ -1,0 +1,23 @@
+{
+  "predictionId": "pred_123",
+  "model": {
+    "id": "baseline-logistic",
+    "version": "1.0.0"
+  },
+  "pointEstimate": 0.61,
+  "distribution": {
+    "positive": 0.61,
+    "negative": 0.39
+  },
+  "predictionInterval": [0.53, 0.68],
+  "calibration": {
+    "status": "valid",
+    "brierScore": 0.18
+  },
+  "uncertainty": {
+    "epistemic": 0.09,
+    "aleatoric": 0.16
+  },
+  "abstain": false,
+  "featureSnapshotId": "fs_789"
+}

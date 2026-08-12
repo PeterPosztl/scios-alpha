@@ -1,0 +1,6 @@
+{
+  "lastSuccessfulPhase": "cockpit",
+  "firstFailedPhase": null,
+  "blocker": null,
+  "note": "Core healthy — evaluating readiness policy only"
+}

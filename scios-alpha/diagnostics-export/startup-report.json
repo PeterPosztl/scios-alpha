@@ -1,0 +1,365 @@
+{
+  "correlationId": "3ea4c0a4-208c-489a-a63a-7d01693b080b",
+  "timestamp": "2026-08-12T13:07:36.540Z",
+  "durationMs": 14807,
+  "version": "0.1.0-alpha",
+  "buildSha": null,
+  "appRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+  "layout": "repo",
+  "runtimeMode": "local-foundation",
+  "mode": "normal",
+  "node": {
+    "path": "C:\\Program Files\\nodejs\\node.exe",
+    "source": "system",
+    "version": "24.13.1",
+    "usable": true,
+    "failureReason": null,
+    "searched": [
+      "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\runtime\\node\\node.exe",
+      "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\runtime\\node\\win-x64\\node.exe",
+      "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\runtime\\node\\bin\\node",
+      "C:\\Program Files\\nodejs\\node.exe"
+    ]
+  },
+  "entries": {
+    "backend": {
+      "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\control-plane-api\\src\\server.ts",
+      "required": true,
+      "status": "FOUND",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\control-plane-api\\src\\server.ts",
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\control-plane-api\\dist\\server.js"
+      ]
+    },
+    "cockpit": {
+      "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\cockpit-ui\\src\\index.js",
+      "required": true,
+      "status": "FOUND",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\cockpit-ui\\src\\index.js"
+      ]
+    },
+    "verticalSliceSmoke": {
+      "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\vertical-slice\\src\\boot-smoke.ts",
+      "required": true,
+      "status": "FOUND",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\vertical-slice\\src\\boot-smoke.ts"
+      ]
+    },
+    "bootOrchestrator": {
+      "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\scripts\\boot\\index.mjs",
+      "required": true,
+      "status": "FOUND",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\scripts\\boot\\index.mjs",
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\installer\\scripts\\start-sci-os.cjs"
+      ]
+    },
+    "predictionEngine": {
+      "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\prediction-engine\\app\\main.py",
+      "required": false,
+      "status": "FOUND",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\prediction-engine\\app\\main.py"
+      ]
+    },
+    "riskEngine": {
+      "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\risk-engine\\app\\main.py",
+      "required": false,
+      "status": "FOUND",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\risk-engine\\app\\main.py"
+      ]
+    },
+    "executionSimulator": {
+      "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\execution-simulator\\src\\server.ts",
+      "required": false,
+      "status": "FOUND",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\execution-simulator\\src\\server.ts"
+      ]
+    },
+    "electronDesktop": {
+      "path": null,
+      "required": false,
+      "status": "MISSING_OPTIONAL",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\desktop\\main.js",
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\desktop\\main.js"
+      ]
+    },
+    "workerQueue": {
+      "path": null,
+      "required": false,
+      "status": "MISSING_OPTIONAL",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\workers\\queue.js",
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\workers\\src\\index.ts"
+      ]
+    },
+    "orchestratorApi": {
+      "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\control-plane-api\\src\\server.ts",
+      "required": false,
+      "status": "FOUND",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\control-plane-api\\src\\server.ts"
+      ]
+    }
+  },
+  "configuration": {
+    "valid": true,
+    "requiredMissing": [],
+    "optionalMissing": [
+      "electron-desktop"
+    ],
+    "enabledSubsystems": [
+      "vertical-slice",
+      "control-plane-api",
+      "cockpit-ui",
+      "boot-modes",
+      "postgresql",
+      "redis"
+    ],
+    "disabledSubsystems": [
+      "electron-desktop"
+    ],
+    "warnings": [],
+    "blockers": [],
+    "redactedConfig": {
+      "runtimeMode": "local-foundation",
+      "apiPort": 3000,
+      "cockpitPort": 4000,
+      "diagnosticsDir": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export",
+      "controlPlaneUrl": "http://127.0.0.1:3000",
+      "cockpitUrl": "http://127.0.0.1:4000",
+      "predictionUrl": "http://127.0.0.1:5201",
+      "DATABASE_URL": "postgresql://***:***@localhost:5432/scios",
+      "REDIS_URL": "redis://localhost:6379"
+    }
+  },
+  "docker": {
+    "status": "ENGINE_STOPPED",
+    "failureClass": "DOCKER_ENGINE_STOPPED",
+    "nextAction": "Start Docker Desktop",
+    "detail": "Client:\n Version:    28.3.3\n Context:    desktop-linux\n Debug Mode: false\n Plugins:\n  ai: Docker AI Agent - Ask Gordon (Docker Inc.)\n    Version:  v1.9.11\n    Path:     C:\\Program Files\\Docker\\cli-plugins\\docker-ai.exe\n  buildx: Docker Buildx (Docker Inc.)\n    Version:  v0.27.0-desktop.1\n    Path:     C:\\Program Files\\Docker\\cli-plugins\\docker-buildx.exe\n  cloud: Docker Cloud (Docker Inc.)\n    Ver"
+  },
+  "postgres": {
+    "configured": true,
+    "reachable": false,
+    "authenticated": false,
+    "databaseExists": false,
+    "migrationsCurrent": false,
+    "provisioned": false,
+    "failureClass": "DATABASE_UNREACHABLE",
+    "nextAction": "Provide reachable Postgres or unset DATABASE_URL for ALPHA mode",
+    "classification": "CONFIGURED_BUT_UNVERIFIED",
+    "redactedUrl": "postgresql://***:***@localhost:5432/scios",
+    "note": "No pg client bundled in ALPHA startup — cannot fake SELECT 1"
+  },
+  "redis": {
+    "configured": true,
+    "reachable": false,
+    "ping": false,
+    "bullmqPreflight": false,
+    "classification": "UNREACHABLE",
+    "failureClass": "REDIS_UNREACHABLE",
+    "nextAction": "Start Redis or unset REDIS_URL",
+    "redactedUrl": "redis://localhost:6379",
+    "note": "No ioredis in ALPHA startup — TCP only; PING not claimed PASS"
+  },
+  "migrations": {
+    "lockAcquired": true,
+    "expectedVersion": "alpha-inmemory-0",
+    "installedVersion": "alpha-inmemory-0",
+    "pending": [],
+    "destructivePending": [],
+    "status": "NOT_APPLICABLE",
+    "ok": true,
+    "note": "No durable schema migrations in ALPHA vertical slice"
+  },
+  "ports": {
+    "api": {
+      "port": 3000,
+      "state": "FREE",
+      "action": "bind",
+      "pid": null,
+      "isSciOs": false,
+      "health": null
+    },
+    "cockpit": {
+      "port": 4000,
+      "state": "FREE",
+      "action": "bind",
+      "pid": null,
+      "isSciOs": false,
+      "health": null
+    }
+  },
+  "processLock": {
+    "ok": true,
+    "stale": false,
+    "lock": {
+      "pid": 20200,
+      "startedAt": "2026-08-12T13:07:39.146Z",
+      "appRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+      "runtimeMode": "local-foundation",
+      "apiPort": 3000,
+      "desktopInstanceId": null,
+      "mode": "normal"
+    },
+    "repairedStaleLock": false
+  },
+  "services": {
+    "control-plane": {
+      "pid": 21828,
+      "startedAt": "2026-08-12T13:07:39.159Z",
+      "exitCode": null,
+      "logFile": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\proc-logs\\control-plane.log",
+      "restarts": 0
+    },
+    "cockpit": {
+      "pid": 23284,
+      "startedAt": "2026-08-12T13:07:44.484Z",
+      "exitCode": null,
+      "logFile": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\proc-logs\\cockpit.log",
+      "restarts": 0
+    }
+  },
+  "workers": {
+    "redisConfigured": true,
+    "redisReachable": false,
+    "workers": {
+      "prediction-engine": {
+        "required": false,
+        "ready": false,
+        "heartbeat": null,
+        "status": "OPTIONAL_UNSTARTED",
+        "lastSuccessfulJobAt": null,
+        "consumerRegistered": false,
+        "failureCounter": 0,
+        "dlqStatus": "n/a"
+      },
+      "risk-engine": {
+        "required": false,
+        "ready": false,
+        "heartbeat": null,
+        "status": "OPTIONAL_UNSTARTED",
+        "lastSuccessfulJobAt": null,
+        "consumerRegistered": false,
+        "failureCounter": 0,
+        "dlqStatus": "n/a"
+      },
+      "execution-simulator": {
+        "required": false,
+        "ready": false,
+        "heartbeat": null,
+        "status": "OPTIONAL_UNSTARTED",
+        "lastSuccessfulJobAt": null,
+        "consumerRegistered": false,
+        "failureCounter": 0,
+        "dlqStatus": "n/a"
+      }
+    },
+    "requiredReady": true,
+    "readiness": true,
+    "degraded": true,
+    "status": "ABSENT_QUEUE_WORKERS",
+    "note": "ALPHA has no BullMQ workers; optional FastAPI engines are not supervised here",
+    "affectedUiActions": [
+      "legacy_http_predict_path"
+    ]
+  },
+  "health": {
+    "live": true,
+    "healthy": true,
+    "ready": true,
+    "degraded": false,
+    "components": {
+      "control-plane": {
+        "url": "http://127.0.0.1:3000/healthz",
+        "live": true,
+        "healthy": true,
+        "status": 200,
+        "body": {
+          "ok": true,
+          "service": "@scios/control-plane-api",
+          "models": 0,
+          "verticalSlice": true,
+          "profile": "local-foundation"
+        },
+        "required": true,
+        "error": null
+      },
+      "cockpit": {
+        "url": "http://127.0.0.1:4000/healthz",
+        "live": true,
+        "healthy": true,
+        "status": 200,
+        "body": {
+          "ok": true,
+          "service": "@scios/cockpit-ui",
+          "controlUrl": "http://127.0.0.1:3000",
+          "ux": "2.0"
+        },
+        "required": true,
+        "error": null
+      }
+    },
+    "warnings": [],
+    "blockers": []
+  },
+  "readiness": {
+    "ready": true,
+    "degraded": true
+  },
+  "desktop": {
+    "kind": "http-cockpit",
+    "electron": false,
+    "url": "http://127.0.0.1:4000/",
+    "opened": false,
+    "status": "HTTP_COCKPIT"
+  },
+  "safeMode": {
+    "active": false,
+    "allows": [
+      "diagnostics",
+      "platform-status",
+      "config-inspect",
+      "contract-read",
+      "slice-smoke-if-built"
+    ],
+    "denies": [
+      "workflow-writes-without-db",
+      "queue-jobs",
+      "real-execution",
+      "model-promotion",
+      "policy-modification",
+      "destructive-migrations"
+    ]
+  },
+  "repairActions": [],
+  "recoveryAttempts": [
+    {
+      "action": "vertical-slice-smoke",
+      "exitCode": 0
+    }
+  ],
+  "warnings": [
+    "Docker: ENGINE_STOPPED",
+    "Redis configured but unreachable — queues disabled",
+    "No pg client bundled in ALPHA startup — cannot fake SELECT 1"
+  ],
+  "blockers": [],
+  "blockerDetails": [],
+  "nextAction": "Core cockpit usable; optional PG/Redis/Electron/Docker limited — see warnings",
+  "diagnostics": {
+    "startupLog": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\startup.log",
+    "report": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\startup-report.json"
+  },
+  "enterpriseClaim": false,
+  "platformLabel": "ALPHA_NON_PRODUCTION",
+  "proofGate": null,
+  "verdict": "DEGRADED",
+  "schemaHint": "installer/schemas/startup-report.schema.json"
+}

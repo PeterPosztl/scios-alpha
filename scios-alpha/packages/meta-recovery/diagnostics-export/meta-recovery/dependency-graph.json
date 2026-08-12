@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    "BootstrapKernel",
+    "StartupRecoveryPack",
+    "NodeRuntime",
+    "ControlPlaneBackend",
+    "CockpitHttp",
+    "VerticalSlice",
+    "DesktopElectron",
+    "PostgreSQL",
+    "RedisQueue",
+    "QueueWorkers",
+    "MetaRecoveryEngine"
+  ],
+  "edges": [
+    {
+      "from": "BootstrapKernel",
+      "to": "StartupRecoveryPack",
+      "relation": "REQUIRES"
+    },
+    {
+      "from": "NodeRuntime",
+      "to": "ControlPlaneBackend",
+      "relation": "REQUIRES"
+    },
+    {
+      "from": "StartupRecoveryPack",
+      "to": "ControlPlaneBackend",
+      "relation": "REQUIRES"
+    },
+    {
+      "from": "ControlPlaneBackend",
+      "to": "CockpitHttp",
+      "relation": "REQUIRES"
+    },
+    {
+      "from": "NodeRuntime",
+      "to": "VerticalSlice",
+      "relation": "REQUIRES"
+    },
+    {
+      "from": "CockpitHttp",
+      "to": "DesktopElectron",
+      "relation": "REQUIRES"
+    },
+    {
+      "from": "RedisQueue",
+      "to": "QueueWorkers",
+      "relation": "REQUIRES"
+    },
+    {
+      "from": "BootstrapKernel",
+      "to": "MetaRecoveryEngine",
+      "relation": "REQUIRES"
+    }
+  ]
+}

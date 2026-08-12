@@ -1,0 +1,79 @@
+/** Cockpit / control-plane view contract — not a protected pipeline contract. */
+export type VerticalSliceRequest = {
+  instrumentId: string;
+  horizonSec: number;
+  size: number;
+};
+
+export type NormalizedEvent = {
+  eventId: string;
+  source: string;
+  instrumentId: string;
+  eventTime: string;
+  ingestionTime: string;
+  validFrom: string;
+  revisionId: string;
+  tenantId: string;
+  payload: { size: number; horizonSec: number };
+  schemaId: string;
+};
+
+export type PitFeatures = {
+  featureSetId: string;
+  instrumentId: string;
+  asof: string;
+  pointInTime: boolean;
+  values: Record<string, number>;
+  featureVersion: string;
+};
+
+export type PredictionEnvelope = {
+  predictionId: string;
+  model: { id: string; version: string };
+  pointEstimate: number;
+  distribution: { positive: number; negative: number };
+  predictionInterval: [number, number];
+  calibration?: Record<string, unknown>;
+};
+
+export type RiskDecision = {
+  decisionId: string;
+  verdict: "APPROVE" | "REJECT" | "HOLD";
+  reason?: string;
+  score?: number;
+  thresholds?: Record<string, number>;
+};
+
+export type GovernanceDecision = {
+  decisionId: string;
+  policyId?: string;
+  verdict: "APPROVE" | "REJECT" | "ESCALATE";
+  explanation?: string;
+};
+
+export type ExecutionOutcome = {
+  executionId: string;
+  simulated: boolean;
+  action?: string;
+  outcome: "SUCCESS" | "FAIL" | "NO_ACTION";
+  details?: Record<string, unknown>;
+};
+
+export type Lineage = {
+  lineageId: string;
+  nodes: Array<{ id: string; type: string; meta?: Record<string, unknown> }>;
+  edges: Array<{ from: string; to: string; type?: string }>;
+};
+
+export type VerticalSliceResponse = {
+  runId: string;
+  status: "APPROVE" | "REJECT" | "DEGRADED";
+  normalizedEvent: NormalizedEvent | null;
+  pitFeatures: PitFeatures | null;
+  predictionEnvelope: PredictionEnvelope | null;
+  riskDecision: RiskDecision | null;
+  governanceDecision: GovernanceDecision | null;
+  executionOutcome: ExecutionOutcome | null;
+  lineage: Lineage | null;
+  timestamp: string;
+};

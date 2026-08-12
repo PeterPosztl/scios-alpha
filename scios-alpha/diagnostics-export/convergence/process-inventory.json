@@ -1,0 +1,54 @@
+{
+  "at": "2026-07-17T00:21:39.324Z",
+  "processes": [
+    {
+      "pid": 6240,
+      "parentPid": 23764,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "commandLine": "node   \"C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\control-plane-api\\node_modules\\.bin\\\\..\\tsx\\dist\\cli.mjs\" src/server.ts",
+      "workingDirectory": null,
+      "listeningPorts": [],
+      "component": "control-plane-api",
+      "health": "unknown",
+      "reusable": true,
+      "duplicate": false,
+      "safeToStop": false,
+      "note": null
+    },
+    {
+      "pid": 28112,
+      "parentPid": 6240,
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "commandLine": "\"C:\\Program Files\\nodejs\\node.exe\" --require C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\node_modules\\.pnpm\\tsx@4.23.1\\node_modules\\tsx\\dist\\preflight.cjs --import file:///C:/Users/peter/Desktop/SCI/scios-alpha/node_modules/.pnpm/tsx@4.23.1/node_modules/tsx/dist/loader.mjs src/server.ts",
+      "workingDirectory": null,
+      "listeningPorts": [
+        5200
+      ],
+      "component": "node-helper",
+      "health": "unknown",
+      "reusable": false,
+      "duplicate": false,
+      "safeToStop": false,
+      "note": null
+    },
+    {
+      "pid": 17392,
+      "parentPid": 11116,
+      "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+      "commandLine": "powershell -NoProfile -Command \"\nGet-CimInstance Win32_Process |\n  Where-Object { $_.CommandLine -match 'scios-alpha' } |\n  Select-Object ProcessId,ParentProcessId,ExecutablePath,CommandLine |\n  ConvertTo-Json -Compress\n\"",
+      "workingDirectory": null,
+      "listeningPorts": [],
+      "component": "unknown",
+      "health": "unknown",
+      "reusable": false,
+      "duplicate": false,
+      "safeToStop": false,
+      "note": null
+    }
+  ],
+  "foreignTreesNoted": [
+    "sci-os-x10-ccu-supra (:4000)",
+    "sci-backend docker (:3000/:6379/:5432) — not stopped"
+  ],
+  "rule": "Never kill unrelated applications; only scios-alpha duplicates"
+}

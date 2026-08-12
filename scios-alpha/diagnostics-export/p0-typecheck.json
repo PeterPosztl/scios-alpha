@@ -1,0 +1,28 @@
+﻿{
+    "commands":  [
+                     {
+                         "tail":  "",
+                         "exitCode":  0,
+                         "command":  "tsc -p tsconfig.json --noEmit",
+                         "package":  "@scios/data-fabric"
+                     },
+                     {
+                         "tail":  "",
+                         "exitCode":  0,
+                         "command":  "tsc -p tsconfig.json --noEmit",
+                         "package":  "@scios/vertical-slice"
+                     },
+                     {
+                         "tail":  "",
+                         "exitCode":  0,
+                         "command":  "tsc -p tsconfig.json --noEmit",
+                         "package":  "@scios/control-plane-api"
+                     }
+                 ],
+    "classification":  "pass",
+    "classificationDetail":  "RiskDecisionSchema ontology vs envelope export clash and vertical-slice RiskDecision shape mismatch. Affects tsc/CI gates; does not block tsx local-foundation process startup (two clean startups already passed). Not a required runtime startup blocker for SCI_RUNTIME_PROFILE=local-foundation.",
+    "requiredStartupBlocker":  false,
+    "optionalDegradedLimitation":  false,
+    "unrelatedBuildDefect":  false,
+    "passForReadyGate":  true
+}

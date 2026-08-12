@@ -1,0 +1,17 @@
+{
+  "at": "2026-07-16T23:55:26.455Z",
+  "ok": true,
+  "stage": "BootstrapKernel",
+  "appRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+  "node": {
+    "version": "24.13.1"
+  },
+  "diagnosticsWritable": true,
+  "dependencies": {
+    "postgresql": false,
+    "redis": false,
+    "backend": false,
+    "fullDesktop": false
+  },
+  "nextStage": "NormalStartup"
+}

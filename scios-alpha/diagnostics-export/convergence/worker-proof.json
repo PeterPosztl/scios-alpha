@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "status": 200,
+  "body": {
+    "jobId": "smoke_1784247699501",
+    "status": "completed",
+    "acknowledged": true,
+    "persisted": true,
+    "duplicate": false,
+    "worker": "foundation-smoke-worker",
+    "at": "2026-07-17T00:21:39.501Z"
+  },
+  "evidence": "POST /v1/foundation/worker-smoke"
+}

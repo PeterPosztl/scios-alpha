@@ -1,0 +1,318 @@
+{
+  "at": "2026-07-16T22:49:46.010Z",
+  "count": 12,
+  "byStatus": {
+    "ABSENT": 1,
+    "STUB": 3,
+    "ALPHA": 8,
+    "BETA": 0,
+    "STABLE": 0,
+    "DEPRECATED": 0
+  },
+  "capabilities": [
+    {
+      "id": "scaffold.workspace",
+      "version": "0.1.0-alpha",
+      "owner": "platform",
+      "status": "ALPHA",
+      "riskTier": "low",
+      "inputs": [],
+      "outputs": [
+        "workspace"
+      ],
+      "dependencies": [],
+      "healthEndpoint": "",
+      "tests": [
+        "pnpm build"
+      ],
+      "proofArtifacts": [
+        "diagnostics-export/wave0-inspection-report.json"
+      ],
+      "rollback": "git revert",
+      "slo": {},
+      "securityClassification": "internal",
+      "dataClassification": "internal",
+      "surface": "."
+    },
+    {
+      "id": "data-fabric.domain",
+      "version": "0.1.0-alpha",
+      "owner": "platform",
+      "status": "ALPHA",
+      "riskTier": "medium",
+      "inputs": [],
+      "outputs": [
+        "BitemporalRecord",
+        "ZodSchemas"
+      ],
+      "dependencies": [],
+      "healthEndpoint": "",
+      "tests": [
+        "packages/data-fabric/src/domain.test.ts"
+      ],
+      "proofArtifacts": [],
+      "rollback": "git revert",
+      "slo": {},
+      "securityClassification": "internal",
+      "dataClassification": "internal",
+      "surface": "packages/data-fabric"
+    },
+    {
+      "id": "alpha-loop.baseline",
+      "version": "0.1.0-alpha",
+      "owner": "quant",
+      "status": "ALPHA",
+      "riskTier": "high",
+      "inputs": [
+        "seeded market snapshot"
+      ],
+      "outputs": [
+        "paper PnL"
+      ],
+      "dependencies": [
+        "data-fabric.domain"
+      ],
+      "healthEndpoint": "pnpm check",
+      "tests": [
+        "pnpm check",
+        "pnpm sim"
+      ],
+      "proofArtifacts": [],
+      "rollback": "git revert",
+      "slo": {},
+      "securityClassification": "internal",
+      "dataClassification": "internal",
+      "surface": "packages/alpha-loop",
+      "notes": "NON-PRODUCTION baseline linear model + VaR gate"
+    },
+    {
+      "id": "prediction-engine.fastapi",
+      "version": "0.1.0-alpha",
+      "owner": "quant",
+      "status": "STUB",
+      "riskTier": "high",
+      "inputs": [
+        "featureVector"
+      ],
+      "outputs": [
+        "mean",
+        "variance"
+      ],
+      "dependencies": [],
+      "healthEndpoint": "http://127.0.0.1:5201/healthz",
+      "tests": [
+        "apps/prediction-engine/tests/test_predict.py"
+      ],
+      "proofArtifacts": [],
+      "rollback": "disable service",
+      "slo": {},
+      "securityClassification": "internal",
+      "dataClassification": "internal",
+      "surface": "apps/prediction-engine",
+      "notes": "Placeholder models — not calibrated for capital"
+    },
+    {
+      "id": "risk-engine.fastapi",
+      "version": "0.1.0-alpha",
+      "owner": "risk",
+      "status": "STUB",
+      "riskTier": "critical",
+      "inputs": [
+        "positions",
+        "newOrderProposal"
+      ],
+      "outputs": [
+        "allowed",
+        "var"
+      ],
+      "dependencies": [],
+      "healthEndpoint": "http://127.0.0.1:5202/healthz",
+      "tests": [
+        "apps/risk-engine/tests/test_risk.py"
+      ],
+      "proofArtifacts": [],
+      "rollback": "disable service",
+      "slo": {},
+      "securityClassification": "confidential",
+      "dataClassification": "confidential",
+      "surface": "apps/risk-engine"
+    },
+    {
+      "id": "execution-simulator",
+      "version": "0.1.0-alpha",
+      "owner": "execution",
+      "status": "STUB",
+      "riskTier": "high",
+      "inputs": [
+        "order"
+      ],
+      "outputs": [
+        "fill"
+      ],
+      "dependencies": [
+        "risk-engine.fastapi"
+      ],
+      "healthEndpoint": "http://127.0.0.1:5210/healthz",
+      "tests": [],
+      "proofArtifacts": [],
+      "rollback": "disable service",
+      "slo": {},
+      "securityClassification": "internal",
+      "dataClassification": "internal",
+      "surface": "apps/execution-simulator",
+      "notes": "Paper fills only"
+    },
+    {
+      "id": "control-plane-api",
+      "version": "0.1.0-alpha",
+      "owner": "platform",
+      "status": "ALPHA",
+      "riskTier": "medium",
+      "inputs": [
+        "demo request"
+      ],
+      "outputs": [
+        "orchestration result"
+      ],
+      "dependencies": [
+        "prediction-engine.fastapi",
+        "risk-engine.fastapi",
+        "execution-simulator"
+      ],
+      "healthEndpoint": "http://127.0.0.1:5200/healthz",
+      "tests": [],
+      "proofArtifacts": [],
+      "rollback": "disable service",
+      "slo": {},
+      "securityClassification": "internal",
+      "dataClassification": "internal",
+      "surface": "apps/control-plane-api"
+    },
+    {
+      "id": "meta.capability-registry",
+      "version": "0.1.0-alpha",
+      "owner": "platform",
+      "status": "ALPHA",
+      "riskTier": "medium",
+      "inputs": [],
+      "outputs": [
+        "registry",
+        "evidence graph"
+      ],
+      "dependencies": [
+        "scaffold.workspace"
+      ],
+      "healthEndpoint": "http://127.0.0.1:5200/v1/meta",
+      "tests": [],
+      "proofArtifacts": [
+        "docs/enterprise/CAPABILITY_REGISTRY.json"
+      ],
+      "rollback": "git revert",
+      "slo": {},
+      "securityClassification": "internal",
+      "dataClassification": "internal",
+      "surface": "packages/meta-intelligence"
+    },
+    {
+      "id": "ontology.wave1",
+      "version": "0.1.0-alpha",
+      "owner": "platform",
+      "status": "ALPHA",
+      "riskTier": "medium",
+      "inputs": [],
+      "outputs": [
+        "OntologyEntity",
+        "OntologyRelation",
+        "InMemoryOntologyStore"
+      ],
+      "dependencies": [
+        "data-fabric.domain"
+      ],
+      "healthEndpoint": "",
+      "tests": [
+        "packages/data-fabric/src/ontology.ledger.test.ts"
+      ],
+      "proofArtifacts": [
+        "diagnostics-export/gate-contracts-proof.json"
+      ],
+      "rollback": "git revert",
+      "slo": {},
+      "securityClassification": "internal",
+      "dataClassification": "internal",
+      "surface": "packages/data-fabric/src/ontology.ts"
+    },
+    {
+      "id": "ledger.wave1",
+      "version": "0.1.0-alpha",
+      "owner": "platform",
+      "status": "ALPHA",
+      "riskTier": "high",
+      "inputs": [],
+      "outputs": [
+        "CanonicalLedger",
+        "InMemoryCanonicalLedger"
+      ],
+      "dependencies": [
+        "ontology.wave1"
+      ],
+      "healthEndpoint": "",
+      "tests": [
+        "packages/data-fabric/src/ontology.ledger.test.ts"
+      ],
+      "proofArtifacts": [
+        "diagnostics-export/gate-contracts-proof.json"
+      ],
+      "rollback": "git revert",
+      "slo": {},
+      "securityClassification": "confidential",
+      "dataClassification": "confidential",
+      "surface": "packages/data-fabric/src/ledger.ts",
+      "notes": "In-memory only — not durable enterprise ledger"
+    },
+    {
+      "id": "master-contract.doc",
+      "version": "0.1.0-alpha",
+      "owner": "platform",
+      "status": "ALPHA",
+      "riskTier": "low",
+      "inputs": [],
+      "outputs": [
+        "truth map"
+      ],
+      "dependencies": [],
+      "healthEndpoint": "",
+      "tests": [
+        "pnpm gate:contracts"
+      ],
+      "proofArtifacts": [
+        "docs/enterprise/MASTER_CONTRACT.md"
+      ],
+      "rollback": "git revert",
+      "slo": {},
+      "securityClassification": "internal",
+      "dataClassification": "internal",
+      "surface": "docs/enterprise/MASTER_CONTRACT.md"
+    },
+    {
+      "id": "enterprise.modules.sections-49-83",
+      "version": "0.0.0",
+      "owner": "platform",
+      "status": "ABSENT",
+      "riskTier": "critical",
+      "inputs": [],
+      "outputs": [],
+      "dependencies": [
+        "meta.capability-registry"
+      ],
+      "healthEndpoint": "",
+      "tests": [],
+      "proofArtifacts": [],
+      "rollback": "n/a",
+      "slo": {},
+      "securityClassification": "internal",
+      "dataClassification": "internal",
+      "surface": "docs/enterprise/MASTER_CONTRACT.md",
+      "notes": "Full ENTERPRISE modules remain ABSENT. Wave 1 = contracts vertical slice only."
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "at": "2026-08-04T16:20:10.627Z",
+  "backend": "READY",
+  "worker": "READY",
+  "cockpit": "READY",
+  "infra": "READY",
+  "overall": "READY",
+  "details": {
+    "healthz": {
+      "status": 200,
+      "body": {
+        "ok": true,
+        "service": "@scios/control-plane-api",
+        "models": 0,
+        "verticalSlice": true,
+        "profile": "local-foundation"
+      },
+      "raw": "{\"ok\":true,\"service\":\"@scios/control-plane-api\",\"models\":0,\"verticalSlice\":true,\"profile\":\"local-foundation\"}"
+    },
+    "readyz": {
+      "status": 200,
+      "body": {
+        "ready": true,
+        "live": true,
+        "profile": "local-foundation",
+        "executionMode": "SIMULATION_ONLY",
+        "authMode": "local-development",
+        "telemetryMode": "local",
+        "governanceMode": "embedded-foundation",
+        "riskControl": true,
+        "foundationWorker": true,
+        "components": {
+          "riskControl": true,
+          "foundationWorker": true,
+          "database": "optional_absent",
+          "redis": "optional_absent",
+          "oidc": "disabled_local_development",
+          "otel": "local",
+          "hsm": "simulation_local_key_provider"
+        },
+        "foundationWorkerDetail": {
+          "name": "foundation-smoke-worker",
+          "online": true,
+          "lastHeartbeatAt": "2026-08-04T16:20:05.640Z",
+          "lastJobId": "smoke_1785845360176",
+          "lastJobStatus": "completed",
+          "jobsCompleted": 1,
+          "heartbeatAgeMs": 4941
+        },
+        "labels": {
+          "productionClaims": false,
+          "simulationOnly": true
+        }
+      },
+      "raw": "{\"ready\":true,\"live\":true,\"profile\":\"local-foundation\",\"executionMode\":\"SIMULATION_ONLY\",\"authMode\":\"local-development\",\"telemetryMode\":\"local\",\"governanceMode\":\"embedded-foundation\",\"riskControl\":true,\"foundationWorker\":true,\"components\":{\"riskControl\":true,\"foundationWorker\":true,\"database\":\"optional_absent\",\"redis\":\"optional_absent\",\"oidc\":\"disabled_local_development\",\"otel\":\"local\",\"hsm\":\"simulation_local_key_provider\"},\"foundationWorkerDetail\":{\"name\":\"foundation-smoke-worker\",\"online\":true,\"lastHeartbeatAt\":\"2026-08-04T16:20:05.640Z\",\"lastJobId\":\"smoke_1785845360176\",\"lastJobStatus\":\"completed\",\"jobsCompleted\":1,\"heartbeatAgeMs\":4941},\"labels\":{\"productionClaims\":false,\"simulationOnly\":true}}"
+    },
+    "workerSmoke": {
+      "status": 200,
+      "body": {
+        "jobId": "smoke_1785860410589",
+        "status": "completed",
+        "acknowledged": true,
+        "persisted": true,
+        "duplicate": false,
+        "worker": "foundation-smoke-worker",
+        "at": "2026-08-04T16:20:10.589Z"
+      }
+    },
+    "cockpitHttp": {
+      "status": 200
+    }
+  }
+}

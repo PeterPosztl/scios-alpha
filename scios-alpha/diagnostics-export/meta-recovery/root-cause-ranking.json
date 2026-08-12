@@ -1,0 +1,19 @@
+{
+  "ranked": [
+    {
+      "hypothesisId": "hyp_e39921ee",
+      "explanation": "Postgres optional in ALPHA — degrade, do not invent credentials",
+      "supportingEvidence": [
+        "env"
+      ],
+      "contradictingEvidence": [],
+      "affectedCapability": "PostgreSQL",
+      "confidence": 0.95,
+      "diagnosticAction": "confirm_alpha_mode",
+      "repairCandidate": "recipe.accept_alpha_no_db",
+      "risk": "R1",
+      "rollback": "none",
+      "verificationMethod": "config_redacted_ok"
+    }
+  ]
+}

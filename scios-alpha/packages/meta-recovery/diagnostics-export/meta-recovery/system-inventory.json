@@ -1,0 +1,46 @@
+{
+  "at": "2026-07-16T23:50:38.272Z",
+  "machine": {
+    "platform": "win32",
+    "release": "10.0.26100",
+    "arch": "x64",
+    "cpus": 8,
+    "memoryBytes": 16883044352,
+    "freeMemoryBytes": 2226712576,
+    "hostnameHash": "b0c10e95b73f744e",
+    "userInfo": {
+      "username": "peter"
+    }
+  },
+  "repository": {
+    "name": "@scios/meta-recovery",
+    "packages": [],
+    "apps": [],
+    "hasInstaller": false,
+    "hasBoot": false,
+    "hasMetaRecovery": true
+  },
+  "runtimes": {
+    "node": {
+      "version": "v24.13.1",
+      "usable": true
+    },
+    "pnpm": {
+      "version": "9.14.0",
+      "usable": true
+    },
+    "docker": {
+      "usable": true,
+      "detail": "AVAILABLE"
+    },
+    "electron": {
+      "usable": false,
+      "detail": "ABSENT"
+    }
+  },
+  "infrastructure": {
+    "postgresql": "NOT_CONFIGURED",
+    "redis": "CONFIGURED"
+  },
+  "fingerprint": "bdb66d338bfd5d82a829dcec"
+}

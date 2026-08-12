@@ -1,0 +1,29 @@
+﻿{
+    "readiness":  {
+                      "body":  "{\"ready\":true,\"live\":true,\"profile\":\"local-foundation\",\"executionMode\":\"SIMULATION_ONLY\",\"authMode\":\"local-development\",\"telemetryMode\":\"local\",\"governanceMode\":\"embedded-foundation\",\"riskControl\":true,\"foundationWorker\":true,\"components\":{\"riskControl\":true,\"foundationWorker\":true,\"database\":\"optional_absent\",\"redis\":\"optional_absent\",\"oidc\":\"disabled_local_development\",\"otel\":\"local\",\"hsm\":\"simulation_local_key_provider\"},\"foundationWorkerDetail\":{\"name\":\"foundation-smoke-worker\",\"online\":true,\"lastHeartbeatAt\":\"2026-08-04T16:23:05.842Z\",\"lastJobId\":\"smoke_1785860585729\",\"lastJobStatus\":\"completed\",\"jobsCompleted\":3,\"heartbeatAgeMs\":109},\"labels\":{\"productionClaims\":false,\"simulationOnly\":true}}",
+                      "status":  200
+                  },
+    "cockpitApi":  {
+                       "metaApi":  200,
+                       "html":  200,
+                       "healthz":  200
+                   },
+    "at":  "2026-08-04T16:23:03.0960473Z",
+    "workerSmoke":  {
+                        "body":  "{\"jobId\":\"smoke_1785860585729\",\"status\":\"completed\",\"acknowledged\":true,\"persisted\":true,\"duplicate\":false,\"worker\":\"foundation-smoke-worker\",\"at\":\"2026-08-04T16:23:05.729Z\"}",
+                        "status":  200
+                    },
+    "desktopLaunch":  {
+                          "method":  "Start-Process",
+                          "url":  "http://127.0.0.1:5230/",
+                          "electron":  false
+                      },
+    "backendHealth":  {
+                          "body":  "{\"ok\":true,\"service\":\"@scios/control-plane-api\",\"models\":0,\"verticalSlice\":true,\"profile\":\"local-foundation\"}",
+                          "status":  200
+                      },
+    "redis":  {
+                  "ping":  "FAIL",
+                  "ok":  false
+              }
+}

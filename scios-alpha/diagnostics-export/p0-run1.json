@@ -1,0 +1,109 @@
+﻿{
+    "label":  "first",
+    "exactCommand":  "node installer/scripts/start-sci-os.cjs --mode=normal --no-open",
+    "canonicalUserCommand":  "pnpm sci:start",
+    "workingDirectory":  "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+    "note":  "Proof uses same orchestrator as sci:start without --serve to obtain exit code",
+    "exitCode":  0,
+    "stdoutTail":  "     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: ((node:23672) [D...y concatenated.:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\n(Use `node --trace-deprecation ...` to show where the warning was created)\r\n{\r\n  \"correlationId\": \"67007a29-a6a3-4c21-9568-ed3de018a542\",\r\n  \"mode\": \"normal\",\r\n  \"verdict\": \"DEGRADED\",\r\n  \"nextAction\": \"Core cockpit usable; optional PG/Redis/Electron/Docker limited ÔÇö see warnings\",\r\n  \"cockpit\": \"http://127.0.0.1:5230/\",\r\n  \"diagnostics\": \"C:\\\\Users\\\\peter\\\\Desktop\\\\SCI\\\\scios-alpha\\\\diagnostics-export\\\\startup-report.json\",\r\n  \"supportBundle\": null,\r\n  \"blockers\": [],\r\n  \"warnings\": [\r\n    \"DATABASE_URL not set ÔÇö ALPHA in-process mode (no durable DB)\"\r\n  ]\r\n}\r\n",
+    "startupVerdict":  "DEGRADED",
+    "correlationId":  "67007a29-a6a3-4c21-9568-ed3de018a542",
+    "resolvedPorts":  {
+                          "cockpit":  5230,
+                          "api":  5200,
+                          "listeners":  [
+                                            {
+                                                "pid":  11200,
+                                                "port":  5230
+                                            },
+                                            {
+                                                "pid":  25628,
+                                                "port":  5200
+                                            }
+                                        ]
+                      },
+    "processIds":  [
+                       11200,
+                       25628
+                   ],
+    "liveness":  {
+                     "body":  {
+                                  "ok":  true,
+                                  "service":  "@scios/control-plane-api",
+                                  "models":  0,
+                                  "verticalSlice":  true,
+                                  "profile":  "local-foundation"
+                              },
+                     "status":  200
+                 },
+    "health":  {
+                   "body":  {
+                                "ok":  true,
+                                "service":  "@scios/control-plane-api",
+                                "models":  0,
+                                "verticalSlice":  true,
+                                "profile":  "local-foundation"
+                            },
+                   "status":  200
+               },
+    "readiness":  {
+                      "body":  {
+                                   "ready":  true,
+                                   "live":  true,
+                                   "profile":  "local-foundation",
+                                   "executionMode":  "SIMULATION_ONLY",
+                                   "authMode":  "local-development",
+                                   "telemetryMode":  "local",
+                                   "governanceMode":  "embedded-foundation",
+                                   "riskControl":  true,
+                                   "foundationWorker":  true,
+                                   "components":  {
+                                                      "riskControl":  true,
+                                                      "foundationWorker":  true,
+                                                      "database":  "optional_absent",
+                                                      "redis":  "configured",
+                                                      "oidc":  "disabled_local_development",
+                                                      "otel":  "local",
+                                                      "hsm":  "simulation_local_key_provider"
+                                                  },
+                                   "foundationWorkerDetail":  {
+                                                                  "name":  "foundation-smoke-worker",
+                                                                  "online":  true,
+                                                                  "lastHeartbeatAt":  "2026-07-17T00:31:35.565Z",
+                                                                  "lastJobId":  null,
+                                                                  "lastJobStatus":  null,
+                                                                  "jobsCompleted":  0,
+                                                                  "heartbeatAgeMs":  560
+                                                              },
+                                   "labels":  {
+                                                  "productionClaims":  false,
+                                                  "simulationOnly":  true
+                                              }
+                               },
+                      "status":  200
+                  },
+    "workerHeartbeat":  {
+                            "online":  true,
+                            "ageMs":  560,
+                            "at":  "2026-07-17T00:31:35.565Z"
+                        },
+    "workerSmoke":  {
+                        "status":  200,
+                        "body":  {
+                                     "jobId":  "smoke_1784248296150",
+                                     "status":  "completed",
+                                     "acknowledged":  true,
+                                     "persisted":  true,
+                                     "duplicate":  false,
+                                     "worker":  "foundation-smoke-worker",
+                                     "at":  "2026-07-17T00:31:36.150Z"
+                                 },
+                        "pass":  true
+                    },
+    "cockpitHttp":  {
+                        "html":  200,
+                        "pass":  true,
+                        "healthz":  200
+                    },
+    "pass":  true
+}

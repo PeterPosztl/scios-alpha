@@ -1,0 +1,29 @@
+{
+  "backend": {
+    "pid": 18996,
+    "status": "RUNNING",
+    "port": 3000
+  },
+  "worker": {
+    "pid": 18996,
+    "status": "RUNNING"
+  },
+  "cockpit": {
+    "pid": 6848,
+    "status": "RUNNING",
+    "port": 4000
+  },
+  "infra": {
+    "postgres": "UNHEALTHY",
+    "redis": "UNHEALTHY"
+  },
+  "evidence": {
+    "at": "2026-08-12T12:06:13.970Z",
+    "healthz": 200,
+    "readyz": 200,
+    "cockpitHealthz": 200,
+    "postgresTcp5432": false,
+    "redisPing": false,
+    "note": "Live probes only; Docker inspect skipped to avoid hung engine pipe"
+  }
+}

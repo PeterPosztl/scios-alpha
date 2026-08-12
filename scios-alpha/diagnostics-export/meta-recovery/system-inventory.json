@@ -1,0 +1,68 @@
+{
+  "at": "2026-07-16T23:55:34.299Z",
+  "machine": {
+    "platform": "win32",
+    "release": "10.0.26100",
+    "arch": "x64",
+    "cpus": 8,
+    "memoryBytes": 16883044352,
+    "freeMemoryBytes": 2731884544,
+    "hostnameHash": "b0c10e95b73f744e",
+    "userInfo": {
+      "username": "peter"
+    }
+  },
+  "repository": {
+    "name": "scios-alpha",
+    "packageManager": "pnpm@9.15.0",
+    "packages": [
+      "alpha-loop",
+      "data-fabric",
+      "experiment-tracker",
+      "feature-store",
+      "governance-engine",
+      "meta-intelligence",
+      "meta-recovery",
+      "model-registry",
+      "observability",
+      "portfolio-engine",
+      "probability-engine",
+      "validation-engine",
+      "vertical-slice"
+    ],
+    "apps": [
+      "cockpit-ui",
+      "control-plane-api",
+      "execution-simulator",
+      "meta-recovery-control-plane",
+      "prediction-engine",
+      "risk-engine"
+    ],
+    "hasInstaller": true,
+    "hasBoot": true,
+    "hasMetaRecovery": true
+  },
+  "runtimes": {
+    "node": {
+      "version": "v24.13.1",
+      "usable": true
+    },
+    "pnpm": {
+      "version": "9.14.0",
+      "usable": true
+    },
+    "docker": {
+      "usable": true,
+      "detail": "AVAILABLE"
+    },
+    "electron": {
+      "usable": false,
+      "detail": "ABSENT"
+    }
+  },
+  "infrastructure": {
+    "postgresql": "NOT_CONFIGURED",
+    "redis": "CONFIGURED"
+  },
+  "fingerprint": "d9f1de5fe38960b025cd9215"
+}

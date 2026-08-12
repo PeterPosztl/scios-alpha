@@ -1,0 +1,105 @@
+{
+  "at": "2026-07-16T23:50:38.288Z",
+  "expected": {
+    "requiredComponents": [
+      "NodeRuntime",
+      "BootstrapKernel",
+      "StartupRecoveryPack",
+      "ControlPlaneBackend",
+      "CockpitHttp",
+      "VerticalSlice",
+      "MetaRecoveryEngine"
+    ],
+    "optionalComponents": [
+      "DesktopElectron",
+      "PostgreSQL",
+      "RedisQueue",
+      "QueueWorkers"
+    ],
+    "expectedPorts": [
+      5200,
+      5230
+    ],
+    "allowedDegraded": [
+      "PostgreSQL",
+      "RedisQueue",
+      "QueueWorkers",
+      "DesktopElectron"
+    ],
+    "maxStartupMs": 180000
+  },
+  "actual": {
+    "BootstrapKernel": "MISSING",
+    "StartupRecoveryPack": "MISSING",
+    "NodeRuntime": "AVAILABLE",
+    "ControlPlaneBackend": "MISSING",
+    "CockpitHttp": "MISSING",
+    "VerticalSlice": "MISSING",
+    "DesktopElectron": "MISSING",
+    "PostgreSQL": "MISSING",
+    "RedisQueue": "UNKNOWN",
+    "QueueWorkers": "MISSING",
+    "MetaRecoveryEngine": "AVAILABLE"
+  },
+  "missingRequired": [
+    "BootstrapKernel",
+    "StartupRecoveryPack",
+    "ControlPlaneBackend",
+    "CockpitHttp",
+    "VerticalSlice"
+  ],
+  "degradedOptional": [
+    "DesktopElectron",
+    "PostgreSQL",
+    "RedisQueue",
+    "QueueWorkers"
+  ],
+  "incompatible": [],
+  "repairTasks": [
+    {
+      "type": "restore_required",
+      "capability": "BootstrapKernel",
+      "priority": 1
+    },
+    {
+      "type": "restore_required",
+      "capability": "StartupRecoveryPack",
+      "priority": 1
+    },
+    {
+      "type": "restore_required",
+      "capability": "ControlPlaneBackend",
+      "priority": 1
+    },
+    {
+      "type": "restore_required",
+      "capability": "CockpitHttp",
+      "priority": 1
+    },
+    {
+      "type": "restore_required",
+      "capability": "VerticalSlice",
+      "priority": 1
+    },
+    {
+      "type": "document_optional_gap",
+      "capability": "DesktopElectron",
+      "priority": 3
+    },
+    {
+      "type": "document_optional_gap",
+      "capability": "PostgreSQL",
+      "priority": 3
+    },
+    {
+      "type": "document_optional_gap",
+      "capability": "RedisQueue",
+      "priority": 3
+    },
+    {
+      "type": "document_optional_gap",
+      "capability": "QueueWorkers",
+      "priority": 3
+    }
+  ]
+}

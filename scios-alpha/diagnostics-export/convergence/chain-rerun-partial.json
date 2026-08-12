@@ -1,0 +1,47 @@
+﻿{
+    "at":  "2026-07-17T00:25:33.0520686Z",
+    "steps":  {
+                  "redisPing":  {
+                                    "ok":  true,
+                                    "result":  "PONG",
+                                    "exit":  0
+                                },
+                  "workerSmoke":  {
+                                      "ok":  true,
+                                      "body":  {
+                                                   "jobId":  "smoke_1784247933386",
+                                                   "status":  "completed",
+                                                   "acknowledged":  true,
+                                                   "persisted":  true,
+                                                   "duplicate":  false,
+                                                   "worker":  "foundation-smoke-worker",
+                                                   "at":  "2026-07-17T00:25:33.386Z"
+                                               },
+                                      "status":  200
+                                  },
+                  "backendHealth":  {
+                                        "ok":  true,
+                                        "status":  200,
+                                        "service":  "@scios/control-plane-api"
+                                    },
+                  "readiness":  {
+                                    "ok":  true,
+                                    "foundationWorker":  true,
+                                    "riskControl":  true,
+                                    "status":  200,
+                                    "ready":  true
+                                },
+                  "cockpitApi":  {
+                                     "ok":  true,
+                                     "html":  200,
+                                     "meta":  200,
+                                     "healthz":  200
+                                 },
+                  "desktopLaunch":  {
+                                        "ok":  true,
+                                        "url":  "http://127.0.0.1:5230/",
+                                        "electron":  false,
+                                        "method":  "Start-Process"
+                                    }
+              }
+}

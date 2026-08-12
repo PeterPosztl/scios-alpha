@@ -1,0 +1,65 @@
+{
+  "id": "SCI_OS_X10",
+  "schemaVersion": "1.0.0",
+  "mode": "FULL_SYSTEM",
+  "honesty": "ALPHA / NON-PRODUCTION. READY requires executed proof. No evidence ⇒ UNKNOWN.",
+  "root": ".",
+  "packageManager": "pnpm@9.15.0",
+  "profile": "local-foundation",
+  "config": ".env",
+  "infraProfile": "infra/docker/docker-compose.infra.yml",
+  "orchestrator": "installer/scripts/start-sci-os.cjs",
+  "bootstrap": "installer/scripts/bootstrap-capsule.cjs",
+  "recoveryShell": "apps/meta-recovery-control-plane",
+  "ports": {
+    "backend": 3000,
+    "cockpit": 4000,
+    "recoveryShell": 5299,
+    "postgres": 5432,
+    "redis": 6379
+  },
+  "entries": {
+    "backend": "apps/control-plane-api/src/server.ts",
+    "cockpit": "apps/cockpit-ui/src/index.js",
+    "worker": "embedded-foundation-worker"
+  },
+  "pipeline": [
+    "raw_event",
+    "normalized_event",
+    "pit_feature",
+    "baseline_prediction",
+    "calibration_uncertainty",
+    "independent_risk_gate",
+    "governance_decision",
+    "deterministic_execution",
+    "outcome",
+    "immutable_lineage",
+    "cockpit_view"
+  ],
+  "ux": [
+    "dashboard",
+    "vertical_slice",
+    "lineage_explorer",
+    "risk_gov_studio",
+    "execution_monitor",
+    "system_health"
+  ],
+  "readiness": {
+    "READY_requires": [
+      "infra.postgres HEALTHY",
+      "infra.redis HEALTHY",
+      "backend READY",
+      "worker smoke PASS",
+      "cockpit 200",
+      "startup-proof PASS",
+      "signoff PASS"
+    ],
+    "DEGRADED_allowed_when": "core backend+cockpit up; optional infra down; no risk bypass"
+  },
+  "rejectedParallel": [
+    "sci-os-10",
+    "sci-os-x10-ccu-supra",
+    "second startup framework",
+    "Vite :4000 from other trees as SCI cockpit"
+  ]
+}

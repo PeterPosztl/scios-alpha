@@ -1,0 +1,52 @@
+{
+  "at": "2026-08-12T13:07:00.621Z",
+  "order": [
+    "cockpit",
+    "worker(in-process)",
+    "backend",
+    "infra_left_running"
+  ],
+  "stopped": [
+    {
+      "pid": 6848,
+      "component": "@scios/cockpit-ui",
+      "port": 4000,
+      "reason": "healthz_identity_proven"
+    },
+    {
+      "pid": 18996,
+      "component": "@scios/control-plane-api",
+      "port": 3000,
+      "reason": "healthz_identity_proven"
+    },
+    {
+      "pid": 17732,
+      "component": "control-plane-api"
+    },
+    {
+      "pid": 2832,
+      "component": "startup-orchestrator",
+      "reason": "lock_pid"
+    }
+  ],
+  "skipped": [
+    {
+      "pid": null,
+      "component": "port:5200",
+      "reason": "identity_not_proven service=null"
+    },
+    {
+      "pid": null,
+      "component": "port:5230",
+      "reason": "identity_not_proven service=@scios/mock-api"
+    }
+  ],
+  "afterStop": {
+    "apiDown": true,
+    "cockpitDown": true
+  },
+  "infraDown": {
+    "attempted": false
+  },
+  "note": "No business-data mutation. Resume: pnpm sci:start"
+}

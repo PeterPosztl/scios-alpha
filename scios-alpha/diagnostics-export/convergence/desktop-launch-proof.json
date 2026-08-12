@@ -1,0 +1,6 @@
+{
+  "electron": false,
+  "browserTarget": "http://127.0.0.1:5230/",
+  "launcher": "SCI OS ×10.bat / pnpm sci:start",
+  "status": "HTTP_COCKPIT_OK"
+}

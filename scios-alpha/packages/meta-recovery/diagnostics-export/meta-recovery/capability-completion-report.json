@@ -1,0 +1,20 @@
+{
+  "at": "2026-07-16T23:50:38.291Z",
+  "missing": [
+    {
+      "capability": "MetaRecoveryController",
+      "architecturalLocation": "packages/meta-recovery",
+      "status": "implementing"
+    },
+    {
+      "capability": "DesktopElectron",
+      "architecturalLocation": "apps/desktop",
+      "status": "absent_not_auto_stubbed",
+      "reason": "Would be placeholder success — prohibited"
+    }
+  ],
+  "autoImplementedSafe": [
+    "packages/meta-recovery",
+    "apps/meta-recovery-control-plane"
+  ]
+}

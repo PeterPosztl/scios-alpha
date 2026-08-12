@@ -1,0 +1,78 @@
+{
+  "gate": "boot:repair",
+  "mode": "repair",
+  "at": "2026-07-16T23:35:24.509Z",
+  "verdict": "GO",
+  "platformLabel": "ALPHA_NON_PRODUCTION",
+  "enterpriseClaim": false,
+  "repairs": [],
+  "failures": [],
+  "evidence": [
+    {
+      "id": "pnpm-only",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "id": "file:package.json",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:pnpm-lock.yaml",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:pnpm-workspace.yaml",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:packages/data-fabric/src/pipeline-contracts.ts",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:packages/vertical-slice/src/pipeline.ts",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:packages/data-fabric/fixtures/prediction-envelope.normative.json",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:packages/data-fabric/fixtures/risk-decision-envelope.normative.json",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "fixture:prediction",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "id": "fixture:risk",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "id": "repair:install",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "id": "zod:envelopes",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "id": "smoke:vertical-slice",
+      "ok": true,
+      "detail": "83f5-47a1-a572-fc8b357e3c40\",\"model\":{\"id\":\"baseline-logistic\",\"version\":\"1.0.0\"},\"riskApproved\":true,\"decision\":\"APPROVE\",\"tipHash\":\"35bd3fbb18b2081901c097f050979f9693d205c6478a374d9577a51ef7d24378\"}"
+    }
+  ],
+  "rule": "No evidence means UNKNOWN, never PASS"
+}

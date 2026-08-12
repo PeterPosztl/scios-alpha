@@ -1,0 +1,40 @@
+{
+  "precedence": [
+    "process.env",
+    "installer validate-config defaults",
+    "infra/config/default.yaml (non-secret)"
+  ],
+  "profile": {
+    "SCI_RUNTIME_PROFILE": "local-foundation",
+    "EXECUTION_MODE": "SIMULATION_ONLY",
+    "AUTH_MODE": "local-development",
+    "TELEMETRY_MODE": "local",
+    "SECRETS_MODE": "environment-or-local-secure",
+    "GOVERNANCE_MODE": "embedded-foundation"
+  },
+  "redacted": {
+    "runtimeMode": "local-foundation",
+    "apiPort": 5200,
+    "cockpitPort": 5230,
+    "diagnosticsDir": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export",
+    "controlPlaneUrl": "http://127.0.0.1:5200",
+    "cockpitUrl": "http://127.0.0.1:5230",
+    "predictionUrl": "http://127.0.0.1:5201",
+    "DATABASE_URL": null,
+    "REDIS_URL": "redis://127.0.0.1:6379"
+  },
+  "enabledSubsystems": [
+    "vertical-slice",
+    "control-plane-api",
+    "cockpit-ui",
+    "boot-modes",
+    "redis"
+  ],
+  "disabledSubsystems": [
+    "postgresql",
+    "electron-desktop"
+  ],
+  "warnings": [
+    "DATABASE_URL not set — ALPHA in-process mode (no durable DB)"
+  ]
+}

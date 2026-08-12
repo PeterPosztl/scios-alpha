@@ -1,0 +1,4 @@
+{
+  "exit": 1,
+  "stdoutTail": "fed3be9184e5\",\n  \"mode\": \"normal\",\n  \"verdict\": \"NO_GO\",\n  \"nextAction\": \"sci:shutdown or use existing instance\",\n  \"cockpit\": null,\n  \"diagnostics\": \"C:\\\\Users\\\\peter\\\\Desktop\\\\SCI\\\\scios-alpha\\\\diagnostics-export\\\\startup-report.json\",\n  \"supportBundle\": \"C:\\\\Users\\\\peter\\\\Desktop\\\\SCI\\\\scios-alpha\\\\diagnostics-export\\\\support-bundle-2026-07-17T00-17-53-776Z.zip\",\n  \"blockers\": [\n    \"PROCESS_LOCKED\"\n  ],\n  \"warnings\": [\n    \"DATABASE_URL not set — ALPHA in-process mode (no durable DB)\"\n  ]\n}\n"
+}

@@ -1,0 +1,143 @@
+{
+  "at": "2026-08-12T13:22:34.705Z",
+  "label": "ALPHA_NON_PRODUCTION",
+  "source": "github-search",
+  "keywordsPath": "scripts/keywords.json",
+  "keywords": [
+    "feature store point-in-time",
+    "lineage store",
+    "governance rules engine"
+  ],
+  "language": "TypeScript",
+  "perPage": 10,
+  "tokenPresent": false,
+  "results": [
+    {
+      "keyword": "lineage store",
+      "name": "andey0Saikiran/tableau-lineage",
+      "url": "https://github.com/andey0Saikiran/tableau-lineage",
+      "license": "MIT",
+      "description": "Privacy-first, in-browser Tableau .twbx lineage visualizer. Map calculated-field dependencies, parameters, stored SQL (Custom SQL, Initial SQL, stored procs, RAWSQL), and metadata as an interactive graph and searchable data dictionary. Nothing is uploaded. Free and open source.",
+      "stars": 7,
+      "updated_at": "2026-08-11T08:44:36Z"
+    },
+    {
+      "keyword": "lineage store",
+      "name": "ChrisDevRepo/fabric_data_lineage",
+      "url": "https://github.com/ChrisDevRepo/fabric_data_lineage",
+      "license": "MIT",
+      "description": "About Interactive object-level data lineage visualization for Fabric data warehouses. Analyze dependencies between tables, views, UDFs, and stored procedures with regex-based parsing and an interactive graph interface.",
+      "stars": 5,
+      "updated_at": "2026-07-31T20:26:54Z"
+    },
+    {
+      "keyword": "lineage store",
+      "name": "mojeebdev/promptvault",
+      "url": "https://github.com/mojeebdev/promptvault",
+      "license": null,
+      "description": "PromptVault is a decentralized AI prompt registry built on Sui. Submit a prompt → AI evaluates it for clarity, structure, and model-fit → both the original prompt and the evaluation are stored as immutable Walrus blobs. Your connected Sui wallet becomes the author. Forks carry real on-chain lineage. Everything is public, permanent, and verifiable. ",
+      "stars": 2,
+      "updated_at": "2026-07-14T10:49:50Z"
+    },
+    {
+      "keyword": "lineage store",
+      "name": "Zafaraminuddin/knova-core",
+      "url": "https://github.com/Zafaraminuddin/knova-core",
+      "license": null,
+      "description": "Knova Core is the foundational service responsible for ingesting, hashing, and storing immutable knowledge records. It provides provenance, lineage, and auditability as first-class primitives, enabling reliable retrieval and evolution of knowledge over time. This repo focuses strictly on core data integrity and history, not automation or execution.",
+      "stars": 0,
+      "updated_at": "2026-02-20T15:58:40Z"
+    },
+    {
+      "keyword": "governance rules engine",
+      "name": "Gitdigital-products/solana-governance-policy-engine",
+      "url": "https://github.com/Gitdigital-products/solana-governance-policy-engine",
+      "license": "MIT",
+      "description": "A standards‑driven rules engine for Solana DAOs and programs, enforcing governance policies as code.",
+      "stars": 2,
+      "updated_at": "2026-03-08T11:12:54Z"
+    },
+    {
+      "keyword": "governance rules engine",
+      "name": "NeuroverseOS/Neuroverseos-governance",
+      "url": "https://github.com/NeuroverseOS/Neuroverseos-governance",
+      "license": "Apache-2.0",
+      "description": "Deterministic governance engine for AI agents. Enforce rules defined in .md governance files across AI systems.",
+      "stars": 2,
+      "updated_at": "2026-07-26T17:25:28Z"
+    },
+    {
+      "keyword": "governance rules engine",
+      "name": "Hugegreencandle/xahau-mcp",
+      "url": "https://github.com/Hugegreencandle/xahau-mcp",
+      "license": "MIT",
+      "description": "First MCP for the Xahau network — offline Hook intelligence (WASM inspection + a Hooks-specific static-analysis rule engine), read-only ledger/codec/governance tools, and unsigned-tx builders. Read-only, no key custody.",
+      "stars": 6,
+      "updated_at": "2026-08-08T08:02:42Z"
+    },
+    {
+      "keyword": "governance rules engine",
+      "name": "spralle/arbitre",
+      "url": "https://github.com/spralle/arbitre",
+      "license": "MIT",
+      "description": "Rete-inspired production rule engine for declarative UI governance",
+      "stars": 0,
+      "updated_at": "2026-06-01T16:48:35Z"
+    },
+    {
+      "keyword": "governance rules engine",
+      "name": "SuperiorKe/AgentGovernance",
+      "url": "https://github.com/SuperiorKe/AgentGovernance",
+      "license": null,
+      "description": "Zero-trust human-in-the-loop governance layer AgentGovernance for AI agents — rule engine, audit log, Socket.io approvals.",
+      "stars": 0,
+      "updated_at": "2026-05-19T17:56:33Z"
+    },
+    {
+      "keyword": "governance rules engine",
+      "name": "karthikeya20012007/cloud-auto-hibernation-engine",
+      "url": "https://github.com/karthikeya20012007/cloud-auto-hibernation-engine",
+      "license": null,
+      "description": "Policy-driven cloud auto-hibernation engine that detects idle resources, explains cost leakage, and safely stops them using governance rules.",
+      "stars": 1,
+      "updated_at": "2026-01-28T17:04:27Z"
+    },
+    {
+      "keyword": "governance rules engine",
+      "name": "mrkwxopya/mrkwxopya-rule-engine",
+      "url": "https://github.com/mrkwxopya/mrkwxopya-rule-engine",
+      "license": "MIT",
+      "description": "A production-oriented TypeScript rule engine built for deterministic evaluation, governance, observability, extensibility, and long-term maintainability.",
+      "stars": 0,
+      "updated_at": "2026-04-27T16:19:42Z"
+    },
+    {
+      "keyword": "governance rules engine",
+      "name": "yuchangxu1989-Openclaw/aco",
+      "url": "https://github.com/yuchangxu1989-Openclaw/aco",
+      "license": "MIT",
+      "description": "ACO: Runtime governance engine for AI Agent orchestration. 13 L2 plugins, 70+ deterministic rules. Governance must be as important as construction — and designed as one.",
+      "stars": 1,
+      "updated_at": "2026-06-16T09:51:04Z"
+    },
+    {
+      "keyword": "governance rules engine",
+      "name": "niclas000000/Next-gen-system",
+      "url": "https://github.com/niclas000000/Next-gen-system",
+      "license": null,
+      "description": "Nexus - Next-Generation Governance Platform replacing Canea One. Features visual workflow designer, form builder, business rules engine, and case management.",
+      "stars": 0,
+      "updated_at": "2026-06-22T13:05:03Z"
+    },
+    {
+      "keyword": "governance rules engine",
+      "name": "saadah7/Vellum",
+      "url": "https://github.com/saadah7/Vellum",
+      "license": "MIT",
+      "description": "A sovereign AI design-governance engine. Uses multi-agent orchestration (LangGraph) and local RAG (ChromaDB) to provide strategic audits and technical blueprints for professional designers. 100% private, intent-driven, and built for \"Rule-Breaking\" aesthetics.",
+      "stars": 3,
+      "updated_at": "2026-08-09T17:06:06Z"
+    }
+  ],
+  "note": "Unauthenticated — set GITHUB_TOKEN for higher rate limits"
+}

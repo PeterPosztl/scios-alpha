@@ -1,0 +1,16 @@
+{
+  "correlationId": "meta_065fb1e3",
+  "observations": [
+    {
+      "id": "obs_9336e1ca",
+      "at": "2026-07-16T23:55:34.351Z",
+      "phase": "infrastructure",
+      "message": "DATABASE_URL not configured (ALPHA optional)",
+      "failureClass": "CONFIG_MISSING",
+      "known": true,
+      "evidence": [
+        "env"
+      ]
+    }
+  ]
+}

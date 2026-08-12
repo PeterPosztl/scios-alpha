@@ -1,0 +1,52 @@
+{
+  "blockers": [
+    {
+      "capability": "DesktopElectron",
+      "proven": true,
+      "evidence": [
+        "capability_DesktopElectron_MISSING_OR_ABSENT"
+      ],
+      "attemptedSafeRemediations": [
+        "recipe.accept_alpha_no_db",
+        "recipe.document_missing_electron",
+        "recipe.document_missing_workers"
+      ],
+      "whyUnsafeToContinueAutonomously": "Electron desktop packaging not present in ALPHA tree",
+      "minimalHumanAction": "Use browser cockpit at :5230 until Electron installer ships",
+      "resumePoint": "CLASSIFY",
+      "resumeCommand": "pnpm sci:meta-recovery:resume"
+    },
+    {
+      "capability": "PostgreSQL",
+      "proven": true,
+      "evidence": [
+        "capability_PostgreSQL_MISSING_OR_ABSENT"
+      ],
+      "attemptedSafeRemediations": [
+        "recipe.accept_alpha_no_db",
+        "recipe.document_missing_electron",
+        "recipe.document_missing_workers"
+      ],
+      "whyUnsafeToContinueAutonomously": "Must not invent production credentials",
+      "minimalHumanAction": "Provide DATABASE_URL for a permitted non-production database, then pnpm sci:meta-recovery:resume",
+      "resumePoint": "CLASSIFY",
+      "resumeCommand": "pnpm sci:meta-recovery:resume"
+    },
+    {
+      "capability": "QueueWorkers",
+      "proven": true,
+      "evidence": [
+        "capability_QueueWorkers_MISSING_OR_ABSENT"
+      ],
+      "attemptedSafeRemediations": [
+        "recipe.accept_alpha_no_db",
+        "recipe.document_missing_electron",
+        "recipe.document_missing_workers"
+      ],
+      "whyUnsafeToContinueAutonomously": "Queue workers / Redis optional infrastructure not implemented as SCI workers",
+      "minimalHumanAction": "Implement BullMQ workers or accept DEGRADED without queue processing",
+      "resumePoint": "CLASSIFY",
+      "resumeCommand": "pnpm sci:meta-recovery:resume"
+    }
+  ]
+}

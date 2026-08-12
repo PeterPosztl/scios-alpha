@@ -1,0 +1,9 @@
+{
+  "repairId": "repair_9d93a63f",
+  "recipeId": "recipe.document_missing_workers",
+  "at": "2026-07-16T23:50:41.236Z",
+  "dryRun": true,
+  "result": "success",
+  "detail": "dry-run simulated success",
+  "changedResources": []
+}

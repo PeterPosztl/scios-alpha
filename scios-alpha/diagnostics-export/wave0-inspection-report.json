@@ -1,0 +1,30 @@
+﻿{
+    "inspectedAt":  "2026-07-16T22:37:28.6183460Z",
+    "packageManager":  "pnpm@9.15.0",
+    "steps":  [
+                  {
+                      "detail":  "Scope: all 14 workspace projects\r\nnode.exe : (node:21764) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors th\r\nat have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.\r\nAt C:\\Users\\peter\\npm-global\\pnpm.ps1:24 char:5\r\n+     \u0026 \"node$exe\"  \"$basedir/node_modules/pnpm/bin/pnpm.cjs\" $args\r\n+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecif",
+                      "ok":  true,
+                      "name":  "pnpm install"
+                  },
+                  {
+                      "detail":  "\r\n\u003e scios-alpha@ build C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\r\n\u003e pnpm -r --filter \"./packages/**\" run build\r\n\r\nScope: 8 of 14 workspace projects\r\npackages/meta-intelligence build$ tsc -p tsconfig.json\r\npackages/alpha-loop build$ tsc -p tsconfig.json\r\npackages/data-fabric build$ tsc -p tsconfig.json\r\npackages/experiment-tracker build$ tsc -p tsconfig.json\r\npackages/experiment-tracker build: Done\r\npackages/observability build$ tsc -p tsconfig.json\r\npackages/alpha-loop build: Done\r\npackages/meta-intelligence build: Done\r\npackages/data-fabric build: Done\r\npackages/observability build: Done\r\npackages/feature-store build$ tsc -p tsconfig.json\r\npackages/governance-engine build$ tsc -p tsconfig.json\r\npackages/model-registry build$ tsc -p tsconfig.json\r\npackages/feature-store build: Done\r\npackages/",
+                      "ok":  true,
+                      "name":  "pnpm build"
+                  },
+                  {
+                      "detail":  "\r\n\u003e @scios/data-fabric@0.1.0 test C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\data-fabric\r\n\u003e jest --config jest.config.cjs\r\n\r\nnode.exe : PASS src/domain.test.ts\r\nAt C:\\Users\\peter\\npm-global\\pnpm.ps1:24 char:5\r\n+     \u0026 \"node$exe\"  \"$basedir/node_modules/pnpm/bin/pnpm.cjs\" $args\r\n+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : NotSpecified: (PASS src/domain.test.ts:String) [], RemoteException\r\n    + FullyQualifiedErrorId : NativeCommandError\r\n \r\n  BitemporalRecordSchema\r\n    ÔêÜ parses a valid BitemporalRecord (4 ms)\r\n\r\nTest Suites: 1 passed, 1 total\r\nTests:       1 passed, 1 total\r\nSnapshots:   0 total\r\nTime:        1.808 s, estimated 5 s\r\nRan all test suites.\r\n",
+                      "ok":  true,
+                      "name":  "data-fabric test"
+                  },
+                  {
+                      "detail":  "\r\n\u003e scios-alpha@ check C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\r\n\u003e pnpm --filter @scios/alpha-loop check\r\n\r\n\r\n\u003e @scios/alpha-loop@0.1.0 check C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\alpha-loop\r\n\u003e ts-node src/master.ts health\r\n\r\n[DataFabric] init ÔÇô mock in-memory fabric (ALPHA)\r\n[FeatureStore] init ÔÇô point-in-time mock (ALPHA)\r\n[PredictionEngine] init ÔÇô baseline linear model (ALPHA)\r\n[RiskEngine] init ÔÇô simple VaR gate (ALPHA)\r\n[ExecutionSimulator] init ÔÇô paper trading loop (ALPHA",
+                      "ok":  true,
+                      "name":  "alpha-loop check"
+                  }
+              ],
+    "dualLockfile":  {
+                         "npmLock":  true,
+                         "pnpmLock":  true
+                     }
+}

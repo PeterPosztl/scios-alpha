@@ -1,0 +1,79 @@
+{
+  "gate": "gate:foundation",
+  "slice": "raw_event → normalized_event → pit_feature → baseline_prediction → calibration_uncertainty → independent_risk_gate → governance_decision → deterministic_execution → outcome → immutable_lineage → cockpit_view",
+  "at": "2026-07-17T00:07:58.614Z",
+  "verdict": "NO_GO",
+  "platformLabel": "ALPHA_NON_PRODUCTION",
+  "enterpriseClaim": false,
+  "failures": [
+    {
+      "id": "build:packages",
+      "detail": "uild$ tsc -p tsconfig.json\npackages/model-registry build$ tsc -p tsconfig.json\npackages/feature-store build: Done\npackages/meta-recovery build: src/controller.ts(211,41): error TS2345: Argument of type 'Record<string, unknown> | undefined' is not assignable to parameter of type 'Record<string, unknown>'.\npackages/meta-recovery build:   Type 'undefined' is not assignable to type 'Record<string, unknown>'.\npackages/meta-recovery build: src/repair.ts(6,50): error TS2307: Cannot find module '../types.js' or its corresponding type declarations.\npackages/meta-recovery build: Failed\nC:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\meta-recovery:\r\n ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @scios/meta-recovery@0.1.0 build: `tsc -p tsconfig.json`\nExit status 2\n ELIFECYCLE  Command failed with exit code 2.\n"
+    }
+  ],
+  "warnings": [
+    {
+      "id": "scope:alpha",
+      "detail": "Foundation GO is ALPHA vertical slice only — not ENTERPRISE GO"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "file:packages/vertical-slice/src/pipeline.ts",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:packages/data-fabric/src/pipeline-contracts.ts",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:docs/enterprise/CURRENT_SYSTEM_TRUTH.md",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:diagnostics-export/repository-truth.json",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "test:data-fabric",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "id": "test:vertical-slice",
+      "ok": true,
+      "detail": "E2E chain + determinism"
+    },
+    {
+      "id": "build:vertical-slice",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "id": "build:packages",
+      "ok": false,
+      "detail": "uild$ tsc -p tsconfig.json\npackages/model-registry build$ tsc -p tsconfig.json\npackages/feature-store build: Done\npackages/meta-recovery build: src/controller.ts(211,41): error TS2345: Argument of type 'Record<string, unknown> | undefined' is not assignable to parameter of type 'Record<string, unknown>'.\npackages/meta-recovery build:   Type 'undefined' is not assignable to type 'Record<string, unknown>'.\npackages/meta-recovery build: src/repair.ts(6,50): error TS2307: Cannot find module '../types.js' or its corresponding type declarations.\npackages/meta-recovery build: Failed\nC:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\meta-recovery:\r\n ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @scios/meta-recovery@0.1.0 build: `tsc -p tsconfig.json`\nExit status 2\n ELIFECYCLE  Command failed with exit code 2.\n"
+    },
+    {
+      "id": "smoke:alpha-check",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "id": "determinism:no-math-random-foundation",
+      "ok": true,
+      "detail": "clean"
+    },
+    {
+      "id": "scope:alpha",
+      "ok": true,
+      "warn": true,
+      "detail": "Foundation GO is ALPHA vertical slice only — not ENTERPRISE GO"
+    }
+  ],
+  "rule": "No evidence means UNKNOWN, never PASS"
+}

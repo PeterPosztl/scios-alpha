@@ -1,0 +1,14 @@
+# SCI OS ×10 Alpha — default service endpoints & risk limits
+# Local runtime ports: see infra/config/local.yaml + .env
+
+predictionUrl: "http://127.0.0.1:5201"
+riskUrl: "http://127.0.0.1:5202"
+executionUrl: "http://127.0.0.1:5210"
+controlPlaneUrl: "http://127.0.0.1:3000"
+cockpitUrl: "http://127.0.0.1:4000"
+
+limits:
+  maxPositionSize: 1000
+  maxLeverage: 3.0
+  maxDrawdown: 0.15
+  concentrationLimit: 0.25

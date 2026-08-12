@@ -1,0 +1,70 @@
+version: "3.9"
+
+services:
+  prediction-engine:
+    build:
+      context: ../../apps/prediction-engine
+      dockerfile: Dockerfile
+    ports:
+      - "5201:5201"
+    environment:
+      - PORT=5201
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:5201/healthz')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  risk-engine:
+    build:
+      context: ../../apps/risk-engine
+      dockerfile: Dockerfile
+    ports:
+      - "5202:5202"
+    environment:
+      - PORT=5202
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:5202/healthz')"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  execution-simulator:
+    build:
+      context: ../..
+      dockerfile: apps/execution-simulator/Dockerfile
+    ports:
+      - "5210:5210"
+    environment:
+      - PORT=5210
+      - RISK_ENGINE_URL=http://risk-engine:5202/risk/check
+    depends_on:
+      - risk-engine
+
+  control-plane-api:
+    build:
+      context: ../..
+      dockerfile: apps/control-plane-api/Dockerfile
+    ports:
+      - "5200:5200"
+    environment:
+      - PORT=5200
+      - PREDICTION_URL=http://prediction-engine:5201
+      - RISK_URL=http://risk-engine:5202
+      - EXEC_URL=http://execution-simulator:5210
+    depends_on:
+      - prediction-engine
+      - risk-engine
+      - execution-simulator
+
+  cockpit-ui:
+    build:
+      context: ../..
+      dockerfile: apps/cockpit-ui/Dockerfile
+    ports:
+      - "5230:5230"
+    environment:
+      - PORT=5230
+      - CONTROL_URL=http://127.0.0.1:5200
+    depends_on:
+      - control-plane-api

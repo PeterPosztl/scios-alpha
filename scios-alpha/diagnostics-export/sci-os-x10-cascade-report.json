@@ -1,0 +1,57 @@
+{
+  "at": "2026-07-16T23:55:26.452Z",
+  "cascade": [
+    "SCI_OS_X10_EXE",
+    "BootstrapKernel",
+    "NormalStartup",
+    "StartupRecoveryPack",
+    "MetaRecoveryEngine",
+    "RootCauseReasoning",
+    "TransactionalRepairs",
+    "StartupProof",
+    "READY_DEGRADED_OR_EXTERNAL_BLOCKER"
+  ],
+  "stages": [
+    {
+      "stage": "BootstrapKernel",
+      "ok": true,
+      "failureClass": null
+    },
+    {
+      "stage": "NormalStartup",
+      "ok": true,
+      "verdict": "DEGRADED",
+      "exit": 0
+    },
+    {
+      "stage": "StartupRecoveryPack",
+      "mode": "skipped_normal_ok",
+      "ok": true,
+      "verdict": "DEGRADED"
+    },
+    {
+      "stage": "MetaRecoveryEngine",
+      "includes": [
+        "RootCauseReasoning",
+        "TransactionalRepairs",
+        "StartupProof"
+      ],
+      "ok": true,
+      "verdict": "SYSTEM_DEGRADED",
+      "exit": 0
+    },
+    {
+      "stage": "StartupProof",
+      "ok": false,
+      "verdict": "NO_GO",
+      "exit": 1
+    }
+  ],
+  "finalVerdict": "SYSTEM_DEGRADED",
+  "evidence": {
+    "bootstrap": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\bootstrap-kernel-report.json",
+    "startup": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\startup-report.json",
+    "meta": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\meta-recovery\\meta-recovery-proof.json",
+    "cascade": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\sci-os-x10-cascade-report.json"
+  }
+}

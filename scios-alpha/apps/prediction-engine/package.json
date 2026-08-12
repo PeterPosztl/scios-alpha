@@ -1,0 +1,10 @@
+{
+  "name": "@scios/prediction-engine",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "uvicorn app.main:app --host 0.0.0.0 --port 5201 --reload",
+    "start": "uvicorn app.main:app --host 0.0.0.0 --port 5201",
+    "test": "pytest -q"
+  }
+}

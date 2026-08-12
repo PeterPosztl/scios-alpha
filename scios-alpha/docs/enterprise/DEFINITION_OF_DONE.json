@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "platform": "SCI OS ×10",
+  "rule": "No evidence means UNKNOWN, never PASS. Summaries and green builds alone are not completion.",
+  "gates": {
+    "gate:scaffold": {
+      "required": [
+        "packageManager declared",
+        "single lockfile (pnpm)",
+        "pnpm-workspace.yaml",
+        "packages build",
+        "data-fabric unit test",
+        "alpha-loop health",
+        "capability registry present",
+        "AGENTS.md present",
+        "evidence export written"
+      ]
+    }
+  },
+  "statusLabels": {
+    "ABSENT": "Not implemented",
+    "STUB": "Skeleton only",
+    "ALPHA": "Runnable non-production",
+    "BETA": "Validated with evidence, limited scope",
+    "STABLE": "Evidence-backed READY for declared scope",
+    "DEPRECATED": "Do not use"
+  },
+  "forbiddenClaims": [
+    "enterprise ready without gate:platform GO",
+    "calibrated model without calibration report",
+    "healthy without health evidence"
+  ]
+}

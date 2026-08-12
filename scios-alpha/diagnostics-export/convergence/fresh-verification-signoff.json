@@ -1,0 +1,44 @@
+{
+  "at": "2026-07-17T00:21:47.824Z",
+  "freshRunId": "2026-07-17T02:21:10+02:00",
+  "priorLabelsTrusted": false,
+  "canonicalCommand": "pnpm sci:start",
+  "canonicalImplementation": "installer/scripts/start-sci-os.cjs",
+  "profile": "local-foundation",
+  "sequence": [
+    {
+      "step": "stop",
+      "exit": 0,
+      "apiDown": true,
+      "cockpitDown": true,
+      "evidence": "diagnostics-export/convergence/stop-report.json"
+    },
+    {
+      "step": "start",
+      "command": "node installer/scripts/start-sci-os.cjs --mode=normal --no-open",
+      "exit": 0,
+      "verdict": "DEGRADED",
+      "correlationId": "05424fa8-0e68-42e5-9cdd-34938c9e5c7d"
+    },
+    {
+      "step": "proof",
+      "command": "pnpm sci:proof",
+      "exit": 0,
+      "verdict": "STARTUP_CONVERGED_DEGRADED"
+    },
+    {
+      "step": "live_reprobe",
+      "healthz": 200,
+      "readyz": 200,
+      "cockpit": 200,
+      "workerSmoke": 200
+    }
+  ],
+  "finalVerdict": "STARTUP_CONVERGED_DEGRADED",
+  "limitations": [
+    "postgresql absent (optional)",
+    "BullMQ workers absent (foundation in-process worker used)",
+    "Electron desktop absent (HTTP cockpit)",
+    "OIDC/OTel SaaS/HSM frozen optional"
+  ]
+}

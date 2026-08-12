@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scios.local/schemas/startup-report.json",
+  "title": "SCI OS Startup Report",
+  "type": "object",
+  "required": [
+    "correlationId",
+    "timestamp",
+    "durationMs",
+    "appRoot",
+    "verdict"
+  ],
+  "properties": {
+    "correlationId": { "type": "string" },
+    "timestamp": { "type": "string" },
+    "durationMs": { "type": "number" },
+    "version": { "type": ["string", "null"] },
+    "buildSha": { "type": ["string", "null"] },
+    "appRoot": { "type": ["string", "null"] },
+    "layout": { "type": ["string", "null"] },
+    "runtimeMode": { "type": ["string", "null"] },
+    "verdict": {
+      "type": "string",
+      "enum": ["READY", "DEGRADED", "NO_GO", "REPAIR_OK", "REPAIR_INCOMPLETE", "SHUTDOWN_COMPLETE"]
+    },
+    "warnings": { "type": "array" },
+    "blockers": { "type": "array" },
+    "nextAction": { "type": "string" },
+    "enterpriseClaim": { "type": "boolean" }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "ok": true,
+  "errors": [],
+  "portChecks": {
+    "api": {
+      "port": 5200,
+      "free": false,
+      "ownedBySci": true,
+      "service": "@scios/control-plane-api",
+      "ok": true
+    },
+    "cockpit": {
+      "port": 5230,
+      "free": false,
+      "ownedBySci": true,
+      "service": "@scios/cockpit-ui",
+      "ok": true
+    },
+    "postgres": {
+      "port": 5432,
+      "free": true,
+      "ownedBySci": false,
+      "service": null,
+      "ok": true
+    },
+    "redis": {
+      "port": 6379,
+      "free": true,
+      "ownedBySci": false,
+      "service": null,
+      "ok": true
+    }
+  },
+  "layout": {
+    "mode": "alpha-source-fallback",
+    "packagedOk": false,
+    "missing": [
+      {
+        "key": "backend",
+        "path": "backend/dist/server.js"
+      },
+      {
+        "key": "worker",
+        "path": "workers/dist/main.js"
+      },
+      {
+        "key": "cockpit",
+        "path": "cockpit/dist/index.html"
+      },
+      {
+        "key": "node",
+        "path": "runtime/node/node.exe"
+      }
+    ],
+    "present": {
+      "backend": {
+        "path": "backend/dist/server.js",
+        "exists": false
+      },
+      "worker": {
+        "path": "workers/dist/main.js",
+        "exists": false
+      },
+      "cockpit": {
+        "path": "cockpit/dist/index.html",
+        "exists": false
+      },
+      "node": {
+        "path": "runtime/node/node.exe",
+        "exists": false
+      },
+      "capsule": {
+        "path": "bootstrap/bootstrap-capsule.cjs",
+        "exists": true
+      },
+      "config": {
+        "path": "config/default.yaml",
+        "exists": true
+      },
+      "profile": {
+        "path": "bootstrap/profile.yaml",
+        "exists": true
+      }
+    },
+    "apiPort": 5200,
+    "cockpitPort": 5230,
+    "health": {
+      "liveness": "http://127.0.0.1:5200/healthz",
+      "readiness": "http://127.0.0.1:5200/readyz",
+      "cockpitRoot": "http://127.0.0.1:5230/",
+      "workerSmoke": "POST http://127.0.0.1:5200/v1/foundation/worker-smoke"
+    },
+    "fallback": {
+      "enabled": true,
+      "note": "When packaged dist layout is absent, capsule may use scios-alpha source entries (tsx/node).",
+      "backend": "apps/control-plane-api/src/server.ts",
+      "worker": "embedded-foundation@control-plane",
+      "cockpit": "apps/cockpit-ui/src/index.js",
+      "node": "system-or-bundled",
+      "capsule": "installer/scripts/bootstrap-capsule.cjs",
+      "canonicalPorts": {
+        "api": 5200,
+        "cockpit": 5230
+      }
+    },
+    "allowFallback": true
+  },
+  "version": "0.9.0",
+  "buildSha": "UNAVAILABLE"
+}

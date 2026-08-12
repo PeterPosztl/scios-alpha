@@ -1,0 +1,3 @@
+# Compatibility alias — canonical file is docker-compose.infra.yml
+include:
+  - path: docker-compose.infra.yml

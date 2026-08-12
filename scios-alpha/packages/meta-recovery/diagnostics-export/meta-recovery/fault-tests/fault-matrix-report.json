@@ -1,0 +1,84 @@
+{
+  "at": "2026-07-16T23:50:41.282Z",
+  "scenarios": [
+    {
+      "scenario": "missing_db_url",
+      "detected": true,
+      "classified": "CONFIG_MISSING",
+      "repairSelected": true,
+      "unsafeRejected": true,
+      "rollbackWorks": true,
+      "noFalseReady": true,
+      "secretsRedacted": true
+    },
+    {
+      "scenario": "missing_electron",
+      "detected": true,
+      "classified": "DESKTOP_ABSENT",
+      "repairSelected": true,
+      "unsafeRejected": true,
+      "rollbackWorks": true,
+      "noFalseReady": true,
+      "secretsRedacted": true
+    },
+    {
+      "scenario": "missing_workers",
+      "detected": true,
+      "classified": "QUEUE_ABSENT",
+      "repairSelected": true,
+      "unsafeRejected": true,
+      "rollbackWorks": true,
+      "noFalseReady": true,
+      "secretsRedacted": true
+    },
+    {
+      "scenario": "r5_rejected",
+      "detected": true,
+      "classified": "SECURITY_GOVERNANCE",
+      "unsafeRejected": true,
+      "final": "policy_block"
+    },
+    {
+      "scenario": "unknown_synthetic",
+      "detected": true,
+      "classified": "UNKNOWN",
+      "repairSelected": true,
+      "unsafeRejected": true,
+      "rollbackWorks": true,
+      "noFalseReady": true,
+      "secretsRedacted": true
+    },
+    {
+      "scenario": "upstream_redis_cascade",
+      "detected": true,
+      "classified": "REDIS_UPSTREAM",
+      "repairSelected": true,
+      "unsafeRejected": true,
+      "rollbackWorks": true,
+      "noFalseReady": true,
+      "secretsRedacted": true
+    },
+    {
+      "scenario": "competing_candidates",
+      "detected": true,
+      "classified": "TWO_RECIPES",
+      "repairSelected": true,
+      "unsafeRejected": true,
+      "rollbackWorks": true,
+      "noFalseReady": true,
+      "secretsRedacted": true
+    },
+    {
+      "scenario": "budget_exhaustion",
+      "detected": true,
+      "classified": "BUDGET",
+      "repairSelected": true,
+      "unsafeRejected": true,
+      "rollbackWorks": true,
+      "noFalseReady": true,
+      "secretsRedacted": true
+    }
+  ],
+  "liveDryRunVerdict": "SYSTEM_DEGRADED",
+  "exitPolicy": "no_false_READY"
+}

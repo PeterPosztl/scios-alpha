@@ -1,0 +1,8 @@
+{
+  "command": "pnpm --filter @scios/meta-recovery build",
+  "start": "2026-07-17T00:21:39.525Z",
+  "end": "2026-07-17T00:21:42.088Z",
+  "exitCode": 0,
+  "note": "Full pnpm build deferred to ci:startup-convergence-gate; repaired meta-recovery first-blocker",
+  "stderrTail": "\n> @scios/meta-recovery@0.1.0 build C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\meta-recovery\n> tsc -p tsconfig.json\n\n"
+}

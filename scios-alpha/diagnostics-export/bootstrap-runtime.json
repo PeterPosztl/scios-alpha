@@ -1,0 +1,32 @@
+{
+  "at": "2026-08-04T16:20:06.510Z",
+  "profile": "CORE",
+  "layout": "alpha-source-fallback",
+  "missingPackagedFiles": [
+    {
+      "key": "backend",
+      "path": "backend/dist/server.js"
+    },
+    {
+      "key": "worker",
+      "path": "workers/dist/main.js"
+    },
+    {
+      "key": "cockpit",
+      "path": "cockpit/dist/index.html"
+    },
+    {
+      "key": "node",
+      "path": "runtime/node/node.exe"
+    }
+  ],
+  "bundledNodePresent": false,
+  "node": {
+    "usable": true,
+    "path": "C:\\Program Files\\nodejs\\node.exe",
+    "source": "system",
+    "version": "24.13.1"
+  },
+  "config": "config/default.yaml",
+  "profileFile": "bootstrap/profile.yaml"
+}

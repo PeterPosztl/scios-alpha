@@ -1,0 +1,12 @@
+{
+  "riskDecisionId": "risk_456",
+  "predictionId": "pred_123",
+  "approved": true,
+  "reason": "within limits",
+  "limits": {
+    "maxPosition": 1000,
+    "maxExposure": 10000
+  },
+  "uncertaintyHaircut": 0.15,
+  "killSwitchActive": false
+}

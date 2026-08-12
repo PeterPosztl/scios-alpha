@@ -1,0 +1,85 @@
+{
+  "at": "2026-08-12T13:27:07.581Z",
+  "source": "filtered.json",
+  "sandboxRoot": "sandbox/public_repos",
+  "reportPath": "diagnostics-export/orchestrator/scans/report.json",
+  "repos": 12,
+  "scanned": 0,
+  "needsClone": 12,
+  "errors": 0,
+  "label": "ALPHA_NON_PRODUCTION",
+  "scans": [
+    {
+      "repo": "@scios/cockpit-ui",
+      "path": "sandbox\\public_repos\\@scios_cockpit-ui",
+      "status": "NEEDS_CLONE",
+      "error": "missing sandbox clone at sandbox\\public_repos\\@scios_cockpit-ui"
+    },
+    {
+      "repo": "@scios/control-plane-api",
+      "path": "sandbox\\public_repos\\@scios_control-plane-api",
+      "status": "NEEDS_CLONE",
+      "error": "missing sandbox clone at sandbox\\public_repos\\@scios_control-plane-api"
+    },
+    {
+      "repo": "@scios/execution-simulator",
+      "path": "sandbox\\public_repos\\@scios_execution-simulator",
+      "status": "NEEDS_CLONE",
+      "error": "missing sandbox clone at sandbox\\public_repos\\@scios_execution-simulator"
+    },
+    {
+      "repo": "@scios/meta-recovery-control-plane",
+      "path": "sandbox\\public_repos\\@scios_meta-recovery-control-plane",
+      "status": "NEEDS_CLONE",
+      "error": "missing sandbox clone at sandbox\\public_repos\\@scios_meta-recovery-control-plane"
+    },
+    {
+      "repo": "@scios/mock-api",
+      "path": "sandbox\\public_repos\\@scios_mock-api",
+      "status": "NEEDS_CLONE",
+      "error": "missing sandbox clone at sandbox\\public_repos\\@scios_mock-api"
+    },
+    {
+      "repo": "@scios/prediction-engine",
+      "path": "sandbox\\public_repos\\@scios_prediction-engine",
+      "status": "NEEDS_CLONE",
+      "error": "missing sandbox clone at sandbox\\public_repos\\@scios_prediction-engine"
+    },
+    {
+      "repo": "@scios/risk-engine",
+      "path": "sandbox\\public_repos\\@scios_risk-engine",
+      "status": "NEEDS_CLONE",
+      "error": "missing sandbox clone at sandbox\\public_repos\\@scios_risk-engine"
+    },
+    {
+      "repo": "@scios/alpha-loop",
+      "path": "sandbox\\public_repos\\@scios_alpha-loop",
+      "status": "NEEDS_CLONE",
+      "error": "missing sandbox clone at sandbox\\public_repos\\@scios_alpha-loop"
+    },
+    {
+      "repo": "@scios/experiment-tracker",
+      "path": "sandbox\\public_repos\\@scios_experiment-tracker",
+      "status": "NEEDS_CLONE",
+      "error": "missing sandbox clone at sandbox\\public_repos\\@scios_experiment-tracker"
+    },
+    {
+      "repo": "@scios/meta-intelligence",
+      "path": "sandbox\\public_repos\\@scios_meta-intelligence",
+      "status": "NEEDS_CLONE",
+      "error": "missing sandbox clone at sandbox\\public_repos\\@scios_meta-intelligence"
+    },
+    {
+      "repo": "@scios/meta-recovery",
+      "path": "sandbox\\public_repos\\@scios_meta-recovery",
+      "status": "NEEDS_CLONE",
+      "error": "missing sandbox clone at sandbox\\public_repos\\@scios_meta-recovery"
+    },
+    {
+      "repo": "@scios/vertical-slice",
+      "path": "sandbox\\public_repos\\@scios_vertical-slice",
+      "status": "NEEDS_CLONE",
+      "error": "missing sandbox clone at sandbox\\public_repos\\@scios_vertical-slice"
+    }
+  ]
+}

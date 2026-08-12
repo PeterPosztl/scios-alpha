@@ -1,0 +1,199 @@
+{
+  "schemaVersion": "1.0.0",
+  "inspectedAt": "2026-07-16T22:50:46.933Z",
+  "workingDirectory": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+  "packageManager": "pnpm@9.15.0",
+  "packages": [
+    { "name": "@scios/data-fabric", "path": "packages/data-fabric", "class": "PARTIAL" },
+    { "name": "@scios/alpha-loop", "path": "packages/alpha-loop", "class": "WORKING" },
+    { "name": "@scios/meta-intelligence", "path": "packages/meta-intelligence", "class": "PARTIAL" },
+    { "name": "@scios/observability", "path": "packages/observability", "class": "STUB" },
+    { "name": "@scios/feature-store", "path": "packages/feature-store", "class": "STUB" },
+    { "name": "@scios/model-registry", "path": "packages/model-registry", "class": "STUB" },
+    { "name": "@scios/experiment-tracker", "path": "packages/experiment-tracker", "class": "STUB" },
+    { "name": "@scios/governance-engine", "path": "packages/governance-engine", "class": "PARTIAL" },
+    { "name": "validation-engine", "path": "packages/validation-engine", "class": "DISCONNECTED" },
+    { "name": "probability-engine", "path": "packages/probability-engine", "class": "DISCONNECTED" },
+    { "name": "portfolio-engine", "path": "packages/portfolio-engine", "class": "DISCONNECTED" },
+    { "name": "@scios/control-plane-api", "path": "apps/control-plane-api", "class": "PARTIAL" },
+    { "name": "@scios/prediction-engine", "path": "apps/prediction-engine", "class": "STUB" },
+    { "name": "@scios/risk-engine", "path": "apps/risk-engine", "class": "STUB" },
+    { "name": "@scios/execution-simulator", "path": "apps/execution-simulator", "class": "STUB" },
+    { "name": "@scios/cockpit-ui", "path": "apps/cockpit-ui", "class": "DISCONNECTED" }
+  ],
+  "workingModules": [
+    "packages/alpha-loop",
+    "pnpm workspace + lockfile",
+    "scripts/gate-scaffold.mjs",
+    "scripts/gate-contracts.mjs",
+    "AGENTS.md + .cursor/rules"
+  ],
+  "partialModules": [
+    "packages/data-fabric",
+    "packages/meta-intelligence",
+    "packages/governance-engine",
+    "apps/control-plane-api",
+    "infra/docker",
+    "root typecheck coverage"
+  ],
+  "stubModules": [
+    "packages/feature-store",
+    "packages/model-registry",
+    "packages/experiment-tracker",
+    "packages/observability",
+    "apps/prediction-engine",
+    "apps/risk-engine",
+    "apps/execution-simulator",
+    "packages/validation-engine",
+    "packages/probability-engine",
+    "packages/portfolio-engine"
+  ],
+  "duplicateArchitectures": [
+    {
+      "id": "legacy-root-src-vs-alpha-loop",
+      "surfaces": ["src/master.ts", "packages/alpha-loop/src/master.ts"],
+      "class": "DUPLICATE"
+    },
+    {
+      "id": "in-process-vs-http-pipeline",
+      "surfaces": ["packages/alpha-loop/src/modules/*", "apps/{prediction,risk,execution}-* + control-plane"],
+      "class": "DUPLICATE"
+    },
+    {
+      "id": "sibling-repos-out-of-scope",
+      "surfaces": ["../sci-os-x10", "../sci-os-10", "../qmis-orion-os-x10"],
+      "class": "DUPLICATE"
+    }
+  ],
+  "missingModules": [
+    "decision-intelligence-runtime",
+    "lineage-query-api",
+    "foundation-gate-script",
+    "lint-toolchain",
+    "turbo.json",
+    "dedicated-integration-e2e-suite",
+    "enterprise.modules.sections-49-83"
+  ],
+  "publicContracts": [
+    "packages/data-fabric/src/domain.ts",
+    "packages/data-fabric/src/ontology.ts",
+    "packages/data-fabric/src/ledger.ts",
+    "packages/observability/src/event-bus.ts",
+    "packages/governance-engine/src/index.ts",
+    "docs/enterprise/CAPABILITY_REGISTRY.json",
+    "docs/enterprise/DEFINITION_OF_DONE.json",
+    "docs/enterprise/MASTER_CONTRACT.md"
+  ],
+  "runtimeEntries": [
+    { "id": "alpha-check", "command": "pnpm check", "class": "WORKING" },
+    { "id": "alpha-sim", "command": "pnpm sim", "class": "WORKING" },
+    { "id": "control-plane", "port": 5200, "class": "PARTIAL" },
+    { "id": "prediction-engine", "port": 5201, "class": "STUB" },
+    { "id": "risk-engine", "port": 5202, "class": "STUB" },
+    { "id": "execution-simulator", "port": 5210, "class": "STUB" },
+    { "id": "cockpit-ui", "port": 5230, "class": "STUB" }
+  ],
+  "tests": {
+    "unit": {
+      "command": "pnpm test",
+      "workingDirectory": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+      "result": "PASS",
+      "exitCode": 0,
+      "detail": "4 Jest tests in @scios/data-fabric"
+    },
+    "python_prediction": {
+      "command": "python -m pytest tests -q",
+      "workingDirectory": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\prediction-engine",
+      "result": "PASS",
+      "exitCode": 0
+    },
+    "python_risk": {
+      "command": "python -m pytest tests -q",
+      "workingDirectory": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\risk-engine",
+      "result": "PASS",
+      "exitCode": 0
+    },
+    "integration": {
+      "command": null,
+      "result": "SKIP",
+      "detail": "No dedicated multi-service integration suite"
+    },
+    "lint": {
+      "command": null,
+      "result": "SKIP",
+      "detail": "No eslint/prettier configured"
+    }
+  },
+  "build": {
+    "command": "pnpm build",
+    "workingDirectory": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+    "result": "PASS",
+    "exitCode": 0,
+    "typecheck": {
+      "command": "pnpm typecheck",
+      "result": "PASS",
+      "exitCode": 0,
+      "note": "Only packages with typecheck script (meta-intelligence) run"
+    },
+    "install": {
+      "command": "pnpm install --frozen-lockfile",
+      "result": "PASS",
+      "exitCode": 0
+    },
+    "gates": {
+      "scaffold": { "command": "pnpm gate:scaffold", "result": "PASS", "verdict": "GO" },
+      "contracts": { "command": "pnpm gate:contracts", "result": "PASS", "verdict": "GO" }
+    },
+    "smoke": {
+      "check": { "command": "pnpm check", "result": "PASS" },
+      "sim": { "command": "pnpm sim", "result": "PASS" }
+    },
+    "baselineArtifact": "diagnostics-export/baseline-validation.json"
+  },
+  "blockers": [
+    "No automated multi-service E2E for control-plane → prediction → risk → execution → cockpit",
+    "Decision Intelligence runtime ABSENT",
+    "Lineage query API ABSENT (schema field only)",
+    "apps/execution-simulator uses Math.random for fills/book",
+    "Legacy src/ duplicate with Math.random",
+    "No lint toolchain",
+    "Python science packages disconnected (no package.json)",
+    "Enterprise modules sections 49–83 ABSENT",
+    "Cockpit not wired to lineage/decision proof"
+  ],
+  "findings": {
+    "todoFixme": "No production TODOs blocking Phase 0; honesty docs explicitly deny ENTERPRISE GO",
+    "mathRandomScientific": [
+      "apps/execution-simulator/src/server.ts",
+      "src/modules/data-fabric.ts (legacy)"
+    ],
+    "seededScientificPath": "packages/alpha-loop (SCIOS_SEED)",
+    "fakeReadyFlags": "None claiming ENTERPRISE GO; gates write evidence JSON",
+    "cyclicDependencies": "UNKNOWN (not statically analyzed); no turbo graph"
+  },
+  "recommendedFirstVerticalSlice": {
+    "path": "raw event → feature → prediction → risk → decision → simulated execution → lineage → cockpit",
+    "primarySurfaces": [
+      "packages/data-fabric",
+      "apps/control-plane-api",
+      "packages/feature-store",
+      "apps/prediction-engine",
+      "apps/risk-engine",
+      "apps/execution-simulator",
+      "apps/cockpit-ui",
+      "packages/alpha-loop (reference in-process)"
+    ],
+    "doNotRestart": true,
+    "nextDoc": "docs/enterprise/IMPLEMENTATION_DEPENDENCY_ORDER.md"
+  },
+  "phase0Artifacts": [
+    "docs/enterprise/CURRENT_SYSTEM_TRUTH.md",
+    "docs/enterprise/ARCHITECTURE_INVENTORY.md",
+    "docs/enterprise/PROTECTED_CONTRACTS.md",
+    "docs/enterprise/IMPLEMENTATION_DEPENDENCY_ORDER.md",
+    "diagnostics-export/repository-truth.json",
+    "diagnostics-export/baseline-validation.json"
+  ],
+  "verdict": "DEGRADED",
+  "verdictRationale": "Workspace installs, builds, unit/smoke tests, and Wave 0/1 gates PASS with proof. Foundation E2E (decision + lineage + cockpit + integration gate) is incomplete; scientific non-determinism remains on HTTP execution path; enterprise modules ABSENT. Phase 0 truth lock is complete; foundation GO is not claimed."
+}

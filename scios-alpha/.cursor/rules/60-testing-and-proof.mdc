@@ -1,0 +1,12 @@
+---
+description: Testing and proof protocol
+globs:
+alwaysApply: false
+---
+
+# Testing and Proof
+
+- Unit/integration tests required for new logic.
+- Export proof to `diagnostics-export/`.
+- Gates must fail on unsupported PASS claims.
+- Seeded RNG for deterministic simulators when claiming reproducibility.

@@ -1,0 +1,9 @@
+{
+  "repairId": "repair_51002e94",
+  "recipeId": "recipe.document_missing_electron",
+  "at": "2026-07-16T23:50:41.232Z",
+  "dryRun": true,
+  "result": "success",
+  "detail": "dry-run simulated success",
+  "changedResources": []
+}

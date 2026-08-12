@@ -1,0 +1,20 @@
+{
+  "signedOffBy": "MetaRecoveryController",
+  "verdict": "SYSTEM_DEGRADED",
+  "correlationId": "meta_ca3030c1",
+  "evidencePaths": [
+    "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\meta-recovery\\diagnostics-export\\meta-recovery\\system-inventory.json",
+    "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\meta-recovery\\diagnostics-export\\meta-recovery\\capability-inventory.json",
+    "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\meta-recovery\\diagnostics-export\\meta-recovery\\dependency-graph.json",
+    "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\meta-recovery\\diagnostics-export\\meta-recovery\\startup-digital-twin.json",
+    "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\meta-recovery\\diagnostics-export\\meta-recovery\\failure-observations.json",
+    "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\meta-recovery\\diagnostics-export\\meta-recovery\\failure-hypotheses.json",
+    "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\meta-recovery\\diagnostics-export\\meta-recovery\\root-cause-ranking.json",
+    "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\meta-recovery\\diagnostics-export\\meta-recovery\\remediation-plan.json",
+    "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\meta-recovery\\diagnostics-export\\meta-recovery\\repair-attempts.json",
+    "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\meta-recovery\\diagnostics-export\\meta-recovery\\rollback-report.json",
+    "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\meta-recovery\\diagnostics-export\\meta-recovery\\recovery-memory.json",
+    "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\meta-recovery\\diagnostics-export\\meta-recovery\\capability-completion-report.json",
+    "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\meta-recovery\\diagnostics-export\\meta-recovery\\external-blocker-report.json"
+  ]
+}

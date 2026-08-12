@@ -1,0 +1,33 @@
+{
+  "hypotheses": [
+    {
+      "hypothesisId": "hyp_d7755dae",
+      "explanation": "Postgres optional in ALPHA — degrade, do not invent credentials",
+      "supportingEvidence": [
+        "env"
+      ],
+      "contradictingEvidence": [],
+      "affectedCapability": "PostgreSQL",
+      "confidence": 0.95,
+      "diagnosticAction": "confirm_alpha_mode",
+      "repairCandidate": "recipe.accept_alpha_no_db",
+      "risk": "R1",
+      "rollback": "none",
+      "verificationMethod": "config_redacted_ok"
+    }
+  ],
+  "classified": [
+    {
+      "id": "obs_9df55f98",
+      "at": "2026-07-16T23:50:38.328Z",
+      "phase": "infrastructure",
+      "message": "DATABASE_URL not configured (ALPHA optional)",
+      "failureClass": "CONFIG_MISSING",
+      "known": true,
+      "evidence": [
+        "env"
+      ],
+      "domain": "DATABASE"
+    }
+  ]
+}

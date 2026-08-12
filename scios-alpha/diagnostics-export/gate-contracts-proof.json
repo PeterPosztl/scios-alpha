@@ -1,0 +1,45 @@
+{
+  "gate": "gate:contracts",
+  "wave": 1,
+  "at": "2026-07-16T22:50:33.230Z",
+  "verdict": "GO",
+  "failures": [],
+  "evidence": [
+    {
+      "id": "file:docs/enterprise/MASTER_CONTRACT.md",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:docs/enterprise/CAPABILITY_REGISTRY.json",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:packages/data-fabric/src/ontology.ts",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:packages/data-fabric/src/ledger.ts",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "test:data-fabric",
+      "ok": true,
+      "detail": "ontology+ledger tests"
+    },
+    {
+      "id": "build:data-fabric",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "id": "honesty:master-contract",
+      "ok": true,
+      "detail": "does not claim ENTERPRISE GO"
+    }
+  ],
+  "rule": "No evidence means UNKNOWN, never PASS"
+}

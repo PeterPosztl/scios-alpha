@@ -1,0 +1,20 @@
+{
+  "name": "@scios/alpha-loop",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./src/master.ts",
+  "scripts": {
+    "start": "nodemon --exec ts-node src/master.ts",
+    "dev": "nodemon --exec ts-node src/master.ts",
+    "sim": "ts-node src/master.ts simulate",
+    "check": "ts-node src/master.ts health",
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}

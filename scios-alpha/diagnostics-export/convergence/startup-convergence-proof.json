@@ -1,0 +1,44 @@
+{
+  "at": "2026-07-17T00:21:42.088Z",
+  "canonicalCommand": "pnpm sci:start",
+  "node": {
+    "usable": true,
+    "version": "24.13.1"
+  },
+  "processesReused": [
+    "control-plane:5200",
+    "cockpit:5230"
+  ],
+  "processesStopped": [],
+  "readiness": {
+    "profile": "local-foundation",
+    "required": {
+      "runtime": true,
+      "config": true,
+      "backendLive": true,
+      "backendReady": true,
+      "cockpit": true,
+      "riskControl": true,
+      "foundationWorker": true
+    },
+    "blockers": [],
+    "optionalMissing": [
+      "postgresql",
+      "bullmq-queue-workers",
+      "electron-desktop",
+      "oidc-production",
+      "otel-saas"
+    ],
+    "verdict": "DEGRADED",
+    "policy": "local-foundation: DB/Redis/OIDC/OTel/HSM optional unless REQUIRE_* set; embedded risk + foundation worker required"
+  },
+  "workerProofOk": true,
+  "verdict": "STARTUP_CONVERGED_DEGRADED",
+  "limitations": [
+    "postgresql",
+    "bullmq-queue-workers",
+    "electron-desktop",
+    "oidc-production",
+    "otel-saas"
+  ]
+}

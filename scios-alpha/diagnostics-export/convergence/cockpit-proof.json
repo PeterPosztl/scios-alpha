@@ -1,0 +1,7 @@
+{
+  "healthz": true,
+  "html": true,
+  "metaOs": true,
+  "url": "http://127.0.0.1:5230/",
+  "labelsRequireEvidence": true
+}

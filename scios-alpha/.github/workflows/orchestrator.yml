@@ -1,0 +1,103 @@
+name: Orchestrator
+
+on:
+  workflow_dispatch:
+    inputs:
+      min_stars:
+        description: Minimum GitHub stars for filter step
+        required: false
+        default: "10"
+      clone_repos:
+        description: Clone filtered repos into sandbox (required for license/audit scan)
+        required: false
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+permissions:
+  contents: read
+
+jobs:
+  orchestrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.15.0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: pnpm
+
+      - name: Install deps
+        run: pnpm install --frozen-lockfile
+
+      - name: Discovery
+        run: pnpm orchestrator:discover
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Filter
+        run: pnpm orchestrator:filter
+        env:
+          ORCHESTRATOR_MIN_STARS: ${{ inputs.min_stars }}
+
+      - name: Clone (sandbox)
+        if: inputs.clone_repos == 'true'
+        run: pnpm orchestrator:clone
+        env:
+          ORCHESTRATOR_CLONE: "1"
+
+      - name: Clone (plan only)
+        if: inputs.clone_repos != 'true'
+        run: pnpm orchestrator:clone
+
+      - name: Scan (license-checker + npm audit)
+        run: pnpm orchestrator:scan
+
+      - name: Scaffold adapters
+        run: pnpm orchestrator:scaffold
+
+      - name: Generate test plans
+        run: pnpm orchestrator:gen-tests
+
+      - name: Upload orchestrator reports
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: orchestrator-reports
+          path: |
+            diagnostics-export/orchestrator/discovery.json
+            diagnostics-export/orchestrator/filtered.json
+            diagnostics-export/orchestrator/clone-plan.json
+            diagnostics-export/orchestrator/scan.json
+            diagnostics-export/orchestrator/scans/report.json
+            diagnostics-export/orchestrator/scaffold-manifest.json
+            diagnostics-export/orchestrator/test-plan.json
+            diagnostics-export/orchestrator/adapters/
+          if-no-files-found: ignore
+
+      - name: Summary
+        if: always()
+        run: |
+          node -e "
+          const fs=require('fs');
+          const p='diagnostics-export/orchestrator/scan.json';
+          if(!fs.existsSync(p)){ console.log('scan.json missing'); process.exit(0); }
+          const s=JSON.parse(fs.readFileSync(p,'utf8'));
+          console.log('Orchestrator summary');
+          console.log('  repos:', s.repos);
+          console.log('  scanned:', s.scanned);
+          console.log('  needsClone:', s.needsClone);
+          console.log('  errors:', s.errors);
+          "

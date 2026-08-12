@@ -1,0 +1,14 @@
+---
+description: Architecture — Meta-Intelligence and plane boundaries
+globs:
+  - packages/**/*
+  - apps/**/*
+alwaysApply: false
+---
+
+# Architecture
+
+- Meta-Intelligence Plane supervises capabilities; see `docs/META_INTELLIGENCE_PLANE.md`.
+- Cross-plane writes only via APIs/events — no silent DB coupling.
+- EventBus behind interface (`packages/observability` EventBus).
+- Python for science; TypeScript for control plane.

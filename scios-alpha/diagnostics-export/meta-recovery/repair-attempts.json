@@ -1,0 +1,31 @@
+{
+  "attempts": [
+    {
+      "repairId": "repair_541f1385",
+      "recipeId": "recipe.accept_alpha_no_db",
+      "at": "2026-07-16T23:55:37.007Z",
+      "dryRun": false,
+      "result": "success",
+      "detail": "documented_degraded_capability",
+      "changedResources": []
+    },
+    {
+      "repairId": "repair_399177b6",
+      "recipeId": "recipe.document_missing_electron",
+      "at": "2026-07-16T23:55:37.015Z",
+      "dryRun": false,
+      "result": "success",
+      "detail": "documented_degraded_capability",
+      "changedResources": []
+    },
+    {
+      "repairId": "repair_b7151523",
+      "recipeId": "recipe.document_missing_workers",
+      "at": "2026-07-16T23:55:37.017Z",
+      "dryRun": false,
+      "result": "success",
+      "detail": "documented_degraded_capability",
+      "changedResources": []
+    }
+  ]
+}

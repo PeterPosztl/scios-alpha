@@ -1,0 +1,29 @@
+{
+  "at": "2026-08-04T16:20:06.513Z",
+  "components": {
+    "postgres": {
+      "name": "postgres",
+      "required": false,
+      "healthy": false,
+      "ping": null,
+      "action": "skipped_optional",
+      "host": "127.0.0.1",
+      "port": 5432,
+      "ok": true,
+      "composeLog": null
+    },
+    "redis": {
+      "name": "redis",
+      "required": false,
+      "healthy": false,
+      "ping": null,
+      "action": "skipped_optional",
+      "host": "127.0.0.1",
+      "port": 6379,
+      "ok": true,
+      "composeLog": null
+    }
+  },
+  "ok": true,
+  "infraRequired": false
+}

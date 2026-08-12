@@ -1,0 +1,23 @@
+{
+  "name": "@scios/mock-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Developer mock API on :5230 — ALPHA / NON-PRODUCTION",
+  "main": "./dist/server.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "tsx src/server.ts",
+    "start:dist": "node dist/server.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@scios/vertical-slice": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

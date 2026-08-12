@@ -1,0 +1,72 @@
+{
+  "entries": [
+    {
+      "correlationId": "meta_5fc0b75f",
+      "machineFingerprint": "d9f1de5fe38960b025cd9215",
+      "at": "2026-07-16T23:51:30.257Z",
+      "failureSignature": "CONFIG_MISSING",
+      "successfulRecipes": [
+        "recipe.accept_alpha_no_db",
+        "recipe.document_missing_electron",
+        "recipe.document_missing_workers"
+      ],
+      "failedRecipes": [],
+      "verification": {
+        "controlPlane": true,
+        "cockpit": true,
+        "sliceSmoke": null
+      }
+    },
+    {
+      "correlationId": "meta_82f355d5",
+      "machineFingerprint": "d9f1de5fe38960b025cd9215",
+      "at": "2026-07-16T23:51:41.496Z",
+      "failureSignature": "CONFIG_MISSING",
+      "successfulRecipes": [
+        "recipe.accept_alpha_no_db",
+        "recipe.document_missing_electron",
+        "recipe.document_missing_workers"
+      ],
+      "failedRecipes": [],
+      "verification": {
+        "controlPlane": true,
+        "cockpit": true,
+        "sliceSmoke": null
+      }
+    },
+    {
+      "correlationId": "meta_2bd59a2c",
+      "machineFingerprint": "d9f1de5fe38960b025cd9215",
+      "at": "2026-07-16T23:52:47.191Z",
+      "failureSignature": "CONFIG_MISSING",
+      "successfulRecipes": [
+        "recipe.accept_alpha_no_db",
+        "recipe.document_missing_electron",
+        "recipe.document_missing_workers"
+      ],
+      "failedRecipes": [],
+      "verification": {
+        "controlPlane": true,
+        "cockpit": true,
+        "sliceSmoke": null
+      }
+    },
+    {
+      "correlationId": "meta_065fb1e3",
+      "machineFingerprint": "d9f1de5fe38960b025cd9215",
+      "at": "2026-07-16T23:55:37.044Z",
+      "failureSignature": "CONFIG_MISSING",
+      "successfulRecipes": [
+        "recipe.accept_alpha_no_db",
+        "recipe.document_missing_electron",
+        "recipe.document_missing_workers"
+      ],
+      "failedRecipes": [],
+      "verification": {
+        "controlPlane": true,
+        "cockpit": true,
+        "sliceSmoke": null
+      }
+    }
+  ]
+}

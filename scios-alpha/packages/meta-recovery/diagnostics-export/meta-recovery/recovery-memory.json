@@ -1,0 +1,55 @@
+{
+  "entries": [
+    {
+      "correlationId": "meta_88252f2a",
+      "machineFingerprint": "bdb66d338bfd5d82a829dcec",
+      "at": "2026-07-16T23:50:20.831Z",
+      "failureSignature": "CONFIG_MISSING",
+      "successfulRecipes": [
+        "recipe.accept_alpha_no_db",
+        "recipe.document_missing_electron",
+        "recipe.document_missing_workers"
+      ],
+      "failedRecipes": [],
+      "verification": {
+        "controlPlane": true,
+        "cockpit": true,
+        "sliceSmoke": null
+      }
+    },
+    {
+      "correlationId": "meta_7e69345d",
+      "machineFingerprint": "bdb66d338bfd5d82a829dcec",
+      "at": "2026-07-16T23:50:30.021Z",
+      "failureSignature": "CONFIG_MISSING",
+      "successfulRecipes": [
+        "recipe.accept_alpha_no_db",
+        "recipe.document_missing_electron",
+        "recipe.document_missing_workers"
+      ],
+      "failedRecipes": [],
+      "verification": {
+        "controlPlane": true,
+        "cockpit": true,
+        "sliceSmoke": null
+      }
+    },
+    {
+      "correlationId": "meta_ca3030c1",
+      "machineFingerprint": "bdb66d338bfd5d82a829dcec",
+      "at": "2026-07-16T23:50:41.264Z",
+      "failureSignature": "CONFIG_MISSING",
+      "successfulRecipes": [
+        "recipe.accept_alpha_no_db",
+        "recipe.document_missing_electron",
+        "recipe.document_missing_workers"
+      ],
+      "failedRecipes": [],
+      "verification": {
+        "controlPlane": true,
+        "cockpit": true,
+        "sliceSmoke": null
+      }
+    }
+  ]
+}

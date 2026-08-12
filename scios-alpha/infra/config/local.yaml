@@ -1,0 +1,42 @@
+# SCI OS ×10 — local-foundation config (non-secret structure)
+# Secrets live in .env (gitignored). See .env.example.
+
+env: local
+
+api:
+  host: localhost
+  port: 3000
+
+cockpit:
+  host: localhost
+  port: 4000
+
+database:
+  host: localhost
+  port: 5432
+  user: scios
+  # password: from DATABASE_URL / .env only
+  name: scios
+
+redis:
+  host: localhost
+  port: 6379
+
+logging:
+  level: info
+
+startup:
+  smokeQueue: "queue:smoke"
+
+# Legacy flat aliases (validate-config / docs)
+predictionUrl: "http://127.0.0.1:5201"
+riskUrl: "http://127.0.0.1:5202"
+executionUrl: "http://127.0.0.1:5210"
+controlPlaneUrl: "http://127.0.0.1:3000"
+cockpitUrl: "http://127.0.0.1:4000"
+
+limits:
+  maxPositionSize: 1000
+  maxLeverage: 3.0
+  maxDrawdown: 0.15
+  concentrationLimit: 0.25

@@ -1,0 +1,10 @@
+{
+  "name": "@scios/risk-engine",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "uvicorn app.main:app --host 0.0.0.0 --port 5202 --reload",
+    "start": "uvicorn app.main:app --host 0.0.0.0 --port 5202",
+    "test": "pytest -q"
+  }
+}

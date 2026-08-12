@@ -1,0 +1,19 @@
+{
+  "correlationId": "meta_065fb1e3",
+  "at": "2026-07-16T23:55:37.052Z",
+  "state": "SAFE_MODE",
+  "verdict": "SYSTEM_DEGRADED",
+  "dryRun": false,
+  "verification": {
+    "controlPlane": true,
+    "cockpit": true,
+    "sliceSmoke": null
+  },
+  "evidenceOk": true,
+  "missingArtifacts": [],
+  "attempts": 3,
+  "applied": 3,
+  "rejected": 0,
+  "rolledBack": 0,
+  "note": "ALPHA — no false READY; optional infra/desktop documented as absent"
+}

@@ -1,0 +1,12 @@
+---
+description: Development Intelligence — Wave discipline and proof
+globs:
+alwaysApply: false
+---
+
+# Development Intelligence
+
+- Follow Section 82 waves; complete Wave N before Wave N+1.
+- Every change: requirement, risk, tests, rollback, proof.
+- No autonomous production modification.
+- Record capability status honestly (ABSENT|STUB|ALPHA|BETA|STABLE).

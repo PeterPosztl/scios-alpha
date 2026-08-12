@@ -1,0 +1,103 @@
+{
+  "at": "2026-08-12T13:19:17.768Z",
+  "source": "filtered.json",
+  "plans": [
+    {
+      "surfaceId": "apps/cockpit-ui",
+      "adapterTarget": "diagnostics-export/orchestrator/adapters/apps__cockpit-ui.adapter.ts",
+      "action": "propose_stub",
+      "sourceSurface": "apps\\cockpit-ui",
+      "cloned": false,
+      "note": "In-repo plan only — constitution: propose-only, never auto-deploy"
+    },
+    {
+      "surfaceId": "apps/control-plane-api",
+      "adapterTarget": "diagnostics-export/orchestrator/adapters/apps__control-plane-api.adapter.ts",
+      "action": "propose_stub",
+      "sourceSurface": "apps\\control-plane-api",
+      "cloned": false,
+      "note": "In-repo plan only — constitution: propose-only, never auto-deploy"
+    },
+    {
+      "surfaceId": "apps/execution-simulator",
+      "adapterTarget": "diagnostics-export/orchestrator/adapters/apps__execution-simulator.adapter.ts",
+      "action": "propose_stub",
+      "sourceSurface": "apps\\execution-simulator",
+      "cloned": false,
+      "note": "In-repo plan only — constitution: propose-only, never auto-deploy"
+    },
+    {
+      "surfaceId": "apps/meta-recovery-control-plane",
+      "adapterTarget": "diagnostics-export/orchestrator/adapters/apps__meta-recovery-control-plane.adapter.ts",
+      "action": "propose_stub",
+      "sourceSurface": "apps\\meta-recovery-control-plane",
+      "cloned": false,
+      "note": "In-repo plan only — constitution: propose-only, never auto-deploy"
+    },
+    {
+      "surfaceId": "apps/mock-api",
+      "adapterTarget": "diagnostics-export/orchestrator/adapters/apps__mock-api.adapter.ts",
+      "action": "propose_stub",
+      "sourceSurface": "apps\\mock-api",
+      "cloned": false,
+      "note": "In-repo plan only — constitution: propose-only, never auto-deploy"
+    },
+    {
+      "surfaceId": "apps/prediction-engine",
+      "adapterTarget": "diagnostics-export/orchestrator/adapters/apps__prediction-engine.adapter.ts",
+      "action": "propose_stub",
+      "sourceSurface": "apps\\prediction-engine",
+      "cloned": false,
+      "note": "In-repo plan only — constitution: propose-only, never auto-deploy"
+    },
+    {
+      "surfaceId": "apps/risk-engine",
+      "adapterTarget": "diagnostics-export/orchestrator/adapters/apps__risk-engine.adapter.ts",
+      "action": "propose_stub",
+      "sourceSurface": "apps\\risk-engine",
+      "cloned": false,
+      "note": "In-repo plan only — constitution: propose-only, never auto-deploy"
+    },
+    {
+      "surfaceId": "packages/alpha-loop",
+      "adapterTarget": "diagnostics-export/orchestrator/adapters/packages__alpha-loop.adapter.ts",
+      "action": "propose_stub",
+      "sourceSurface": "packages\\alpha-loop",
+      "cloned": false,
+      "note": "In-repo plan only — constitution: propose-only, never auto-deploy"
+    },
+    {
+      "surfaceId": "packages/experiment-tracker",
+      "adapterTarget": "diagnostics-export/orchestrator/adapters/packages__experiment-tracker.adapter.ts",
+      "action": "propose_stub",
+      "sourceSurface": "packages\\experiment-tracker",
+      "cloned": false,
+      "note": "In-repo plan only — constitution: propose-only, never auto-deploy"
+    },
+    {
+      "surfaceId": "packages/meta-intelligence",
+      "adapterTarget": "diagnostics-export/orchestrator/adapters/packages__meta-intelligence.adapter.ts",
+      "action": "propose_stub",
+      "sourceSurface": "packages\\meta-intelligence",
+      "cloned": false,
+      "note": "In-repo plan only — constitution: propose-only, never auto-deploy"
+    },
+    {
+      "surfaceId": "packages/meta-recovery",
+      "adapterTarget": "diagnostics-export/orchestrator/adapters/packages__meta-recovery.adapter.ts",
+      "action": "propose_stub",
+      "sourceSurface": "packages\\meta-recovery",
+      "cloned": false,
+      "note": "In-repo plan only — constitution: propose-only, never auto-deploy"
+    },
+    {
+      "surfaceId": "packages/vertical-slice",
+      "adapterTarget": "diagnostics-export/orchestrator/adapters/packages__vertical-slice.adapter.ts",
+      "action": "propose_stub",
+      "sourceSurface": "packages\\vertical-slice",
+      "cloned": false,
+      "note": "In-repo plan only — constitution: propose-only, never auto-deploy"
+    }
+  ],
+  "externalClone": false
+}

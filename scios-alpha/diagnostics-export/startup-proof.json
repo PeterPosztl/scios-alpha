@@ -1,0 +1,153 @@
+{
+  "timestamp": "2026-08-04T16:33:11.327Z",
+  "manifestVersion": "0.9.0",
+  "buildSha": "UNAVAILABLE",
+  "layout": "alpha-source-fallback",
+  "runtimeVersion": "v24.13.1",
+  "profile": "local-foundation",
+  "oneClick": "SCI OS ×10.bat → installer/scripts/start-sci-os.cjs",
+  "infraHealth": {
+    "at": "2026-08-04T16:33:11.327Z",
+    "components": {
+      "postgres": {
+        "name": "postgres",
+        "required": false,
+        "healthy": false,
+        "action": "skipped_optional",
+        "ok": true
+      },
+      "redis": {
+        "name": "redis",
+        "required": false,
+        "healthy": false,
+        "ping": null,
+        "action": "skipped_optional_docker_down",
+        "ok": true
+      }
+    },
+    "ok": true,
+    "infraRequired": false
+  },
+  "readinessSnapshot": {
+    "at": "2026-08-04T16:33:11.324Z",
+    "backend": "READY",
+    "worker": "READY",
+    "cockpit": "READY",
+    "infra": "READY",
+    "migration": "READY",
+    "overall": "READY",
+    "details": {
+      "healthz": {
+        "status": 200,
+        "body": {
+          "ok": true,
+          "service": "@scios/control-plane-api",
+          "models": 0,
+          "verticalSlice": true,
+          "profile": "local-foundation"
+        }
+      },
+      "readyz": {
+        "status": 200,
+        "body": {
+          "ready": true,
+          "live": true,
+          "profile": "local-foundation",
+          "executionMode": "SIMULATION_ONLY",
+          "authMode": "local-development",
+          "telemetryMode": "local",
+          "governanceMode": "embedded-foundation",
+          "riskControl": true,
+          "foundationWorker": true,
+          "components": {
+            "riskControl": true,
+            "foundationWorker": true,
+            "database": "optional_absent",
+            "redis": "optional_absent",
+            "oidc": "disabled_local_development",
+            "otel": "local",
+            "hsm": "simulation_local_key_provider"
+          },
+          "foundationWorkerDetail": {
+            "name": "foundation-smoke-worker",
+            "online": true,
+            "lastHeartbeatAt": "2026-08-04T16:33:09.769Z",
+            "lastJobId": null,
+            "lastJobStatus": null,
+            "jobsCompleted": 0,
+            "heartbeatAgeMs": 1507
+          },
+          "labels": {
+            "productionClaims": false,
+            "simulationOnly": true
+          }
+        }
+      },
+      "workerSmoke": {
+        "status": 200,
+        "body": {
+          "jobId": "smoke_1785861191321",
+          "status": "completed",
+          "acknowledged": true,
+          "persisted": true,
+          "duplicate": false,
+          "worker": "foundation-smoke-worker",
+          "at": "2026-08-04T16:33:11.321Z"
+        }
+      },
+      "cockpitHttp": {
+        "status": 200
+      },
+      "infra": {
+        "dockerOk": false,
+        "redisPing": null,
+        "postgresConfigured": false,
+        "infraRequired": false
+      },
+      "migrations": {
+        "lockAcquired": true,
+        "expectedVersion": "alpha-inmemory-0",
+        "installedVersion": "alpha-inmemory-0",
+        "pending": [],
+        "destructivePending": [],
+        "status": "NOT_APPLICABLE",
+        "ok": true,
+        "note": "No durable schema migrations in ALPHA vertical slice"
+      }
+    }
+  },
+  "smokeJobResult": {
+    "status": 200,
+    "body": {
+      "jobId": "smoke_1785861191321",
+      "status": "completed",
+      "acknowledged": true,
+      "persisted": true,
+      "duplicate": false,
+      "worker": "foundation-smoke-worker",
+      "at": "2026-08-04T16:33:11.321Z"
+    }
+  },
+  "cockpitStatus": "READY",
+  "migration": {
+    "lockAcquired": true,
+    "expectedVersion": "alpha-inmemory-0",
+    "installedVersion": "alpha-inmemory-0",
+    "pending": [],
+    "destructivePending": [],
+    "status": "NOT_APPLICABLE",
+    "ok": true,
+    "note": "No durable schema migrations in ALPHA vertical slice"
+  },
+  "firstStartExit": 0,
+  "exitCode": 0,
+  "secondStart": {
+    "exit": 0,
+    "healthz": 200,
+    "readyz": 200,
+    "cockpit": 200,
+    "workerSmoke": 200
+  },
+  "signoff": "PASS",
+  "scorecard": "180/180"
+}

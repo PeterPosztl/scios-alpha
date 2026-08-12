@@ -1,0 +1,212 @@
+{
+  "at": "2026-08-12T13:19:18.957Z",
+  "source": "scaffold-manifest.json",
+  "plans": [
+    {
+      "surfaceId": "apps/cockpit-ui",
+      "adapterFile": "diagnostics-export/orchestrator/adapters/apps__cockpit-ui.adapter.ts",
+      "suggestedTestFile": "diagnostics-export/orchestrator/adapters/apps__cockpit-ui.adapter.test.ts",
+      "cases": [
+        {
+          "id": "returns_unknown_without_evidence",
+          "expect": "UNKNOWN"
+        },
+        {
+          "id": "documents_proposed_routes",
+          "expect": "routes array present"
+        }
+      ],
+      "verdict": "PLANNED",
+      "note": "No test files written automatically — plan only"
+    },
+    {
+      "surfaceId": "apps/control-plane-api",
+      "adapterFile": "diagnostics-export/orchestrator/adapters/apps__control-plane-api.adapter.ts",
+      "suggestedTestFile": "diagnostics-export/orchestrator/adapters/apps__control-plane-api.adapter.test.ts",
+      "cases": [
+        {
+          "id": "returns_unknown_without_evidence",
+          "expect": "UNKNOWN"
+        },
+        {
+          "id": "documents_proposed_routes",
+          "expect": "routes array present"
+        }
+      ],
+      "verdict": "PLANNED",
+      "note": "No test files written automatically — plan only"
+    },
+    {
+      "surfaceId": "apps/execution-simulator",
+      "adapterFile": "diagnostics-export/orchestrator/adapters/apps__execution-simulator.adapter.ts",
+      "suggestedTestFile": "diagnostics-export/orchestrator/adapters/apps__execution-simulator.adapter.test.ts",
+      "cases": [
+        {
+          "id": "returns_unknown_without_evidence",
+          "expect": "UNKNOWN"
+        },
+        {
+          "id": "documents_proposed_routes",
+          "expect": "routes array present"
+        }
+      ],
+      "verdict": "PLANNED",
+      "note": "No test files written automatically — plan only"
+    },
+    {
+      "surfaceId": "apps/meta-recovery-control-plane",
+      "adapterFile": "diagnostics-export/orchestrator/adapters/apps__meta-recovery-control-plane.adapter.ts",
+      "suggestedTestFile": "diagnostics-export/orchestrator/adapters/apps__meta-recovery-control-plane.adapter.test.ts",
+      "cases": [
+        {
+          "id": "returns_unknown_without_evidence",
+          "expect": "UNKNOWN"
+        },
+        {
+          "id": "documents_proposed_routes",
+          "expect": "routes array present"
+        }
+      ],
+      "verdict": "PLANNED",
+      "note": "No test files written automatically — plan only"
+    },
+    {
+      "surfaceId": "apps/mock-api",
+      "adapterFile": "diagnostics-export/orchestrator/adapters/apps__mock-api.adapter.ts",
+      "suggestedTestFile": "diagnostics-export/orchestrator/adapters/apps__mock-api.adapter.test.ts",
+      "cases": [
+        {
+          "id": "returns_unknown_without_evidence",
+          "expect": "UNKNOWN"
+        },
+        {
+          "id": "documents_proposed_routes",
+          "expect": "routes array present"
+        }
+      ],
+      "verdict": "PLANNED",
+      "note": "No test files written automatically — plan only"
+    },
+    {
+      "surfaceId": "apps/prediction-engine",
+      "adapterFile": "diagnostics-export/orchestrator/adapters/apps__prediction-engine.adapter.ts",
+      "suggestedTestFile": "diagnostics-export/orchestrator/adapters/apps__prediction-engine.adapter.test.ts",
+      "cases": [
+        {
+          "id": "returns_unknown_without_evidence",
+          "expect": "UNKNOWN"
+        },
+        {
+          "id": "documents_proposed_routes",
+          "expect": "routes array present"
+        }
+      ],
+      "verdict": "PLANNED",
+      "note": "No test files written automatically — plan only"
+    },
+    {
+      "surfaceId": "apps/risk-engine",
+      "adapterFile": "diagnostics-export/orchestrator/adapters/apps__risk-engine.adapter.ts",
+      "suggestedTestFile": "diagnostics-export/orchestrator/adapters/apps__risk-engine.adapter.test.ts",
+      "cases": [
+        {
+          "id": "returns_unknown_without_evidence",
+          "expect": "UNKNOWN"
+        },
+        {
+          "id": "documents_proposed_routes",
+          "expect": "routes array present"
+        }
+      ],
+      "verdict": "PLANNED",
+      "note": "No test files written automatically — plan only"
+    },
+    {
+      "surfaceId": "packages/alpha-loop",
+      "adapterFile": "diagnostics-export/orchestrator/adapters/packages__alpha-loop.adapter.ts",
+      "suggestedTestFile": "diagnostics-export/orchestrator/adapters/packages__alpha-loop.adapter.test.ts",
+      "cases": [
+        {
+          "id": "returns_unknown_without_evidence",
+          "expect": "UNKNOWN"
+        },
+        {
+          "id": "documents_proposed_routes",
+          "expect": "routes array present"
+        }
+      ],
+      "verdict": "PLANNED",
+      "note": "No test files written automatically — plan only"
+    },
+    {
+      "surfaceId": "packages/experiment-tracker",
+      "adapterFile": "diagnostics-export/orchestrator/adapters/packages__experiment-tracker.adapter.ts",
+      "suggestedTestFile": "diagnostics-export/orchestrator/adapters/packages__experiment-tracker.adapter.test.ts",
+      "cases": [
+        {
+          "id": "returns_unknown_without_evidence",
+          "expect": "UNKNOWN"
+        },
+        {
+          "id": "documents_proposed_routes",
+          "expect": "routes array present"
+        }
+      ],
+      "verdict": "PLANNED",
+      "note": "No test files written automatically — plan only"
+    },
+    {
+      "surfaceId": "packages/meta-intelligence",
+      "adapterFile": "diagnostics-export/orchestrator/adapters/packages__meta-intelligence.adapter.ts",
+      "suggestedTestFile": "diagnostics-export/orchestrator/adapters/packages__meta-intelligence.adapter.test.ts",
+      "cases": [
+        {
+          "id": "returns_unknown_without_evidence",
+          "expect": "UNKNOWN"
+        },
+        {
+          "id": "documents_proposed_routes",
+          "expect": "routes array present"
+        }
+      ],
+      "verdict": "PLANNED",
+      "note": "No test files written automatically — plan only"
+    },
+    {
+      "surfaceId": "packages/meta-recovery",
+      "adapterFile": "diagnostics-export/orchestrator/adapters/packages__meta-recovery.adapter.ts",
+      "suggestedTestFile": "diagnostics-export/orchestrator/adapters/packages__meta-recovery.adapter.test.ts",
+      "cases": [
+        {
+          "id": "returns_unknown_without_evidence",
+          "expect": "UNKNOWN"
+        },
+        {
+          "id": "documents_proposed_routes",
+          "expect": "routes array present"
+        }
+      ],
+      "verdict": "PLANNED",
+      "note": "No test files written automatically — plan only"
+    },
+    {
+      "surfaceId": "packages/vertical-slice",
+      "adapterFile": "diagnostics-export/orchestrator/adapters/packages__vertical-slice.adapter.ts",
+      "suggestedTestFile": "diagnostics-export/orchestrator/adapters/packages__vertical-slice.adapter.test.ts",
+      "cases": [
+        {
+          "id": "returns_unknown_without_evidence",
+          "expect": "UNKNOWN"
+        },
+        {
+          "id": "documents_proposed_routes",
+          "expect": "routes array present"
+        }
+      ],
+      "verdict": "PLANNED",
+      "note": "No test files written automatically — plan only"
+    }
+  ],
+  "testsGenerated": 0,
+  "label": "ALPHA_NON_PRODUCTION"
+}

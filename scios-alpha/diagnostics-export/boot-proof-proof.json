@@ -1,0 +1,90 @@
+{
+  "gate": "boot:proof",
+  "mode": "proof",
+  "at": "2026-07-16T23:26:33.265Z",
+  "finishedAt": "2026-07-16T23:28:12.898Z",
+  "verdict": "GO",
+  "platformLabel": "ALPHA_NON_PRODUCTION",
+  "enterpriseClaim": false,
+  "repairs": [],
+  "failures": [],
+  "evidence": [
+    {
+      "id": "pnpm-only",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "id": "file:package.json",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:pnpm-lock.yaml",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:pnpm-workspace.yaml",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:packages/data-fabric/src/pipeline-contracts.ts",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:packages/vertical-slice/src/pipeline.ts",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:packages/data-fabric/fixtures/prediction-envelope.normative.json",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:packages/data-fabric/fixtures/risk-decision-envelope.normative.json",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "fixture:prediction",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "id": "fixture:risk",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "id": "proof:ci:prediction-foundation-gate",
+      "ok": true,
+      "detail": "GO"
+    },
+    {
+      "id": "proof:alpha-check",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "id": "zod:envelopes",
+      "ok": true,
+      "detail": "normative fixtures parse"
+    },
+    {
+      "id": "smoke:vertical-slice",
+      "ok": true,
+      "detail": "p\\SCI\\scios-alpha\\packages\\vertical-slice\n> tsx src/boot-smoke.ts\n\n{\"ok\":true,\"runId\":\"run_87d1777f-16c8-45c9-a0cb-d02597832384\",\"model\":{\"id\":\"baseline-logistic\",\"version\":\"1.0.0\"},\"riskApproved\":true,\"decision\":\"APPROVE\",\"tipHash\":\"2af958748971f98462e82b4056586a056669b09f53001b850c4b69993fe9eab6\"}"
+    }
+  ],
+  "modes": {
+    "normal": "automatic normal startup",
+    "repair": "automatic repair of known issues",
+    "safe": "limited read-only usable startup",
+    "proof": "full startup validation + GO/NO_GO evidence"
+  },
+  "rule": "No evidence means UNKNOWN, never PASS"
+}

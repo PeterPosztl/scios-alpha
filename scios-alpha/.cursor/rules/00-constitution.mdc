@@ -1,0 +1,15 @@
+---
+description: SCI OS ×10 constitution — honesty, evidence, no false READY
+globs:
+alwaysApply: true
+---
+
+# Constitution
+
+1. ALPHA scaffold ≠ enterprise READY.
+2. No evidence ⇒ UNKNOWN, never PASS.
+3. Self-evolution is propose-only; never auto-deploy.
+4. Prefer vertical slices with proof over mass stubs.
+5. pnpm is the only package manager.
+6. Baseline models must be labeled NON-PRODUCTION.
+7. Do not rewrite stable contracts without approval.

@@ -1,0 +1,9 @@
+{
+  "repairId": "repair_9a1a7645",
+  "recipeId": "recipe.accept_alpha_no_db",
+  "at": "2026-07-16T23:50:29.987Z",
+  "dryRun": false,
+  "result": "success",
+  "detail": "documented_degraded_capability",
+  "changedResources": []
+}

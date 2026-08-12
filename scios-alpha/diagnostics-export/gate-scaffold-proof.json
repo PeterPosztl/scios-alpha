@@ -1,0 +1,81 @@
+{
+  "gate": "gate:scaffold",
+  "at": "2026-07-16T22:50:18.809Z",
+  "verdict": "GO",
+  "failures": [],
+  "evidence": [
+    {
+      "id": "packageManager",
+      "kind": "build_execution",
+      "ok": true,
+      "detail": "pnpm@9.15.0"
+    },
+    {
+      "id": "pnpm-lock",
+      "kind": "build_execution",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "npm-lock-absent",
+      "kind": "build_execution",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "id": "workspace",
+      "kind": "build_execution",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:AGENTS.md",
+      "kind": "build_execution",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:docs/enterprise/CAPABILITY_REGISTRY.json",
+      "kind": "build_execution",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:docs/enterprise/DEFINITION_OF_DONE.json",
+      "kind": "build_execution",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "registry-honesty",
+      "kind": "build_execution",
+      "ok": true,
+      "detail": "ABSENT enterprise modules declared"
+    },
+    {
+      "id": "registry-report",
+      "kind": "build_execution",
+      "ok": true,
+      "detail": "diagnostics-export/capability-registry-report.json"
+    },
+    {
+      "id": "build",
+      "kind": "build_execution",
+      "ok": true,
+      "detail": "pnpm build ok"
+    },
+    {
+      "id": "test:data-fabric",
+      "kind": "build_execution",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "id": "alpha-check",
+      "kind": "build_execution",
+      "ok": true,
+      "detail": "ok"
+    }
+  ],
+  "rule": "No evidence means UNKNOWN, never PASS"
+}

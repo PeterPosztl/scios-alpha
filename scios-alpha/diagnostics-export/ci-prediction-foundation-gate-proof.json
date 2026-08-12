@@ -1,0 +1,123 @@
+{
+  "gate": "ci:prediction-foundation-gate",
+  "slice": "raw_event → normalized_event → pit_feature → baseline_prediction → calibration_uncertainty → independent_risk_gate → governance_decision → deterministic_execution → outcome → immutable_lineage → cockpit_view",
+  "at": "2026-07-17T00:07:59.308Z",
+  "verdict": "NO_GO",
+  "platformLabel": "ALPHA_NON_PRODUCTION",
+  "enterpriseClaim": false,
+  "normativeFixtures": {
+    "prediction": "packages/data-fabric/fixtures/prediction-envelope.normative.json",
+    "risk": "packages/data-fabric/fixtures/risk-decision-envelope.normative.json"
+  },
+  "failures": [
+    {
+      "id": "gate:foundation",
+      "detail": "\n> scios-alpha@ gate:foundation C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\n> node scripts/gate-foundation.mjs\n\n{\n  \"verdict\": \"NO_GO\",\n  \"failures\": 1,\n  \"warnings\": 1\n}\n ELIFECYCLE  Command failed with exit code 1.\n"
+    }
+  ],
+  "warnings": [
+    {
+      "id": "scope:alpha",
+      "detail": "ci:prediction-foundation-gate GO is ALPHA only — not ENTERPRISE GO"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "install:frozen",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "id": "file:packages/data-fabric/src/pipeline-contracts.ts",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:packages/vertical-slice/src/pipeline.ts",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:packages/data-fabric/fixtures/prediction-envelope.normative.json",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:packages/data-fabric/fixtures/risk-decision-envelope.normative.json",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:packages/data-fabric/src/prediction.envelope.test.ts",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "file:packages/data-fabric/src/risk.decision.test.ts",
+      "ok": true,
+      "detail": "present"
+    },
+    {
+      "id": "fixture:prediction",
+      "ok": true,
+      "detail": "normative prediction envelope present"
+    },
+    {
+      "id": "fixture:risk",
+      "ok": true,
+      "detail": "normative risk decision envelope present"
+    },
+    {
+      "id": "build:data-fabric",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "id": "zod:PredictionEnvelopeSchema",
+      "ok": true,
+      "detail": "normative fixture parses"
+    },
+    {
+      "id": "zod:RiskDecisionEnvelopeSchema",
+      "ok": true,
+      "detail": "normative fixture parses"
+    },
+    {
+      "id": "test:data-fabric",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "id": "test:vertical-slice",
+      "ok": true,
+      "detail": "E2E chain + envelopes"
+    },
+    {
+      "id": "gate:foundation",
+      "ok": false,
+      "detail": "\n> scios-alpha@ gate:foundation C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\n> node scripts/gate-foundation.mjs\n\n{\n  \"verdict\": \"NO_GO\",\n  \"failures\": 1,\n  \"warnings\": 1\n}\n ELIFECYCLE  Command failed with exit code 1.\n"
+    },
+    {
+      "id": "contract:PredictionEnvelopeSchema",
+      "ok": true,
+      "detail": "declared"
+    },
+    {
+      "id": "contract:RiskDecisionEnvelopeSchema",
+      "ok": true,
+      "detail": "declared"
+    },
+    {
+      "id": "contract:VERTICAL_SLICE_STAGES",
+      "ok": true,
+      "detail": "declared"
+    },
+    {
+      "id": "scope:alpha",
+      "ok": true,
+      "warn": true,
+      "detail": "ci:prediction-foundation-gate GO is ALPHA only — not ENTERPRISE GO"
+    }
+  ],
+  "rule": "No evidence means UNKNOWN, never PASS"
+}

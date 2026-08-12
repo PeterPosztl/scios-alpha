@@ -1,0 +1,74 @@
+{
+  "at": "2026-07-16T23:55:34.316Z",
+  "expected": {
+    "requiredComponents": [
+      "NodeRuntime",
+      "BootstrapKernel",
+      "StartupRecoveryPack",
+      "ControlPlaneBackend",
+      "CockpitHttp",
+      "VerticalSlice",
+      "MetaRecoveryEngine"
+    ],
+    "optionalComponents": [
+      "DesktopElectron",
+      "PostgreSQL",
+      "RedisQueue",
+      "QueueWorkers"
+    ],
+    "expectedPorts": [
+      5200,
+      5230
+    ],
+    "allowedDegraded": [
+      "PostgreSQL",
+      "RedisQueue",
+      "QueueWorkers",
+      "DesktopElectron"
+    ],
+    "maxStartupMs": 180000
+  },
+  "actual": {
+    "BootstrapKernel": "AVAILABLE",
+    "StartupRecoveryPack": "AVAILABLE",
+    "NodeRuntime": "AVAILABLE",
+    "ControlPlaneBackend": "AVAILABLE",
+    "CockpitHttp": "AVAILABLE",
+    "VerticalSlice": "AVAILABLE",
+    "DesktopElectron": "MISSING",
+    "PostgreSQL": "MISSING",
+    "RedisQueue": "UNKNOWN",
+    "QueueWorkers": "MISSING",
+    "MetaRecoveryEngine": "AVAILABLE"
+  },
+  "missingRequired": [],
+  "degradedOptional": [
+    "DesktopElectron",
+    "PostgreSQL",
+    "RedisQueue",
+    "QueueWorkers"
+  ],
+  "incompatible": [],
+  "repairTasks": [
+    {
+      "type": "document_optional_gap",
+      "capability": "DesktopElectron",
+      "priority": 3
+    },
+    {
+      "type": "document_optional_gap",
+      "capability": "PostgreSQL",
+      "priority": 3
+    },
+    {
+      "type": "document_optional_gap",
+      "capability": "RedisQueue",
+      "priority": 3
+    },
+    {
+      "type": "document_optional_gap",
+      "capability": "QueueWorkers",
+      "priority": 3
+    }
+  ]
+}

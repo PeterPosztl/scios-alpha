@@ -1,0 +1,213 @@
+{
+  "at": "2026-07-16T23:35:24.529Z",
+  "appRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+  "node": {
+    "path": "C:\\Program Files\\nodejs\\node.exe",
+    "source": "system",
+    "version": "24.13.1",
+    "usable": true,
+    "failureReason": null,
+    "searched": [
+      "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\runtime\\node\\node.exe",
+      "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\runtime\\node\\win-x64\\node.exe",
+      "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\runtime\\node\\bin\\node",
+      "C:\\Program Files\\nodejs\\node.exe"
+    ]
+  },
+  "entries": {
+    "backend": {
+      "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\control-plane-api\\src\\server.ts",
+      "required": true,
+      "status": "FOUND",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\control-plane-api\\src\\server.ts",
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\control-plane-api\\dist\\server.js"
+      ]
+    },
+    "cockpit": {
+      "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\cockpit-ui\\src\\index.js",
+      "required": true,
+      "status": "FOUND",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\cockpit-ui\\src\\index.js"
+      ]
+    },
+    "verticalSliceSmoke": {
+      "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\vertical-slice\\src\\boot-smoke.ts",
+      "required": true,
+      "status": "FOUND",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\vertical-slice\\src\\boot-smoke.ts"
+      ]
+    },
+    "bootOrchestrator": {
+      "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\scripts\\boot\\index.mjs",
+      "required": true,
+      "status": "FOUND",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\scripts\\boot\\index.mjs",
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\installer\\scripts\\start-sci-os.cjs"
+      ]
+    },
+    "predictionEngine": {
+      "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\prediction-engine\\app\\main.py",
+      "required": false,
+      "status": "FOUND",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\prediction-engine\\app\\main.py"
+      ]
+    },
+    "riskEngine": {
+      "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\risk-engine\\app\\main.py",
+      "required": false,
+      "status": "FOUND",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\risk-engine\\app\\main.py"
+      ]
+    },
+    "executionSimulator": {
+      "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\execution-simulator\\src\\server.ts",
+      "required": false,
+      "status": "FOUND",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\execution-simulator\\src\\server.ts"
+      ]
+    },
+    "electronDesktop": {
+      "path": null,
+      "required": false,
+      "status": "MISSING_OPTIONAL",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\desktop\\main.js",
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\desktop\\main.js"
+      ]
+    },
+    "workerQueue": {
+      "path": null,
+      "required": false,
+      "status": "MISSING_OPTIONAL",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\workers\\queue.js",
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\workers\\src\\index.ts"
+      ]
+    },
+    "orchestratorApi": {
+      "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\control-plane-api\\src\\server.ts",
+      "required": false,
+      "status": "FOUND",
+      "candidates": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\control-plane-api\\src\\server.ts"
+      ]
+    }
+  },
+  "config": {
+    "valid": true,
+    "requiredMissing": [],
+    "optionalMissing": [
+      "DATABASE_URL",
+      "electron-desktop"
+    ],
+    "enabledSubsystems": [
+      "vertical-slice",
+      "control-plane-api",
+      "cockpit-ui",
+      "boot-modes",
+      "redis"
+    ],
+    "disabledSubsystems": [
+      "postgresql",
+      "electron-desktop"
+    ],
+    "warnings": [
+      "DATABASE_URL not set — ALPHA in-process mode (no durable DB)"
+    ],
+    "blockers": [],
+    "redactedConfig": {
+      "runtimeMode": "alpha-local",
+      "apiPort": 5200,
+      "cockpitPort": 5230,
+      "diagnosticsDir": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export",
+      "controlPlaneUrl": "http://127.0.0.1:5200",
+      "cockpitUrl": "http://127.0.0.1:5230",
+      "predictionUrl": "http://127.0.0.1:5201",
+      "DATABASE_URL": null,
+      "REDIS_URL": "redis://127.0.0.1:6379"
+    }
+  },
+  "docker": {
+    "status": "AVAILABLE",
+    "failureClass": null,
+    "nextAction": null,
+    "detail": "docker info ok"
+  },
+  "postgres": {
+    "configured": false,
+    "reachable": false,
+    "authenticated": false,
+    "databaseExists": false,
+    "migrationsCurrent": false,
+    "provisioned": false,
+    "failureClass": null,
+    "nextAction": null,
+    "classification": "NOT_CONFIGURED_OPTIONAL",
+    "redactedUrl": null,
+    "note": "ALPHA spine uses in-memory ledger; DATABASE_URL optional"
+  },
+  "redis": {
+    "configured": true,
+    "reachable": true,
+    "ping": false,
+    "bullmqPreflight": false,
+    "classification": "TCP_OPEN_UNVERIFIED",
+    "failureClass": null,
+    "nextAction": "Install redis client for PING proof (ALPHA stub)",
+    "redactedUrl": "redis://127.0.0.1:6379",
+    "note": "No ioredis in ALPHA startup — TCP only; PING not claimed PASS"
+  },
+  "migrations": {
+    "lockAcquired": true,
+    "expectedVersion": "alpha-inmemory-0",
+    "installedVersion": "alpha-inmemory-0",
+    "pending": [],
+    "destructivePending": [],
+    "status": "NOT_APPLICABLE",
+    "ok": true,
+    "note": "No durable schema migrations in ALPHA vertical slice"
+  },
+  "actions": [
+    {
+      "problem": "runtime",
+      "action": "resolve_node",
+      "result": "ok",
+      "residualRisk": "none"
+    },
+    {
+      "problem": "entries",
+      "action": "resolve_entries",
+      "result": "ok",
+      "residualRisk": "none"
+    },
+    {
+      "problem": "config",
+      "action": "validate_config",
+      "result": "ok",
+      "residualRisk": "low"
+    },
+    {
+      "problem": "docker",
+      "action": "classify",
+      "result": "AVAILABLE",
+      "residualRisk": "none",
+      "nextAction": null
+    },
+    {
+      "problem": "alpha_known_issues",
+      "action": "scripts/boot/index.mjs repair",
+      "result": "ok",
+      "residualRisk": "low",
+      "rollback": "git checkout diagnostics / fixtures"
+    }
+  ],
+  "verdict": "REPAIR_OK",
+  "enterpriseClaim": false
+}

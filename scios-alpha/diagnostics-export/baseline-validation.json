@@ -1,0 +1,134 @@
+﻿{
+    "schemaVersion":  "1.0.0",
+    "inspectedAt":  "2026-07-16T22:50:46.9331117Z",
+    "workingDirectory":  "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+    "packageManager":  "pnpm@9.15.0",
+    "steps":  [
+                  {
+                      "name":  "install:repro",
+                      "command":  "pnpm install --frozen-lockfile",
+                      "workingDirectory":  "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+                      "exitCode":  0,
+                      "result":  "PASS",
+                      "durationMs":  3015,
+                      "failureMessage":  null,
+                      "stdoutTail":  "Scope: all 14 workspace projects\r\n(node:18204) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.\r\n(Use `node --trace-deprecation ...` to show where the warning was created)\r\nLockfile is up to date, resolution step is skipped\r\nAlready up to date\r\n\r\ndevDependencies:\r\n+ @types/jest 29.5.14\r\n+ @types/node 22.20.1\r\n+ jest 29.7.0\r\n+ nodemon 3.1.14\r\n+ ts-jest 29.4.11\r\n+ ts-node 10.9.2\r\n+ typescript 5.9.3\r\n\r\nDone in 2.5s\r\n"
+                  },
+                  {
+                      "name":  "lint",
+                      "command":  "(none)",
+                      "workingDirectory":  "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+                      "exitCode":  null,
+                      "result":  "SKIP",
+                      "durationMs":  0,
+                      "failureMessage":  "No lint/eslint/prettier configured in package.json",
+                      "stdoutTail":  ""
+                  },
+                  {
+                      "name":  "typecheck",
+                      "command":  "pnpm typecheck",
+                      "workingDirectory":  "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+                      "exitCode":  0,
+                      "result":  "PASS",
+                      "durationMs":  5343,
+                      "failureMessage":  null,
+                      "stdoutTail":  "\r\n\u003e scios-alpha@ typecheck C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\r\n\u003e pnpm -r --filter \"./packages/**\" --if-present run typecheck\r\n\r\nScope: 8 of 14 workspace projects\r\npackages/meta-intelligence typecheck$ tsc -p tsconfig.json --noEmit\r\npackages/meta-intelligence typecheck: Done\r\n"
+                  },
+                  {
+                      "name":  "unit_tests",
+                      "command":  "pnpm test",
+                      "workingDirectory":  "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+                      "exitCode":  0,
+                      "result":  "PASS",
+                      "durationMs":  6885,
+                      "failureMessage":  null,
+                      "stdoutTail":  "\r\n\u003e scios-alpha@ test C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\r\n\u003e pnpm --filter @scios/data-fabric test\r\n\r\n\r\n\u003e @scios/data-fabric@0.1.0 test C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\data-fabric\r\n\u003e jest --config jest.config.cjs\r\n\r\nPASS src/domain.test.ts\r\nPASS src/ontology.ledger.test.ts\r\n\r\nTest Suites: 2 passed, 2 total\r\nTests:       4 passed, 4 total\r\nSnapshots:   0 total\r\nTime:        4.007 s\r\nRan all test suites.\r\n"
+                  },
+                  {
+                      "name":  "build",
+                      "command":  "pnpm build",
+                      "workingDirectory":  "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+                      "exitCode":  0,
+                      "result":  "PASS",
+                      "durationMs":  17506,
+                      "failureMessage":  null,
+                      "stdoutTail":  "\u003e pnpm -r --filter \"./packages/**\" run build\r\n\r\nScope: 8 of 14 workspace projects\r\npackages/alpha-loop build$ tsc -p tsconfig.json\r\npackages/meta-intelligence build$ tsc -p tsconfig.json\r\npackages/data-fabric build$ tsc -p tsconfig.json\r\npackages/experiment-tracker build$ tsc -p tsconfig.json\r\npackages/experiment-tracker build: Done\r\npackages/observability build$ tsc -p tsconfig.json\r\npackages/alpha-loop build: Done\r\npackages/meta-intelligence build: Done\r\npackages/data-fabric build: Done\r\npackages/observability build: Done\r\npackages/feature-store build$ tsc -p tsconfig.json\r\npackages/governance-engine build$ tsc -p tsconfig.json\r\npackages/model-registry build$ tsc -p tsconfig.json\r\npackages/feature-store build: Done\r\npackages/governance-engine build: Done\r\npackages/model-registry build: Done\r\n"
+                  },
+                  {
+                      "name":  "runtime_smoke_alpha_check",
+                      "command":  "pnpm check",
+                      "workingDirectory":  "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+                      "exitCode":  0,
+                      "result":  "PASS",
+                      "durationMs":  5696,
+                      "failureMessage":  null,
+                      "stdoutTail":  "\r\n\u003e scios-alpha@ check C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\r\n\u003e pnpm --filter @scios/alpha-loop check\r\n\r\n\r\n\u003e @scios/alpha-loop@0.1.0 check C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\alpha-loop\r\n\u003e ts-node src/master.ts health\r\n\r\n[DataFabric] init ÔÇô mock in-memory fabric (ALPHA, NON-PRODUCTION)\r\n[FeatureStore] init ÔÇô point-in-time mock (ALPHA)\r\n[PredictionEngine] init ÔÇô baseline linear model (ALPHA)\r\n[RiskEngine] init ÔÇô simple VaR gate (ALPHA)\r\n[ExecutionSimulator] init ÔÇô paper trading loop (ALPHA)\r\nSCI OS ├ù10 ALPHA ÔÇô health OK (modules wired)\r\n"
+                  },
+                  {
+                      "name":  "runtime_smoke_alpha_sim",
+                      "command":  "pnpm sim",
+                      "workingDirectory":  "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+                      "exitCode":  0,
+                      "result":  "PASS",
+                      "durationMs":  4377,
+                      "failureMessage":  null,
+                      "stdoutTail":  "[DataFabric] init ÔÇô mock in-memory fabric (ALPHA, NON-PRODUCTION)\r\n[FeatureStore] init ÔÇô point-in-time mock (ALPHA)\r\n[PredictionEngine] init ÔÇô baseline linear model (ALPHA)\r\n[RiskEngine] init ÔÇô simple VaR gate (ALPHA)\r\n[ExecutionSimulator] init ÔÇô paper trading loop (ALPHA)\r\n[ExecutionSimulator] scenario alpha-default start\r\n[t=0] TRADE: ret=-2.32% pnl=-115.85 capital=99884.15\r\n[t=5] TRADE: ret=-1.87% pnl=-93.39 capital=99790.77\r\n[t=10] TRADE: ret=2.21% pnl=110.24 capital=99901.00\r\n[t=15] TRADE: ret=2.04% pnl=101.90 capital=100002.90\r\n[t=20] TRADE: ret=1.51% pnl=75.41 capital=100078.31\r\n[t=25] TRADE: ret=1.09% pnl=54.36 capital=100132.67\r\n[t=30] TRADE: ret=1.43% pnl=71.76 capital=100204.43\r\n[t=35] TRADE: ret=0.15% pnl=7.67 capital=100212.11\r\n[t=40] TRADE: ret=-1.37% pnl=-68.84 capital=100143.27\r\n[t=45] TRADE: ret=1.75% pnl=87.45 capital=100230.72\r\n[t=50] TRADE: ret=1.48% pnl=74.37 capital=100305.09\r\n[t=55] TRADE: ret=0.51% pnl=25.46 capital=100330.55\r\n[ExecutionSimulator] scenario alpha-default end ÔÇô final capital=100330.55\r\n"
+                  },
+                  {
+                      "name":  "gate_scaffold",
+                      "command":  "pnpm gate:scaffold",
+                      "workingDirectory":  "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+                      "exitCode":  0,
+                      "result":  "PASS",
+                      "durationMs":  34715,
+                      "failureMessage":  null,
+                      "stdoutTail":  "\r\n\u003e scios-alpha@ gate:scaffold C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\r\n\u003e node scripts/gate-scaffold.mjs\r\n\r\n{\r\n  \"verdict\": \"GO\",\r\n  \"failures\": 0\r\n}\r\n"
+                  },
+                  {
+                      "name":  "gate_contracts",
+                      "command":  "pnpm gate:contracts",
+                      "workingDirectory":  "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+                      "exitCode":  0,
+                      "result":  "PASS",
+                      "durationMs":  14508,
+                      "failureMessage":  null,
+                      "stdoutTail":  "\r\n\u003e scios-alpha@ gate:contracts C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\r\n\u003e node scripts/gate-contracts.mjs\r\n\r\n{\r\n  \"verdict\": \"GO\",\r\n  \"failures\": 0\r\n}\r\n"
+                  },
+                  {
+                      "name":  "python_prediction_tests",
+                      "command":  "python -m pytest tests -q",
+                      "workingDirectory":  "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\prediction-engine",
+                      "exitCode":  0,
+                      "result":  "PASS",
+                      "durationMs":  9552,
+                      "failureMessage":  null,
+                      "stdoutTail":  "..                                                                       [100%]\r\n============================== warnings summary ===============================\r\n..\\..\\..\\..\\..\\AppData\\Roaming\\Python\\Python314\\site-packages\\fastapi\\testclient.py:1\r\n  C:\\Users\\peter\\AppData\\Roaming\\Python\\Python314\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\r\n    from starlette.testclient import TestClient as TestClient  # noqa\r\n\r\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\r\n2 passed, 1 warning in 5.52s\r\n"
+                  },
+                  {
+                      "name":  "python_risk_tests",
+                      "command":  "python -m pytest tests -q",
+                      "workingDirectory":  "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\apps\\risk-engine",
+                      "exitCode":  0,
+                      "result":  "PASS",
+                      "durationMs":  3944,
+                      "failureMessage":  null,
+                      "stdoutTail":  "..                                                                       [100%]\r\n============================== warnings summary ===============================\r\n..\\..\\..\\..\\..\\AppData\\Roaming\\Python\\Python314\\site-packages\\fastapi\\testclient.py:1\r\n  C:\\Users\\peter\\AppData\\Roaming\\Python\\Python314\\site-packages\\fastapi\\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.\r\n    from starlette.testclient import TestClient as TestClient  # noqa\r\n\r\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\r\n2 passed, 1 warning in 1.58s\r\n"
+                  },
+                  {
+                      "name":  "integration_tests",
+                      "command":  "(none dedicated)",
+                      "workingDirectory":  "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+                      "exitCode":  null,
+                      "result":  "SKIP",
+                      "durationMs":  0,
+                      "failureMessage":  "No dedicated integration test suite; control-plane E2E requires running services",
+                      "stdoutTail":  ""
+                  }
+              ],
+    "summary":  {
+                    "pass":  10,
+                    "fail":  0,
+                    "skip":  2
+                },
+    "overall":  "PASS_WITH_SKIPS"
+}

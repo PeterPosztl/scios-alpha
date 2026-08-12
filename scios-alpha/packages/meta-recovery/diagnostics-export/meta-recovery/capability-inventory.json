@@ -1,0 +1,158 @@
+{
+  "nodes": [
+    {
+      "id": "BootstrapKernel",
+      "provider": "installer/scripts",
+      "required": true,
+      "dependencies": [],
+      "fallbackProviders": [
+        "scripts/boot"
+      ],
+      "state": "MISSING",
+      "evidence": [
+        "installer/scripts/start-sci-os.cjs"
+      ],
+      "safeModeBehavior": "required"
+    },
+    {
+      "id": "StartupRecoveryPack",
+      "provider": "installer+boot",
+      "required": true,
+      "dependencies": [
+        "BootstrapKernel"
+      ],
+      "fallbackProviders": [],
+      "state": "MISSING",
+      "evidence": [
+        "SCI-OS-Start.bat",
+        "pnpm sci:start"
+      ],
+      "safeModeBehavior": "required"
+    },
+    {
+      "id": "NodeRuntime",
+      "provider": "system-or-bundled",
+      "required": true,
+      "dependencies": [],
+      "fallbackProviders": [],
+      "state": "AVAILABLE",
+      "evidence": [
+        "v24.13.1"
+      ],
+      "safeModeBehavior": "required"
+    },
+    {
+      "id": "ControlPlaneBackend",
+      "provider": "apps/control-plane-api",
+      "required": true,
+      "dependencies": [
+        "NodeRuntime",
+        "StartupRecoveryPack"
+      ],
+      "fallbackProviders": [],
+      "state": "MISSING",
+      "healthProbe": "http://127.0.0.1:5200/healthz",
+      "evidence": [
+        "apps/control-plane-api"
+      ],
+      "safeModeBehavior": "optional"
+    },
+    {
+      "id": "CockpitHttp",
+      "provider": "apps/cockpit-ui",
+      "required": true,
+      "dependencies": [
+        "ControlPlaneBackend"
+      ],
+      "fallbackProviders": [],
+      "state": "MISSING",
+      "healthProbe": "http://127.0.0.1:5230/healthz",
+      "evidence": [
+        "apps/cockpit-ui"
+      ],
+      "safeModeBehavior": "optional"
+    },
+    {
+      "id": "VerticalSlice",
+      "provider": "packages/vertical-slice",
+      "required": true,
+      "dependencies": [
+        "NodeRuntime"
+      ],
+      "fallbackProviders": [],
+      "state": "MISSING",
+      "evidence": [
+        "packages/vertical-slice"
+      ],
+      "safeModeBehavior": "optional"
+    },
+    {
+      "id": "DesktopElectron",
+      "provider": "apps/desktop",
+      "required": false,
+      "dependencies": [
+        "CockpitHttp"
+      ],
+      "fallbackProviders": [
+        "CockpitHttp"
+      ],
+      "state": "MISSING",
+      "evidence": [
+        "ABSENT"
+      ],
+      "safeModeBehavior": "disabled"
+    },
+    {
+      "id": "PostgreSQL",
+      "provider": "external-or-docker",
+      "required": false,
+      "dependencies": [],
+      "fallbackProviders": [],
+      "state": "MISSING",
+      "evidence": [
+        "NOT_CONFIGURED"
+      ],
+      "safeModeBehavior": "disabled"
+    },
+    {
+      "id": "RedisQueue",
+      "provider": "external-or-docker",
+      "required": false,
+      "dependencies": [],
+      "fallbackProviders": [],
+      "state": "UNKNOWN",
+      "evidence": [
+        "CONFIGURED"
+      ],
+      "safeModeBehavior": "disabled"
+    },
+    {
+      "id": "QueueWorkers",
+      "provider": "bullmq-absent",
+      "required": false,
+      "dependencies": [
+        "RedisQueue"
+      ],
+      "fallbackProviders": [],
+      "state": "MISSING",
+      "evidence": [
+        "ABSENT_QUEUE_WORKERS"
+      ],
+      "safeModeBehavior": "disabled"
+    },
+    {
+      "id": "MetaRecoveryEngine",
+      "provider": "packages/meta-recovery",
+      "required": true,
+      "dependencies": [
+        "BootstrapKernel"
+      ],
+      "fallbackProviders": [],
+      "state": "AVAILABLE",
+      "evidence": [
+        "packages/meta-recovery"
+      ],
+      "safeModeBehavior": "required"
+    }
+  ]
+}

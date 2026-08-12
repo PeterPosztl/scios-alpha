@@ -1,0 +1,11 @@
+@echo off
+REM SCI OS ×10 — Normal Start (no PowerShell required)
+cd /d "%~dp0"
+where node >nul 2>&1
+if errorlevel 1 (
+  echo Node.js is required. Install Node 20+ from https://nodejs.org
+  pause
+  exit /b 1
+)
+node "installer\scripts\start-sci-os.cjs" --mode=normal --serve
+pause

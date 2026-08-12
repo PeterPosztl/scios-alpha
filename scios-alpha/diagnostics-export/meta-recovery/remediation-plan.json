@@ -1,0 +1,15 @@
+{
+  "correlationId": "meta_065fb1e3",
+  "order": [
+    "recipe.accept_alpha_no_db",
+    "recipe.document_missing_electron",
+    "recipe.document_missing_workers"
+  ],
+  "rankingCriteria": [
+    "safety",
+    "reversibility",
+    "evidence_confidence",
+    "minimal_impact",
+    "expected_success"
+  ]
+}

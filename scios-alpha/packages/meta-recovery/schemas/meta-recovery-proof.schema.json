@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://scios.local/schemas/meta-recovery-proof.json",
+  "type": "object",
+  "required": ["correlationId", "verdict", "verification", "at"],
+  "properties": {
+    "correlationId": { "type": "string" },
+    "verdict": {
+      "type": "string",
+      "enum": ["SYSTEM_READY", "SYSTEM_DEGRADED", "EXTERNAL_BLOCKER_PROVEN", "SYSTEM_NO_GO"]
+    },
+    "verification": { "type": "object" },
+    "at": { "type": "string" },
+    "evidenceOk": { "type": "boolean" }
+  }
+}
