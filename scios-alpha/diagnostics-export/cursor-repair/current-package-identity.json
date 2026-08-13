@@ -1,0 +1,9 @@
+{
+  "schema": "sci-os-current-package-identity/v1",
+  "at": "2026-08-13T21:14:59.394Z",
+  "distExists": true,
+  "buildId": "pkg_1786655262790",
+  "packagedNode": "v20.18.1",
+  "nodeOk": true,
+  "exitContractInDist": true
+}

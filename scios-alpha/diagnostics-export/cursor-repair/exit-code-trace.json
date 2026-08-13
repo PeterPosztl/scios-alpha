@@ -1,0 +1,53 @@
+{
+  "schema": "sci-os-exit-code-trace/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-13T21:00:00.000Z",
+  "observedSymptom": {
+    "startupPayload": {
+      "verdict": "DEGRADED",
+      "blockers": [],
+      "warnings": [
+        "default.yaml missing",
+        "DATABASE_URL not set",
+        "REDIS_URL not set",
+        "Docker ENGINE_STOPPED"
+      ]
+    },
+    "processExitCode": 1,
+    "uiUsable": true
+  },
+  "callChain": [
+    "SCI-OS-X10.exe | SCI-OS-X10.cmd",
+    "scripts/package/launcher-entry.cjs (exe) OR bundled node → start-sci-os.cjs --serve --packaged",
+    "installer/scripts/start-sci-os.cjs prints DEGRADED + blockers=[] and keeps --serve alive (exitCode computed 0)",
+    "verifier / pnpm sci:stop → installer/scripts/convergence/stop.cjs",
+    "stop.cjs previously force-killed orchestrator/children via process.kill / taskkill",
+    "Windows terminated --serve process without graceful finalize → OS exit code 1",
+    "launcher-entry child.on('exit') → process.exit(1)",
+    "SCI-OS-X10.cmd if errorlevel 1 → 'Startup failed' + exit /b 1"
+  ],
+  "classification": "B+D",
+  "classes": {
+    "A_startup_verdict_exit_mapping": "PARTIAL — start-sci-os already mapped DEGRADED→0 for non-serve finalization; ROOT_RESOLUTION still used legacy exit 1 (fixed→3)",
+    "B_intentional_convergence_stop": "PRIMARY — controlled stop translated into failure exit",
+    "C_child_exit_propagated": "SECONDARY — children killed first; orchestrator then killed",
+    "D_launcher_wrapper_child_code": "PRIMARY amplifier — launcher-entry propagates child code verbatim",
+    "E_timeout_harness_kill": "POSSIBLE in prove/reboot scripts using taskkill",
+    "F_hidden_post_startup_failure": "NOT_REPRODUCED — startup payload and Home were healthy"
+  },
+  "whichProcessReturned1": "Long-running start-sci-os --serve (or its launcher parent) after forced Windows termination",
+  "why": "Forced kill / non-graceful SIGTERM on Windows does not run finalizeAndExit; OS reports exit 1. CMD treated any non-zero as Startup failed.",
+  "sourceLines": [
+    "installer/scripts/start-sci-os.cjs — prior signal_shutdown used startup exitCode but forced kill skipped handlers",
+    "installer/scripts/convergence/stop.cjs — killed PIDs before graceful request existed",
+    "scripts/package/launcher-entry.cjs:147-148 — process.exit(code ?? 2)",
+    "dist/.../SCI-OS-X10.cmd — if errorlevel 1 → Startup failed"
+  ],
+  "fix": {
+    "exitContract": "installer/scripts/startup/exit-contract.cjs",
+    "gracefulStopFile": "diagnostics-export/.sci-os-shutdown-request.json",
+    "stopWritesRequest": "CONVERGENCE_STOP before force kill",
+    "servePollsRequest": "exit 0 after DEGRADED/READY intentional shutdown",
+    "cmdMessaging": "distinguish exit 2/3 vs forced stop"
+  }
+}

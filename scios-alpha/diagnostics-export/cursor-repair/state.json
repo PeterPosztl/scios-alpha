@@ -1,0 +1,18 @@
+﻿{
+  "phase": "RUNTIME_CLOSURE",
+  "status": "PASS",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-13T21:16:30.000Z",
+  "COCKPIT_HYDRATION": "PASS",
+  "HOME": "PASS",
+  "TOP_BADGE": "CORE_READY_ALPHA",
+  "EXPERIENCE_RUNTIME_MOUNTED": "PASS",
+  "EXIT_CODE_1_ROOT_CAUSE": "B+D — CONVERGENCE_STOP/forced Windows kill of healthy --serve mapped to exit 1",
+  "EXIT_CONTRACT": "PASS",
+  "BUILD_ID": "pkg_1786655262790",
+  "PACKAGED_NODE": "v20.18.1",
+  "NORMAL_SHUTDOWN": "PASS",
+  "FAILED_BOOT_CLEANUP": "PASS",
+  "default_yaml": "OPTIONAL_DEVELOPMENT_CONFIG (warning suppressed in PACKAGED)",
+  "gate": "READY_FOR_PRODUCT_KERNEL_EXPERIENCE_PHASE"
+}

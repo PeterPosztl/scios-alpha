@@ -1,0 +1,60 @@
+{
+  "schema": "sci-os-runtime-closure-gate/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-13T21:14:59.305Z",
+  "steps": [
+    {
+      "name": "EXIT_CONTRACT",
+      "ok": true
+    },
+    {
+      "name": "PACKAGE_IDENTITY",
+      "ok": true,
+      "distExists": true,
+      "buildId": "pkg_1786655262790",
+      "packagedNode": "v20.18.1",
+      "nodeOk": true,
+      "exitContractInDist": true
+    },
+    {
+      "name": "CONTROL_PLANE_HEALTH",
+      "ok": true,
+      "status": 200
+    },
+    {
+      "name": "HOME_API",
+      "ok": true,
+      "status": 200
+    },
+    {
+      "name": "COCKPIT_HEALTH",
+      "ok": true,
+      "status": 200
+    },
+    {
+      "name": "COCKPIT_HTML",
+      "ok": true,
+      "status": 200
+    },
+    {
+      "name": "NORMAL_SHUTDOWN",
+      "ok": true,
+      "orchestratorExit": 0,
+      "apiDown": true,
+      "cockpitDown": true,
+      "lockReleased": true,
+      "portsFree": true
+    },
+    {
+      "name": "FAILED_BOOT_CLEANUP",
+      "ok": true,
+      "failExit": 3,
+      "apiDown": true,
+      "cockpitDown": true,
+      "lockReleased": true,
+      "portsFreeAfterCleanup": true
+    }
+  ],
+  "status": "PASS",
+  "failed": []
+}

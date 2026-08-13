@@ -39,12 +39,48 @@ async function provenOnPort(port, expectedService, portsMap) {
 async function main() {
   const infra = process.argv.includes("--infra") || process.env.SCI_STOP_INFRA === "1";
   const rootRes = resolveAppRoot();
-  if (!rootRes.ok) process.exit(1);
+  if (!rootRes.ok) process.exit(3);
   const appRoot = rootRes.appRoot;
   loadDotEnv(appRoot);
   const config = validateConfig(appRoot);
   const apiPort = config.redactedConfig.apiPort;
   const cockpitPort = config.redactedConfig.cockpitPort;
+
+  // Prefer graceful orchestrator shutdown (exit 0 after DEGRADED/READY) over Windows kill→exit 1.
+  const shutdownReq = path.join(
+    appRoot,
+    "diagnostics-export",
+    ".sci-os-shutdown-request.json"
+  );
+  try {
+    fs.mkdirSync(path.dirname(shutdownReq), { recursive: true });
+    fs.writeFileSync(
+      shutdownReq,
+      JSON.stringify(
+        {
+          reason: "CONVERGENCE_STOP",
+          at: new Date().toISOString(),
+          source: "convergence/stop.cjs",
+        },
+        null,
+        2
+      )
+    );
+  } catch {
+    /* fall through to force stop */
+  }
+
+  // Wait briefly for orchestrator to stop owned children + release lock.
+  for (let i = 0; i < 25; i++) {
+    const api = await httpGet(`http://127.0.0.1:${apiPort}/healthz`, 800);
+    const cock = await httpGet(`http://127.0.0.1:${cockpitPort}/healthz`, 800);
+    const lockFile = path.join(appRoot, "diagnostics-export", ".sci-os-startup.lock");
+    if (api.status === 0 && cock.status === 0 && !fs.existsSync(lockFile)) {
+      break;
+    }
+    await new Promise((r) => setTimeout(r, 200));
+  }
+
   const portsMap = listeningPortsMap();
   const processes = listSciosAlphaProcesses().map((p) => classifyProcess(p, portsMap));
   const stopped = [];
@@ -143,7 +179,8 @@ async function main() {
 
   const lastState = {
     at: new Date().toISOString(),
-    order: ["cockpit", "worker(in-process)", "backend", infra ? "infra" : "infra_left_running"],
+    order: ["graceful_request", "cockpit", "worker(in-process)", "backend", infra ? "infra" : "infra_left_running"],
+    shutdownRequest: "CONVERGENCE_STOP",
     stopped,
     skipped,
     afterStop: {
@@ -163,6 +200,11 @@ async function main() {
     path.join(appRoot, "diagnostics-export", "shutdown-report.json"),
     JSON.stringify(lastState, null, 2)
   );
+  try {
+    if (fs.existsSync(shutdownReq)) fs.unlinkSync(shutdownReq);
+  } catch {
+    /* ignore */
+  }
   console.log(JSON.stringify(lastState, null, 2));
   process.exit(after.api.status === 0 && after.cockpit.status === 0 ? 0 : 2);
 }

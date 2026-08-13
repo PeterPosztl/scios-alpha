@@ -46,6 +46,13 @@ for (const p of [
   else fail("build:data-fabric", r.out.slice(-500));
 }
 
+// RELEASE INVARIANT: Cockpit Node source valid AND generated browser JS valid
+{
+  const r = run("node", ["scripts/tests/cockpit-generated-script.cjs"]);
+  if (r.code === 0) pass("cockpit:generated-browser-script", "SERVER_JS_VALID ∧ GENERATED_BROWSER_JS_VALID");
+  else fail("cockpit:generated-browser-script", r.out.slice(-1200));
+}
+
 // Master contract must not claim ENTERPRISE GO
 {
   const mc = readFileSync(join(root, "docs/enterprise/MASTER_CONTRACT.md"), "utf8");

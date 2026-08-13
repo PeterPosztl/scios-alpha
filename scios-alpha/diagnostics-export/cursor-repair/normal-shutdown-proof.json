@@ -1,0 +1,10 @@
+{
+  "schema": "sci-os-normal-shutdown-proof/v1",
+  "at": "2026-08-13T21:15:21.648Z",
+  "orchestratorExit": 0,
+  "apiDown": true,
+  "cockpitDown": true,
+  "lockReleased": true,
+  "portsFree": true,
+  "pass": true
+}

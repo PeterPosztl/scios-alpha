@@ -1,0 +1,19 @@
+{
+  "schema": "sci-os-default-yaml-classification/v1",
+  "at": "2026-08-13T21:16:00.000Z",
+  "pathReferenced": "infra/config/default.yaml",
+  "referencedBy": "installer/scripts/startup/validate-config.cjs",
+  "classification": "OPTIONAL_DEVELOPMENT_CONFIG",
+  "packagedBehavior": "WARNING_SUPPRESSED",
+  "rationale": [
+    "Packaged first-release uses config/packaged.json + sci-os.manifest.json for ports/runtime",
+    "default.yaml is a light key:value overlay for development .env-style defaults",
+    "Absence never blocked Home/Cockpit; only produced a warning",
+    "Creating a dummy default.yaml to silence the warning was rejected"
+  ],
+  "not": ["MANDATORY", "STALE_REFERENCE_REMOVED"],
+  "developmentBehavior": "warn if missing (optional)",
+  "filesChanged": [
+    "installer/scripts/startup/validate-config.cjs — skip warning when packaged=true"
+  ]
+}

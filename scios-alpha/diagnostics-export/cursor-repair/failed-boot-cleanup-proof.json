@@ -1,0 +1,11 @@
+{
+  "schema": "sci-os-failed-boot-cleanup-proof/v1",
+  "at": "2026-08-13T21:15:35.406Z",
+  "method": "temporary_port_3000_conflict",
+  "failExit": 3,
+  "apiDown": true,
+  "cockpitDown": true,
+  "lockReleased": true,
+  "portsFreeAfterCleanup": true,
+  "pass": true
+}
