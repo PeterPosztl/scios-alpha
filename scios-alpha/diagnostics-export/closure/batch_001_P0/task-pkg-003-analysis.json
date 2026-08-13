@@ -1,0 +1,78 @@
+{
+  "schema": "sci-os-task-pkg-003-analysis/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-13T21:25:00.000Z",
+  "controlId": "DOM.windows-desktop-lifecycle.packaged_gw1",
+  "relatedRootCauseIds": [
+    "PACKAGED_REBOOT_GW1_EVIDENCE_OPEN",
+    "CTRL.CF22.restore-test"
+  ],
+  "taskId": "TASK-PKG-003",
+  "sourceControl": {
+    "catalog": "diagnostics-export/closure/control-catalog.json",
+    "title": "Windows desktop lifecycle · packaged_gw1",
+    "familyId": "DOMAIN",
+    "source": "domain-gap-register",
+    "baselineStatus": "FAIL",
+    "severityHint": "P0",
+    "firstReleaseRequired": true
+  },
+  "docAuthority": {
+    "path": "docs/enterprise/CURRENT_EVIDENCE.md",
+    "row": "Packaged GW1 after reboot (LOCALAPPDATA) | FAIL / OPEN — TASK-PKG-003",
+    "notProven": "Packaged install cold-start → Home → GW1 → Evidence with fresh LOCALAPPDATA appRoot after reboot certify"
+  },
+  "failureReason": "No CURRENT-build evidence that a normal Windows packaged install under %LOCALAPPDATA%\\SCI OS X10\\app completed Home → Search → Entity → GW1 → Uncertainty → Risk/Gov → Evidence/Lineage → shutdown with appRoot=LOCALAPPDATA (prior reboot FileTimeUtc differential alone does not close GW1).",
+  "failedCheckInstances": {
+    "note": "Domain expansion emits many UNKNOWN/NOT_APPLICABLE instances for packaged_gw1 across runtimes; authoritative fail is doc+root-cause OPEN, not a single HTTP probe.",
+    "examples": [
+      "chk_b8a4aa01508c2b4d (PACKAGED/manifest UNKNOWN)",
+      "doc:CURRENT_EVIDENCE → PACKAGED_REBOOT_GW1_EVIDENCE_OPEN"
+    ]
+  },
+  "expectedContract": {
+    "chain": [
+      "Windows user entry (SCI-OS-X10.exe or SCI-OS-X10.cmd from install root)",
+      "bundled Node v20.18.1",
+      "Control Plane :3000",
+      "Cockpit :4000",
+      "Home",
+      "Search AAPL",
+      "Entity AAPL",
+      "GW1 Analyze",
+      "Uncertainty truth",
+      "Risk/Governance",
+      "Evidence",
+      "Lineage",
+      "controlled shutdown"
+    ],
+    "appRoot": "%LOCALAPPDATA%\\SCI OS X10\\app",
+    "buildIdentity": "same buildId as current package",
+    "notAccepted": [
+      "repo-rooted dist-only startup-report",
+      "HTTP 200 without GW1 runId/evidence",
+      "stale historical diagnostics"
+    ]
+  },
+  "actualEvidenceBeforeBatch": {
+    "rebootFileTimeUtcDifferential": "PASS (historical)",
+    "localAppDataPackagedGw1CurrentBuild": "MISSING / OPEN",
+    "distStagedHome": "PASS (prior cursor-repair) — insufficient for TASK-PKG-003"
+  },
+  "affectedComponents": [
+    "packaging/atomic-install",
+    "SCI-OS-X10 launcher",
+    "bundled runtime",
+    "control-plane-api",
+    "cockpit-ui",
+    "vertical-slice GW1",
+    "diagnostics/startup-report appRoot",
+    "reboot-certification collectors"
+  ],
+  "affectedDomains": [
+    "Windows desktop lifecycle",
+    "Backup/DR (restore-test / first-release recovery drill — same missing packaged proof chain)"
+  ],
+  "unifiedRootCauseId": "PACKAGED_GW1_PROOF_CHAIN_INCOMPLETE",
+  "firstBrokenEdgeHypothesis": "CURRENT PACKAGE → LOCALAPPDATA install user launch → fresh appRoot GW1 evidence artifact (chain never closed for current build; reboot differential already PASS)"
+}

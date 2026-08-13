@@ -1,0 +1,28 @@
+{
+  "schema": "sci-os-batch-001-recovery-proof/v1",
+  "at": "2026-08-13T21:46:16.913Z",
+  "buildId": "pkg_1786656680759",
+  "failedBoot": {
+    "method": "port_3000_conflict",
+    "failExit": 3,
+    "expectedExternal": true,
+    "apiDown": true,
+    "cockpitDown": true,
+    "lockReleased": true,
+    "portsFree": true
+  },
+  "atomicInstallBackup": {
+    "note": "atomic-install retains app.backup.last after successful swap",
+    "present": true
+  },
+  "recoveryServerPackaged": true,
+  "firstReleaseScope": {
+    "multiRegionDr": "NOT_REQUIRED_P2",
+    "geoRedundancy": "NOT_REQUIRED_P2",
+    "failedBootCleanup": "REQUIRED",
+    "atomicRollbackBackup": "REQUIRED",
+    "recoveryArtifact": "REQUIRED_WHEN_NORMAL_BOOT_UNAVAILABLE"
+  },
+  "pass": true,
+  "backupDrP0Classification": "RECLASSIFIED_P2"
+}

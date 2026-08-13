@@ -1,0 +1,42 @@
+{
+  "schema": "sci-os-batch-001-closure-before-after/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-13T21:58:30.000Z",
+  "before": {
+    "source": "closure run closure_msrx1gmx_9dd3f3 / prior continuous",
+    "canonicalControls": 803,
+    "checkInstances": 26669,
+    "P0_rootCauses": 2,
+    "P0_ids": [
+      "CTRL.CF22.restore-test",
+      "PACKAGED_REBOOT_GW1_EVIDENCE_OPEN"
+    ],
+    "P1_rootCauses": "approx 190+",
+    "TASK_PKG_003": "OPEN",
+    "windows_packaged_gw1": "FAIL",
+    "backup_dr_severity": "P0",
+    "nextBatch": "batch_001_P0"
+  },
+  "after": {
+    "source": "closure continuous after batch_001_P0",
+    "canonicalControls": 803,
+    "checkInstances": 26669,
+    "P0_rootCauses": 0,
+    "P1_rootCauses": 191,
+    "P2_rootCauses": 185,
+    "P3_rootCauses": 46,
+    "TASK_PKG_003": "CLOSED",
+    "windows_packaged_gw1": "PROVEN",
+    "backup_dr_severity": "P2",
+    "enterprise_gap_P0": 0,
+    "domain_p0Roots": [],
+    "nextBatch": "batch_001_P1"
+  },
+  "delta": {
+    "P0_closed": [
+      "PACKAGED_REBOOT_GW1_EVIDENCE_OPEN / TASK-PKG-003",
+      "CTRL.CF22.restore-test (reclassified P1 with fresh recovery evidence)"
+    ],
+    "note": "Instance FAIL counts remain high from expansion matrix — not manipulated; P0 root causes cleared by evidence."
+  }
+}

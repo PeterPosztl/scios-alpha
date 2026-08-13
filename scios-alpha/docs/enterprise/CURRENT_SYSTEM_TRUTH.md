@@ -1,85 +1,122 @@
 # CURRENT SYSTEM TRUTH — SCI OS ×10 (`scios-alpha`)
 
-**Inspected:** 2026-07-16 (Phase 0 — Repository Truth Lock)  
-**Working directory:** `C:\Users\peter\Desktop\SCI\scios-alpha`  
-**Package manager:** `pnpm@9.15.0` (lockfile present; no npm/yarn lockfiles)  
-**Turborepo:** not configured (`turbo.json` absent)  
-**Platform verdict (Phase 0):** `DEGRADED` — runnable ALPHA kernel with evidence; not foundation-complete for ENTERPRISE / full E2E lineage+cockpit proof.
+**Updated:** 2026-08-13  
+**Authority:** This document is pillar 3 of [FOUR_PILLARS.md](./FOUR_PILLARS.md)  
+**Companion evidence:** [CURRENT_EVIDENCE.md](./CURRENT_EVIDENCE.md) + `diagnostics-export/current-evidence-index.json`  
+**Intent upstream:** [FOUNDER_BLUEPRINT.md](./FOUNDER_BLUEPRINT.md) · [BENCHMARK_CONTRACT.md](./BENCHMARK_CONTRACT.md)  
+**Label:** `ALPHA_NON_PRODUCTION`  
+**Do not** treat historical diagnostics as current gate closers.
 
-## Honesty
+---
 
-- This repo is an **ALPHA scaffold**, not ENTERPRISE READY.
+## Honesty (preserved)
+
 - No evidence ⇒ **UNKNOWN**, never PASS.
-- Green build / file count alone ≠ GO.
-- Sibling trees under `Desktop/SCI` (`sci-os-x10`, `sci-os-10`, `qmis-orion-os-x10`, …) are **out of scope**; do not fork architecture into them from this contract.
+- No false READY / no enterprise GO without proof.
+- ALPHA ≠ PRODUCTION.
+- Evidence > claim. Risk > prediction. Governance > agent. NO_ACTION is valid.
+- One canonical product. One canonical boot authority.
 
-## What is true today
+---
 
-| Concern | Truth |
-|---------|--------|
-| Monorepo | pnpm workspace: `apps/*`, `packages/*` |
-| In-process vertical | `packages/alpha-loop` — DataFabric → FeatureStore → Prediction → Risk → Execution (seeded RNG) |
-| HTTP vertical (partial) | control-plane → prediction/risk/exec FastAPI/Node stubs → cockpit UI |
-| Contracts Wave 1 | Zod domain + ontology + in-memory ledger in `@scios/data-fabric` |
-| Gates with proof | `pnpm gate:scaffold` → GO; `pnpm gate:contracts` → GO |
-| Unit tests | 4 tests in `@scios/data-fabric` only (root `pnpm test`) |
-| Lint | **MISSING** (no eslint/prettier script) |
-| Integration E2E suite | **MISSING** (requires multi-process runtime; not automated) |
-| Enterprise modules (§49–83) | **ABSENT** (declared in registry) |
+## Two axes
 
-## Baseline validation (executed)
+### First Release Foundation (in scope)
 
-Exact results: `diagnostics-export/baseline-validation.json`
+Install / click → bootstrap → supervisor → Control Plane `:3000` + Shell `:4000` → Home → Search → Entity → GW1 Analyze → Evidence / Lineage → clean shutdown.  
+Packaged path uses bundled Node **20.18.1**. Optional Docker/PG/Redis may be **OPTIONAL_INFRA_DEGRADED**.
 
-| Step | Command | Result | Exit |
-|------|---------|--------|------|
-| install | `pnpm install --frozen-lockfile` | PASS | 0 |
-| lint | (none) | SKIP | — |
-| typecheck | `pnpm typecheck` | PASS | 0 |
-| unit tests | `pnpm test` | PASS | 0 |
-| build | `pnpm build` | PASS | 0 |
-| smoke | `pnpm check` | PASS | 0 |
-| smoke | `pnpm sim` | PASS | 0 |
-| gate | `pnpm gate:scaffold` | PASS | 0 |
-| gate | `pnpm gate:contracts` | PASS | 0 |
-| pytest | `apps/prediction-engine` | PASS | 0 |
-| pytest | `apps/risk-engine` | PASS | 0 |
-| integration | (none dedicated) | SKIP | — |
+### Full Product Vision (out of first-release scope)
 
-**Overall:** `PASS_WITH_SKIPS` (10 PASS, 0 FAIL, 2 SKIP).
+GW2–7, OIDC, durable enterprise event fabric, 300+ proven capabilities, 200 roles, full production deploy — **P2/P3**. Not reopened by coherence work.
 
-## Critical findings (Phase 0 search)
+---
 
-| Finding | Location | Class |
-|---------|----------|--------|
-| Legacy duplicate loop | `src/modules/*` + `src/master.ts` (uses `Math.random`) | DUPLICATE / DEPRECATED |
-| Non-deterministic fills | `apps/execution-simulator` `Math.random` for price/book | PARTIAL / risk |
-| Dual feature/prediction paths | alpha-loop modules vs `@scios/feature-store` + FastAPI apps | DUPLICATE architecture |
-| Python science stubs | `packages/{validation,probability,portfolio}-engine` (no `package.json`) | STUB / DISCONNECTED |
-| Typecheck narrow | root typecheck only runs packages with `typecheck` script (meta-intelligence) | PARTIAL |
-| No lineage runtime | ontology has `lineage` field; no E2E lineage graph service | MISSING |
-| No Decision Intelligence engine | Master Contract ABSENT | MISSING |
-| Cockpit disconnected from lineage | minimal dashboard | PARTIAL / DISCONNECTED |
+## Canonical runtime
 
-## Recommended first vertical slice (Phases 1–8)
+| Item | Truth |
+|------|--------|
+| Product | SCI OS ×10 |
+| Runtime | Node `>=20.18.0 <21` (packaged **20.18.1**) |
+| Profile | `local-foundation` |
+| Execution | `SIMULATION_ONLY` |
+| Auth | `local-development` |
+| Control Plane | `http://127.0.0.1:3000/` (default bind `127.0.0.1`; override `SCIOS_BIND`) |
+| Shell | `http://127.0.0.1:4000/` (default bind `127.0.0.1`) |
+| Dev entry | `pnpm sci:start` / `SCI-OS-Start.bat` |
+| Packaged entry | `%LOCALAPPDATA%\SCI OS X10\app\SCI-OS-X10.cmd` |
+| Bootstrap | `installer/scripts/bootstrap-capsule.cjs` |
+| Orchestrator | `installer/scripts/start-sci-os.cjs` |
+| Supervisor | `installer/scripts/startup/process-supervisor.cjs` |
 
-**Status:** Implemented in-process as `@scios/vertical-slice` + control-plane `/v1/slice/run` + cockpit.
+Legacy **5200 / 5230** are not canonical product endpoints.
 
+---
+
+## What is implemented now (wiring truth)
+
+| Subsystem | Class | Notes |
+|-----------|-------|--------|
+| Bootstrap / Launcher | WORKING | Capsule → start-sci-os; packaged CMD |
+| Supervisor | PARTIAL | Canonical process-supervisor; alternate supervisor.js secondary |
+| Control Plane | WORKING | health, product routes, vertical-slice |
+| Shell / Home | WORKING | `apps/cockpit-ui` |
+| Search / Entity | PARTIAL | Catalog + run-derived |
+| GW1 | PARTIAL | Analyze → vertical-slice; packaged LOCALAPPDATA GW1 proven (batch_001_P0 / TASK-PKG-003) |
+| Risk / Governance / Execution | PARTIAL | Embedded / simulation |
+| Evidence / Lineage | PARTIAL | UI views + local durable run index (`%LOCALAPPDATA%\SCI OS X10\state`); not enterprise PG |
+| Product Kernel package | PARTIAL | Package + `/v1/kernel/status`; HTTP product surface remains control-plane routes |
+| Experience Compiler | PARTIAL | Package + inline compile |
+| AppHost | PARTIAL | Shell *is* AppHost (no separate package) |
+| Workers | PARTIAL | In-process foundation smoke only |
+| Packaging | PARTIAL | LOCALAPPDATA install + shortcuts + packaged GW1 PASS (TASK-PKG-003); EXE pkg optional P1 |
+| Recovery | PARTIAL | Prefer bundled Node when present |
+| Command palette | PARTIAL | Ctrl+K in Shell |
+| Approval / AI context | PARTIAL | GW1 professional path |
+
+---
+
+## Readiness semantics
+
+| State | Meaning |
+|-------|---------|
+| BOOTSTRAP_READY | Capsule resolved runtime and handed off |
+| CORE_READY | CP + Shell healthy |
+| CAPABILITY_READY | First-release UX path available |
+| OPTIONAL_INFRA_DEGRADED | PG/Redis/Docker absent — allowed for first release |
+| FULL_PROFILE_READY | Enterprise infra — **not** first-release requirement |
+
+Exit `0` = accepted mode (including OPTIONAL_INFRA_DEGRADED). Genuine NO_GO ≠ 0.
+
+---
+
+## Rejected parallel authorities
+
+- ATOM-AI as canonical product
+- Out-of-tree Meta OS as SCI OS boot chain
+- Second startup frameworks / Vite cockpits claiming SCI Shell
+
+---
+
+## Regenerate coherence evidence
+
+```bash
+pnpm truth:reconcile
+pnpm deep:forensics
 ```
-raw event → normalized event → PIT feature → baseline prediction
-→ calibration + uncertainty → independent risk gate → governance decision
-→ deterministic simulated execution → outcome → immutable lineage → cockpit view
-```
 
-Proof gate: `pnpm gate:foundation`
+Outputs:
+- `diagnostics-export/truth-reconciliation/01` … `15`
+- `diagnostics-export/deep-forensics/01` … `25`
 
-## Phase 0 completion
+---
 
-Artifacts:
+## Current release posture (see evidence index)
 
-- `docs/enterprise/CURRENT_SYSTEM_TRUTH.md` (this file)
-- `docs/enterprise/ARCHITECTURE_INVENTORY.md`
-- `docs/enterprise/PROTECTED_CONTRACTS.md`
-- `docs/enterprise/IMPLEMENTATION_DEPENDENCY_ORDER.md`
-- `diagnostics-export/repository-truth.json`
-- `diagnostics-export/baseline-validation.json`
+- **Repository coherence:** DEGRADED → improving (authorities reconciled: boot = start-sci-os; HTTP product surface = control-plane; kernel = capability identity library)
+- **First release:** FOUNDATION_DEGRADED allowed (optional PG/Redis/Docker); TASK-PKG-003 packaged LOCALAPPDATA GW1 closed (batch_001_P0)
+- **Optional infra:** OPTIONAL_INFRA_DEGRADED
+- **UX:** monolithic Shell with Professional default, L1–L7, approval card, AI context panel, command palette; Experience Layer extraction remains P2
+- **Persistence:** local durable run index under `%LOCALAPPDATA%\SCI OS X10\state` + Shell `localStorage` session (not enterprise PG)
+- **Enterprise discipline:** extends Product Kernel (pnpm enterprise:discipline) — SLO/idempotency/maturity/tower/eval/impact/governor; **READY false**
+- **Dev Node:** workspace enforces `>=20.18.0 <21` (`engine-strict=true`); host Node 24 is outside engines by design

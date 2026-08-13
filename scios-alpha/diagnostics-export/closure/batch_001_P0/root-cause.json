@@ -1,0 +1,21 @@
+{
+  "schema": "sci-os-batch-001-p0-root-cause/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-13T21:58:00.000Z",
+  "rootCauseId": "PACKAGED_GW1_PROOF_CHAIN_INCOMPLETE",
+  "severity": "P0",
+  "status": "CLOSED",
+  "title": "Packaged LOCALAPPDATA GW1 proof chain incomplete for current build",
+  "closedBy": "diagnostics-export/closure/batch_001_P0/packaged-gw1-proof.json",
+  "buildId": "pkg_1786656680759",
+  "runId": "run_7249b094-ce96-4b2e-b33d-8b7408feac0e",
+  "firstBrokenEdgeResolved": {
+    "edge": "Start Menu / Desktop shortcuts pointed at repo dist (not LOCALAPPDATA install)",
+    "fix": "atomic-install.cjs now writes shortcuts to %LOCALAPPDATA%\\SCI OS X10\\app and retains app.backup.last"
+  },
+  "deduplication": {
+    "windowsDesktopLifecycle": "SAME_ROOT_CLOSED",
+    "backupDr": "RECLASSIFIED_P2_ENTERPRISE_DR",
+    "firstReleaseRecovery": "PASS"
+  }
+}
