@@ -1,0 +1,27 @@
+{
+  "schema": "sci-os-blocked-root-causes/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "items": [
+    {
+      "rootCauseId": "CTRL.CF17.dependency-metrics",
+      "status": "BLOCKED_WITH_EVIDENCE",
+      "reason": "No time-series dependency SLO. /readyz optional_absent is not dependency metrics. Do not fake PROVEN.",
+      "next": "Add measured PG/Redis/provider latency histograms when optional infra is present; keep PROFILE_DISABLED when absent."
+    },
+    {
+      "rootCauseId": "CTRL.CF02.approval-gates",
+      "status": "BLOCKED_WITH_EVIDENCE",
+      "reason": "LOCAL REVIEW is explicit non-durable. Implementing DecisionAction API is a product decision; do not fake governed approval."
+    },
+    {
+      "rootCauseId": "CTRL.CF27.human-approval",
+      "status": "BLOCKED_WITH_EVIDENCE",
+      "reason": "Same as approval-gates. First-release honesty requires LOCAL REVIEW != GOVERNED APPROVAL."
+    },
+    {
+      "rootCauseId": "CTRL.CF26.model-registry",
+      "status": "BLOCKED_WITH_EVIDENCE",
+      "reason": "InMemoryModelRegistry exists but is not seeded with labeled NON-PRODUCTION models at boot. Overlay would overclaim."
+    }
+  ]
+}

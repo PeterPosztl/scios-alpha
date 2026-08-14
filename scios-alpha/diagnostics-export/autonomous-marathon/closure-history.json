@@ -1,0 +1,64 @@
+{
+  "schema": "sci-os-closure-history/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "entries": [
+    {
+      "at": "2026-08-14T00:28:00.000Z",
+      "runId": "closure_mss7fipn_6a062e",
+      "note": "marathon baseline",
+      "P0": 0,
+      "P1": 176,
+      "P2": 185,
+      "P3": 46,
+      "CANONICAL_CONTROLS": 796,
+      "CHECK_INSTANCES": 20095
+    },
+    {
+      "at": "2026-08-14T01:02:40.302Z",
+      "runId": "closure_mss8t1gt_017c13",
+      "note": "pre-batch-002 live",
+      "P0": 0,
+      "P1": 124,
+      "P2": 185,
+      "P3": 46,
+      "CANONICAL_CONTROLS": 803,
+      "CHECK_INSTANCES": 22218
+    },
+    {
+      "at": "2026-08-14T01:28:20.347Z",
+      "runId": "closure_mss9q1ru_d35d07",
+      "note": "after batch-002 identity/temporal/persistence overlay",
+      "P0": 0,
+      "P1": 104,
+      "P2": 184,
+      "P3": 46,
+      "CANONICAL_CONTROLS": 803,
+      "CHECK_INSTANCES": 22218,
+      "PASS": 8278
+    },
+    {
+      "at": "2026-08-14T01:41:17.535Z",
+      "runId": "closure_mssa6pgf_7a24af",
+      "note": "after CF24 path/command overlays",
+      "P0": 0,
+      "P1": 99,
+      "P2": 184,
+      "P3": 46,
+      "CANONICAL_CONTROLS": 803,
+      "CHECK_INSTANCES": 22218,
+      "PASS": 8318
+    },
+    {
+      "at": "2026-08-14T01:46:03.191Z",
+      "runId": "closure_mssactva_193197",
+      "note": "after privacy-safe-logs",
+      "P0": 0,
+      "P1": 98,
+      "P2": 184,
+      "P3": 46,
+      "CANONICAL_CONTROLS": 803,
+      "CHECK_INSTANCES": 22218,
+      "PASS": 8326
+    }
+  ]
+}

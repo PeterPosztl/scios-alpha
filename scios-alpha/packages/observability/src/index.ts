@@ -1,5 +1,19 @@
 type LogLevel = "info" | "warn" | "error" | "debug";
 
+const SECRET_KEY =
+  /password|secret|api[_-]?key|token|authorization|credential/i;
+
+export function redactLogMeta(
+  meta?: Record<string, unknown>
+): Record<string, unknown> | undefined {
+  if (!meta) return meta;
+  const out: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(meta)) {
+    out[k] = SECRET_KEY.test(k) ? "[REDACTED]" : v;
+  }
+  return out;
+}
+
 function emit(
   service: string,
   level: LogLevel,
@@ -11,7 +25,7 @@ function emit(
     service,
     level,
     message,
-    ...meta,
+    ...redactLogMeta(meta),
   });
   if (level === "error") console.error(line);
   else if (level === "warn") console.warn(line);

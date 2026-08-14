@@ -1,0 +1,22 @@
+{
+  "schema": "sci-os-autonomous-marathon-baseline/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-14T00:28:00.000Z",
+  "startTime": "2026-08-14T00:28:00.000Z",
+  "gitSha": "22fb1d8e03b394fa3791f9b0f73f3d2a0c910ec6",
+  "treeHash": "852a8fcf35081aca07d9a9028722a992d8693ce590585e3634aa94fecc851b61",
+  "buildId": "pkg_1786656680759",
+  "packageHash": "b10ada23300116869349a0de855b4729db782944a2a7bd38cd3eddb521e7c2cc",
+  "manifestHash": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701",
+  "runtimeVersion": "v20.18.1",
+  "P0": 0,
+  "P1": 176,
+  "P2": 185,
+  "P3": 46,
+  "CANONICAL_CONTROLS": 796,
+  "CHECK_INSTANCES": 20095,
+  "closureRunId": "closure_mss7fipn_6a062e",
+  "gw1Proof": "diagnostics-export/closure/batch_001_P0/packaged-gw1-proof.json",
+  "priorP1Batch": "diagnostics-export/closure/batch_001_P1",
+  "note": "Marathon resumes from live Closure queue. P0_FIRST_RELEASE_CLOSED. Engine nextBatch ids reset each scan."
+}

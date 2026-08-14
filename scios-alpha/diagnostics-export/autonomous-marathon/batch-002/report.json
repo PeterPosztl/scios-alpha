@@ -1,0 +1,28 @@
+{
+  "schema": "sci-os-autonomous-batch-report/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "batchId": "batch-002",
+  "at": "2026-08-14T01:28:20.347Z",
+  "closureRunId": "closure_mss9q1ru_d35d07",
+  "roots": [
+    "CTRL.CF17.correlation-ids",
+    "CTRL.CF17.job-ids",
+    "CTRL.CF17.boot-ids",
+    "CTRL.CF17.build-ids",
+    "CTRL.CF21.durability",
+    "CTRL.CF21.backup",
+    "CTRL.CF21.restore",
+    "CTRL.CF21.corruption-detection",
+    "CTRL.CF05.timezone-discipline",
+    "CTRL.CF10.correlation-id"
+  ],
+  "code": [
+    "bindRequestIdentity x-request-id / x-correlation-id on control-plane",
+    "utcIsoNow timezone discipline",
+    "entityShell.attributes",
+    "first-release control overlay with evidence"
+  ],
+  "P0": 0,
+  "P1After": 104,
+  "tests": ["vertical-slice", "correlation-ids.cjs", "first-release-resilience.cjs"]
+}

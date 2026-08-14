@@ -1,0 +1,25 @@
+{
+  "schema": "sci-os-autonomous-marathon-state/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "status": "IN_PROGRESS",
+  "at": "2026-08-14T01:46:30.000Z",
+  "startTime": "2026-08-14T00:28:00.000Z",
+  "P0": 0,
+  "P1": 98,
+  "P2": 184,
+  "P3": 46,
+  "CANONICAL_CONTROLS": 803,
+  "CHECK_INSTANCES": 22218,
+  "PASS": 8326,
+  "closureRunId": "closure_mssactva_193197",
+  "buildId": "pkg_1786656680759",
+  "doNotRegressP0": true,
+  "packagedLeftRunning": true,
+  "nextQueueHead": [
+    "CTRL.CF17.dependency-metrics",
+    "CTRL.CF26.model-registry",
+    "CTRL.CF26.response-provenance",
+    "CTRL.CF26.provider-outage",
+    "CTRL.CF02.approval-gates"
+  ]
+}

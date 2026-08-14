@@ -1,3 +1,4 @@
+import { randomUUID } from "node:crypto";
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { createLogger } from "@scios/observability";
 import { InMemoryFeatureStore } from "@scios/feature-store";
@@ -13,8 +14,12 @@ import {
 import { VERTICAL_SLICE_STAGES } from "@scios/data-fabric";
 import { verticalSliceRouter } from "./routes/verticalSlice.js";
 import { systemRouter, type SystemRouteDeps } from "./routes/system.js";
+import { productRouter } from "./routes/product.js";
+import { buildActorContext } from "@scios/product-kernel";
 
-const PORT = Number(process.env.PORT ?? 5200);
+const PORT = Number(process.env.PORT ?? 3000);
+/** Local-foundation / packaged default: loopback only. Set SCIOS_BIND=0.0.0.0 only when intentional. */
+const BIND = process.env.SCIOS_BIND ?? "127.0.0.1";
 const PREDICTION_URL =
   process.env.PREDICTION_URL ?? "http://127.0.0.1:5201";
 const RISK_URL = process.env.RISK_URL ?? "http://127.0.0.1:5202";
@@ -84,11 +89,25 @@ const systemRouteDeps: SystemRouteDeps = {
   apiPort: PORT,
 };
 
+function bindRequestIdentity(req: IncomingMessage, res: ServerResponse): void {
+  const incomingReq = String(req.headers["x-request-id"] || "").trim();
+  const incomingCorr = String(req.headers["x-correlation-id"] || "").trim();
+  const requestId = incomingReq || randomUUID();
+  const correlationId = incomingCorr || requestId;
+  res.setHeader("x-request-id", requestId);
+  res.setHeader("x-correlation-id", correlationId);
+}
+
 function sendJson(res: ServerResponse, status: number, body: unknown): void {
-  res.writeHead(status, {
+  const headers: Record<string, string> = {
     "content-type": "application/json; charset=utf-8",
     "access-control-allow-origin": "*",
-  });
+  };
+  const rid = res.getHeader("x-request-id");
+  const cid = res.getHeader("x-correlation-id");
+  if (rid) headers["x-request-id"] = String(rid);
+  if (cid) headers["x-correlation-id"] = String(cid);
+  res.writeHead(status, headers);
   res.end(JSON.stringify(body));
 }
 
@@ -104,6 +123,29 @@ async function readJson(req: IncomingMessage): Promise<unknown> {
 
 function isRole(value: string): value is Role {
   return (ROLES as string[]).includes(value);
+}
+
+function matrixRoleFor(professionalRoleId: string): Role {
+  if (isRole(professionalRoleId)) return professionalRoleId;
+  const id = professionalRoleId.toLowerCase();
+  if (id.includes("risk")) return "risk_officer";
+  if (id.includes("admin")) return "admin";
+  if (id.includes("operator")) return "operator";
+  return "researcher";
+}
+
+function actorForGovernanceQuery(url: URL) {
+  const roleId =
+    url.searchParams.get("roleId") ||
+    url.searchParams.get("role") ||
+    "arch.market_analyst";
+  const actor = buildActorContext({
+    userId: url.searchParams.get("userId") || "local-dev-user",
+    roleId,
+    sessionId: url.searchParams.get("sessionId") || "default",
+    objectId: url.searchParams.get("objectId"),
+  });
+  return { actor, matrixRole: matrixRoleFor(roleId) };
 }
 
 async function predictAndSimulate(body: {
@@ -227,6 +269,7 @@ async function predictAndSimulate(body: {
 }
 
 const server = createServer((req, res) => {
+  bindRequestIdentity(req, res);
   const url = new URL(req.url ?? "/", `http://127.0.0.1:${PORT}`);
   const path = url.pathname;
   const method = req.method ?? "GET";
@@ -234,8 +277,10 @@ const server = createServer((req, res) => {
   if (method === "OPTIONS") {
     res.writeHead(204, {
       "access-control-allow-origin": "*",
-      "access-control-allow-methods": "GET,POST,OPTIONS",
-      "access-control-allow-headers": "content-type",
+      "access-control-allow-methods": "GET,POST,PUT,OPTIONS",
+      "access-control-allow-headers": "content-type, x-request-id, x-correlation-id",
+      "x-request-id": String(res.getHeader("x-request-id") || ""),
+      "x-correlation-id": String(res.getHeader("x-correlation-id") || ""),
     });
     res.end();
     return;
@@ -375,25 +420,36 @@ const server = createServer((req, res) => {
     }
 
     if (method === "GET" && path === "/v1/governance/can") {
-      const roleParam = url.searchParams.get("role") ?? "";
       const actionParam = url.searchParams.get("action") ?? "";
-      if (!isRole(roleParam)) {
-        sendJson(res, 400, {
-          error: "invalid_role",
-          roles: ROLES,
-        });
-        return;
-      }
-      const allowed = can(roleParam, actionParam as Action);
+      const { actor, matrixRole } = actorForGovernanceQuery(url);
+      const allowed = can(matrixRole, actionParam as Action);
       sendJson(res, 200, {
-        role: roleParam,
+        role: actor.roleId,
+        roleId: actor.roleId,
         action: actionParam,
         allowed,
+        actor,
+        matrixRole,
+        note:
+          "matrixRole is the embedded RBAC mapping only; subject remains actor.roleId / actor.actorId. operator is never a silent UI identity.",
       });
       return;
     }
 
-    // Router composition (Express-equivalent: app.use(verticalSlice); app.use(system))
+    // Router composition: product surface → vertical slice → system
+    if (
+      await productRouter({
+        method,
+        path,
+        url,
+        req,
+        res,
+        sendJson,
+      })
+    ) {
+      return;
+    }
+
     if (
       await verticalSliceRouter({
         method,
@@ -497,9 +553,10 @@ const server = createServer((req, res) => {
   });
 });
 
-server.listen(PORT, "0.0.0.0", () => {
+server.listen(PORT, BIND, () => {
   log.info("listening", {
     port: PORT,
+    bind: BIND,
     predictionUrl: PREDICTION_URL,
     riskUrl: RISK_URL,
     execUrl: EXEC_URL,

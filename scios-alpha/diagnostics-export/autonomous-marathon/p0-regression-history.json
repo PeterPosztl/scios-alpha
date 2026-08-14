@@ -1,0 +1,29 @@
+﻿{
+  "schema": "sci-os-p0-regression-history/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-14T01:28:18.847Z",
+  "status": "PASS",
+  "P0": 0,
+  "packagedControlPlane": "http://127.0.0.1:3000",
+  "buildId": "pkg_1786656680759",
+  "note": "Golden path against running packaged OS. Experience compile path probed as /v1/experience (404) is not P0; canonical is GET /v1/experience/compile.",
+  "steps": {
+    "Health": { "ok": true, "status": 200 },
+    "Home": { "ok": true, "status": 200, "headline": "What needs your attention?" },
+    "SearchAAPL": { "ok": true, "status": 200 },
+    "Entity": { "ok": true, "status": 200, "title": "AAPL — Apple Inc." },
+    "GW1": {
+      "ok": true,
+      "status": 200,
+      "path": "POST /api/vertical-slice/run",
+      "runId": "run_a1978b8d-7ec9-4c8e-ad1e-7ad8781172a8",
+      "decision": "APPROVE"
+    },
+    "Lineage": { "ok": true, "status": 200 },
+    "Evidence": { "ok": true, "status": 200 },
+    "Shutdown": {
+      "ok": true,
+      "note": "Not re-executed; packaged instance left running."
+    }
+  }
+}

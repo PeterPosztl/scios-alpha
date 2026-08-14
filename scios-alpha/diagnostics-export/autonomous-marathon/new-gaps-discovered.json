@@ -1,0 +1,16 @@
+{
+  "schema": "sci-os-new-gaps/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "items": [
+    {
+      "id": "PACKAGED_SOURCE_LAG",
+      "severity": "P1",
+      "note": "Running LOCALAPPDATA package is still pkg_1786656680759. Marathon source (request ids, entity attributes, redactLogMeta) is not in the installed bundle until a future atomic-install. P0 APIs still PASS on the proven package."
+    },
+    {
+      "id": "CF17.request-ids_packaged",
+      "severity": "P2",
+      "note": "x-request-id headers exist in source control-plane; packaged :3000 responses currently omit them (expected lag)."
+    }
+  ]
+}

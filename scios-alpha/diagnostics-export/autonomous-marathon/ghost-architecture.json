@@ -1,0 +1,45 @@
+{
+  "schema": "sci-os-ghost-architecture-classification/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-14T00:30:00.000Z",
+  "note": "Classify ambiguous packages. Do not implement competing product surfaces.",
+  "items": [
+    {
+      "path": "packages/experience-compiler",
+      "classification": "DEPRECATE",
+      "authority": "@scios/professional-domain-registry/compiler",
+      "action": "Keep README only; no second compiler."
+    },
+    {
+      "path": "packages/workspace-composer",
+      "classification": "ACTIVE",
+      "authority": "derives from Experience Compiler; not a profile table",
+      "action": "Keep; do not add independent profiles."
+    },
+    {
+      "path": "packages/capability-closure",
+      "classification": "OFF_PATH_PROTOTYPE",
+      "action": "Do not treat as SCI OS boot or Closure Engine authority."
+    },
+    {
+      "path": "packages/external-intelligence",
+      "classification": "OFF_PATH_PROTOTYPE",
+      "action": "Research registries only; not first-release runtime."
+    },
+    {
+      "path": "packages/portfolio-engine",
+      "classification": "OFF_PATH_PROTOTYPE",
+      "action": "Python stub; not GW1 path."
+    },
+    {
+      "path": "packages/probability-engine",
+      "classification": "OFF_PATH_PROTOTYPE",
+      "action": "Python stub; baseline prediction remains in vertical-slice."
+    },
+    {
+      "path": "packages/validation-engine",
+      "classification": "OFF_PATH_PROTOTYPE",
+      "action": "Python stub; not model validation authority."
+    }
+  ]
+}

@@ -4,7 +4,7 @@
 **Authority axis:** Fresh artifacts under `diagnostics-export/`  
 **Index:** `diagnostics-export/current-evidence-index.json`  
 **Label:** No evidence ⇒ **UNKNOWN**, never PASS  
-**Updated:** 2026-08-13
+**Updated:** 2026-08-14
 
 ---
 
@@ -78,6 +78,8 @@ Bound to gap-to-zero `26-post-repair-proof.json` + `27-zero-level-signoff.json` 
 - Screenshot/DOM UX review as a release gate artifact set  
 - Production-eligible scientific calibration  
 - Multi-region / geo Backup-DR (P2 — not first-release P0)
+
+Autonomous marathon (in progress, not a gate closer): Closure P1 176 → 98 with P0 remaining 0. Evidence under `diagnostics-export/autonomous-marathon/`. Packaged runtime is still `pkg_1786656680759` until the next atomic-install.
 
 ---
 

@@ -25,6 +25,10 @@ import { InMemoryFeatureStore } from "@scios/feature-store";
 import { can, audit } from "@scios/governance-engine";
 import { SeededRng } from "@scios/observability";
 import { ImmutableLineageStore } from "./lineage.js";
+import { loadPersistedRuns, persistRun } from "./local-durable.js";
+import { runIdempotentAnalyze } from "./action-gate.js";
+import { resolveActorEnvelope, SERVICE_ACTOR, type ActorEnvelope } from "./actor-envelope.js";
+import { utcIsoNow } from "./utc.js";
 
 const featureStore = new InMemoryFeatureStore();
 
@@ -53,9 +57,19 @@ export interface VerticalSliceResult {
     summary: string;
   };
   label: "ALPHA_NON_PRODUCTION";
+  /** Live analysis usable; persistence may be PERSISTENCE_DEGRADED. */
+  persistenceState?: "PERSISTED" | "PERSISTENCE_DEGRADED";
+  executionId?: string;
+  actionExecution?: unknown;
+  actorContext?: ActorEnvelope;
 }
 
 const runIndex = new Map<string, VerticalSliceResult>();
+
+/** Hydrate from LOCALAPPDATA / SCIOS_STATE_DIR (best-effort local durable). */
+for (const [id, run] of loadPersistedRuns<VerticalSliceResult>()) {
+  runIndex.set(id, run);
+}
 
 export function getSliceRun(runId: string): VerticalSliceResult | undefined {
   return runIndex.get(runId);
@@ -223,10 +237,13 @@ function governanceDecide(input: {
   prediction: PredictionEnvelope;
   instrumentId: string;
   now: string;
+  actor: ActorEnvelope;
 }): GovernanceDecision {
-  const role = "operator";
   const reasons: string[] = [];
-  if (!can(role, "execution:submit")) reasons.push("governance_denied");
+  // Paper/sim execution:submit is a service-actor check. End-user remains subjectActorId.
+  if (!can(SERVICE_ACTOR.role, "execution:submit")) {
+    reasons.push("governance_denied");
+  }
   if (!input.risk.approved) {
     reasons.push(`risk:${input.risk.reason}`);
   }
@@ -250,16 +267,22 @@ function governanceDecide(input: {
   const decision = GovernanceDecisionSchema.parse({
     decisionId: `dec_${randomUUID()}`,
     action,
-    role,
+    role: input.actor.roleId,
     policy: "alpha_execution_submit_v1",
     reasons,
     timestamp: input.now,
+    subjectActorId: input.actor.actorId,
+    serviceActorId: SERVICE_ACTOR.actorId,
+    serviceRole: SERVICE_ACTOR.role,
   });
-  audit(role, `decision:${decision.action}`, input.instrumentId, {
+  audit(input.actor.actorId, `decision:${decision.action}`, input.instrumentId, {
     decisionId: decision.decisionId,
     predictionId: input.prediction.predictionId,
     riskDecisionId: input.risk.riskDecisionId,
     reasons: decision.reasons,
+    roleId: input.actor.roleId,
+    serviceActorId: SERVICE_ACTOR.actorId,
+    serviceRole: SERVICE_ACTOR.role,
   });
   return decision;
 }
@@ -338,7 +361,30 @@ export async function runVerticalSlice(
   input: SliceRunRequestInput
 ): Promise<VerticalSliceResult> {
   const req = SliceRunRequestSchema.parse(input);
-  const now = new Date().toISOString();
+  const objectId = `Entity:${req.instrumentId.trim().toUpperCase()}`;
+  const actor = resolveActorEnvelope(req);
+  const { result, action } = await runIdempotentAnalyze(
+    {
+      idempotencyKey: req.idempotencyKey,
+      executionId: req.executionId,
+      actor: actor.actorId,
+      role: actor.roleId,
+      objectId,
+    },
+    () => runVerticalSliceCore(req, actor)
+  );
+  return {
+    ...result,
+    actionExecution: action,
+    executionId: action.executionId,
+  } as VerticalSliceResult;
+}
+
+async function runVerticalSliceCore(
+  req: ReturnType<typeof SliceRunRequestSchema.parse>,
+  actor: ActorEnvelope
+): Promise<VerticalSliceResult> {
+  const now = utcIsoNow();
   const runId = `run_${randomUUID()}`;
   const seed = req.seed ?? Number(process.env.SCIOS_SEED ?? 42);
   const ledger = new InMemoryCanonicalLedger();
@@ -477,12 +523,13 @@ export async function runVerticalSlice(
     prediction,
     instrumentId: normalizedEvent.instrumentId,
     now,
+    actor,
   });
   await ledger.append({
     entryId: decision.decisionId,
     ledger: "decisions",
     at: now,
-    actor: decision.role,
+    actor: actor.actorId,
     tenantId: req.tenantId,
     correlationId: runId,
     payload: decision,
@@ -600,8 +647,11 @@ export async function runVerticalSlice(
     lineageVerified: lineage.verify().ok && verified,
     cockpitView,
     label: "ALPHA_NON_PRODUCTION",
+    actorContext: actor,
   };
 
   runIndex.set(runId, result);
+  const persist = persistRun(runId, result);
+  result.persistenceState = persist.state;
   return result;
 }

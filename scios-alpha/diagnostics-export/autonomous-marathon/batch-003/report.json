@@ -1,0 +1,28 @@
+{
+  "schema": "sci-os-autonomous-batch-report/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "batchId": "batch-003",
+  "at": "2026-08-14T01:46:03.191Z",
+  "closureRunId": "closure_mssactva_193197",
+  "roots": [
+    "CTRL.CF24.secrets-handling",
+    "CTRL.CF24.input-validation",
+    "CTRL.CF24.command-injection",
+    "CTRL.CF24.path-traversal",
+    "CTRL.CF24.ssrf",
+    "CTRL.CF25.privacy-safe-logs"
+  ],
+  "code": [
+    "local-durable runId path containment",
+    "runtime-security-path.cjs no shell:true on first-release spawn path",
+    "observability redactLogMeta"
+  ],
+  "P0": 0,
+  "P1After": 98,
+  "tests": [
+    "local-durable.test.ts",
+    "runtime-security-path.cjs",
+    "privacy-safe-logs.cjs",
+    "first-release-resilience.cjs"
+  ]
+}
