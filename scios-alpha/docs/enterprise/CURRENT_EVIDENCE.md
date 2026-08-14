@@ -79,7 +79,7 @@ Bound to gap-to-zero `26-post-repair-proof.json` + `27-zero-level-signoff.json` 
 - Production-eligible scientific calibration  
 - Multi-region / geo Backup-DR (P2 — not first-release P0)
 
-Autonomous marathon (in progress, not a gate closer): Closure P1 176 → 98 with P0 remaining 0. Evidence under `diagnostics-export/autonomous-marathon/`. Packaged runtime is still `pkg_1786656680759` until the next atomic-install.
+Autonomous marathon + completion sweep: Closure P1 176 → 91 with P0 remaining 0. Evidence: `diagnostics-export/autonomous-marathon/` and `diagnostics-export/completion/`. Packaged runtime is still `pkg_1786656680759` until the next atomic-install. Verdict `COMPLETION_SWEEP_PASS` ≠ full product vision.
 
 ---
 

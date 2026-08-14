@@ -69,6 +69,16 @@ function toPredictionEnvelope(result: VerticalSliceResult): PredictionEnvelope {
       abstain: p.abstain,
       featureSnapshotId: p.featureSnapshotId,
     },
+    scienceStatus: "FOUNDATION",
+    maturity: "ALPHA",
+    validationStatus: "UNVALIDATED",
+    provenance: {
+      runId: result.runId,
+      modelId: p.model.id,
+      modelVersion: p.model.version,
+      maturityLabel: "NON-PRODUCTION",
+      evidenceRefs: [{ kind: "run", id: result.runId }],
+    },
   };
 }
 
@@ -93,6 +103,9 @@ function toRiskDecision(result: VerticalSliceResult): RiskDecision {
       maxPosition: r.limits.maxPosition,
       maxExposure: r.limits.maxExposure,
     },
+    scienceStatus: "FOUNDATION",
+    maturity: "ALPHA",
+    validationStatus: "UNVALIDATED",
   };
 }
 
@@ -109,6 +122,9 @@ function toGovernanceDecision(result: VerticalSliceResult): GovernanceDecision {
     policyId: d.policy,
     verdict,
     explanation: d.reasons.length > 0 ? d.reasons.join("; ") : d.action,
+    actorId: d.subjectActorId,
+    roleId: d.role,
+    serviceActorId: d.serviceActorId,
   };
 }
 
@@ -196,6 +212,9 @@ export function toVerticalSliceResponse(
     governanceDecision: toGovernanceDecision(result),
     executionOutcome: toExecutionOutcome(result),
     lineage: toLineage(result),
+    lineageVerified: result.lineageVerified,
+    persistenceState: result.persistenceState,
     timestamp,
+    actorContext: result.actorContext || null,
   };
 }

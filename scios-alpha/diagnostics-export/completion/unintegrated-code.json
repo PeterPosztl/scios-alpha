@@ -1,0 +1,52 @@
+{
+  "schema": "sci-os-unintegrated-code/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-14T01:56:00.000Z",
+  "items": [
+    {
+      "id": "write-thin-exe-launcher.cjs",
+      "decision": "INTEGRATE",
+      "note": "Called from build-distribution.cjs when pkg EXE missing"
+    },
+    {
+      "id": "scripts/tests/* marathon tests",
+      "decision": "INTEGRATE",
+      "note": "Added to package.json test:release"
+    },
+    {
+      "id": "packages/experience-compiler",
+      "decision": "DEPRECATE",
+      "note": "README-only; PDR compiler is authority"
+    },
+    {
+      "id": "packages/capability-closure",
+      "decision": "DEFER_WITH_REASON",
+      "note": "OFF_PATH_PROTOTYPE — not boot authority"
+    },
+    {
+      "id": "packages/external-intelligence",
+      "decision": "DEFER_WITH_REASON",
+      "note": "OFF_PATH_PROTOTYPE"
+    },
+    {
+      "id": "packages/portfolio-engine",
+      "decision": "DEFER_WITH_REASON",
+      "note": "Python stub; not GW1"
+    },
+    {
+      "id": "packages/probability-engine",
+      "decision": "DEFER_WITH_REASON",
+      "note": "Python stub; baseline-logistic is GW1 predictor"
+    },
+    {
+      "id": "packages/validation-engine",
+      "decision": "DEFER_WITH_REASON",
+      "note": "Python stub; not model-validation authority"
+    },
+    {
+      "id": "GET /v1/models",
+      "decision": "INTEGRATE",
+      "note": "Mounted on control-plane server.ts"
+    }
+  ]
+}

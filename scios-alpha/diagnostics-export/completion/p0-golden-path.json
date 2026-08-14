@@ -1,0 +1,80 @@
+﻿{
+    "p0Pass":  true,
+    "failNames":  [
+
+                  ],
+    "schema":  "sci-os-completion-p0-probe/v1",
+    "steps":  [
+                  {
+                      "name":  "Home",
+                      "ok":  true,
+                      "status":  200,
+                      "runId":  null,
+                      "decision":  null,
+                      "headline":  "What needs your attention?",
+                      "title":  null,
+                      "models":  null
+                  },
+                  {
+                      "name":  "SearchAAPL",
+                      "ok":  true,
+                      "status":  200,
+                      "runId":  null,
+                      "decision":  null,
+                      "headline":  null,
+                      "title":  null,
+                      "models":  null
+                  },
+                  {
+                      "name":  "Entity",
+                      "ok":  true,
+                      "status":  200,
+                      "runId":  null,
+                      "decision":  null,
+                      "headline":  null,
+                      "title":  "AAPL — Apple Inc.",
+                      "models":  null
+                  },
+                  {
+                      "name":  "Experience",
+                      "ok":  true,
+                      "status":  200,
+                      "runId":  null,
+                      "decision":  null,
+                      "headline":  null,
+                      "title":  null,
+                      "models":  null
+                  },
+                  {
+                      "name":  "GW1",
+                      "ok":  true,
+                      "status":  200,
+                      "runId":  "run_32ce2027-fcae-42cd-9276-4333df6c6623",
+                      "decision":  "APPROVE",
+                      "headline":  null,
+                      "title":  null,
+                      "models":  null
+                  },
+                  {
+                      "name":  "Lineage",
+                      "ok":  true,
+                      "status":  200,
+                      "runId":  "run_32ce2027-fcae-42cd-9276-4333df6c6623",
+                      "decision":  null,
+                      "headline":  null,
+                      "title":  null,
+                      "models":  null
+                  },
+                  {
+                      "name":  "Evidence",
+                      "ok":  true,
+                      "status":  200,
+                      "runId":  "run_32ce2027-fcae-42cd-9276-4333df6c6623",
+                      "decision":  null,
+                      "headline":  null,
+                      "title":  null,
+                      "models":  null
+                  }
+              ],
+    "at":  "2026-08-14T02:17:19.5509331Z"
+}

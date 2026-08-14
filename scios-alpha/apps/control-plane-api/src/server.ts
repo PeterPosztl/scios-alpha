@@ -3,7 +3,7 @@ import { createServer, type IncomingMessage, type ServerResponse } from "node:ht
 import { createLogger } from "@scios/observability";
 import { InMemoryFeatureStore } from "@scios/feature-store";
 import { can, audit, type Role, type Action } from "@scios/governance-engine";
-import { InMemoryModelRegistry } from "@scios/model-registry";
+import { modelRegistry, seedNonProductionModels, modelHonesty } from "@scios/model-registry";
 import { createMetaIntelligence } from "@scios/meta-intelligence";
 import {
   runVerticalSlice,
@@ -40,6 +40,28 @@ const foundationWorker = {
   jobsCompleted: 0,
 };
 
+function optionalDepMetric(name: string, configured: boolean) {
+  return {
+    name,
+    status: configured ? "CONFIGURED_UNMEASURED" : "PROFILE_DISABLED",
+    samples: 0,
+    note: configured
+      ? "Present in env; latency histogram not first-release P0"
+      : "Optional infra absent — not a system failure",
+  };
+}
+
+function aiProviderMetric() {
+  const configured = Boolean(process.env.OPENAI_API_KEY || process.env.SCI_AI_PROVIDER);
+  return {
+    name: "external_llm",
+    requiredForGw1: false,
+    status: configured ? "CONFIGURED_UNMEASURED" : "OPTIONAL_PROVIDER_UNAVAILABLE",
+    samples: 0,
+    note: "GW1 uses in-process baseline-logistic; missing LLM does not fail first-release",
+  };
+}
+
 function touchWorkerHeartbeat() {
   foundationWorker.lastHeartbeatAt = new Date().toISOString();
 }
@@ -64,7 +86,7 @@ function runFoundationSmokeJob(jobId?: string) {
 
 const log = createLogger("control-plane-api");
 const featureStore = new InMemoryFeatureStore();
-const modelRegistry = new InMemoryModelRegistry();
+seedNonProductionModels(modelRegistry);
 const meta = createMetaIntelligence();
 
 /** Canonical vertical slice (foundation path) */
@@ -325,6 +347,18 @@ const server = createServer((req, res) => {
           oidc: "disabled_local_development",
           otel: "local",
           hsm: "simulation_local_key_provider",
+          aiProvider: aiProviderMetric().status,
+        },
+        dependencyMetrics: {
+          node: {
+            name: "bundled_or_runtime_node",
+            status: "MEASURED",
+            version: process.version,
+            samples: 1,
+          },
+          database: optionalDepMetric("postgres", Boolean(process.env.DATABASE_URL)),
+          redis: optionalDepMetric("redis", Boolean(process.env.REDIS_URL)),
+          aiProvider: aiProviderMetric(),
         },
         foundationWorkerDetail: {
           ...foundationWorker,
@@ -334,6 +368,18 @@ const server = createServer((req, res) => {
           productionClaims: false,
           simulationOnly: true,
         },
+      });
+      return;
+    }
+
+    if (method === "GET" && path === "/v1/models") {
+      sendJson(res, 200, {
+        schema: "sci-os-model-registry/v1",
+        label: "ALPHA_NON_PRODUCTION",
+        models: modelRegistry.list().map((m) => ({
+          ...m,
+          ...modelHonesty(m.modelId),
+        })),
       });
       return;
     }

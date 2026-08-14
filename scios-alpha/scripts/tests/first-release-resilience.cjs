@@ -72,6 +72,8 @@ const required = [
   "CF24.path-traversal",
   "CF24.command-injection",
   "CF24.input-validation",
+  "CF26.model-registry",
+  "CF17.dependency-metrics",
 ];
 const missing = required.filter((id) => fr[id].status !== "PROVEN");
 assert.strictEqual(

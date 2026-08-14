@@ -1,6 +1,6 @@
 # CURRENT SYSTEM TRUTH — SCI OS ×10 (`scios-alpha`)
 
-**Updated:** 2026-08-13  
+**Updated:** 2026-08-14  
 **Authority:** This document is pillar 3 of [FOUR_PILLARS.md](./FOUR_PILLARS.md)  
 **Companion evidence:** [CURRENT_EVIDENCE.md](./CURRENT_EVIDENCE.md) + `diagnostics-export/current-evidence-index.json`  
 **Intent upstream:** [FOUNDER_BLUEPRINT.md](./FOUNDER_BLUEPRINT.md) · [BENCHMARK_CONTRACT.md](./BENCHMARK_CONTRACT.md)  

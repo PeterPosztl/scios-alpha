@@ -1,27 +1,32 @@
 {
   "schema": "sci-os-blocked-root-causes/v1",
   "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-14T02:37:25.903Z",
   "items": [
-    {
-      "rootCauseId": "CTRL.CF17.dependency-metrics",
-      "status": "BLOCKED_WITH_EVIDENCE",
-      "reason": "No time-series dependency SLO. /readyz optional_absent is not dependency metrics. Do not fake PROVEN.",
-      "next": "Add measured PG/Redis/provider latency histograms when optional infra is present; keep PROFILE_DISABLED when absent."
-    },
     {
       "rootCauseId": "CTRL.CF02.approval-gates",
       "status": "BLOCKED_WITH_EVIDENCE",
-      "reason": "LOCAL REVIEW is explicit non-durable. Implementing DecisionAction API is a product decision; do not fake governed approval."
+      "reason": "LOCAL REVIEW is explicit non-durable. Do not fake DecisionAction.",
+      "recheck": "Still blocked after completion sweep"
     },
     {
       "rootCauseId": "CTRL.CF27.human-approval",
       "status": "BLOCKED_WITH_EVIDENCE",
-      "reason": "Same as approval-gates. First-release honesty requires LOCAL REVIEW != GOVERNED APPROVAL."
+      "reason": "Same as approval-gates",
+      "recheck": "Still blocked"
     },
     {
-      "rootCauseId": "CTRL.CF26.model-registry",
+      "rootCauseId": "CTRL.CF28.validation",
       "status": "BLOCKED_WITH_EVIDENCE",
-      "reason": "InMemoryModelRegistry exists but is not seeded with labeled NON-PRODUCTION models at boot. Overlay would overclaim."
+      "reason": "UNVALIDATED is honest. Scientific validation campaign is not first-release.",
+      "recheck": "Do not overlay PROVEN"
     }
+  ],
+  "unblockedAndFinished": [
+    "CTRL.CF17.dependency-metrics",
+    "CTRL.CF26.model-registry",
+    "CTRL.CF26.response-provenance",
+    "CTRL.CF26.provider-outage",
+    "CTRL.CF26.secret-handling"
   ]
 }

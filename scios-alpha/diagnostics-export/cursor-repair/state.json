@@ -1,16 +1,16 @@
 ﻿{
   "schema": "sci-os-cursor-repair-state/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "phase": "AUTONOMOUS_MARATHON",
-  "status": "IN_PROGRESS",
-  "at": "2026-08-14T01:46:30.000Z",
+  "phase": "COMPLETION_SWEEP",
+  "status": "COMPLETION_SWEEP_PASS",
+  "at": "2026-08-14T02:37:25.903Z",
   "P0": 0,
-  "P1": 98,
+  "P1": 91,
   "P2": 184,
   "P3": 46,
   "buildId": "pkg_1786656680759",
-  "closureRunId": "closure_mssactva_193197",
+  "closureRunId": "closure_mssc6wi6_e0cf6c",
   "doNotRegressP0": true,
   "packagedLeftRunning": true,
-  "lastBatches": ["batch-002", "batch-003"]
+  "packagedGw1": "PASS"
 }

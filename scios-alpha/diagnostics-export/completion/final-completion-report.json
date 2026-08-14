@@ -1,0 +1,102 @@
+{
+  "schema": "sci-os-final-completion-report/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "verdict": "COMPLETION_SWEEP_PASS",
+  "fullSciOsComplete": false,
+  "at": "2026-08-14T02:37:25.903Z",
+  "closureRunId": "closure_mssc6wi6_e0cf6c",
+  "UNFINISHED_ITEMS_DISCOVERED": 10,
+  "UNFINISHED_ITEMS_COMPLETED": [
+    "UW.model-registry-seed",
+    "UW.dependency-metrics",
+    "UW.response-provenance",
+    "UW.provider-outage",
+    "UW.disabled-action-regex",
+    "UW.tests-not-in-release-gate",
+    "UW.thin-exe-unintegrated",
+    "UW.marathon-final-report-missing",
+    "CF28.model-id",
+    "CF28.model-version"
+  ],
+  "UNINTEGRATED_MODULES_DISCOVERED": [
+    "write-thin-exe-launcher.cjs",
+    "marathon scripts/tests",
+    "GET /v1/models",
+    "packages/experience-compiler empty src"
+  ],
+  "UNINTEGRATED_MODULES_INTEGRATED": [
+    "write-thin-exe-launcher.cjs → build-distribution.cjs",
+    "marathon tests → test:release",
+    "GET /v1/models on control-plane",
+    "seedNonProductionModels at boot"
+  ],
+  "DUPLICATE_AUTHORITIES_REMOVED": [
+    "empty packages/experience-compiler/src (README-only DEPRECATE remains)"
+  ],
+  "GHOST_COMPONENTS_CLASSIFIED": [
+    "experience-compiler DEPRECATE",
+    "capability-closure OFF_PATH_PROTOTYPE",
+    "external-intelligence OFF_PATH_PROTOTYPE",
+    "portfolio-engine OFF_PATH_PROTOTYPE",
+    "probability-engine OFF_PATH_PROTOTYPE",
+    "validation-engine OFF_PATH_PROTOTYPE"
+  ],
+  "TODO_FIXME_REVIEWED": "apps/** no TODO/FIXME hits in TS/JS; action-chain-honesty stale regexes replaced with current engine facts",
+  "TESTS_REENABLED": ["action-chain-honesty.cjs updated to current Closure facts"],
+  "TESTS_ADDED": ["scripts/tests/completion-wiring.cjs"],
+  "SECURITY_PARTIALS_COMPLETED": ["disabled-action regex", "XSS innerHTML=0 still gated"],
+  "GOVERNANCE_PARTIALS_COMPLETED": [],
+  "EXPERIENCE_PARTIALS_COMPLETED": ["act. prefix matching for disabledActions"],
+  "WINDOWS_PACKAGE_PARTIALS_COMPLETED": ["thin EXE fallback wired in package:dist"],
+  "EVIDENCE_PARTIALS_COMPLETED": ["predictionEnvelope.provenance", "marathon final-report synthesized"],
+  "P0_BEFORE": 0,
+  "P0_AFTER": 0,
+  "P1_BEFORE": 98,
+  "P1_AFTER": 91,
+  "P2_BEFORE": 184,
+  "P2_AFTER": 184,
+  "P3_BEFORE": 46,
+  "P3_AFTER": 46,
+  "UNKNOWN_BEFORE": 5707,
+  "UNKNOWN_AFTER": 5712,
+  "PARTIAL_BEFORE": 3788,
+  "PARTIAL_AFTER": 3732,
+  "CANONICAL_CONTROLS_AFTER": 804,
+  "CHECK_INSTANCES_AFTER": 22223,
+  "PASS_AFTER": 8382,
+  "CURRENT_BUILD_ID": "pkg_1786656680759",
+  "PACKAGED_GW1": "PASS",
+  "P0_REGRESSION": "PASS",
+  "RELEASE_TESTS": "PASS",
+  "REMAINING_SAFE_ACTIONABLE_WORK": [
+    "CF11 job-states/progress/evidence (session jobs exist; expand if still PARTIAL after next scan)",
+    "CF06 canonical entity IDs beyond AAPL catalog",
+    "CF08 risk/history panels beyond Analyze pointer"
+  ],
+  "REMAINING_BLOCKED_WORK": [
+    {
+      "id": "CF02.approval-gates",
+      "blocker": "LOCAL REVIEW != durable DecisionAction",
+      "userAction": false
+    },
+    {
+      "id": "CF27.human-approval",
+      "blocker": "Same as approval-gates",
+      "userAction": false
+    },
+    {
+      "id": "CF28.validation",
+      "blocker": "Models are honestly UNVALIDATED; scientific validation campaign not first-release",
+      "userAction": false
+    },
+    {
+      "id": "PACKAGED_SOURCE_LAG",
+      "blocker": "Installed bundle is still pkg_1786656680759; source has request-ids/models/redaction",
+      "userAction": true,
+      "next": "pnpm package:dist && atomic-install when a new package identity is desired"
+    }
+  ],
+  "USER_ACTION_REQUIRED": [
+    "Optional: rebuild and atomic-install to pick up source Control Plane/Cockpit into LOCALAPPDATA. Not required to keep P0=0 on the proven package."
+  ]
+}

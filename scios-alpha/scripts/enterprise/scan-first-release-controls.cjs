@@ -375,6 +375,39 @@ function scanFirstReleaseControls() {
         exists("scripts/tests/privacy-safe-logs.cjs"),
       ["observability redactLogMeta", "validate-config redactUrl"]
     ),
+    "CF17.dependency-metrics": proven(
+      /dependencyMetrics/.test(read("apps/control-plane-api/src/server.ts")) &&
+        /PROFILE_DISABLED/.test(read("apps/control-plane-api/src/server.ts")),
+      ["readyz.dependencyMetrics", "optional infra PROFILE_DISABLED when absent"]
+    ),
+    "CF26.model-registry": proven(
+      /seedNonProductionModels/.test(read("packages/model-registry/src/index.ts")) &&
+        /NON-PRODUCTION/.test(read("packages/model-registry/src/index.ts")),
+      ["seeded baseline-logistic NON-PRODUCTION", "GET /v1/models"]
+    ),
+    "CF26.response-provenance": proven(
+      /provenance:/.test(read("packages/vertical-slice/src/view-adapter.ts")) &&
+        /UNVALIDATED/.test(read("packages/vertical-slice/src/view-adapter.ts")),
+      ["predictionEnvelope.provenance + UNVALIDATED"]
+    ),
+    "CF26.provider-outage": proven(
+      /OPTIONAL_PROVIDER_UNAVAILABLE/.test(read("apps/control-plane-api/src/server.ts")) &&
+        /requiredForGw1:\s*false/.test(read("apps/control-plane-api/src/server.ts")),
+      ["LLM not required for GW1", "OPTIONAL_PROVIDER_UNAVAILABLE"]
+    ),
+    "CF26.secret-handling": proven(
+      /redactLogMeta/.test(read("packages/observability/src/index.ts")),
+      ["redactLogMeta on logger", "no API keys in /v1/models"]
+    ),
+    "CF28.model-id": proven(
+      /baseline-logistic/.test(read("packages/model-registry/src/index.ts")) &&
+        /model: \{ id: "baseline-logistic"/.test(pipeline),
+      ["registry modelId", "pipeline prediction.model.id"]
+    ),
+    "CF28.model-version": proven(
+      /version: "1\.0\.0"/.test(read("packages/model-registry/src/index.ts")),
+      ["baseline-logistic version 1.0.0"]
+    ),
     experienceCompiler: {
       pdrPresent: pdrCompiler,
       duplicateGw1InProduct: compileGw1InProduct,

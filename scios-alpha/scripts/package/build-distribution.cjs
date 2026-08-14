@@ -674,8 +674,8 @@ async function main() {
   );
 
   // Thin EXE wrapper (pkg may be Node18) → always hands off to bundled Node 20.18.1
+  const exeOut = path.join(OUT, "SCI-OS-X10.exe");
   try {
-    const exeOut = path.join(OUT, "SCI-OS-X10.exe");
     const pkgTry = run(
       process.platform === "win32" ? "pnpm.cmd" : "pnpm",
       [
@@ -707,6 +707,27 @@ async function main() {
         ok: false,
         error: String(e.message || e),
         note: "CMD launcher remains compatibility fallback",
+      })
+    );
+  }
+
+  if (!fs.existsSync(exeOut)) {
+    const thin = spawnSync(
+      process.execPath,
+      [path.join(ROOT, "scripts/package/write-thin-exe-launcher.cjs")],
+      {
+        cwd: ROOT,
+        encoding: "utf8",
+        env: { ...process.env, SCIOS_THIN_EXE_DIR: OUT },
+        windowsHide: true,
+      }
+    );
+    console.log(
+      JSON.stringify({
+        step: "thin_exe_fallback",
+        ok: fs.existsSync(exeOut),
+        status: thin.status,
+        note: "CSC thin wrapper delegates to SCI-OS-X10.cmd; not a second boot SM",
       })
     );
   }

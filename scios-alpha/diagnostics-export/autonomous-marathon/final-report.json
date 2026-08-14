@@ -1,0 +1,22 @@
+{
+  "schema": "sci-os-autonomous-marathon-final-report/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "status": "CLOSED_BY_COMPLETION_SWEEP",
+  "START_TIME": "2026-08-14T00:28:00.000Z",
+  "END_TIME": "2026-08-14T01:46:30.000Z",
+  "note": "Marathon left IN_PROGRESS checkpoint (no final-report). Completion sweep closed remaining safe items.",
+  "P0_BEFORE": 0,
+  "P0_AFTER": 0,
+  "P1_BEFORE": 176,
+  "P1_AFTER": 98,
+  "P2_BEFORE": 185,
+  "P2_AFTER": 184,
+  "P3_BEFORE": 46,
+  "P3_AFTER": 46,
+  "CANONICAL_CONTROLS_BEFORE": 796,
+  "CANONICAL_CONTROLS_AFTER": 803,
+  "CHECK_INSTANCES_BEFORE": 20095,
+  "CHECK_INSTANCES_AFTER": 22218,
+  "closureRunIdAfter": "closure_mssactva_193197",
+  "buildId": "pkg_1786656680759"
+}

@@ -34,6 +34,17 @@ export type PredictionEnvelope = {
   distribution: { positive: number; negative: number };
   predictionInterval: [number, number];
   calibration?: Record<string, unknown>;
+  /** Model science honesty — never claim PRODUCTION_ELIGIBLE without evidence */
+  scienceStatus?: string;
+  maturity?: string;
+  validationStatus?: string;
+  provenance?: {
+    runId: string;
+    modelId: string;
+    modelVersion: string;
+    maturityLabel: string;
+    evidenceRefs: Array<{ kind: string; id: string }>;
+  };
 };
 
 export type RiskDecision = {
@@ -42,6 +53,9 @@ export type RiskDecision = {
   reason?: string;
   score?: number;
   thresholds?: Record<string, number>;
+  scienceStatus?: string;
+  maturity?: string;
+  validationStatus?: string;
 };
 
 export type GovernanceDecision = {
@@ -49,6 +63,9 @@ export type GovernanceDecision = {
   policyId?: string;
   verdict: "APPROVE" | "REJECT" | "ESCALATE";
   explanation?: string;
+  actorId?: string;
+  roleId?: string;
+  serviceActorId?: string;
 };
 
 export type ExecutionOutcome = {
@@ -75,5 +92,8 @@ export type VerticalSliceResponse = {
   governanceDecision: GovernanceDecision | null;
   executionOutcome: ExecutionOutcome | null;
   lineage: Lineage | null;
+  lineageVerified?: boolean;
+  persistenceState?: "PERSISTED" | "PERSISTENCE_DEGRADED";
   timestamp: string;
+  actorContext?: Record<string, unknown> | null;
 };

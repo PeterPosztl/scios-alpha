@@ -27,7 +27,9 @@ describe("toVerticalSliceResponse", () => {
     );
     expect(view.lineage?.lineageId).toBe(`lin_${internal.runId}`);
     expect(view.lineage?.nodes.length).toBeGreaterThanOrEqual(11);
-    expect(view.timestamp).toBeTruthy();
+    expect(view.predictionEnvelope?.validationStatus).toBe("UNVALIDATED");
+    expect(view.predictionEnvelope?.provenance?.modelId).toBe("baseline-logistic");
+    expect(view.predictionEnvelope?.provenance?.maturityLabel).toBe("NON-PRODUCTION");
   });
 
   it("marks oversized orders as REJECT", async () => {
