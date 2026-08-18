@@ -1,0 +1,77 @@
+{
+  "schema": "sci-os-whi-011-p0-regression/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-18T20:46:40.346Z",
+  "installedBuild": "pkg_1787085655776",
+  "hostTwinLifecycle": "RUNNING",
+  "hostDrift": [],
+  "jobStatus": "JOB_OBJECT_ACTIVE",
+  "steps": [
+    {
+      "name": "CONTROL_PLANE_HEALTH",
+      "ok": true,
+      "status": 200,
+      "service": "@scios/control-plane-api"
+    },
+    {
+      "name": "COCKPIT_HEALTH",
+      "ok": true,
+      "status": 200,
+      "service": "@scios/cockpit-ui"
+    },
+    {
+      "name": "HOME",
+      "ok": true,
+      "status": 200
+    },
+    {
+      "name": "SEARCH_AAPL",
+      "ok": true,
+      "status": 200,
+      "hitCount": 1
+    },
+    {
+      "name": "ENTITY",
+      "ok": true,
+      "status": 200,
+      "entityId": "Entity:AAPL"
+    },
+    {
+      "name": "EXPERIENCE",
+      "ok": true,
+      "status": 200,
+      "compilerStatus": "RUNTIME_MOUNTED"
+    },
+    {
+      "name": "GW1",
+      "ok": true,
+      "status": 200,
+      "runId": "run_4afcd8b6-5003-4c61-8c91-63636e33c8ed",
+      "pipeline": "APPROVE"
+    },
+    {
+      "name": "UNCERTAINTY",
+      "ok": true,
+      "scienceStatus": "FOUNDATION"
+    },
+    {
+      "name": "RISK_GOVERNANCE",
+      "ok": true,
+      "risk": null,
+      "governance": null
+    },
+    {
+      "name": "EVIDENCE",
+      "ok": true,
+      "status": 200
+    },
+    {
+      "name": "LINEAGE",
+      "ok": true,
+      "status": 200
+    }
+  ],
+  "failed": [],
+  "p0": 0,
+  "status": "PASS"
+}

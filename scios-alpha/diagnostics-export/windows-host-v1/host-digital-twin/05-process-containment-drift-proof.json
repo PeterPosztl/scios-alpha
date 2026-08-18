@@ -1,0 +1,22 @@
+{
+  "schema": "sci-os-whi-011-containment/v1",
+  "status": "PASS",
+  "drift": [
+    {
+      "driftId": "PROCESS_NOT_CONTAINED:8777af",
+      "type": "PROCESS_NOT_CONTAINED",
+      "severity": "P1",
+      "expected": {
+        "role": "control-plane",
+        "jobAttached": true
+      },
+      "actual": {
+        "jobAttached": false
+      },
+      "observedAt": "2026-08-18T20:42:21.247Z",
+      "evidence": "ProcessSupervisor registered but Job Object attach false",
+      "repairAuthority": "NONE_THIS_SLICE",
+      "repairAllowed": false
+    }
+  ]
+}

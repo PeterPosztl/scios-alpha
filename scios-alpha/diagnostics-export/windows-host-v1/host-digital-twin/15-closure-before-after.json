@@ -1,0 +1,49 @@
+{
+  "schema": "sci-os-whi-011-closure-before-after/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "canonicalSliceId": "WHI-011",
+  "before": {
+    "at": "2026-08-18T20:08:41.016Z",
+    "runId": "closure_msz3i814_1a21ca",
+    "buildId": "pkg_1787083012710",
+    "CANONICAL_CONTROLS": 804,
+    "CHECK_INSTANCES": 22229,
+    "PASS": 8382,
+    "P0": 0,
+    "P1": 91,
+    "P2": 184,
+    "P3": 46
+  },
+  "after": {
+    "at": "2026-08-18T20:49:58.825Z",
+    "runId": "closure_msz4zbvd_12a3c5",
+    "buildId": "pkg_1787085655776",
+    "CANONICAL_CONTROLS": 811,
+    "CHECK_INSTANCES": 22241,
+    "PASS": 8396,
+    "P0": 0,
+    "P1": 91,
+    "P2": 184,
+    "P3": 46
+  },
+  "delta": {
+    "P0": 0,
+    "P1": 0,
+    "P2": 0,
+    "P3": 0,
+    "CANONICAL_CONTROLS": 7,
+    "CHECK_INSTANCES": 12,
+    "PASS": 14,
+    "note": "Seven HOST.twin P2 controls added as non-expanding extras; proven from whi-011-test-run.json. P0/P1/P2/P3 root-cause counts unchanged."
+  },
+  "hostControlsAdded": [
+    "HOST.twin.identity",
+    "HOST.twin.process",
+    "HOST.twin.containment",
+    "HOST.twin.port",
+    "HOST.twin.build",
+    "HOST.twin.stopped-truth",
+    "HOST.twin.stale-evidence"
+  ],
+  "status": "PASS"
+}

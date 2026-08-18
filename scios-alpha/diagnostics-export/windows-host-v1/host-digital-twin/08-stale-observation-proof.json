@@ -1,0 +1,170 @@
+{
+  "schema": "sci-os-whi-011-stale/v1",
+  "status": "PASS",
+  "snapshot": {
+    "schema": "sci-os-host-digital-twin/v1",
+    "slice": "WHI-011",
+    "label": "ALPHA_NON_PRODUCTION",
+    "identity": {
+      "platform": "win32",
+      "hostId": "b0c10e95b73f744e",
+      "observedAt": "2026-08-18T20:42:21.279Z"
+    },
+    "runtime": {
+      "buildId": "x",
+      "gitSha": null,
+      "nodeVersion": "v20.18.1",
+      "installRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+      "runtimeMode": "development",
+      "bootId": "owner-loss-15384",
+      "runId": "current-run",
+      "correlationId": null
+    },
+    "processes": {},
+    "ports": {
+      "controlPlane": {
+        "bound": false,
+        "ownerClass": "unbound",
+        "status": 0
+      },
+      "cockpit": {
+        "bound": false,
+        "ownerClass": "unbound",
+        "status": 0
+      },
+      "recovery": {
+        "bound": false,
+        "ownerClass": "unbound",
+        "status": 0
+      }
+    },
+    "locks": {
+      "present": false,
+      "staleCandidate": false
+    },
+    "resources": {
+      "memory": {
+        "total": 16883044352,
+        "free": 6060220416,
+        "freeRatio": 0.35895305903654123,
+        "level": "HEALTHY"
+      },
+      "disk": {
+        "freeBytes": 207863947264,
+        "level": "HEALTHY"
+      },
+      "cpu": {
+        "estimate": 0,
+        "level": "HEALTHY",
+        "note": "loadavg/ncpus on win may be 0 — UNKNOWN not FAIL"
+      },
+      "overall": "HEALTHY"
+    },
+    "power": {
+      "state": "UNKNOWN"
+    },
+    "network": {
+      "coarse": "NETWORK_AVAILABLE"
+    },
+    "installation": {
+      "packaged": false,
+      "backendArtifact": false,
+      "cockpitArtifact": false
+    },
+    "desired": {
+      "lifecycle": "STOPPED",
+      "packaged": false,
+      "buildId": "x",
+      "gitSha": null,
+      "nodeRuntime": null,
+      "nodeMajor": 20,
+      "nodeMinor": 18,
+      "installRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+      "runtimeMode": "development",
+      "jobContainmentExpected": false,
+      "components": {
+        "NodeRuntime": {
+          "required": true,
+          "bundledIfPackaged": true
+        },
+        "ControlPlane": {
+          "required": true,
+          "port": 3000,
+          "health": "/healthz"
+        },
+        "Shell": {
+          "required": true,
+          "port": 4000,
+          "health": "/healthz",
+          "home": "/"
+        },
+        "HomeApi": {
+          "required": true,
+          "port": 3000,
+          "path": "/v1/home"
+        },
+        "VerticalSlice": {
+          "required": true,
+          "via": "control-plane"
+        },
+        "PostgreSQL": {
+          "required": false,
+          "allowedDegraded": true
+        },
+        "Redis": {
+          "required": false,
+          "allowedDegraded": true
+        },
+        "Electron": {
+          "required": false,
+          "allowedDegraded": true
+        }
+      },
+      "ports": {
+        "controlPlane": 3000,
+        "cockpit": 4000,
+        "recovery": 5299
+      },
+      "processes": {}
+    },
+    "actual": {
+      "runtimeStatus": "STOPPED",
+      "job": {}
+    },
+    "drift": [
+      {
+        "driftId": "STALE_OBSERVATION_REJECTED:6d8330",
+        "type": "STALE_OBSERVATION_REJECTED",
+        "severity": "P2",
+        "expected": {
+          "runId": "current-run"
+        },
+        "actual": {
+          "runId": "old-run"
+        },
+        "observedAt": "2026-08-18T20:42:21.279Z",
+        "evidence": "prior observation runId mismatch — not merged into actual",
+        "repairAuthority": "NONE_THIS_SLICE",
+        "repairAllowed": false
+      }
+    ],
+    "maturity": {
+      "observeFirst": true,
+      "repairAllowed": false,
+      "stoppedIsNotFail": true,
+      "unknownIsNotHealthy": true
+    },
+    "evidence": {
+      "composedFrom": [
+        "desired-state.cjs",
+        "process-supervisor",
+        "WHI-001 job-object-state",
+        "sciSystemTwin.host"
+      ],
+      "notAuthorities": [
+        "StartupDigitalTwin"
+      ],
+      "writePath": null
+    }
+  }
+}

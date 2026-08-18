@@ -1,0 +1,144 @@
+{
+  "schema": "sci-os-whi-011-test-run/v1",
+  "at": "2026-08-18T20:42:21.298Z",
+  "canonicalSliceId": "WHI-011",
+  "steps": [
+    {
+      "name": "CANONICAL_SLICE_ID",
+      "ok": true,
+      "id": "WHI-011"
+    },
+    {
+      "name": "SCHEMA",
+      "ok": true,
+      "SCHEMA": "sci-os-host-digital-twin/v1"
+    },
+    {
+      "name": "SCISYSTEM_HOST_POINTER",
+      "ok": true
+    },
+    {
+      "name": "COMPOSE_NOT_THIRD_TWIN",
+      "ok": true
+    },
+    {
+      "name": "RUNNING_NO_MANDATORY_DRIFT",
+      "ok": true,
+      "drift": []
+    },
+    {
+      "name": "INTENTIONALLY_STOPPED",
+      "ok": true,
+      "drift": []
+    },
+    {
+      "name": "PROCESS_MISSING",
+      "ok": true
+    },
+    {
+      "name": "PROCESS_NOT_CONTAINED",
+      "ok": true,
+      "drift": [
+        {
+          "driftId": "PROCESS_NOT_CONTAINED:8777af",
+          "type": "PROCESS_NOT_CONTAINED",
+          "severity": "P1",
+          "expected": {
+            "role": "control-plane",
+            "jobAttached": true
+          },
+          "actual": {
+            "jobAttached": false
+          },
+          "observedAt": "2026-08-18T20:42:21.247Z",
+          "evidence": "ProcessSupervisor registered but Job Object attach false",
+          "repairAuthority": "NONE_THIS_SLICE",
+          "repairAllowed": false
+        }
+      ]
+    },
+    {
+      "name": "PORT_FOREIGN_OWNER",
+      "ok": true,
+      "drift": [
+        {
+          "driftId": "PORT_FOREIGN_OWNER:827f93",
+          "type": "PORT_FOREIGN_OWNER",
+          "severity": "P1",
+          "expected": {
+            "port": 39991,
+            "ownerClass": "sci"
+          },
+          "actual": {
+            "port": 39991,
+            "bound": true,
+            "ownerClass": "foreign",
+            "service": "fixture-foreign",
+            "status": 200
+          },
+          "observedAt": "2026-08-18T20:42:21.277Z",
+          "evidence": null,
+          "repairAuthority": "NONE_THIS_SLICE",
+          "repairAllowed": false
+        }
+      ]
+    },
+    {
+      "name": "BUILD_MISMATCH",
+      "ok": true,
+      "drift": [
+        {
+          "driftId": "BUILD_MISMATCH:dc3e09",
+          "type": "BUILD_MISMATCH",
+          "severity": "P1",
+          "expected": "pkg_expected",
+          "actual": "pkg_other",
+          "observedAt": "2026-08-18T20:42:21.278Z",
+          "evidence": null,
+          "repairAuthority": "NONE_THIS_SLICE",
+          "repairAllowed": false
+        }
+      ]
+    },
+    {
+      "name": "STALE_OBSERVATION_REJECTED",
+      "ok": true,
+      "drift": [
+        {
+          "driftId": "STALE_OBSERVATION_REJECTED:6d8330",
+          "type": "STALE_OBSERVATION_REJECTED",
+          "severity": "P2",
+          "expected": {
+            "runId": "current-run"
+          },
+          "actual": {
+            "runId": "old-run"
+          },
+          "observedAt": "2026-08-18T20:42:21.279Z",
+          "evidence": "prior observation runId mismatch — not merged into actual",
+          "repairAuthority": "NONE_THIS_SLICE",
+          "repairAllowed": false
+        }
+      ]
+    },
+    {
+      "name": "NO_PROCESS_CONTROL_API",
+      "ok": true
+    },
+    {
+      "name": "PRIVACY",
+      "ok": true
+    },
+    {
+      "name": "OPTIONAL_SIGNAL_NOT_FAILURE",
+      "ok": true,
+      "drift": []
+    },
+    {
+      "name": "SNAPSHOT_SERIALIZABLE",
+      "ok": true
+    }
+  ],
+  "failed": [],
+  "status": "PASS"
+}

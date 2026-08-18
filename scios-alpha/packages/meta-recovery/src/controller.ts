@@ -1,4 +1,5 @@
 import { join } from "node:path";
+import { existsSync, readFileSync } from "node:fs";
 import {
   SystemInventoryEngine,
   SystemCapabilityGraph,
@@ -71,6 +72,19 @@ export class MetaRecoveryController {
 
     const twin = new StartupDigitalTwin().diff(nodes);
     writeJson(outDir, "startup-digital-twin.json", twin);
+    try {
+      const hostTwinSrc = join(opts.appRoot, "diagnostics-export", "host", "digital-twin.json");
+      if (existsSync(hostTwinSrc)) {
+        const hostSnap = JSON.parse(readFileSync(hostTwinSrc, "utf8"));
+        writeJson(outDir, "host-digital-twin.json", {
+          schema: "sci-os-meta-recovery-host-twin-input/v1",
+          note: "WHI-011 observe-only input — no repair in this slice",
+          snapshot: hostSnap,
+        });
+      }
+    } catch {
+      /* optional host input */
+    }
 
     const completion = new CapabilityCompletionEngine().scan(opts.appRoot);
     writeJson(outDir, "capability-completion-report.json", completion);

@@ -19,6 +19,7 @@ const {
   lockPath,
 } = require("./startup/process-lock.cjs");
 const { ProcessSupervisor } = require("./startup/process-supervisor.cjs");
+const { projectHostTwin } = require("./host/digital-twin.cjs");
 const { healthGate } = require("./startup/health-gate.cjs");
 const { assessWorkerReadiness } = require("./startup/worker-readiness.cjs");
 const {
@@ -63,6 +64,16 @@ function openBrowser(url) {
     spawn("open", [url], { detached: true, stdio: "ignore" }).unref();
   } else {
     spawn("xdg-open", [url], { detached: true, stdio: "ignore" }).unref();
+  }
+}
+
+function readBuildIdentity(appRoot) {
+  try {
+    return JSON.parse(
+      fs.readFileSync(path.join(appRoot, "manifests", "build-identity.json"), "utf8")
+    );
+  } catch {
+    return null;
   }
 }
 
@@ -270,7 +281,24 @@ async function main() {
     if (r.status !== 0) blockers.push("PROOF_GATE_FAILED");
   }
 
-  const supervisor = node.usable ? new ProcessSupervisor(appRoot, node.path) : null;
+  const supervisor = node.usable
+    ? new ProcessSupervisor(appRoot, node.path, {
+        bootId: correlationId,
+        runId: correlationId,
+        buildId: (readBuildIdentity(appRoot) && readBuildIdentity(appRoot).buildId) || null,
+        startedAt,
+        ports: { "control-plane": apiPort, cockpit: cockpitPort },
+      })
+    : null;
+  if (supervisor) {
+    const hostInit = await supervisor.initHostLayer();
+    recoveryAttempts.push({
+      action: "whi-001-job-object-init",
+      ok: !!(hostInit && hostInit.ok !== false),
+      status: hostInit && hostInit.data && hostInit.data.status,
+      degraded: hostInit && hostInit.degraded === true,
+    });
+  }
   let services = {};
   let health = null;
   let desktop = {
@@ -364,10 +392,11 @@ async function main() {
         }
         // PACKAGED: bundled Node → artifact. Never pnpm/tsx/system toolchain.
         // Parent-owned when --serve so failed boot / shutdown can stop the tree.
-        supervisor.start(name, node.path, [entryPath], {
+        await supervisor.start(name, node.path, [entryPath], {
           shell: false,
           cwd: appRoot,
           detached: !args.serve,
+          expectedPort: port,
           env: {
             ...env,
             SCIOS_APP_ROOT: appRoot,
@@ -377,9 +406,10 @@ async function main() {
         });
       } else {
         const pnpmBin = process.platform === "win32" ? "pnpm.cmd" : "pnpm";
-        supervisor.start(name, pnpmBin, ["--filter", filterPkg, "start"], {
+        await supervisor.start(name, pnpmBin, ["--filter", filterPkg, "start"], {
           shell: false,
           detached: !args.serve,
+          expectedPort: port,
           env,
         });
       }
@@ -544,6 +574,20 @@ async function main() {
     }
 
     services = supervisor.snapshot();
+    try {
+      await projectHostTwin({
+        appRoot,
+        packaged: args.packaged,
+        expectedLifecycle: "RUNNING",
+        correlationId,
+        runContext: supervisor.runContext,
+        supervisor: supervisor.hostSnapshot(),
+        apiPort,
+        cockpitPort,
+      });
+    } catch (e) {
+      warnings.push(`host-digital-twin: ${e instanceof Error ? e.message : String(e)}`);
+    }
   }
 
   const workers = assessWorkerReadiness({ redis });
@@ -795,6 +839,19 @@ async function main() {
     try {
       if (supervisor) {
         cleanup.stopAll = await supervisor.stopAll();
+        cleanup.hostLayer = await supervisor.closeHostLayer();
+        try {
+          await projectHostTwin({
+            appRoot,
+            packaged: args.packaged,
+            expectedLifecycle: "STOPPED",
+            correlationId,
+            runContext: supervisor.runContext,
+            supervisor: supervisor.hostSnapshot(),
+          });
+        } catch {
+          /* observe-only */
+        }
       }
     } catch (e) {
       cleanup.stopAllError = String(e.message || e);

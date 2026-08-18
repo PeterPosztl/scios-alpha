@@ -1,0 +1,266 @@
+{
+  "schema": "sci-os-whi-011-installed/v1",
+  "launchedVia": "SCI-OS-X10.exe",
+  "installedBuild": "pkg_1787085655776",
+  "hostFiles": [
+    {
+      "rel": "installer/scripts/host/digital-twin.cjs",
+      "exists": true
+    },
+    {
+      "rel": "installer/scripts/host/job-object-provider.cjs",
+      "exists": true
+    },
+    {
+      "rel": "installer/scripts/startup/process-supervisor.cjs",
+      "exists": true
+    },
+    {
+      "rel": "installer/scripts/startup/desired-state.cjs",
+      "exists": true
+    }
+  ],
+  "twin": {
+    "schema": "sci-os-host-digital-twin/v1",
+    "slice": "WHI-011",
+    "label": "ALPHA_NON_PRODUCTION",
+    "identity": {
+      "platform": "win32",
+      "hostId": "b0c10e95b73f744e",
+      "observedAt": "2026-08-18T20:41:30.637Z"
+    },
+    "runtime": {
+      "buildId": "pkg_1787085655776",
+      "gitSha": "8a0125a18bd017abaf3206f075713bccc28f01e7",
+      "nodeVersion": "v20.18.1",
+      "installRoot": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+      "runtimeMode": "packaged",
+      "bootId": "0f9f810a-d032-4f20-b609-c12dd2f7baaf",
+      "runId": "0f9f810a-d032-4f20-b609-c12dd2f7baaf",
+      "correlationId": "0f9f810a-d032-4f20-b609-c12dd2f7baaf"
+    },
+    "processes": {
+      "control-plane": {
+        "role": "control-plane",
+        "pid": 680,
+        "parentPid": 17448,
+        "jobAttached": true,
+        "startedAt": "2026-08-18T20:41:29.469Z",
+        "expectedRunning": true,
+        "actualRunning": true,
+        "source": "process-supervisor",
+        "executableHint": "node.exe"
+      },
+      "cockpit": {
+        "role": "cockpit",
+        "pid": 12752,
+        "parentPid": 17448,
+        "jobAttached": true,
+        "startedAt": "2026-08-18T20:41:30.047Z",
+        "expectedRunning": true,
+        "actualRunning": true,
+        "source": "process-supervisor",
+        "executableHint": "node.exe"
+      }
+    },
+    "ports": {
+      "controlPlane": {
+        "port": 3000,
+        "bound": true,
+        "ownerClass": "sci",
+        "service": "@scios/control-plane-api",
+        "status": 200
+      },
+      "cockpit": {
+        "port": 4000,
+        "bound": true,
+        "ownerClass": "sci",
+        "service": "@scios/cockpit-ui",
+        "status": 200
+      },
+      "recovery": {
+        "port": 5299,
+        "bound": false,
+        "ownerClass": "unbound",
+        "service": null,
+        "status": 0
+      }
+    },
+    "locks": {
+      "path": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\diagnostics-export\\.sci-os-startup.lock",
+      "present": true,
+      "ownerPid": 17448,
+      "ownerAlive": true,
+      "startedAt": "2026-08-18T20:41:28.849Z",
+      "staleCandidate": false,
+      "payload": {
+        "pid": 17448,
+        "startedAt": "2026-08-18T20:41:28.849Z",
+        "appRoot": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+        "runtimeMode": "packaged",
+        "apiPort": 3000,
+        "desktopInstanceId": null,
+        "mode": "normal"
+      }
+    },
+    "resources": {
+      "memory": {
+        "total": 16883044352,
+        "free": 6051549184,
+        "freeRatio": 0.3584394530885137,
+        "level": "HEALTHY"
+      },
+      "disk": {
+        "freeBytes": 207864745984,
+        "level": "HEALTHY"
+      },
+      "cpu": {
+        "estimate": 0,
+        "level": "HEALTHY",
+        "note": "loadavg/ncpus on win may be 0 — UNKNOWN not FAIL"
+      },
+      "overall": "HEALTHY"
+    },
+    "power": {
+      "state": "UNKNOWN"
+    },
+    "network": {
+      "coarse": "NETWORK_AVAILABLE"
+    },
+    "installation": {
+      "packaged": true,
+      "backendArtifact": true,
+      "cockpitArtifact": true
+    },
+    "desired": {
+      "lifecycle": "RUNNING",
+      "packaged": true,
+      "buildId": "pkg_1787085655776",
+      "gitSha": "8a0125a18bd017abaf3206f075713bccc28f01e7",
+      "nodeRuntime": "20.18.1",
+      "nodeMajor": 20,
+      "nodeMinor": 18,
+      "installRoot": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+      "runtimeMode": "packaged",
+      "jobContainmentExpected": true,
+      "components": {
+        "NodeRuntime": {
+          "required": true,
+          "bundledIfPackaged": true
+        },
+        "ControlPlane": {
+          "required": true,
+          "port": 3000,
+          "health": "/healthz"
+        },
+        "Shell": {
+          "required": true,
+          "port": 4000,
+          "health": "/healthz",
+          "home": "/"
+        },
+        "HomeApi": {
+          "required": true,
+          "port": 3000,
+          "path": "/v1/home"
+        },
+        "VerticalSlice": {
+          "required": true,
+          "via": "control-plane"
+        },
+        "PostgreSQL": {
+          "required": false,
+          "allowedDegraded": true
+        },
+        "Redis": {
+          "required": false,
+          "allowedDegraded": true
+        },
+        "Electron": {
+          "required": false,
+          "allowedDegraded": true
+        }
+      },
+      "ports": {
+        "controlPlane": 3000,
+        "cockpit": 4000,
+        "recovery": 5299
+      },
+      "processes": {
+        "control-plane": {
+          "expectedRunning": true,
+          "expectedPort": 3000
+        },
+        "cockpit": {
+          "expectedRunning": true,
+          "expectedPort": 4000
+        }
+      }
+    },
+    "actual": {
+      "runtimeStatus": "RUNNING",
+      "job": {
+        "status": "JOB_OBJECT_ACTIVE",
+        "capability": "job-object",
+        "jobName": "SCI-OS-0f9f810a-d032-4f-17448",
+        "keeperPid": 14704,
+        "assignedPids": [
+          680,
+          12752
+        ],
+        "assignLog": [
+          {
+            "at": "2026-08-18T20:41:29.503Z",
+            "pid": 680,
+            "ok": true
+          },
+          {
+            "at": "2026-08-18T20:41:30.049Z",
+            "pid": 12752,
+            "ok": true
+          }
+        ],
+        "initError": null,
+        "providerMode": "live"
+      }
+    },
+    "drift": [],
+    "maturity": {
+      "observeFirst": true,
+      "repairAllowed": false,
+      "stoppedIsNotFail": false,
+      "unknownIsNotHealthy": true
+    },
+    "evidence": {
+      "composedFrom": [
+        "desired-state.cjs",
+        "process-supervisor",
+        "WHI-001 job-object-state",
+        "sciSystemTwin.host"
+      ],
+      "notAuthorities": [
+        "StartupDigitalTwin"
+      ],
+      "writePath": null
+    }
+  },
+  "homeStatus": 200,
+  "gw1": {
+    "status": 200,
+    "runId": "run_3f0dadb3-36e3-495d-817a-ea16cc360e01"
+  },
+  "jobAttached": true,
+  "status": "PASS",
+  "stoppedTwin": {
+    "lifecycle": "STOPPED",
+    "actual": "STOPPED",
+    "driftCount": 0,
+    "job": "JOB_OBJECT_CLOSED",
+    "observedAt": "2026-08-18T20:47:03.270Z"
+  },
+  "cleanShutdown": {
+    "apiDown": true,
+    "cockpitDown": true,
+    "lockReleased": true
+  }
+}

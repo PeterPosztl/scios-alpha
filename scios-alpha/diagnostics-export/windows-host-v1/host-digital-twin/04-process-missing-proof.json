@@ -1,0 +1,72 @@
+{
+  "schema": "sci-os-whi-011-process-missing/v1",
+  "status": "PASS",
+  "drift": [
+    {
+      "driftId": "PROCESS_MISSING:8925c9",
+      "type": "PROCESS_MISSING",
+      "severity": "P1",
+      "expected": {
+        "role": "control-plane",
+        "running": true
+      },
+      "actual": null,
+      "observedAt": "2026-08-18T20:42:21.231Z",
+      "evidence": null,
+      "repairAuthority": "NONE_THIS_SLICE",
+      "repairAllowed": false
+    },
+    {
+      "driftId": "PROCESS_MISSING:acf8bb",
+      "type": "PROCESS_MISSING",
+      "severity": "P1",
+      "expected": {
+        "role": "cockpit",
+        "running": true
+      },
+      "actual": null,
+      "observedAt": "2026-08-18T20:42:21.231Z",
+      "evidence": null,
+      "repairAuthority": "NONE_THIS_SLICE",
+      "repairAllowed": false
+    },
+    {
+      "driftId": "PORT_MISSING:51b934",
+      "type": "PORT_MISSING",
+      "severity": "P1",
+      "expected": {
+        "port": 3000,
+        "owner": "sci"
+      },
+      "actual": {
+        "port": 3000,
+        "bound": false,
+        "ownerClass": "unbound",
+        "status": 0
+      },
+      "observedAt": "2026-08-18T20:42:21.231Z",
+      "evidence": null,
+      "repairAuthority": "NONE_THIS_SLICE",
+      "repairAllowed": false
+    },
+    {
+      "driftId": "PORT_MISSING:224d60",
+      "type": "PORT_MISSING",
+      "severity": "P1",
+      "expected": {
+        "port": 4000,
+        "owner": "sci"
+      },
+      "actual": {
+        "port": 4000,
+        "bound": false,
+        "ownerClass": "unbound",
+        "status": 0
+      },
+      "observedAt": "2026-08-18T20:42:21.231Z",
+      "evidence": null,
+      "repairAuthority": "NONE_THIS_SLICE",
+      "repairAllowed": false
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "sci-os-whi-011-privacy/v1",
+  "status": "PASS",
+  "hostIdHashed": true,
+  "noPersonalFiles": true,
+  "executableHintBasenameOnly": true
+}

@@ -1,0 +1,55 @@
+{
+  "schema": "sci-os-whi-011-whi001-regression/v1",
+  "at": "2026-08-18T20:49:35.850Z",
+  "source": "pnpm test:release -> scripts/tests/whi-001-job-object.cjs",
+  "jobObjects": "PROVEN",
+  "scaffoldVerdict": "REAL_JOB_OBJECT_READY",
+  "failed": [],
+  "steps": [
+    {
+      "name": "JOB_CAPABILITY_DETECTION",
+      "ok": true
+    },
+    {
+      "name": "OWNERSHIP_REGISTRATION",
+      "ok": true
+    },
+    {
+      "name": "VALID_SCI_CHILD_ATTACH",
+      "ok": true
+    },
+    {
+      "name": "UNOWNED_PID_REJECTION",
+      "ok": true
+    },
+    {
+      "name": "NORMAL_CLEANUP",
+      "ok": true
+    },
+    {
+      "name": "CHILD_CRASH_DETECTED",
+      "ok": true
+    },
+    {
+      "name": "OWNER_LOSS_CLEANUP",
+      "ok": true
+    },
+    {
+      "name": "DUPLICATE_START_SAFE",
+      "ok": true
+    },
+    {
+      "name": "HELPER_FAILURE_HONEST",
+      "ok": true
+    },
+    {
+      "name": "NON_WINDOWS_CONTRACT",
+      "ok": true
+    },
+    {
+      "name": "SECURITY_CONTRACT",
+      "ok": true
+    }
+  ],
+  "status": "PASS"
+}

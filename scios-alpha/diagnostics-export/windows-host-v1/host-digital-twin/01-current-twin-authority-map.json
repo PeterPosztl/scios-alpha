@@ -1,0 +1,62 @@
+{
+  "schema": "sci-os-whi-011-twin-authority-map/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-18T20:30:00.000Z",
+  "canonicalSliceId": "WHI-011",
+  "blueprint": "diagnostics-export/windows-host-blueprint/windows-host-integration-map.json",
+  "idResolution": {
+    "windowsCapability": "Windows process / system state",
+    "verb": "AUGMENT",
+    "sciTarget": "SCI Host Digital Twin",
+    "canonicalId": "WHI-011",
+    "historicalAliases": ["WHI-002 (prove-windows-host-v1 filename drift — Windows Services is the real WHI-002)"],
+    "doNotCreate": "WHI-002 Host Digital Twin control"
+  },
+  "authorities": [
+    {
+      "id": "StartupDigitalTwin",
+      "module": "packages/meta-recovery/src/digital-twin.ts",
+      "owns": "scan-time capability inventory (NodeRuntime, ControlPlaneBackend, optional PG/Redis/Electron)",
+      "notOwns": "live Windows PIDs, Job Objects, lock files, coarse host resources",
+      "canonicalFor": "meta-recovery DISCOVER/MODEL capability expected-vs-actual"
+    },
+    {
+      "id": "sciSystemTwin",
+      "module": "packages/product-kernel/src/discipline/dual-twin.js",
+      "owns": "platform self-model view (Service/Package/Capability/Health/Release) over existing registries",
+      "notOwns": "Windows process enumeration",
+      "canonicalFor": "whole-system product/platform view; host section is a projection pointer, not a second store"
+    },
+    {
+      "id": "desired-state",
+      "module": "installer/scripts/startup/desired-state.cjs",
+      "owns": "first-release desired runtime components and ports (CP :3000, Shell :4000)",
+      "canonicalFor": "boot-time desired vs actual health reconciliation"
+    },
+    {
+      "id": "ProcessSupervisor + WHI-001",
+      "module": "installer/scripts/startup/process-supervisor.cjs + host/job-object-provider.cjs",
+      "owns": "SCI-owned process identity, Job Object membership, bootId/runId",
+      "canonicalFor": "live SCI process ownership — Host Twin MUST consume, not rediscover"
+    },
+    {
+      "id": "HostDigitalTwinProjection",
+      "module": "installer/scripts/host/digital-twin.cjs (this slice)",
+      "owns": "composed DESIRED↔ACTUAL host snapshot + bounded drift",
+      "canonicalFor": "Windows-backed host observation feeding sciSystemTwin.host"
+    }
+  ],
+  "convergenceDecision": {
+    "oneProcessTruth": "ProcessSupervisor / WHI-001",
+    "oneCapabilityTwin": "StartupDigitalTwin (unchanged scan-time)",
+    "oneHostProjection": "host/digital-twin.cjs → sciSystemTwin.host",
+    "rejected": [
+      "WindowsTwin as separate process authority",
+      "third Digital Twin class duplicating StartupDigitalTwin",
+      "Product Kernel calling Windows APIs"
+    ]
+  },
+  "metaRecovery": {
+    "consumes": "startup-digital-twin.json (capability) + optional host-digital-twin.json (host drift INPUT, no repair in this slice)"
+  }
+}

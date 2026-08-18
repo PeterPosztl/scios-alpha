@@ -1,0 +1,8 @@
+{
+  "schema": "sci-os-whi-011-security/v1",
+  "status": "PASS",
+  "noAttachAnyPid": true,
+  "noKillApi": true,
+  "observeFirst": true,
+  "noPublicProcessDump": true
+}

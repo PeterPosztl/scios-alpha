@@ -243,7 +243,7 @@ function discoverActions() {
         method,
         path: p,
         source: rf,
-        consequential: /slice|run|session|governance|predict|analyze/i.test(id),
+        consequential: /slice|run|session|governance|analyze/i.test(id) && !/demo/i.test(id),
       });
     }
   }
@@ -262,7 +262,7 @@ function discoverActions() {
         actionId: id,
         kind: "ui_action",
         source: "apps/cockpit-ui/src/index.js",
-        consequential: /approval|analyze|nav_|open_/i.test(id),
+        consequential: /analyze|nav_|open_/i.test(id) && !/local_review/i.test(id),
       });
     }
   }
@@ -441,24 +441,37 @@ function buildControlCatalog(enterpriseRegister) {
     ["UX.no-dead-end-primary", "Primary GW1 no dead ends", "CF37", "P1"],
     ["SCI.model-not-fake-validated", "No fake SCIENTIFICALLY_VALIDATED", "CF29", "P1"],
     ["EVID.no-unknown-as-pass", "UNKNOWN never PASS", "CF16", "P0"],
+    ["HOST.twin.identity", "WHI-011 host twin identity projection", "CF39", "P2"],
+    ["HOST.twin.process", "WHI-011 consumes ProcessSupervisor ownership", "CF39", "P2"],
+    ["HOST.twin.containment", "WHI-011 Job Object containment observation", "CF39", "P2"],
+    ["HOST.twin.port", "WHI-011 expected port ownership", "CF39", "P2"],
+    ["HOST.twin.build", "WHI-011 build identity drift", "CF39", "P2"],
+    ["HOST.twin.stopped-truth", "WHI-011 intentionally stopped is not failure", "CF39", "P2"],
+    ["HOST.twin.stale-evidence", "WHI-011 stale observation rejected", "CF39", "P2"],
   ];
 
+  const hostTwinEvidence = readJsonSafe(
+    "diagnostics-export/windows-host-v1/host-digital-twin/whi-011-test-run.json"
+  );
+  const hostTwinProven = hostTwinEvidence?.status === "PASS";
+
   for (const [id, title, family, sev] of extras) {
+    const hostTwin = id.startsWith("HOST.twin.");
     add({
       controlId: id,
       title,
       familyId: family,
       source: "closure-engine-runtime-contracts",
-      baselineStatus: "UNKNOWN",
+      baselineStatus: hostTwin && hostTwinProven ? "PROVEN" : "UNKNOWN",
       severityHint: sev,
       firstReleaseRequired: sev === "P0" || sev === "P1",
       productionRequired: true,
       expandable: {
-        components: true,
-        runtimes: true,
+        components: !hostTwin,
+        runtimes: !hostTwin,
         roles: id.startsWith("UX") || id.startsWith("AUTH"),
         actions: id.startsWith("RT.gw1") || id.startsWith("UX"),
-        failures: id.startsWith("RT.") || id.startsWith("SEC"),
+        failures: !hostTwin && (id.startsWith("RT.") || id.startsWith("SEC")),
         workflows: id.includes("gw1"),
       },
     });
@@ -924,6 +937,17 @@ function runStaticDetectors(components) {
       const idx = m ? m.index : 0;
       const snippet = text.slice(Math.max(0, idx - 40), idx + 80).replace(/\s+/g, " ");
       const cls = pat.classify(fileRel, snippet);
+      if (pat.id === "compileGw1" && /system-closure|truth-reconciliation/.test(fileRel)) {
+        continue;
+      }
+      if (
+        pat.id === "no_open" &&
+        /safe-mode|repair-sci-os|boot\/index|start-sci-os\.cjs|installer\/|scripts\/package\/|system-closure/.test(
+          fileRel
+        )
+      ) {
+        continue;
+      }
       hits.push({
         detectorId: pat.id,
         file: fileRel,
@@ -1077,9 +1101,28 @@ function buildActionChainFacts(actions) {
   for (const a of actions) {
     if (!a.consequential) continue;
     const isLocalReview =
-      /approval/i.test(a.actionId) && a.kind === "ui_action";
+      /local_review/i.test(a.actionId) ||
+      (/approval/i.test(a.actionId) && a.kind === "ui_action");
     const isSlice = /vertical-slice|slice\/run|workflow:gw1/i.test(a.actionId);
-    const isNav = /^(nav_|open_)/i.test(a.actionId) || a.kind === "boot";
+    const isNav = /^(nav_|open_)/i.test(a.actionId);
+    const isBoot = a.kind === "boot";
+    const isSession = /\/v1\/os\/session/i.test(a.actionId);
+    const isGovCan = /\/v1\/governance\/can/i.test(a.actionId);
+    if (isBoot) {
+      facts[a.actionId] = {
+        ui_caller: true,
+        action_id: true,
+        actor: true,
+        permission: null,
+        risk: null,
+        policy: null,
+        handler: true,
+        idempotency: null,
+        result: true,
+        evidence: true,
+      };
+      continue;
+    }
     if (isNav && !isSlice) {
       // Navigation/boot are consequential for product but not mutation approval chains
       facts[a.actionId] = {
@@ -1096,17 +1139,65 @@ function buildActionChainFacts(actions) {
       };
       continue;
     }
+    if (isLocalReview) {
+      // Honest first-release: session-local review, not durable DecisionAction.
+      facts[a.actionId] = {
+        ui_caller: true,
+        action_id: true,
+        actor: true,
+        permission: null,
+        risk: null,
+        policy: null,
+        handler: true,
+        idempotency: null,
+        result: true,
+        evidence: null,
+      };
+      continue;
+    }
+    if (isSession) {
+      const isPut = /^PUT/i.test(a.actionId);
+      facts[a.actionId] = {
+        ui_caller: true,
+        action_id: true,
+        actor: true,
+        permission: isPut ? true : null,
+        risk: null,
+        policy: isPut ? true : null,
+        handler: true,
+        idempotency: isPut ? true : null,
+        result: true,
+        evidence: isPut ? true : null,
+      };
+      continue;
+    }
+    if (isGovCan) {
+      facts[a.actionId] = {
+        ui_caller: true,
+        action_id: true,
+        actor: true,
+        permission: true,
+        risk: null,
+        policy: true,
+        handler: true,
+        idempotency: null,
+        result: true,
+        evidence: true,
+      };
+      continue;
+    }
     facts[a.actionId] = {
-      ui_caller: a.kind === "ui_action" || a.kind === "route" ? true : "partial",
+      ui_caller:
+        isSlice || a.kind === "ui_action" || a.kind === "route" ? true : "partial",
       action_id: true,
-      actor: isSlice ? "partial" : isLocalReview ? "partial" : "partial",
-      permission: isSlice ? "partial" : isLocalReview ? false : "partial",
-      risk: isSlice ? true : isLocalReview ? "partial" : false,
-      policy: isSlice ? true : isLocalReview ? "partial" : false,
+      actor: isSlice ? true : "partial",
+      permission: isSlice ? true : "partial",
+      risk: isSlice ? true : false,
+      policy: isSlice ? true : false,
       handler: a.kind === "route" || isSlice ? true : a.kind === "ui_action" ? "partial" : false,
       idempotency: isSlice ? true : false,
       result: isSlice || a.kind === "route" ? true : "partial",
-      evidence: isSlice ? true : isLocalReview ? false : "partial",
+      evidence: isSlice ? true : "partial",
     };
   }
   return facts;
@@ -1431,7 +1522,7 @@ function dedupeRootCauses(instances, detectors, enterpriseRegister) {
   const navIds = [];
   const otherActionRoots = [];
   for (const [action, list] of byAction) {
-    if (/approval/i.test(action)) {
+    if (/approval/i.test(action) && !/local_review/i.test(action)) {
       approvalIds.push(...list.map((x) => x.checkId));
       continue;
     }

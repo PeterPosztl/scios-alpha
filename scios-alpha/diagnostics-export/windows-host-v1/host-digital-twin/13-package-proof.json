@@ -1,0 +1,36 @@
+{
+  "schema": "sci-os-whi-011-package/v1",
+  "files": [
+    {
+      "rel": "installer/scripts/host/digital-twin.cjs",
+      "exists": true
+    },
+    {
+      "rel": "installer/scripts/host/job-object-provider.cjs",
+      "exists": true
+    },
+    {
+      "rel": "installer/scripts/startup/process-supervisor.cjs",
+      "exists": true
+    },
+    {
+      "rel": "installer/scripts/startup/desired-state.cjs",
+      "exists": true
+    }
+  ],
+  "allPresent": true,
+  "buildIdentity": {
+    "schema": "sci-os-build-identity/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "buildId": "pkg_1787085655776",
+    "gitSha": "8a0125a18bd017abaf3206f075713bccc28f01e7",
+    "timestamp": "2026-08-18T20:40:56.824Z",
+    "nodeRuntime": "20.18.1",
+    "treeHash": "1bd11c5b67d86ef9241eba83320eab71a19ab5976814beab7e77ce64fff9605a",
+    "packageHash": "5e08640a36c64224d606a5f60a9702cb00bc522b926031c336beed7c131a275a",
+    "lockfileHash": "3867763aab63894dc22fd64e4df4ea42a7816ce3682600fde82c59df49c0479c",
+    "manifestHash": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701",
+    "packagedManifestHash": "5d21d170e9f00dddcc116979bbc635941a9f9e54b54d4a6eb2ccd094ed5ae067"
+  },
+  "status": "PASS"
+}

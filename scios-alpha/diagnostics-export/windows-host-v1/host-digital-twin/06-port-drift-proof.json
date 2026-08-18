@@ -1,0 +1,27 @@
+{
+  "schema": "sci-os-whi-011-port-drift/v1",
+  "status": "PASS",
+  "fixturePort": 39991,
+  "drift": [
+    {
+      "driftId": "PORT_FOREIGN_OWNER:827f93",
+      "type": "PORT_FOREIGN_OWNER",
+      "severity": "P1",
+      "expected": {
+        "port": 39991,
+        "ownerClass": "sci"
+      },
+      "actual": {
+        "port": 39991,
+        "bound": true,
+        "ownerClass": "foreign",
+        "service": "fixture-foreign",
+        "status": 200
+      },
+      "observedAt": "2026-08-18T20:42:21.277Z",
+      "evidence": null,
+      "repairAuthority": "NONE_THIS_SLICE",
+      "repairAllowed": false
+    }
+  ]
+}
