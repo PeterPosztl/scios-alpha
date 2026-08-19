@@ -1,0 +1,16 @@
+{
+  "schema": "sci-os-cf11-job-states-proof/v1",
+  "at": "2026-08-19T17:50:50.406Z",
+  "cp": "http://127.0.0.1:3000",
+  "steps": {
+    "create": "PASS",
+    "idempotency": "PASS",
+    "running": "PASS",
+    "invalidTransition": "PASS",
+    "completed": "PASS",
+    "legacyCompleteAlias": "PASS",
+    "getJob": "PASS",
+    "list": "PASS"
+  },
+  "status": "PASS"
+}

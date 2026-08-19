@@ -1,0 +1,39 @@
+{
+  "schema": "sci-os-current-build-truth/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-19T17:52:00.000Z",
+  "authority": "installed runtime + package manifest (not historical audit)",
+  "source": {
+    "gitSha": "541d608f1e2cc294149efc3e24e59ac160f8a7db",
+    "treeHash": "e1f1d054d3ef89d0f0528474f3f0d7c3fc128e64",
+    "uncommitted": [
+      "apps/control-plane-api/src/osSession.ts",
+      "apps/control-plane-api/src/routes/product.ts",
+      "scripts/tests/cf11-job-states.cjs",
+      "package.json"
+    ]
+  },
+  "package": {
+    "buildId": "pkg_1787161754498",
+    "path": "dist/SCI-OS-X10",
+    "nodeRuntime": "20.18.1"
+  },
+  "install": {
+    "buildId": "pkg_1787161754498",
+    "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+    "atomicInstall": "PASS",
+    "liveVerify": "PASS"
+  },
+  "runtime": {
+    "buildId": "pkg_1787161754498",
+    "controlPlane": ":3000",
+    "appHost": ":4000",
+    "verdict": "DEGRADED",
+    "note": "DATABASE_URL/REDIS optional — Alpha local-durable mode"
+  },
+  "identityChain": {
+    "sourceEqualsPackage": "PENDING_COMMIT",
+    "packageEqualsInstall": "PASS",
+    "installEqualsRuntime": "PASS"
+  }
+}

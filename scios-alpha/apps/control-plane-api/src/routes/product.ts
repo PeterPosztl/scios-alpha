@@ -16,6 +16,10 @@ import {
   listNotifications,
   shellManifest,
   pushNotification,
+  createJob,
+  getJob,
+  updateJob,
+  JOB_STATES,
 } from "../osSession.js";
 
 export type SendJson = (res: ServerResponse, status: number, body: unknown) => void;
@@ -249,7 +253,9 @@ function buildHome(sessionId?: string) {
     actor: sessionWithActor(session).actor,
     attention: {
       pendingDecisions: pendingDecisions.length,
-      openJobs: jobs.filter((j) => j.state !== "DONE" && j.state !== "FAILED").length,
+      openJobs: jobs.filter(
+        (j) => !["COMPLETED", "FAILED", "CANCELLED"].includes(String(j.state))
+      ).length,
       notifications: notifications.length,
       recentAnalyses: runs.length,
       systemNote:
@@ -638,7 +644,64 @@ export async function productRouter(opts: {
   }
 
   if (method === "GET" && path === "/v1/os/jobs") {
-    sendJson(res, 200, { jobs: listJobs() });
+    sendJson(res, 200, { schema: "sci-os-jobs/v1", jobs: listJobs(), states: JOB_STATES });
+    return true;
+  }
+
+  if (method === "GET" && path.startsWith("/v1/os/jobs/")) {
+    const jobId = path.slice("/v1/os/jobs/".length);
+    const job = getJob(jobId);
+    if (!job) {
+      sendJson(res, 404, { error: "job_not_found", jobId });
+      return true;
+    }
+    sendJson(res, 200, { job });
+    return true;
+  }
+
+  if (method === "POST" && path === "/v1/os/jobs") {
+    const chunks: Buffer[] = [];
+    for await (const chunk of opts.req) {
+      chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+    }
+    let body: Record<string, unknown> = {};
+    try {
+      const raw = Buffer.concat(chunks).toString("utf8");
+      if (raw) body = JSON.parse(raw);
+    } catch {
+      sendJson(res, 400, { error: "invalid_json" });
+      return true;
+    }
+    const job = createJob(body);
+    sendJson(res, 201, { job });
+    return true;
+  }
+
+  if (method === "PATCH" && path.startsWith("/v1/os/jobs/")) {
+    const jobId = path.slice("/v1/os/jobs/".length);
+    const chunks: Buffer[] = [];
+    for await (const chunk of opts.req) {
+      chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+    }
+    let body: Record<string, unknown> = {};
+    try {
+      const raw = Buffer.concat(chunks).toString("utf8");
+      if (raw) body = JSON.parse(raw);
+    } catch {
+      sendJson(res, 400, { error: "invalid_json" });
+      return true;
+    }
+    // Legacy alias COMPLETE → COMPLETED
+    if (body.state === "COMPLETE") body.state = "COMPLETED";
+    const out = updateJob(jobId, body, { reason: String(body.reason || "patch") });
+    if (!out.job) {
+      sendJson(res, out.error === "NOT_FOUND" ? 404 : 409, {
+        error: out.error,
+        detail: out.detail || null,
+      });
+      return true;
+    }
+    sendJson(res, 200, { job: out.job });
     return true;
   }
 

@@ -1,0 +1,85 @@
+{
+  "schema": "sci-os-wave-hard-gate-report/v1",
+  "waveId": "B-002",
+  "waveTitle": "CF11 job-state contract minimum",
+  "target": "B",
+  "at": "2026-08-19T17:52:00.000Z",
+  "BASELINE_BUILD": "pkg_1787159655720",
+  "NEW_BUILD": "pkg_1787161754498",
+  "CHECKPOINT": "pending — sci-os: B-002 CF11 job-state contract — installed E2E PASS",
+  "gitSha": "541d608f1e2cc294149efc3e24e59ac160f8a7db",
+  "runId": "run_90c6cb92-4fdc-4529-b62d-0b405dad90dd",
+  "STATUS": "PASS",
+  "P0_BEFORE": 0,
+  "P0_AFTER": 0,
+  "P1_BEFORE": 91,
+  "P1_AFTER": 91,
+  "P2_BEFORE": 184,
+  "P2_AFTER": 184,
+  "P3_BEFORE": 46,
+  "P3_AFTER": 46,
+  "ROOT_CAUSES_BEFORE": 321,
+  "ROOT_CAUSES_CLOSED": 4,
+  "ROOT_CAUSES_REMAINING": 317,
+  "TARGET_BLOCKERS_BEFORE": ["CTRL.CF11.*"],
+  "TARGET_BLOCKERS_AFTER": [],
+  "SOURCE_GATE": "PASS",
+  "RELEASE_TESTS": "PASS",
+  "PACKAGE": "PASS",
+  "INSTALL": "PASS",
+  "INSTALLED_E2E": "PASS",
+  "CLEAN_SHUTDOWN": "PASS",
+  "ROLLBACK": "NOT_RUN",
+  "SECURITY": "PASS",
+  "PRIVACY": "PASS",
+  "EVIDENCE": "PASS",
+  "BLOCKED_WITH_EVIDENCE": [],
+  "EXTERNAL_DEPENDENCIES": [
+    "PostgreSQL (FD-002) — OPTIONAL for B-002; local-durable jobs proven",
+    "Redis — OPTIONAL queue workers disabled"
+  ],
+  "FOUNDER_DECISIONS": {
+    "open": ["FD-001", "FD-002", "FD-004", "FD-005", "FD-006", "FD-007"]
+  },
+  "FILES_CHANGED": [
+    "apps/control-plane-api/src/osSession.ts",
+    "apps/control-plane-api/src/routes/product.ts",
+    "scripts/tests/cf11-job-states.cjs",
+    "package.json"
+  ],
+  "TESTS_ADDED": ["scripts/tests/cf11-job-states.cjs"],
+  "PROOFS_CREATED": [
+    "diagnostics-export/completion-program/cf11-job-states-proof.json",
+    "diagnostics-export/closure/batch_001_P0/packaged-gw1-proof.json"
+  ],
+  "NEXT_TARGET": "B",
+  "NEXT_WAVE": "B-003",
+  "NEXT_EXACT_ACTION": "CF14 policy-decision server-side enforcement + persistence state classification matrix",
+  "gates": {
+    "cf11Source": "PASS",
+    "cf11Installed": "PASS",
+    "testRelease": "PASS",
+    "packagedGw1": "PASS",
+    "whi001": "PASS",
+    "whi010": "PASS",
+    "whi011": "PASS",
+    "p0Regression": "PASS"
+  },
+  "cf11Steps": {
+    "create": "PASS",
+    "idempotency": "PASS",
+    "running": "PASS",
+    "invalidTransition": "PASS",
+    "completed": "PASS",
+    "legacyCompleteAlias": "PASS",
+    "getJob": "PASS",
+    "list": "PASS"
+  },
+  "implementation": {
+    "authority": "apps/control-plane-api/src/osSession.ts",
+    "states": ["QUEUED", "RUNNING", "PAUSED", "DELAYED", "COMPLETED", "FAILED", "CANCELLED", "BLOCKED"],
+    "persistence": "%LOCALAPPDATA%/SCI OS X10/data/jobs/",
+    "routes": ["GET/POST /v1/os/jobs", "GET/PATCH /v1/os/jobs/:id"],
+    "legacyAlias": "COMPLETE → COMPLETED"
+  }
+}

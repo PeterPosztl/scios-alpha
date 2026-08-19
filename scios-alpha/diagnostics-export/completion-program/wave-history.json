@@ -64,9 +64,32 @@
       "waveId": "B-002",
       "target": "B",
       "title": "CF11 job-state contract minimum",
+      "status": "COMPLETE",
+      "startedAt": "2026-08-19T17:30:00.000Z",
+      "completedAt": "2026-08-19T17:52:00.000Z",
+      "buildId": "pkg_1787161754498",
+      "gitSha": "541d608f1e2cc294149efc3e24e59ac160f8a7db",
+      "verdict": "PASS",
+      "gates": {
+        "cf11Source": "PASS",
+        "cf11Installed": "PASS",
+        "testRelease": "PASS",
+        "packagedGw1": "PASS",
+        "whi001": "PASS",
+        "whi010": "PASS",
+        "whi011": "PASS",
+        "p0Regression": "PASS"
+      },
+      "proof": "diagnostics-export/completion-program/wave-b002-hard-gate-report.json",
+      "scope": ["CTRL.CF11.job-states family", "osSession reuse", "no PG dependency"]
+    },
+    {
+      "waveId": "B-003",
+      "target": "B",
+      "title": "CF14 policy-decision + persistence matrix",
       "status": "QUEUED",
       "startedAt": null,
-      "scope": ["CTRL.CF11.job-states family", "osSession reuse", "no PG dependency"]
+      "scope": ["CTRL.CF14.policy-decision", "persistence state classification"]
     }
   ]
 }

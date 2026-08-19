@@ -1,7 +1,7 @@
 # SCI OS ×10 — Completion Program Roadmap
 
 **Program controller started:** 2026-08-19  
-**Current build:** `pkg_1787157665882` · **gitSha:** `ab8df765`  
+**Current build:** `pkg_1787161754498` · **gitSha:** `541d608`  
 **Authority:** current source + runtime evidence (not historical audit labels)
 
 ---
@@ -44,7 +44,7 @@ Proven chain:
 | Market Analyst runtime-connected | **PASS** |
 | Professional domain registry compiled | **PASS** |
 | PostgreSQL persistence | **DEFERRED** — FD-002 open; use local-durable + in-memory until decision |
-| Job lifecycle (CF11) | **NOT_READY** — primary Wave B root |
+| Job lifecycle (CF11) | **PASS** — Wave B-002 installed proof |
 | Policy decision points (CF14) | **PARTIAL** |
 | Model validation truth (CF28) | **UNVALIDATED** — must stay honest |
 | P1 roots | **91** → target **< 20** for Beta |

@@ -1,0 +1,33 @@
+{
+  "schema": "sci-os-current-target/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-19T17:52:00.000Z",
+  "currentTarget": "B",
+  "currentTargetLabel": "DAILY-USE / TESTER BETA",
+  "targets": {
+    "A_USABLE_LOCAL_ALPHA": {
+      "token": "USABLE_LOCAL_ALPHA_READY",
+      "status": "READY",
+      "blockerRoots": 0
+    },
+    "B_DAILY_USE_BETA": {
+      "token": null,
+      "status": "NOT_READY",
+      "foundations": {
+        "BETA_DURABLE_CORE_READY": "NOT_READY",
+        "BACKGROUND_HOST_CORE_READY": "NOT_READY",
+        "REAL_DATA_PLANE_READY": "NOT_READY",
+        "BETA_PRODUCT_CORE_READY": "NOT_READY",
+        "BETA_DISTRIBUTION_READY": "NOT_READY"
+      }
+    },
+    "C_PRODUCTION": {
+      "token": null,
+      "status": "NOT_READY"
+    },
+    "D_FOUNDER_VISION": {
+      "token": null,
+      "status": "NOT_READY"
+    }
+  }
+}

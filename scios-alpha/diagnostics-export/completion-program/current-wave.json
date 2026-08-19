@@ -1,0 +1,35 @@
+{
+  "schema": "sci-os-current-wave/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-19T17:52:00.000Z",
+  "waveId": "B-002",
+  "waveTitle": "CF11 job-state contract minimum",
+  "target": "B",
+  "status": "COMPLETE",
+  "verdict": "PASS",
+  "buildId": "pkg_1787161754498",
+  "gitSha": "541d608f1e2cc294149efc3e24e59ac160f8a7db",
+  "scope": [
+    "CTRL.CF11.job-states",
+    "CTRL.CF11.idempotency",
+    "CTRL.CF11.progress",
+    "CTRL.CF11.job-evidence"
+  ],
+  "gates": {
+    "sourceGate": "PASS",
+    "targetedTest": "PASS",
+    "releaseTests": "PASS",
+    "p0Regression": "PASS",
+    "package": "PASS",
+    "install": "PASS",
+    "installedE2e": "PASS",
+    "cf11Installed": "PASS",
+    "whi001": "PASS",
+    "whi010": "PASS",
+    "whi011": "PASS",
+    "cleanShutdown": "PASS",
+    "closureDelta": "PASS"
+  },
+  "nextWave": "B-003",
+  "nextExactAction": "CF14 policy-decision server-side enforcement minimum + durable persistence matrix classification"
+}
