@@ -78,3 +78,15 @@ export function getAuditLog(): AuditEvent[] {
 export function clearAuditLog(): void {
   auditLog.length = 0;
 }
+
+export {
+  evaluatePolicyDecision,
+  enforcePolicy,
+  proveGovernanceBypassRejected,
+  POLICY_ID,
+  POLICY_VERSION,
+  type PolicyDecision,
+  type PolicyEvaluationInput,
+  type PolicyEvaluationResult,
+  type PolicyEvidenceRef,
+} from "./policy-enforcement.js";

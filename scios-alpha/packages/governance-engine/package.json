@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "@scios/governance-engine",
   "version": "0.1.0",
   "private": true,
@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "echo \"no tests yet\""
+    "test": "node --experimental-vm-modules ../../node_modules/jest/bin/jest.js --config jest.config.cjs 2>/dev/null || node --test src/policy-enforcement.test.ts 2>/dev/null || npx tsx --test src/policy-enforcement.test.ts"
   },
   "dependencies": {
     "@scios/data-fabric": "workspace:*"

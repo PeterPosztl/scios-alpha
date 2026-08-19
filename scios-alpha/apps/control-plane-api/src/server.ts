@@ -2,7 +2,7 @@ import { randomUUID } from "node:crypto";
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { createLogger } from "@scios/observability";
 import { InMemoryFeatureStore } from "@scios/feature-store";
-import { can, audit, type Role, type Action } from "@scios/governance-engine";
+import { can, audit, evaluatePolicyDecision, type Role, type Action } from "@scios/governance-engine";
 import { modelRegistry, seedNonProductionModels, modelHonesty } from "@scios/model-registry";
 import { createMetaIntelligence } from "@scios/meta-intelligence";
 import {
@@ -469,16 +469,63 @@ const server = createServer((req, res) => {
       const actionParam = url.searchParams.get("action") ?? "";
       const { actor, matrixRole } = actorForGovernanceQuery(url);
       const allowed = can(matrixRole, actionParam as Action);
+      const policy = evaluatePolicyDecision({
+        actionId: actionParam || "unknown",
+        role: matrixRole,
+        executionMode: process.env.EXECUTION_MODE || "SIMULATION_ONLY",
+        actorId: actor.actorId,
+        highRisk: /execution|live|override/i.test(actionParam),
+      });
       sendJson(res, 200, {
         role: actor.roleId,
         roleId: actor.roleId,
         action: actionParam,
-        allowed,
+        allowed: allowed && policy.allowed,
+        policy,
+        denyReasons: policy.denyReasons,
         actor,
         matrixRole,
         note:
           "matrixRole is the embedded RBAC mapping only; subject remains actor.roleId / actor.actorId. operator is never a silent UI identity.",
       });
+      return;
+    }
+
+    if (method === "POST" && path === "/v1/governance/evaluate") {
+      const chunks: Buffer[] = [];
+      for await (const chunk of req) {
+        chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+      }
+      let body: Record<string, unknown> = {};
+      try {
+        const raw = Buffer.concat(chunks).toString("utf8");
+        if (raw) body = JSON.parse(raw);
+      } catch {
+        sendJson(res, 400, { error: "invalid_json" });
+        return;
+      }
+      const roleId =
+        (typeof body.roleId === "string" && body.roleId) ||
+        (typeof body.role === "string" && body.role) ||
+        "arch.market_analyst";
+      const matrixRole = matrixRoleFor(roleId);
+      const actor = buildActorContext({
+        userId: (body.userId as string) || "local-dev-user",
+        roleId,
+        sessionId: (body.sessionId as string) || "default",
+        objectId: (body.objectId as string) || null,
+      });
+      const policy = evaluatePolicyDecision({
+        actionId: String(body.actionId || body.action || ""),
+        role: matrixRole,
+        decision: body.decision as "ALLOW" | "DENY" | "ESCALATE" | undefined,
+        attemptBypass: Boolean(body.attemptBypass),
+        executionMode:
+          (body.executionMode as string) || process.env.EXECUTION_MODE || "SIMULATION_ONLY",
+        actorId: actor.actorId,
+        highRisk: Boolean(body.highRisk),
+      });
+      sendJson(res, 200, { actor, matrixRole, policy });
       return;
     }
 
