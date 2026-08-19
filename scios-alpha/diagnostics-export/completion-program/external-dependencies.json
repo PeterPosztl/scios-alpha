@@ -1,0 +1,81 @@
+{
+  "schema": "sci-os-completion-external-dependencies/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-19T17:05:00.000Z",
+  "programTarget": "B",
+  "alphaComplete": true,
+  "dependencies": [
+    {
+      "id": "EXT-PG",
+      "name": "PostgreSQL",
+      "requiredFor": "B",
+      "status": "OPTIONAL_PROVIDER_UNAVAILABLE",
+      "founderDecision": "FD-002",
+      "currentEvidence": "local-foundation profile degrades without PG; Alpha does not require",
+      "alphaTruth": "PROFILE_DISABLED — UI must not imply durable PG persistence"
+    },
+    {
+      "id": "EXT-REDIS",
+      "name": "Redis",
+      "requiredFor": "B",
+      "status": "OPTIONAL_PROVIDER_UNAVAILABLE",
+      "founderDecision": "FD-002",
+      "currentEvidence": "Optional infra; job queue Beta target",
+      "alphaTruth": "PROFILE_DISABLED"
+    },
+    {
+      "id": "EXT-OIDC",
+      "name": "OIDC Identity Provider",
+      "requiredFor": "C",
+      "status": "ABSENT",
+      "founderDecision": "FD-001",
+      "currentEvidence": "AUTH_MODE=local-development in Alpha"
+    },
+    {
+      "id": "EXT-TLS",
+      "name": "TLS Certificates / PKI",
+      "requiredFor": "C",
+      "status": "ABSENT",
+      "founderDecision": "FD-007",
+      "currentEvidence": "Loopback Alpha only"
+    },
+    {
+      "id": "EXT-OTEL",
+      "name": "OpenTelemetry / Monitoring Stack",
+      "requiredFor": "C",
+      "status": "PARTIAL",
+      "founderDecision": null,
+      "currentEvidence": "packages/observability source exists; not production-wired"
+    },
+    {
+      "id": "EXT-MARKET-DATA",
+      "name": "Market / Economic Data APIs",
+      "requiredFor": "D",
+      "status": "ABSENT",
+      "founderDecision": "FD-006",
+      "currentEvidence": "Alpha uses deterministic sample only — correctly labelled NON-LIVE"
+    },
+    {
+      "id": "EXT-GRAPH-DB",
+      "name": "Graph Database (Neo4j etc.)",
+      "requiredFor": "D",
+      "status": "ABSENT",
+      "founderDecision": "FD-002",
+      "currentEvidence": "Not in scios-alpha runtime path"
+    },
+    {
+      "id": "EXT-LLM",
+      "name": "AI / LLM Provider",
+      "requiredFor": "D",
+      "status": "ABSENT",
+      "founderDecision": "FD-005",
+      "currentEvidence": "AI source exists; not production CoPilot"
+    }
+  ],
+  "bundledNoExternal": [
+    "Node 20.18.1 (packaged)",
+    "Windows Host Layer (WHI-001/010/011/004)",
+    "Vertical-slice deterministic GW1",
+    "Local-durable session files under LOCALAPPDATA"
+  ]
+}

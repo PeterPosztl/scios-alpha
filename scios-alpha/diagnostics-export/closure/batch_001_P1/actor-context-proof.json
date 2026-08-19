@@ -1,0 +1,221 @@
+{
+  "schema": "sci-os-actor-context-proof/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-19T17:13:00.678Z",
+  "cp": "http://127.0.0.1:3000",
+  "status": "PASS",
+  "uiRoleId": "arch.market_analyst",
+  "actionActorId": "actor:arch.market_analyst",
+  "governanceSubject": "actor:arch.market_analyst",
+  "governanceServiceActor": "svc:vertical-slice-simulator",
+  "evidenceActorId": "actor:arch.market_analyst",
+  "lineageActorReference": "actor:arch.market_analyst",
+  "consistent": true,
+  "sessionGet": {
+    "status": 200,
+    "actor": {
+      "schema": "sci-os-actor-context/v1",
+      "label": "ALPHA_NON_PRODUCTION",
+      "userId": "local-dev-user",
+      "actorId": "actor:arch.market_analyst",
+      "roleId": "arch.market_analyst",
+      "workspaceId": "ws_home",
+      "objectId": null,
+      "sessionId": "default",
+      "permissionContext": {
+        "actionsAllowed": [
+          "entity:read",
+          "analyze",
+          "evidence:read"
+        ],
+        "actionsDenied": [
+          "live_execution"
+        ],
+        "source": "governance-engine:embedded-foundation"
+      },
+      "policyContext": {
+        "policyId": "embedded-foundation",
+        "highRiskActions": [
+          "live_execution"
+        ],
+        "approvalRequired": true
+      },
+      "executionMode": "SIMULATION_ONLY",
+      "serviceActor": {
+        "actorId": "svc:vertical-slice-simulator",
+        "role": "operator",
+        "purpose": "SIMULATION_ONLY paper execution — not the end-user"
+      },
+      "note": "UX role and governance subject share this envelope — operator is only an explicit service actor"
+    }
+  },
+  "sessionPut": {
+    "status": 200,
+    "actor": {
+      "schema": "sci-os-actor-context/v1",
+      "label": "ALPHA_NON_PRODUCTION",
+      "userId": "local-dev-user",
+      "actorId": "actor:arch.market_analyst",
+      "roleId": "arch.market_analyst",
+      "workspaceId": "ws_home",
+      "objectId": null,
+      "sessionId": "default",
+      "permissionContext": {
+        "actionsAllowed": [
+          "entity:read",
+          "analyze",
+          "evidence:read"
+        ],
+        "actionsDenied": [
+          "live_execution"
+        ],
+        "source": "governance-engine:embedded-foundation"
+      },
+      "policyContext": {
+        "policyId": "embedded-foundation",
+        "highRiskActions": [
+          "live_execution"
+        ],
+        "approvalRequired": true
+      },
+      "executionMode": "SIMULATION_ONLY",
+      "serviceActor": {
+        "actorId": "svc:vertical-slice-simulator",
+        "role": "operator",
+        "purpose": "SIMULATION_ONLY paper execution — not the end-user"
+      },
+      "note": "UX role and governance subject share this envelope — operator is only an explicit service actor"
+    }
+  },
+  "governanceCan": {
+    "status": 200,
+    "body": {
+      "role": "arch.market_analyst",
+      "roleId": "arch.market_analyst",
+      "action": "execution:submit",
+      "allowed": false,
+      "actor": {
+        "schema": "sci-os-actor-context/v1",
+        "label": "ALPHA_NON_PRODUCTION",
+        "userId": "local-dev-user",
+        "actorId": "actor:arch.market_analyst",
+        "roleId": "arch.market_analyst",
+        "workspaceId": null,
+        "objectId": null,
+        "sessionId": "default",
+        "permissionContext": {
+          "actionsAllowed": [
+            "entity:read",
+            "analyze",
+            "evidence:read"
+          ],
+          "actionsDenied": [
+            "live_execution"
+          ],
+          "source": "governance-engine:embedded-foundation"
+        },
+        "policyContext": {
+          "policyId": "embedded-foundation",
+          "highRiskActions": [
+            "live_execution"
+          ],
+          "approvalRequired": true
+        },
+        "executionMode": "SIMULATION_ONLY",
+        "serviceActor": {
+          "actorId": "svc:vertical-slice-simulator",
+          "role": "operator",
+          "purpose": "SIMULATION_ONLY paper execution — not the end-user"
+        },
+        "note": "UX role and governance subject share this envelope — operator is only an explicit service actor"
+      },
+      "matrixRole": "researcher",
+      "note": "matrixRole is the embedded RBAC mapping only; subject remains actor.roleId / actor.actorId. operator is never a silent UI identity."
+    }
+  },
+  "experience": {
+    "status": 200,
+    "actor": {
+      "schema": "sci-os-actor-context/v1",
+      "label": "ALPHA_NON_PRODUCTION",
+      "userId": "local-dev-user",
+      "actorId": "actor:arch.market_analyst",
+      "roleId": "arch.market_analyst",
+      "workspaceId": null,
+      "objectId": null,
+      "sessionId": "default",
+      "permissionContext": {
+        "actionsAllowed": [
+          "entity:read",
+          "analyze",
+          "evidence:read"
+        ],
+        "actionsDenied": [
+          "live_execution"
+        ],
+        "source": "governance-engine:embedded-foundation"
+      },
+      "policyContext": {
+        "policyId": "embedded-foundation",
+        "highRiskActions": [
+          "live_execution"
+        ],
+        "approvalRequired": true
+      },
+      "executionMode": "SIMULATION_ONLY",
+      "serviceActor": {
+        "actorId": "svc:vertical-slice-simulator",
+        "role": "operator",
+        "purpose": "SIMULATION_ONLY paper execution — not the end-user"
+      },
+      "note": "UX role and governance subject share this envelope — operator is only an explicit service actor"
+    }
+  },
+  "gw1": {
+    "status": 200,
+    "runId": "run_ea6dd974-be44-432e-8f9f-474448b22f7b",
+    "governance": {
+      "decisionId": "dec_820aff7c-487e-403d-906d-755328da8054",
+      "policyId": "alpha_execution_submit_v1",
+      "verdict": "APPROVE",
+      "explanation": "APPROVE",
+      "actorId": "actor:arch.market_analyst",
+      "roleId": "arch.market_analyst",
+      "serviceActorId": "svc:vertical-slice-simulator"
+    },
+    "actorContext": {
+      "schema": "sci-os-actor-context/v1",
+      "label": "ALPHA_NON_PRODUCTION",
+      "userId": "local-dev-user",
+      "actorId": "actor:arch.market_analyst",
+      "roleId": "arch.market_analyst",
+      "workspaceId": null,
+      "objectId": "Entity:AAPL",
+      "sessionId": "default",
+      "permissionContext": {
+        "actionsAllowed": [
+          "entity:read",
+          "analyze",
+          "evidence:read"
+        ],
+        "actionsDenied": [
+          "live_execution"
+        ],
+        "source": "governance-engine:embedded-foundation"
+      },
+      "policyContext": {
+        "policyId": "embedded-foundation",
+        "highRiskActions": [
+          "live_execution"
+        ],
+        "approvalRequired": true
+      },
+      "executionMode": "SIMULATION_ONLY",
+      "serviceActor": {
+        "actorId": "svc:vertical-slice-simulator",
+        "role": "operator",
+        "purpose": "SIMULATION_ONLY paper execution:submit — not the end-user"
+      }
+    }
+  }
+}

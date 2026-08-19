@@ -1,0 +1,88 @@
+{
+  "schema": "sci-os-batch-001-P1-selected-roots/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "batchId": "batch_001_P1",
+  "sourceQueue": "diagnostics-export/closure/repair-queue.json batches[0]",
+  "note": "Official nextBatch plus XSS (CTRL.CF24.xss). Skipped ACTION_CHAIN.POST_/demo/predict-and-simulate (demo path, not first-release professional correctness). Windows EXE inspected as polish; not a selected root if thin delegation is optional.",
+  "selected": [
+    {
+      "rootCauseId": "DECISION_ACTION_API_ABSENT",
+      "severity": "P1",
+      "affectedControls": ["CF12.approval", "CF12.execute", "CF13.approval"],
+      "affectedComponents": ["cockpit-ui", "control-plane-api"],
+      "affectedRoles": ["arch.market_analyst"],
+      "affectedActions": [
+        "act.approval.approve",
+        "act.approval.reject",
+        "act.approval.hold"
+      ],
+      "currentEvidence": [
+        "apps/cockpit-ui/src/index.js LOCAL REVIEW STATE labeling already present",
+        "Buttons still data-action-id act.approval.* so Closure treats them as durable approval chain FAILs"
+      ],
+      "whyGroupedTogether": "Honest first-release semantics: local review is not governed DecisionAction.",
+      "acceptanceTest": "UI/API classify LOCAL REVIEW / LOCAL HOLD / LOCAL REJECT NOTE as non-consequential; DECISION_ACTION_API_ABSENT leaves the P1 queue or is reclassified without a fake approval API.",
+      "solution": "OPTION_A_LOCAL_REVIEW"
+    },
+    {
+      "rootCauseId": "ACTION_CHAIN.GET_/v1/os/session",
+      "severity": "P1",
+      "affectedControls": ["CF12.actor", "CF12.permission"],
+      "affectedComponents": ["control-plane-api", "osSession", "product-kernel"],
+      "affectedRoles": ["arch.market_analyst"],
+      "affectedActions": ["GET /v1/os/session"],
+      "currentEvidence": [
+        "Session object has roleId but no Actor Context Envelope",
+        "Action chain facts: risk/policy/idempotency FAIL for a read"
+      ],
+      "whyGroupedTogether": "Same actor envelope as PUT session and governance/can.",
+      "acceptanceTest": "GET /v1/os/session returns actor {userId,actorId,roleId,sessionId,...} matching UI roleId."
+    },
+    {
+      "rootCauseId": "ACTION_CHAIN.PUT_/v1/os/session",
+      "severity": "P1",
+      "affectedControls": ["CF12.actor", "CF12.permission", "CF12.idempotency-key"],
+      "affectedComponents": ["control-plane-api", "osSession"],
+      "affectedRoles": ["arch.market_analyst"],
+      "affectedActions": ["PUT /v1/os/session"],
+      "currentEvidence": [
+        "Allowlisted patch; roadmap still says actor REQUIRED_FOR_PRODUCTION"
+      ],
+      "whyGroupedTogether": "Same envelope; version remains optimistic concurrency.",
+      "acceptanceTest": "PUT persists roleId and returns the same actorId; version conflict still 409."
+    },
+    {
+      "rootCauseId": "ACTION_CHAIN.GET_/v1/governance/can",
+      "severity": "P1",
+      "affectedControls": ["CF12.actor", "CF12.permission", "CF12.policy"],
+      "affectedComponents": ["control-plane-api", "governance-engine"],
+      "affectedRoles": ["arch.market_analyst", "researcher", "operator"],
+      "affectedActions": ["GET /v1/governance/can"],
+      "currentEvidence": [
+        "Only accepts researcher|operator|risk_officer|admin — 400 for arch.market_analyst",
+        "pipeline.ts hardcodes governance role operator"
+      ],
+      "whyGroupedTogether": "Actor context must not silently replace Market Analyst with operator.",
+      "acceptanceTest": "can?roleId=arch.market_analyst returns envelope; GW1 subjectActorId is the analyst; service actor recorded separately."
+    },
+    {
+      "rootCauseId": "CTRL.CF24.xss",
+      "severity": "P1",
+      "affectedControls": ["CF24.xss", "CF24.output-encoding"],
+      "affectedComponents": ["cockpit-ui"],
+      "affectedRoles": ["arch.market_analyst"],
+      "affectedActions": ["search", "entity display", "analysis metadata", "evidence"],
+      "currentEvidence": [
+        "enterprise-gap-register: innerHTML usage exists — residual"
+      ],
+      "whyGroupedTogether": "Untrusted search/entity/run strings reach innerHTML in the same Cockpit surface.",
+      "acceptanceTest": "Payloads <script>alert(1)</script>, <img src=x onerror=alert(1)>, \\\"><svg onload=alert(1)> render as inert text. No innerHTML concatenation of runtime data."
+    }
+  ],
+  "skippedThisBatch": [
+    {
+      "rootCauseId": "ACTION_CHAIN.POST_/demo/predict-and-simulate",
+      "reason": "Demo HTTP path; not first-release professional correctness. Remains P1 for a later batch."
+    }
+  ]
+}

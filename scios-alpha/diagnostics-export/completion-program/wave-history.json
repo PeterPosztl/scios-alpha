@@ -1,0 +1,72 @@
+{
+  "schema": "sci-os-completion-wave-history/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-19T17:05:00.000Z",
+  "waves": [
+    {
+      "waveId": "A-CONVERGENCE",
+      "target": "A",
+      "title": "Alpha Product Convergence A0–A15",
+      "status": "COMPLETE",
+      "startedAt": "2026-08-19T14:00:00.000Z",
+      "completedAt": "2026-08-19T16:42:13.508Z",
+      "buildId": "pkg_1787157665882",
+      "gitSha": "ab8df765b63313d432ba6ae357f6012c763253c2",
+      "verdict": "USABLE_LOCAL_ALPHA_READY",
+      "p0Before": 0,
+      "p0After": 0,
+      "p1Before": 91,
+      "p1After": 91,
+      "alphaBlockerRootsBefore": 6,
+      "alphaBlockerRootsAfter": 0,
+      "gates": {
+        "experienceCompilerMatrix": "PASS",
+        "alphaReadiness": "PASS",
+        "alphaProductConvergence": "PASS",
+        "packagedGw1": "PASS",
+        "installedE2e": "LIVE_PASS"
+      },
+      "proof": [
+        "diagnostics-export/alpha-product-convergence/23-final-report.json",
+        "diagnostics-export/closure/batch_001_P0/packaged-gw1-proof.json"
+      ],
+      "checkpointCommits": [
+        "d9a74a4",
+        "5ce3336",
+        "ab8df765",
+        "0a3d418"
+      ]
+    },
+    {
+      "waveId": "B-001",
+      "target": "B",
+      "title": "Actor Context + Local Review Semantics",
+      "status": "COMPLETE",
+      "startedAt": "2026-08-19T17:05:00.000Z",
+      "completedAt": "2026-08-19T17:15:00.000Z",
+      "buildId": "pkg_1787159655720",
+      "gitSha": "ab8df765b63313d432ba6ae357f6012c763253c2",
+      "verdict": "PASS",
+      "gates": {
+        "targetedSource": "PASS",
+        "testRelease": "PASS",
+        "batch001P1ActorContext": "PASS",
+        "packagedGw1": "PASS",
+        "installedE2e": "PASS",
+        "whi001": "PASS",
+        "whi010": "PASS",
+        "whi011": "PASS",
+        "p0Regression": "PASS"
+      },
+      "proof": "diagnostics-export/completion-program/wave-b001-hard-gate-report.json"
+    },
+    {
+      "waveId": "B-002",
+      "target": "B",
+      "title": "CF11 job-state contract minimum",
+      "status": "QUEUED",
+      "startedAt": null,
+      "scope": ["CTRL.CF11.job-states family", "osSession reuse", "no PG dependency"]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "sci-os-windows-entry-proof/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-13T23:48:00.000Z",
+  "status": "PARTIAL",
+  "selectedAsRootThisBatch": false,
+  "provenPrimary": "%LOCALAPPDATA%\\SCI OS X10\\app\\SCI-OS-X10.cmd",
+  "thinExeBuilt": "dist/SCI-OS-X10/SCI-OS-X10.exe",
+  "thinExeDelegatesTo": "SCI-OS-X10.cmd",
+  "secondBootStateMachine": false,
+  "startMenu": "Unchanged this batch — still the proven CMD target from batch_001_P0 atomic-install. Next package install can prefer EXE if present.",
+  "pkgWrapper": {
+    "id": "PKG_WRAPPER_MIGRATION",
+    "severity": "P2",
+    "note": "legacy pkg Node18 wrapper is not required when thin C# EXE delegates to CMD/bundled Node 20.18.1"
+  },
+  "noDependencyOn": ["Cursor", "pnpm", "system Node", "repository dist at runtime for CMD path"]
+}

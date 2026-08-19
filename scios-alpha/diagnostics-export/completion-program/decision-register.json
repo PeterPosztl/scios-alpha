@@ -1,0 +1,70 @@
+{
+  "schema": "sci-os-completion-decision-register/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-19T17:05:00.000Z",
+  "resolved": [
+    {
+      "id": "FD-003",
+      "title": "UI Framework Decision",
+      "decision": "MODULAR_VANILLA_COMPONENT_SYSTEM",
+      "adr": "product-memory/adr/ADR-SCI-UI-FRAMEWORK-001.md",
+      "resolvedAt": "2026-08-19",
+      "target": "A",
+      "note": "React+Vite deferred to Beta evaluation — existing cockpit proven for Alpha path",
+      "evidence": "diagnostics-export/alpha-product-convergence/01-ui-framework-decision.md"
+    }
+  ],
+  "open": [
+    {
+      "id": "FD-001",
+      "title": "OIDC Provider Selection",
+      "question": "Auth0 / Keycloak / Azure AD / Custom?",
+      "blocks": ["C"],
+      "waveImpact": "Defer until Target C — AUTH_MODE=local-development sufficient for Beta",
+      "status": "OPEN"
+    },
+    {
+      "id": "FD-002",
+      "title": "Database Strategy",
+      "question": "Commit PostgreSQL as primary? Graph DB timeline?",
+      "blocks": ["B-persistence-full", "D"],
+      "waveImpact": "Beta Wave B-004 blocked for full PG; B-001–B-003 proceed on local-durable",
+      "status": "OPEN",
+      "autonomousWorkAllowed": [
+        "local-durable expansion",
+        "persistence truth matrix",
+        "PG adapter stubs without claiming READY"
+      ]
+    },
+    {
+      "id": "FD-004",
+      "title": "Domain Priority Order",
+      "question": "AML / DFIR / CTI / Fraud / OSINT first?",
+      "blocks": ["B-multi-domain"],
+      "waveImpact": "Market Analyst reference domain proven — additional domains Beta+",
+      "status": "OPEN"
+    },
+    {
+      "id": "FD-005",
+      "title": "AI/LLM Integration Scope",
+      "question": "Provider, local vs cloud, CoPilot scope",
+      "blocks": ["D"],
+      "status": "OPEN"
+    },
+    {
+      "id": "FD-006",
+      "title": "Market Data Providers",
+      "question": "Provider selection and budget",
+      "blocks": ["D"],
+      "status": "OPEN"
+    },
+    {
+      "id": "FD-007",
+      "title": "Deployment Model",
+      "question": "Self-hosted / cloud / SaaS",
+      "blocks": ["C"],
+      "status": "OPEN"
+    }
+  ],
+  "programPolicy": "Founder decisions block only their dependent waves — autonomous Beta work continues on non-blocked roots"
+}

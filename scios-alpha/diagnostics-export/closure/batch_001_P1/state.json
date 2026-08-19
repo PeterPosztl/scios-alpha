@@ -1,0 +1,17 @@
+{
+  "phase": "batch_001_P1",
+  "status": "PASS",
+  "P0_rootCauses": 0,
+  "P1_rootCauses": 185,
+  "P1_before": 191,
+  "selectedFixed": [
+    "DECISION_ACTION_API_ABSENT",
+    "ACTION_CHAIN.GET_/v1/os/session",
+    "ACTION_CHAIN.PUT_/v1/os/session",
+    "ACTION_CHAIN.GET_/v1/governance/can",
+    "CTRL.CF24.xss"
+  ],
+  "packagedInstallUpdated": false,
+  "doNotAutoStartBatch002": true,
+  "at": "2026-08-13T23:52:34.892Z"
+}

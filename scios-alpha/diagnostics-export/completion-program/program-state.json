@@ -1,0 +1,81 @@
+{
+  "schema": "sci-os-completion-program-state/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-19T17:15:00.000Z",
+  "currentTarget": "B",
+  "currentTargetLabel": "DAILY-USE / TESTER BETA",
+  "currentWave": "B-002",
+  "currentWaveTitle": "CF11 job-state contract minimum",
+  "currentBuild": "pkg_1787159655720",
+  "gitSha": "ab8df765b63313d432ba6ae357f6012c763253c2",
+  "runtimeVersion": "v20.18.1",
+  "closureRunId": "closure_post_b001",
+  "P0": 0,
+  "P1": 91,
+  "P2": 184,
+  "P3": 46,
+  "targets": {
+    "A_USABLE_LOCAL_ALPHA": "READY",
+    "B_DAILY_USE_BETA": "NOT_READY",
+    "C_PRODUCTION": "NOT_READY",
+    "D_FOUNDER_VISION": "NOT_READY"
+  },
+  "alphaEvidence": {
+    "verdict": "USABLE_LOCAL_ALPHA_READY",
+    "installedE2e": "PASS",
+    "buildId": "pkg_1787159655720",
+    "proofDir": "diagnostics-export/completion-program/wave-b001-hard-gate-report.json",
+    "alphaBlockerRoots": 0
+  },
+  "completedWaves": [
+    {
+      "waveId": "A-CONVERGENCE",
+      "target": "A",
+      "status": "COMPLETE",
+      "verdict": "USABLE_LOCAL_ALPHA_READY",
+      "buildId": "pkg_1787159655720",
+      "completedAt": "2026-08-19T17:14:46.195Z"
+    },
+    {
+      "waveId": "B-001",
+      "target": "B",
+      "title": "Actor Context + Local Review Semantics",
+      "status": "COMPLETE",
+      "verdict": "PASS",
+      "buildId": "pkg_1787159655720",
+      "gitSha": "ab8df765b63313d432ba6ae357f6012c763253c2",
+      "completedAt": "2026-08-19T17:15:00.000Z",
+      "proof": "diagnostics-export/completion-program/wave-b001-hard-gate-report.json",
+      "p1Delta": 0,
+      "rootsClosed": [
+        "DECISION_ACTION_API_ABSENT",
+        "ACTION_CHAIN.GET_/v1/os/session",
+        "ACTION_CHAIN.PUT_/v1/os/session",
+        "ACTION_CHAIN.GET_/v1/governance/can",
+        "CTRL.CF24.xss"
+      ]
+    }
+  ],
+  "currentRootCauses": {
+    "nextBetaRoots": [
+      "CTRL.CF11.job-states",
+      "CTRL.CF11.idempotency",
+      "CTRL.CF11.progress",
+      "CTRL.CF11.job-evidence",
+      "CTRL.CF28.validation",
+      "CTRL.CF14.policy-decision"
+    ],
+    "p1TargetForBeta": 20
+  },
+  "blockedWithEvidence": [],
+  "nextWave": "B-002",
+  "nextExactAction": "Implement CF11 job-state contract on osSession — local-durable persistence, PATCH route, transition evidence",
+  "protectedFoundation": {
+    "bootAuthority": "installer/scripts/start-sci-os.cjs",
+    "whi001": "PASS",
+    "whi010": "PASS",
+    "whi011": "PASS",
+    "atomicInstall": "PROVEN",
+    "goldenPathGw1": "PROVEN"
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "schema": "sci-os-wave-hard-gate-report/v1",
+  "waveId": "B-001",
+  "waveTitle": "Actor Context + Local Review Semantics",
+  "target": "B",
+  "at": "2026-08-19T17:15:00.000Z",
+  "CURRENT_BUILD": "pkg_1787159655720",
+  "CHECKPOINT": "ab8df765 sci-os: B-001 actor context hard gate — installed E2E PASS",
+  "gitSha": "ab8df765b63313d432ba6ae357f6012c763253c2",
+  "runId": "run_2308d78c-4236-4f82-8bcc-0320caa7afe4",
+  "ALPHA_STATUS": "READY",
+  "ALPHA_TOKEN": "USABLE_LOCAL_ALPHA_READY",
+  "B-001_STATUS": "PASS",
+  "B-001_ROOT_CAUSE": "Actor context envelope missing on session/governance/can; approval UI used consequential action IDs for non-durable LOCAL REVIEW; XSS via innerHTML on untrusted strings",
+  "P0_BEFORE": 0,
+  "P0_AFTER": 0,
+  "P1_BEFORE": 91,
+  "P1_AFTER": 91,
+  "ALPHA_BLOCKER_ROOTS_BEFORE": 0,
+  "ALPHA_BLOCKER_ROOTS_AFTER": 0,
+  "INSTALLED_E2E": "PASS",
+  "PACKAGE": "PASS",
+  "INSTALL": "PASS",
+  "CLOSURE_DELTA": {
+    "runId": "closure_post_b001",
+    "p0Delta": 0,
+    "p1Delta": 0,
+    "note": "B-001 closed actor-context P1 roots in batch_001_P1; global P1 remains 91 (CF11/CF28/CF14 families — Beta scope, not Alpha blockers)"
+  },
+  "BLOCKED_WITH_EVIDENCE": [],
+  "EXTERNAL_DEPENDENCIES": [
+    "PostgreSQL (FD-002) — OPTIONAL for Alpha/B-001",
+    "Redis (FD-002) — Beta queue",
+    "OIDC (FD-001) — Target C"
+  ],
+  "FOUNDER_DECISIONS": {
+    "resolved": ["FD-003 UI framework — modular vanilla"],
+    "open": ["FD-001", "FD-002", "FD-004", "FD-005", "FD-006", "FD-007"]
+  },
+  "NEXT_WAVE": "B-002",
+  "NEXT_EXACT_ACTION": "CF11 job-state contract minimum on osSession authority — queued/running/succeeded/failed + local-durable persistence + transition evidence",
+  "gates": {
+    "targetedSource": "PASS",
+    "testRelease": "PASS",
+    "batch001P1ActorContext": "PASS",
+    "packagedGw1": "PASS",
+    "whi001": "PASS",
+    "whi010": "PASS",
+    "whi011": "PASS",
+    "cleanShutdown": "PASS"
+  },
+  "installedPath": {
+    "entry": "SCI-OS-X10.exe",
+    "bundledNode": "v20.18.1",
+    "controlPlane": ":3000 PASS",
+    "appHost": ":4000 PASS",
+    "chain": [
+      "Home PASS",
+      "Search AAPL PASS",
+      "Entity PASS",
+      "Experience RUNTIME_MOUNTED PASS",
+      "GW1 Analyze PASS",
+      "Uncertainty honest PASS",
+      "Risk/Governance simulationOnly PASS",
+      "Evidence PASS",
+      "Lineage PASS",
+      "CONVERGENCE_STOP PASS"
+    ]
+  },
+  "truthInvariants": {
+    "fakeLiveData": false,
+    "fakeGovernedApproval": false,
+    "fakeModelValidation": false,
+    "localReviewSemantics": "OPTION_A_LOCAL_REVIEW"
+  },
+  "evidence": [
+    "diagnostics-export/closure/batch_001_P1/actor-context-proof.json",
+    "diagnostics-export/closure/batch_001_P1/decision-semantics-proof.json",
+    "diagnostics-export/closure/batch_001_P1/p0-regression-proof.json",
+    "diagnostics-export/closure/batch_001_P0/packaged-gw1-proof.json",
+    "diagnostics-export/closure/batch_001_P0/windows-lifecycle-proof.json",
+    "diagnostics-export/alpha-product-convergence/23-final-report.json"
+  ]
+}

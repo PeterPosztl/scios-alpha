@@ -1,0 +1,18 @@
+{
+  "schema": "sci-os-decision-semantics-proof/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-19T17:13:00.680Z",
+  "status": "PASS",
+  "option": "OPTION_A_LOCAL_REVIEW",
+  "localReview": {
+    "classification": "LOCAL_REVIEW_STATE",
+    "consequentialGovernedApproval": false,
+    "uiActions": [
+      "act.local_review.approve",
+      "act.local_review.reject",
+      "act.local_review.hold"
+    ],
+    "note": "Session-local review only. Not DecisionAction API."
+  },
+  "note": "No fake server approval API. GW1 governance remains simulation policy, not UI LOCAL REVIEW."
+}

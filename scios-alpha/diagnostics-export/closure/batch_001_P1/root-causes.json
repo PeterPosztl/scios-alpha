@@ -1,0 +1,59 @@
+{
+  "schema": "sci-os-batch-001-P1-root-causes/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "batchId": "batch_001_P1",
+  "items": [
+    {
+      "rootCauseId": "DECISION_ACTION_API_ABSENT",
+      "reproduce": "Cockpit Approve/Reject/Hold were data-action-id act.approval.* with session-only handlers; Closure expanded a durable approval chain and FAILed permission/evidence.",
+      "rootCause": "UI used approval vocabulary/action ids for non-durable local state.",
+      "blastRadius": "Cockpit analysis review card; Closure action-chain expansion. Not GW1 pipeline.",
+      "patch": "OPTION A — rename to LOCAL REVIEW / LOCAL HOLD / LOCAL REJECT NOTE and act.local_review.*; Closure treats as non-consequential.",
+      "status": "FIXED_SOURCE",
+      "packaged": "INSTALLED",
+      "installedBuildId": "pkg_1787159655720"
+    },
+    {
+      "rootCauseId": "ACTION_CHAIN.GET_/v1/os/session",
+      "reproduce": "GET /v1/os/session returned roleId without Actor Context Envelope; chain facts FAIL on risk/policy for a read.",
+      "rootCause": "Session was a bag of UI fields, not an actor envelope.",
+      "blastRadius": "Cockpit session restore; experience compile; Home.",
+      "patch": "sessionWithActor() attaches sci-os-actor-context/v1; read steps N/A for mutation evidence.",
+      "status": "FIXED_SOURCE",
+      "packaged": "INSTALLED",
+      "installedBuildId": "pkg_1787159655720",
+      "proof": "diagnostics-export/closure/batch_001_P1/actor-context-proof.json"
+    },
+    {
+      "rootCauseId": "ACTION_CHAIN.PUT_/v1/os/session",
+      "reproduce": "PUT allowlist omitted actor; roadmap said actor REQUIRED_FOR_PRODUCTION.",
+      "rootCause": "Patch did not return/persist actor envelope.",
+      "blastRadius": "Role switching, version 409 still required.",
+      "patch": "PUT returns sessionWithActor; version optimistic concurrency kept.",
+      "status": "FIXED_SOURCE",
+      "packaged": "INSTALLED",
+      "installedBuildId": "pkg_1787159655720"
+    },
+    {
+      "rootCauseId": "ACTION_CHAIN.GET_/v1/governance/can",
+      "reproduce": "GET /v1/governance/can?role=arch.market_analyst returned 400; pipeline audited role=operator.",
+      "rootCause": "RBAC matrix roles were used as the user identity.",
+      "blastRadius": "Governance, audit, evidence actor fields, GW1.",
+      "patch": "Accept roleId; return actor envelope; matrixRole separate; pipeline subjectActorId=end user, serviceActor=simulator.",
+      "status": "FIXED_SOURCE",
+      "packaged": "INSTALLED",
+      "installedBuildId": "pkg_1787159655720",
+      "inProcessProof": "diagnostics-export/closure/batch_001_P1/actor-context-proof.json"
+    },
+    {
+      "rootCauseId": "CTRL.CF24.xss",
+      "reproduce": "Cockpit interpolated search/entity/home strings into innerHTML.",
+      "rootCause": "No single output-encoding boundary for untrusted strings.",
+      "blastRadius": "Cockpit HTML surfaces only.",
+      "patch": "safe-dom.js textContent/DOM APIs; zero innerHTML assigns; encoding tests.",
+      "status": "FIXED_SOURCE",
+      "packaged": "INSTALLED",
+      "installedBuildId": "pkg_1787159655720"
+    }
+  ]
+}

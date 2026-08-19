@@ -1,13 +1,13 @@
 {
   "schema": "sci-os-packaged-gw1-proof/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-08-13T21:46:16.917Z",
+  "at": "2026-08-19T17:14:46.195Z",
   "taskId": "TASK-PKG-003",
   "rootCauseId": "PACKAGED_GW1_PROOF_CHAIN_INCOMPLETE",
-  "buildId": "pkg_1786656680759",
+  "buildId": "pkg_1787159655720",
   "installRoot": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
   "nodeRuntime": "v20.18.1",
-  "gitSha": "55d2a104a264608c217b3b602f116cb9b18661cf",
+  "gitSha": "ab8df765b63313d432ba6ae357f6012c763253c2",
   "routeChain": [
     "LOCALAPPDATA install",
     "bundled node → start-sci-os --packaged --serve",
@@ -69,14 +69,14 @@
       "name": "GW1_ANALYZE",
       "ok": true,
       "status": 200,
-      "runId": "run_7249b094-ce96-4b2e-b33d-8b7408feac0e",
+      "runId": "run_2308d78c-4236-4f82-8bcc-0320caa7afe4",
       "decision": "APPROVE",
       "simulated": true
     },
     {
       "name": "UNCERTAINTY",
       "ok": true,
-      "scienceStatus": null,
+      "scienceStatus": "FOUNDATION",
       "prediction": null,
       "honest": true
     },
@@ -99,7 +99,9 @@
       "name": "EVIDENCE",
       "ok": true,
       "status": 200,
-      "runId": "run_7249b094-ce96-4b2e-b33d-8b7408feac0e"
+      "runId": "run_2308d78c-4236-4f82-8bcc-0320caa7afe4",
+      "lineageVerifiedOnRun": true,
+      "persistenceState": "PERSISTED"
     },
     {
       "name": "STARTUP_APPROOT_LOCALAPPDATA",
@@ -107,7 +109,7 @@
       "appRoot": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
       "verdict": "DEGRADED",
       "blockers": [],
-      "correlationId": "68926aff-5164-4c0b-ad2d-8281466ce729",
+      "correlationId": "b55a7450-fb0a-490c-acb6-45b96cb4c709",
       "note": "Snapshot taken after healthy Home before failure-injection test"
     },
     {
@@ -120,7 +122,7 @@
       "portsFree": true
     }
   ],
-  "runId": "run_7249b094-ce96-4b2e-b33d-8b7408feac0e",
+  "runId": "run_2308d78c-4236-4f82-8bcc-0320caa7afe4",
   "status": "PASS",
   "failed": [],
   "note": "Proof uses product Control Plane APIs that Cockpit invokes. Browser DOM hydration previously PASS; this batch binds LOCALAPPDATA appRoot + current buildId."

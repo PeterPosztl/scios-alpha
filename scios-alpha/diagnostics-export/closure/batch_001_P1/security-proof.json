@@ -1,0 +1,29 @@
+{
+  "schema": "sci-os-security-proof/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-13T23:48:00.000Z",
+  "status": "PASS",
+  "rootCauseId": "CTRL.CF24.xss",
+  "alsoTouches": ["CTRL.CF24.output-encoding"],
+  "innerHtmlAssignsInCockpit": 0,
+  "renderer": "textContent + document.createElement (apps/cockpit-ui/src/safe-dom.js)",
+  "payloads": [
+    {
+      "payload": "<script>alert(1)</script>",
+      "encoded": "&lt;script&gt;alert(1)&lt;/script&gt;",
+      "inert": true
+    },
+    {
+      "payload": "<img src=x onerror=alert(1)>",
+      "encoded": "&lt;img src=x onerror=alert(1)&gt;",
+      "inert": true
+    },
+    {
+      "payload": "\"><svg onload=alert(1)>",
+      "encoded": "&quot;&gt;&lt;svg onload=alert(1)&gt;",
+      "inert": true
+    }
+  ],
+  "surfaces": ["search", "entity", "analysis metadata", "evidence", "home cards", "notifications/messages via textContent"],
+  "test": "scripts/tests/cockpit-output-encoding.cjs"
+}

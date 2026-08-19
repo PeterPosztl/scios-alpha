@@ -1,0 +1,44 @@
+{
+  "schema": "sci-os-batch-001-P1-baseline/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-13T22:01:24.615Z",
+  "frozenFrom": "diagnostics-export/closure/closure-summary.json",
+  "identity": {
+    "runId": "closure_mss2bxch_8b2baf",
+    "gitSha": "55d2a104a264608c217b3b602f116cb9b18661cf",
+    "treeHash": "852a8fcf35081aca07d9a9028722a992d8693ce590585e3634aa94fecc851b61",
+    "buildId": "pkg_1786656680759",
+    "packageHash": "fef6cc36e7cd739fada0de42478486cc71eb7c7eeeeb9d74f940c6a3954b5adf",
+    "manifestHash": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701",
+    "runtimeVersion": "v20.18.1",
+    "profile": "local-foundation"
+  },
+  "P0_ROOT_CAUSES": 0,
+  "P1_ROOT_CAUSES": 191,
+  "P2_ROOT_CAUSES": 185,
+  "P3_ROOT_CAUSES": 46,
+  "CANONICAL_CONTROLS": 803,
+  "CHECK_INSTANCES": 26669,
+  "gw1ProofIdentity": {
+    "schema": "sci-os-packaged-gw1-proof/v1",
+    "buildId": "pkg_1786656680759",
+    "runId": "run_7249b094-ce96-4b2e-b33d-8b7408feac0e",
+    "installRoot": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+    "nodeRuntime": "v20.18.1",
+    "status": "PASS",
+    "source": "diagnostics-export/closure/batch_001_P0/packaged-gw1-proof.json"
+  },
+  "invariants": [
+    "Home",
+    "Search",
+    "Entity",
+    "GW1",
+    "Risk/Governance",
+    "Evidence",
+    "Lineage",
+    "Shutdown",
+    "Recovery"
+  ],
+  "doNotReopenP0WithoutNewEvidence": true,
+  "nextBatchAtFreeze": "batch_001_P1"
+}

@@ -1,0 +1,19 @@
+{
+  "schema": "sci-os-p0-regression-proof/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-19T17:13:00.681Z",
+  "status": "PASS",
+  "steps": {
+    "Home": true,
+    "Search": true,
+    "Entity": true,
+    "GW1": true,
+    "Uncertainty": true,
+    "RiskGovernance": true,
+    "Evidence": true,
+    "Lineage": true
+  },
+  "gw1RunId": "run_ea6dd974-be44-432e-8f9f-474448b22f7b",
+  "cp": "http://127.0.0.1:3000",
+  "note": "API golden path against running Control Plane. Shutdown/Recovery not re-executed this batch (P0 closed; no new P0 evidence of regression)."
+}

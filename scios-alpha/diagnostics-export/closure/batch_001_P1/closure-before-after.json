@@ -1,0 +1,52 @@
+{
+  "schema": "sci-os-batch-001-P1-closure-before-after/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-13T23:52:34.892Z",
+  "before": {
+    "source": "closure_mss2bxch_8b2baf / batch_001_P0 freeze",
+    "buildId": "pkg_1786656680759",
+    "canonicalControls": 803,
+    "checkInstances": 26669,
+    "P0_rootCauses": 0,
+    "P1_rootCauses": 191,
+    "P2_rootCauses": 185,
+    "P3_rootCauses": 46,
+    "selectedOpen": [
+      "DECISION_ACTION_API_ABSENT",
+      "ACTION_CHAIN.GET_/v1/os/session",
+      "ACTION_CHAIN.PUT_/v1/os/session",
+      "ACTION_CHAIN.GET_/v1/governance/can",
+      "CTRL.CF24.xss"
+    ],
+    "nextBatch": "batch_001_P1"
+  },
+  "after": {
+    "source": "closure_mss6aw2i_c1b850",
+    "canonicalControls": 803,
+    "checkInstances": 23310,
+    "PASS": 6946,
+    "FAIL": 1638,
+    "P0_rootCauses": 0,
+    "P1_rootCauses": 185,
+    "P2_rootCauses": 185,
+    "P3_rootCauses": 46,
+    "selectedOpen": [],
+    "engineNextQueuedBatchId": "batch_001_P1",
+    "engineNextQueuedRoots": [
+      "ACTION_CHAIN.POST_/demo/predict-and-simulate",
+      "ACTION_CHAIN.boot:start-sci-os",
+      "ACTION_CHAIN.boot:repair",
+      "ACTION_CHAIN.workflow:gw1",
+      "ACTION_CHAIN.GET_/v1/slice/runs"
+    ],
+    "note": "Engine always names the first remaining P1 slice batch_001_P1. This completed repair batch is diagnostics-export/closure/batch_001_P1/."
+  },
+  "delta": {
+    "P0": 0,
+    "P1": -6,
+    "P2": 0,
+    "P3": 0,
+    "selectedRootsRemovedFromRegister": true,
+    "alsoClosed": ["CTRL.CF24.output-encoding (PROVEN with XSS patch)"]
+  }
+}

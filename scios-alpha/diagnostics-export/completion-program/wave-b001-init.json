@@ -1,0 +1,33 @@
+{
+  "schema": "sci-os-completion-wave-report/v1",
+  "waveId": "PROGRAM-INIT",
+  "target": "B",
+  "at": "2026-08-19T17:05:00.000Z",
+  "buildId": "pkg_1787157665882",
+  "gitSha": "ab8df765b63313d432ba6ae357f6012c763253c2",
+  "action": "Completion Program Controller initialized — Alpha READY confirmed, Wave B-001 started",
+  "alphaVerdict": "USABLE_LOCAL_ALPHA_READY",
+  "evidence": {
+    "alphaConvergence": "diagnostics-export/alpha-product-convergence/23-final-report.json",
+    "packagedGw1": "diagnostics-export/closure/batch_001_P0/packaged-gw1-proof.json",
+    "closure": "diagnostics-export/closure/closure-summary.json"
+  },
+  "programFiles": [
+    "diagnostics-export/completion-program/program-state.json",
+    "diagnostics-export/completion-program/roadmap.md",
+    "diagnostics-export/completion-program/decision-register.json",
+    "diagnostics-export/completion-program/external-dependencies.json",
+    "diagnostics-export/completion-program/blocked-with-evidence.json",
+    "diagnostics-export/completion-program/wave-history.json"
+  ],
+  "historicalAuditSuperseded": {
+    "file": "diagnostics-export/completion-readiness/33-final-readiness-report.json",
+    "staleClaims": [
+      "USABLE_LOCAL_ALPHA=NEAR_READY",
+      "Experience Compiler ABSENT",
+      "Cockpit has 2 files no views"
+    ],
+    "currentTruth": "Alpha convergence proofs + LIVE_PASS E2E on current build"
+  },
+  "waveB001Next": "Discover CF11 job authority — no jobs/ tree in scios-alpha; inspect control-plane + supervisor for reuse path"
+}

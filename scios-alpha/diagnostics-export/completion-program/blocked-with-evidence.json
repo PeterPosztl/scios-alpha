@@ -1,0 +1,26 @@
+{
+  "schema": "sci-os-completion-blocked-with-evidence/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-19T17:05:00.000Z",
+  "currentTarget": "B",
+  "alphaVerdict": "USABLE_LOCAL_ALPHA_READY",
+  "blockers": [],
+  "deferredNotBlocked": [
+    {
+      "id": "B-005-PG",
+      "reason": "Founder decision FD-002 not resolved — not BLOCKED_WITH_EVIDENCE; autonomous work continues on non-PG waves",
+      "status": "DEFERRED_BY_DECISION"
+    },
+    {
+      "id": "C-OIDC",
+      "reason": "FD-001 open — Target C queue",
+      "status": "DEFERRED_BY_DECISION"
+    },
+    {
+      "id": "D-MARKET-DATA",
+      "reason": "FD-006 open — Target D queue",
+      "status": "DEFERRED_BY_DECISION"
+    }
+  ],
+  "note": "No BLOCKED_WITH_EVIDENCE items at program start — Alpha READY, Wave B autonomous roots queued"
+}
