@@ -8,6 +8,7 @@ import fs from "node:fs";
 import nodePath from "node:path";
 import { listSliceRuns, getSliceRun } from "@scios/vertical-slice";
 import { ProductKernel, discipline, buildActorContext } from "@scios/product-kernel";
+import { evaluatePolicyDecision, type Role } from "@scios/governance-engine";
 import { compileExperience } from "@scios/professional-domain-registry/compiler";
 import {
   getOrCreateSession,
@@ -324,6 +325,13 @@ function sessionWithActor(session: ReturnType<typeof getOrCreateSession> & {
   };
 }
 
+function matrixRoleFor(professionalRoleId: string): Role {
+  if (/admin|owner/i.test(professionalRoleId)) return "admin";
+  if (/risk|compliance/i.test(professionalRoleId)) return "risk_officer";
+  if (/operator|trader|execution/i.test(professionalRoleId)) return "operator";
+  return "researcher";
+}
+
 function compileProductExperience(input: {
   roleId?: string | null;
   objectId?: string | null;
@@ -352,6 +360,36 @@ function compileProductExperience(input: {
     executionMode: process.env.EXECUTION_MODE || "SIMULATION_ONLY",
   });
 
+  const matrixRole = matrixRoleFor(roleId);
+  const policyActions = [
+    "analyze",
+    "live_execution",
+    "act.local_review.approve",
+    "execution:submit",
+  ];
+  const policyDisabled: { action: string; reason: string }[] = [];
+  for (const actionId of policyActions) {
+    const decision = evaluatePolicyDecision({
+      actionId,
+      role: matrixRole,
+      executionMode: actor.executionMode,
+      actorContext: {
+        actorId: actor.actorId,
+        roleId: actor.roleId,
+        sessionId: actor.sessionId,
+        objectId: actor.objectId,
+      },
+      objectRef: input.objectId || null,
+      workflowState: input.workflowState || "ready",
+    });
+    if (!decision.can && decision.decision !== "CONDITIONAL") {
+      policyDisabled.push({
+        action: actionId,
+        reason: decision.reasonCodes.join(", ") || decision.decision,
+      });
+    }
+  }
+
   // ONE canonical compiler — Professional Domain Registry
   return compileExperience({
     roleId,
@@ -363,6 +401,7 @@ function compileProductExperience(input: {
     permission: actor.permissionContext,
     riskPolicy: actor.policyContext,
     executionProfile: actor.executionMode,
+    disabledActions: policyDisabled,
     availableData: {
       status: "PARTIAL",
       bindings: ["vertical-slice.foundation"],

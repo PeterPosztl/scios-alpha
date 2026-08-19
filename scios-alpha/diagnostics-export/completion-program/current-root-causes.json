@@ -9,15 +9,10 @@
   "P3": 46,
   "ROOT_CAUSES": 322,
   "closedThisWave": [
-    "CTRL.CF11.job-states",
-    "CTRL.CF11.idempotency",
-    "CTRL.CF11.progress",
-    "CTRL.CF11.job-evidence",
-    "BLOCK-INSTALL-EBUSY-001"
+    "CTRL.CF14.policy-decision"
   ],
   "alphaBlockers": [],
   "betaBlockers": [
-    "CTRL.CF14.policy-decision",
     "CTRL.CF28.validation",
     "PERSISTENCE.PG_DEFERRED_FD002"
   ],

@@ -90,10 +90,32 @@
     {
       "waveId": "B-003",
       "target": "B",
-      "title": "CF14 policy-decision + persistence matrix",
+      "title": "CF14 policy-decision contract + enforcement",
+      "status": "COMPLETE",
+      "startedAt": "2026-08-19T22:00:00.000Z",
+      "completedAt": "2026-08-19T22:40:00.000Z",
+      "buildId": "pkg_1787177679954",
+      "gitSha": "920cf41b378fc90fa9225f3d68450fd49833ebb0",
+      "verdict": "B_003_POLICY_DECISION_READY",
+      "gates": {
+        "cf14Source": "PASS",
+        "cf14Installed": "PASS",
+        "atomicInstall": "PASS",
+        "testRelease": "PASS",
+        "p0Regression": "PASS",
+        "alphaRegression": "PASS",
+        "b001Regression": "PASS",
+        "b002Regression": "PASS"
+      },
+      "proof": "diagnostics-export/completion-program/b-003/26-final-report.json"
+    },
+    {
+      "waveId": "B-004",
+      "target": "B",
+      "title": "Persistence / durable matrix",
       "status": "QUEUED",
       "startedAt": null,
-      "scope": ["CTRL.CF14.policy-decision", "persistence state classification"]
+      "scope": ["PERSISTENCE.durable-matrix", "FD-002"]
     }
   ]
 }

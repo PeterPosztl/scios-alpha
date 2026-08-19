@@ -1,43 +1,43 @@
 {
   "schema": "sci-os-completion-program-state/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-08-19T21:41:00.000Z",
+  "at": "2026-08-19T22:40:00.000Z",
   "currentTarget": "B",
   "currentTargetLabel": "DAILY-USE / TESTER BETA",
-  "currentWave": "B-003",
-  "currentWaveTitle": "CF14 policy-decision (queued after B-002 close)",
-  "currentBatch": "B-002-complete",
-  "currentBuild": "pkg_1787175419324",
-  "gitSha": "c9b0483dc16c99b244f9a57ab60afa8a39a632e6",
+  "currentWave": "B-004",
+  "currentWaveTitle": "Persistence / durable matrix (queued)",
+  "currentBatch": "B-003-complete",
+  "currentBuild": "pkg_1787177679954",
+  "gitSha": "920cf41b378fc90fa9225f3d68450fd49833ebb0",
   "runtimeVersion": "v20.18.1",
-  "closureRunId": "closure_post_b002_install_close",
+  "closureRunId": "closure_post_b003_install",
   "P0": 0,
   "P1": 92,
   "P2": 184,
   "P3": 46,
   "alphaBlockers": [],
-  "betaBlockers": ["CTRL.CF14.policy-decision"],
+  "betaBlockers": ["PERSISTENCE.PG_DEFERRED_FD002", "CTRL.CF28.validation"],
   "targets": {
     "A_USABLE_LOCAL_ALPHA": "READY",
     "B_DAILY_USE_BETA": "NOT_READY",
     "C_PRODUCTION": "NOT_READY",
     "D_FOUNDER_VISION": "NOT_READY"
   },
-  "b002Verdict": "B_002_JOB_STATE_READY",
+  "b003Verdict": "B_003_POLICY_DECISION_READY",
   "completedWaves": [
     {"waveId": "A-CONVERGENCE", "verdict": "USABLE_LOCAL_ALPHA_READY"},
     {"waveId": "B-001", "verdict": "PASS"},
+    {"waveId": "B-002", "verdict": "B_002_JOB_STATE_READY"},
     {
-      "waveId": "B-002",
-      "verdict": "B_002_JOB_STATE_READY",
-      "buildId": "pkg_1787175419324",
-      "gitSha": "c9b0483dc16c99b244f9a57ab60afa8a39a632e6",
-      "completedAt": "2026-08-19T21:41:00.000Z",
-      "proof": "diagnostics-export/completion-program/b-002/20-final-report.json",
-      "installBlocker": null
+      "waveId": "B-003",
+      "verdict": "B_003_POLICY_DECISION_READY",
+      "buildId": "pkg_1787177679954",
+      "gitSha": "920cf41b378fc90fa9225f3d68450fd49833ebb0",
+      "completedAt": "2026-08-19T22:40:00.000Z",
+      "proof": "diagnostics-export/completion-program/b-003/26-final-report.json"
     }
   ],
-  "nextWave": "B-003",
-  "nextExactAction": "Begin CF14 policy-decision installed hard gate when authorized — do not auto-start",
-  "lastUpdatedAt": "2026-08-19T21:41:00.000Z"
+  "nextWave": "B-004",
+  "nextExactAction": "Begin persistence/durable matrix when authorized — do not auto-start",
+  "lastUpdatedAt": "2026-08-19T22:40:00.000Z"
 }

@@ -1,0 +1,18 @@
+{
+  "schema": "sci-os-b003-final-report/v1",
+  "at": "2026-08-19T22:40:00.000Z",
+  "wave": "B-003",
+  "token": "B_003_POLICY_DECISION_READY",
+  "baselineCheckpoint": "920cf41b",
+  "baselineBuild": "pkg_1787175419324",
+  "newBuild": "pkg_1787177679954",
+  "policyAuthority": "packages/governance-engine/src/policy-enforcement.ts",
+  "serverEvaluation": "PASS",
+  "pepEnforcement": "PASS",
+  "installedPolicyE2e": "PASS",
+  "atomicInstall": "PASS",
+  "p0After": 0,
+  "p1After": 92,
+  "cf14Root": "PROVEN",
+  "alphaStatus": "USABLE_LOCAL_ALPHA_READY"
+}

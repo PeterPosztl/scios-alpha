@@ -1,0 +1,13 @@
+{
+  "schema": "sci-os-policy-evaluation/v1",
+  "decisionStates": [
+    "ALLOW",
+    "DENY",
+    "CONDITIONAL",
+    "NOT_APPLICABLE",
+    "UNKNOWN"
+  ],
+  "policySetId": "embedded-foundation",
+  "policySetVersion": "embedded-foundation/v1",
+  "note": "Server-authoritative — UI display only"
+}

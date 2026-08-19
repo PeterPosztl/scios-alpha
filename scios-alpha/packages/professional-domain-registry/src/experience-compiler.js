@@ -278,6 +278,12 @@ export function compileExperience(input = {}) {
     disabledActions.push({ action: a, reason: "Permission denied (server)" });
   }
 
+  for (const d of input.disabledActions || []) {
+    disabledActions.push(
+      typeof d === "string" ? { action: d, reason: "Policy denied (server)" } : d
+    );
+  }
+
   const mounted = input.runtimeMount === true;
   const actor = input.actor || null;
 

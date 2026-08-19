@@ -1,0 +1,9 @@
+{
+  "schema": "sci-os-b003-package-proof/v1",
+  "at": "2026-08-19T22:14:58.000Z",
+  "buildId": "pkg_1787177679954",
+  "gitSha": "920cf41b378fc90fa9225f3d68450fd49833ebb0",
+  "bundledNode": "v20.18.1",
+  "atomicInstall": "PASS",
+  "status": "PASS"
+}

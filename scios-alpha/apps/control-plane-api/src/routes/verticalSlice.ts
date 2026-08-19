@@ -10,12 +10,68 @@ import {
   type VerticalSliceRequest,
   type VerticalSliceResponse,
 } from "@scios/vertical-slice";
+import { evaluatePolicyDecision, type Role } from "@scios/governance-engine";
+import { buildActorContext } from "@scios/product-kernel";
 
 export type JsonSender = (
   res: ServerResponse,
   status: number,
   body: unknown
 ) => void;
+
+function matrixRoleFor(professionalRoleId: string): Role {
+  if (/admin|owner/i.test(professionalRoleId)) return "admin";
+  if (/risk|compliance/i.test(professionalRoleId)) return "risk_officer";
+  if (/operator|trader|execution/i.test(professionalRoleId)) return "operator";
+  return "researcher";
+}
+
+async function enforceSlicePolicy(
+  body: SliceRunBody,
+  sendJson: JsonSender,
+  res: ServerResponse
+): Promise<boolean> {
+  const roleId = body.roleId || body.role || "arch.market_analyst";
+  const actor = buildActorContext({
+    userId: "local-dev-user",
+    roleId,
+    sessionId: body.sessionId || "default",
+    objectId: body.instrumentId,
+  });
+  const matrixRole = matrixRoleFor(roleId);
+  const policy = evaluatePolicyDecision({
+    actionId: "analyze",
+    capability: "vertical-slice.foundation",
+    role: matrixRole,
+    executionMode: process.env.EXECUTION_MODE || "SIMULATION_ONLY",
+    actorContext: {
+      actorId: actor.actorId,
+      roleId: actor.roleId,
+      sessionId: actor.sessionId,
+      objectId: body.instrumentId,
+    },
+    serverActorContext: {
+      actorId: actor.actorId,
+      roleId: actor.roleId,
+      sessionId: actor.sessionId,
+      objectId: body.instrumentId,
+    },
+    objectRef: body.instrumentId,
+    workflowState: "analyze",
+    highRisk: false,
+  });
+  if (policy.blocked || !policy.can) {
+    sendJson(res, 403, {
+      error: "policy_denied",
+      reasonCodes: policy.reasonCodes,
+      policy,
+      enforced: true,
+      executed: false,
+    });
+    return false;
+  }
+  return true;
+}
 
 export type SliceRunBody = VerticalSliceRequest & {
   source?: string;
@@ -24,6 +80,13 @@ export type SliceRunBody = VerticalSliceRequest & {
   seed?: number;
   eventTime?: string;
   format?: string;
+  idempotencyKey?: string;
+  executionId?: string;
+  actor?: string;
+  role?: string;
+  roleId?: string;
+  sessionId?: string;
+  actorContext?: Record<string, unknown>;
 };
 
 export function validateVerticalSliceRequest(
@@ -60,6 +123,17 @@ export function validateVerticalSliceRequest(
       seed: typeof body.seed === "number" ? body.seed : undefined,
       eventTime: typeof body.eventTime === "string" ? body.eventTime : undefined,
       format: typeof body.format === "string" ? body.format : undefined,
+      idempotencyKey:
+        typeof body.idempotencyKey === "string" ? body.idempotencyKey : undefined,
+      executionId: typeof body.executionId === "string" ? body.executionId : undefined,
+      actor: typeof body.actor === "string" ? body.actor : undefined,
+      role: typeof body.role === "string" ? body.role : undefined,
+      roleId: typeof body.roleId === "string" ? body.roleId : undefined,
+      sessionId: typeof body.sessionId === "string" ? body.sessionId : undefined,
+      actorContext:
+        body.actorContext && typeof body.actorContext === "object"
+          ? (body.actorContext as Record<string, unknown>)
+          : undefined,
     },
   };
 }
@@ -78,6 +152,13 @@ export async function executeVerticalSlice(
     tenantId: body.tenantId ?? "default",
     seed: body.seed,
     payload: { size: body.size, horizonSec: body.horizonSec },
+    idempotencyKey: body.idempotencyKey,
+    executionId: body.executionId,
+    actor: body.actor,
+    role: body.role,
+    roleId: body.roleId,
+    sessionId: body.sessionId,
+    actorContext: body.actorContext,
   });
 
   const wantInternal = (format ?? body.format) === "internal";
@@ -98,6 +179,9 @@ export async function handleVerticalSliceRun(opts: {
     opts.sendJson(opts.res, 400, { error: parsed.error });
     return;
   }
+
+  const pepOk = await enforceSlicePolicy(parsed.value, opts.sendJson, opts.res);
+  if (!pepOk) return;
 
   try {
     const response = await executeVerticalSlice(

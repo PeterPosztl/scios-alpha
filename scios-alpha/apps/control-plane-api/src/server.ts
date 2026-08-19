@@ -2,7 +2,7 @@ import { randomUUID } from "node:crypto";
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { createLogger } from "@scios/observability";
 import { InMemoryFeatureStore } from "@scios/feature-store";
-import { can, audit, evaluatePolicyDecision, type Role, type Action } from "@scios/governance-engine";
+import { can, audit, evaluatePolicyDecision, enforcePolicyAtActionTime, toCanEnvelope, type Role, type Action } from "@scios/governance-engine";
 import { modelRegistry, seedNonProductionModels, modelHonesty } from "@scios/model-registry";
 import { createMetaIntelligence } from "@scios/meta-intelligence";
 import {
@@ -467,26 +467,48 @@ const server = createServer((req, res) => {
 
     if (method === "GET" && path === "/v1/governance/can") {
       const actionParam = url.searchParams.get("action") ?? "";
+      const capability = url.searchParams.get("capability") || actionParam;
       const { actor, matrixRole } = actorForGovernanceQuery(url);
       const allowed = can(matrixRole, actionParam as Action);
       const policy = evaluatePolicyDecision({
         actionId: actionParam || "unknown",
+        capability,
         role: matrixRole,
-        executionMode: process.env.EXECUTION_MODE || "SIMULATION_ONLY",
-        actorId: actor.actorId,
+        executionMode: EXECUTION_MODE,
+        actorContext: {
+          actorId: actor.actorId,
+          roleId: actor.roleId,
+          sessionId: actor.sessionId,
+          objectId: actor.objectId,
+        },
+        serverActorContext: {
+          actorId: actor.actorId,
+          roleId: actor.roleId,
+          sessionId: actor.sessionId,
+          objectId: actor.objectId,
+        },
+        permission: {
+          allowed,
+          action: actionParam,
+          source: "governance-engine:permission-matrix",
+        },
+        workflowState: url.searchParams.get("workflowState"),
+        objectRef: url.searchParams.get("objectId") || actor.objectId,
         highRisk: /execution|live|override/i.test(actionParam),
+        buildId: process.env.SCIOS_BUILD_ID || null,
       });
       sendJson(res, 200, {
         role: actor.roleId,
         roleId: actor.roleId,
         action: actionParam,
-        allowed: allowed && policy.allowed,
-        policy,
+        capability,
+        ...toCanEnvelope(policy),
+        allowed: policy.allowed,
         denyReasons: policy.denyReasons,
         actor,
         matrixRole,
         note:
-          "matrixRole is the embedded RBAC mapping only; subject remains actor.roleId / actor.actorId. operator is never a silent UI identity.",
+          "Server-authoritative policy decision — UI must not override. operator is never a silent UI identity.",
       });
       return;
     }
@@ -517,15 +539,112 @@ const server = createServer((req, res) => {
       });
       const policy = evaluatePolicyDecision({
         actionId: String(body.actionId || body.action || ""),
+        capability: String(body.capability || body.actionId || body.action || ""),
         role: matrixRole,
-        decision: body.decision as "ALLOW" | "DENY" | "ESCALATE" | undefined,
+        clientDecision: body.decision as "ALLOW" | "DENY" | undefined,
         attemptBypass: Boolean(body.attemptBypass),
         executionMode:
-          (body.executionMode as string) || process.env.EXECUTION_MODE || "SIMULATION_ONLY",
-        actorId: actor.actorId,
+          (body.executionMode as string) || EXECUTION_MODE,
+        actorContext: {
+          actorId: actor.actorId,
+          roleId: actor.roleId,
+          sessionId: actor.sessionId,
+          objectId: (body.objectId as string) || actor.objectId,
+        },
+        serverActorContext: {
+          actorId: actor.actorId,
+          roleId: actor.roleId,
+          sessionId: actor.sessionId,
+          objectId: actor.objectId,
+        },
+        permission: body.permission as { allowed: boolean } | undefined,
+        risk: body.risk as { approved?: boolean; blocking?: boolean; unknown?: boolean; reason?: string } | undefined,
+        workflowState: (body.workflowState as string) || null,
+        objectRef: (body.objectId as string) || actor.objectId,
+        highRisk: Boolean(body.highRisk),
+        expectedPolicyVersion: body.expectedPolicyVersion as string | undefined,
+        clientDecisionId: body.clientDecisionId as string | undefined,
+        evaluationFailed: Boolean(body.evaluationFailed),
+        buildId: process.env.SCIOS_BUILD_ID || null,
+        runId: (body.runId as string) || null,
+      });
+      sendJson(res, 200, { actor, matrixRole, policy, can: toCanEnvelope(policy) });
+      return;
+    }
+
+    if (method === "POST" && path === "/v1/governance/action") {
+      const chunks: Buffer[] = [];
+      for await (const chunk of req) {
+        chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+      }
+      let body: Record<string, unknown> = {};
+      try {
+        const raw = Buffer.concat(chunks).toString("utf8");
+        if (raw) body = JSON.parse(raw);
+      } catch {
+        sendJson(res, 400, { error: "invalid_json" });
+        return;
+      }
+      const actionId = String(body.actionId || body.action || "");
+      const roleId =
+        (typeof body.roleId === "string" && body.roleId) ||
+        (typeof body.role === "string" && body.role) ||
+        "arch.market_analyst";
+      const matrixRole = matrixRoleFor(roleId);
+      const actor = buildActorContext({
+        userId: (body.userId as string) || "local-dev-user",
+        roleId,
+        sessionId: (body.sessionId as string) || "default",
+        objectId: (body.objectId as string) || null,
+      });
+      const policy = enforcePolicyAtActionTime({
+        actionId,
+        capability: String(body.capability || actionId),
+        role: matrixRole,
+        executionMode: (body.executionMode as string) || EXECUTION_MODE,
+        actorContext: {
+          actorId: actor.actorId,
+          roleId: actor.roleId,
+          sessionId: actor.sessionId,
+          objectId: actor.objectId,
+        },
+        serverActorContext: {
+          actorId: actor.actorId,
+          roleId: actor.roleId,
+          sessionId: actor.sessionId,
+          objectId: actor.objectId,
+        },
+        clientDecision: body.decision as "ALLOW" | undefined,
+        clientDecisionId: body.decisionId as string | undefined,
+        attemptBypass: Boolean(body.attemptBypass || body.decision),
+        permission: body.permission as { allowed: boolean } | undefined,
+        risk: body.risk as { approved?: boolean; blocking?: boolean; unknown?: boolean } | undefined,
+        workflowState: (body.workflowState as string) || null,
+        objectRef: (body.objectId as string) || actor.objectId,
+        expectedPolicyVersion: body.expectedPolicyVersion as string | undefined,
         highRisk: Boolean(body.highRisk),
       });
-      sendJson(res, 200, { actor, matrixRole, policy });
+      if (policy.blocked || !policy.can) {
+        sendJson(res, 403, {
+          error: "policy_denied",
+          reasonCodes: policy.reasonCodes,
+          decision: policy.decision,
+          policy,
+          enforced: true,
+          executed: false,
+        });
+        return;
+      }
+      sendJson(res, 200, {
+        ok: true,
+        enforced: true,
+        executed: true,
+        actionId,
+        reviewKind:
+          actionId.startsWith("act.local_review") ? "LOCAL_REVIEW_STATE" : null,
+        note: "PEP allowed — action recorded; LOCAL_REVIEW is not GOVERNED_APPROVAL",
+        policy,
+      });
       return;
     }
 

@@ -1,0 +1,13 @@
+{
+  "schema": "sci-os-b003-policy-authority-map/v1",
+  "at": "2026-08-19T22:07:52.680Z",
+  "policyEvaluator": "packages/governance-engine/src/policy-enforcement.ts",
+  "permissionMatrix": "packages/governance-engine/src/index.ts",
+  "actorContext": "packages/product-kernel/src/actor-context.js",
+  "canRoute": "apps/control-plane-api/src/server.ts GET /v1/governance/can",
+  "evaluateRoute": "apps/control-plane-api/src/server.ts POST /v1/governance/evaluate",
+  "enforceRoute": "apps/control-plane-api/src/server.ts POST /v1/governance/action",
+  "pepSlice": "apps/control-plane-api/src/routes/verticalSlice.ts",
+  "experienceProjection": "packages/professional-domain-registry/src/experience-compiler.js",
+  "duplicatePolicyAuthority": false
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "sci-os-b003-installed-policy-e2e/v1",
+  "at": "2026-08-19T22:15:20.102Z",
+  "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+  "launcher": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\SCI-OS-X10.exe",
+  "cases": {
+    "localReviewAllowed": "PASS",
+    "permissionDenied": "PASS",
+    "simulationOnly": "PASS",
+    "unknownFailClosed": "PASS",
+    "canTruth": "PASS"
+  },
+  "status": "PASS"
+}

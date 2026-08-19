@@ -1,14 +1,14 @@
 {
   "schema": "sci-os-cf14-policy-proof/v1",
-  "at": "2026-08-19T18:12:00.440Z",
+  "at": "2026-08-19T22:07:52.492Z",
   "cp": "http://127.0.0.1:3000",
   "steps": {
-    "canEnvelope": "FAIL",
-    "simulationDeny": "FAIL",
-    "denyReason": "FAIL",
-    "policyEvidence": "FAIL",
-    "bypassBlocked": "FAIL",
-    "readAllow": "FAIL"
+    "canEnvelope": "PASS",
+    "simulationDeny": "PASS",
+    "denyReason": "PASS",
+    "policyEvidence": "PASS",
+    "bypassBlocked": "PASS",
+    "readAllow": "PASS"
   },
-  "status": "FAIL"
+  "status": "PASS"
 }

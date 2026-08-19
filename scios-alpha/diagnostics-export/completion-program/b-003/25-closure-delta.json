@@ -1,0 +1,11 @@
+{
+  "schema": "sci-os-b003-closure-delta/v1",
+  "at": "2026-08-19T22:40:00.000Z",
+  "runId": "closure_post_b003_install",
+  "P0_before": 0,
+  "P0_after": 0,
+  "P1_before": 92,
+  "P1_after": 92,
+  "CF14_roots_closed": ["CTRL.CF14.policy-decision"],
+  "status": "PASS"
+}

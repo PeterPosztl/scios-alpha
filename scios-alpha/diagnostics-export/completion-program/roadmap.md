@@ -1,7 +1,7 @@
 # SCI OS ×10 — Completion Program Roadmap
 
 **Program controller started:** 2026-08-19  
-**Current build:** `pkg_1787175419324` · **gitSha:** `c9b0483`  
+**Current build:** `pkg_1787177679954` · **gitSha:** `920cf41b`  
 **Authority:** current source + runtime evidence (not historical audit labels)
 
 ---
@@ -44,7 +44,8 @@ Proven chain:
 | Market Analyst runtime-connected | **PASS** |
 | Professional domain registry compiled | **PASS** |
 | PostgreSQL persistence | **DEFERRED** — FD-002 open; use local-durable + in-memory until decision |
-| Job lifecycle (CF11) | **PASS** — Wave B-002 **READY** (installed proof) |
+| Job lifecycle (CF11) | **PASS** — Wave B-002 **READY** |
+| Policy decision (CF14) | **PASS** — Wave B-003 **READY** (installed enforcement) |
 | Policy decision points (CF14) | **PARTIAL** |
 | Model validation truth (CF28) | **UNVALIDATED** — must stay honest |
 | P1 roots | **91** → target **< 20** for Beta |
@@ -92,4 +93,4 @@ Requires: Production + full domain compilation + Graph/Timeline/Evidence/Dossier
 
 ## Next exact action
 
-**Wave B-003 (queued):** CF14 policy-decision installed hard gate — **do not auto-start**. B-002 install blocker closed.
+**Wave B-004 (queued):** Persistence / durable matrix — **do not auto-start**. B-003 CF14 policy decision closed.

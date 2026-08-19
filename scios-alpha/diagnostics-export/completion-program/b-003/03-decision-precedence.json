@@ -1,0 +1,12 @@
+{
+  "order": [
+    "evaluation_failed → UNKNOWN",
+    "permission_denied → DENY (non-overridable)",
+    "risk_blocked → DENY",
+    "simulation_only execution → DENY",
+    "policy_explicit_deny → DENY",
+    "local_review → CONDITIONAL",
+    "all_gates → ALLOW"
+  ],
+  "unknownNeverAllow": true
+}
