@@ -1,0 +1,20 @@
+{
+  "schema": "sci-os-whi-004-closure/v1",
+  "before": { "P0": 0, "P1": 91, "P2": 184, "P3": 46 },
+  "after": { "P0": 0, "P1": 91, "P2": 184, "P3": 46 },
+  "controlsAdded": 10,
+  "newControls": [
+    "HOST.event.provider",
+    "HOST.event.query-bounded",
+    "HOST.event.allowlist",
+    "HOST.event.normalize",
+    "HOST.event.relevance",
+    "HOST.event.correlation",
+    "HOST.event.dedupe",
+    "HOST.event.redaction",
+    "HOST.event.optional-unavailable",
+    "HOST.event.recovery-enrichment"
+  ],
+  "allProven": true,
+  "canonicalControls": 832
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "sci-os-whi-004-capability/v1",
+  "available": false,
+  "reason": "GET_WINEVENT_FAILED",
+  "detail": "",
+  "degraded": true,
+  "allowedLogs": [
+    "Application",
+    "System"
+  ],
+  "allowedProviders": [
+    "Application Error",
+    "Application Hang",
+    "Windows Error Reporting",
+    ".NET Runtime",
+    "Service Control Manager",
+    "Microsoft-Windows-Kernel-Power",
+    "Microsoft-Windows-Power-Troubleshooter",
+    "EventLog",
+    "Microsoft-Windows-Kernel-General",
+    "Microsoft-Windows-WindowsUpdateClient",
+    "Microsoft-Windows-TCPIP",
+    "Microsoft-Windows-DNS-Client",
+    "Microsoft-Windows-NetworkProfile"
+  ],
+  "queryDefaults": {
+    "maxEvents": 50,
+    "maxAgeMinutes": 60
+  },
+  "packagedAvailability": "Get-WinEvent available on all Windows 10+ without elevation",
+  "failureModes": [
+    "POWERSHELL_FAILED",
+    "GET_WINEVENT_FAILED",
+    "PARSE_FAILED",
+    "WINEVENT_ERROR"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "sci-os-whi-004-gw1/v1",
+  "status": "PASS",
+  "p0": 0,
+  "buildId": "pkg_1787147143095",
+  "noEventContamination": true
+}

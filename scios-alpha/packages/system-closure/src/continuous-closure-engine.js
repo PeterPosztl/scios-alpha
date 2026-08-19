@@ -459,6 +459,16 @@ function buildControlCatalog(enterpriseRegister) {
     ["HOST.rec.foreign-deny", "WHI-010 foreign port conflict denied", "CF39", "P2"],
     ["HOST.rec.backup", "WHI-010 backup candidate resolver", "CF39", "P2"],
     ["HOST.rec.intentional-stop", "WHI-010 intentional stop suppresses recovery", "CF39", "P2"],
+    ["HOST.event.provider", "WHI-004 host event provider available", "CF39", "P2"],
+    ["HOST.event.query-bounded", "WHI-004 bounded event query", "CF39", "P2"],
+    ["HOST.event.allowlist", "WHI-004 source allowlist enforced", "CF39", "P2"],
+    ["HOST.event.normalize", "WHI-004 event normalization", "CF39", "P2"],
+    ["HOST.event.relevance", "WHI-004 SCI relevance classifier", "CF39", "P2"],
+    ["HOST.event.correlation", "WHI-004 run correlation", "CF39", "P2"],
+    ["HOST.event.dedupe", "WHI-004 event deduplication", "CF39", "P2"],
+    ["HOST.event.redaction", "WHI-004 message redaction", "CF39", "P2"],
+    ["HOST.event.optional-unavailable", "WHI-004 graceful unavailable handling", "CF39", "P2"],
+    ["HOST.event.recovery-enrichment", "WHI-004 recovery evidence enrichment", "CF39", "P2"],
   ];
 
   const hostTwinEvidence = readJsonSafe(
@@ -469,12 +479,17 @@ function buildControlCatalog(enterpriseRegister) {
     "diagnostics-export/windows-host-v1/whi-010/whi-010-test-run.json"
   );
   const hostRecProven = hostRecEvidence?.status === "PASS";
+  const hostEventEvidence = readJsonSafe(
+    "diagnostics-export/windows-host-v1/whi-004/whi-004-test-run.json"
+  );
+  const hostEventProven = hostEventEvidence?.status === "PASS";
 
   for (const [id, title, family, sev] of extras) {
     const hostTwin = id.startsWith("HOST.twin.");
     const hostRec = id.startsWith("HOST.rec.");
-    const hostControl = hostTwin || hostRec;
-    const proven = (hostTwin && hostTwinProven) || (hostRec && hostRecProven);
+    const hostEvent = id.startsWith("HOST.event.");
+    const hostControl = hostTwin || hostRec || hostEvent;
+    const proven = (hostTwin && hostTwinProven) || (hostRec && hostRecProven) || (hostEvent && hostEventProven);
     add({
       controlId: id,
       title,

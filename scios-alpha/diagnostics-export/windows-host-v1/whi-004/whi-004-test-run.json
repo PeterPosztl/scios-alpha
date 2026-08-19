@@ -1,0 +1,189 @@
+{
+  "schema": "sci-os-whi-004-test-run/v1",
+  "at": "2026-08-19T13:39:08.502Z",
+  "canonicalSliceId": "WHI-004",
+  "steps": [
+    {
+      "name": "CANONICAL_SLICE_ID",
+      "ok": true
+    },
+    {
+      "name": "SCHEMA",
+      "ok": true
+    },
+    {
+      "name": "CAPABILITY_DETECTION",
+      "ok": true,
+      "available": false
+    },
+    {
+      "name": "ALLOWLIST_APPLICATION",
+      "ok": true
+    },
+    {
+      "name": "ALLOWLIST_SYSTEM",
+      "ok": true
+    },
+    {
+      "name": "ALLOWLIST_NO_SECURITY",
+      "ok": true
+    },
+    {
+      "name": "QUERY_BOUNDED",
+      "ok": true,
+      "skipped": "not_windows"
+    },
+    {
+      "name": "DISALLOW_SECURITY_LOG",
+      "ok": true
+    },
+    {
+      "name": "CATEGORIZE_APP_ERROR",
+      "ok": true
+    },
+    {
+      "name": "CATEGORIZE_SCM",
+      "ok": true
+    },
+    {
+      "name": "CATEGORIZE_POWER",
+      "ok": true
+    },
+    {
+      "name": "CATEGORIZE_SHUTDOWN",
+      "ok": true
+    },
+    {
+      "name": "CATEGORIZE_UNKNOWN",
+      "ok": true
+    },
+    {
+      "name": "SEVERITY_CRITICAL",
+      "ok": true
+    },
+    {
+      "name": "SEVERITY_ERROR",
+      "ok": true
+    },
+    {
+      "name": "SEVERITY_WARNING",
+      "ok": true
+    },
+    {
+      "name": "SEVERITY_INFO",
+      "ok": true
+    },
+    {
+      "name": "NORMALIZE_COUNT",
+      "ok": true
+    },
+    {
+      "name": "NORMALIZE_SCHEMA",
+      "ok": true
+    },
+    {
+      "name": "NORMALIZE_CATEGORY",
+      "ok": true
+    },
+    {
+      "name": "NORMALIZE_SEVERITY",
+      "ok": true
+    },
+    {
+      "name": "NORMALIZE_WINDOWS_FIELDS",
+      "ok": true
+    },
+    {
+      "name": "RELEVANCE_PROVEN",
+      "ok": true,
+      "relevance": "PROVEN"
+    },
+    {
+      "name": "RELEVANCE_SCM_PROBABLE",
+      "ok": true,
+      "relevance": "PROBABLE"
+    },
+    {
+      "name": "RELEVANCE_IRRELEVANT",
+      "ok": true
+    },
+    {
+      "name": "CORRELATION_CURRENT",
+      "ok": true
+    },
+    {
+      "name": "CORRELATION_HISTORICAL",
+      "ok": true
+    },
+    {
+      "name": "CLASSIFICATION_CURRENT",
+      "ok": true
+    },
+    {
+      "name": "CLASSIFICATION_HISTORICAL",
+      "ok": true
+    },
+    {
+      "name": "DEDUPE_STABLE",
+      "ok": true
+    },
+    {
+      "name": "DEDUPE_WORKS",
+      "ok": true
+    },
+    {
+      "name": "REDACT_SECRET",
+      "ok": true
+    },
+    {
+      "name": "REDACT_LENGTH",
+      "ok": true
+    },
+    {
+      "name": "REDACT_BINARY",
+      "ok": true
+    },
+    {
+      "name": "MALFORMED_SAFE",
+      "ok": true
+    },
+    {
+      "name": "MALFORMED_NO_XSS",
+      "ok": true
+    },
+    {
+      "name": "NO_CONTEXT_UNKNOWN",
+      "ok": true
+    },
+    {
+      "name": "HISTORICAL_NOT_CURRENT",
+      "ok": true
+    },
+    {
+      "name": "TWIN_PROJECTION",
+      "ok": true
+    },
+    {
+      "name": "REAL_EVENT_PROOF",
+      "ok": true
+    },
+    {
+      "name": "CRASH_RELEVANCE_PROVEN",
+      "ok": true
+    },
+    {
+      "name": "CRASH_CORRELATED",
+      "ok": true
+    },
+    {
+      "name": "SECURITY",
+      "ok": true
+    },
+    {
+      "name": "PRIVACY",
+      "ok": true
+    }
+  ],
+  "failed": [],
+  "status": "PASS"
+}

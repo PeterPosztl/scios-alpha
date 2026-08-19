@@ -21,6 +21,7 @@ const {
 const { ProcessSupervisor } = require("./startup/process-supervisor.cjs");
 const { projectHostTwin } = require("./host/digital-twin.cjs");
 const { RecoveryIntelligence } = require("./host/recovery-intelligence.cjs");
+const { HostEventProvider } = require("./host/event-provider.cjs");
 const { healthGate } = require("./startup/health-gate.cjs");
 const { assessWorkerReadiness } = require("./startup/worker-readiness.cjs");
 const {
@@ -613,6 +614,24 @@ async function main() {
       }
     } catch (e) {
       warnings.push(`recovery-intelligence: ${e instanceof Error ? e.message : String(e)}`);
+    }
+
+    try {
+      const hep = new HostEventProvider({
+        appRoot,
+        sciContext: { installRoot: appRoot, exeName: "SCI-OS-X10.exe", pids: [...supervisor.children.values()].map((c) => c.pid).filter(Boolean) },
+        runContext: { buildId: supervisor.runContext.buildId, bootId: supervisor.runContext.bootId, runId: supervisor.runContext.runId, startedAt },
+      });
+      const hepResult = hep.query({ relevanceFilter: true, maxAgeMinutes: 30 });
+      const twinProj = hep.twinProjection();
+      writeJson(diagDir, "host-event-snapshot.json", {
+        schema: "sci-os-host-event-boot/v1", at: new Date().toISOString(),
+        signalState: twinProj.hostEventSignalState,
+        recentRelevant: twinProj.recentRelevantHostEvents,
+        perf: hepResult.perf || null,
+      });
+    } catch (e) {
+      warnings.push(`host-event-provider: ${e instanceof Error ? e.message : String(e)}`);
     }
   }
 

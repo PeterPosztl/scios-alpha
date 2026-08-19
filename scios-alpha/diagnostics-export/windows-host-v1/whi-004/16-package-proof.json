@@ -1,0 +1,7 @@
+{
+  "schema": "sci-os-whi-004-package/v1",
+  "status": "PASS",
+  "buildId": "pkg_1787147143095",
+  "eventProviderPackaged": true,
+  "node": "20.18.1"
+}

@@ -1,0 +1,6 @@
+{
+  "schema": "sci-os-whi-004-historical/v1",
+  "status": "PASS",
+  "historicalNotCurrent": true,
+  "noAutoRepairFromHistorical": true
+}

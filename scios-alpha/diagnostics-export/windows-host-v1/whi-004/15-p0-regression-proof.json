@@ -1,0 +1,9 @@
+{
+  "schema": "sci-os-whi-004-p0-regression/v1",
+  "status": "PASS",
+  "p0": 0,
+  "buildId": "pkg_1787147143095",
+  "goldenPath": ["ControlPlane", "Cockpit", "Home", "Search", "Entity", "Experience", "GW1", "Uncertainty", "Risk", "Evidence", "Lineage"],
+  "failed": [],
+  "node": "20.18.1"
+}

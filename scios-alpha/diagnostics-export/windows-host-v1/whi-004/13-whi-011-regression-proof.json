@@ -1,0 +1,8 @@
+{
+  "schema": "sci-os-whi-004-whi-011-regression/v1",
+  "status": "PASS",
+  "runningAligned": true,
+  "stoppedTruth": true,
+  "driftEngine": true,
+  "staleObservationRejection": true
+}

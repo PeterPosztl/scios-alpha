@@ -1,0 +1,9 @@
+{
+  "schema": "sci-os-whi-004-whi-001-regression/v1",
+  "status": "PASS",
+  "jobObjects": "PROVEN",
+  "processSupervisorAuthority": true,
+  "ownershipRegistration": true,
+  "unownedPidRejection": true,
+  "ownerLossCleanup": true
+}

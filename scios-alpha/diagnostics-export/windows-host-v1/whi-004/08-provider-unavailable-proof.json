@@ -1,0 +1,8 @@
+{
+  "schema": "sci-os-whi-004-unavailable/v1",
+  "status": "PASS",
+  "noContextResult": "UNKNOWN",
+  "nonWindowsResult": "OPTIONAL_SIGNAL_UNAVAILABLE",
+  "sciRemainsUsable": true,
+  "p0Impact": "NONE"
+}

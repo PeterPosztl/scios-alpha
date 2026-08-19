@@ -1,0 +1,13 @@
+{
+  "schema": "sci-os-whi-004-security/v1",
+  "status": "PASS",
+  "noEventLogClear": true,
+  "noEventLogWrite": true,
+  "noSecurityAuditChange": true,
+  "noArbitraryQueryEndpoint": true,
+  "noPowerShellInjection": true,
+  "noXPathInjection": true,
+  "noSecretLeakage": true,
+  "noMachineSurveillance": true,
+  "securityLogBlocked": true
+}

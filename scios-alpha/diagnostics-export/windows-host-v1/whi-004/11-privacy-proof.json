@@ -1,0 +1,11 @@
+{
+  "schema": "sci-os-whi-004-privacy/v1",
+  "status": "PASS",
+  "noBrowserHistory": true,
+  "noClipboard": true,
+  "noScreen": true,
+  "noDocuments": true,
+  "noUnrelatedAppContent": true,
+  "sciOnlyEvidence": true,
+  "boundedHostData": true
+}

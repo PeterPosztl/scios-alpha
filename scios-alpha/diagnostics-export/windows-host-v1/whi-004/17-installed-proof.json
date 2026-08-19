@@ -1,0 +1,10 @@
+{
+  "schema": "sci-os-whi-004-installed/v1",
+  "status": "PASS",
+  "buildId": "pkg_1787147143095",
+  "whi001Active": true,
+  "whi011Aligned": true,
+  "whi010Active": true,
+  "eventProviderPresent": true,
+  "cleanShutdown": true
+}

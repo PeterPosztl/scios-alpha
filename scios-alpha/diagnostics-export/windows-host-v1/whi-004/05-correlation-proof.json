@@ -1,0 +1,7 @@
+{
+  "schema": "sci-os-whi-004-correlation/v1",
+  "status": "PASS",
+  "currentRunCorrelation": true,
+  "historicalSeparation": true,
+  "noFabricatedCorrelation": true
+}

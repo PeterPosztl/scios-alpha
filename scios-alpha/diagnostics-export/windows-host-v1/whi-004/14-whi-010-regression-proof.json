@@ -1,0 +1,13 @@
+{
+  "schema": "sci-os-whi-004-whi-010-regression/v1",
+  "status": "PASS",
+  "failureClassification": true,
+  "ownershipGate": true,
+  "retryBudget": true,
+  "circuitBreaker": true,
+  "boundedRepair": true,
+  "foreignPortSafety": true,
+  "unknownFailureSafety": true,
+  "intentionalStopSuppression": true,
+  "note": "Host Events ENRICH WHI-010, they do not bypass it"
+}

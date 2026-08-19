@@ -1,0 +1,9 @@
+{
+  "schema": "sci-os-whi-004-process-event/v1",
+  "status": "PASS",
+  "mode": "SYNTHETIC_NORMALIZATION_PROOF",
+  "relevance": "PROVEN",
+  "correlated": true,
+  "category": "APPLICATION_CRASH",
+  "severity": "ERROR"
+}

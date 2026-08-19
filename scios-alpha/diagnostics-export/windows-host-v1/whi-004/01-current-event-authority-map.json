@@ -1,0 +1,35 @@
+{
+  "schema": "sci-os-whi-004-event-authority-map/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-19T13:35:00.000Z",
+  "existingAuthorities": {
+    "productEventBus": {
+      "module": "packages/observability/src/event-bus.ts",
+      "owns": "In-memory EventEnvelope publish/subscribe (V2 interface, NATS/Kafka later)",
+      "maturity": "PARTIAL",
+      "note": "Product event bus for domain events; WHI-004 does NOT duplicate this"
+    },
+    "startupEvents": {
+      "module": "installer/scripts/start-sci-os.cjs",
+      "owns": "Boot-time recoveryAttempts, blockers, warnings, repairActions → startup-report.json",
+      "maturity": "PROVEN"
+    },
+    "recoveryEvents": {
+      "module": "packages/meta-recovery/src/controller.ts",
+      "owns": "Meta-recovery observation→classify→repair→verify pipeline + evidence artifacts",
+      "maturity": "PARTIAL"
+    },
+    "redaction": {
+      "module": "packages/observability/src/index.ts",
+      "owns": "redactLogMeta — secret pattern redaction for log metadata",
+      "maturity": "PROVEN"
+    }
+  },
+  "whi004Decision": {
+    "newModule": "installer/scripts/host/event-provider.cjs",
+    "role": "Read-only Windows Event Log adapter supplying host evidence",
+    "doesNotReplace": ["product EventBus", "startup events", "meta-recovery", "Recovery Intelligence"],
+    "consumes": "Windows Event Log (Application, System) via Get-WinEvent",
+    "produces": "HostEvent[] — normalized, filtered, correlated, deduplicated"
+  }
+}
