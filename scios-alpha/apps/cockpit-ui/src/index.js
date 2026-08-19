@@ -1,6 +1,8 @@
 import { createServer } from "node:http";
 import { sciTokens } from "@scios/design-system";
 import { SAFE_DOM_BROWSER_SOURCE } from "./safe-dom.js";
+import { PRIMITIVES_BROWSER_SOURCE } from "./components/primitives.js";
+import { WORKSPACE_RENDERER_BROWSER_SOURCE } from "./workspace/WorkspaceRenderer.js";
 
 const PORT = Number(process.env.PORT ?? process.env.SCIOS_COCKPIT_PORT ?? 4000);
 const BIND = process.env.SCIOS_BIND ?? "127.0.0.1";
@@ -269,6 +271,7 @@ ${TOKEN_CSS}
         <div class="pro-grid" id="proGrid">
           <div class="pro-card" data-exp-module="ContextHeader" id="modContextHeader"><p class="level">L1 · What happened?</p><h3>Situation</h3><div class="val" id="proWhat">NO ANALYSIS YET</div><p class="hint empty" id="proWhatHint">Run an analysis to generate prediction, risk and decision information.</p></div>
           <div class="pro-card" data-exp-module="PredictionPanel" id="modPredictionPanel"><p class="level">L2–L3 · Meaning & next</p><h3>Expected outcome</h3><div class="val" id="proCertain">—</div><p class="hint" id="proCertainHint"></p><p class="model-truth" id="predModelTruth">MODEL · FOUNDATION · ALPHA · UNVALIDATED</p></div>
+          <div class="pro-card" data-exp-module="UncertaintyPanel" id="modUncertaintyPanel"><p class="level">L3 · Uncertainty</p><h3>Confidence & calibration</h3><div class="val" id="proUncertainty">—</div><p class="hint" id="proUncertaintyHint">No calibration object — treat as NON-PRODUCTION science.</p><p class="model-truth" id="uncertaintyModelTruth">MODEL · FOUNDATION · ALPHA · UNVALIDATED</p></div>
           <div class="pro-card" data-exp-module="RiskPanel" id="modRiskPanel"><p class="level">L4 · Risks</p><h3>What is the risk?</h3><div class="val" id="proRisk">—</div><p class="hint" id="proRiskHint"></p><p class="model-truth" id="riskModelTruth">MODEL · FOUNDATION · ALPHA · UNVALIDATED</p></div>
           <div class="pro-card" data-exp-module="DecisionPanel" id="modDecisionPanel"><p class="level">L5 · Action</p><h3>Recommended next step</h3><div class="val" id="proDecision">—</div><p class="hint" id="proDecisionHint"></p></div>
           <div class="pro-card" data-exp-module="SimulationPanel" id="modSimulationPanel"><p class="level">L5 · Simulation</p><h3>Simulation outcome</h3><div class="val" id="proExec">—</div><p class="hint" id="proExecHint">SIMULATION_ONLY — no live money.</p></div>
@@ -338,10 +341,13 @@ ${TOKEN_CSS}
     let currentRoleId = "arch.market_analyst";
     let actorEnvelope = null;
 ${SAFE_DOM_BROWSER_SOURCE}
+${PRIMITIVES_BROWSER_SOURCE}
+${WORKSPACE_RENDERER_BROWSER_SOURCE}
 
     const KNOWN_MODULES = [
       "ContextHeader",
       "PredictionPanel",
+      "UncertaintyPanel",
       "RiskPanel",
       "DecisionPanel",
       "SimulationPanel",
@@ -400,62 +406,20 @@ ${SAFE_DOM_BROWSER_SOURCE}
     function applyCompiledExperience(compiled) {
       lastCompiled = compiled;
       const out = (compiled && compiled.output) || {};
-      const modules = Array.isArray(out.modules) ? out.modules.slice() : [];
-      modules.sort((a, b) => (a.order || 0) - (b.order || 0));
-      const wanted = new Set(modules.map((m) => m.id));
-      const grid = document.getElementById("proGrid");
-      const partialHost = document.getElementById("partialModuleHost");
-      if (partialHost) clearNode(partialHost);
-
-      const densityMap = { comfortable: "COMFORTABLE", compact: "STANDARD", dense: "EXPERT" };
-      const dens = densityMap[out.density] || "STANDARD";
-      document.body.setAttribute("data-density", dens);
-      document.body.setAttribute("data-disclosure", out.disclosureDefault || "L2");
       if (compiled && compiled.actor) actorEnvelope = compiled.actor;
-
-      KNOWN_MODULES.forEach((id) => {
-        const el = document.querySelector('[data-exp-module="' + id + '"]');
-        if (!el) return;
-        const on = wanted.has(id);
-        el.setAttribute("data-exp-hidden", on ? "0" : "1");
-        el.hidden = !on;
-      });
-
-      modules.forEach((m, i) => {
-        const el = document.querySelector('[data-exp-module="' + m.id + '"]');
-        if (el && grid) {
-          el.style.order = String(m.order || i + 1);
-          grid.appendChild(el);
-          return;
-        }
-        if (!partialHost) return;
-        const d = document.createElement("div");
-        d.className = "pro-card partial-mod";
-        d.setAttribute("data-exp-module", m.id);
-        d.style.order = String(m.order || i + 1);
-        appendEl(d, "p", "level", "PARTIAL · module unbound");
-        appendEl(d, "h3", null, m.id);
-        appendEl(d, "div", "val", "Safe PARTIAL");
-        appendEl(d, "p", "hint", "No Cockpit panel binding yet — composition remains available.");
-        partialHost.appendChild(d);
-      });
-
-      const disabled = new Set(
-        (out.disabledActions || []).map((d) => (typeof d === "string" ? d : d.action))
-      );
-      document.querySelectorAll("[data-action-id]").forEach((btn) => {
-        const id = btn.getAttribute("data-action-id");
-        if (!id) return;
-        if (disabled.has(id) || disabled.has(id.replace(/^act\./, ""))) {
-          btn.disabled = true;
-          btn.title = "Disabled by Experience / risk policy";
-        }
+      const result = renderWorkspaceSpec(compiled, {
+        document: document,
+        KNOWN_MODULES: KNOWN_MODULES,
+        clearNode: clearNode,
+        appendEl: appendEl,
       });
 
       function paintCompose(targetId) {
         const host = document.getElementById(targetId);
         if (!host) return;
         clearNode(host);
+        const modules = Array.isArray(out.modules) ? out.modules.slice() : [];
+        modules.sort((a, b) => (a.order || 0) - (b.order || 0));
         modules.forEach((m) => {
           const chip = document.createElement("span");
           const bound = KNOWN_MODULES.includes(m.id);
@@ -492,7 +456,7 @@ ${SAFE_DOM_BROWSER_SOURCE}
         st.textContent = "EXPERIENCE · " + (compiled.compilerStatus || "UNKNOWN");
         st.className = "badge ok";
       }
-      return { profile: out.workspaceProfileId, modules: modules.map((m) => m.id) };
+      return result;
     }
 
     function showExperienceDegraded(err) {
@@ -686,6 +650,33 @@ ${SAFE_DOM_BROWSER_SOURCE}
       document.getElementById("proCertainHint").textContent = conf
         ? "Uncertainty/calibration present in envelope (see Technical)."
         : "No separate calibration object — treat point estimate as NON-PRODUCTION.";
+      const uncEl = document.getElementById("proUncertainty");
+      const uncHint = document.getElementById("proUncertaintyHint");
+      if (uncEl) {
+        if (pred.abstain === true) {
+          uncEl.textContent = "ABSTAIN";
+        } else if (pred.predictionInterval) {
+          uncEl.textContent = JSON.stringify(pred.predictionInterval);
+        } else if (pred.uncertainty != null) {
+          uncEl.textContent = String(pred.uncertainty);
+        } else if (conf) {
+          uncEl.textContent = "PARTIAL — see calibration envelope";
+        } else {
+          uncEl.textContent = "UNKNOWN";
+        }
+      }
+      if (uncHint) {
+        uncHint.textContent = (pred.calibration && pred.calibration.status)
+          ? "Calibration status: " + pred.calibration.status
+          : "No calibration object — UNVALIDATED ALPHA science.";
+      }
+      const uncTruth = document.getElementById("uncertaintyModelTruth");
+      if (uncTruth) {
+        uncTruth.textContent =
+          "MODEL · " +
+          (pred.scienceStatus || pred.maturity || "FOUNDATION") +
+          " · ALPHA · UNVALIDATED";
+      }
       const predTruth = document.getElementById("predModelTruth");
       if (predTruth) {
         predTruth.textContent =
