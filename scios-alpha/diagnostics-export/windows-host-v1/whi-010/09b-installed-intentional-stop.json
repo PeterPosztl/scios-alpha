@@ -1,0 +1,6 @@
+{
+  "schema": "sci-os-whi-010-installed-stopped/v1",
+  "hostState": "STOPPED",
+  "recoverySkipped": "INTENTIONALLY_STOPPED",
+  "status": "PASS"
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "sci-os-whi-010-circuit-breaker/v1",
+  "status": "PASS",
+  "finalState": "CIRCUIT_OPEN",
+  "circuitState": "OPEN",
+  "bounded": true,
+  "noInfiniteLoop": true,
+  "budgetState": {
+    "cockpit|SCI_PROCESS_MISSING": {
+      "attempts": 2,
+      "lastAttempt": 1787144884757,
+      "circuitOpen": true,
+      "successes": 0,
+      "failures": 2
+    }
+  }
+}

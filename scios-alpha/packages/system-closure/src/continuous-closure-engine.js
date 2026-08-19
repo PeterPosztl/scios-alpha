@@ -448,30 +448,48 @@ function buildControlCatalog(enterpriseRegister) {
     ["HOST.twin.build", "WHI-011 build identity drift", "CF39", "P2"],
     ["HOST.twin.stopped-truth", "WHI-011 intentionally stopped is not failure", "CF39", "P2"],
     ["HOST.twin.stale-evidence", "WHI-011 stale observation rejected", "CF39", "P2"],
+    ["HOST.rec.classification", "WHI-010 drift-to-failure classification", "CF39", "P2"],
+    ["HOST.rec.ownership", "WHI-010 ownership gate required for recovery", "CF39", "P2"],
+    ["HOST.rec.policy", "WHI-010 recovery eligibility policy", "CF39", "P2"],
+    ["HOST.rec.retry", "WHI-010 retry budget bounded", "CF39", "P2"],
+    ["HOST.rec.cooldown", "WHI-010 cooldown between repair attempts", "CF39", "P2"],
+    ["HOST.rec.circuit", "WHI-010 circuit breaker prevents infinite loop", "CF39", "P2"],
+    ["HOST.rec.single-flight", "WHI-010 single-flight guard", "CF39", "P2"],
+    ["HOST.rec.verify", "WHI-010 post-repair verification required", "CF39", "P2"],
+    ["HOST.rec.foreign-deny", "WHI-010 foreign port conflict denied", "CF39", "P2"],
+    ["HOST.rec.backup", "WHI-010 backup candidate resolver", "CF39", "P2"],
+    ["HOST.rec.intentional-stop", "WHI-010 intentional stop suppresses recovery", "CF39", "P2"],
   ];
 
   const hostTwinEvidence = readJsonSafe(
     "diagnostics-export/windows-host-v1/host-digital-twin/whi-011-test-run.json"
   );
   const hostTwinProven = hostTwinEvidence?.status === "PASS";
+  const hostRecEvidence = readJsonSafe(
+    "diagnostics-export/windows-host-v1/whi-010/whi-010-test-run.json"
+  );
+  const hostRecProven = hostRecEvidence?.status === "PASS";
 
   for (const [id, title, family, sev] of extras) {
     const hostTwin = id.startsWith("HOST.twin.");
+    const hostRec = id.startsWith("HOST.rec.");
+    const hostControl = hostTwin || hostRec;
+    const proven = (hostTwin && hostTwinProven) || (hostRec && hostRecProven);
     add({
       controlId: id,
       title,
       familyId: family,
       source: "closure-engine-runtime-contracts",
-      baselineStatus: hostTwin && hostTwinProven ? "PROVEN" : "UNKNOWN",
+      baselineStatus: proven ? "PROVEN" : "UNKNOWN",
       severityHint: sev,
       firstReleaseRequired: sev === "P0" || sev === "P1",
       productionRequired: true,
       expandable: {
-        components: !hostTwin,
-        runtimes: !hostTwin,
+        components: !hostControl,
+        runtimes: !hostControl,
         roles: id.startsWith("UX") || id.startsWith("AUTH"),
         actions: id.startsWith("RT.gw1") || id.startsWith("UX"),
-        failures: !hostTwin && (id.startsWith("RT.") || id.startsWith("SEC")),
+        failures: !hostControl && (id.startsWith("RT.") || id.startsWith("SEC")),
         workflows: id.includes("gw1"),
       },
     });

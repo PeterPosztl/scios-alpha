@@ -1,0 +1,33 @@
+{
+  "schema": "sci-os-whi-010-backup-resolver/v1",
+  "status": "PASS",
+  "productRoot": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10",
+  "candidateCount": 4,
+  "validCandidate": "pkg_1787083012710",
+  "candidates": [
+    {
+      "name": "app.backup.1787085659027",
+      "buildId": "pkg_1787083012710",
+      "complete": true,
+      "rejected": null
+    },
+    {
+      "name": "app.backup.1787083662418",
+      "buildId": "pkg_1787081385466",
+      "complete": true,
+      "rejected": null
+    },
+    {
+      "name": "app.backup.1787081389130",
+      "buildId": "pkg_1787080434560",
+      "complete": true,
+      "rejected": null
+    },
+    {
+      "name": "app.backup.last",
+      "buildId": null,
+      "complete": false,
+      "rejected": "NO_IDENTITY"
+    }
+  ]
+}

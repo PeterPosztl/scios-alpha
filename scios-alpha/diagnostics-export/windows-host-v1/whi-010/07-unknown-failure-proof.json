@@ -1,0 +1,38 @@
+{
+  "schema": "sci-os-whi-010-unknown-failure/v1",
+  "status": "PASS",
+  "incident": {
+    "schema": "sci-os-recovery-intelligence/v1",
+    "incidentId": "inc_1bc1cdafcdb4",
+    "buildId": "pkg_test",
+    "bootId": "boot_test",
+    "runId": "run_test",
+    "detectedAt": "2026-08-19T13:08:04.659Z",
+    "source": "host-digital-twin",
+    "hostTwinSnapshotRef": "2026-08-19T13:08:04.658Z",
+    "driftIds": [
+      "UNK:abc"
+    ],
+    "failureClass": "UNKNOWN_HOST_FAILURE",
+    "affectedComponents": [],
+    "ownershipEvidence": {
+      "pass": false,
+      "reason": "NO_COMPONENT"
+    },
+    "severity": "P2",
+    "recoveryEligibility": {
+      "eligible": false,
+      "reason": "UNKNOWN_HOST_FAILURE",
+      "policy": "DENY"
+    },
+    "policyDecision": "DENY",
+    "attemptCount": 0,
+    "cooldownUntil": null,
+    "circuitState": "CLOSED",
+    "action": null,
+    "verification": null,
+    "evidenceRefs": [],
+    "state": "RECOVERY_DENIED"
+  },
+  "noSpeculativeRepair": true
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "sci-os-whi-010-security/v1",
+  "status": "PASS",
+  "noPublicRepairEndpoint": true,
+  "noArbitraryPowerShell": true,
+  "noArbitraryPidKill": true,
+  "noForeignProcessTermination": true,
+  "noArbitraryFileDelete": true,
+  "noUnknownAutoRepair": true,
+  "ownershipGateRequired": true,
+  "observeFirst": true
+}

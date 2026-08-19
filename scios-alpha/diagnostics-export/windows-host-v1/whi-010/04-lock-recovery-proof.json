@@ -1,0 +1,6 @@
+{
+  "schema": "sci-os-whi-010-lock-recovery/v1",
+  "status": "PASS",
+  "staleLockCleared": true,
+  "unknownLockDenied": true
+}

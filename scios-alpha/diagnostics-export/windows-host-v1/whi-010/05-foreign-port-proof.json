@@ -1,0 +1,40 @@
+{
+  "schema": "sci-os-whi-010-foreign-port/v1",
+  "status": "PASS",
+  "incident": {
+    "schema": "sci-os-recovery-intelligence/v1",
+    "incidentId": "inc_f2d16296337a",
+    "buildId": "pkg_test",
+    "bootId": "boot_test",
+    "runId": "run_test",
+    "detectedAt": "2026-08-19T13:08:04.652Z",
+    "source": "host-digital-twin",
+    "hostTwinSnapshotRef": "2026-08-19T13:08:04.651Z",
+    "driftIds": [
+      "FP:abc"
+    ],
+    "failureClass": "FOREIGN_PORT_CONFLICT",
+    "affectedComponents": [],
+    "ownershipEvidence": {
+      "pass": false,
+      "reason": "NO_COMPONENT"
+    },
+    "severity": "P1",
+    "recoveryEligibility": {
+      "eligible": false,
+      "reason": "FOREIGN_PORT_CONFLICT",
+      "policy": "DENY"
+    },
+    "policyDecision": "DENY",
+    "attemptCount": 0,
+    "cooldownUntil": null,
+    "circuitState": "CLOSED",
+    "action": null,
+    "verification": null,
+    "evidenceRefs": [],
+    "state": "USER_ACTION_REQUIRED"
+  },
+  "noKill": true,
+  "noPortSteal": true,
+  "policy": "DENY"
+}

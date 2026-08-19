@@ -1,0 +1,60 @@
+{
+  "schema": "sci-os-whi-010-cockpit-recovery/v1",
+  "status": "PASS",
+  "mode": "SYNTHETIC_FIXTURE",
+  "incident": {
+    "schema": "sci-os-recovery-intelligence/v1",
+    "incidentId": "inc_e435b43c655f",
+    "buildId": "pkg_test",
+    "bootId": "boot_test",
+    "runId": "run_test",
+    "detectedAt": "2026-08-19T13:08:04.665Z",
+    "source": "host-digital-twin",
+    "hostTwinSnapshotRef": "2026-08-19T13:08:04.664Z",
+    "driftIds": [
+      "CM:def"
+    ],
+    "failureClass": "SCI_PROCESS_MISSING",
+    "affectedComponents": [
+      "cockpit"
+    ],
+    "ownershipEvidence": {
+      "pass": true,
+      "pid": 12468,
+      "component": "cockpit"
+    },
+    "severity": "P1",
+    "recoveryEligibility": {
+      "eligible": true,
+      "policy": "AUTO_IF_OWNED"
+    },
+    "policyDecision": "AUTO_IF_OWNED",
+    "attemptCount": 1,
+    "cooldownUntil": null,
+    "circuitState": "CLOSED",
+    "action": {
+      "type": "BOUNDED_RESTART",
+      "component": "cockpit",
+      "result": {
+        "ok": true,
+        "pid": 9999,
+        "method": "supervisor_restart"
+      },
+      "at": "2026-08-19T13:08:04.666Z"
+    },
+    "verification": {
+      "ok": true,
+      "health": 200,
+      "hostTwinAligned": true
+    },
+    "evidenceRefs": [],
+    "state": "RECOVERED"
+  },
+  "verification": {
+    "ok": true,
+    "health": 200,
+    "hostTwinAligned": true
+  },
+  "singleFlight": true,
+  "ownershipGate": true
+}

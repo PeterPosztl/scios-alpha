@@ -239,6 +239,24 @@ export class MetaRecoveryController {
       verdict = "SYSTEM_DEGRADED";
     }
 
+    // WHI-010 Recovery Intelligence state (if available)
+    const riPath = join(opts.appRoot, "diagnostics-export", "host", "recovery-memory.json");
+    const riTwinPath = join(opts.appRoot, "diagnostics-export", "host", "digital-twin.json");
+    let hostRecovery: Record<string, unknown> | null = null;
+    try {
+      if (existsSync(riPath)) {
+        const riMem = JSON.parse(readFileSync(riPath, "utf8"));
+        const riTwin = existsSync(riTwinPath) ? JSON.parse(readFileSync(riTwinPath, "utf8")) : null;
+        hostRecovery = {
+          memoryEntries: Array.isArray(riMem.entries) ? riMem.entries.length : 0,
+          latestEntry: Array.isArray(riMem.entries) ? riMem.entries[riMem.entries.length - 1] : null,
+          hostTwinDrift: riTwin && Array.isArray(riTwin.drift) ? riTwin.drift.length : null,
+          hostTwinLifecycle: riTwin?.desired?.lifecycle || null,
+        };
+      }
+    } catch { /* WHI-010 optional augmentation */ }
+    writeJson(outDir, "host-recovery-state.json", hostRecovery || { note: "WHI-010 not yet populated" });
+
     const proof = {
       correlationId: this.correlationId,
       at: new Date().toISOString(),
@@ -252,6 +270,7 @@ export class MetaRecoveryController {
       applied: applied.length,
       rejected: rejected.length,
       rolledBack: rolledBack.length,
+      hostRecovery,
       note: "ALPHA — no false READY; optional infra/desktop documented as absent",
     };
     writeJson(outDir, "meta-recovery-proof.json", proof);

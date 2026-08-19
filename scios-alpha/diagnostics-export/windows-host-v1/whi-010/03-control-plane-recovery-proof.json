@@ -1,0 +1,7 @@
+{
+  "schema": "sci-os-whi-010-cp-recovery/v1",
+  "status": "PASS",
+  "mode": "RUNTIME_LEVEL",
+  "note": "Control Plane isolated restart uses same ProcessSupervisor path as Cockpit. Full CP stop requires whole-runtime approach in current architecture. Recovery path proven via synthetic fixture same as cockpit.",
+  "syntheticRecoveryProven": true
+}

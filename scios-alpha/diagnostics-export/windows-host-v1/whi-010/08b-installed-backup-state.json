@@ -1,0 +1,124 @@
+{
+  "schema": "sci-os-whi-010-backup-state/v1",
+  "backups": {
+    "schema": "sci-os-backup-resolver/v1",
+    "at": "2026-08-18T20:08:05.304Z",
+    "productRoot": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10",
+    "activeInstall": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+    "candidates": [
+      {
+        "path": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.last",
+        "exists": true,
+        "valid": false,
+        "buildId": null,
+        "manifestOk": false,
+        "nodeOk": false,
+        "completeness": "INCOMPLETE",
+        "ageMs": 2293964.8256835938,
+        "isActiveInstall": false,
+        "rejectReason": "MANIFEST_MISSING",
+        "kind": "app.backup.last"
+      },
+      {
+        "path": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.1787081389130",
+        "exists": true,
+        "valid": true,
+        "buildId": "pkg_1787080434560",
+        "manifestOk": true,
+        "nodeOk": true,
+        "completeness": "COMPLETE",
+        "ageMs": 3222242.8674316406,
+        "isActiveInstall": false,
+        "rejectReason": null,
+        "kind": "app.backup.1787081389130"
+      },
+      {
+        "path": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.1787083662418",
+        "exists": true,
+        "valid": true,
+        "buildId": "pkg_1787081385466",
+        "manifestOk": true,
+        "nodeOk": true,
+        "completeness": "COMPLETE",
+        "ageMs": 2271052.2138671875,
+        "isActiveInstall": false,
+        "rejectReason": null,
+        "kind": "app.backup.1787083662418"
+      }
+    ],
+    "validCandidates": [
+      {
+        "path": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.1787081389130",
+        "exists": true,
+        "valid": true,
+        "buildId": "pkg_1787080434560",
+        "manifestOk": true,
+        "nodeOk": true,
+        "completeness": "COMPLETE",
+        "ageMs": 3222242.8674316406,
+        "isActiveInstall": false,
+        "rejectReason": null,
+        "kind": "app.backup.1787081389130"
+      },
+      {
+        "path": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.1787083662418",
+        "exists": true,
+        "valid": true,
+        "buildId": "pkg_1787081385466",
+        "manifestOk": true,
+        "nodeOk": true,
+        "completeness": "COMPLETE",
+        "ageMs": 2271052.2138671875,
+        "isActiveInstall": false,
+        "rejectReason": null,
+        "kind": "app.backup.1787083662418"
+      }
+    ],
+    "best": {
+      "path": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.1787081389130",
+      "exists": true,
+      "valid": true,
+      "buildId": "pkg_1787080434560",
+      "manifestOk": true,
+      "nodeOk": true,
+      "completeness": "COMPLETE",
+      "ageMs": 3222242.8674316406,
+      "isActiveInstall": false,
+      "rejectReason": null,
+      "kind": "app.backup.1787081389130"
+    },
+    "aliasRefreshDegraded": true,
+    "notes": [
+      "BACKUP_ALIAS_REFRESH_DEGRADED — app.backup.last invalid but timestamped backup valid"
+    ]
+  },
+  "aliasRefreshDegraded": true,
+  "timestampedValid": [
+    {
+      "path": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.1787081389130",
+      "exists": true,
+      "valid": true,
+      "buildId": "pkg_1787080434560",
+      "manifestOk": true,
+      "nodeOk": true,
+      "completeness": "COMPLETE",
+      "ageMs": 3222242.8674316406,
+      "isActiveInstall": false,
+      "rejectReason": null,
+      "kind": "app.backup.1787081389130"
+    },
+    {
+      "path": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.1787083662418",
+      "exists": true,
+      "valid": true,
+      "buildId": "pkg_1787081385466",
+      "manifestOk": true,
+      "nodeOk": true,
+      "completeness": "COMPLETE",
+      "ageMs": 2271052.2138671875,
+      "isActiveInstall": false,
+      "rejectReason": null,
+      "kind": "app.backup.1787083662418"
+    }
+  ]
+}

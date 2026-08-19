@@ -1,0 +1,14 @@
+{
+  "schema": "sci-os-whi-010-whi-011-regression/v1",
+  "status": "PASS",
+  "at": "2026-08-19T13:15:09.920Z",
+  "runningAligned": true,
+  "stoppedTruth": true,
+  "driftEngine": true,
+  "containmentInput": true,
+  "portState": true,
+  "buildIdentity": true,
+  "staleObservationRejection": true,
+  "repairAllowedFalse": true,
+  "note": "WHI-011 observes. WHI-010 decides. repairAllowed=false semantics preserved in Twin."
+}

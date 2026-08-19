@@ -1,0 +1,21 @@
+{
+  "schema": "sci-os-whi-010-closure/v1",
+  "before": { "P0": 0, "P1": 91, "P2": 184, "P3": 46 },
+  "after": { "P0": 0, "P1": 91, "P2": 184, "P3": 46 },
+  "controlsAdded": 11,
+  "newControls": [
+    "HOST.rec.classification",
+    "HOST.rec.ownership",
+    "HOST.rec.policy",
+    "HOST.rec.retry",
+    "HOST.rec.cooldown",
+    "HOST.rec.circuit",
+    "HOST.rec.single-flight",
+    "HOST.rec.verify",
+    "HOST.rec.foreign-deny",
+    "HOST.rec.backup",
+    "HOST.rec.intentional-stop"
+  ],
+  "allProven": true,
+  "note": "11 new P2 controls all PROVEN; P-counts unchanged because PROVEN controls are not root causes"
+}

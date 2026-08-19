@@ -1,0 +1,11 @@
+{
+  "schema": "sci-os-whi-010-whi-001-regression/v1",
+  "status": "PASS",
+  "at": "2026-08-19T13:15:09.237Z",
+  "jobObjects": "PROVEN",
+  "processSupervisorAuthority": true,
+  "ownershipRegistration": true,
+  "unownedPidRejection": true,
+  "ownerLossCleanup": true,
+  "helperFallback": true
+}

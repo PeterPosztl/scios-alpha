@@ -1,0 +1,145 @@
+{
+  "schema": "sci-os-whi-010-recovery-authority-map/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "canonicalSliceId": "WHI-010",
+  "at": "2026-08-19T12:50:00.000Z",
+  "blueprint": "diagnostics-export/windows-host-blueprint/windows-host-integration-map.json",
+  "authorities": {
+    "DETECT": [
+      {
+        "id": "start-sci-os.cjs:recoveryAttempts",
+        "module": "installer/scripts/start-sci-os.cjs",
+        "owns": "Inline boot-time detection: health probe failure, port conflict, entry-missing, node-unusable",
+        "maturity": "PROVEN",
+        "note": "Array of attempts collected during startup; feeds startup-report.json"
+      },
+      {
+        "id": "@scios/meta-recovery:FailureObservationEngine",
+        "module": "packages/meta-recovery/src/observe.ts",
+        "owns": "Post-boot observation: healthz :5200/:5230, DATABASE_URL, vertical-slice smoke",
+        "maturity": "PARTIAL",
+        "note": "Uses legacy ports 5200/5230 from early architecture; first-release uses 3000/4000"
+      },
+      {
+        "id": "WHI-011:HostDigitalTwin",
+        "module": "installer/scripts/host/digital-twin.cjs",
+        "owns": "Desired vs Actual drift: PROCESS_MISSING, PORT_MISSING, BUILD_MISMATCH, etc",
+        "maturity": "PROVEN"
+      }
+    ],
+    "CLASSIFY": [
+      {
+        "id": "@scios/meta-recovery:FailureClassificationEngine",
+        "module": "packages/meta-recovery/src/observe.ts",
+        "owns": "Domain classification: DOCKER, DATABASE, REDIS_QUEUE, BACKEND_API, DESKTOP, UNKNOWN",
+        "maturity": "PARTIAL"
+      },
+      {
+        "id": "start-sci-os.cjs:describeFailure",
+        "module": "installer/scripts/start-sci-os.cjs",
+        "owns": "Boot blocker description and exit code mapping",
+        "maturity": "PROVEN"
+      }
+    ],
+    "ACTION": [
+      {
+        "id": "@scios/meta-recovery:TransactionalRepairExecutor",
+        "module": "packages/meta-recovery/src/repair.ts",
+        "owns": "Recipe-based repair: observe_only, start_control_plane, start_cockpit, leaf_boot_repair",
+        "maturity": "PARTIAL",
+        "note": "Uses pnpm sci:repair (shell:true); not adapted for packaged runtime"
+      },
+      {
+        "id": "start-sci-os.cjs:ensureService",
+        "module": "installer/scripts/start-sci-os.cjs",
+        "owns": "Inline service start/reuse during boot: ProcessSupervisor.start()",
+        "maturity": "PROVEN"
+      },
+      {
+        "id": "ProcessSupervisor.stopAll()",
+        "module": "installer/scripts/startup/process-supervisor.cjs",
+        "owns": "Graceful stop all children + Job fallback",
+        "maturity": "PROVEN"
+      }
+    ],
+    "VERIFY": [
+      {
+        "id": "@scios/meta-recovery:VerificationEngine",
+        "module": "packages/meta-recovery/src/repair.ts",
+        "owns": "Post-repair healthz probe at :5200/:5230",
+        "maturity": "PARTIAL",
+        "note": "Legacy ports; needs port alignment for first-release"
+      },
+      {
+        "id": "ProcessSupervisor.waitHealthy()",
+        "module": "installer/scripts/startup/process-supervisor.cjs",
+        "owns": "Health polling after spawn with timeout and exit-code detection",
+        "maturity": "PROVEN"
+      }
+    ],
+    "MEMORY": [
+      {
+        "id": "@scios/meta-recovery:RecoveryMemoryEngine",
+        "module": "packages/meta-recovery/src/repair.ts",
+        "owns": "Append-only recovery-memory.json: failureSignature, recipes, verification",
+        "maturity": "PARTIAL"
+      }
+    ],
+    "BUDGET": [
+      {
+        "id": "@scios/meta-recovery:RecoveryBudgetController",
+        "module": "packages/meta-recovery/src/repair.ts",
+        "owns": "In-memory per-recipe max 2, total max 12 attempt budget",
+        "maturity": "PARTIAL",
+        "note": "Not persistent across runs; no cooldown timer; no circuit breaker"
+      }
+    ],
+    "POLICY": [
+      {
+        "id": "@scios/meta-recovery:RepairPolicyEngine",
+        "module": "packages/meta-recovery/src/recipes/registry.js or .ts",
+        "owns": "Risk-class gating: R0/R1 allowed, R2 conditional, R3+ needs allowR3, R4/R5 denied",
+        "maturity": "PARTIAL"
+      }
+    ],
+    "UI_REPORTING": [
+      {
+        "id": "startup-report.json",
+        "module": "installer/scripts/startup/startup-report.cjs",
+        "owns": "Boot-time report: verdict, blockers, recoveryAttempts, warning",
+        "maturity": "PROVEN"
+      },
+      {
+        "id": "apps/meta-recovery-control-plane",
+        "module": "apps/meta-recovery-control-plane/src/server.ts",
+        "owns": "Recovery Memory / truth display API",
+        "maturity": "PARTIAL"
+      }
+    ],
+    "BACKUP_ROLLBACK": [
+      {
+        "id": "atomic-install.cjs",
+        "module": "scripts/package/atomic-install.cjs",
+        "owns": "Atomic swap: stage→verify→promote→backup. Keeps app.backup.<timestamp> and attempts app.backup.last alias",
+        "maturity": "PROVEN",
+        "technicalDebt": "EPERM on app.backup.last when node.exe still held by prior process"
+      }
+    ]
+  },
+  "convergenceDecision": {
+    "WHI-010 augments": "existing authorities via a host-state-aware recovery-intelligence layer",
+    "newModule": "installer/scripts/host/recovery-intelligence.cjs",
+    "consumes": [
+      "WHI-011 digital-twin.cjs → drift/state",
+      "WHI-001 job-object-provider → ownership",
+      "ProcessSupervisor → service identity, start/stop",
+      "existing RecoveryBudgetController concepts (reimplemented persistent)"
+    ],
+    "doNotReplace": [
+      "start-sci-os.cjs boot authority",
+      "ProcessSupervisor lifecycle authority",
+      "@scios/meta-recovery controller (standalone recovery mode)"
+    ],
+    "integration": "start-sci-os.cjs invokes recovery-intelligence on detected boot/runtime failures; meta-recovery consumes host twin + incident evidence as input"
+  }
+}

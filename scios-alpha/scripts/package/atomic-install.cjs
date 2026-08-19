@@ -123,14 +123,27 @@ function main() {
     }
 
     if (fs.existsSync(backup)) {
-      // Keep one prior install for first-release rollback/recovery (do not wipe).
       const last = path.join(productRoot, "app.backup.last");
-      try {
-        if (fs.existsSync(last)) rmrf(last);
-        fs.renameSync(backup, last);
-        step("retain_backup_last", { last });
-      } catch (e) {
-        step("retain_backup_failed", { error: String(e.message || e), backup });
+      let aliasOk = false;
+      for (let attempt = 0; attempt < 3 && !aliasOk; attempt++) {
+        try {
+          if (fs.existsSync(last)) rmrf(last);
+          fs.renameSync(backup, last);
+          aliasOk = true;
+          step("retain_backup_last", { last, attempt });
+        } catch (e) {
+          const code = e.code || "";
+          if ((code === "EPERM" || code === "EBUSY") && attempt < 2) {
+            spawnSync("ping", ["-n", "2", "127.0.0.1"], { shell: true, windowsHide: true });
+          } else {
+            step("retain_backup_degraded", {
+              error: String(e.message || e),
+              code,
+              backup,
+              note: "Timestamped backup preserved; alias refresh deferred. Likely cause: delayed file handle release on node.exe (antivirus/OS).",
+            });
+          }
+        }
       }
     }
 

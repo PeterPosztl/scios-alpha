@@ -1,0 +1,7 @@
+{
+  "schema": "sci-os-whi-010-intentional-stop/v1",
+  "status": "PASS",
+  "suppressed": true,
+  "noAutoRestart": true,
+  "noIncident": true
+}

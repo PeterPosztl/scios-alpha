@@ -1,0 +1,9 @@
+{
+  "schema": "sci-os-whi-010-privacy/v1",
+  "status": "PASS",
+  "noPersonalFiles": true,
+  "noBrowserHistory": true,
+  "noClipboard": true,
+  "sciOnlyEvidence": true,
+  "recoveryMemorySCIOnly": true
+}

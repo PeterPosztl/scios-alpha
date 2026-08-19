@@ -20,6 +20,7 @@ const {
 } = require("./startup/process-lock.cjs");
 const { ProcessSupervisor } = require("./startup/process-supervisor.cjs");
 const { projectHostTwin } = require("./host/digital-twin.cjs");
+const { RecoveryIntelligence } = require("./host/recovery-intelligence.cjs");
 const { healthGate } = require("./startup/health-gate.cjs");
 const { assessWorkerReadiness } = require("./startup/worker-readiness.cjs");
 const {
@@ -587,6 +588,31 @@ async function main() {
       });
     } catch (e) {
       warnings.push(`host-digital-twin: ${e instanceof Error ? e.message : String(e)}`);
+    }
+
+    try {
+      const twinPath = path.join(appRoot, "diagnostics-export", "host", "digital-twin.json");
+      if (fs.existsSync(twinPath)) {
+        const hostTwin = JSON.parse(fs.readFileSync(twinPath, "utf8"));
+        const ri = new RecoveryIntelligence({ appRoot });
+        const riResult = ri.evaluate(hostTwin, supervisor.runContext, supervisor.hostSnapshot());
+        if (riResult.incidents && riResult.incidents.length > 0) {
+          recoveryAttempts.push({
+            action: "whi-010-recovery-intelligence",
+            incidents: riResult.incidents.length,
+            suppressed: riResult.suppressed || false,
+            driftDetected: true,
+          });
+        }
+        writeJson(diagDir, "recovery-intelligence.json", {
+          schema: "sci-os-recovery-intelligence-boot/v1",
+          at: new Date().toISOString(),
+          ...riResult,
+          snapshot: ri.snapshot(),
+        });
+      }
+    } catch (e) {
+      warnings.push(`recovery-intelligence: ${e instanceof Error ? e.message : String(e)}`);
     }
   }
 

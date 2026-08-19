@@ -1,0 +1,179 @@
+{
+  "schema": "sci-os-whi-010-test-run/v1",
+  "at": "2026-08-19T13:08:05.046Z",
+  "canonicalSliceId": "WHI-010",
+  "steps": [
+    {
+      "name": "CANONICAL_SLICE_ID",
+      "ok": true,
+      "id": "WHI-010"
+    },
+    {
+      "name": "SCHEMA",
+      "ok": true,
+      "SCHEMA": "sci-os-recovery-intelligence/v1"
+    },
+    {
+      "name": "CLASSIFY_PROCESS_MISSING",
+      "ok": true
+    },
+    {
+      "name": "CLASSIFY_PORT_FOREIGN",
+      "ok": true
+    },
+    {
+      "name": "CLASSIFY_BUILD_MISMATCH",
+      "ok": true
+    },
+    {
+      "name": "CLASSIFY_UNKNOWN",
+      "ok": true
+    },
+    {
+      "name": "OWNERSHIP_PASS",
+      "ok": true
+    },
+    {
+      "name": "OWNERSHIP_FAIL_NO_CTX",
+      "ok": true
+    },
+    {
+      "name": "OWNERSHIP_FAIL_UNREGISTERED",
+      "ok": true
+    },
+    {
+      "name": "OWNERSHIP_FAIL_BUILD_MISMATCH",
+      "ok": true
+    },
+    {
+      "name": "ELIGIBLE_AUTO_OWNED",
+      "ok": true
+    },
+    {
+      "name": "ELIGIBLE_DENIED_FOREIGN",
+      "ok": true
+    },
+    {
+      "name": "ELIGIBLE_DENIED_UNKNOWN",
+      "ok": true
+    },
+    {
+      "name": "ELIGIBLE_DENIED_NO_OWNERSHIP",
+      "ok": true
+    },
+    {
+      "name": "ELIGIBLE_LOCK_STALE",
+      "ok": true
+    },
+    {
+      "name": "ELIGIBLE_LOCK_UNKNOWN",
+      "ok": true
+    },
+    {
+      "name": "ELIGIBLE_RESOURCE_NO_LOOP",
+      "ok": true
+    },
+    {
+      "name": "BUDGET_INITIAL_ALLOWED",
+      "ok": true
+    },
+    {
+      "name": "BUDGET_AFTER_1_FAIL",
+      "ok": true,
+      "reason": "COOLDOWN_ACTIVE"
+    },
+    {
+      "name": "BUDGET_AFTER_COOLDOWN",
+      "ok": true
+    },
+    {
+      "name": "BUDGET_CIRCUIT_OPEN",
+      "ok": true
+    },
+    {
+      "name": "SINGLE_FLIGHT_ACQUIRE",
+      "ok": true
+    },
+    {
+      "name": "SINGLE_FLIGHT_BLOCK",
+      "ok": true
+    },
+    {
+      "name": "SINGLE_FLIGHT_AFTER_RELEASE",
+      "ok": true
+    },
+    {
+      "name": "INTENTIONAL_STOP_SUPPRESSED",
+      "ok": true
+    },
+    {
+      "name": "RUNNING_NOT_SUPPRESSED",
+      "ok": true
+    },
+    {
+      "name": "EVALUATE_ALIGNED",
+      "ok": true
+    },
+    {
+      "name": "EVALUATE_STOPPED_SUPPRESSED",
+      "ok": true
+    },
+    {
+      "name": "EVALUATE_PROCESS_MISSING",
+      "ok": true
+    },
+    {
+      "name": "EVALUATE_FOREIGN_PORT_DENIED",
+      "ok": true
+    },
+    {
+      "name": "EVALUATE_UNKNOWN_DENIED",
+      "ok": true
+    },
+    {
+      "name": "COCKPIT_RECOVERY_SUCCESS",
+      "ok": true
+    },
+    {
+      "name": "CIRCUIT_BREAKER_OPENS",
+      "ok": true
+    },
+    {
+      "name": "SINGLE_FLIGHT_TWO_REQ_ONE_REPAIR",
+      "ok": true,
+      "repairCount": 1,
+      "r1State": "RECOVERED",
+      "r2State": "COOLDOWN"
+    },
+    {
+      "name": "STALE_LOCK_CLEARED",
+      "ok": true
+    },
+    {
+      "name": "UNKNOWN_LOCK_DENIED",
+      "ok": true
+    },
+    {
+      "name": "BACKUP_RESOLVER_RUNS",
+      "ok": true
+    },
+    {
+      "name": "INTENTIONAL_STOP_NO_INCIDENT",
+      "ok": true
+    },
+    {
+      "name": "SECURITY",
+      "ok": true
+    },
+    {
+      "name": "PRIVACY",
+      "ok": true
+    },
+    {
+      "name": "RECOVERY_MEMORY_EXISTS",
+      "ok": true
+    }
+  ],
+  "failed": [],
+  "status": "PASS"
+}
