@@ -1,0 +1,36 @@
+{
+  "schema": "sci-os-domain-families/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "ontologyNote": "Initial clustering from Master UX Contract §2. Refine when repository/domain evidence suggests better ontology.",
+  "families": [
+    { "id": "cyber_ops", "name": "Cybersecurity Operations", "sharedCapabilities": ["Alert", "Incident", "Asset", "Timeline", "Evidence", "Task"] },
+    { "id": "threat_intel", "name": "Threat Intelligence", "sharedCapabilities": ["Entity", "Relationship", "Report", "Evidence"] },
+    { "id": "digital_forensics", "name": "Digital Forensics", "sharedCapabilities": ["Evidence", "Timeline", "Case", "Report", "Lineage"] },
+    { "id": "investigation_case", "name": "Investigation & Case Intelligence", "sharedCapabilities": ["Case", "Entity", "Investigation", "Evidence", "Decision"] },
+    { "id": "fraud_fincrime", "name": "Fraud & Financial Crime", "sharedCapabilities": ["Alert", "Transaction", "Entity", "Case", "Risk", "Report"] },
+    { "id": "aml_kyc", "name": "AML / KYC / Compliance", "sharedCapabilities": ["Case", "Policy", "Approval", "Evidence", "Report"] },
+    { "id": "fin_intel", "name": "Financial Intelligence", "sharedCapabilities": ["Entity", "Transaction", "Relationship", "Report"] },
+    { "id": "market_intelligence", "name": "Market Intelligence", "sharedCapabilities": ["Entity", "Prediction", "Risk", "Evidence", "Lineage", "Scenario"] },
+    { "id": "market_portfolio_risk", "name": "Market & Portfolio Risk", "sharedCapabilities": ["Risk", "Scenario", "Simulation", "Prediction", "Decision"] },
+    { "id": "enterprise_risk", "name": "Enterprise Risk", "sharedCapabilities": ["Risk", "Policy", "Decision", "Report"] },
+    { "id": "corporate_security", "name": "Corporate Security", "sharedCapabilities": ["Incident", "Asset", "Case", "Task"] },
+    { "id": "physical_security", "name": "Physical Security", "sharedCapabilities": ["Incident", "Asset", "Timeline", "Task"] },
+    { "id": "crisis_emergency", "name": "Crisis & Emergency Operations", "sharedCapabilities": ["Incident", "Task", "Decision", "Report"] },
+    { "id": "intel_analysis", "name": "Intelligence Analysis", "sharedCapabilities": ["Entity", "Relationship", "Hypothesis", "Report", "Evidence"] },
+    { "id": "osint_geoint", "name": "OSINT / GEOINT / Network Analysis", "sharedCapabilities": ["Entity", "Relationship", "Timeline", "Evidence"] },
+    { "id": "data_analytics", "name": "Data & Analytics", "sharedCapabilities": ["Report", "Model", "Prediction"] },
+    { "id": "ai_ml_gov", "name": "AI / ML / Model Governance", "sharedCapabilities": ["Model", "Prediction", "Policy", "Approval", "Evidence"] },
+    { "id": "eng_platform", "name": "Engineering & Platform Operations", "sharedCapabilities": ["Asset", "Incident", "Task", "Report"] },
+    { "id": "cloud_infra", "name": "Cloud / Infrastructure", "sharedCapabilities": ["Asset", "Incident", "Timeline"] },
+    { "id": "gov_audit_legal", "name": "Governance / Audit / Legal Control", "sharedCapabilities": ["Policy", "Approval", "Evidence", "Report", "Decision"] },
+    { "id": "supply_ops_risk", "name": "Supply Chain / Logistics / Operational Risk", "sharedCapabilities": ["Asset", "Risk", "Scenario", "Report"] }
+  ],
+  "sharedCapabilityFamilies": [
+    { "id": "case_management", "servesFamilies": ["fraud_fincrime", "investigation_case", "digital_forensics", "cyber_ops", "corporate_security"] },
+    { "id": "entity_graph", "servesFamilies": ["osint_geoint", "threat_intel", "fraud_fincrime", "fin_intel", "investigation_case"] },
+    { "id": "risk_workspace", "servesFamilies": ["market_portfolio_risk", "enterprise_risk", "supply_ops_risk", "cyber_ops"] },
+    { "id": "timeline_intel", "servesFamilies": ["cyber_ops", "digital_forensics", "fraud_fincrime", "investigation_case"] },
+    { "id": "evidence_provenance", "servesFamilies": ["digital_forensics", "gov_audit_legal", "aml_kyc", "investigation_case"] },
+    { "id": "decision_approval", "servesFamilies": ["gov_audit_legal", "aml_kyc", "market_portfolio_risk", "ai_ml_gov"] }
+  ]
+}

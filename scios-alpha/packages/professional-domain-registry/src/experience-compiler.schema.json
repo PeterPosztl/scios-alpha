@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://scios.local/schemas/professional-experience-compiler.json",
+  "title": "SCI OS Professional Experience Compiler I/O",
+  "type": "object",
+  "required": ["input", "output", "label"],
+  "properties": {
+    "label": { "const": "ALPHA_NON_PRODUCTION" },
+    "input": {
+      "type": "object",
+      "required": [
+        "roleId",
+        "jobToBeDone",
+        "permission",
+        "domainOntology",
+        "availableData",
+        "sciOsCapabilities",
+        "riskPolicy",
+        "userExperienceLevel"
+      ],
+      "properties": {
+        "roleId": { "type": "string" },
+        "jobToBeDone": {
+          "type": "object",
+          "properties": {
+            "mission": { "type": "string" },
+            "topTasks": { "type": "array", "items": { "type": "string" } },
+            "criticalDecisions": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "permission": {
+          "type": "object",
+          "properties": {
+            "actionsAllowed": { "type": "array", "items": { "type": "string" } },
+            "actionsDenied": { "type": "array", "items": { "type": "string" } },
+            "source": { "type": "string", "description": "server-authoritative auth context id" }
+          }
+        },
+        "domainOntology": {
+          "type": "object",
+          "properties": {
+            "domainFamily": { "type": "string" },
+            "entityTypes": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "availableData": {
+          "type": "object",
+          "properties": {
+            "bindings": { "type": "array", "items": { "type": "string" } },
+            "freshness": { "type": ["string", "null"] },
+            "status": { "enum": ["AVAILABLE", "PARTIAL", "STALE", "UNKNOWN", "ABSENT"] }
+          }
+        },
+        "sciOsCapabilities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "proven": { "type": "boolean" },
+              "evidence": { "type": ["string", "null"] }
+            }
+          }
+        },
+        "riskPolicy": {
+          "type": "object",
+          "properties": {
+            "policyId": { "type": ["string", "null"] },
+            "highRiskActions": { "type": "array", "items": { "type": "string" } },
+            "approvalRequired": { "type": "boolean" }
+          }
+        },
+        "userExperienceLevel": {
+          "enum": ["novice", "intermediate", "expert", "engineering"]
+        }
+      }
+    },
+    "output": {
+      "type": "object",
+      "required": ["workspaceProfileId", "modules", "density", "disclosureDefault"],
+      "properties": {
+        "workspaceProfileId": { "type": "string" },
+        "nav": { "type": "array", "items": { "type": "string" } },
+        "home": { "type": "object" },
+        "modules": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "system"],
+            "properties": {
+              "id": { "type": "string" },
+              "system": { "enum": ["case_system", "entity_system", "risk_system", "cross_cutting", "tech"] },
+              "order": { "type": "integer" }
+            }
+          }
+        },
+        "density": { "enum": ["comfortable", "compact", "dense"] },
+        "disclosureDefault": { "enum": ["L1", "L2", "L3", "L4"] },
+        "aiCopilotProfile": { "type": ["string", "null"] },
+        "disabledActions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "action": { "type": "string" },
+              "reason": { "type": "string" }
+            }
+          }
+        },
+        "unknowns": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "compilerStatus": {
+      "enum": ["CONTRACT_ONLY", "DRY_RUN", "ACTIVE"]
+    }
+  }
+}

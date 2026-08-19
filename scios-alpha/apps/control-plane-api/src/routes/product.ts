@@ -525,6 +525,53 @@ export async function productRouter(opts: {
     return true;
   }
 
+  if (method === "GET" && path === "/v1/product/context") {
+    try {
+      const k = getKernel();
+      sendJson(
+        res,
+        200,
+        k.uiProjection({
+          roleId: url.searchParams.get("roleId") || undefined,
+          objectId: url.searchParams.get("objectId") || undefined,
+          workflowState: url.searchParams.get("workflowState") || undefined,
+        })
+      );
+    } catch (e) {
+      sendJson(res, 503, { ok: false, error: String((e as Error)?.message || e) });
+    }
+    return true;
+  }
+
+  if (method === "GET" && path === "/v1/kernel/projection") {
+    try {
+      const k = getKernel();
+      sendJson(
+        res,
+        200,
+        k.uiProjection({
+          roleId: url.searchParams.get("roleId") || undefined,
+          objectId: url.searchParams.get("objectId") || undefined,
+          workflowState: url.searchParams.get("workflowState") || undefined,
+        })
+      );
+    } catch (e) {
+      sendJson(res, 503, { ok: false, error: String((e as Error)?.message || e) });
+    }
+    return true;
+  }
+
+  if (method === "GET" && path === "/v1/domain-registry/compiled") {
+    try {
+      const k = getKernel();
+      const compiled = k.compiledRegistry();
+      sendJson(res, compiled.ok ? 200 : 422, compiled);
+    } catch (e) {
+      sendJson(res, 503, { ok: false, error: String((e as Error)?.message || e) });
+    }
+    return true;
+  }
+
   if (method === "GET" && path === "/v1/kernel/status") {
     try {
       const k = getKernel();

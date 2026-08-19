@@ -1,0 +1,23 @@
+{
+  "name": "@scios/professional-domain-registry",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "SCI OS ×10 professional domain registry — roles/families/JTBD. ALPHA: archetypes filled; bulk roles RESEARCH_REQUIRED.",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./families": "./src/families.json",
+    "./archetypes": "./src/archetypes.json",
+    "./roles": "./src/roles-seed.json",
+    "./grammar": "./src/ux-grammar.json",
+    "./compiler": "./src/experience-compiler.js",
+    "./compiler-schema": "./src/experience-compiler.schema.json",
+    "./compile-registry": "./src/compile-registry.js"
+  },
+  "scripts": {
+    "check": "node src/check.js",
+    "compile:demo": "node src/experience-compiler.js"
+  },
+  "label": "ALPHA_NON_PRODUCTION"
+}

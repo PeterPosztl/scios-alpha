@@ -1,0 +1,20 @@
+{
+  "name": "@scios/product-kernel",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "SCI OS ×10 Product Kernel — registries, identity, compose, experience compile. ALPHA.",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./discipline": "./src/discipline/index.js"
+  },
+  "scripts": {
+    "export": "node src/export-artifacts.js",
+    "check": "node src/export-artifacts.js"
+  },
+  "dependencies": {
+    "@scios/professional-domain-registry": "workspace:*"
+  },
+  "label": "ALPHA_NON_PRODUCTION"
+}

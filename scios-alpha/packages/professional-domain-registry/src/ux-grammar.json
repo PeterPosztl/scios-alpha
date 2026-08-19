@@ -1,0 +1,52 @@
+{
+  "schema": "sci-os-ux-grammar/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "primaryObjects": [
+    "Workspace",
+    "Case",
+    "Incident",
+    "Alert",
+    "Entity",
+    "Relationship",
+    "Event",
+    "Asset",
+    "Transaction",
+    "Prediction",
+    "Risk",
+    "Decision",
+    "Evidence",
+    "Investigation",
+    "Scenario",
+    "Simulation",
+    "Task",
+    "Approval",
+    "Policy",
+    "Model",
+    "Report",
+    "Timeline"
+  ],
+  "statusLanguage": [
+    "HEALTHY",
+    "DEGRADED",
+    "BLOCKED",
+    "FAILED",
+    "STALE",
+    "UNKNOWN",
+    "SIMULATED",
+    "UNVERIFIED",
+    "REQUIRES_REVIEW",
+    "APPROVED",
+    "REJECTED"
+  ],
+  "progressiveDisclosure": ["L1_summary", "L2_operational", "L3_analysis", "L4_raw_evidence"],
+  "aiLabels": ["FACT", "MODEL_OUTPUT", "AI_SUMMARY", "HYPOTHESIS", "HUMAN_DECISION", "POLICY_DECISION", "INFERENCE", "RECOMMENDATION", "UNKNOWN"],
+  "shellRegions": [
+    "global_command_search_ai",
+    "navigation",
+    "context_header",
+    "primary_workspace",
+    "evidence_timeline_details",
+    "status_risk_freshness"
+  ],
+  "note": "Grammar contract only — shell not implemented in ALPHA cockpit."
+}
