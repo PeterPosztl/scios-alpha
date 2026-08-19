@@ -1,0 +1,27 @@
+{
+  "schema": "sci-os-b002-ebusy-root-cause/v1",
+  "at": "2026-08-19T20:58:30.000Z",
+  "classification": "SCI_PROCESS_HANDLE_NOT_RELEASED",
+  "exactFailingOperation": "rename installDir → app.backup.* during backup_current",
+  "handleOwners": [
+    {
+      "pid": 9108,
+      "component": "recovery-server",
+      "path": "app\\recovery\\server.cjs",
+      "sciOwned": true
+    },
+    {
+      "pid": 7036,
+      "component": "orphan-debug-spawn",
+      "path": "app\\runtime\\node\\node.exe (job-object-keeper debug)",
+      "sciOwned": true
+    }
+  ],
+  "notCause": [
+    "arbitrary non-SCI node.exe",
+    "explorer/shell primary lock",
+    "git operations"
+  ],
+  "secondaryFactor": "TEMPORARY_EXTERNAL_FILE_LOCK possible on node.exe from AV — mitigated by bounded retry",
+  "fix": "install-quiescence.cjs — stop SCI-owned LOCALAPPDATA app processes + bounded rename retry"
+}

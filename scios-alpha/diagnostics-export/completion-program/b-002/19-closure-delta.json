@@ -1,18 +1,20 @@
 {
   "schema": "sci-os-b002-closure-delta/v1",
-  "at": "2026-08-19T20:28:00.000Z",
-  "runId": "closure_post_b002_full",
+  "at": "2026-08-19T21:41:00.000Z",
+  "runId": "closure_post_b002_install_close",
   "P0_before": 0,
   "P0_after": 0,
-  "P1_before": 91,
+  "P1_before": 92,
   "P1_after": 92,
-  "P1_note": "No Closure definition manipulation; +1 from expanded controls",
+  "P1_note": "No Closure definition manipulation",
   "CF11_roots_closed": [
     "CTRL.CF11.job-states",
     "CTRL.CF11.idempotency",
     "CTRL.CF11.progress",
     "CTRL.CF11.job-evidence"
   ],
+  "installBlockerClosed": "BLOCK-INSTALL-EBUSY-001",
   "implementation_plus_test_plus_proof": true,
+  "installedEvidence": true,
   "status": "PASS"
 }

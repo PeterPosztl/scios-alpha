@@ -1,42 +1,43 @@
 {
   "schema": "sci-os-completion-program-state/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-08-19T20:28:00.000Z",
+  "at": "2026-08-19T21:41:00.000Z",
   "currentTarget": "B",
   "currentTargetLabel": "DAILY-USE / TESTER BETA",
   "currentWave": "B-003",
   "currentWaveTitle": "CF14 policy-decision (queued after B-002 close)",
   "currentBatch": "B-002-complete",
-  "currentBuild": "pkg_1787170915142",
-  "gitSha": "dcfdd3145ea6e9aa3e06a3120fefcf697779e41d",
+  "currentBuild": "pkg_1787175419324",
+  "gitSha": "c9b0483dc16c99b244f9a57ab60afa8a39a632e6",
   "runtimeVersion": "v20.18.1",
-  "closureRunId": "closure_post_b002_full",
+  "closureRunId": "closure_post_b002_install_close",
   "P0": 0,
   "P1": 92,
   "P2": 184,
   "P3": 46,
   "alphaBlockers": [],
-  "betaBlockers": ["CTRL.CF14.policy-decision", "INSTALL_EBUSY_LOCALAPPDATA"],
+  "betaBlockers": ["CTRL.CF14.policy-decision"],
   "targets": {
     "A_USABLE_LOCAL_ALPHA": "READY",
     "B_DAILY_USE_BETA": "NOT_READY",
     "C_PRODUCTION": "NOT_READY",
     "D_FOUNDER_VISION": "NOT_READY"
   },
-  "b002Verdict": "B_002_JOB_STATE_PARTIAL",
+  "b002Verdict": "B_002_JOB_STATE_READY",
   "completedWaves": [
     {"waveId": "A-CONVERGENCE", "verdict": "USABLE_LOCAL_ALPHA_READY"},
     {"waveId": "B-001", "verdict": "PASS"},
     {
       "waveId": "B-002",
-      "verdict": "B_002_JOB_STATE_PARTIAL",
-      "buildId": "pkg_1787170915142",
-      "completedAt": "2026-08-19T20:28:00.000Z",
+      "verdict": "B_002_JOB_STATE_READY",
+      "buildId": "pkg_1787175419324",
+      "gitSha": "c9b0483dc16c99b244f9a57ab60afa8a39a632e6",
+      "completedAt": "2026-08-19T21:41:00.000Z",
       "proof": "diagnostics-export/completion-program/b-002/20-final-report.json",
-      "installBlocker": "EBUSY"
+      "installBlocker": null
     }
   ],
   "nextWave": "B-003",
-  "nextExactAction": "pnpm package:install after clearing EBUSY; then CF14 installed hard gate",
-  "lastUpdatedAt": "2026-08-19T20:28:00.000Z"
+  "nextExactAction": "Begin CF14 policy-decision installed hard gate when authorized — do not auto-start",
+  "lastUpdatedAt": "2026-08-19T21:41:00.000Z"
 }

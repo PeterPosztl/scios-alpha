@@ -1,0 +1,25 @@
+{
+  "schema": "sci-os-b002-build-sync-proof/v1",
+  "at": "2026-08-19T21:40:00.000Z",
+  "status": "PASS",
+  "source": {
+    "gitSha": "c9b0483dc16c99b244f9a57ab60afa8a39a632e6",
+    "checkpoint": "c9b0483",
+    "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha"
+  },
+  "package": {
+    "buildId": "pkg_1787175419324",
+    "gitSha": "c9b0483dc16c99b244f9a57ab60afa8a39a632e6",
+    "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10",
+    "bundledNode": "v20.18.1"
+  },
+  "install": {
+    "buildId": "pkg_1787175419324",
+    "gitSha": "c9b0483dc16c99b244f9a57ab60afa8a39a632e6",
+    "path": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+    "bundledNode": "v20.18.1",
+    "launcher": "SCI-OS-X10.exe"
+  },
+  "identityMatch": true,
+  "note": "SOURCE = PACKAGE = INSTALL — no stale pkg_1787159655720 on active install"
+}

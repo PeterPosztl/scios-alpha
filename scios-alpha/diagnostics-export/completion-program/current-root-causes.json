@@ -1,18 +1,19 @@
 {
   "schema": "sci-os-current-root-causes/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-08-19T17:52:00.000Z",
-  "closureRunId": "closure_post_b002",
+  "at": "2026-08-19T21:41:00.000Z",
+  "closureRunId": "closure_post_b002_install_close",
   "P0": 0,
-  "P1": 91,
+  "P1": 92,
   "P2": 184,
   "P3": 46,
-  "ROOT_CAUSES": 321,
+  "ROOT_CAUSES": 322,
   "closedThisWave": [
     "CTRL.CF11.job-states",
     "CTRL.CF11.idempotency",
     "CTRL.CF11.progress",
-    "CTRL.CF11.job-evidence"
+    "CTRL.CF11.job-evidence",
+    "BLOCK-INSTALL-EBUSY-001"
   ],
   "alphaBlockers": [],
   "betaBlockers": [

@@ -1,0 +1,20 @@
+{
+  "schema": "sci-os-b002-preinstall-process-state/v1",
+  "at": "2026-08-19T20:58:00.000Z",
+  "ports": { "3000": "DOWN", "4000": "DOWN" },
+  "sciOwnedProcesses": [
+    {
+      "pid": 7036,
+      "component": "orphan-debug-spawn",
+      "executable": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\runtime\\node\\node.exe",
+      "note": "Aborted WHI-001 job-object-keeper debug spawn (SCI-PROV-TEST)"
+    },
+    {
+      "pid": 9108,
+      "component": "recovery-server",
+      "executable": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\runtime\\node\\node.exe",
+      "commandLine": "recovery\\server.cjs"
+    }
+  ],
+  "rootCauseHypothesis": "SCI_PROCESS_HANDLE_NOT_RELEASED — stop.cjs only stops healthz-proven port listeners; recovery/orphan spawns retain cwd/handles under app\\"
+}

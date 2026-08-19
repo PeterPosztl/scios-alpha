@@ -1,10 +1,9 @@
 {
   "schema": "sci-os-b002-package-proof/v1",
-  "at": "2026-08-19T20:28:00.000Z",
-  "buildId": "pkg_1787170915142",
-  "gitSha": "dcfdd3145ea6e9aa3e06a3120fefcf697779e41d",
-  "nodeRuntime": "20.18.1",
-  "backendArtifact": "dist/SCI-OS-X10/backend/server.cjs",
-  "packageBuild": "PASS",
+  "at": "2026-08-19T21:37:39.114Z",
+  "buildId": "pkg_1787175419324",
+  "gitSha": "c9b0483dc16c99b244f9a57ab60afa8a39a632e6",
+  "bundledNode": "v20.18.1",
+  "distPath": "dist/SCI-OS-X10",
   "status": "PASS"
 }

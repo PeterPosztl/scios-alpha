@@ -1,0 +1,14 @@
+{
+  "schema": "sci-os-b002-ebusy-reproduction/v1",
+  "at": "2026-08-19T20:22:00.000Z",
+  "operation": "fs.renameSync",
+  "phase": "backup_current",
+  "sourcePath": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+  "destinationPath": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.<timestamp>",
+  "windowsErrorCode": "EBUSY",
+  "errno": -4082,
+  "syscall": "rename",
+  "buildIdAttempted": "pkg_1787170915142",
+  "stagingVerified": true,
+  "note": "Fails before promote_staging — entire app directory locked by SCI-owned node.exe processes"
+}

@@ -1,7 +1,7 @@
 # SCI OS ×10 — Completion Program Roadmap
 
 **Program controller started:** 2026-08-19  
-**Current build:** `pkg_1787161754498` · **gitSha:** `541d608`  
+**Current build:** `pkg_1787175419324` · **gitSha:** `c9b0483`  
 **Authority:** current source + runtime evidence (not historical audit labels)
 
 ---
@@ -11,7 +11,7 @@
 | Target | Label | Status |
 |--------|-------|--------|
 | **A** | Usable Local Alpha | **READY** ✓ |
-| **B** | Daily-Use / Tester Beta | NOT_READY |
+| **B** | Daily-Use / Tester Beta | NOT_READY (B-002 **COMPLETE** — CF14 next) |
 | **C** | Production-Eligible Professional System | NOT_READY |
 | **D** | Full SCI OS ×10 Founder Vision | NOT_READY |
 
@@ -44,7 +44,7 @@ Proven chain:
 | Market Analyst runtime-connected | **PASS** |
 | Professional domain registry compiled | **PASS** |
 | PostgreSQL persistence | **DEFERRED** — FD-002 open; use local-durable + in-memory until decision |
-| Job lifecycle (CF11) | **PASS** — Wave B-002 installed proof |
+| Job lifecycle (CF11) | **PASS** — Wave B-002 **READY** (installed proof) |
 | Policy decision points (CF14) | **PARTIAL** |
 | Model validation truth (CF28) | **UNVALIDATED** — must stay honest |
 | P1 roots | **91** → target **< 20** for Beta |
@@ -92,4 +92,4 @@ Requires: Production + full domain compilation + Graph/Timeline/Evidence/Dossier
 
 ## Next exact action
 
-**Wave B-001:** Inspect `packages/system-closure` CF11 controls + existing job scheduler in `backend/app/jobs` / `installer` — implement minimum job-state contract without PostgreSQL dependency.
+**Wave B-003 (queued):** CF14 policy-decision installed hard gate — **do not auto-start**. B-002 install blocker closed.

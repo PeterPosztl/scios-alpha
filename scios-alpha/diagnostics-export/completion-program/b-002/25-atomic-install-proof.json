@@ -1,0 +1,29 @@
+{
+  "schema": "sci-os-b002-atomic-install-proof/v1",
+  "at": "2026-08-19T21:37:56.640Z",
+  "label": "ALPHA_NON_PRODUCTION",
+  "status": "PASS",
+  "oldBuildId": "pkg_1787171251736",
+  "newBuildId": "pkg_1787175419324",
+  "backupSelected": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.1787175459114",
+  "backupLast": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.last",
+  "swapSequence": [
+    "quiescence_gate",
+    "stage_copy",
+    "stage_verify",
+    "backup_rename",
+    "promote_rename",
+    "live_verify",
+    "retain_backup_last",
+    "shortcuts_localappdata"
+  ],
+  "retryCount": 0,
+  "retryAttemptsRequired": 0,
+  "installDurationMs": 17526,
+  "quiescenceGate": true,
+  "ebusyRootCause": "SCI_PROCESS_HANDLE_NOT_RELEASED",
+  "ebusyFix": "install-quiescence.cjs inline await + bounded renameWithRetry",
+  "rollbackPreserved": true,
+  "primaryEntry": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\SCI-OS-X10.exe",
+  "detail": "diagnostics-export/cursor-repair/atomic-install-proof.json"
+}

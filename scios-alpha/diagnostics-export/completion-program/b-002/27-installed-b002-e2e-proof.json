@@ -1,0 +1,30 @@
+{
+  "schema": "sci-os-b002-installed-job-e2e/v1",
+  "at": "2026-08-19T21:38:18.385Z",
+  "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+  "launcher": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\SCI-OS-X10.exe",
+  "noRepoSource": true,
+  "steps": {
+    "boot": "PASS",
+    "bundledNode": "PASS",
+    "createQueued": "PASS",
+    "toRunning": "PASS",
+    "actorContext": "PASS",
+    "transitionEvidence": "PASS",
+    "localDurable": "PASS",
+    "restartBoot": "PASS",
+    "restartPersistence": "PASS",
+    "toCompleted": "PASS",
+    "finalRestartBoot": "PASS",
+    "completedPersists": "PASS",
+    "diskCompleted": "PASS"
+  },
+  "status": "PASS",
+  "buildId": "pkg_1787175419324",
+  "gitSha": "c9b0483dc16c99b244f9a57ab60afa8a39a632e6",
+  "launch": {
+    "exe": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\SCI-OS-X10.exe",
+    "pid": 8416
+  },
+  "bundledNode": "v20.18.1"
+}

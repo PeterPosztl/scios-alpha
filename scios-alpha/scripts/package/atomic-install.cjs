@@ -13,6 +13,10 @@ const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
 const { spawnSync } = require("child_process");
+const {
+  renameWithRetry,
+  listSciOwnedLocalAppProcesses,
+} = require("./install-quiescence.cjs");
 
 const ROOT = path.resolve(__dirname, "../..");
 
@@ -64,11 +68,13 @@ function validatePayload(payloadRoot) {
   return { ok: true, buildId: man.buildId };
 }
 
-function main() {
+async function main() {
   const args = process.argv.slice(2);
   let source = path.join(ROOT, "dist", "SCI-OS-X10");
+  let skipQuiesce = false;
   for (let i = 0; i < args.length; i++) {
     if (args[i] === "--source" && args[i + 1]) source = path.resolve(args[++i]);
+    if (args[i] === "--skip-quiesce") skipQuiesce = true;
   }
 
   const localApp = process.env.LOCALAPPDATA || process.env.HOME || ROOT;
@@ -86,6 +92,11 @@ function main() {
     installDir,
     dataDir,
     steps: [],
+    retryPolicy: {
+      maxAttempts: 5,
+      delaysMs: [300, 600, 1200, 2000, 3000],
+      quiescenceGate: !skipQuiesce,
+    },
   };
 
   function step(name, detail) {
@@ -96,6 +107,21 @@ function main() {
     if (!fs.existsSync(source)) {
       throw Object.assign(new Error("SOURCE_MISSING"), { code: "SOURCE_MISSING" });
     }
+
+    if (!skipQuiesce && fs.existsSync(installDir)) {
+      const preProcs = listSciOwnedLocalAppProcesses(installDir);
+      step("preinstall_process_state", { processes: preProcs });
+      const { quiesceForInstall } = require("./install-quiescence.cjs");
+      const quiescence = await quiesceForInstall({ installDir, repoRoot: ROOT });
+      step("quiescence_gate", { quiescence });
+      if (!quiescence.quiescent) {
+        throw Object.assign(new Error("QUIESCENCE_FAILED"), {
+          code: "QUIESCENCE_FAILED",
+          remaining: quiescence.remaining,
+        });
+      }
+    }
+
     fs.mkdirSync(dataDir, { recursive: true });
     rmrf(staging);
     step("stage_copy", { staging });
@@ -106,12 +132,38 @@ function main() {
     if (!v.ok) throw Object.assign(new Error(v.error), v);
 
     if (fs.existsSync(installDir)) {
-      step("backup_current", { backup });
-      fs.renameSync(installDir, backup);
+      step("backup_current", { backup, operation: "rename installDir → backup" });
+      const backupSwap = renameWithRetry(installDir, backup, {
+        installDir,
+        repoRoot: ROOT,
+      });
+      step("backup_rename", backupSwap);
+      if (!backupSwap.ok) {
+        throw Object.assign(new Error(backupSwap.error || "EBUSY"), {
+          code: backupSwap.error || "EBUSY",
+          operation: "backup_current",
+          src: installDir,
+          dest: backup,
+          attempts: backupSwap.attempts,
+        });
+      }
     }
 
-    step("promote_staging", { installDir });
-    fs.renameSync(staging, installDir);
+    step("promote_staging", { installDir, operation: "rename staging → installDir" });
+    const promote = renameWithRetry(staging, installDir, { installDir, repoRoot: ROOT });
+    step("promote_rename", promote);
+    if (!promote.ok) {
+      if (fs.existsSync(backup)) {
+        renameWithRetry(backup, installDir, { installDir, repoRoot: ROOT });
+      }
+      throw Object.assign(new Error(promote.error || "EBUSY"), {
+        code: promote.error || "EBUSY",
+        operation: "promote_staging",
+        src: staging,
+        dest: installDir,
+        attempts: promote.attempts,
+      });
+    }
 
     const live = validatePayload(installDir);
     step("live_verify", live);
@@ -219,4 +271,7 @@ $Shortcut.Save()
   process.exit(report.ok ? 0 : 2);
 }
 
-main();
+main().catch((e) => {
+  console.error(e);
+  process.exit(1);
+});
