@@ -1,0 +1,305 @@
+{
+  "ok": true,
+  "marketAnalyst": {
+    "schema": "sci-os-experience-compile/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "compilerStatus": "RUNTIME_MOUNTED",
+    "actor": {
+      "actorId": "actor:arch.market_analyst",
+      "roleId": "arch.market_analyst"
+    },
+    "input": {
+      "roleId": "arch.market_analyst",
+      "jobToBeDone": {
+        "mission": "Analyze instruments to produce defensible predictions with explicit uncertainty and lineage.",
+        "topTasks": [
+          "Search entity",
+          "Run analysis",
+          "Review prediction",
+          "Review risk",
+          "Record local review"
+        ],
+        "criticalDecisions": [
+          "Proceed with simulation",
+          "Hold for review",
+          "Reject path"
+        ]
+      },
+      "permission": {
+        "actionsAllowed": [
+          "entity:read",
+          "analyze"
+        ],
+        "actionsDenied": [
+          "live_execution"
+        ],
+        "source": "alpha-proof"
+      },
+      "domainOntology": {
+        "domainFamily": "market_intelligence",
+        "entityTypes": [
+          "Entity",
+          "Instrument",
+          "Prediction",
+          "RiskAssessment"
+        ]
+      },
+      "availableData": {
+        "status": "PARTIAL",
+        "bindings": [
+          "vertical-slice.foundation"
+        ]
+      },
+      "sciOsCapabilities": [
+        {
+          "id": "vertical-slice.foundation",
+          "proven": true
+        }
+      ],
+      "riskPolicy": {
+        "policyId": null,
+        "highRiskActions": [],
+        "approvalRequired": false
+      },
+      "userExperienceLevel": "intermediate",
+      "currentObject": "AAPL",
+      "workflowState": "ready",
+      "executionProfile": "UNKNOWN"
+    },
+    "output": {
+      "workspaceProfileId": "market_analysis",
+      "nav": [
+        "ContextHeader",
+        "PredictionPanel",
+        "UncertaintyPanel",
+        "RiskPanel",
+        "DecisionPanel",
+        "SimulationPanel",
+        "LineagePanel",
+        "EvidencePanel"
+      ],
+      "home": {
+        "title": "Market Analyst",
+        "attention": "WHAT REQUIRES MY ATTENTION RIGHT NOW?",
+        "mission": "Analyze instruments to produce defensible predictions with explicit uncertainty and lineage."
+      },
+      "modules": [
+        {
+          "id": "ContextHeader",
+          "system": "entity_system",
+          "order": 1
+        },
+        {
+          "id": "PredictionPanel",
+          "system": "prediction_system",
+          "order": 2
+        },
+        {
+          "id": "UncertaintyPanel",
+          "system": "prediction_system",
+          "order": 3
+        },
+        {
+          "id": "RiskPanel",
+          "system": "risk_system",
+          "order": 4
+        },
+        {
+          "id": "DecisionPanel",
+          "system": "risk_system",
+          "order": 5
+        },
+        {
+          "id": "SimulationPanel",
+          "system": "execution_system",
+          "order": 6
+        },
+        {
+          "id": "LineagePanel",
+          "system": "cross_cutting",
+          "order": 7
+        },
+        {
+          "id": "EvidencePanel",
+          "system": "cross_cutting",
+          "order": 8
+        }
+      ],
+      "actions": [
+        {
+          "id": "analyze",
+          "label": "Analyze",
+          "panel": "PredictionPanel"
+        },
+        {
+          "id": "evidence",
+          "label": "Evidence",
+          "panel": "EvidencePanel"
+        },
+        {
+          "id": "lineage",
+          "label": "Full Lineage",
+          "panel": "LineagePanel"
+        },
+        {
+          "id": "technical",
+          "label": "Technical View",
+          "panel": "Engineering"
+        }
+      ],
+      "density": "compact",
+      "disclosureDefault": "L2",
+      "aiCopilotProfile": "market_workspace",
+      "disabledActions": [
+        {
+          "action": "live_execution",
+          "reason": "Permission denied (server)"
+        }
+      ],
+      "nextStep": "Search entity → Analyze → review professional result",
+      "unknowns": [],
+      "goldenWorkflow": "gw1_aapl_analysis"
+    },
+    "workspaceSpec": {
+      "schemaVersion": "sci-os-workspace-spec/v1",
+      "workspaceId": "market_analysis",
+      "role": "arch.market_analyst",
+      "jtbd": "Analyze instruments to produce defensible predictions with explicit uncertainty and lineage.",
+      "object": "AAPL",
+      "contextHeader": {
+        "title": "Market Analyst",
+        "mission": "Analyze instruments to produce defensible predictions with explicit uncertainty and lineage.",
+        "object": "AAPL"
+      },
+      "layout": "professional-grid",
+      "density": "compact",
+      "disclosureLevel": "L2",
+      "panels": [
+        {
+          "id": "ContextHeader",
+          "type": "entity.summary",
+          "order": 1,
+          "visible": true,
+          "state": "PARTIAL",
+          "capability": "Entity",
+          "reason": null
+        },
+        {
+          "id": "PredictionPanel",
+          "type": "prediction",
+          "order": 2,
+          "visible": true,
+          "state": "PARTIAL",
+          "capability": "Prediction",
+          "reason": null
+        },
+        {
+          "id": "UncertaintyPanel",
+          "type": "uncertainty",
+          "order": 3,
+          "visible": true,
+          "state": "PARTIAL",
+          "capability": "Prediction",
+          "reason": null
+        },
+        {
+          "id": "RiskPanel",
+          "type": "risk",
+          "order": 4,
+          "visible": true,
+          "state": "PARTIAL",
+          "capability": "Risk",
+          "reason": null
+        },
+        {
+          "id": "DecisionPanel",
+          "type": "decision",
+          "order": 5,
+          "visible": true,
+          "state": "PARTIAL",
+          "capability": "Decision",
+          "reason": null
+        },
+        {
+          "id": "SimulationPanel",
+          "type": "scenario",
+          "order": 6,
+          "visible": true,
+          "state": "PARTIAL",
+          "capability": "Execution",
+          "reason": null
+        },
+        {
+          "id": "LineagePanel",
+          "type": "lineage",
+          "order": 7,
+          "visible": true,
+          "state": "PARTIAL",
+          "capability": "Lineage",
+          "reason": null
+        },
+        {
+          "id": "EvidencePanel",
+          "type": "evidence",
+          "order": 8,
+          "visible": true,
+          "state": "PARTIAL",
+          "capability": "Evidence",
+          "reason": null
+        }
+      ],
+      "actions": [
+        {
+          "id": "analyze",
+          "type": "SIMULATION",
+          "enabled": true,
+          "reason": null,
+          "governanceState": "SIMULATION_ONLY"
+        },
+        {
+          "id": "act.local_review.approve",
+          "type": "LOCAL_REVIEW",
+          "enabled": false,
+          "reason": "Governed approval not available — LOCAL_REVIEW only",
+          "governanceState": "LOCAL_REVIEW"
+        },
+        {
+          "id": "live_execution",
+          "type": "EXECUTION",
+          "enabled": false,
+          "reason": "Permission denied (server)",
+          "governanceState": "BLOCKED"
+        }
+      ],
+      "warnings": [
+        {
+          "code": "MODEL_UNVALIDATED",
+          "message": "Prediction models are UNVALIDATED — not production-grade science"
+        }
+      ],
+      "attentionItems": [],
+      "evidenceRequirements": [
+        "lineage tip hash when analysis completes"
+      ],
+      "maturity": {
+        "modelScience": "UNVALIDATED",
+        "marketData": "PARTIAL",
+        "governedApproval": "ABSENT",
+        "execution": "UNKNOWN"
+      },
+      "unknowns": []
+    },
+    "note": "Mounted into existing SCI OS Shell AppHost — not a second /app product"
+  },
+  "moduleIds": [
+    "ContextHeader",
+    "PredictionPanel",
+    "UncertaintyPanel",
+    "RiskPanel",
+    "DecisionPanel",
+    "SimulationPanel",
+    "LineagePanel",
+    "EvidencePanel"
+  ],
+  "status": "PASS"
+}

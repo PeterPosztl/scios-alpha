@@ -1,0 +1,15 @@
+{
+  "steps": {
+    "home": "PASS",
+    "search": "PASS",
+    "entity": "PASS",
+    "productContext": "PASS",
+    "experience": "PASS",
+    "cockpit": "PASS",
+    "prediction": "PASS",
+    "risk": "PASS",
+    "lineage": "PASS"
+  },
+  "live": true,
+  "status": "LIVE_PASS"
+}

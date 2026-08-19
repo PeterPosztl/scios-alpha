@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "whiProof": {
+    "whi-001": "PROOF_PRESENT",
+    "whi-004": "PROOF_PRESENT",
+    "whi-010": "PROOF_PRESENT",
+    "host-digital-twin": "PROOF_PRESENT"
+  },
+  "status": "PASS"
+}

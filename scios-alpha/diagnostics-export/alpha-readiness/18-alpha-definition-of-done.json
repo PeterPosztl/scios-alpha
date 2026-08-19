@@ -1,0 +1,16 @@
+{
+  "checks": {
+    "p0Zero": true,
+    "pdrCompile": true,
+    "experienceCompiler": true,
+    "home": true,
+    "search": true,
+    "entity": true,
+    "marketAnalystWorkspace": true,
+    "whiRegression": true,
+    "uiAdr": true,
+    "governedApprovalHonest": true
+  },
+  "allPass": true,
+  "issues": []
+}

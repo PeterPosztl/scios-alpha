@@ -1,0 +1,33 @@
+{
+  "schema": "sci-os-alpha-final-report/v1",
+  "at": "2026-08-19T16:36:03.981Z",
+  "baselineBuild": "pkg_1787147143095",
+  "gitSha": "435f9272",
+  "uiFramework": {
+    "decision": "MODULAR_VANILLA_COMPONENT_SYSTEM",
+    "deferred": "React+Vite → Target B",
+    "adr": "product-memory/adr/ADR-SCI-UI-FRAMEWORK-001.md",
+    "status": "PASS"
+  },
+  "productKernel": "PASS",
+  "professionalDomainRegistry": "PASS",
+  "experienceCompiler": "PASS",
+  "workspaceRenderer": "PASS",
+  "home": "PASS",
+  "search": "PASS",
+  "entity": "PASS",
+  "marketAnalystWorkspace": "PASS",
+  "actionGovernance": "PASS",
+  "securityAlpha": "PASS",
+  "persistenceTruth": "PASS",
+  "modelScienceTruth": "PASS",
+  "whiRegression": "PASS",
+  "e2e": "LIVE_PASS",
+  "p0Before": 0,
+  "p0After": 0,
+  "p1Before": 91,
+  "p1After": 91,
+  "alphaBlockersAfter": 0,
+  "verdict": "USABLE_LOCAL_ALPHA_READY",
+  "issues": []
+}

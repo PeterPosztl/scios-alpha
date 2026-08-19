@@ -1,0 +1,5 @@
+{
+  "ok": true,
+  "route": "/v1/entities/:id",
+  "status": "PASS"
+}

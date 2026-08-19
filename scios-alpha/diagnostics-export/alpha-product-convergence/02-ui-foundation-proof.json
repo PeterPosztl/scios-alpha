@@ -1,0 +1,6 @@
+{
+  "ok": true,
+  "primitives": "apps/cockpit-ui/src/components/primitives.js",
+  "workspaceRenderer": "apps/cockpit-ui/src/workspace/WorkspaceRenderer.js",
+  "status": "PASS"
+}

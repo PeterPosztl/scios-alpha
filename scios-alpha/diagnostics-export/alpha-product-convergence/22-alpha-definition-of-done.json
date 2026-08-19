@@ -1,0 +1,8 @@
+{
+  "p0Zero": true,
+  "alphaBlockerRoots": 0,
+  "experienceCompiler": true,
+  "workspaceRenderer": true,
+  "marketAnalystAAPL": true,
+  "verdict": "USABLE_LOCAL_ALPHA_READY"
+}

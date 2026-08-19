@@ -1,0 +1,16 @@
+{
+  "schema": "sci-os-alpha-authority-map/v1",
+  "at": "2026-08-19T16:36:03.545Z",
+  "PRODUCT_KERNEL_AUTHORITY": "@scios/product-kernel (packages/product-kernel/src/index.js)",
+  "ROLE_REGISTRY_AUTHORITY": "@scios/professional-domain-registry (packages/professional-domain-registry/src/)",
+  "EXPERIENCE_COMPILER_AUTHORITY": "@scios/professional-domain-registry/compiler (experience-compiler.js ONLY)",
+  "UI_AUTHORITY": "apps/cockpit-ui (AppHost :4000, modular vanilla)",
+  "WORKSPACE_RENDERER_AUTHORITY": "apps/cockpit-ui/src/workspace/WorkspaceRenderer.js",
+  "DEPRECATED_GHOST": [
+    "packages/experience-compiler/README.md — DEPRECATED"
+  ],
+  "BOOT_AUTHORITY": "installer/scripts/start-sci-os.cjs",
+  "CONTROL_PLANE": ":3000",
+  "APPHOST": ":4000",
+  "note": "Single authority per layer — no duplicates"
+}

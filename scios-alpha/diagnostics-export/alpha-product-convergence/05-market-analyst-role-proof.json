@@ -1,0 +1,8 @@
+{
+  "ok": true,
+  "roleId": "arch.market_analyst",
+  "runtimeUsable": true,
+  "jtbd": "market_analysis",
+  "goldenWorkflow": "gw1_aapl_analysis",
+  "status": "PASS"
+}

@@ -1,0 +1,14 @@
+{
+  "ok": true,
+  "knownPanels": [
+    "ContextHeader",
+    "PredictionPanel",
+    "UncertaintyPanel",
+    "RiskPanel",
+    "DecisionPanel",
+    "SimulationPanel",
+    "EvidencePanel",
+    "LineagePanel"
+  ],
+  "status": "PASS"
+}

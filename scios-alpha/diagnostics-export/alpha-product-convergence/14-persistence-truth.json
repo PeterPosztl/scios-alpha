@@ -1,0 +1,9 @@
+{
+  "matrix": {
+    "session": "EPHEMERAL",
+    "localDurableRuns": "DURABLE",
+    "postgresql": "PROFILE_DISABLED",
+    "redis": "PROFILE_DISABLED"
+  },
+  "status": "PASS"
+}

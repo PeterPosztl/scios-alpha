@@ -1,0 +1,10 @@
+{
+  "schema": "sci-os-alpha-baseline/v1",
+  "at": "2026-08-19T16:36:03.773Z",
+  "baselineBuild": "pkg_1787147143095",
+  "newBuild": "pkg_1787155892967",
+  "gitSha": "435f9272",
+  "p0Before": 0,
+  "p1Before": 91,
+  "label": "ALPHA_NON_PRODUCTION"
+}

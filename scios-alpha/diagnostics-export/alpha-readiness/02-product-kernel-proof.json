@@ -1,0 +1,270 @@
+{
+  "ok": true,
+  "projection": {
+    "schema": "sci-os-product-context/v1",
+    "legacySchema": "sci-os-kernel-ui-projection/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "at": "2026-08-19T16:36:03.914Z",
+    "role": {
+      "roleId": "arch.market_analyst",
+      "mission": "Analyze instruments to produce defensible predictions with explicit uncertainty and lineage.",
+      "status": "ARCHETYPE_DEFINED",
+      "domain": "market_intelligence"
+    },
+    "actor": {
+      "schema": "sci-os-actor-context/v1",
+      "label": "ALPHA_NON_PRODUCTION",
+      "userId": "local-dev-user",
+      "actorId": "actor:arch.market_analyst",
+      "roleId": "arch.market_analyst",
+      "workspaceId": null,
+      "objectId": "AAPL",
+      "sessionId": null,
+      "permissionContext": {
+        "actionsAllowed": [
+          "entity:read",
+          "analyze",
+          "evidence:read"
+        ],
+        "actionsDenied": [
+          "live_execution"
+        ],
+        "source": "governance-engine:embedded-foundation"
+      },
+      "policyContext": {
+        "policyId": "embedded-foundation",
+        "highRiskActions": [
+          "live_execution"
+        ],
+        "approvalRequired": true
+      },
+      "executionMode": "SIMULATION_ONLY",
+      "serviceActor": {
+        "actorId": "svc:vertical-slice-simulator",
+        "role": "operator",
+        "purpose": "SIMULATION_ONLY paper execution — not the end-user"
+      },
+      "note": "UX role and governance subject share this envelope — operator is only an explicit service actor"
+    },
+    "jtbd": {
+      "tasks": [
+        "Search entity",
+        "Run analysis",
+        "Review prediction",
+        "Review risk",
+        "Record local review"
+      ],
+      "workflows": [
+        "market_analysis",
+        "gw1_aapl_analysis"
+      ]
+    },
+    "object": "AAPL",
+    "workflowState": "ready",
+    "permissions": {
+      "actionsAllowed": [
+        "entity:read",
+        "analyze",
+        "evidence:read"
+      ],
+      "actionsDenied": [
+        "live_execution"
+      ],
+      "source": "governance-engine:embedded-foundation"
+    },
+    "capabilities": {
+      "summary": {
+        "total": 15,
+        "counts": {
+          "PARTIAL": 11,
+          "STUB": 3,
+          "UNPROVEN": 1
+        }
+      },
+      "profileDisabled": [],
+      "proven": []
+    },
+    "risk": {
+      "policyId": "embedded-foundation",
+      "highRiskActions": [
+        "live_execution"
+      ],
+      "approvalRequired": true
+    },
+    "governance": {
+      "executionMode": "SIMULATION_ONLY",
+      "reviewKind": "LOCAL_REVIEW_STATE",
+      "governedApprovalAvailable": false
+    },
+    "evidence": {
+      "lineageAvailable": true,
+      "persistenceState": "LOCAL_DURABLE_OR_EPHEMERAL"
+    },
+    "hostReadiness": {
+      "shellStatus": "HOME_SEARCH_ENTITY_LIVE",
+      "goldenWorkflow1": "L7_RUNTIME_PARTIAL_PROVEN",
+      "p0Protected": true
+    },
+    "note": "UI reads this projection — does not independently infer READY/PASS"
+  },
+  "snapshot": {
+    "schema": "sci-os-product-kernel-snapshot/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "at": "2026-08-19T16:36:03.914Z",
+    "capabilitySummary": {
+      "total": 15,
+      "counts": {
+        "PARTIAL": 11,
+        "STUB": 3,
+        "UNPROVEN": 1
+      }
+    },
+    "workflowCounts": {
+      "total": 7,
+      "partial": 5,
+      "missing": 2
+    },
+    "roles": {
+      "archetypes": 8,
+      "seeded": 200
+    },
+    "p0Protected": true,
+    "shellStatus": "HOME_SEARCH_ENTITY_LIVE",
+    "goldenWorkflow1": "L7_RUNTIME_PARTIAL_PROVEN",
+    "discipline": {
+      "schema": "sci-os-enterprise-discipline/v1",
+      "slo": {
+        "schema": "sci-os-slo-registry/v1",
+        "label": "ALPHA_NON_PRODUCTION",
+        "policy": "Error budget exhaustion blocks unrelated expansion on the dependency path",
+        "slos": [
+          {
+            "id": "STARTUP_TO_HOME",
+            "metric": "p95_ms_boot_to_home_http_ok",
+            "target": "<= 45000",
+            "measurementWindow": "7d_rolling_or_release_candidate",
+            "errorBudget": "10% of starts may miss",
+            "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+            "releaseImpact": "P0 if budget exhausted during release candidate",
+            "dependencyPath": [
+              "bootstrap",
+              "start-sci-os",
+              "control-plane",
+              "cockpit"
+            ]
+          },
+          {
+            "id": "SEARCH_SUCCESS",
+            "metric": "success_rate_v1_search_for_known_instrument",
+            "target": ">= 0.99",
+            "measurementWindow": "7d_rolling_or_release_candidate",
+            "errorBudget": "1%",
+            "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+            "releaseImpact": "P1 — blocks search UX expansion",
+            "dependencyPath": [
+              "control-plane",
+              "product.search"
+            ]
+          },
+          {
+            "id": "ENTITY360_OPEN",
+            "metric": "success_rate_v1_entities_open",
+            "target": ">= 0.99",
+            "measurementWindow": "7d_rolling_or_release_candidate",
+            "errorBudget": "1%",
+            "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+            "releaseImpact": "P1",
+            "dependencyPath": [
+              "control-plane",
+              "product.entity"
+            ]
+          },
+          {
+            "id": "ANALYSIS_COMPLETION",
+            "metric": "success_rate_vertical_slice_run_http_2xx",
+            "target": ">= 0.98",
+            "measurementWindow": "7d_rolling_or_release_candidate",
+            "errorBudget": "2%",
+            "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+            "releaseImpact": "P0 for GW1 path",
+            "dependencyPath": [
+              "vertical-slice",
+              "prediction",
+              "risk",
+              "governance"
+            ]
+          },
+          {
+            "id": "RISK_GOVERNANCE_COMPLETION",
+            "metric": "rate_risk_and_governance_envelopes_present",
+            "target": ">= 0.995",
+            "measurementWindow": "7d_rolling_or_release_candidate",
+            "errorBudget": "0.5%",
+            "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+            "releaseImpact": "P0 — philosophy violation if missing",
+            "dependencyPath": [
+              "vertical-slice",
+              "governance-engine"
+            ]
+          },
+          {
+            "id": "EVIDENCE_OPEN",
+            "metric": "success_rate_lineage_fetch_after_run",
+            "target": ">= 0.99",
+            "measurementWindow": "7d_rolling_or_release_candidate",
+            "errorBudget": "1%",
+            "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+            "releaseImpact": "P1",
+            "dependencyPath": [
+              "vertical-slice.lineage",
+              "cockpit.evidence"
+            ]
+          },
+          {
+            "id": "GW1_COMPLETION",
+            "metric": "e2e_home_search_entity_analyze_evidence",
+            "target": ">= 0.95",
+            "measurementWindow": "7d_rolling_or_release_candidate",
+            "errorBudget": "5%",
+            "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+            "releaseImpact": "P0 first-release gate",
+            "dependencyPath": [
+              "shell",
+              "control-plane",
+              "vertical-slice"
+            ]
+          },
+          {
+            "id": "CLEAN_SHUTDOWN",
+            "metric": "rate_supervisor_clean_exit",
+            "target": ">= 0.98",
+            "measurementWindow": "7d_rolling_or_release_candidate",
+            "errorBudget": "2%",
+            "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+            "releaseImpact": "P1 packaged path",
+            "dependencyPath": [
+              "process-supervisor",
+              "bootstrap"
+            ]
+          },
+          {
+            "id": "RECOVERY_SUCCESS",
+            "metric": "rate_meta_recovery_or_repair_restores_core",
+            "target": ">= 0.90",
+            "measurementWindow": "7d_rolling_or_release_candidate",
+            "errorBudget": "10%",
+            "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+            "releaseImpact": "P1",
+            "dependencyPath": [
+              "meta-recovery",
+              "bundled-node"
+            ]
+          }
+        ]
+      },
+      "ontologyStatus": "PARTIAL",
+      "maturityRule": "NO_PROMOTE_ON_SOURCE_EXISTENCE_ALONE"
+    }
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,7 @@
+{
+  "ok": true,
+  "rbac": "PASS",
+  "governedApprovalInCockpit": false,
+  "reviewKind": "LOCAL_REVIEW_STATE",
+  "status": "PASS"
+}

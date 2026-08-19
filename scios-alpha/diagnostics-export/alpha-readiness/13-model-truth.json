@@ -1,0 +1,8 @@
+{
+  "modelStatus": "UNVALIDATED",
+  "label": "ALPHA_NON_PRODUCTION",
+  "cockpitDisplaysMaturityWarning": true,
+  "marketData": "ABSENT",
+  "sampleDataLabelled": true,
+  "status": "PASS"
+}

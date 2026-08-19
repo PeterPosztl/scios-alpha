@@ -1,0 +1,8 @@
+{
+  "postgresql": "OPTIONAL_PROVIDER_UNAVAILABLE",
+  "redis": "OPTIONAL_PROVIDER_UNAVAILABLE",
+  "inMemoryLedger": "RUNTIME_CONNECTED",
+  "localDurable": "RUNTIME_CONNECTED",
+  "note": "Alpha uses in-memory + local-durable; PG not required for Target A",
+  "status": "PASS"
+}

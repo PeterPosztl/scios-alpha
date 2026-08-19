@@ -1,0 +1,8 @@
+{
+  "ok": true,
+  "outputEscaping": true,
+  "noInnerHtml": true,
+  "loopbackDefault": true,
+  "oidc": "disabled_local_development",
+  "status": "PASS"
+}

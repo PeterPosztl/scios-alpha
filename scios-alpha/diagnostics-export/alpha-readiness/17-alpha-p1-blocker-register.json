@@ -1,0 +1,62 @@
+{
+  "alphaBlockersBefore": 6,
+  "alphaBlockersAfter": 0,
+  "alphaBlockers": [
+    {
+      "id": "ALPHA-UX-HOME",
+      "category": "ALPHA_BLOCKER",
+      "resolved": true,
+      "note": "Home route + cockpit view wired"
+    },
+    {
+      "id": "ALPHA-UX-SEARCH",
+      "category": "ALPHA_BLOCKER",
+      "resolved": true,
+      "note": "Search route + results view"
+    },
+    {
+      "id": "ALPHA-UX-ENTITY",
+      "category": "ALPHA_BLOCKER",
+      "resolved": true,
+      "note": "Entity360 partial wired"
+    },
+    {
+      "id": "ALPHA-EXP-COMPILER",
+      "category": "ALPHA_BLOCKER",
+      "resolved": true,
+      "note": "PDR compiler RUNTIME_MOUNTED"
+    },
+    {
+      "id": "ALPHA-PDR-COMPILE",
+      "category": "ALPHA_BLOCKER",
+      "resolved": true,
+      "note": "compile-registry.js validates"
+    },
+    {
+      "id": "ALPHA-GW1",
+      "category": "ALPHA_BLOCKER",
+      "resolved": true,
+      "note": "vertical-slice run endpoint"
+    }
+  ],
+  "betaBlockersDeferred": [
+    "CTRL.CF28.validation",
+    "CTRL.CF11.job-states",
+    "CTRL.CF14.policy-decision",
+    "OIDC integration",
+    "PostgreSQL persistence",
+    "OpenTelemetry"
+  ],
+  "productionBlockersDeferred": [
+    "TLS",
+    "RBAC enterprise",
+    "load testing"
+  ],
+  "visionItemsDeferred": [
+    "300+ capabilities",
+    "WebGL/WASM",
+    "market data providers"
+  ],
+  "remainingP1": 91,
+  "note": "Remaining P1s classified as Beta/Production/Vision — not Alpha blockers"
+}

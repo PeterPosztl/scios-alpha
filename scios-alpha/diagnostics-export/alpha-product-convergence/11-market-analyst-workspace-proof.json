@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "object": "AAPL",
+  "panels": [
+    "entity.summary",
+    "prediction",
+    "uncertainty",
+    "risk",
+    "decision",
+    "scenario",
+    "lineage",
+    "evidence"
+  ],
+  "maturity": {
+    "modelScience": "UNVALIDATED",
+    "marketData": "PARTIAL",
+    "governedApproval": "ABSENT",
+    "execution": "UNKNOWN"
+  },
+  "status": "PASS"
+}
