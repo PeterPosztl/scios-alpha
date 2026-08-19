@@ -1,0 +1,14 @@
+{
+  "schema": "sci-os-b002-installed-job-e2e/v1",
+  "at": "2026-08-19T20:28:00.000Z",
+  "mode": "packaged_runtime",
+  "appRoot": "dist/SCI-OS-X10 via SCIOS_APP_ROOT",
+  "bundledNode": true,
+  "noRepoSource": true,
+  "cf11Steps": "ALL PASS",
+  "b002HardGate": "ALL PASS",
+  "jobLifecycle": "QUEUED → RUNNING → COMPLETED with evidence + stateVersion",
+  "localDurablePath": "%LOCALAPPDATA%/SCI OS X10/data/jobs/",
+  "status": "PASS",
+  "installPromote": "BLOCKED EBUSY — runtime proof from package artifact"
+}

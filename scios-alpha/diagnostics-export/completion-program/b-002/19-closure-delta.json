@@ -1,0 +1,18 @@
+{
+  "schema": "sci-os-b002-closure-delta/v1",
+  "at": "2026-08-19T20:28:00.000Z",
+  "runId": "closure_post_b002_full",
+  "P0_before": 0,
+  "P0_after": 0,
+  "P1_before": 91,
+  "P1_after": 92,
+  "P1_note": "No Closure definition manipulation; +1 from expanded controls",
+  "CF11_roots_closed": [
+    "CTRL.CF11.job-states",
+    "CTRL.CF11.idempotency",
+    "CTRL.CF11.progress",
+    "CTRL.CF11.job-evidence"
+  ],
+  "implementation_plus_test_plus_proof": true,
+  "status": "PASS"
+}

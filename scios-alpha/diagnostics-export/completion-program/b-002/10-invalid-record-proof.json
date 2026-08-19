@@ -1,0 +1,4 @@
+{
+  "note": "Corrupt records quarantined to jobs/.invalid/ on hydrate — JOB_STATE_RECORD_CORRUPT",
+  "hydrateSafe": true
+}

@@ -1,0 +1,10 @@
+{
+  "schema": "sci-os-b002-package-proof/v1",
+  "at": "2026-08-19T20:28:00.000Z",
+  "buildId": "pkg_1787170915142",
+  "gitSha": "dcfdd3145ea6e9aa3e06a3120fefcf697779e41d",
+  "nodeRuntime": "20.18.1",
+  "backendArtifact": "dist/SCI-OS-X10/backend/server.cjs",
+  "packageBuild": "PASS",
+  "status": "PASS"
+}

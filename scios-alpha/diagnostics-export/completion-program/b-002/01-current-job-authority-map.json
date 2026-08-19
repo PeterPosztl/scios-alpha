@@ -1,0 +1,16 @@
+{
+  "schema": "sci-os-b002-job-authority-map/v1",
+  "at": "2026-08-19T20:25:35.789Z",
+  "canonicalAuthority": "apps/control-plane-api/src/osSession.ts",
+  "apiRoutes": "apps/control-plane-api/src/routes/product.ts",
+  "endpoints": [
+    "GET /v1/os/jobs",
+    "GET /v1/os/jobs/:id",
+    "POST /v1/os/jobs",
+    "PATCH /v1/os/jobs/:id"
+  ],
+  "persistence": "%LOCALAPPDATA%/SCI OS X10/data/jobs/",
+  "uiConsumer": "apps/cockpit-ui (display only — state from API)",
+  "duplicateAuthority": false,
+  "validator": "canTransition() in osSession.ts"
+}

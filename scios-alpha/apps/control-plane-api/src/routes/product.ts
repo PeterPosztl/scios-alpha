@@ -19,6 +19,8 @@ import {
   createJob,
   getJob,
   updateJob,
+  filterJobPatch,
+  isSafeJobId,
   JOB_STATES,
 } from "../osSession.js";
 
@@ -649,7 +651,11 @@ export async function productRouter(opts: {
   }
 
   if (method === "GET" && path.startsWith("/v1/os/jobs/")) {
-    const jobId = path.slice("/v1/os/jobs/".length);
+    const jobId = path.slice("/v1/os/jobs/".length).split("?")[0];
+    if (!isSafeJobId(jobId)) {
+      sendJson(res, 400, { error: "invalid_job_id" });
+      return true;
+    }
     const job = getJob(jobId);
     if (!job) {
       sendJson(res, 404, { error: "job_not_found", jobId });
@@ -672,13 +678,25 @@ export async function productRouter(opts: {
       sendJson(res, 400, { error: "invalid_json" });
       return true;
     }
-    const job = createJob(body);
-    sendJson(res, 201, { job });
+    const session = getOrCreateSession(
+      typeof body.sessionId === "string" ? body.sessionId : "default"
+    );
+    const withActor = sessionWithActor(session);
+    const out = createJob(body, { actor: withActor.actor, origin: "user" });
+    if (!out.job) {
+      sendJson(res, 400, { error: out.error || "create_failed" });
+      return true;
+    }
+    sendJson(res, 201, { job: out.job });
     return true;
   }
 
   if (method === "PATCH" && path.startsWith("/v1/os/jobs/")) {
-    const jobId = path.slice("/v1/os/jobs/".length);
+    const jobId = path.slice("/v1/os/jobs/".length).split("?")[0];
+    if (!isSafeJobId(jobId)) {
+      sendJson(res, 400, { error: "invalid_job_id" });
+      return true;
+    }
     const chunks: Buffer[] = [];
     for await (const chunk of opts.req) {
       chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
@@ -691,11 +709,25 @@ export async function productRouter(opts: {
       sendJson(res, 400, { error: "invalid_json" });
       return true;
     }
-    // Legacy alias COMPLETE → COMPLETED
     if (body.state === "COMPLETE") body.state = "COMPLETED";
-    const out = updateJob(jobId, body, { reason: String(body.reason || "patch") });
+    const session = getOrCreateSession(
+      typeof body.sessionId === "string" ? body.sessionId : "default"
+    );
+    const withActor = sessionWithActor(session);
+    const patch = filterJobPatch(body);
+    const out = updateJob(jobId, patch, {
+      reason: String(body.reason || "patch"),
+      actor: withActor.actor,
+      origin: "user",
+    });
     if (!out.job) {
-      sendJson(res, out.error === "NOT_FOUND" ? 404 : 409, {
+      const status =
+        out.error === "NOT_FOUND"
+          ? 404
+          : out.error === "VERSION_CONFLICT"
+            ? 409
+            : 409;
+      sendJson(res, status, {
         error: out.error,
         detail: out.detail || null,
       });

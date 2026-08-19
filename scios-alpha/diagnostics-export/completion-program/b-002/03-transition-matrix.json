@@ -1,0 +1,49 @@
+{
+  "NON_TERMINAL": [
+    "QUEUED",
+    "RUNNING",
+    "PAUSED",
+    "DELAYED",
+    "BLOCKED"
+  ],
+  "TERMINAL": [
+    "COMPLETED",
+    "FAILED",
+    "CANCELLED"
+  ],
+  "matrix": {
+    "QUEUED": [
+      "RUNNING",
+      "DELAYED",
+      "CANCELLED",
+      "BLOCKED",
+      "COMPLETED"
+    ],
+    "RUNNING": [
+      "PAUSED",
+      "COMPLETED",
+      "FAILED",
+      "CANCELLED",
+      "BLOCKED"
+    ],
+    "PAUSED": [
+      "RUNNING",
+      "CANCELLED",
+      "FAILED"
+    ],
+    "DELAYED": [
+      "QUEUED",
+      "RUNNING",
+      "CANCELLED",
+      "BLOCKED"
+    ],
+    "BLOCKED": [
+      "QUEUED",
+      "CANCELLED"
+    ],
+    "COMPLETED": [],
+    "FAILED": [],
+    "CANCELLED": []
+  },
+  "retryFromFailed": "new attempt or new job — no COMPLETED→RUNNING"
+}

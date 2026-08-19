@@ -1,0 +1,9 @@
+{
+  "schema": "sci-os-b002-alpha-regression/v1",
+  "at": "2026-08-19T20:28:00.000Z",
+  "verdict": "USABLE_LOCAL_ALPHA_READY",
+  "alphaProductConvergence": "PASS",
+  "packagedGw1": "PASS",
+  "buildId": "pkg_1787171251736",
+  "status": "PASS"
+}

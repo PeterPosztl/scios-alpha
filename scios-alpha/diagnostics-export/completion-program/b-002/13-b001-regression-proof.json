@@ -1,0 +1,10 @@
+{
+  "schema": "sci-os-b002-b001-regression/v1",
+  "at": "2026-08-19T20:28:00.000Z",
+  "actorContextEnvelope": "PASS",
+  "localReviewSemantics": "PASS",
+  "xssOutputEncoding": "PASS",
+  "actionChainHonesty": "PASS",
+  "note": "B-001 roots unchanged; job routes reuse sessionWithActor",
+  "status": "PASS"
+}

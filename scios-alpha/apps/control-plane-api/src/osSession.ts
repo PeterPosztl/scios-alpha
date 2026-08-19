@@ -1,15 +1,26 @@
 /**
  * In-memory + file-backed OS session / jobs / notifications for control-plane.
  * ALPHA_NON_PRODUCTION — CF11 job-state contract (local-durable).
+ * Canonical job-state authority — do not duplicate elsewhere.
  */
 import { randomUUID, createHash } from "node:crypto";
-import { existsSync, mkdirSync, readFileSync, writeFileSync, readdirSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  writeFileSync,
+  readdirSync,
+  renameSync,
+  unlinkSync,
+} from "node:fs";
 import { join } from "node:path";
 
-const sessions = new Map();
-const jobs = new Map();
-const notifications = [];
+const sessions = new Map<string, Record<string, unknown>>();
+const jobs = new Map<string, Record<string, unknown>>();
+const notifications: Record<string, unknown>[] = [];
 let jobsHydrated = false;
+
+export const JOB_SCHEMA_VERSION = "sci-os-job/v1";
 
 /** CF11 canonical job states */
 export const JOB_STATES = [
@@ -25,9 +36,18 @@ export const JOB_STATES = [
 
 export type JobState = (typeof JOB_STATES)[number];
 
-const TERMINAL: JobState[] = ["COMPLETED", "FAILED", "CANCELLED"];
+export const JOB_TERMINAL_STATES: JobState[] = ["COMPLETED", "FAILED", "CANCELLED"];
 
-const TRANSITIONS: Record<string, JobState[]> = {
+export const JOB_NON_TERMINAL_STATES: JobState[] = [
+  "QUEUED",
+  "RUNNING",
+  "PAUSED",
+  "DELAYED",
+  "BLOCKED",
+];
+
+/** Explicit transition matrix — single validator authority */
+export const TRANSITION_MATRIX: Record<string, JobState[]> = {
   QUEUED: ["RUNNING", "DELAYED", "CANCELLED", "BLOCKED", "COMPLETED"],
   RUNNING: ["PAUSED", "COMPLETED", "FAILED", "CANCELLED", "BLOCKED"],
   PAUSED: ["RUNNING", "CANCELLED", "FAILED"],
@@ -38,11 +58,12 @@ const TRANSITIONS: Record<string, JobState[]> = {
   CANCELLED: [],
 };
 
+const TRANSITIONS = TRANSITION_MATRIX;
+
+const JOB_ID_RE = /^job_[0-9a-f-]{36}$/i;
+
 function dataRoot() {
-  const base =
-    process.env.SCIOS_USER_DATA ||
-    process.env.LOCALAPPDATA ||
-    process.cwd();
+  const base = process.env.SCIOS_USER_DATA || process.env.LOCALAPPDATA || process.cwd();
   return join(base, "SCI OS X10", "data");
 }
 
@@ -58,12 +79,137 @@ function jobsDir() {
   return dir;
 }
 
+function invalidJobsDir() {
+  const dir = join(dataRoot(), "jobs", ".invalid");
+  mkdirSync(dir, { recursive: true });
+  return dir;
+}
+
 function sessionPath(id: string) {
   return join(sessionDir(), `${id}.json`);
 }
 
 function jobPath(jobId: string) {
+  if (!JOB_ID_RE.test(jobId)) {
+    throw new Error("INVALID_JOB_ID");
+  }
   return join(jobsDir(), `${jobId}.json`);
+}
+
+export function isSafeJobId(jobId: string) {
+  return JOB_ID_RE.test(jobId);
+}
+
+/** Atomic write: temp → rename (local-durable foundation) */
+function persistJob(job: Record<string, unknown>) {
+  const id = String(job.jobId);
+  const target = jobPath(id);
+  const tmp = `${target}.${process.pid}.tmp`;
+  const payload = JSON.stringify(job, null, 2);
+  writeFileSync(tmp, payload, "utf8");
+  if (existsSync(target)) unlinkSync(target);
+  renameSync(tmp, target);
+}
+
+function appendTransitionEvidence(
+  job: Record<string, unknown>,
+  from: string,
+  to: string,
+  meta: Record<string, unknown> = {}
+) {
+  const refs = Array.isArray(job.evidenceRefs) ? job.evidenceRefs : [];
+  const fromVersion = typeof job.stateVersion === "number" ? job.stateVersion : 0;
+  refs.push({
+    kind: "job_state_transition",
+    evidenceId: `ev_${randomUUID()}`,
+    jobId: job.jobId,
+    jobType: job.jobType,
+    fromState: from,
+    toState: to,
+    stateVersionBefore: fromVersion,
+    stateVersionAfter: fromVersion + 1,
+    actorId: meta.actorId || job.createdBy || null,
+    origin: meta.origin || "patch",
+    reason: meta.reason || null,
+    at: new Date().toISOString(),
+    buildId: process.env.SCIOS_BUILD_ID || null,
+    runId: process.env.SCIOS_RUN_ID || null,
+  });
+  job.evidenceRefs = refs.slice(-50);
+
+  const history = Array.isArray(job.stateHistory) ? job.stateHistory : [];
+  history.push({ from, to, at: new Date().toISOString(), stateVersion: fromVersion + 1 });
+  job.stateHistory = history.slice(-30);
+}
+
+export interface TransitionResult {
+  allowed: boolean;
+  currentState: string;
+  requestedState: string;
+  reason: string | null;
+  transitionType: "NOOP" | "VALID" | "INVALID_STATE" | "INVALID_TRANSITION";
+}
+
+export function canTransition(current: string, requested: string): TransitionResult {
+  const base: TransitionResult = {
+    allowed: false,
+    currentState: current,
+    requestedState: requested,
+    reason: null,
+    transitionType: "INVALID_TRANSITION",
+  };
+  if (!JOB_STATES.includes(requested as JobState)) {
+    return { ...base, reason: `unknown state: ${requested}`, transitionType: "INVALID_STATE" };
+  }
+  if (current === requested) {
+    return {
+      allowed: true,
+      currentState: current,
+      requestedState: requested,
+      reason: "same_state_noop",
+      transitionType: "NOOP",
+    };
+  }
+  const allowed = TRANSITIONS[current] || [];
+  if (!allowed.includes(requested as JobState)) {
+    return {
+      ...base,
+      reason: `forbidden: ${current} → ${requested}`,
+      transitionType: "INVALID_TRANSITION",
+    };
+  }
+  return {
+    allowed: true,
+    currentState: current,
+    requestedState: requested,
+    reason: null,
+    transitionType: "VALID",
+  };
+}
+
+export function validateJobTransition(from: string, to: string) {
+  const r = canTransition(from, to);
+  if (r.transitionType === "INVALID_STATE") {
+    return { ok: false, code: "INVALID_STATE", detail: to };
+  }
+  if (r.transitionType === "INVALID_TRANSITION") {
+    return { ok: false, code: "INVALID_TRANSITION", detail: `${from} → ${to}` };
+  }
+  return { ok: true };
+}
+
+function validateDependencies(deps: unknown) {
+  if (deps == null) return { ok: true, deps: [] as string[] };
+  if (!Array.isArray(deps)) return { ok: false, code: "INVALID_DEPENDENCIES" };
+  const seen = new Set<string>();
+  for (const d of deps) {
+    if (typeof d !== "string" || !JOB_ID_RE.test(d)) {
+      return { ok: false, code: "INVALID_DEPENDENCY_REF" };
+    }
+    if (seen.has(d)) return { ok: false, code: "DUPLICATE_DEPENDENCY" };
+    seen.add(d);
+  }
+  return { ok: true, deps: [...seen] };
 }
 
 function hydrateJobs() {
@@ -72,53 +218,44 @@ function hydrateJobs() {
   const dir = jobsDir();
   for (const ent of readdirSync(dir, { withFileTypes: true })) {
     if (!ent.isFile() || !ent.name.endsWith(".json")) continue;
+    const abs = join(dir, ent.name);
     try {
-      const j = JSON.parse(readFileSync(join(dir, ent.name), "utf8"));
-      if (j?.jobId) jobs.set(j.jobId, j);
+      const raw = readFileSync(abs, "utf8");
+      if (!raw.trim() || raw.trim().length < 2) {
+        quarantineRecord(abs, ent.name, "JOB_STATE_RECORD_EMPTY");
+        continue;
+      }
+      const j = JSON.parse(raw);
+      if (!j?.jobId || j.schema !== JOB_SCHEMA_VERSION) {
+        quarantineRecord(abs, ent.name, "JOB_STATE_RECORD_INVALID");
+        continue;
+      }
+      if (!JOB_STATES.includes(j.state)) {
+        quarantineRecord(abs, ent.name, "JOB_STATE_UNKNOWN");
+        continue;
+      }
+      jobs.set(j.jobId, j);
     } catch {
-      /* skip corrupt */
+      quarantineRecord(abs, ent.name, "JOB_STATE_RECORD_CORRUPT");
     }
   }
 }
 
-function persistJob(job: Record<string, unknown>) {
-  writeFileSync(jobPath(String(job.jobId)), JSON.stringify(job, null, 2));
-}
-
-function appendTransitionEvidence(
-  job: Record<string, unknown>,
-  from: string,
-  to: string,
-  reason?: string
-) {
-  const refs = Array.isArray(job.evidenceRefs) ? job.evidenceRefs : [];
-  refs.push({
-    kind: "job_state_transition",
-    from,
-    to,
-    at: new Date().toISOString(),
-    reason: reason || null,
-  });
-  job.evidenceRefs = refs.slice(-50);
-}
-
-export function validateJobTransition(from: string, to: string) {
-  if (!JOB_STATES.includes(to as JobState)) {
-    return { ok: false, code: "INVALID_STATE", detail: to };
+function quarantineRecord(abs: string, name: string, code: string) {
+  try {
+    const dest = join(invalidJobsDir(), `${Date.now()}_${name}`);
+    renameSync(abs, dest);
+  } catch {
+    /* best effort */
   }
-  if (from === to) return { ok: true };
-  const allowed = TRANSITIONS[from] || [];
-  if (!allowed.includes(to as JobState)) {
-    return { ok: false, code: "INVALID_TRANSITION", detail: `${from} → ${to}` };
-  }
-  return { ok: true };
+  return code;
 }
 
 export function getOrCreateSession(sessionId?: string) {
   const id = sessionId || "default";
-  if (sessions.has(id)) return sessions.get(id);
+  if (sessions.has(id)) return sessions.get(id)!;
   const p = sessionPath(id);
-  let s = {
+  let s: Record<string, unknown> = {
     sessionId: id,
     schemaVersion: "sci-os-session/v1",
     role: "arch.market_analyst",
@@ -152,23 +289,33 @@ export function getOrCreateSession(sessionId?: string) {
 
 export function saveSession(session: Record<string, unknown>) {
   session.updatedAt = new Date().toISOString();
-  sessions.set(session.sessionId, session);
+  sessions.set(String(session.sessionId), session);
   writeFileSync(sessionPath(String(session.sessionId)), JSON.stringify(session, null, 2));
   return session;
 }
 
-export function createJob(input: Record<string, unknown> = {}) {
+export function createJob(input: Record<string, unknown> = {}, meta: Record<string, unknown> = {}) {
   hydrateJobs();
   const idempotencyKey =
     typeof input.idempotencyKey === "string" ? input.idempotencyKey : null;
   if (idempotencyKey) {
     for (const j of jobs.values()) {
-      if (j.idempotencyKey === idempotencyKey) return j;
+      if (j.idempotencyKey === idempotencyKey) return { job: j, error: null };
     }
   }
+
+  const depCheck = validateDependencies(input.dependencies);
+  if (!depCheck.ok) return { job: null, error: depCheck.code };
+  for (const d of depCheck.deps) {
+    if (typeof input.jobId === "string" && d === input.jobId) {
+      return { job: null, error: "SELF_DEPENDENCY" };
+    }
+  }
+
+  const actor = meta.actor as Record<string, unknown> | undefined;
   const now = new Date().toISOString();
-  const job = {
-    schema: "sci-os-job/v1",
+  const job: Record<string, unknown> = {
+    schema: JOB_SCHEMA_VERSION,
     label: "ALPHA_NON_PRODUCTION",
     jobId: `job_${randomUUID()}`,
     jobType: input.type || input.jobType || "analysis",
@@ -176,6 +323,7 @@ export function createJob(input: Record<string, unknown> = {}) {
     desiredState: "COMPLETED",
     actualState: "QUEUED" as JobState,
     state: "QUEUED" as JobState,
+    stateVersion: 1,
     priority: input.priority || "P1",
     progress: 0,
     stages: input.stages || [],
@@ -183,35 +331,102 @@ export function createJob(input: Record<string, unknown> = {}) {
     result: null,
     error: null,
     objectId: input.objectId || null,
+    objectRef: input.objectRef || input.objectId || null,
+    workflowId: input.workflowId || null,
     idempotencyKey,
     attempts: 0,
+    currentAttempt: 1,
+    maxAttempts: input.maxAttempts ?? 3,
+    retryPolicy: input.retryPolicy || { kind: "bounded", maxAttempts: 3 },
+    dependencies: depCheck.deps,
+    resourceRequirements: input.resourceRequirements || null,
+    connectivityRequirement: input.connectivityRequirement || "OPTIONAL",
     evidenceRefs: [],
+    stateHistory: [],
+    actorContext: actor
+      ? {
+          actorId: actor.actorId,
+          roleId: actor.roleId,
+          sessionId: actor.sessionId,
+          origin: meta.origin || "user",
+        }
+      : {
+          actorId: "actor:local-dev-user",
+          roleId: "arch.market_analyst",
+          origin: meta.origin || "system",
+        },
     createdAt: now,
     updatedAt: now,
-    createdBy: input.createdBy || "local-dev-user",
+    createdBy: actor?.actorId || input.createdBy || "local-dev-user",
   };
-  jobs.set(job.jobId, job);
+
+  jobs.set(String(job.jobId), job);
   persistJob(job);
-  return job;
+  return { job, error: null };
 }
 
 export function getJob(jobId: string) {
+  if (!isSafeJobId(jobId)) return null;
   hydrateJobs();
   return jobs.get(jobId) || null;
 }
 
-export function updateJob(jobId: string, patch: Record<string, unknown>, meta: Record<string, unknown> = {}) {
+const PATCH_ALLOWED = new Set([
+  "state",
+  "actualState",
+  "progress",
+  "result",
+  "error",
+  "currentStage",
+  "attempts",
+  "expectedVersion",
+  "reason",
+]);
+
+export function filterJobPatch(patch: Record<string, unknown>) {
+  const out: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(patch)) {
+    if (PATCH_ALLOWED.has(k)) out[k] = v;
+  }
+  return out;
+}
+
+export function updateJob(
+  jobId: string,
+  patch: Record<string, unknown>,
+  meta: Record<string, unknown> = {}
+) {
+  if (!isSafeJobId(jobId)) return { job: null, error: "INVALID_JOB_ID" };
   hydrateJobs();
   const j = jobs.get(jobId);
   if (!j) return { job: null, error: "NOT_FOUND" };
 
+  const expectedVersion = patch.expectedVersion;
+  const currentVersion = typeof j.stateVersion === "number" ? j.stateVersion : 1;
+  if (expectedVersion != null && Number(expectedVersion) !== currentVersion) {
+    return {
+      job: null,
+      error: "VERSION_CONFLICT",
+      detail: { expected: expectedVersion, current: currentVersion },
+    };
+  }
+
   const nextState = patch.state || patch.actualState;
   if (nextState && nextState !== j.state) {
-    const v = validateJobTransition(j.state, String(nextState));
-    if (!v.ok) return { job: null, error: v.code, detail: v.detail };
-    appendTransitionEvidence(j, j.state, String(nextState), meta.reason as string | undefined);
+    const tr = canTransition(String(j.state), String(nextState));
+    if (!tr.allowed || tr.transitionType === "INVALID_TRANSITION" || tr.transitionType === "INVALID_STATE") {
+      return { job: null, error: tr.transitionType === "INVALID_STATE" ? "INVALID_STATE" : "INVALID_TRANSITION", detail: tr.reason };
+    }
+    appendTransitionEvidence(j, String(j.state), String(nextState), {
+      reason: meta.reason as string | undefined,
+      actorId: (meta.actor as Record<string, unknown>)?.actorId || j.createdBy,
+      origin: meta.origin || "patch",
+    });
     j.state = nextState;
     j.actualState = nextState;
+    j.stateVersion = currentVersion + 1;
+  } else if (nextState && nextState === j.state) {
+    /* NOOP — same state, no version bump, no duplicate evidence */
   }
 
   if (typeof patch.progress === "number") {
@@ -231,7 +446,7 @@ export function updateJob(jobId: string, patch: Record<string, unknown>, meta: R
 export function listJobs() {
   hydrateJobs();
   return [...jobs.values()].sort((a, b) =>
-    a.createdAt < b.createdAt ? 1 : -1
+    String(a.createdAt) < String(b.createdAt) ? 1 : -1
   );
 }
 
@@ -251,7 +466,7 @@ export function pushNotification(n: Record<string, unknown>) {
     (x) =>
       x.reason === item.reason &&
       x.object === item.object &&
-      Date.now() - Date.parse(x.time) < 30000
+      Date.now() - Date.parse(String(x.time)) < 30000
   );
   if (dup) return dup;
   notifications.unshift(item);
@@ -285,10 +500,28 @@ export function shellManifest() {
     jobs: "GET/POST /v1/os/jobs, PATCH /v1/os/jobs/:id",
     notifications: "GET /v1/os/notifications",
     jobStates: JOB_STATES,
+    jobTerminalStates: JOB_TERMINAL_STATES,
+    transitionMatrix: TRANSITION_MATRIX,
   };
 }
 
-/** Test helper — deterministic idempotency digest */
+/** Recovery boundary: WHI-010 must not mutate job semantics — reconcile marker only */
+export function reconcileInterruptedJob(jobId: string) {
+  const j = getJob(jobId);
+  if (!j || j.state !== "RUNNING") return { job: j, reconciled: false };
+  return updateJob(
+    jobId,
+    { state: "BLOCKED", expectedVersion: j.stateVersion, reason: "runtime_interrupted" },
+    { origin: "recovery-reconcile", reason: "WHI-010 boundary — job layer owns semantics" }
+  );
+}
+
 export function jobIdempotencyDigest(key: string) {
   return createHash("sha256").update(key).digest("hex").slice(0, 16);
+}
+
+/** Test helper — reset in-memory cache (does not delete files) */
+export function resetJobsCacheForTests() {
+  jobs.clear();
+  jobsHydrated = false;
 }

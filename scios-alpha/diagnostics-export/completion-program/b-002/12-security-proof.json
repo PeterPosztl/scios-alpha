@@ -1,0 +1,10 @@
+{
+  "schema": "sci-os-b002-security-proof/v1",
+  "at": "2026-08-19T20:28:00.000Z",
+  "fieldAllowlist": "filterJobPatch — state, progress, result, error, expectedVersion, reason only",
+  "jobIdValidation": "isSafeJobId — job_[uuid] pattern; invalid → 400",
+  "pathTraversal": "invalid job id rejected — PASS",
+  "prototypePollution": "PATCH allowlist strips unknown fields",
+  "actorSpoofing": "actorContext from sessionWithActor — not trusted from arbitrary client payload on create",
+  "status": "PASS"
+}

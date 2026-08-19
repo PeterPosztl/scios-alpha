@@ -1,0 +1,16 @@
+{
+  "schema": "sci-os-job/v1",
+  "requiredFields": [
+    "jobId",
+    "jobType",
+    "state",
+    "stateVersion",
+    "desiredState",
+    "actualState",
+    "actorContext",
+    "evidenceRefs",
+    "createdAt",
+    "updatedAt"
+  ],
+  "note": "Local-durable foundation — not PostgreSQL enterprise durability"
+}

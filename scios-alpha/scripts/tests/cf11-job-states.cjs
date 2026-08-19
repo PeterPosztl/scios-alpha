@@ -1,13 +1,12 @@
 #!/usr/bin/env node
 "use strict";
 /**
- * CF11 job-state contract — targeted Wave B-002 gate.
+ * CF11 job-state contract — release suite gate (Wave B-002).
  * ALPHA_NON_PRODUCTION
  */
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
-const assert = require("assert");
 
 const ROOT = path.resolve(__dirname, "../..");
 const OUT = path.join(ROOT, "diagnostics-export", "completion-program");
@@ -73,10 +72,15 @@ async function main() {
     type: "analysis",
     objectId: "AAPL",
     idempotencyKey: key,
+    sessionId: "default",
   });
   proof.steps.create = created.status === 201 ? "PASS" : "FAIL";
   const jobId = created.json?.job?.jobId;
-  assert.ok(jobId, "jobId required");
+  if (!jobId) {
+    write("cf11-job-states-proof.json", proof);
+    process.exit(1);
+  }
+  let ver = created.json?.job?.stateVersion || 1;
 
   const dup = await request("POST", "/v1/os/jobs", {
     title: "CF11 proof job",
@@ -87,16 +91,20 @@ async function main() {
 
   const run = await request("PATCH", `/v1/os/jobs/${jobId}`, {
     state: "RUNNING",
+    expectedVersion: ver,
     progress: 10,
     reason: "cf11-proof-start",
   });
-  proof.steps.running = run.status === 200 && run.json?.job?.state === "RUNNING" ? "PASS" : "FAIL";
+  proof.steps.running =
+    run.status === 200 && run.json?.job?.state === "RUNNING" ? "PASS" : "FAIL";
+  ver = run.json?.job?.stateVersion || ver + 1;
 
-  const bad = await request("PATCH", `/v1/os/jobs/${jobId}`, { state: "QUEUED" });
+  const bad = await request("PATCH", `/v1/os/jobs/${jobId}`, { state: "QUEUED", expectedVersion: ver });
   proof.steps.invalidTransition = bad.status === 409 ? "PASS" : "FAIL";
 
   const done = await request("PATCH", `/v1/os/jobs/${jobId}`, {
     state: "COMPLETED",
+    expectedVersion: ver,
     progress: 100,
     result: { note: "cf11-proof" },
   });
@@ -128,6 +136,9 @@ async function main() {
     list.status === 200 && Array.isArray(list.json?.states) && list.json.states.includes("QUEUED")
       ? "PASS"
       : "FAIL";
+
+  proof.steps.actorContext =
+    created.json?.job?.actorContext?.actorId ? "PASS" : "FAIL";
 
   const allPass = Object.values(proof.steps).every((s) => s === "PASS");
   proof.status = allPass ? "PASS" : "FAIL";

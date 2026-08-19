@@ -1,6 +1,6 @@
 {
   "schema": "sci-os-cf11-job-states-proof/v1",
-  "at": "2026-08-19T17:50:50.406Z",
+  "at": "2026-08-19T20:25:35.636Z",
   "cp": "http://127.0.0.1:3000",
   "steps": {
     "create": "PASS",
@@ -10,7 +10,8 @@
     "completed": "PASS",
     "legacyCompleteAlias": "PASS",
     "getJob": "PASS",
-    "list": "PASS"
+    "list": "PASS",
+    "actorContext": "PASS"
   },
   "status": "PASS"
 }
