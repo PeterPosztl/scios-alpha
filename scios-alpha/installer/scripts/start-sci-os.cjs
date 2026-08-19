@@ -7,6 +7,7 @@ const { spawnSync, spawn } = require("child_process");
 const { resolveAppRoot } = require("./startup/resolve-app-root.cjs");
 const { resolveNodeRuntime } = require("./startup/resolve-node-runtime.cjs");
 const { resolveRuntimeEntries } = require("./startup/resolve-runtime-entries.cjs");
+const { isPackagedLayout } = require("./startup/packaged-mode.cjs");
 const { validateConfig, loadDotEnv, loadPackagedConfig } = require("./startup/validate-config.cjs");
 const { classifyDocker } = require("./startup/classify-docker.cjs");
 const { ensurePostgres } = require("./startup/ensure-postgres.cjs");
@@ -121,7 +122,9 @@ async function main() {
   }
 
   const appRoot = rootRes.appRoot;
-  if (args.packaged) {
+  const packagedRuntime =
+    args.packaged || rootRes.layout === "installed" || isPackagedLayout(appRoot);
+  if (packagedRuntime) {
     process.env.SCIOS_PACKAGED = "1";
     process.env.SCIOS_RUNTIME_MODE = process.env.SCIOS_RUNTIME_MODE || "PACKAGED";
     try {
@@ -134,18 +137,18 @@ async function main() {
   }
   const logger = createStartupLogger(appRoot, correlationId);
   const diagDir = logger.diagDir;
-  logger.info("startup_begin", { mode: args.mode, packaged: args.packaged });
+  logger.info("startup_begin", { mode: args.mode, packaged: packagedRuntime });
 
   const txBoot = new TransactionalBoot({ correlationId, appRoot, diagDir });
-  txBoot.begin("PRE_FLIGHT", { mode: args.mode, packaged: args.packaged });
+  txBoot.begin("PRE_FLIGHT", { mode: args.mode, packaged: packagedRuntime });
   txBoot.pass({ argv: process.argv.slice(2) });
 
   txBoot.begin("RESOLVE_APP_ROOT", { layout: rootRes.layout });
   txBoot.pass({ appRoot });
 
-  const node = resolveNodeRuntime(appRoot, { packaged: args.packaged });
+  const node = resolveNodeRuntime(appRoot, { packaged: packagedRuntime });
   txBoot.begin("RESOLVE_RUNTIME", {
-    packaged: args.packaged,
+    packaged: packagedRuntime,
     path: node.path,
     source: node.source,
   });
@@ -165,10 +168,10 @@ async function main() {
     );
   }
 
-  const entries = resolveRuntimeEntries(appRoot, { packaged: args.packaged });
+  const entries = resolveRuntimeEntries(appRoot, { packaged: packagedRuntime });
   if (!entries.ok) blockers.push("BUILD_ENTRY_MISSING");
 
-  const config = validateConfig(appRoot, { packaged: args.packaged });
+  const config = validateConfig(appRoot, { packaged: packagedRuntime });
   txBoot.begin("VALIDATE_CONFIG", {});
   warnings.push(...config.warnings);
   if (!config.valid) {
@@ -240,7 +243,7 @@ async function main() {
   }
 
   // Repair mode: DEVELOPMENT leaf boot only — PACKAGED must not require source scripts/boot
-  if (args.mode === "repair" && node.usable && !args.packaged) {
+  if (args.mode === "repair" && node.usable && !packagedRuntime) {
     const r = spawnSync(
       process.execPath,
       [path.join(appRoot, "scripts/boot/index.mjs"), "repair"],
@@ -254,7 +257,7 @@ async function main() {
       residualRisk: "low",
     });
     if (r.status !== 0) blockers.push("REPAIR_FAILED");
-  } else if (args.mode === "repair" && args.packaged) {
+  } else if (args.mode === "repair" && packagedRuntime) {
     repairActions.push({
       problem: "packaged repair",
       action: "skip_source_leaf_boot",
@@ -320,7 +323,7 @@ async function main() {
     apiPortState.state !== "OCCUPIED_FOREIGN";
 
   if (args.mode === "safe") {
-    if (args.packaged) {
+    if (packagedRuntime) {
       const recoveryEntry =
         (entries.entries.recovery && entries.entries.recovery.path) ||
         path.join(appRoot, "recovery", "server.cjs");
@@ -378,7 +381,7 @@ async function main() {
         recoveryAttempts.push({ action: `restart_${name}`, prior: again });
       }
 
-      if (args.packaged) {
+      if (packagedRuntime) {
         const entryKey = name === "control-plane" ? "backend" : "cockpit";
         const entryPath =
           (entries.entries[entryKey] && entries.entries[entryKey].path) ||
@@ -500,7 +503,7 @@ async function main() {
     }
 
     // vertical slice smoke — PACKAGED must not require pnpm/dev toolchain
-    if (args.packaged) {
+    if (packagedRuntime) {
       const smokeHttp = await (async () => {
         try {
           const payload = JSON.stringify({});
@@ -579,7 +582,7 @@ async function main() {
     try {
       await projectHostTwin({
         appRoot,
-        packaged: args.packaged,
+        packaged: packagedRuntime,
         expectedLifecycle: "RUNNING",
         correlationId,
         runContext: supervisor.runContext,
@@ -639,7 +642,7 @@ async function main() {
 
   // Desired vs Actual reconciliation BEFORE transactional COMMIT (B02)
   const desired = buildDesiredState({
-    packaged: args.packaged,
+    packaged: packagedRuntime,
     apiPort,
     cockpitPort,
     profile: process.env.SCI_RUNTIME_PROFILE || "local-foundation",
@@ -651,7 +654,7 @@ async function main() {
       node,
       health,
       appRoot,
-      packaged: args.packaged,
+      packaged: packagedRuntime,
       claimedReady: false,
       unknownMandatoryDeps: [],
       bootFailed: blockers.length > 0,
@@ -695,7 +698,7 @@ async function main() {
     txBoot.commit({
       mode: args.mode,
       desktopOpened: desktop.opened,
-      packaged: args.packaged,
+      packaged: packagedRuntime,
       reconcileOk: !!(reconcile && reconcile.ok),
     });
     txBoot.writeEvidence();
@@ -888,7 +891,7 @@ async function main() {
         try {
           await projectHostTwin({
             appRoot,
-            packaged: args.packaged,
+            packaged: packagedRuntime,
             expectedLifecycle: "STOPPED",
             correlationId,
             runContext: supervisor.runContext,

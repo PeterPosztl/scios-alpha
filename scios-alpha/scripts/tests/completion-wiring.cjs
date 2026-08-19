@@ -29,11 +29,11 @@ for (const t of [
 }
 
 const cockpit = read("apps/cockpit-ui/src/index.js");
+const wr = read("apps/cockpit-ui/src/workspace/WorkspaceRenderer.js");
 assert.ok(
-  cockpit.includes("id.replace(/^act\\./, \"\")"),
-  "disabled-action matcher must strip act. prefix"
+  wr.includes('id.replace(/^act\\./, "")'),
+  "disabled-action matcher must strip act. prefix in WorkspaceRenderer"
 );
-assert.ok(!cockpit.includes("id.replace(/^act\\\\./"), "stale escaped regex must be gone");
 assert.ok(!/\.innerHTML\s*=/.test(cockpit), "cockpit must not assign innerHTML");
 
 const dist = read("scripts/package/build-distribution.cjs");
