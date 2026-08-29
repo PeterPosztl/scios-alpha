@@ -1,0 +1,18 @@
+{
+  "authorities": [
+    "apps/cockpit-ui/src/index.js",
+    "apps/cockpit-ui/src/professional-ux.js",
+    "apps/cockpit-ui/src/components/primitives.js"
+  ],
+  "panels": [
+    "ContextHeader",
+    "PredictionPanel",
+    "UncertaintyPanel",
+    "RiskPanel",
+    "DecisionPanel",
+    "SimulationPanel",
+    "EvidencePanel",
+    "LineagePanel"
+  ],
+  "roles": 8
+}

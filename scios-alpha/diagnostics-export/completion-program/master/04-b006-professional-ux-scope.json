@@ -1,0 +1,105 @@
+{
+  "schema": "sci-os-b006-ux-scope/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-29T18:20:00.000Z",
+  "waveId": "B-006",
+  "title": "Professional UX completion",
+  "tokenTarget": "B_006_PROFESSIONAL_UX_READY",
+  "source": "cockpit-ui exploration — apps/cockpit-ui/",
+  "status": "COMPLETE",
+  "dependsOn": ["B-005"],
+  "preserveFlow": [
+    "Home",
+    "Search",
+    "Entity",
+    "Analyze",
+    "Experience",
+    "Prediction",
+    "Uncertainty",
+    "Risk",
+    "Decision/Local Review",
+    "Evidence",
+    "Lineage"
+  ],
+  "preservePanels": [
+    "ContextHeader",
+    "PredictionPanel",
+    "UncertaintyPanel",
+    "RiskPanel",
+    "DecisionPanel",
+    "SimulationPanel",
+    "EvidencePanel",
+    "LineagePanel"
+  ],
+  "authorities": {
+    "ui": "apps/cockpit-ui/src/index.js",
+    "workspaceRenderer": "apps/cockpit-ui/src/workspace/WorkspaceRenderer.js",
+    "primitives": "apps/cockpit-ui/src/components/primitives.js",
+    "experienceCompiler": "packages/professional-domain-registry/src/experience-compiler.js",
+    "compileBridge": "apps/control-plane-api/src/routes/product.ts"
+  },
+  "existingStrengths": [
+    "Home → Search → Entity → Analyze flow operational",
+    "8 compiler panels wired via renderWorkspaceSpec + renderProfessional",
+    "Experience compile on role change with degraded banner",
+    "Safe-dom output encoding; no innerHTML assignment",
+    "System health badge from refresh() polling",
+    "LOCAL_REVIEW honesty preserved"
+  ],
+  "gaps": {
+    "layout": [
+      "Monolithic index.js (~1300 lines)",
+      "Entity tabs decorative only",
+      "No dedicated Job Center view",
+      "Fraud/SOC modules compile to partial placeholders only",
+      "Engineering sub-nav does not swap panel content"
+    ],
+    "loadingEmptyError": [
+      "primitives.js createLoadingState/createEmptyState/createErrorState never used",
+      "No per-panel loading/empty/error states",
+      "Analyze errors are generic status text only"
+    ],
+    "systemHealth": [
+      "System view dumps raw JSON pre blocks",
+      "Persistence matrix and CF28 truth not surfaced in UI"
+    ],
+    "jobStatus": [
+      "openJobs() dumps raw JSON to dashWorker",
+      "No CF11 state machine UI",
+      "Analyze pipe steps are client-side fake, not job polling"
+    ],
+    "rolePresentation": [
+      "Only 3 roles in UI select; compiler supports 8 archetypes",
+      "renderProfessional identical across roles",
+      "data-density/data-disclosure set but no CSS consumes them"
+    ],
+    "tests": [
+      "No dedicated cockpit UI regression suite",
+      "No tests for Job Center, panel fill after analyze, or error states",
+      "Playwright optional in birth E2E often NOT_AVAILABLE"
+    ],
+    "apiUnused": [
+      "GET /v1/os/shell",
+      "GET /v1/runs/:runId/professional",
+      "GET /v1/system/persistence-matrix",
+      "Job POST/PATCH via job-engine routes"
+    ]
+  },
+  "implementationTargets": [
+    "Wire primitives.js into Home/Search/Entity/Analyze/System views",
+    "Build Job Center view on GET/POST/PATCH /v1/os/jobs",
+    "Expand role selector to full archetype set with honest partials",
+    "Product-grade System health dashboard (not raw JSON)",
+    "CSS for data-density and data-disclosure",
+    "cockpit-ui panel and job-center test suite",
+    "Explicit defer or implement fraud/SOC unbound modules"
+  ],
+  "rules": [
+    "No fake data",
+    "No fake approval",
+    "No fake model validation",
+    "No fake live market data",
+    "Every displayed status must derive from actual system state"
+  ],
+  "evidenceRequired": "diagnostics-export/completion-program/b-006/01..11"
+}

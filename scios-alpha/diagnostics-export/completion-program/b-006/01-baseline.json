@@ -1,0 +1,8 @@
+{
+  "schema": "sci-os-b006-baseline/v1",
+  "at": "2026-08-29T19:08:17.664Z",
+  "checkpoint": "06795498",
+  "build": "pkg_1788028155383",
+  "executionMode": "SIMULATION_ONLY",
+  "p1": 92
+}

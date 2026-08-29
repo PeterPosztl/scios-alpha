@@ -1,7 +1,7 @@
 # SCI OS ×10 — Completion Program Roadmap
 
 **Program controller started:** 2026-08-19  
-**Current build:** `pkg_1788028155383` · **gitSha:** `873e537f`  
+**Current build:** `pkg_1788030533349` · **gitSha:** `06795498+`  
 **Authority:** current source + runtime evidence (not historical audit labels)
 
 ---
@@ -11,7 +11,7 @@
 | Target | Label | Status |
 |--------|-------|--------|
 | **A** | Usable Local Alpha | **READY** ✓ |
-| **B** | Daily-Use / Tester Beta | NOT_READY (B-005 acceptance **PASS** — P1 + PG remain) |
+| **B** | Daily-Use / Tester Beta | NOT_READY (B-006 UX **PASS** — P1 + PG remain) |
 | **C** | Production-Eligible Professional System | NOT_READY |
 | **D** | Full SCI OS ×10 Founder Vision | NOT_READY |
 
@@ -50,6 +50,7 @@ Proven chain:
 | Policy decision points (CF14) | **PASS** — Wave B-003 **READY** |
 | Model validation truth (CF28) | **PASS** — Wave B-005 canonical states + evidence |
 | Background job engine v1 | **PASS** — Wave B-005 lifecycle + installed E2E |
+| Professional UX cockpit | **PASS** — Wave B-006 Job Center, 8 roles, system health |
 | P1 roots | **92** → target **< 20** for Beta |
 | OIDC | **Out of Beta scope** (Target C) |
 

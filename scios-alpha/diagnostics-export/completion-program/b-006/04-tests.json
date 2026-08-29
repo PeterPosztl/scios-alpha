@@ -1,0 +1,25 @@
+{
+  "schema": "sci-os-b006-cockpit-ui-hard-gate/v1",
+  "at": "2026-08-29T19:08:18.771Z",
+  "steps": {
+    "eightPanels": "PASS",
+    "contextHeaderBar": "PASS",
+    "jobCenterView": "PASS",
+    "systemDashboard": "PASS",
+    "eightRoles": "PASS",
+    "primitivesWired": "PASS",
+    "densityCss": "PASS",
+    "professionalDecisions": "PASS",
+    "professionalEvidence": "PASS",
+    "noInnerHtml": "PASS",
+    "engPanelSwap": "PASS",
+    "analyzeLoadingState": "PASS",
+    "cockpitHttp": "PASS",
+    "htmlContextHeader": "PASS",
+    "htmlJobCenter": "PASS",
+    "htmlEightRoles": "PASS",
+    "htmlPanels": "PASS",
+    "cpContract": "SKIP"
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "sci-os-b006-installed-e2e/v1",
+  "at": "2026-08-29T19:10:04.297Z",
+  "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+  "cases": {
+    "cockpitReachable": "PASS",
+    "contextHeader": "PASS",
+    "jobCenter": "PASS",
+    "eightRoles": "PASS",
+    "eightPanels": "PASS",
+    "systemDashboard": "PASS",
+    "professionalRoots": "PASS",
+    "jobsApi": "PASS",
+    "allPass": true
+  },
+  "status": "PASS"
+}

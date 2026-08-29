@@ -1,0 +1,8 @@
+{
+  "schema": "sci-os-b006-package-proof/v1",
+  "at": "2026-08-29T19:09:00.000Z",
+  "status": "PASS",
+  "buildId": "pkg_1788030533349",
+  "out": "dist/SCI-OS-X10",
+  "command": "pnpm run package:dist"
+}

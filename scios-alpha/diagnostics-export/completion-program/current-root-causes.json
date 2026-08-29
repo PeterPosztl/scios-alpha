@@ -1,7 +1,7 @@
 {
   "schema": "sci-os-current-root-causes/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-08-29T18:30:18.399Z",
+  "at": "2026-08-29T19:10:00.000Z",
   "closureRunId": "closure_post_b005_install",
   "P0": 0,
   "P1": 92,
@@ -9,8 +9,7 @@
   "P3": 46,
   "ROOT_CAUSES": 322,
   "closedThisWave": [
-    "CTRL.CF28.validation",
-    "BACKGROUND.job-engine-v1"
+    "UX.professional-cockpit"
   ],
   "alphaBlockers": [],
   "betaBlockers": [
@@ -28,8 +27,7 @@
   ],
   "nextBetaRoots": [
     "PERSISTENCE.PG_DEFERRED_FD002",
-    "P1.root_closure",
-    "UX.professional-cockpit"
+    "P1.root_closure"
   ],
   "p1TargetForBeta": 20
 }

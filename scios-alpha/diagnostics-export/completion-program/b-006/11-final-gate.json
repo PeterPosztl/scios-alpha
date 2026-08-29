@@ -1,0 +1,15 @@
+{
+  "schema": "sci-os-b006-final-gate/v1",
+  "at": "2026-08-29T19:10:00.000Z",
+  "wave": "B-006",
+  "token": "B_006_PROFESSIONAL_UX_READY",
+  "buildId": "pkg_1788030533349",
+  "steps": {
+    "cockpitUiSource": "PASS",
+    "cockpitOutputEncoding": "PASS",
+    "package": "PASS",
+    "install": "PASS",
+    "installedE2e": "PASS"
+  },
+  "status": "PASS"
+}

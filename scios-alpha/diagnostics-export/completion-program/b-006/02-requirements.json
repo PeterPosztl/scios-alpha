@@ -1,0 +1,25 @@
+{
+  "schema": "sci-os-b006-requirements/v1",
+  "preserveFlow": [
+    "Home",
+    "Search",
+    "Entity",
+    "Analyze",
+    "Experience",
+    "Prediction",
+    "Uncertainty",
+    "Risk",
+    "Decision/Local Review",
+    "Evidence",
+    "Lineage"
+  ],
+  "implement": [
+    "layout + navigation",
+    "context header",
+    "8 roles",
+    "professional system health",
+    "job center",
+    "loading/empty/error states",
+    "panel presentations"
+  ]
+}

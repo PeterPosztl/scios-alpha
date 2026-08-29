@@ -1,16 +1,16 @@
 {
   "schema": "sci-os-completion-program-state/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-08-29T18:30:18.399Z",
+  "at": "2026-08-29T19:10:00.000Z",
   "currentTarget": "B",
   "currentTargetLabel": "DAILY-USE / TESTER BETA",
-  "currentWave": "B-005",
-  "currentWaveTitle": "Daily-use Beta acceptance",
-  "currentBatch": "B-005-complete",
-  "currentBuild": "pkg_1788028155383",
-  "gitSha": "873e537fbc609298bc282a57876d01ec9f40a504",
+  "currentWave": "B-006",
+  "currentWaveTitle": "Professional UX completion",
+  "currentBatch": "B-006-complete",
+  "currentBuild": "pkg_1788030533349",
+  "gitSha": "pending-commit",
   "runtimeVersion": "v20.18.1",
-  "closureRunId": "closure_post_b005_install",
+  "closureRunId": "closure_post_b006_install",
   "P0": 0,
   "P1": 92,
   "P2": 184,
@@ -26,6 +26,7 @@
   "b003Verdict": "B_003_POLICY_DECISION_READY",
   "b004Verdict": "BETA_DURABLE_CORE_READY",
   "b005Verdict": "B_005_BETA_ACCEPTANCE_READY",
+  "b006Verdict": "B_006_PROFESSIONAL_UX_READY",
   "completedWaves": [
     {"waveId": "A-CONVERGENCE", "verdict": "USABLE_LOCAL_ALPHA_READY"},
     {"waveId": "B-001", "verdict": "PASS"},
@@ -34,7 +35,6 @@
       "waveId": "B-003",
       "verdict": "B_003_POLICY_DECISION_READY",
       "buildId": "pkg_1787177679954",
-      "gitSha": "091b39e19be7ac8658aa1a7237b36d012799d853",
       "completedAt": "2026-08-19T22:40:00.000Z",
       "proof": "diagnostics-export/completion-program/b-003/26-final-report.json"
     },
@@ -51,9 +51,16 @@
       "buildId": "pkg_1788028155383",
       "completedAt": "2026-08-29T18:30:18.399Z",
       "proof": "diagnostics-export/completion-program/b-005/11-final-gate.json"
+    },
+    {
+      "waveId": "B-006",
+      "verdict": "B_006_PROFESSIONAL_UX_READY",
+      "buildId": "pkg_1788030533349",
+      "completedAt": "2026-08-29T19:10:00.000Z",
+      "proof": "diagnostics-export/completion-program/b-006/11-final-gate.json"
     }
   ],
-  "nextWave": "B-006",
-  "nextExactAction": "Professional UX scope — Job Center UI, loading/error primitives, role coverage (see master/04-b006-professional-ux-scope.json)",
-  "lastUpdatedAt": "2026-08-29T18:30:18.399Z"
+  "nextWave": "B-007",
+  "nextExactAction": "Continue Beta closure — P1 root classification toward < 20; PG deferral remains FD-002 honest",
+  "lastUpdatedAt": "2026-08-29T19:10:00.000Z"
 }

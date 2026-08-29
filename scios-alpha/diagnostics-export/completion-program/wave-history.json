@@ -154,7 +154,25 @@
     {
       "waveId": "B-006",
       "target": "B",
-      "title": "Professional UX",
+      "title": "Professional UX completion",
+      "status": "COMPLETE",
+      "startedAt": "2026-08-29T19:00:00.000Z",
+      "completedAt": "2026-08-29T19:10:00.000Z",
+      "buildId": "pkg_1788030533349",
+      "verdict": "B_006_PROFESSIONAL_UX_READY",
+      "scope": ["UX.professional-cockpit", "Job Center", "8 roles", "system health dashboard"],
+      "gates": {
+        "cockpitUiSource": "PASS",
+        "packageGate": "PASS",
+        "atomicInstall": "PASS",
+        "installedE2e": "PASS"
+      },
+      "proof": "diagnostics-export/completion-program/b-006/11-final-gate.json"
+    },
+    {
+      "waveId": "B-007",
+      "target": "B",
+      "title": "P1 root closure",
       "status": "QUEUED",
       "startedAt": null
     }

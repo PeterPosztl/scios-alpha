@@ -2,6 +2,7 @@ import { createServer } from "node:http";
 import { sciTokens } from "@scios/design-system";
 import { SAFE_DOM_BROWSER_SOURCE } from "./safe-dom.js";
 import { PRIMITIVES_BROWSER_SOURCE } from "./components/primitives.js";
+import { PROFESSIONAL_UX_BROWSER_SOURCE } from "./professional-ux.js";
 import { WORKSPACE_RENDERER_BROWSER_SOURCE } from "./workspace/WorkspaceRenderer.js";
 
 const PORT = Number(process.env.PORT ?? process.env.SCIOS_COCKPIT_PORT ?? 4000);
@@ -133,6 +134,36 @@ ${TOKEN_CSS}
     .results { display:grid; gap:0.5rem; }
     .hit { background:#fff; border:1px solid var(--fog); padding:0.7rem 0.9rem; display:flex; justify-content:space-between; gap:0.75rem; align-items:center; }
     .hit .meta { font-size:0.72rem; color:var(--graphite); text-transform:uppercase; letter-spacing:0.05em; }
+    .context-bar { padding:0.55rem 1.5rem; background:#fff; border-bottom:1px solid var(--fog); }
+    .context-bar .ctx-title { margin:0 0 0.35rem; font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--graphite); }
+    .context-bar .ctx-grid { display:flex; flex-wrap:wrap; gap:0.5rem 1.25rem; }
+    .context-bar .ctx-cell { display:flex; gap:0.35rem; align-items:baseline; font-size:0.78rem; }
+    .context-bar .ctx-k { color:var(--graphite); text-transform:uppercase; letter-spacing:0.04em; font-size:0.65rem; }
+    .context-bar .ctx-v { font-weight:600; color:var(--navy); }
+    .context-bar .ctx-cell.warn .ctx-v { color:var(--warn); }
+    .context-bar .ctx-cell.ok .ctx-v { color:var(--ok); }
+    .context-bar .ctx-note { margin:0.35rem 0 0; font-size:0.75rem; color:var(--warn); }
+    .kv-grid { display:grid; grid-template-columns:10rem 1fr; gap:0.25rem 0.75rem; margin:0; font-size:0.85rem; }
+    .kv-grid.compact { font-size:0.78rem; }
+    .kv-grid dt { color:var(--graphite); margin:0; }
+    .kv-grid dd { margin:0; font-weight:500; }
+    .kv-grid dd.truth-warn { color:var(--warn); }
+    .job-card { background:#fff; border:1px solid var(--fog); padding:0.85rem 1rem; margin-bottom:0.65rem; }
+    .job-head { display:flex; justify-content:space-between; align-items:center; gap:0.75rem; }
+    .job-head h3 { margin:0; font-size:0.95rem; }
+    .job-state { font-size:0.65rem; letter-spacing:0.06em; text-transform:uppercase; padding:0.2rem 0.45rem; border:1px solid var(--fog); }
+    .job-state.ok { color:var(--ok); border-color:#c8e6d4; }
+    .job-state.warn { color:var(--warn); border-color:#f0d9a8; }
+    .job-state.err { color:var(--red); border-color:#f0c9c9; }
+    .evidence-list { margin:0.5rem 0 0; padding-left:1.1rem; font-size:0.82rem; color:var(--graphite); }
+    .eng-section { display:block; }
+    .eng-section[hidden] { display:none !important; }
+    body[data-density="EXPERT"] .pro-card .hint { display:none; }
+    body[data-density="EXPERT"] .pro-card .val { font-size:0.95rem; }
+    body[data-density="COMFORTABLE"] .pro-card .val { font-size:1.2rem; }
+    body[data-disclosure="L1"] .pro-card .level { display:none; }
+    body[data-disclosure="L1"] .model-truth { display:none; }
+    body[data-disclosure="L3"] .model-truth { display:block; }
     @media (max-width:800px) {
       form.analyze { grid-template-columns:1fr; }
       header { flex-wrap:wrap; }
@@ -156,6 +187,7 @@ ${TOKEN_CSS}
       <div id="verdict" class="badge warn">UNKNOWN</div>
     </div>
   </header>
+  <div id="contextHeaderBar" class="context-bar" aria-live="polite"></div>
   <div id="cmdk" class="cmdk" role="dialog" aria-modal="true" aria-label="Command palette">
     <div class="cmdk-box">
       <label class="sr-only" for="cmdkInput">Command</label>
@@ -188,13 +220,10 @@ ${TOKEN_CSS}
       <p class="sub" id="homeSub">Loading home…</p>
       <div class="role-bar">
         <label for="roleSelect">Professional role</label>
-        <select id="roleSelect" aria-label="Professional role">
-          <option value="arch.market_analyst">Market analyst</option>
-          <option value="arch.fraud_investigator">Fraud investigator</option>
-          <option value="arch.soc_analyst">SOC analyst</option>
-        </select>
+        <select id="roleSelect" aria-label="Professional role"></select>
         <span class="badge" id="expStatus">EXPERIENCE · UNKNOWN</span>
       </div>
+      <p class="exp-meta" id="roleHint"></p>
       <p class="exp-meta" id="compiledWorkspace"></p>
       <div class="exp-compose" id="expComposeHome" aria-live="polite"></div>
       <div class="grid" id="homeGrid"></div>
@@ -295,22 +324,36 @@ ${TOKEN_CSS}
     <div class="view" id="decisions">
       <h2 class="homeHeadline">Decisions</h2>
       <p class="sub">Governance and risk outcomes from recent analyses.</p>
-      <div class="card"><pre id="decisionsPre">Run Analyze to populate decisions.</pre></div>
+      <div class="card" id="decisionsProRoot"></div>
+      <details class="card" style="margin-top:0.75rem"><summary>Technical JSON</summary><pre id="decisionsPre">Run Analyze to populate decisions.</pre></details>
     </div>
 
     <div class="view" id="evidence">
       <h2 class="homeHeadline">Evidence</h2>
       <p class="sub">Lineage and provenance for the latest analysis.</p>
-      <div class="card"><pre id="lineagePre">Run a slice first.</pre></div>
+      <div class="card" id="evidenceProRoot"></div>
+      <details class="card" style="margin-top:0.75rem"><summary>Technical JSON</summary><pre id="lineagePre">Run a slice first.</pre></details>
+    </div>
+
+    <div class="view" id="jobs">
+      <h2 class="homeHeadline">Job Center</h2>
+      <p class="sub" id="jobCenterSummary">Background jobs — CF11 state on local-durable store.</p>
+      <div class="actions">
+        <button type="button" class="ghost" id="jobRefreshBtn">Refresh jobs</button>
+      </div>
+      <div id="jobCenterRoot"></div>
     </div>
 
     <div class="view" id="system">
       <h2 class="homeHeadline">System</h2>
-      <p class="sub">Readiness and foundation status — no architecture package names as product UI.</p>
+      <p class="sub">Readiness and foundation status — derived from live control plane APIs.</p>
       <div class="grid">
-        <div class="card"><h2>Readiness</h2><pre id="dashReady">—</pre></div>
-        <div class="card"><h2>Worker</h2><pre id="dashWorker">—</pre></div>
-        <div class="card"><h2>Last runs</h2><pre id="dashRuns">—</pre></div>
+        <div class="card" id="sysHealthRoot"></div>
+        <div class="card" id="sysReadinessRoot"></div>
+        <div class="card" id="sysWorkerRoot"></div>
+        <div class="card" id="sysPersistenceRoot"></div>
+        <div class="card" id="sysValidationRoot"></div>
+        <div class="card" id="sysRunsRoot"></div>
         <div class="card"><h2>Pipeline</h2><div class="pipe" id="dashPipe"></div></div>
       </div>
     </div>
@@ -318,10 +361,11 @@ ${TOKEN_CSS}
     <div class="view" id="engineering">
       <p class="sub">Technical / Evidence view — engineering surfaces preserved.</p>
       <div id="engPanel">
-        <div class="card"><h2>Technical cockpit</h2><pre id="engDash">Open sub-views above.</pre></div>
-        <div class="card" style="margin-top:0.75rem"><h2>Risk / Gov</h2><pre id="riskStudio">—</pre></div>
-        <div class="card" style="margin-top:0.75rem"><h2>Execution</h2><pre id="execMon">SIMULATION_ONLY — no live money.</pre></div>
-        <div class="card" style="margin-top:0.75rem"><h2>Health snapshot</h2><pre id="healthPre">—</pre></div>
+        <div class="eng-section" data-eng-panel="dash"><div class="card"><h2>Technical cockpit</h2><pre id="engDash">Open sub-views above.</pre></div></div>
+        <div class="eng-section" data-eng-panel="risk" hidden><div class="card"><h2>Risk / Gov</h2><pre id="riskStudio">—</pre></div></div>
+        <div class="eng-section" data-eng-panel="exec" hidden><div class="card"><h2>Execution</h2><pre id="execMon">SIMULATION_ONLY — no live money.</pre></div></div>
+        <div class="eng-section" data-eng-panel="lineage" hidden><div class="card"><h2>Lineage Explorer</h2><pre id="engLineagePre">Run Analyze to populate lineage JSON.</pre></div></div>
+        <div class="eng-section" data-eng-panel="health" hidden><div class="card"><h2>Health snapshot</h2><pre id="healthPre">—</pre></div></div>
       </div>
     </div>
 
@@ -340,8 +384,10 @@ ${TOKEN_CSS}
     let lastCompiled = null;
     let currentRoleId = "arch.market_analyst";
     let actorEnvelope = null;
+    let lastSystemBundle = null;
 ${SAFE_DOM_BROWSER_SOURCE}
 ${PRIMITIVES_BROWSER_SOURCE}
+${PROFESSIONAL_UX_BROWSER_SOURCE}
 ${WORKSPACE_RENDERER_BROWSER_SOURCE}
 
     const KNOWN_MODULES = [
@@ -507,11 +553,11 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
     });
     document.querySelectorAll("nav.eng button").forEach((b) => {
       b.onclick = () => {
-        document.querySelectorAll("nav.eng button").forEach((x) => x.classList.remove("on"));
-        b.classList.add("on");
+        showEngPanel(b.dataset.eng);
         showView("engineering");
       };
     });
+    showEngPanel("dash");
 
     function show(id, v) {
       const el = document.getElementById(id);
@@ -639,9 +685,11 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
       const exec = data.executionOutcome || {};
       const lin = data.lineage || {};
       const instrument = (data.normalizedEvent && data.normalizedEvent.instrumentId) || "—";
+      const roleHint = rolePresentationHint(currentRoleId);
       document.getElementById("proWhat").textContent = instrument + " · analysis complete";
       document.getElementById("proWhatHint").textContent =
-        "Run " + (data.runId || "") + " · status " + (data.status || "UNKNOWN") +
+        roleHint +
+        " · Run " + (data.runId || "") + " · status " + (data.status || "UNKNOWN") +
         (data.timestamp ? " · as-of " + data.timestamp : "") +
         (data.persistenceState ? " · persistence " + data.persistenceState : "");
       const pe = pred.pointEstimate != null ? pred.pointEstimate : pred.mean;
@@ -727,6 +775,10 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
       renderAiContext(data);
       renderTrustCapsule(data);
       renderApproval(data);
+      renderDecisionProfessional(data);
+      renderEvidenceProfessional(data);
+      const engLin = document.getElementById("engLineagePre");
+      if (engLin) engLin.textContent = data.lineage ? JSON.stringify(data.lineage, null, 2) : "Run Analyze first.";
       show("decisionsPre", { risk: data.riskDecision, governance: data.governanceDecision, status: data.status });
       show("riskStudio", { risk: data.riskDecision, governance: data.governanceDecision, status: data.status });
       show("execMon", data.executionOutcome);
@@ -803,7 +855,7 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
           { t: "Risks", body: (s.risks || []).length ? (s.risks.length + " rejected paths") : "No rejected risks in session" },
           { t: "Cases", body: "No open cases in this ALPHA session" },
           { t: "Decisions", body: (s.pendingDecisions || []).length + " pending" },
-          { t: "System Status", body: JSON.stringify(s.systemStatus || {}, null, 0) },
+          { t: "System Status", body: (s.systemStatus && (s.systemStatus.verdict || s.systemStatus.ready)) ? String(s.systemStatus.verdict || s.systemStatus.ready) : "Open System view for live health" },
         ];
         const grid = document.getElementById("homeGrid");
         clearNode(grid);
@@ -846,6 +898,15 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
             String(e && e.message ? e.message : e);
         }
         showExperienceDegraded("home_unreachable");
+        renderContextHeader({
+          executionMode: "SIMULATION_ONLY",
+          cpReachable: false,
+          cpVerdict: "UNREACHABLE",
+          compilerStatus: "DEGRADED",
+          roleId: currentRoleId,
+          cockpitVerdict: "DEGRADED",
+          degradedNote: "Experience Compiler unreachable — core Home remains available.",
+        });
         throw e;
       }
     }
@@ -982,14 +1043,29 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
       document.getElementById("cmdkInput").focus();
     }
     async function openJobs() {
-      showView("system");
+      showView("jobs");
+      const root = document.getElementById("jobCenterRoot");
+      if (root) {
+        clearNode(root);
+        createLoadingState(root, "Loading jobs…");
+      }
       try {
-        const j = await fetch(CONTROL + "/v1/os/jobs").then((r) => r.json());
-        show("dashWorker", j);
+        const [jobsRes, engineRes] = await Promise.allSettled([
+          fetch(CONTROL + "/v1/os/jobs").then((r) => r.json()),
+          fetch(CONTROL + "/v1/os/job-engine/status").then((r) => r.json()),
+        ]);
+        const jobs = jobsRes.status === "fulfilled" ? jobsRes.value : { jobs: [] };
+        const engine = engineRes.status === "fulfilled" ? engineRes.value : null;
+        renderJobCenter({ jobs: jobs.jobs || [], engine });
       } catch (err) {
-        show("dashWorker", { error: String(err.message || err) });
+        if (root) {
+          clearNode(root);
+          createErrorState(root, String(err && err.message ? err.message : err));
+        }
       }
     }
+    const jobRefreshBtn = document.getElementById("jobRefreshBtn");
+    if (jobRefreshBtn) jobRefreshBtn.onclick = () => openJobs();
     async function openNotes() {
       showView("home");
       try {
@@ -1057,8 +1133,12 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
           api("/v1/flow"),
           api("/api/system/health"),
           api("/api/system/startup-readiness"),
+          fetch(CONTROL + "/v1/system/persistence-matrix").then((r) => (r.ok ? r.json() : { optionalError: "HTTP " + r.status })),
+          fetch(CONTROL + "/v1/models/validation").then((r) => (r.ok ? r.json() : { optionalError: "HTTP " + r.status })),
+          fetch(CONTROL + "/v1/os/jobs").then((r) => (r.ok ? r.json() : { jobs: [] })),
+          fetch(CONTROL + "/v1/os/job-engine/status").then((r) => (r.ok ? r.json() : null)),
         ]);
-        const [readyR, snapR, flowR, healthR, readinessR] = settled;
+        const [readyR, snapR, flowR, healthR, readinessR, persistR, validationR, jobsR, engineR] = settled;
         if (readyR.status !== "fulfilled") {
           throw readyR.reason || new Error("readyz_failed");
         }
@@ -1070,6 +1150,10 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
           readinessR.status === "fulfilled"
             ? readinessR.value
             : { optionalError: String(readinessR.reason) };
+        const persistence = persistR.status === "fulfilled" ? persistR.value : { optionalError: String(persistR.reason) };
+        const validation = validationR.status === "fulfilled" ? validationR.value : { optionalError: String(validationR.reason) };
+        const jobs = jobsR.status === "fulfilled" ? jobsR.value : { jobs: [] };
+        const jobEngine = engineR.status === "fulfilled" ? engineR.value : null;
 
         document.getElementById("flow").textContent =
           "SCI OS · " + (flow.arrow ? "pipeline live" : "foundation");
@@ -1104,24 +1188,42 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
         if (ok && optionalFail.length) {
           /* keep Home alive; optional diagnostics only */
         }
-        show("dashReady", {
-          ready: ready.ready,
-          profile: ready.profile,
-          riskControl: ready.riskControl,
+        const compilerStatus =
+          (lastCompiled && lastCompiled.compilerStatus) ||
+          (document.getElementById("expStatus") && document.getElementById("expStatus").textContent.replace(/^EXPERIENCE · /, "")) ||
+          "UNKNOWN";
+        lastSystemBundle = {
+          ready,
+          snap,
+          flow,
+          health,
+          readiness,
+          persistence,
+          validation,
+          jobs,
+          jobEngine,
           verdict: verdict.textContent,
+          degraded,
+          cpReachable: true,
+          executionMode: ready.executionMode || "SIMULATION_ONLY",
+          compilerStatus,
+        };
+        renderSystemDashboard(lastSystemBundle);
+        renderContextHeader({
+          executionMode: lastSystemBundle.executionMode,
+          cpReachable: true,
+          cpVerdict: verdict.textContent,
+          compilerStatus,
+          roleId: currentRoleId,
+          cockpitVerdict: ok ? (degraded ? "DEGRADED" : "READY") : "NOT READY",
+          degradedNote: degraded
+            ? "Optional diagnostics degraded — Experience Compiler or auxiliary endpoints may be unreachable."
+            : optionalFail.length
+              ? "Partial API failures: " + optionalFail.join("; ")
+              : "",
         });
-        show("dashWorker", ready.foundationWorkerDetail || ready.components);
-        show("dashRuns", snap.runs);
-        show("healthPre", { health, readiness, snapshot: snap, optionalFail });
+        show("healthPre", { health, readiness, snapshot: snap, optionalFail, persistence, validation });
         show("engDash", { ready, runs: snap.runs, flow });
-        const pipe = document.getElementById("dashPipe");
-        clearNode(pipe);
-        (flow.stages || []).forEach((s) => {
-          const d = document.createElement("span");
-          d.className = "stage done";
-          d.textContent = s;
-          pipe.appendChild(d);
-        });
         return { ok, degraded, verdict: verdict.textContent };
       } catch (e) {
         verdict.textContent = "UNREACHABLE";
@@ -1129,6 +1231,20 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
         document.getElementById("banner").style.display = "block";
         document.getElementById("banner").textContent =
           "Control plane unreachable at " + CONTROL + " — Recovery Shell available if configured";
+        renderContextHeader({
+          executionMode: "SIMULATION_ONLY",
+          cpReachable: false,
+          cpVerdict: "UNREACHABLE",
+          compilerStatus: "UNREACHABLE",
+          roleId: currentRoleId,
+          cockpitVerdict: "DEGRADED",
+          degradedNote: "Control plane unreachable — professional panels show last known or empty state only.",
+        });
+        const sysHealth = document.getElementById("sysHealthRoot");
+        if (sysHealth) {
+          clearNode(sysHealth);
+          createErrorState(sysHealth, "Control plane unreachable at " + CONTROL);
+        }
         throw e;
       }
     }
@@ -1187,10 +1303,13 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
       const s = loadSession();
       if (s.roleId) currentRoleId = s.roleId;
       const sel = document.getElementById("roleSelect");
+      const rh = document.getElementById("roleHint");
       if (sel) {
-        sel.value = currentRoleId;
+        populateRoleSelect(sel, currentRoleId);
+        if (rh) rh.textContent = rolePresentationHint(currentRoleId);
         sel.onchange = async () => {
           currentRoleId = sel.value;
+          if (rh) rh.textContent = rolePresentationHint(currentRoleId);
           saveSession({ roleId: currentRoleId });
           try {
             const compiled = await fetchCompiledExperience(currentRoleId);
@@ -1207,6 +1326,8 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
       }
     })();
     bootstrapUi();
+    renderDecisionProfessional(null);
+    renderEvidenceProfessional(null);
     setInterval(refresh, 8000);
     setInterval(loadHome, 15000);
 
@@ -1255,6 +1376,7 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
       const statusEl = document.getElementById("status");
       go.disabled = true;
       statusEl.textContent = "Running analysis…";
+      setAnalyzePanelsState("loading", "Running analysis…");
       const tick = pipeRunning();
       try {
         const instrumentId = document.getElementById("instrumentId").value.trim();
@@ -1309,6 +1431,7 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
       } catch (err) {
         clearInterval(tick);
         pipeClear();
+        setAnalyzePanelsState("error", String(err && err.message ? err.message : err));
         statusEl.textContent =
           "WHAT FAILED: request error. AFFECTED: analysis. DATA SAFE: yes (no write). TRY: check System readiness. DETAIL: " +
           String(err && err.message ? err.message : err);
