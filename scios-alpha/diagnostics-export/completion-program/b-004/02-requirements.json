@@ -1,0 +1,13 @@
+{
+  "schema": "sci-os-b004-requirements/v1",
+  "at": "2026-08-29T18:05:00.000Z",
+  "requirements": [
+    "Canonical persistence truth matrix exposed via API",
+    "verticalSliceRuns classified DURABLE with atomic write",
+    "Cross-process restart hydrate for vertical slice runs",
+    "PostgreSQL remains PROFILE_DISABLED (honest FD-002 deferral)",
+    "Jobs/session durable authority unchanged (osSession)",
+    "B-001/B-002/B-003 regressions preserved"
+  ],
+  "outOfScope": ["PostgreSQL READY claim", "Redis queue", "distributed persistence"]
+}

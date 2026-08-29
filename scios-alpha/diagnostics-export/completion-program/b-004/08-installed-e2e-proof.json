@@ -1,0 +1,25 @@
+{
+  "schema": "sci-os-b004-installed-persistence-e2e/v1",
+  "at": "2026-08-29T18:05:40.858Z",
+  "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+  "buildIdentity": {
+    "schema": "sci-os-build-identity/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "buildId": "pkg_1788026654253",
+    "gitSha": "091b39e19be7ac8658aa1a7237b36d012799d853",
+    "timestamp": "2026-08-29T18:04:16.137Z",
+    "nodeRuntime": "20.18.1",
+    "treeHash": "785eb75c3852ec1f7894d588d83b853ac259f5e8772b02b0afc06ce5849a040e",
+    "packageHash": "fe5ff47c5890803ae2e8e6217dcdf2bfe7f22aa3d189848e98ffd607001c51e6",
+    "lockfileHash": "3867763aab63894dc22fd64e4df4ea42a7816ce3682600fde82c59df49c0479c",
+    "manifestHash": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701",
+    "packagedManifestHash": "b1426b97158fbfdf6474946632d37a00fd5f6fb105383dafbc66ee1890431b7c"
+  },
+  "cases": {
+    "persistenceMatrix": "PASS",
+    "slicePersisted": "PASS",
+    "diskFile": "PASS",
+    "restartHydrate": "PASS"
+  },
+  "status": "PASS"
+}

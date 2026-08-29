@@ -1,0 +1,10 @@
+{
+  "schema": "sci-os-b004-persistence-authority-map/v1",
+  "at": "2026-08-29T18:01:08.704Z",
+  "jobsAuthority": "apps/control-plane-api/src/osSession.ts",
+  "verticalSliceAuthority": "packages/vertical-slice/src/local-durable.ts",
+  "matrixAuthority": "packages/vertical-slice/src/persistence-matrix.ts",
+  "matrixRoute": "GET /v1/system/persistence-matrix",
+  "postgresTruth": "PROFILE_DISABLED — FD-002 open",
+  "duplicateAuthority": false
+}

@@ -9,6 +9,7 @@ import { fileURLToPath } from "node:url";
 import { get as httpGet, request as httpRequest } from "node:http";
 import type { ServerResponse } from "node:http";
 import { can } from "@scios/governance-engine";
+import { getPersistenceStateMatrix } from "@scios/vertical-slice";
 import type { JsonSender } from "./verticalSlice.js";
 
 export type ComponentStatus = "READY" | "DEGRADED" | "UNHEALTHY" | "STOPPED" | "UNKNOWN";
@@ -87,25 +88,55 @@ const CHECK_WEIGHTS: Array<{
 ];
 
 function resolveAppRoot(): string {
-  const envRoot = process.env.SCI_OS_APP_ROOT;
-  if (envRoot && existsSync(join(envRoot, "package.json"))) return envRoot;
+  const canonical =
+    process.env.SCIOS_APP_ROOT ||
+    process.env.SCI_OS_APP_ROOT; // temporary compatibility only
+  if (canonical && existsSync(join(canonical, "package.json"))) return canonical;
 
-  let dir = dirname(fileURLToPath(import.meta.url));
-  for (let i = 0; i < 8; i++) {
-    const pkgPath = join(dir, "package.json");
-    if (existsSync(pkgPath)) {
-      try {
-        const pkg = JSON.parse(readFileSync(pkgPath, "utf8")) as { name?: string };
-        if (pkg.name === "scios-alpha") return dir;
-      } catch {
-        /* continue walk */
+  // Packaged CJS bundle must NOT use import.meta.url (empty after esbuild).
+  if (
+    process.env.SCIOS_PACKAGED === "1" ||
+    process.env.SCIOS_RUNTIME_MODE === "PACKAGED"
+  ) {
+    return process.cwd();
+  }
+
+  try {
+    let dir = dirname(fileURLToPath(import.meta.url));
+    for (let i = 0; i < 8; i++) {
+      const pkgPath = join(dir, "package.json");
+      if (existsSync(pkgPath)) {
+        try {
+          const pkg = JSON.parse(readFileSync(pkgPath, "utf8")) as { name?: string };
+          if (pkg.name === "sci-os-x10" || pkg.name === "scios-alpha") return dir;
+        } catch {
+          /* continue walk */
+        }
       }
+      const parent = dirname(dir);
+      if (parent === dir) break;
+      dir = parent;
     }
-    const parent = dirname(dir);
-    if (parent === dir) break;
-    dir = parent;
+  } catch {
+    /* bundled CJS may not have import.meta */
   }
   return process.cwd();
+}
+
+function parseUrlHostPort(
+  raw: string | undefined,
+  fallbackHost: string,
+  fallbackPort: number
+): { host: string; port: number; configured: boolean } {
+  if (!raw) return { host: fallbackHost, port: fallbackPort, configured: false };
+  try {
+    const u = new URL(raw);
+    const host = u.hostname || fallbackHost;
+    const port = u.port ? Number(u.port) : fallbackPort;
+    return { host, port, configured: true };
+  } catch {
+    return { host: fallbackHost, port: fallbackPort, configured: false };
+  }
 }
 
 function cockpitBaseUrl(apiPort: number): string {
@@ -199,11 +230,14 @@ function detail(
 }
 
 async function probeInfra(): Promise<{ postgres: boolean; redis: boolean }> {
-  const [postgres, redis] = await Promise.all([
-    tcpOpen("127.0.0.1", 5432),
-    redisPing("127.0.0.1", 6379),
+  const db = parseUrlHostPort(process.env.DATABASE_URL, "127.0.0.1", 5432);
+  const redis = parseUrlHostPort(process.env.REDIS_URL, "127.0.0.1", 6379);
+  // Only probe when configured — do not invent localhost readiness for absent optional infra
+  const [postgresOk, redisOk] = await Promise.all([
+    db.configured ? tcpOpen(db.host, db.port) : Promise.resolve(false),
+    redis.configured ? redisPing(redis.host, redis.port) : Promise.resolve(false),
   ]);
-  return { postgres, redis };
+  return { postgres: postgresOk, redis: redisOk };
 }
 
 function infraStatus(infra: { postgres: boolean; redis: boolean }): ComponentStatus {
@@ -330,7 +364,14 @@ function readProofVerdict(appRoot: string): string | null {
   return null;
 }
 
-export async function buildStartupReadiness(
+function isPackagedRuntime(): boolean {
+  return (
+    process.env.SCIOS_PACKAGED === "1" ||
+    process.env.SCIOS_RUNTIME_MODE === "PACKAGED"
+  );
+}
+
+export async function buildDevelopmentReadiness(
   deps: SystemRouteDeps
 ): Promise<StartupReadinessResponse> {
   const appRoot = resolveAppRoot();
@@ -424,6 +465,148 @@ export async function buildStartupReadiness(
   };
 }
 
+/** Packaged readiness — never require source-tree .env / apps / packages. */
+export async function buildPackagedReadiness(
+  deps: SystemRouteDeps
+): Promise<StartupReadinessResponse> {
+  const appRoot = resolveAppRoot();
+  const packagedCfg = join(appRoot, "config", "packaged.json");
+  const golden = join(appRoot, "manifests", "golden-boot.packaged.json");
+  const backend = join(appRoot, "backend", "server.cjs");
+  const cockpitMjs = join(appRoot, "cockpit", "index.mjs");
+  const cockpitJs = join(appRoot, "cockpit", "index.js");
+  const recovery = join(appRoot, "recovery", "server.cjs");
+  const nodeExe = join(appRoot, "runtime", "node", "node.exe");
+  const orchestrator = join(appRoot, "installer", "scripts", "start-sci-os.cjs");
+  const capsule = join(appRoot, "installer", "scripts", "bootstrap-capsule.cjs");
+
+  const [cockpitProbe, homeProbe, infra, smokeOk] = await Promise.all([
+    probeHttp(`${cockpitBaseUrl(deps.apiPort)}/healthz`),
+    probeHttp(`${cockpitBaseUrl(deps.apiPort)}/`),
+    probeInfra(),
+    workerSmokeOk(deps.apiPort),
+  ]);
+
+  const ready = backendReady(deps);
+  const cockpitArtifact = existsSync(cockpitMjs) || existsSync(cockpitJs);
+  let sciOsLayout = false;
+  try {
+    const pkg = JSON.parse(readFileSync(join(appRoot, "package.json"), "utf8")) as {
+      sciOs?: { layout?: string };
+    };
+    sciOsLayout = pkg.sciOs?.layout === "PACKAGED";
+  } catch {
+    sciOsLayout = false;
+  }
+
+  const runtimeOk =
+    ready &&
+    cockpitProbe.status === 200 &&
+    (cockpitProbe.body as { ok?: boolean; shell?: boolean } | null)?.ok === true;
+
+  const checks: StartupReadinessResponse["details"] = {
+    root: detail(sciOsLayout || existsSync(packagedCfg)),
+    manifest: detail(existsSync(golden)),
+    profile: detail(process.env.SCIOS_RUNTIME_MODE === "PACKAGED"),
+    config: detail(existsSync(packagedCfg)),
+    infraProfile: detail(true), // optional infra — not source compose
+    runtime: detail(runtimeOk && existsSync(backend) && existsSync(nodeExe)),
+    supervisor: detail(existsSync(orchestrator)),
+    capsule: detail(existsSync(capsule)),
+    readiness: detail(ready),
+    proof: detail(smokeOk || homeProbe.status === 200, !smokeOk),
+    recovery: detail(existsSync(recovery), !existsSync(recovery)),
+  };
+
+  let score = 0;
+  for (const row of CHECK_WEIGHTS) {
+    if (checks[row.key] === "PASS") score += row.points;
+  }
+
+  const blockers: string[] = [];
+  if (!existsSync(backend)) blockers.push("BACKEND_ARTIFACT_MISSING");
+  if (!cockpitArtifact) blockers.push("COCKPIT_ARTIFACT_MISSING");
+  if (!existsSync(nodeExe)) blockers.push("BUNDLED_NODE_MISSING");
+  if (checks.runtime === "FAIL") blockers.push("RUNTIME_NOT_READY");
+  if (checks.readiness === "FAIL") blockers.push("READINESS_FAILED");
+  if (!infra.postgres && process.env.DATABASE_URL) blockers.push("INFRA_OPTIONAL_DOWN");
+  if (!infra.redis && process.env.REDIS_URL) blockers.push("INFRA_OPTIONAL_DOWN");
+
+  let overall: StartupReadinessResponse["overall"] = "DEGRADED";
+  if (
+    blockers.includes("RUNTIME_NOT_READY") ||
+    blockers.includes("READINESS_FAILED") ||
+    blockers.includes("BACKEND_ARTIFACT_MISSING") ||
+    blockers.includes("COCKPIT_ARTIFACT_MISSING") ||
+    blockers.includes("BUNDLED_NODE_MISSING")
+  ) {
+    overall = "NO_GO";
+  } else if (
+    score >= CHECK_WEIGHTS.reduce((n, r) => n + r.points, 0) * 0.85 &&
+    infra.postgres &&
+    infra.redis
+  ) {
+    overall = "READY";
+  }
+
+  return {
+    overall,
+    score,
+    maxScore: CHECK_WEIGHTS.reduce((n, r) => n + r.points, 0),
+    details: checks,
+    timestamp: new Date().toISOString(),
+    blockers: blockers.length ? blockers : undefined,
+  };
+}
+
+export async function buildStartupReadiness(
+  deps: SystemRouteDeps
+): Promise<StartupReadinessResponse> {
+  if (isPackagedRuntime()) return buildPackagedReadiness(deps);
+  return buildDevelopmentReadiness(deps);
+}
+
+/** Product readiness ≠ service /readyz — Shell + Home + experience path. */
+export async function buildProductReadiness(deps: SystemRouteDeps): Promise<{
+  schema: string;
+  label: string;
+  liveness: "PASS" | "FAIL";
+  serviceReady: "PASS" | "FAIL" | "UNKNOWN";
+  coreReady: "PASS" | "FAIL" | "UNKNOWN";
+  productReady: "PASS" | "FAIL" | "DEGRADED" | "UNKNOWN";
+  releaseReady: "UNKNOWN";
+  details: Record<string, string>;
+}> {
+  const cockpitUrl = cockpitBaseUrl(deps.apiPort);
+  const [hz, home, apiHome] = await Promise.all([
+    probeHttp(`${cockpitUrl}/healthz`),
+    probeHttp(`${cockpitUrl}/`),
+    probeHttp(`http://127.0.0.1:${deps.apiPort}/v1/home`),
+  ]);
+  const live = backendReady(deps);
+  const shellOk =
+    hz.status === 200 &&
+    (hz.body as { shell?: boolean } | null)?.shell === true;
+  const homeHtml = home.status === 200;
+  const homeApi = apiHome.status === 200;
+  const core = live && shellOk && homeHtml && homeApi;
+  return {
+    schema: "sci-os-product-readiness/v1",
+    label: "ALPHA_NON_PRODUCTION",
+    liveness: live ? "PASS" : "FAIL",
+    serviceReady: live ? "PASS" : "FAIL",
+    coreReady: core ? "PASS" : "FAIL",
+    productReady: core ? "DEGRADED" : "FAIL",
+    releaseReady: "UNKNOWN",
+    details: {
+      note: "/readyz is service-internal; this endpoint is product/core readiness",
+      shellHealthz: String(hz.status),
+      homeHtml: String(home.status),
+      homeApi: String(apiHome.status),
+    },
+  };
+}
+
 export async function handleSystemHealth(
   deps: SystemRouteDeps,
   res: ServerResponse,
@@ -473,6 +656,21 @@ export async function systemRouter(opts: {
     opts.path === "/v1/system/startup-readiness"
   ) {
     await handleStartupReadiness(opts.deps, opts.res, opts.sendJson);
+    return true;
+  }
+
+  if (
+    opts.path === "/api/system/persistence-matrix" ||
+    opts.path === "/v1/system/persistence-matrix"
+  ) {
+    opts.sendJson(opts.res, 200, getPersistenceStateMatrix());
+    return true;
+  }
+
+  if (opts.path === "/v1/product/readiness") {
+    const body = await buildProductReadiness(opts.deps);
+    const httpStatus = body.coreReady === "PASS" ? 200 : 503;
+    opts.sendJson(opts.res, httpStatus, body);
     return true;
   }
 

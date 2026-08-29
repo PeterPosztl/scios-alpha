@@ -1,7 +1,7 @@
 # SCI OS ×10 — Completion Program Roadmap
 
 **Program controller started:** 2026-08-19  
-**Current build:** `pkg_1787177679954` · **gitSha:** `920cf41b`  
+**Current build:** `pkg_1787177679954` · **gitSha:** `091b39e1`  
 **Authority:** current source + runtime evidence (not historical audit labels)
 
 ---
@@ -11,7 +11,7 @@
 | Target | Label | Status |
 |--------|-------|--------|
 | **A** | Usable Local Alpha | **READY** ✓ |
-| **B** | Daily-Use / Tester Beta | NOT_READY (B-002 **COMPLETE** — CF14 next) |
+| **B** | Daily-Use / Tester Beta | NOT_READY (B-004 **IN PROGRESS** — source gate PASS) |
 | **C** | Production-Eligible Professional System | NOT_READY |
 | **D** | Full SCI OS ×10 Founder Vision | NOT_READY |
 
@@ -43,9 +43,10 @@ Proven chain:
 | Home / Search / Entity views | **PASS** (cockpit modular vanilla) |
 | Market Analyst runtime-connected | **PASS** |
 | Professional domain registry compiled | **PASS** |
-| PostgreSQL persistence | **DEFERRED** — FD-002 open; use local-durable + in-memory until decision |
+| PostgreSQL persistence | **DEFERRED** — FD-002 open; local-durable matrix **SOURCE PROVEN** (B-004) |
 | Job lifecycle (CF11) | **PASS** — Wave B-002 **READY** |
 | Policy decision (CF14) | **PASS** — Wave B-003 **READY** (installed enforcement) |
+| Local durable matrix | **SOURCE PASS** — Wave B-004 in progress |
 | Policy decision points (CF14) | **PARTIAL** |
 | Model validation truth (CF28) | **UNVALIDATED** — must stay honest |
 | P1 roots | **91** → target **< 20** for Beta |
@@ -93,4 +94,4 @@ Requires: Production + full domain compilation + Graph/Timeline/Evidence/Dossier
 
 ## Next exact action
 
-**Wave B-004 (queued):** Persistence / durable matrix — **do not auto-start**. B-003 CF14 policy decision closed.
+**Wave B-004 (active):** Package → atomic install → installed persistence E2E → checkpoint. Source gate PASS.

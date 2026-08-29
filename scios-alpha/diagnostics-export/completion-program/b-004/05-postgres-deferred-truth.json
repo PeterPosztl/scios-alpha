@@ -1,0 +1,10 @@
+{
+  "postgres": {
+    "classification": "PROFILE_DISABLED",
+    "store": null,
+    "restartSafe": null,
+    "externalDependency": "FD-002",
+    "note": "Honest deferral — local-durable is Beta truth"
+  },
+  "honest": "PASS"
+}

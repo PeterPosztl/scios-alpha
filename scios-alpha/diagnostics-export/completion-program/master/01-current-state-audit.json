@@ -1,0 +1,72 @@
+{
+  "schema": "sci-os-master-current-state-audit/v1",
+  "at": "2026-08-29T18:05:00.000Z",
+  "label": "ALPHA_NON_PRODUCTION",
+  "repository": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+  "branch": "main",
+  "currentCheckpoint": "091b39e19be7ac8658aa1a7237b36d012799d853",
+  "currentBuild": "pkg_1787177679954",
+  "installedBuild": "pkg_1787177679954",
+  "installedGitSha": "920cf41b378fc90fa9225f3d68450fd49833ebb0",
+  "installedEntry": "%LOCALAPPDATA%\\SCI OS X10\\app\\SCI-OS-X10.exe",
+  "bundledNode": "20.18.1",
+  "dirtyWorkingTreeFiles": 411,
+  "verifiedCompletedWaves": [
+    { "waveId": "A-CONVERGENCE", "verdict": "USABLE_LOCAL_ALPHA_READY" },
+    { "waveId": "B-001", "verdict": "PASS" },
+    { "waveId": "B-002", "verdict": "B_002_JOB_STATE_READY", "build": "pkg_1787175419324", "checkpoint": "920cf41b" },
+    { "waveId": "B-003", "verdict": "B_003_POLICY_DECISION_READY", "build": "pkg_1787177679954", "checkpoint": "091b39e1" }
+  ],
+  "openWaves": [
+    { "waveId": "B-004", "title": "Persistence / durable matrix", "status": "SOURCE_GATE_PASS_PACKAGE_PENDING" },
+    { "waveId": "B-005", "title": "Beta acceptance", "status": "QUEUED" }
+  ],
+  "P0": 0,
+  "P1": 92,
+  "P2": 184,
+  "P3": 46,
+  "alphaBlockers": [],
+  "betaBlockers": ["CTRL.CF28.validation", "PERSISTENCE.PG_DEFERRED_FD002"],
+  "productionBlockers": ["FD-001 OIDC provider selection", "FD-007 deployment model"],
+  "founderDecisionsOpen": ["FD-001", "FD-002", "FD-004", "FD-005", "FD-006", "FD-007"],
+  "founderDecisionsResolved": ["FD-003"],
+  "externalDependencies": ["EXT-PG", "EXT-REDIS", "EXT-OIDC", "EXT-TLS", "EXT-MARKET-DATA", "EXT-GRAPH-DB", "EXT-LLM"],
+  "hostCapabilitiesProven": {
+    "WHI-001": "PASS",
+    "WHI-010": "PASS",
+    "WHI-011": "PASS",
+    "atomicInstall": "PASS",
+    "installQuiescence": "PASS",
+    "rollback": "PASS"
+  },
+  "missingProductCapabilities": [
+    "PostgreSQL canonical durable store (FD-002)",
+    "Model validation maturity CF28",
+    "Background Job Engine V1 beyond CF11",
+    "OIDC production auth (FD-001)",
+    "Live market data (FD-006)",
+    "Multi-domain professional workflows (3+ families)"
+  ],
+  "missingTests": ["b004 in test:release", "B-004 installed E2E", "B-004 package proof"],
+  "missingEvidence": ["B-004 package/install/sync proofs", "B-004 checkpoint commit"],
+  "b004UncommittedSource": [
+    "packages/vertical-slice/src/data-root.ts",
+    "packages/vertical-slice/src/persistence-matrix.ts",
+    "packages/vertical-slice/src/local-durable.ts",
+    "apps/control-plane-api/src/routes/system.ts",
+    "scripts/tests/b004-persistence-hard-gate.cjs",
+    "scripts/tests/b004-restart-child.mjs"
+  ],
+  "recommendedExecutionOrder": [
+    "Close B-004: commit source → build → package → atomic install → installed E2E → checkpoint",
+    "B-005 Beta acceptance gate",
+    "CF28 validation honesty wave",
+    "Background Job Engine V1",
+    "P1 root closure audit",
+    "Target C prerequisites (FD-001, FD-007)"
+  ],
+  "antiLoopNotes": {
+    "b003DoNotRebuild": "B_003_POLICY_DECISION_READY proven at 091b39e1 with installed E2E",
+    "userPromptBaselineStale": "Prompt cites B-002/920cf41b as active; repository truth is B-003 closed at 091b39e1"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "sci-os-b004-implementation/v1",
+  "at": "2026-08-29T18:05:00.000Z",
+  "files": {
+    "dataRoot": "packages/vertical-slice/src/data-root.ts",
+    "persistenceMatrix": "packages/vertical-slice/src/persistence-matrix.ts",
+    "localDurable": "packages/vertical-slice/src/local-durable.ts",
+    "matrixRoute": "apps/control-plane-api/src/routes/system.ts GET /v1/system/persistence-matrix",
+    "hardGate": "scripts/tests/b004-persistence-hard-gate.cjs",
+    "restartChild": "scripts/tests/b004-restart-child.mjs"
+  },
+  "storePaths": {
+    "jobs": "%LOCALAPPDATA%/SCI OS X10/data/jobs/",
+    "session": "%LOCALAPPDATA%/SCI OS X10/data/session/",
+    "verticalSlice": "%LOCALAPPDATA%/SCI OS X10/data/vertical-slice/runs/"
+  }
+}

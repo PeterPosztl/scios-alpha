@@ -1,0 +1,57 @@
+{
+  "schema": "sci-os-master-completion-graph/v1",
+  "at": "2026-08-29T18:05:00.000Z",
+  "sourceOfTruth": ["roadmap.md", "program-state.json", "wave-history.json", "wave-history B-004 entry"],
+  "wavesDefinedInBlueprint": ["B-001", "B-002", "B-003", "B-004", "B-005"],
+  "wavesNotInBlueprint": ["B-006", "B-007", "B-008", "B-009"],
+  "waves": {
+    "B-001": {
+      "status": "COMPLETE",
+      "objective": "Actor Context + Local Review semantics",
+      "token": "PASS",
+      "regressionRequired": true
+    },
+    "B-002": {
+      "status": "COMPLETE",
+      "objective": "CF11 job-state contract + local-durable jobs",
+      "token": "B_002_JOB_STATE_READY",
+      "authority": "apps/control-plane-api/src/osSession.ts",
+      "regressionRequired": true
+    },
+    "B-003": {
+      "status": "COMPLETE",
+      "objective": "CF14 policy decision + server PEP",
+      "token": "B_003_POLICY_DECISION_READY",
+      "authority": "packages/governance-engine/src/policy-enforcement.ts",
+      "regressionRequired": true,
+      "doNotRebuild": true
+    },
+    "B-004": {
+      "status": "IN_PROGRESS",
+      "objective": "Persistence / durable matrix — local-durable expansion; PG honest deferral",
+      "tokenTarget": "BETA_DURABLE_CORE_READY",
+      "capability": "PERSISTENCE.durable-matrix",
+      "affectedFiles": [
+        "packages/vertical-slice/src/data-root.ts",
+        "packages/vertical-slice/src/persistence-matrix.ts",
+        "packages/vertical-slice/src/local-durable.ts",
+        "apps/control-plane-api/src/routes/system.ts",
+        "scripts/tests/b004-persistence-hard-gate.cjs"
+      ],
+      "existingImplementation": "osSession jobs/session durable; vertical-slice local-durable partial",
+      "missingImplementation": ["package/install proof", "test:release wiring", "checkpoint"],
+      "evidenceRequired": ["source gate", "package", "install", "installed E2E", "regressions"],
+      "dependencies": ["B-002", "B-003"],
+      "blockers": ["FD-002 for PostgreSQL READY — autonomous local-durable allowed"]
+    },
+    "B-005": {
+      "status": "QUEUED",
+      "objective": "Beta acceptance — test:release + installed daily-use + P1 < 20",
+      "tokenTarget": "DAILY_USE_BETA_READY",
+      "dependencies": ["B-004", "CF28 honesty", "background job core"]
+    }
+  },
+  "nextRoot": "PERSISTENCE.durable-matrix",
+  "nextWave": "B-004",
+  "nextExactAction": "Commit B-004 source → package:dist → package:install → installed persistence E2E → checkpoint"
+}

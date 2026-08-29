@@ -1,0 +1,10 @@
+{
+  "schema": "sci-os-b004-build-sync-proof/v1",
+  "at": "2026-08-29T18:06:00.000Z",
+  "status": "PASS",
+  "sourceCheckpoint": "091b39e1",
+  "packageBuildId": "pkg_1788026654253",
+  "installedBuildId": "pkg_1788026654253",
+  "installedGitSha": "pending-commit",
+  "sync": "package === installed buildId"
+}

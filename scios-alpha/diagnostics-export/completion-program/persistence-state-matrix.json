@@ -1,52 +1,14 @@
 {
   "schema": "sci-os-persistence-state-matrix/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-08-19T17:55:00.000Z",
-  "authority": "local-foundation profile — PG deferred FD-002",
+  "at": "2026-08-29T18:05:00.000Z",
+  "authority": "packages/vertical-slice/src/persistence-matrix.ts",
+  "wave": "B-004",
   "states": {
-    "session": {
-      "classification": "DURABLE",
-      "store": "%LOCALAPPDATA%/SCI OS X10/data/session/",
-      "restartSafe": true,
-      "note": "File-backed via osSession"
-    },
-    "jobs": {
-      "classification": "DURABLE",
-      "store": "%LOCALAPPDATA%/SCI OS X10/data/jobs/",
-      "restartSafe": true,
-      "note": "CF11 Wave B-002 proven"
-    },
-    "notifications": {
-      "classification": "EPHEMERAL",
-      "store": "in-process",
-      "restartSafe": false
-    },
-    "verticalSliceRuns": {
-      "classification": "EPHEMERAL",
-      "store": "in-process local-durable",
-      "restartSafe": "partial",
-      "note": "local-durable.ts — session scope only"
-    },
-    "auditLog": {
-      "classification": "EPHEMERAL",
-      "store": "in-process governance-engine",
-      "restartSafe": false
-    },
-    "featureStore": {
-      "classification": "EPHEMERAL",
-      "store": "in-process",
-      "restartSafe": false
-    },
-    "postgres": {
-      "classification": "PROFILE_DISABLED",
-      "store": null,
-      "restartSafe": null,
-      "externalDependency": "FD-002"
-    },
-    "redis": {
-      "classification": "OPTIONAL",
-      "store": null,
-      "note": "Queue workers disabled when REDIS_URL unset"
-    }
+    "session": { "classification": "DURABLE", "store": "%LOCALAPPDATA%/SCI OS X10/data/session/", "restartSafe": true, "atomicWrite": true },
+    "jobs": { "classification": "DURABLE", "store": "%LOCALAPPDATA%/SCI OS X10/data/jobs/", "restartSafe": true, "atomicWrite": true },
+    "verticalSliceRuns": { "classification": "DURABLE", "store": "%LOCALAPPDATA%/SCI OS X10/data/vertical-slice/runs/", "restartSafe": true, "atomicWrite": true, "note": "B-004 source proven" },
+    "postgres": { "classification": "PROFILE_DISABLED", "externalDependency": "FD-002" },
+    "redis": { "classification": "OPTIONAL", "note": "REDIS_URL unset → degraded" }
   }
 }

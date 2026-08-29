@@ -1,0 +1,9 @@
+{
+  "schema": "sci-os-b004-tests/v1",
+  "at": "2026-08-29T18:05:00.000Z",
+  "sourceGate": "scripts/tests/b004-persistence-hard-gate.cjs",
+  "unitTests": "packages/vertical-slice/src/local-durable.test.ts",
+  "releaseSuite": "package.json test:release includes b004-persistence-hard-gate.cjs",
+  "lastSourceGateResult": "PASS",
+  "proofRef": "diagnostics-export/completion-program/b-004/20-final-report.json"
+}

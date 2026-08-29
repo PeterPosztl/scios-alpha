@@ -113,9 +113,28 @@
       "waveId": "B-004",
       "target": "B",
       "title": "Persistence / durable matrix",
+      "status": "COMPLETE",
+      "startedAt": "2026-08-29T18:00:00.000Z",
+      "completedAt": "2026-08-29T18:06:00.000Z",
+      "buildId": "pkg_1788026654253",
+      "verdict": "BETA_DURABLE_CORE_READY",
+      "scope": ["PERSISTENCE.durable-matrix", "FD-002 honest deferral"],
+      "gates": {
+        "sourceGate": "PASS",
+        "packageGate": "PASS",
+        "atomicInstall": "PASS",
+        "installedE2e": "PASS",
+        "b002Regression": "PASS",
+        "b003Regression": "PASS"
+      },
+      "proof": "diagnostics-export/completion-program/b-004/11-final-gate.json"
+    },
+    {
+      "waveId": "B-005",
+      "target": "B",
+      "title": "Beta acceptance",
       "status": "QUEUED",
-      "startedAt": null,
-      "scope": ["PERSISTENCE.durable-matrix", "FD-002"]
+      "startedAt": null
     }
   ]
 }

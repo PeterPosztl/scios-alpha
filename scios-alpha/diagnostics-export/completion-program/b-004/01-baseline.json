@@ -1,0 +1,11 @@
+{
+  "schema": "sci-os-b004-baseline/v1",
+  "at": "2026-08-29T18:05:00.000Z",
+  "wave": "B-004",
+  "baselineCheckpoint": "091b39e1",
+  "baselineBuild": "pkg_1787177679954",
+  "priorWaveToken": "B_003_POLICY_DECISION_READY",
+  "betaRoot": "PERSISTENCE.durable-matrix",
+  "postgresStatus": "PROFILE_DISABLED",
+  "founderDecision": "FD-002"
+}

@@ -48,4 +48,23 @@ describe("local durable persistence truth", () => {
       fs.rmSync(dir, { recursive: true, force: true });
     }
   });
+
+  it("uses atomic write without leaving temp files", () => {
+    const prev = process.env.SCIOS_STATE_DIR;
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), "sci-os-atomic-"));
+    process.env.SCIOS_STATE_DIR = dir;
+    try {
+      const r = persistRun("run_atomic", { runId: "run_atomic", outcome: { status: "OK" } });
+      expect(r.ok).toBe(true);
+      expect(r.state).toBe("PERSISTED");
+      const runsDir = path.join(dir, "runs");
+      const temps = fs.readdirSync(runsDir).filter((n) => n.includes(".tmp"));
+      expect(temps.length).toBe(0);
+      expect(fs.existsSync(path.join(runsDir, "run_atomic.json"))).toBe(true);
+    } finally {
+      if (prev === undefined) delete process.env.SCIOS_STATE_DIR;
+      else process.env.SCIOS_STATE_DIR = prev;
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
 });

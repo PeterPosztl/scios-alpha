@@ -9,7 +9,8 @@
   "P3": 46,
   "ROOT_CAUSES": 322,
   "closedThisWave": [
-    "CTRL.CF14.policy-decision"
+    "CTRL.CF14.policy-decision",
+    "PERSISTENCE.durable-matrix-local"
   ],
   "alphaBlockers": [],
   "betaBlockers": [
@@ -26,9 +27,8 @@
     "300+ capability scale-out"
   ],
   "nextBetaRoots": [
-    "CTRL.CF14.policy-decision",
     "CTRL.CF28.validation",
-    "PERSISTENCE.durable-matrix",
+    "PERSISTENCE.PG_DEFERRED_FD002",
     "BACKGROUND.job-engine-v1"
   ],
   "p1TargetForBeta": 20

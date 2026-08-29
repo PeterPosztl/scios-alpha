@@ -1,0 +1,19 @@
+{
+  "schema": "sci-os-b004-final-report/v1",
+  "at": "2026-08-29T18:06:00.000Z",
+  "wave": "B-004",
+  "token": "BETA_DURABLE_CORE_READY",
+  "baselineCheckpoint": "091b39e1",
+  "baselineBuild": "pkg_1787177679954",
+  "newBuild": "pkg_1788026654253",
+  "sourceGate": "PASS",
+  "packageGate": "PASS",
+  "installGate": "PASS",
+  "installedE2e": "PASS",
+  "postgresTruth": "PROFILE_DISABLED",
+  "localDurableTruth": "PASS",
+  "p0After": 0,
+  "alphaStatus": "USABLE_LOCAL_ALPHA_READY",
+  "b003Regression": "PASS",
+  "b002Regression": "PASS"
+}

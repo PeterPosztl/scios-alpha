@@ -1,0 +1,10 @@
+{
+  "runId": "run_ee8aab57-9cac-4b80-8c40-cefb47ddaa8a",
+  "runFile": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\data\\vertical-slice\\runs\\run_ee8aab57-9cac-4b80-8c40-cefb47ddaa8a.json",
+  "sliceStatus": 200,
+  "persistenceState": "PERSISTED",
+  "diskPersist": "PASS",
+  "restartHydrate": "PASS",
+  "childStdout": "{\"ok\":true,\"runId\":\"run_ee8aab57-9cac-4b80-8c40-cefb47ddaa8a\",\"count\":50}\n",
+  "childStderr": ""
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "sci-os-b004-hard-gate/v1",
+  "at": "2026-08-29T18:01:08.702Z",
+  "cp": "http://127.0.0.1:3002",
+  "steps": {
+    "persistenceMatrixRoute": "PASS",
+    "verticalSliceDurable": "PASS",
+    "postgresHonestDisabled": "PASS",
+    "jobsStillDurable": "PASS",
+    "sliceRun": "PASS",
+    "diskPersist": "PASS",
+    "atomicWrite": "PASS",
+    "restartHydrate": "PASS",
+    "b003Regression": "PASS",
+    "b002Regression": "PASS"
+  },
+  "status": "PASS"
+}

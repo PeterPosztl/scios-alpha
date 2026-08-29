@@ -1,22 +1,22 @@
 {
   "schema": "sci-os-completion-program-state/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-08-19T22:40:00.000Z",
+  "at": "2026-08-29T18:05:00.000Z",
   "currentTarget": "B",
   "currentTargetLabel": "DAILY-USE / TESTER BETA",
   "currentWave": "B-004",
-  "currentWaveTitle": "Persistence / durable matrix (queued)",
-  "currentBatch": "B-003-complete",
-  "currentBuild": "pkg_1787177679954",
-  "gitSha": "920cf41b378fc90fa9225f3d68450fd49833ebb0",
+  "currentWaveTitle": "Persistence / durable matrix",
+  "currentBatch": "B-004-complete",
+  "currentBuild": "pkg_1788026654253",
+  "gitSha": "091b39e19be7ac8658aa1a7237b36d012799d853",
   "runtimeVersion": "v20.18.1",
-  "closureRunId": "closure_post_b003_install",
+  "closureRunId": "closure_post_b004_install",
   "P0": 0,
   "P1": 92,
   "P2": 184,
   "P3": 46,
   "alphaBlockers": [],
-  "betaBlockers": ["PERSISTENCE.PG_DEFERRED_FD002", "CTRL.CF28.validation"],
+  "betaBlockers": ["CTRL.CF28.validation", "PERSISTENCE.PG_DEFERRED_FD002"],
   "targets": {
     "A_USABLE_LOCAL_ALPHA": "READY",
     "B_DAILY_USE_BETA": "NOT_READY",
@@ -24,6 +24,7 @@
     "D_FOUNDER_VISION": "NOT_READY"
   },
   "b003Verdict": "B_003_POLICY_DECISION_READY",
+  "b004Verdict": "BETA_DURABLE_CORE_READY",
   "completedWaves": [
     {"waveId": "A-CONVERGENCE", "verdict": "USABLE_LOCAL_ALPHA_READY"},
     {"waveId": "B-001", "verdict": "PASS"},
@@ -32,12 +33,19 @@
       "waveId": "B-003",
       "verdict": "B_003_POLICY_DECISION_READY",
       "buildId": "pkg_1787177679954",
-      "gitSha": "920cf41b378fc90fa9225f3d68450fd49833ebb0",
+      "gitSha": "091b39e19be7ac8658aa1a7237b36d012799d853",
       "completedAt": "2026-08-19T22:40:00.000Z",
       "proof": "diagnostics-export/completion-program/b-003/26-final-report.json"
+    },
+    {
+      "waveId": "B-004",
+      "verdict": "BETA_DURABLE_CORE_READY",
+      "buildId": "pkg_1788026654253",
+      "completedAt": "2026-08-29T18:06:00.000Z",
+      "proof": "diagnostics-export/completion-program/b-004/11-final-gate.json"
     }
   ],
-  "nextWave": "B-004",
-  "nextExactAction": "Begin persistence/durable matrix when authorized — do not auto-start",
-  "lastUpdatedAt": "2026-08-19T22:40:00.000Z"
+  "nextWave": "B-005",
+  "nextExactAction": "Beta acceptance — CF28 validation honesty + background job core + P1 root closure toward P1 < 20",
+  "lastUpdatedAt": "2026-08-29T18:06:00.000Z"
 }

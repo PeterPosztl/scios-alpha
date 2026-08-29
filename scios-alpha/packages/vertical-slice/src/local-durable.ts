@@ -1,19 +1,16 @@
 import fs from "node:fs";
-import os from "node:os";
 import path from "node:path";
+import {
+  atomicWriteUtf8,
+  ensureDir,
+  resolveLegacyVerticalSliceStateDir,
+  resolveVerticalSliceStateDir,
+} from "./data-root.js";
 
 const MAX_RUNS = 50;
 
 export function resolveStateDir(): string {
-  if (process.env.SCIOS_STATE_DIR) {
-    return path.resolve(process.env.SCIOS_STATE_DIR);
-  }
-  const localApp =
-    process.env.LOCALAPPDATA ||
-    (process.platform === "win32"
-      ? path.join(os.homedir(), "AppData", "Local")
-      : path.join(os.homedir(), ".local", "share"));
-  return path.join(localApp, "SCI OS X10", "state", "vertical-slice");
+  return resolveVerticalSliceStateDir();
 }
 
 function runsPath(dir: string): string {
@@ -32,7 +29,7 @@ function runFile(dir: string, runId: string): string {
 }
 
 export function ensureStateDir(dir = resolveStateDir()): string {
-  fs.mkdirSync(path.join(dir, "runs"), { recursive: true });
+  ensureDir(path.join(dir, "runs"));
   return dir;
 }
 
@@ -43,18 +40,58 @@ export type DurableRunSummary = {
   savedAt: string;
 };
 
+function readIndex(dir: string): DurableRunSummary[] {
+  const indexPath = runsPath(dir);
+  if (!fs.existsSync(indexPath)) return [];
+  return JSON.parse(fs.readFileSync(indexPath, "utf8")) as DurableRunSummary[];
+}
+
+function hydrateFromDir<T>(dir: string, out: Map<string, T>): void {
+  const index = readIndex(dir);
+  for (const row of index.slice(0, MAX_RUNS)) {
+    const fp = runFile(dir, row.runId);
+    if (!fs.existsSync(fp)) continue;
+    const parsed = JSON.parse(fs.readFileSync(fp, "utf8")) as T;
+    out.set(row.runId, parsed);
+  }
+}
+
+/** Best-effort migrate legacy state/vertical-slice → data/vertical-slice. */
+function migrateLegacyRunsIfNeeded(): void {
+  const current = resolveStateDir();
+  const legacy = resolveLegacyVerticalSliceStateDir();
+  if (path.resolve(current) === path.resolve(legacy)) return;
+  if (readIndex(current).length > 0) return;
+  if (readIndex(legacy).length === 0) return;
+
+  ensureStateDir(current);
+  const legacyIndexPath = runsPath(legacy);
+  const currentIndexPath = runsPath(current);
+  if (fs.existsSync(legacyIndexPath) && !fs.existsSync(currentIndexPath)) {
+    fs.copyFileSync(legacyIndexPath, currentIndexPath);
+  }
+  const legacyRuns = path.join(legacy, "runs");
+  const currentRuns = path.join(current, "runs");
+  if (!fs.existsSync(legacyRuns)) return;
+  for (const name of fs.readdirSync(legacyRuns)) {
+    const src = path.join(legacyRuns, name);
+    const dst = path.join(currentRuns, name);
+    if (!fs.existsSync(dst) && fs.statSync(src).isFile()) {
+      fs.copyFileSync(src, dst);
+    }
+  }
+}
+
 export function persistRun(
   runId: string,
-  result: unknown
+  result: unknown,
 ): { ok: boolean; state: "PERSISTED" | "PERSISTENCE_DEGRADED"; error?: string } {
   try {
+    migrateLegacyRunsIfNeeded();
     const dir = ensureStateDir();
-    fs.writeFileSync(runFile(dir, runId), JSON.stringify(result), "utf8");
+    atomicWriteUtf8(runFile(dir, runId), JSON.stringify(result));
     const indexPath = runsPath(dir);
-    let index: DurableRunSummary[] = [];
-    if (fs.existsSync(indexPath)) {
-      index = JSON.parse(fs.readFileSync(indexPath, "utf8")) as DurableRunSummary[];
-    }
+    let index: DurableRunSummary[] = readIndex(dir);
     const tipHash =
       result &&
       typeof result === "object" &&
@@ -77,10 +114,9 @@ export function persistRun(
       { runId, tipHash, status, savedAt: new Date().toISOString() },
       ...index.filter((r) => r.runId !== runId),
     ].slice(0, MAX_RUNS);
-    fs.writeFileSync(indexPath, JSON.stringify(index, null, 2), "utf8");
+    atomicWriteUtf8(indexPath, JSON.stringify(index, null, 2));
     return { ok: true, state: "PERSISTED" };
   } catch (e) {
-    // Local durable is best-effort; never fail the live slice — but surface state.
     return {
       ok: false,
       state: "PERSISTENCE_DEGRADED",
@@ -92,15 +128,10 @@ export function persistRun(
 export function loadPersistedRuns<T>(): Map<string, T> {
   const out = new Map<string, T>();
   try {
-    const dir = resolveStateDir();
-    const indexPath = runsPath(dir);
-    if (!fs.existsSync(indexPath)) return out;
-    const index = JSON.parse(fs.readFileSync(indexPath, "utf8")) as DurableRunSummary[];
-    for (const row of index.slice(0, MAX_RUNS)) {
-      const fp = runFile(dir, row.runId);
-      if (!fs.existsSync(fp)) continue;
-      const parsed = JSON.parse(fs.readFileSync(fp, "utf8")) as T;
-      out.set(row.runId, parsed);
+    migrateLegacyRunsIfNeeded();
+    hydrateFromDir(resolveStateDir(), out);
+    if (out.size === 0) {
+      hydrateFromDir(resolveLegacyVerticalSliceStateDir(), out);
     }
   } catch {
     return out;

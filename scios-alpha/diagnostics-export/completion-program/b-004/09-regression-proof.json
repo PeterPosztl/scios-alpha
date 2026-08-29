@@ -1,0 +1,11 @@
+{
+  "schema": "sci-os-b004-regression-proof/v1",
+  "at": "2026-08-29T18:06:00.000Z",
+  "status": "PASS",
+  "regressions": {
+    "b002Cf11JobStates": "PASS",
+    "b003Cf14PolicyUnit": "PASS",
+    "sourceHardGate": "PASS"
+  },
+  "note": "Embedded in b004-persistence-hard-gate.cjs b002Regression + b003Regression steps"
+}
