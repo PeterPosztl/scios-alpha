@@ -1,21 +1,21 @@
 {
   "schema": "sci-os-current-root-causes/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-08-19T21:41:00.000Z",
-  "closureRunId": "closure_post_b002_install_close",
+  "at": "2026-08-29T18:30:18.399Z",
+  "closureRunId": "closure_post_b005_install",
   "P0": 0,
   "P1": 92,
   "P2": 184,
   "P3": 46,
   "ROOT_CAUSES": 322,
   "closedThisWave": [
-    "CTRL.CF14.policy-decision",
-    "PERSISTENCE.durable-matrix-local"
+    "CTRL.CF28.validation",
+    "BACKGROUND.job-engine-v1"
   ],
   "alphaBlockers": [],
   "betaBlockers": [
-    "CTRL.CF28.validation",
-    "PERSISTENCE.PG_DEFERRED_FD002"
+    "PERSISTENCE.PG_DEFERRED_FD002",
+    "P1.root_closure"
   ],
   "productionBlockers": [
     "FD-001 OIDC provider selection",
@@ -27,9 +27,9 @@
     "300+ capability scale-out"
   ],
   "nextBetaRoots": [
-    "CTRL.CF28.validation",
     "PERSISTENCE.PG_DEFERRED_FD002",
-    "BACKGROUND.job-engine-v1"
+    "P1.root_closure",
+    "UX.professional-cockpit"
   ],
   "p1TargetForBeta": 20
 }

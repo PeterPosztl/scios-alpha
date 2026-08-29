@@ -1,0 +1,9 @@
+{
+  "schema": "sci-os-b005-build-sync-proof/v1",
+  "at": "2026-08-29T18:30:18.399Z",
+  "status": "PASS",
+  "sourceCheckpoint": "873e537f",
+  "packageBuildId": "pkg_1788028155383",
+  "installedBuildId": "pkg_1788028155383",
+  "sync": "package === installed buildId"
+}

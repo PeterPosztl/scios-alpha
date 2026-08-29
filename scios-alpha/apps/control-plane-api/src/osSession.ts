@@ -54,7 +54,7 @@ export const TRANSITION_MATRIX: Record<string, JobState[]> = {
   DELAYED: ["QUEUED", "RUNNING", "CANCELLED", "BLOCKED"],
   BLOCKED: ["QUEUED", "CANCELLED"],
   COMPLETED: [],
-  FAILED: [],
+  FAILED: ["QUEUED"],
   CANCELLED: [],
 };
 
@@ -379,6 +379,7 @@ const PATCH_ALLOWED = new Set([
   "error",
   "currentStage",
   "attempts",
+  "currentAttempt",
   "expectedVersion",
   "reason",
 ]);
@@ -436,6 +437,7 @@ export function updateJob(
   if ("error" in patch) j.error = patch.error;
   if ("currentStage" in patch) j.currentStage = patch.currentStage;
   if (patch.attempts != null) j.attempts = patch.attempts;
+  if (patch.currentAttempt != null) j.currentAttempt = patch.currentAttempt;
 
   j.updatedAt = new Date().toISOString();
   jobs.set(jobId, j);
@@ -497,7 +499,8 @@ export function shellManifest() {
     commandPalette: "Ctrl+K",
     search: "GET /v1/search",
     session: "GET/PUT /v1/os/session",
-    jobs: "GET/POST /v1/os/jobs, PATCH /v1/os/jobs/:id",
+    jobs: "GET/POST /v1/os/jobs, PATCH /v1/os/jobs/:id, POST /v1/os/jobs/:id/{start,complete,fail,retry,cancel,recover}",
+    jobEngine: "GET /v1/os/job-engine/status, POST /v1/os/job-engine/reconcile-stale",
     notifications: "GET /v1/os/notifications",
     jobStates: JOB_STATES,
     jobTerminalStates: JOB_TERMINAL_STATES,

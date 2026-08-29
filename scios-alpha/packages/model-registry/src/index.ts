@@ -1,4 +1,22 @@
 import type { ModelMeta } from "@scios/data-fabric";
+import {
+  getModelValidation,
+  uiValidationTruth,
+  VALIDATION_SCHEMA_VERSION,
+  VALIDATION_STATES,
+  normalizeValidationState,
+  isValidValidationState,
+  assertValidationTruth,
+  listValidationRecords,
+  createValidationEvidence,
+  applyValidationEvidence,
+  checkValidationStale,
+  defaultValidationRecord,
+  resetValidationCacheForTests,
+  type ValidationState,
+  type ValidationEvidence,
+  type ModelValidationRecord,
+} from "./validation.js";
 
 export const NON_PRODUCTION_MATURITY = "NON-PRODUCTION" as const;
 
@@ -39,13 +57,36 @@ export function seedNonProductionModels(
   return registry.list();
 }
 
+export {
+  VALIDATION_SCHEMA_VERSION,
+  VALIDATION_STATES,
+  normalizeValidationState,
+  isValidValidationState,
+  assertValidationTruth,
+  uiValidationTruth,
+  getModelValidation,
+  listValidationRecords,
+  createValidationEvidence,
+  applyValidationEvidence,
+  checkValidationStale,
+  defaultValidationRecord,
+  resetValidationCacheForTests,
+  type ValidationState,
+  type ValidationEvidence,
+  type ModelValidationRecord,
+};
+
 export function modelHonesty(modelId: string) {
+  const v = getModelValidation(modelId);
+  const ui = uiValidationTruth(v);
   return {
     modelId,
     maturityLabel: NON_PRODUCTION_MATURITY,
     scienceStatus: "FOUNDATION",
-    validationStatus: "UNVALIDATED",
-    productionEligible: false,
+    validationStatus: ui.displayState,
+    validationLabel: ui.displayLabel,
+    productionEligible: ui.mayClaimProduction,
+    validationHonest: ui.honest,
   };
 }
 

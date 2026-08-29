@@ -132,7 +132,29 @@
     {
       "waveId": "B-005",
       "target": "B",
-      "title": "Beta acceptance",
+      "title": "Daily-use Beta acceptance — CF28 + job-engine v1",
+      "status": "COMPLETE",
+      "startedAt": "2026-08-29T18:00:00.000Z",
+      "completedAt": "2026-08-29T18:30:18.399Z",
+      "buildId": "pkg_1788028155383",
+      "gitSha": "873e537fbc609298bc282a57876d01ec9f40a504",
+      "verdict": "B_005_BETA_ACCEPTANCE_READY",
+      "scope": ["CTRL.CF28.validation", "BACKGROUND.job-engine-v1"],
+      "gates": {
+        "cf28Source": "PASS",
+        "jobEngineSource": "PASS",
+        "packageGate": "PASS",
+        "atomicInstall": "PASS",
+        "installedE2e": "PASS",
+        "b002Regression": "PASS",
+        "b003Regression": "PASS"
+      },
+      "proof": "diagnostics-export/completion-program/b-005/11-final-gate.json"
+    },
+    {
+      "waveId": "B-006",
+      "target": "B",
+      "title": "Professional UX",
       "status": "QUEUED",
       "startedAt": null
     }

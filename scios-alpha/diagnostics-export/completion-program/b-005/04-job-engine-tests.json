@@ -1,0 +1,20 @@
+{
+  "schema": "sci-os-b005-job-engine-hard-gate/v1",
+  "at": "2026-08-29T18:27:39.347Z",
+  "cp": "http://127.0.0.1:3003",
+  "steps": {
+    "engineStatus": "PASS",
+    "jobCreate": "PASS",
+    "duplicateSubmission": "PASS",
+    "noFakeCompletion": "PASS",
+    "jobStart": "PASS",
+    "duplicateStart": "PASS",
+    "jobComplete": "PASS",
+    "retryBoundary": "PASS",
+    "persistence": "PASS",
+    "restartHydrate": "PASS",
+    "b002Regression": "PASS",
+    "b003Regression": "PASS"
+  },
+  "status": "PASS"
+}

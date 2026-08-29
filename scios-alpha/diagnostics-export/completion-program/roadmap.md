@@ -1,7 +1,7 @@
 # SCI OS ×10 — Completion Program Roadmap
 
 **Program controller started:** 2026-08-19  
-**Current build:** `pkg_1787177679954` · **gitSha:** `091b39e1`  
+**Current build:** `pkg_1788028155383` · **gitSha:** `873e537f`  
 **Authority:** current source + runtime evidence (not historical audit labels)
 
 ---
@@ -11,7 +11,7 @@
 | Target | Label | Status |
 |--------|-------|--------|
 | **A** | Usable Local Alpha | **READY** ✓ |
-| **B** | Daily-Use / Tester Beta | NOT_READY (B-004 **IN PROGRESS** — source gate PASS) |
+| **B** | Daily-Use / Tester Beta | NOT_READY (B-005 acceptance **PASS** — P1 + PG remain) |
 | **C** | Production-Eligible Professional System | NOT_READY |
 | **D** | Full SCI OS ×10 Founder Vision | NOT_READY |
 
@@ -46,10 +46,11 @@ Proven chain:
 | PostgreSQL persistence | **DEFERRED** — FD-002 open; local-durable matrix **SOURCE PROVEN** (B-004) |
 | Job lifecycle (CF11) | **PASS** — Wave B-002 **READY** |
 | Policy decision (CF14) | **PASS** — Wave B-003 **READY** (installed enforcement) |
-| Local durable matrix | **SOURCE PASS** — Wave B-004 in progress |
-| Policy decision points (CF14) | **PARTIAL** |
-| Model validation truth (CF28) | **UNVALIDATED** — must stay honest |
-| P1 roots | **91** → target **< 20** for Beta |
+| Local durable matrix | **SOURCE PASS** — Wave B-004 **READY** |
+| Policy decision points (CF14) | **PASS** — Wave B-003 **READY** |
+| Model validation truth (CF28) | **PASS** — Wave B-005 canonical states + evidence |
+| Background job engine v1 | **PASS** — Wave B-005 lifecycle + installed E2E |
+| P1 roots | **92** → target **< 20** for Beta |
 | OIDC | **Out of Beta scope** (Target C) |
 
 ### Wave B plan (dependency-aware)

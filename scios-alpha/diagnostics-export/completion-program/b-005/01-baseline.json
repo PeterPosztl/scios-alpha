@@ -1,0 +1,9 @@
+{
+  "schema": "sci-os-b005-baseline/v1",
+  "at": "2026-08-29T18:30:18.399Z",
+  "checkpoint": "873e537f",
+  "build": "pkg_1788028155383",
+  "executionMode": "SIMULATION_ONLY",
+  "postgres": "PROFILE_DISABLED",
+  "p1": 92
+}

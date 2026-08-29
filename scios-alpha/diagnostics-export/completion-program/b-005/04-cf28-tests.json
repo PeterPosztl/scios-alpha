@@ -1,0 +1,18 @@
+{
+  "schema": "sci-os-b005-cf28-hard-gate/v1",
+  "at": "2026-08-29T18:27:38.964Z",
+  "cp": "http://127.0.0.1:3003",
+  "steps": {
+    "defaultNotValidated": "PASS",
+    "validatedWithEvidence": "PASS",
+    "missingEvidenceInvariant": "PASS",
+    "failedWithEvidence": "PASS",
+    "unknownState": "PASS",
+    "uiTruthNotValidated": "PASS",
+    "validationListRoute": "PASS",
+    "validationGetRoute": "PASS",
+    "modelsHonesty": "PASS",
+    "invalidStateRejected": "PASS"
+  },
+  "status": "PASS"
+}

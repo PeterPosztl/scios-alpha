@@ -1,0 +1,18 @@
+{
+  "schema": "sci-os-b005-final-gate/v1",
+  "at": "2026-08-29T18:30:18.399Z",
+  "wave": "B-005",
+  "token": "B_005_BETA_ACCEPTANCE_READY",
+  "buildId": "pkg_1788028155383",
+  "steps": {
+    "cf28Source": "PASS",
+    "jobEngineSource": "PASS",
+    "sourceComposite": "PASS",
+    "package": "PASS",
+    "install": "PASS",
+    "installedE2e": "PASS",
+    "b002Regression": "PASS",
+    "b003Regression": "PASS"
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,14 @@
+{
+  "authority": "packages/model-registry/src/validation.ts",
+  "routes": [
+    "GET /v1/models/validation",
+    "GET /v1/models/:id/validation",
+    "POST /v1/models/:id/validation/evidence"
+  ],
+  "states": [
+    "NOT_VALIDATED",
+    "VALIDATED",
+    "FAILED",
+    "UNKNOWN"
+  ]
+}

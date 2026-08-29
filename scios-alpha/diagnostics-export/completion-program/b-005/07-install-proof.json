@@ -1,0 +1,10 @@
+{
+  "schema": "sci-os-b005-install-proof/v1",
+  "at": "2026-08-29T18:29:37.344Z",
+  "status": "PASS",
+  "buildId": "pkg_1788028155383",
+  "installDir": "%LOCALAPPDATA%\\SCI OS X10\\app",
+  "atomicInstall": true,
+  "quiescenceGate": true,
+  "command": "pnpm run package:install"
+}

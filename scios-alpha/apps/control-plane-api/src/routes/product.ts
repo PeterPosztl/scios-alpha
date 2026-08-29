@@ -17,13 +17,23 @@ import {
   listNotifications,
   shellManifest,
   pushNotification,
-  createJob,
   getJob,
   updateJob,
   filterJobPatch,
   isSafeJobId,
   JOB_STATES,
 } from "../osSession.js";
+import {
+  jobEngineStatus,
+  submitJob,
+  startJob,
+  completeJob,
+  failJob,
+  retryJob,
+  cancelJob,
+  recoverJob,
+  reconcileStaleJobs,
+} from "../jobEngine.js";
 
 export type SendJson = (res: ServerResponse, status: number, body: unknown) => void;
 
@@ -684,6 +694,17 @@ export async function productRouter(opts: {
     return true;
   }
 
+  if (method === "GET" && path === "/v1/os/job-engine/status") {
+    sendJson(res, 200, jobEngineStatus());
+    return true;
+  }
+
+  if (method === "POST" && path === "/v1/os/job-engine/reconcile-stale") {
+    const out = reconcileStaleJobs();
+    sendJson(res, 200, { schema: "sci-os-job-engine-reconcile/v1", ...out });
+    return true;
+  }
+
   if (method === "GET" && path === "/v1/os/jobs") {
     sendJson(res, 200, { schema: "sci-os-jobs/v1", jobs: listJobs(), states: JOB_STATES });
     return true;
@@ -721,12 +742,78 @@ export async function productRouter(opts: {
       typeof body.sessionId === "string" ? body.sessionId : "default"
     );
     const withActor = sessionWithActor(session);
-    const out = createJob(body, { actor: withActor.actor, origin: "user" });
+    const out = submitJob(body, { actor: withActor.actor, origin: "user" });
     if (!out.job) {
-      sendJson(res, 400, { error: out.error || "create_failed" });
+      const status = out.error === "NOT_AUTHORIZED" ? 403 : 400;
+      sendJson(res, status, { error: out.error || "create_failed", detail: out.detail || null });
       return true;
     }
     sendJson(res, 201, { job: out.job });
+    return true;
+  }
+
+  async function jobEngineAction(
+    jobId: string,
+    action: (id: string, meta: Record<string, unknown>) => { job: unknown; error?: string | null; detail?: unknown },
+    body: Record<string, unknown>,
+    actor: Record<string, unknown>
+  ) {
+    return action(jobId, { actor, origin: "job-engine", reason: String(body.reason || "api") });
+  }
+
+  const jobActionMatch = path.match(/^\/v1\/os\/jobs\/([^/]+)\/(start|complete|fail|retry|cancel|recover)$/);
+  if (method === "POST" && jobActionMatch) {
+    const jobId = jobActionMatch[1];
+    const actionName = jobActionMatch[2];
+    if (!isSafeJobId(jobId)) {
+      sendJson(res, 400, { error: "invalid_job_id" });
+      return true;
+    }
+    const chunks: Buffer[] = [];
+    for await (const chunk of opts.req) {
+      chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+    }
+    let body: Record<string, unknown> = {};
+    try {
+      const raw = Buffer.concat(chunks).toString("utf8");
+      if (raw) body = JSON.parse(raw);
+    } catch {
+      sendJson(res, 400, { error: "invalid_json" });
+      return true;
+    }
+    const session = getOrCreateSession(
+      typeof body.sessionId === "string" ? body.sessionId : "default"
+    );
+    const withActor = sessionWithActor(session);
+    const actions: Record<string, typeof startJob> = {
+      start: startJob,
+      complete: (id, meta) => completeJob(id, body.result ?? { ok: true }, meta),
+      fail: (id, meta) => failJob(id, body.error ?? { message: "failed" }, meta),
+      retry: retryJob,
+      cancel: cancelJob,
+      recover: recoverJob,
+    };
+    const out = await jobEngineAction(jobId, actions[actionName], body, withActor.actor);
+    if (out.error) {
+      const status =
+        out.error === "NOT_FOUND"
+          ? 404
+          : out.error === "NOT_AUTHORIZED"
+            ? 403
+            : out.error === "ALREADY_RUNNING" ||
+                out.error === "COMPLETE_REQUIRES_RUNNING" ||
+                out.error === "RETRY_EXHAUSTED" ||
+                out.error === "CONCURRENCY_LIMIT"
+              ? 409
+              : 409;
+      sendJson(res, status, { error: out.error, detail: out.detail || null, job: out.job || null });
+      return true;
+    }
+    if (!out.job) {
+      sendJson(res, 500, { error: "unexpected_empty_job" });
+      return true;
+    }
+    sendJson(res, 200, { job: out.job });
     return true;
   }
 

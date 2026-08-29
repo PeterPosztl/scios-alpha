@@ -1,0 +1,8 @@
+{
+  "authority": "apps/control-plane-api/src/osSession.ts",
+  "orchestrator": "apps/control-plane-api/src/jobEngine.ts",
+  "routes": [
+    "GET /v1/os/job-engine/status",
+    "POST /v1/os/jobs/:id/start|complete|fail|retry|cancel|recover"
+  ]
+}

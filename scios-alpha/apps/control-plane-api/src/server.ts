@@ -3,7 +3,7 @@ import { createServer, type IncomingMessage, type ServerResponse } from "node:ht
 import { createLogger } from "@scios/observability";
 import { InMemoryFeatureStore } from "@scios/feature-store";
 import { can, audit, evaluatePolicyDecision, enforcePolicyAtActionTime, toCanEnvelope, type Role, type Action } from "@scios/governance-engine";
-import { modelRegistry, seedNonProductionModels, modelHonesty } from "@scios/model-registry";
+import { modelRegistry, seedNonProductionModels, modelHonesty, getModelValidation, listValidationRecords, applyValidationEvidence, createValidationEvidence, checkValidationStale, assertValidationTruth, uiValidationTruth, isValidValidationState, VALIDATION_STATES } from "@scios/model-registry";
 import { createMetaIntelligence } from "@scios/meta-intelligence";
 import {
   runVerticalSlice,
@@ -369,6 +369,66 @@ const server = createServer((req, res) => {
           simulationOnly: true,
         },
       });
+      return;
+    }
+
+    if (method === "GET" && path === "/v1/models/validation") {
+      sendJson(res, 200, {
+        schema: "sci-os-model-validation-registry/v1",
+        label: "ALPHA_NON_PRODUCTION",
+        states: VALIDATION_STATES,
+        records: listValidationRecords(),
+      });
+      return;
+    }
+
+    if (method === "GET" && path.startsWith("/v1/models/") && path.endsWith("/validation")) {
+      const modelId = decodeURIComponent(path.slice("/v1/models/".length, -"/validation".length));
+      const rec = getModelValidation(modelId);
+      const ui = uiValidationTruth(rec);
+      sendJson(res, 200, {
+        schema: "sci-os-model-validation/v1",
+        record: rec,
+        uiTruth: ui,
+        truth: assertValidationTruth(rec),
+      });
+      return;
+    }
+
+    if (method === "POST" && path.startsWith("/v1/models/") && path.endsWith("/validation/evidence")) {
+      const modelId = decodeURIComponent(
+        path.slice("/v1/models/".length, -"/validation/evidence".length)
+      );
+      const chunks: Buffer[] = [];
+      for await (const chunk of req) {
+        chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+      }
+      let body: Record<string, unknown> = {};
+      try {
+        const raw = Buffer.concat(chunks).toString("utf8");
+        if (raw) body = JSON.parse(raw);
+      } catch {
+        sendJson(res, 400, { error: "invalid_json" });
+        return;
+      }
+      const kind = body.kind === "validation_fail" ? "validation_fail" : "validation_pass";
+      const outcome = body.outcome;
+      if (!isValidValidationState(outcome)) {
+        sendJson(res, 400, { error: "invalid_validation_state", allowed: VALIDATION_STATES });
+        return;
+      }
+      const evidence = createValidationEvidence(modelId, kind, {
+        outcome,
+        summary: String(body.summary || "evidence"),
+        actorId: typeof body.actorId === "string" ? body.actorId : undefined,
+        staleAfterMs: typeof body.staleAfterMs === "number" ? body.staleAfterMs : undefined,
+      });
+      const applied = applyValidationEvidence(modelId, evidence);
+      if (applied.error) {
+        sendJson(res, 409, { error: applied.error, record: applied.record });
+        return;
+      }
+      sendJson(res, 201, { record: applied.record, evidence });
       return;
     }
 

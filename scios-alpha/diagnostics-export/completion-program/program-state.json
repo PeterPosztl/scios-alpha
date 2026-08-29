@@ -1,22 +1,22 @@
 {
   "schema": "sci-os-completion-program-state/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-08-29T18:05:00.000Z",
+  "at": "2026-08-29T18:30:18.399Z",
   "currentTarget": "B",
   "currentTargetLabel": "DAILY-USE / TESTER BETA",
-  "currentWave": "B-004",
-  "currentWaveTitle": "Persistence / durable matrix",
-  "currentBatch": "B-004-complete",
-  "currentBuild": "pkg_1788026654253",
-  "gitSha": "091b39e19be7ac8658aa1a7237b36d012799d853",
+  "currentWave": "B-005",
+  "currentWaveTitle": "Daily-use Beta acceptance",
+  "currentBatch": "B-005-complete",
+  "currentBuild": "pkg_1788028155383",
+  "gitSha": "873e537fbc609298bc282a57876d01ec9f40a504",
   "runtimeVersion": "v20.18.1",
-  "closureRunId": "closure_post_b004_install",
+  "closureRunId": "closure_post_b005_install",
   "P0": 0,
   "P1": 92,
   "P2": 184,
   "P3": 46,
   "alphaBlockers": [],
-  "betaBlockers": ["CTRL.CF28.validation", "PERSISTENCE.PG_DEFERRED_FD002"],
+  "betaBlockers": ["PERSISTENCE.PG_DEFERRED_FD002", "P1.root_closure"],
   "targets": {
     "A_USABLE_LOCAL_ALPHA": "READY",
     "B_DAILY_USE_BETA": "NOT_READY",
@@ -25,6 +25,7 @@
   },
   "b003Verdict": "B_003_POLICY_DECISION_READY",
   "b004Verdict": "BETA_DURABLE_CORE_READY",
+  "b005Verdict": "B_005_BETA_ACCEPTANCE_READY",
   "completedWaves": [
     {"waveId": "A-CONVERGENCE", "verdict": "USABLE_LOCAL_ALPHA_READY"},
     {"waveId": "B-001", "verdict": "PASS"},
@@ -43,9 +44,16 @@
       "buildId": "pkg_1788026654253",
       "completedAt": "2026-08-29T18:06:00.000Z",
       "proof": "diagnostics-export/completion-program/b-004/11-final-gate.json"
+    },
+    {
+      "waveId": "B-005",
+      "verdict": "B_005_BETA_ACCEPTANCE_READY",
+      "buildId": "pkg_1788028155383",
+      "completedAt": "2026-08-29T18:30:18.399Z",
+      "proof": "diagnostics-export/completion-program/b-005/11-final-gate.json"
     }
   ],
-  "nextWave": "B-005",
-  "nextExactAction": "Beta acceptance — CF28 validation honesty + background job core + P1 root closure toward P1 < 20",
-  "lastUpdatedAt": "2026-08-29T18:06:00.000Z"
+  "nextWave": "B-006",
+  "nextExactAction": "Professional UX scope — Job Center UI, loading/error primitives, role coverage (see master/04-b006-professional-ux-scope.json)",
+  "lastUpdatedAt": "2026-08-29T18:30:18.399Z"
 }

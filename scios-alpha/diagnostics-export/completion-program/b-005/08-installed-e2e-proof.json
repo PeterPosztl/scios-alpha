@@ -1,0 +1,14 @@
+{
+  "schema": "sci-os-b005-installed-e2e/v1",
+  "at": "2026-08-29T18:30:18.399Z",
+  "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+  "cases": {
+    "cf28Validation": "PASS",
+    "jobEngineStatus": "PASS",
+    "jobCreate": "PASS",
+    "jobLifecycle": "PASS",
+    "governanceRegression": "PASS",
+    "allPass": true
+  },
+  "status": "PASS"
+}
