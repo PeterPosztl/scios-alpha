@@ -1,0 +1,24 @@
+{
+  "at": "2026-08-13T13:00:49.933Z",
+  "buildId": "ux-dna-2026-08-13",
+  "schema": "sci-os-experience-quality-gate/v1",
+  "results": {
+    "entryClear": "PASS_STRUCTURAL",
+    "taskPurposeClear": "PASS_STRUCTURAL",
+    "contextPreserved": "PARTIAL",
+    "actionsWork": "PARTIAL",
+    "loadingWorks": "PARTIAL",
+    "emptyWorks": "PARTIAL",
+    "errorWorks": "PARTIAL",
+    "degradedWorks": "PARTIAL",
+    "permissionsWork": "PARTIAL",
+    "riskVisible": "PASS_STRUCTURAL",
+    "evidenceReachable": "PASS_STRUCTURAL",
+    "keyboardPath": "PARTIAL",
+    "visualHierarchy": "PARTIAL",
+    "goldenWorkflow": "PASS_STRUCTURAL"
+  },
+  "passCount": 5,
+  "ready": false,
+  "note": "READY only when all dimensions PASS* — PARTIAL/UNKNOWN block READY"
+}

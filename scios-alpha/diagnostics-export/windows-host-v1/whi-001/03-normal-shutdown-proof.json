@@ -1,0 +1,25 @@
+{
+  "schema": "sci-os-whi-001-normal-shutdown/v1",
+  "at": "2026-09-30T09:59:23.985Z",
+  "stop": [
+    {
+      "name": "whi-fixture",
+      "pid": 4216,
+      "gracefulAttempted": true,
+      "ok": false,
+      "status": 128,
+      "method": "taskkill_tree"
+    },
+    {
+      "name": "whi-fixture",
+      "pid": 4216,
+      "phase": "job_fallback",
+      "ok": false,
+      "status": 128,
+      "method": "taskkill_tree"
+    }
+  ],
+  "keeperClosed": true,
+  "childGone": true,
+  "status": "PASS"
+}

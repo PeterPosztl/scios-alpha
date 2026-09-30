@@ -1,0 +1,53 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "checks": [
+    {
+      "id": "role_seed_count_ge_200",
+      "pass": true,
+      "observed": 200
+    },
+    {
+      "id": "archetypes_defined",
+      "pass": true,
+      "observed": 7
+    },
+    {
+      "id": "professional_mode_in_shell",
+      "pass": true
+    },
+    {
+      "id": "approval_card",
+      "pass": true
+    },
+    {
+      "id": "ai_context_panel",
+      "pass": true
+    },
+    {
+      "id": "local_durable",
+      "pass": true
+    },
+    {
+      "id": "session_localstorage",
+      "pass": true
+    },
+    {
+      "id": "bind_localhost_default",
+      "pass": true
+    },
+    {
+      "id": "integrity_engine",
+      "pass": true
+    },
+    {
+      "id": "runtime_preflight",
+      "pass": true
+    },
+    {
+      "id": "packaged_gw1_evidence",
+      "pass": false,
+      "note": "EXTERNAL_VALIDATION OPEN — TASK-PKG-003"
+    }
+  ]
+}

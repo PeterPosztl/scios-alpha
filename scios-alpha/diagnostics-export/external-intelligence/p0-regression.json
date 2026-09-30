@@ -1,0 +1,17 @@
+{
+  "at": "2026-08-12T17:07:05.713Z",
+  "api": {
+    "healthz": 200,
+    "readyz": 200,
+    "ready": true
+  },
+  "cockpit": {
+    "healthz": 200,
+    "ux": "3.0-home"
+  },
+  "verticalSlice": {
+    "status": 200,
+    "hasChain": true
+  },
+  "p0Pass": true
+}

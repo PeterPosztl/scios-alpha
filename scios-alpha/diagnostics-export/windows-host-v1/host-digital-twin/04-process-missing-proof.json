@@ -3,7 +3,7 @@
   "status": "PASS",
   "drift": [
     {
-      "driftId": "PROCESS_MISSING:8925c9",
+      "driftId": "PROCESS_MISSING:858d59",
       "type": "PROCESS_MISSING",
       "severity": "P1",
       "expected": {
@@ -11,13 +11,13 @@
         "running": true
       },
       "actual": null,
-      "observedAt": "2026-08-18T20:42:21.231Z",
+      "observedAt": "2026-09-30T09:59:40.816Z",
       "evidence": null,
       "repairAuthority": "NONE_THIS_SLICE",
       "repairAllowed": false
     },
     {
-      "driftId": "PROCESS_MISSING:acf8bb",
+      "driftId": "PROCESS_MISSING:116e28",
       "type": "PROCESS_MISSING",
       "severity": "P1",
       "expected": {
@@ -25,13 +25,13 @@
         "running": true
       },
       "actual": null,
-      "observedAt": "2026-08-18T20:42:21.231Z",
+      "observedAt": "2026-09-30T09:59:40.816Z",
       "evidence": null,
       "repairAuthority": "NONE_THIS_SLICE",
       "repairAllowed": false
     },
     {
-      "driftId": "PORT_MISSING:51b934",
+      "driftId": "PORT_MISSING:fcb1fe",
       "type": "PORT_MISSING",
       "severity": "P1",
       "expected": {
@@ -44,13 +44,13 @@
         "ownerClass": "unbound",
         "status": 0
       },
-      "observedAt": "2026-08-18T20:42:21.231Z",
+      "observedAt": "2026-09-30T09:59:40.816Z",
       "evidence": null,
       "repairAuthority": "NONE_THIS_SLICE",
       "repairAllowed": false
     },
     {
-      "driftId": "PORT_MISSING:224d60",
+      "driftId": "PORT_MISSING:89532c",
       "type": "PORT_MISSING",
       "severity": "P1",
       "expected": {
@@ -63,7 +63,7 @@
         "ownerClass": "unbound",
         "status": 0
       },
-      "observedAt": "2026-08-18T20:42:21.231Z",
+      "observedAt": "2026-09-30T09:59:40.816Z",
       "evidence": null,
       "repairAuthority": "NONE_THIS_SLICE",
       "repairAllowed": false

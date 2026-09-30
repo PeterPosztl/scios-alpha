@@ -1,0 +1,39 @@
+{
+  "schema": "sci-os-b008-implementation/v1",
+  "at": "2026-08-29T19:48:00.000Z",
+  "contract": {
+    "experienceSpec": "sci-os-experience-spec/v1",
+    "compilerVersion": "sci-os-compiler-pipeline/v1.0.0-b008",
+    "pipeline": [
+      "Intent",
+      "Context Hydration",
+      "Domain Hydration",
+      "Evidence Hydration",
+      "Analysis Hydration",
+      "Risk Hydration",
+      "Decision Hydration",
+      "Experience Specification",
+      "UI Rendering"
+    ]
+  },
+  "files": [
+    "packages/professional-domain-registry/src/compiler-pipeline.js",
+    "packages/professional-domain-registry/src/experience-spec.schema.json",
+    "packages/professional-domain-registry/src/hydration/context-hydration.js",
+    "packages/professional-domain-registry/src/hydration/domain-hydration.js",
+    "packages/professional-domain-registry/src/hydration/evidence-hydration.js",
+    "packages/professional-domain-registry/src/hydration/analysis-hydration.js",
+    "packages/professional-domain-registry/src/hydration/risk-hydration.js",
+    "packages/professional-domain-registry/src/hydration/decision-hydration.js",
+    "apps/control-plane-api/src/routes/product.ts",
+    "apps/cockpit-ui/src/index.js",
+    "apps/cockpit-ui/src/professional-ux.js",
+    "scripts/tests/b008-experience-compiler-hard-gate.cjs",
+    "scripts/tests/b008-installed-e2e.cjs",
+    "scripts/tests/b008-wave-complete.cjs"
+  ],
+  "endpoints": {
+    "compile": "GET /v1/experience/compile",
+    "health": "GET /v1/compiler/health"
+  }
+}

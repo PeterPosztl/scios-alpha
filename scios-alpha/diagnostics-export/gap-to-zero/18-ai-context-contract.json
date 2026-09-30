@@ -1,0 +1,23 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "requiredContext": [
+    "user",
+    "role",
+    "workspace",
+    "entity",
+    "workflowState",
+    "permissions",
+    "risk",
+    "policy",
+    "evidence"
+  ],
+  "current": "PARTIAL — AI context panel surfaces role/workspace/entity/risk/policy/evidence; not a full OS AI service",
+  "mayNotBypass": [
+    "risk",
+    "governance",
+    "permissions",
+    "human approval"
+  ],
+  "panelPresent": true
+}

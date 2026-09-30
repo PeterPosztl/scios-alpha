@@ -1,0 +1,9 @@
+{
+  "at": "2026-08-12T18:40:44.694Z",
+  "pass": false,
+  "ports": [
+    200,
+    200
+  ],
+  "note": "Best-effort stop via stop.cjs; orphan check limited on Windows"
+}

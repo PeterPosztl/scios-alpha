@@ -1,13 +1,13 @@
 {
   "schema": "sci-os-packaged-gw1-proof/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-08-19T17:14:46.195Z",
+  "at": "2026-08-19T20:28:01.977Z",
   "taskId": "TASK-PKG-003",
   "rootCauseId": "PACKAGED_GW1_PROOF_CHAIN_INCOMPLETE",
-  "buildId": "pkg_1787159655720",
+  "buildId": "pkg_1787171251736",
   "installRoot": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
   "nodeRuntime": "v20.18.1",
-  "gitSha": "ab8df765b63313d432ba6ae357f6012c763253c2",
+  "gitSha": "dcfdd3145ea6e9aa3e06a3120fefcf697779e41d",
   "routeChain": [
     "LOCALAPPDATA install",
     "bundled node → start-sci-os --packaged --serve",
@@ -69,7 +69,7 @@
       "name": "GW1_ANALYZE",
       "ok": true,
       "status": 200,
-      "runId": "run_2308d78c-4236-4f82-8bcc-0320caa7afe4",
+      "runId": "run_9dd4d855-5664-4a32-bafc-9bca1ac27a0e",
       "decision": "APPROVE",
       "simulated": true
     },
@@ -99,7 +99,7 @@
       "name": "EVIDENCE",
       "ok": true,
       "status": 200,
-      "runId": "run_2308d78c-4236-4f82-8bcc-0320caa7afe4",
+      "runId": "run_9dd4d855-5664-4a32-bafc-9bca1ac27a0e",
       "lineageVerifiedOnRun": true,
       "persistenceState": "PERSISTED"
     },
@@ -109,7 +109,7 @@
       "appRoot": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
       "verdict": "DEGRADED",
       "blockers": [],
-      "correlationId": "b55a7450-fb0a-490c-acb6-45b96cb4c709",
+      "correlationId": "2ffaee18-a2c6-4ec1-a0d7-f5c2c1601efa",
       "note": "Snapshot taken after healthy Home before failure-injection test"
     },
     {
@@ -122,7 +122,7 @@
       "portsFree": true
     }
   ],
-  "runId": "run_2308d78c-4236-4f82-8bcc-0320caa7afe4",
+  "runId": "run_9dd4d855-5664-4a32-bafc-9bca1ac27a0e",
   "status": "PASS",
   "failed": [],
   "note": "Proof uses product Control Plane APIs that Cockpit invokes. Browser DOM hydration previously PASS; this batch binds LOCALAPPDATA appRoot + current buildId."

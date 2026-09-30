@@ -1,0 +1,79 @@
+{
+  "schema": "sci-os-workspace-validation-wave/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T20:04:40.000Z",
+  "mode": "WORKSPACE_VALIDATION_WAVE_SAFE",
+  "wave": "PARTIAL",
+  "ready": false,
+  "holeless": false,
+  "roles200Validated": false,
+  "autoTrade": false,
+  "inventedSops": false,
+  "simulationOnly": true,
+  "executionMode": "SIMULATION_ONLY",
+  "persisted": false,
+  "oneBoot": true,
+  "oneShell": true,
+  "liveCertifiedFeeds": 0,
+  "unexpectedLiveFeeds": false,
+  "live": {
+    "controlPlane": { "port": 3000, "readyz": true, "executionMode": "SIMULATION_ONLY" },
+    "shell": { "port": 4000, "ok": true },
+    "endpoint": "GET /v1/ecl/professional/validate",
+    "auditMutated": false,
+    "deploymentRegistered": 36,
+    "enabledRuntimes": false,
+    "blueprintsEnabled": false,
+    "ldaAutoPatch": false
+  },
+  "health": {
+    "fail": 0,
+    "passConstraint": 7,
+    "partial": 15,
+    "unknown": 2,
+    "archetypesEvidenced": 9,
+    "rolesSeeded": 200,
+    "rolesFullySpecified": 9,
+    "rolesResearchRequired": 200
+  },
+  "roles": {
+    "RoleCatalog.AllDomains": "PARTIAL",
+    "ExperienceCompiler": "PARTIAL",
+    "WorkspaceSpecEngine": "PARTIAL",
+    "note": "9 evidenced workspaces. 191 seeds UNKNOWN — never PASS."
+  },
+  "sandboxes": {
+    "Sandbox.AllDomains": "PARTIAL",
+    "Sandbox.mode": "PASS_CONSTRAINT",
+    "mode": "* = SIMULATION_ONLY",
+    "liveData": 0
+  },
+  "blueprints": {
+    "AgentSystem.LDA": "PASS_CONSTRAINT",
+    "KnowledgeGraph.Core": "PARTIAL",
+    "WorkflowDSL.Core": "UNKNOWN",
+    "DistributedArchitecture.Core": "UNKNOWN"
+  },
+  "pipelines": {
+    "JTBDEngine": "PARTIAL",
+    "CapabilityEngine": "PARTIAL",
+    "PolicyEngine": "PARTIAL",
+    "RiskEngine.Professional": "PARTIAL",
+    "EvidenceEngine.Professional": "PARTIAL",
+    "LineageEngine.Professional": "PARTIAL"
+  },
+  "os": {
+    "WorkflowEngine.RealisticMode": "PARTIAL",
+    "EventBus.RealisticMode": "PARTIAL",
+    "SystemHealth.RealisticMode": "PARTIAL",
+    "AuditEngine.RealisticMode": "PARTIAL"
+  },
+  "safety": {
+    "simulationOnly": "PASS_CONSTRAINT",
+    "noAutoTrade": "PASS_CONSTRAINT",
+    "persistedFalse": "PASS_CONSTRAINT",
+    "noUnexpectedLiveFeeds": "PASS_CONSTRAINT",
+    "oneBootOneShell": "PASS_CONSTRAINT"
+  },
+  "note": "Re-run of the validation wave on the live pair. Constraints can PASS. 200 roles cannot. Not READY."
+}

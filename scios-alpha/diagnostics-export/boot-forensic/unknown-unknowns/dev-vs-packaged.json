@@ -1,0 +1,32 @@
+{
+  "at": "2026-08-12T19:49:35.168Z",
+  "bootId": "uu_msqi6dlm_ac8b47",
+  "profiles": {
+    "development": {
+      "executable": "C:\\Program Files\\nodejs\\node.exe",
+      "cwd": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+      "dirname": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\scripts\\package",
+      "mode": "developer",
+      "exists": true
+    },
+    "packagedDirectory": {
+      "executable": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10\\runtime\\node\\node.exe",
+      "cwd": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10",
+      "start": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10\\installer\\scripts\\start-sci-os.cjs",
+      "mode": "PACKAGED",
+      "env": {
+        "SCIOS_APP_ROOT": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10",
+        "SCIOS_RUNTIME_MODE": "PACKAGED",
+        "SCIOS_PACKAGED": "1"
+      },
+      "exists": true
+    },
+    "packagedExe": {
+      "executable": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10\\SCI-OS-X10.exe",
+      "cwd": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\boot-forensic-cwd",
+      "mode": "PACKAGED_EXE",
+      "exists": true
+    }
+  },
+  "firstMeaningfulDivergence": "Developer uses system/host Node + pnpm workspace; packaged uses bundled Node 20 + filesystem layout under install root. pkg EXE is thin launcher only."
+}

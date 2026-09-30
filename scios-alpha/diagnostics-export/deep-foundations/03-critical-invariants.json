@@ -1,0 +1,60 @@
+{
+  "at": "2026-08-13T14:31:11.804Z",
+  "buildId": "foundations-2026-08-13",
+  "invariants": [
+    {
+      "id": "HOME_READY_IMPLIES_SHELL_READY",
+      "formal": "HOME_READY ⇒ SHELL_READY",
+      "status": "WIRED_IN_RECONCILE",
+      "class": "IMPLEMENT_NOW_P0"
+    },
+    {
+      "id": "SHELL_READY_IMPLIES_CORE",
+      "formal": "SHELL_READY ⇒ CORE_READY",
+      "status": "PARTIAL",
+      "class": "IMPLEMENT_NOW_P1"
+    },
+    {
+      "id": "PACKAGED_BUNDLED_RUNTIME",
+      "formal": "PACKAGED ⇒ bundled runtime",
+      "status": "WIRED_IN_RECONCILE",
+      "class": "IMPLEMENT_NOW_P0"
+    },
+    {
+      "id": "PACKAGED_APP_ROOT",
+      "formal": "PACKAGED ⇒ installed appRoot ≠ source dist",
+      "status": "WIRED_IN_RECONCILE",
+      "class": "IMPLEMENT_NOW_P0"
+    },
+    {
+      "id": "READY_NO_MANDATORY_UNKNOWN",
+      "formal": "READY ⇒ no mandatory UNKNOWN",
+      "status": "WIRED_IN_RECONCILE",
+      "class": "IMPLEMENT_NOW_P0"
+    },
+    {
+      "id": "FAILED_BOOT_RELEASE",
+      "formal": "FAILED_BOOT ⇒ owned resources released",
+      "status": "PARTIAL",
+      "class": "IMPLEMENT_NOW_P1"
+    },
+    {
+      "id": "ACTION_POLICY_ENFORCED",
+      "formal": "ACTION_EXECUTED ⇒ policy enforced",
+      "status": "PARTIAL — vertical-slice + action-gate",
+      "class": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER"
+    },
+    {
+      "id": "IDEMPOTENCY",
+      "formal": "retry ⇒ no duplicate side effect",
+      "status": "PARTIAL_PASS same-process",
+      "class": "IMPLEMENT_NOW_P1"
+    },
+    {
+      "id": "EVIDENCE_FRESHNESS",
+      "formal": "stale evidence class ≠ PASS",
+      "status": "PARTIAL evidence-index",
+      "class": "IMPLEMENT_NOW_P1"
+    }
+  ]
+}

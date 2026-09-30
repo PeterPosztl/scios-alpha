@@ -1,0 +1,55 @@
+{
+  "schema": "sci-os-whi-004-proof/v1",
+  "status": "PARTIAL",
+  "classification": null,
+  "sample": {
+    "schema": "sci-os-host-result/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "ok": true,
+    "platform": "win32",
+    "capability": "host-event-provider",
+    "observedAt": "2026-08-18T18:53:48.710Z",
+    "source": "installer/scripts/host",
+    "mode": "SHADOW",
+    "data": {
+      "events": [],
+      "filtered": 0
+    },
+    "degraded": true,
+    "error": {
+      "class": "OPTIONAL_HOST_SIGNAL_UNAVAILABLE",
+      "message": "1"
+    },
+    "evidence": null
+  },
+  "filterDemo": {
+    "kept": [],
+    "dropped": [
+      {
+        "provider": "Unrelated-Demo",
+        "messageSafe": "browser history would be dropped",
+        "kept": false
+      }
+    ]
+  },
+  "parseDemo": [
+    {
+      "schema": "sci-os-host-event/v1",
+      "eventId": "41",
+      "eventType": "Critical",
+      "source": "windows-event-log",
+      "provider": "Microsoft-Windows-Kernel-Power",
+      "observedAt": "2026-08-18T18:53:48.710Z",
+      "windowsEventId": 41,
+      "severity": "CRITICAL",
+      "messageSafe": "kernel power",
+      "hostCorrelation": {
+        "bootId": null,
+        "runId": null,
+        "pid": null,
+        "buildId": null,
+        "unknown": true
+      }
+    }
+  ]
+}

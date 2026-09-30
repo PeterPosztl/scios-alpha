@@ -4,6 +4,7 @@ import { createLogger, SeededRng } from "@scios/observability";
 import type { ExecutionOrder } from "@scios/data-fabric";
 
 const PORT = Number(process.env.PORT ?? 5210);
+const BIND = process.env.SCIOS_BIND ?? "127.0.0.1";
 const RISK_ENGINE_URL =
   process.env.RISK_ENGINE_URL ?? "http://127.0.0.1:5202/risk/check";
 const SCIOS_SEED = Number(process.env.SCIOS_SEED ?? 42);
@@ -210,6 +211,6 @@ const server = createServer((req, res) => {
   });
 });
 
-server.listen(PORT, "0.0.0.0", () => {
+server.listen(PORT, BIND, () => {
   log.info("listening", { port: PORT, riskEngineUrl: RISK_ENGINE_URL });
 });

@@ -1,0 +1,3316 @@
+{
+  "schema": "sci-os-professional-reference-map/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-12T17:07:05.657Z",
+  "archetypeCount": 7,
+  "seedCount": 200,
+  "familiesCovered": [
+    "cyber_ops",
+    "fraud_fincrime",
+    "market_analysis",
+    "portfolio_risk",
+    "eng_ops",
+    "executive",
+    "governance_compliance"
+  ],
+  "archetypes": [
+    {
+      "roleId": "arch.soc_analyst",
+      "domain": "cyber_ops",
+      "mission": "Triage and investigate security alerts to contain credible threats with defensible evidence.",
+      "decisions": [
+        "True positive vs false positive",
+        "Containment urgency",
+        "Escalation"
+      ],
+      "objects": [
+        "Alert",
+        "Asset",
+        "User",
+        "Host",
+        "IP"
+      ],
+      "data": [
+        "Alerts",
+        "Asset inventory",
+        "Logs/events",
+        "Threat intel"
+      ],
+      "workflows": [
+        "investigate_cyber_alert"
+      ],
+      "risks": [
+        "HIGH"
+      ],
+      "evidence": [
+        "who/what/when/why on response actions"
+      ],
+      "visualizations": [
+        "AlertTimeline",
+        "AssetGraph",
+        "ProcessTree_RESEARCH_REQUIRED"
+      ],
+      "reports": [
+        "Incident record",
+        "Evidence pack",
+        "Response actions"
+      ],
+      "tools": [
+        "Timeline",
+        "Evidence",
+        "Entity",
+        "Case",
+        "Decision"
+      ],
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "ARCHETYPE_DEFINED"
+    },
+    {
+      "roleId": "arch.fraud_investigator",
+      "domain": "fraud_fincrime",
+      "mission": "Determine whether suspicious activity is fraud and produce a defensible investigation record.",
+      "decisions": [
+        "Fraud confirmed / not confirmed",
+        "Freeze/escalate",
+        "Case close"
+      ],
+      "objects": [
+        "Alert",
+        "Entity",
+        "Transaction",
+        "Account",
+        "Device"
+      ],
+      "data": [
+        "Alerts",
+        "Transactions",
+        "Customer/entity KYC",
+        "Device signals_RESEARCH_REQUIRED"
+      ],
+      "workflows": [
+        "investigate_suspicious_event",
+        "fraud_case_workspace"
+      ],
+      "risks": [
+        "HIGH"
+      ],
+      "evidence": [
+        "immutable decision + evidence links"
+      ],
+      "visualizations": [
+        "EntityGraph",
+        "TransactionTimeline",
+        "RiskPanel"
+      ],
+      "reports": [
+        "Case file",
+        "Evidence",
+        "Decision",
+        "Report"
+      ],
+      "tools": [
+        "Case",
+        "Entity",
+        "Transaction",
+        "Risk",
+        "Evidence",
+        "Decision",
+        "Report"
+      ],
+      "externalReferences": {
+        "products": [
+          "servicenow_secops",
+          "neo4j_bloom",
+          "case_mgmt_generic"
+        ],
+        "practices": [
+          "SAR narrative",
+          "transaction tracing",
+          "entity link analysis"
+        ],
+        "visualizations": [
+          "TransactionGraph",
+          "EntityGraph",
+          "TransactionTimeline"
+        ],
+        "workflows": [
+          "alert → case → evidence → decision → report"
+        ]
+      },
+      "status": "ARCHETYPE_DEFINED"
+    },
+    {
+      "roleId": "arch.fin_risk_analyst",
+      "domain": "market_portfolio_risk",
+      "mission": "Evaluate portfolio/operational risk under scenarios and recommend governed decisions.",
+      "decisions": [
+        "Accept / hedge / escalate risk"
+      ],
+      "objects": [
+        "Portfolio",
+        "Risk",
+        "Scenario",
+        "Model",
+        "Limit"
+      ],
+      "data": [
+        "Positions",
+        "Scenarios",
+        "Model outputs",
+        "Limits"
+      ],
+      "workflows": [
+        "evaluate_financial_operational_risk",
+        "prediction_risk_decision"
+      ],
+      "risks": [
+        "HIGH"
+      ],
+      "evidence": [
+        "model version + as-of + decision"
+      ],
+      "visualizations": [
+        "ExposureMap",
+        "ScenarioPanel",
+        "ForecastBand",
+        "RiskMatrix"
+      ],
+      "reports": [
+        "Risk assessment",
+        "Scenario comparison",
+        "Decision request"
+      ],
+      "tools": [
+        "Risk",
+        "Scenario",
+        "Simulation",
+        "Prediction",
+        "Decision",
+        "Approval"
+      ],
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ],
+        "visualizations": [
+          "ExposureMap",
+          "ScenarioPanel",
+          "ForecastBand",
+          "RiskMatrix"
+        ],
+        "workflows": [
+          "evaluate_financial_operational_risk",
+          "prediction_risk_decision"
+        ]
+      },
+      "status": "ARCHETYPE_DEFINED"
+    },
+    {
+      "roleId": "arch.osint_analyst",
+      "domain": "osint_geoint",
+      "mission": "Map entity networks and produce evidence-backed intelligence assessments.",
+      "decisions": [
+        "Assessment confidence",
+        "Dissemination"
+      ],
+      "objects": [
+        "Person",
+        "Org",
+        "Domain",
+        "IP",
+        "Relationship"
+      ],
+      "data": [
+        "OSINT sources",
+        "Entity graph",
+        "Events"
+      ],
+      "workflows": [
+        "analyze_entity_network"
+      ],
+      "risks": [
+        "MEDIUM"
+      ],
+      "evidence": [
+        "source provenance on claims"
+      ],
+      "visualizations": [
+        "EntityGraph",
+        "Timeline",
+        "SourceQuality"
+      ],
+      "reports": [
+        "Assessment",
+        "Graph export",
+        "Evidence citations"
+      ],
+      "tools": [
+        "Entity",
+        "Relationship",
+        "Timeline",
+        "Evidence",
+        "Report"
+      ],
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ],
+        "visualizations": [
+          "EntityGraph",
+          "Timeline",
+          "SourceQuality"
+        ],
+        "workflows": [
+          "analyze_entity_network"
+        ]
+      },
+      "status": "ARCHETYPE_DEFINED"
+    },
+    {
+      "roleId": "arch.executive",
+      "domain": "enterprise_risk",
+      "mission": "Understand operational state, major risks, and decisions requiring attention — without engineering internals.",
+      "decisions": [
+        "Strategic accept/reject of escalated risk"
+      ],
+      "objects": [
+        "Risk",
+        "Decision",
+        "Report",
+        "Case"
+      ],
+      "data": [
+        "KPI summaries",
+        "Exception queue",
+        "Risk posture"
+      ],
+      "workflows": [
+        "executive_attention_home",
+        "review_approve_high_risk"
+      ],
+      "risks": [
+        "HIGH"
+      ],
+      "evidence": [
+        "immutable approval trail"
+      ],
+      "visualizations": [
+        "RiskPosture",
+        "ExceptionQueue",
+        "Trend_RESEARCH_REQUIRED"
+      ],
+      "reports": [
+        "Approvals",
+        "Directives"
+      ],
+      "tools": [
+        "Risk",
+        "Decision",
+        "Approval",
+        "Report"
+      ],
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ],
+        "visualizations": [
+          "RiskPosture",
+          "ExceptionQueue",
+          "Trend_RESEARCH_REQUIRED"
+        ],
+        "workflows": [
+          "executive_attention_home",
+          "review_approve_high_risk"
+        ]
+      },
+      "status": "ARCHETYPE_DEFINED"
+    },
+    {
+      "roleId": "arch.auditor",
+      "domain": "gov_audit_legal",
+      "mission": "Verify that decisions followed policy with complete evidence and lineage.",
+      "decisions": [
+        "Control pass/fail",
+        "Remediation request"
+      ],
+      "objects": [
+        "Decision",
+        "Approval",
+        "Policy",
+        "Evidence"
+      ],
+      "data": [
+        "Audit log",
+        "Policies",
+        "Evidence",
+        "Lineage"
+      ],
+      "workflows": [
+        "audit_decision_trail"
+      ],
+      "risks": [
+        "HIGH"
+      ],
+      "evidence": [
+        "self-documenting review actions"
+      ],
+      "visualizations": [
+        "LineageGraph",
+        "ApprovalHistory",
+        "ControlExceptions"
+      ],
+      "reports": [
+        "Audit findings",
+        "Exception report"
+      ],
+      "tools": [
+        "Policy",
+        "Approval",
+        "Evidence",
+        "Decision",
+        "Report"
+      ],
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ],
+        "visualizations": [
+          "LineageGraph",
+          "ApprovalHistory",
+          "ControlExceptions"
+        ],
+        "workflows": [
+          "audit_decision_trail"
+        ]
+      },
+      "status": "ARCHETYPE_DEFINED"
+    },
+    {
+      "roleId": "arch.eng_operator",
+      "domain": "eng_platform",
+      "mission": "Keep SCI OS healthy: diagnose incidents, recover safely, prove readiness without fake READY.",
+      "decisions": [
+        "Safe mode vs repair",
+        "Infra restore"
+      ],
+      "objects": [
+        "Asset",
+        "Incident",
+        "Service"
+      ],
+      "data": [
+        "startup-report",
+        "healthz/readyz",
+        "meta-recovery proofs"
+      ],
+      "workflows": [
+        "diagnose_sci_os_incident"
+      ],
+      "risks": [
+        "MEDIUM"
+      ],
+      "evidence": [
+        "repair attempts logged"
+      ],
+      "visualizations": [
+        "DependencyGraph",
+        "HealthStatus",
+        "RecoveryMemory"
+      ],
+      "reports": [
+        "Diagnostics export",
+        "Support bundle"
+      ],
+      "tools": [
+        "Incident",
+        "Evidence",
+        "Task"
+      ],
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ],
+        "visualizations": [
+          "DependencyGraph",
+          "HealthStatus",
+          "RecoveryMemory"
+        ],
+        "workflows": [
+          "diagnose_sci_os_incident"
+        ]
+      },
+      "status": "ARCHETYPE_DEFINED"
+    }
+  ],
+  "roles": [
+    {
+      "roleId": "role.cyber_ops.soc_analyst",
+      "domain": "cyber_ops",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cyber_ops.incident_responder",
+      "domain": "cyber_ops",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cyber_ops.detection_engineer",
+      "domain": "cyber_ops",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cyber_ops.threat_hunter",
+      "domain": "cyber_ops",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cyber_ops.security_engineer",
+      "domain": "cyber_ops",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cyber_ops.siem_analyst",
+      "domain": "cyber_ops",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cyber_ops.soc_manager",
+      "domain": "cyber_ops",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cyber_ops.ir_lead",
+      "domain": "cyber_ops",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cyber_ops.malware_triage_analyst",
+      "domain": "cyber_ops",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cyber_ops.vulnerability_analyst",
+      "domain": "cyber_ops",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cyber_ops.purple_team_analyst",
+      "domain": "cyber_ops",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cyber_ops.blue_team_analyst",
+      "domain": "cyber_ops",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cyber_ops.security_operations_specialist",
+      "domain": "cyber_ops",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cyber_ops.alert_triage_specialist",
+      "domain": "cyber_ops",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cyber_ops.containment_specialist",
+      "domain": "cyber_ops",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.threat_intel.threat_intelligence_analyst",
+      "domain": "threat_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.threat_intel.cti_researcher",
+      "domain": "threat_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.threat_intel.ioc_analyst",
+      "domain": "threat_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.threat_intel.threat_reporter",
+      "domain": "threat_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.threat_intel.intel_fusion_analyst",
+      "domain": "threat_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.threat_intel.apt_tracker",
+      "domain": "threat_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.threat_intel.threat_landscape_analyst",
+      "domain": "threat_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.threat_intel.collection_manager",
+      "domain": "threat_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.threat_intel.intel_brief_writer",
+      "domain": "threat_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.digital_forensics.digital_forensics_examiner",
+      "domain": "digital_forensics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.digital_forensics.dfir_specialist",
+      "domain": "digital_forensics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.digital_forensics.mobile_forensics_analyst",
+      "domain": "digital_forensics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.digital_forensics.disk_forensics_analyst",
+      "domain": "digital_forensics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.digital_forensics.memory_forensics_analyst",
+      "domain": "digital_forensics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.digital_forensics.forensic_report_writer",
+      "domain": "digital_forensics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.digital_forensics.ediscovery_specialist",
+      "domain": "digital_forensics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.digital_forensics.chain_of_custody_officer",
+      "domain": "digital_forensics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.investigation_case.case_investigator",
+      "domain": "investigation_case",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.investigation_case.corporate_investigator",
+      "domain": "investigation_case",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.investigation_case.case_manager",
+      "domain": "investigation_case",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.investigation_case.investigation_lead",
+      "domain": "investigation_case",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.investigation_case.field_investigator",
+      "domain": "investigation_case",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.investigation_case.interview_specialist",
+      "domain": "investigation_case",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.investigation_case.case_intake_analyst",
+      "domain": "investigation_case",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fraud_fincrime.fraud_investigator",
+      "domain": "fraud_fincrime",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "servicenow_secops",
+          "neo4j_bloom",
+          "case_mgmt_generic"
+        ],
+        "practices": [
+          "SAR narrative",
+          "transaction tracing",
+          "entity link analysis"
+        ],
+        "visualizations": [
+          "TransactionGraph",
+          "EntityGraph",
+          "TransactionTimeline"
+        ],
+        "workflows": [
+          "alert → case → evidence → decision → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fraud_fincrime.fraud_analyst",
+      "domain": "fraud_fincrime",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "servicenow_secops",
+          "neo4j_bloom",
+          "case_mgmt_generic"
+        ],
+        "practices": [
+          "SAR narrative",
+          "transaction tracing",
+          "entity link analysis"
+        ],
+        "visualizations": [
+          "TransactionGraph",
+          "EntityGraph",
+          "TransactionTimeline"
+        ],
+        "workflows": [
+          "alert → case → evidence → decision → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fraud_fincrime.payment_fraud_specialist",
+      "domain": "fraud_fincrime",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "servicenow_secops",
+          "neo4j_bloom",
+          "case_mgmt_generic"
+        ],
+        "practices": [
+          "SAR narrative",
+          "transaction tracing",
+          "entity link analysis"
+        ],
+        "visualizations": [
+          "TransactionGraph",
+          "EntityGraph",
+          "TransactionTimeline"
+        ],
+        "workflows": [
+          "alert → case → evidence → decision → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fraud_fincrime.card_fraud_analyst",
+      "domain": "fraud_fincrime",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "servicenow_secops",
+          "neo4j_bloom",
+          "case_mgmt_generic"
+        ],
+        "practices": [
+          "SAR narrative",
+          "transaction tracing",
+          "entity link analysis"
+        ],
+        "visualizations": [
+          "TransactionGraph",
+          "EntityGraph",
+          "TransactionTimeline"
+        ],
+        "workflows": [
+          "alert → case → evidence → decision → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fraud_fincrime.account_takeover_analyst",
+      "domain": "fraud_fincrime",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "servicenow_secops",
+          "neo4j_bloom",
+          "case_mgmt_generic"
+        ],
+        "practices": [
+          "SAR narrative",
+          "transaction tracing",
+          "entity link analysis"
+        ],
+        "visualizations": [
+          "TransactionGraph",
+          "EntityGraph",
+          "TransactionTimeline"
+        ],
+        "workflows": [
+          "alert → case → evidence → decision → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fraud_fincrime.fraud_ops_lead",
+      "domain": "fraud_fincrime",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "servicenow_secops",
+          "neo4j_bloom",
+          "case_mgmt_generic"
+        ],
+        "practices": [
+          "SAR narrative",
+          "transaction tracing",
+          "entity link analysis"
+        ],
+        "visualizations": [
+          "TransactionGraph",
+          "EntityGraph",
+          "TransactionTimeline"
+        ],
+        "workflows": [
+          "alert → case → evidence → decision → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fraud_fincrime.transaction_monitoring_analyst",
+      "domain": "fraud_fincrime",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "servicenow_secops",
+          "neo4j_bloom",
+          "case_mgmt_generic"
+        ],
+        "practices": [
+          "SAR narrative",
+          "transaction tracing",
+          "entity link analysis"
+        ],
+        "visualizations": [
+          "TransactionGraph",
+          "EntityGraph",
+          "TransactionTimeline"
+        ],
+        "workflows": [
+          "alert → case → evidence → decision → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fraud_fincrime.chargeback_specialist",
+      "domain": "fraud_fincrime",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "servicenow_secops",
+          "neo4j_bloom",
+          "case_mgmt_generic"
+        ],
+        "practices": [
+          "SAR narrative",
+          "transaction tracing",
+          "entity link analysis"
+        ],
+        "visualizations": [
+          "TransactionGraph",
+          "EntityGraph",
+          "TransactionTimeline"
+        ],
+        "workflows": [
+          "alert → case → evidence → decision → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.aml_kyc.aml_analyst",
+      "domain": "aml_kyc",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.aml_kyc.kyc_analyst",
+      "domain": "aml_kyc",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.aml_kyc.sanctions_analyst",
+      "domain": "aml_kyc",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.aml_kyc.compliance_officer",
+      "domain": "aml_kyc",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.aml_kyc.cdd_specialist",
+      "domain": "aml_kyc",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.aml_kyc.edd_specialist",
+      "domain": "aml_kyc",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.aml_kyc.sar_writer",
+      "domain": "aml_kyc",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.aml_kyc.aml_quality_assurance",
+      "domain": "aml_kyc",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fin_intel.financial_intelligence_analyst",
+      "domain": "fin_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fin_intel.transaction_graph_analyst",
+      "domain": "fin_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fin_intel.asset_recovery_specialist",
+      "domain": "fin_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fin_intel.beneficial_ownership_analyst",
+      "domain": "fin_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fin_intel.trade_finance_analyst",
+      "domain": "fin_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.market_portfolio_risk.market_risk_analyst",
+      "domain": "market_portfolio_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.market_portfolio_risk.portfolio_risk_analyst",
+      "domain": "market_portfolio_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.market_portfolio_risk.credit_risk_analyst",
+      "domain": "market_portfolio_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.market_portfolio_risk.liquidity_risk_analyst",
+      "domain": "market_portfolio_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.market_portfolio_risk.risk_modeler",
+      "domain": "market_portfolio_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.market_portfolio_risk.limit_monitoring_analyst",
+      "domain": "market_portfolio_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.market_portfolio_risk.var_analyst",
+      "domain": "market_portfolio_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.market_portfolio_risk.stress_testing_analyst",
+      "domain": "market_portfolio_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.enterprise_risk.enterprise_risk_manager",
+      "domain": "enterprise_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.enterprise_risk.operational_risk_analyst",
+      "domain": "enterprise_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.enterprise_risk.vendor_risk_analyst",
+      "domain": "enterprise_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.enterprise_risk.risk_committee_analyst",
+      "domain": "enterprise_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.enterprise_risk.risk_reporting_officer",
+      "domain": "enterprise_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.corporate_security.corporate_security_manager",
+      "domain": "corporate_security",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.corporate_security.personnel_security_officer",
+      "domain": "corporate_security",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.corporate_security.insider_threat_analyst",
+      "domain": "corporate_security",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.corporate_security.executive_protection_planner",
+      "domain": "corporate_security",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.corporate_security.security_awareness_lead",
+      "domain": "corporate_security",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.physical_security.physical_security_officer",
+      "domain": "physical_security",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.physical_security.access_control_analyst",
+      "domain": "physical_security",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.physical_security.cctv_operator",
+      "domain": "physical_security",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.physical_security.facility_security_manager",
+      "domain": "physical_security",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.physical_security.guard_force_coordinator",
+      "domain": "physical_security",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.crisis_emergency.crisis_manager",
+      "domain": "crisis_emergency",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.crisis_emergency.emergency_operations_analyst",
+      "domain": "crisis_emergency",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.crisis_emergency.business_continuity_manager",
+      "domain": "crisis_emergency",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.crisis_emergency.disaster_recovery_coordinator",
+      "domain": "crisis_emergency",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.crisis_emergency.situation_room_analyst",
+      "domain": "crisis_emergency",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.intel_analysis.intelligence_analyst",
+      "domain": "intel_analysis",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.intel_analysis.all_source_analyst",
+      "domain": "intel_analysis",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.intel_analysis.strategic_assessor",
+      "domain": "intel_analysis",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.intel_analysis.indications_watch_officer",
+      "domain": "intel_analysis",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.intel_analysis.targeting_analyst",
+      "domain": "intel_analysis",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.osint_geoint.osint_analyst",
+      "domain": "osint_geoint",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.osint_geoint.geoint_analyst",
+      "domain": "osint_geoint",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.osint_geoint.social_network_analyst",
+      "domain": "osint_geoint",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.osint_geoint.imagery_analyst",
+      "domain": "osint_geoint",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.osint_geoint.open_source_collector",
+      "domain": "osint_geoint",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.osint_geoint.link_analysis_specialist",
+      "domain": "osint_geoint",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.data_analytics.data_analyst",
+      "domain": "data_analytics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.data_analytics.bi_analyst",
+      "domain": "data_analytics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.data_analytics.analytics_engineer",
+      "domain": "data_analytics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.data_analytics.metrics_analyst",
+      "domain": "data_analytics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.data_analytics.experiment_analyst",
+      "domain": "data_analytics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.ai_ml_gov.ml_engineer",
+      "domain": "ai_ml_gov",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.ai_ml_gov.model_risk_officer",
+      "domain": "ai_ml_gov",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.ai_ml_gov.ai_governance_officer",
+      "domain": "ai_ml_gov",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.ai_ml_gov.model_validator",
+      "domain": "ai_ml_gov",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.ai_ml_gov.prompt_safety_analyst",
+      "domain": "ai_ml_gov",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.ai_ml_gov.mlops_engineer",
+      "domain": "ai_ml_gov",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.eng_platform.platform_engineer",
+      "domain": "eng_platform",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.eng_platform.sre",
+      "domain": "eng_platform",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.eng_platform.devops_engineer",
+      "domain": "eng_platform",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.eng_platform.release_manager",
+      "domain": "eng_platform",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.eng_platform.observability_engineer",
+      "domain": "eng_platform",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.eng_platform.on_call_operator",
+      "domain": "eng_platform",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.eng_platform.qa_engineer",
+      "domain": "eng_platform",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cloud_infra.cloud_architect",
+      "domain": "cloud_infra",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cloud_infra.cloud_security_engineer",
+      "domain": "cloud_infra",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cloud_infra.kubernetes_operator",
+      "domain": "cloud_infra",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cloud_infra.network_engineer",
+      "domain": "cloud_infra",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cloud_infra.database_administrator",
+      "domain": "cloud_infra",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cloud_infra.storage_engineer",
+      "domain": "cloud_infra",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.gov_audit_legal.internal_auditor",
+      "domain": "gov_audit_legal",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.gov_audit_legal.external_audit_liaison",
+      "domain": "gov_audit_legal",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.gov_audit_legal.compliance_auditor",
+      "domain": "gov_audit_legal",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.gov_audit_legal.legal_counsel_ops",
+      "domain": "gov_audit_legal",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.gov_audit_legal.policy_analyst",
+      "domain": "gov_audit_legal",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.gov_audit_legal.control_tester",
+      "domain": "gov_audit_legal",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.gov_audit_legal.records_officer",
+      "domain": "gov_audit_legal",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.supply_ops_risk.supply_chain_risk_analyst",
+      "domain": "supply_ops_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.supply_ops_risk.logistics_risk_analyst",
+      "domain": "supply_ops_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.supply_ops_risk.vendor_ops_analyst",
+      "domain": "supply_ops_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.supply_ops_risk.procurement_risk_officer",
+      "domain": "supply_ops_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.supply_ops_risk.inventory_risk_analyst",
+      "domain": "supply_ops_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.ai_ml_gov.specialist_136",
+      "domain": "ai_ml_gov",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.eng_platform.specialist_137",
+      "domain": "eng_platform",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cloud_infra.specialist_138",
+      "domain": "cloud_infra",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.gov_audit_legal.specialist_139",
+      "domain": "gov_audit_legal",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.supply_ops_risk.specialist_140",
+      "domain": "supply_ops_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cyber_ops.specialist_141",
+      "domain": "cyber_ops",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.threat_intel.specialist_142",
+      "domain": "threat_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.digital_forensics.specialist_143",
+      "domain": "digital_forensics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.investigation_case.specialist_144",
+      "domain": "investigation_case",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fraud_fincrime.specialist_145",
+      "domain": "fraud_fincrime",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "servicenow_secops",
+          "neo4j_bloom",
+          "case_mgmt_generic"
+        ],
+        "practices": [
+          "SAR narrative",
+          "transaction tracing",
+          "entity link analysis"
+        ],
+        "visualizations": [
+          "TransactionGraph",
+          "EntityGraph",
+          "TransactionTimeline"
+        ],
+        "workflows": [
+          "alert → case → evidence → decision → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.aml_kyc.specialist_146",
+      "domain": "aml_kyc",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fin_intel.specialist_147",
+      "domain": "fin_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.market_portfolio_risk.specialist_148",
+      "domain": "market_portfolio_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.enterprise_risk.specialist_149",
+      "domain": "enterprise_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.corporate_security.specialist_150",
+      "domain": "corporate_security",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.physical_security.specialist_151",
+      "domain": "physical_security",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.crisis_emergency.specialist_152",
+      "domain": "crisis_emergency",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.intel_analysis.specialist_153",
+      "domain": "intel_analysis",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.osint_geoint.specialist_154",
+      "domain": "osint_geoint",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.data_analytics.specialist_155",
+      "domain": "data_analytics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.ai_ml_gov.specialist_156",
+      "domain": "ai_ml_gov",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.eng_platform.specialist_157",
+      "domain": "eng_platform",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cloud_infra.specialist_158",
+      "domain": "cloud_infra",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.gov_audit_legal.specialist_159",
+      "domain": "gov_audit_legal",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.supply_ops_risk.specialist_160",
+      "domain": "supply_ops_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cyber_ops.specialist_161",
+      "domain": "cyber_ops",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.threat_intel.specialist_162",
+      "domain": "threat_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.digital_forensics.specialist_163",
+      "domain": "digital_forensics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.investigation_case.specialist_164",
+      "domain": "investigation_case",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fraud_fincrime.specialist_165",
+      "domain": "fraud_fincrime",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "servicenow_secops",
+          "neo4j_bloom",
+          "case_mgmt_generic"
+        ],
+        "practices": [
+          "SAR narrative",
+          "transaction tracing",
+          "entity link analysis"
+        ],
+        "visualizations": [
+          "TransactionGraph",
+          "EntityGraph",
+          "TransactionTimeline"
+        ],
+        "workflows": [
+          "alert → case → evidence → decision → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.aml_kyc.specialist_166",
+      "domain": "aml_kyc",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fin_intel.specialist_167",
+      "domain": "fin_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.market_portfolio_risk.specialist_168",
+      "domain": "market_portfolio_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.enterprise_risk.specialist_169",
+      "domain": "enterprise_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.corporate_security.specialist_170",
+      "domain": "corporate_security",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.physical_security.specialist_171",
+      "domain": "physical_security",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.crisis_emergency.specialist_172",
+      "domain": "crisis_emergency",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.intel_analysis.specialist_173",
+      "domain": "intel_analysis",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.osint_geoint.specialist_174",
+      "domain": "osint_geoint",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.data_analytics.specialist_175",
+      "domain": "data_analytics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.ai_ml_gov.specialist_176",
+      "domain": "ai_ml_gov",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.eng_platform.specialist_177",
+      "domain": "eng_platform",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cloud_infra.specialist_178",
+      "domain": "cloud_infra",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.gov_audit_legal.specialist_179",
+      "domain": "gov_audit_legal",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.supply_ops_risk.specialist_180",
+      "domain": "supply_ops_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cyber_ops.specialist_181",
+      "domain": "cyber_ops",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "microsoft_sentinel",
+          "elastic_security",
+          "splunk",
+          "crowdstrike_falcon"
+        ],
+        "practices": [
+          "alert triage",
+          "incident scoping",
+          "IOC enrichment",
+          "containment approval"
+        ],
+        "visualizations": [
+          "AlertTimeline",
+          "AssetGraph",
+          "EventTable"
+        ],
+        "workflows": [
+          "triage → investigate → contain → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.threat_intel.specialist_182",
+      "domain": "threat_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.digital_forensics.specialist_183",
+      "domain": "digital_forensics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.investigation_case.specialist_184",
+      "domain": "investigation_case",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fraud_fincrime.specialist_185",
+      "domain": "fraud_fincrime",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [
+          "servicenow_secops",
+          "neo4j_bloom",
+          "case_mgmt_generic"
+        ],
+        "practices": [
+          "SAR narrative",
+          "transaction tracing",
+          "entity link analysis"
+        ],
+        "visualizations": [
+          "TransactionGraph",
+          "EntityGraph",
+          "TransactionTimeline"
+        ],
+        "workflows": [
+          "alert → case → evidence → decision → report"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.aml_kyc.specialist_186",
+      "domain": "aml_kyc",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.fin_intel.specialist_187",
+      "domain": "fin_intel",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.market_portfolio_risk.specialist_188",
+      "domain": "market_portfolio_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.enterprise_risk.specialist_189",
+      "domain": "enterprise_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.corporate_security.specialist_190",
+      "domain": "corporate_security",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.physical_security.specialist_191",
+      "domain": "physical_security",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.crisis_emergency.specialist_192",
+      "domain": "crisis_emergency",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.intel_analysis.specialist_193",
+      "domain": "intel_analysis",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.osint_geoint.specialist_194",
+      "domain": "osint_geoint",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.data_analytics.specialist_195",
+      "domain": "data_analytics",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.ai_ml_gov.specialist_196",
+      "domain": "ai_ml_gov",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.eng_platform.specialist_197",
+      "domain": "eng_platform",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.cloud_infra.specialist_198",
+      "domain": "cloud_infra",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.gov_audit_legal.specialist_199",
+      "domain": "gov_audit_legal",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    },
+    {
+      "roleId": "role.supply_ops_risk.specialist_200",
+      "domain": "supply_ops_risk",
+      "mission": "RESEARCH_REQUIRED",
+      "externalReferences": {
+        "products": [],
+        "practices": [
+          "RESEARCH_REQUIRED"
+        ]
+      },
+      "status": "SEED_RESEARCH_REQUIRED"
+    }
+  ],
+  "note": "Specialist procedures not invented. Seeds inherit family references only."
+}

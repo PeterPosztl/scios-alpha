@@ -2,9 +2,93 @@
   "schema": "sci-os-whi-010-backup-resolver/v1",
   "status": "PASS",
   "productRoot": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10",
-  "candidateCount": 4,
-  "validCandidate": "pkg_1787083012710",
+  "candidateCount": 18,
+  "validCandidate": "pkg_1787161643996",
   "candidates": [
+    {
+      "name": "app.backup.1787161758138",
+      "buildId": "pkg_1787161643996",
+      "complete": true,
+      "rejected": null
+    },
+    {
+      "name": "app.backup.1787161664155",
+      "buildId": "pkg_1787160992483",
+      "complete": true,
+      "rejected": null
+    },
+    {
+      "name": "app.backup.1787161120474",
+      "buildId": "pkg_1787160847623",
+      "complete": true,
+      "rejected": null
+    },
+    {
+      "name": "app.backup.1787160850809",
+      "buildId": "pkg_1787160790994",
+      "complete": true,
+      "rejected": null
+    },
+    {
+      "name": "app.backup.1787160820919",
+      "buildId": "pkg_1787160269381",
+      "complete": true,
+      "rejected": null
+    },
+    {
+      "name": "app.backup.1787160273008",
+      "buildId": "pkg_1787159655720",
+      "complete": true,
+      "rejected": null
+    },
+    {
+      "name": "app.backup.1787159659002",
+      "buildId": "pkg_1787157665882",
+      "complete": true,
+      "rejected": null
+    },
+    {
+      "name": "app.backup.1787157668774",
+      "buildId": "pkg_1787157391232",
+      "complete": true,
+      "rejected": null
+    },
+    {
+      "name": "app.backup.1787157394132",
+      "buildId": "pkg_1787157245779",
+      "complete": true,
+      "rejected": null
+    },
+    {
+      "name": "app.backup.1787157307970",
+      "buildId": "pkg_1787155892967",
+      "complete": true,
+      "rejected": null
+    },
+    {
+      "name": "app.backup.1787155898636",
+      "buildId": "pkg_1787155582135",
+      "complete": true,
+      "rejected": null
+    },
+    {
+      "name": "app.backup.1787155611112",
+      "buildId": "pkg_1787147143095",
+      "complete": true,
+      "rejected": null
+    },
+    {
+      "name": "app.backup.1787147237268",
+      "buildId": "pkg_1787145515752",
+      "complete": true,
+      "rejected": null
+    },
+    {
+      "name": "app.backup.1787145549080",
+      "buildId": "pkg_1787085655776",
+      "complete": true,
+      "rejected": null
+    },
     {
       "name": "app.backup.1787085659027",
       "buildId": "pkg_1787083012710",
@@ -25,9 +109,9 @@
     },
     {
       "name": "app.backup.last",
-      "buildId": null,
-      "complete": false,
-      "rejected": "NO_IDENTITY"
+      "buildId": "pkg_1790759388491",
+      "complete": true,
+      "rejected": null
     }
   ]
 }

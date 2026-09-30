@@ -1,7 +1,7 @@
 {
   "schema": "sci-os-actor-context-proof/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-08-19T17:13:00.678Z",
+  "at": "2026-08-19T17:35:14.838Z",
   "cp": "http://127.0.0.1:3000",
   "status": "PASS",
   "uiRoleId": "arch.market_analyst",
@@ -173,9 +173,9 @@
   },
   "gw1": {
     "status": 200,
-    "runId": "run_ea6dd974-be44-432e-8f9f-474448b22f7b",
+    "runId": "run_7bd78f27-2de5-43c2-99ba-29cbb7bf6d1b",
     "governance": {
-      "decisionId": "dec_820aff7c-487e-403d-906d-755328da8054",
+      "decisionId": "dec_1ab61472-0cac-46e0-a0ed-6ca7497f7d3d",
       "policyId": "alpha_execution_submit_v1",
       "verdict": "APPROVE",
       "explanation": "APPROVE",

@@ -1,5 +1,5 @@
 {
-  "learnedSignature": "CONFIG_MISSING",
+  "learnedSignature": "HEALTH_TIMEOUT|CONFIG_MISSING",
   "recipeRankBoost": [],
   "policyUnchanged": true,
   "note": "May rank recipes; must not weaken security/risk policies"

@@ -1,0 +1,9 @@
+{
+  "schema": "sci-os-b010-build-sync-proof/v1",
+  "at": "2026-08-29T21:37:38.134Z",
+  "sourceBuildId": "pkg_1788039377707",
+  "installedBuildId": "pkg_1788039377707",
+  "synced": true,
+  "persistenceModuleInBundle": true,
+  "status": "PASS"
+}

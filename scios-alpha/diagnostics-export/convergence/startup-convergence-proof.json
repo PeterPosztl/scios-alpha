@@ -1,13 +1,13 @@
 {
-  "at": "2026-07-17T00:21:42.088Z",
+  "at": "2026-08-12T15:37:17.416Z",
   "canonicalCommand": "pnpm sci:start",
   "node": {
     "usable": true,
     "version": "24.13.1"
   },
   "processesReused": [
-    "control-plane:5200",
-    "cockpit:5230"
+    "control-plane:3000",
+    "cockpit:4000"
   ],
   "processesStopped": [],
   "readiness": {
@@ -23,7 +23,6 @@
     },
     "blockers": [],
     "optionalMissing": [
-      "postgresql",
       "bullmq-queue-workers",
       "electron-desktop",
       "oidc-production",
@@ -35,7 +34,6 @@
   "workerProofOk": true,
   "verdict": "STARTUP_CONVERGED_DEGRADED",
   "limitations": [
-    "postgresql",
     "bullmq-queue-workers",
     "electron-desktop",
     "oidc-production",

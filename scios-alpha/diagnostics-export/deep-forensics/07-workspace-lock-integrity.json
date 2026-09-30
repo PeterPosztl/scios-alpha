@@ -1,0 +1,56 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "workspaceGlobs": [
+    "apps/*",
+    "packages/*"
+  ],
+  "diskPackages": [
+    "alpha-loop",
+    "capability-closure",
+    "data-fabric",
+    "experience-compiler",
+    "experiment-tracker",
+    "external-intelligence",
+    "feature-store",
+    "governance-engine",
+    "meta-intelligence",
+    "meta-recovery",
+    "model-registry",
+    "observability",
+    "os-environment",
+    "portfolio-engine",
+    "probability-engine",
+    "product-kernel",
+    "professional-domain-registry",
+    "system-closure",
+    "validation-engine",
+    "vertical-slice",
+    "workspace-composer"
+  ],
+  "lockImportersSample": [
+    "apps/control-plane-api",
+    "apps/execution-simulator",
+    "apps/meta-recovery-control-plane",
+    "apps/mock-api",
+    "packages/alpha-loop",
+    "packages/data-fabric",
+    "packages/experiment-tracker",
+    "packages/feature-store",
+    "packages/governance-engine",
+    "packages/meta-recovery",
+    "packages/model-registry",
+    "packages/observability",
+    "packages/vertical-slice"
+  ],
+  "packagesMissingLockImporter": [
+    "capability-closure",
+    "experience-compiler",
+    "external-intelligence",
+    "portfolio-engine",
+    "probability-engine",
+    "validation-engine"
+  ],
+  "verdict": "FAIL_REPRODUCIBILITY",
+  "note": "Workspace packages without lock importers are not reproducibly linked — EVIDENCE_DRIFT risk"
+}

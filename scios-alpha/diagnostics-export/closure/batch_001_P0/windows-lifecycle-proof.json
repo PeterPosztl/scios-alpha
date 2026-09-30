@@ -1,9 +1,9 @@
 {
   "schema": "sci-os-windows-lifecycle-proof/v1",
-  "at": "2026-08-19T17:14:23.775Z",
-  "buildId": "pkg_1787159655720",
+  "at": "2026-08-19T20:27:37.980Z",
+  "buildId": "pkg_1787171251736",
   "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
-  "installOk": true,
+  "installOk": false,
   "exeExists": true,
   "cmdExists": true,
   "bundledNode": true,
@@ -33,8 +33,8 @@
   "workingDirectoryOk": true,
   "entryKind": "EXE",
   "launchObserved": {
-    "pid": 24364,
+    "pid": 13540,
     "appRootEnv": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app"
   },
-  "pass": true
+  "pass": false
 }

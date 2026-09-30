@@ -1,0 +1,233 @@
+{
+  "schema": "sci-os-completion-graph/v1",
+  "nodes": [
+    {
+      "id": "scaffold.workspace",
+      "kind": "capability",
+      "status": "ALPHA",
+      "maturity": {
+        "level": 3,
+        "label": "L3_CONNECTED_OR_ALPHA"
+      },
+      "surface": ".",
+      "dependencies": []
+    },
+    {
+      "id": "data-fabric.domain",
+      "kind": "capability",
+      "status": "ALPHA",
+      "maturity": {
+        "level": 3,
+        "label": "L3_CONNECTED_OR_ALPHA"
+      },
+      "surface": "packages/data-fabric",
+      "dependencies": []
+    },
+    {
+      "id": "alpha-loop.baseline",
+      "kind": "capability",
+      "status": "ALPHA",
+      "maturity": {
+        "level": 3,
+        "label": "L3_CONNECTED_OR_ALPHA"
+      },
+      "surface": "packages/alpha-loop",
+      "dependencies": [
+        "data-fabric.domain"
+      ]
+    },
+    {
+      "id": "prediction-engine.fastapi",
+      "kind": "capability",
+      "status": "STUB",
+      "maturity": {
+        "level": 2,
+        "label": "L2_CODE_EXISTS_STUB"
+      },
+      "surface": "apps/prediction-engine",
+      "dependencies": []
+    },
+    {
+      "id": "risk-engine.fastapi",
+      "kind": "capability",
+      "status": "STUB",
+      "maturity": {
+        "level": 2,
+        "label": "L2_CODE_EXISTS_STUB"
+      },
+      "surface": "apps/risk-engine",
+      "dependencies": []
+    },
+    {
+      "id": "execution-simulator",
+      "kind": "capability",
+      "status": "STUB",
+      "maturity": {
+        "level": 2,
+        "label": "L2_CODE_EXISTS_STUB"
+      },
+      "surface": "apps/execution-simulator",
+      "dependencies": [
+        "risk-engine.fastapi"
+      ]
+    },
+    {
+      "id": "control-plane-api",
+      "kind": "capability",
+      "status": "ALPHA",
+      "maturity": {
+        "level": 5,
+        "label": "L5_RUNTIME_PROVEN"
+      },
+      "surface": "apps/control-plane-api",
+      "dependencies": [
+        "prediction-engine.fastapi",
+        "risk-engine.fastapi",
+        "execution-simulator"
+      ]
+    },
+    {
+      "id": "meta.capability-registry",
+      "kind": "capability",
+      "status": "ALPHA",
+      "maturity": {
+        "level": 3,
+        "label": "L3_CONNECTED_OR_ALPHA"
+      },
+      "surface": "packages/meta-intelligence",
+      "dependencies": [
+        "scaffold.workspace"
+      ]
+    },
+    {
+      "id": "ontology.wave1",
+      "kind": "capability",
+      "status": "ALPHA",
+      "maturity": {
+        "level": 3,
+        "label": "L3_CONNECTED_OR_ALPHA"
+      },
+      "surface": "packages/data-fabric/src/ontology.ts",
+      "dependencies": [
+        "data-fabric.domain"
+      ]
+    },
+    {
+      "id": "ledger.wave1",
+      "kind": "capability",
+      "status": "ALPHA",
+      "maturity": {
+        "level": 3,
+        "label": "L3_CONNECTED_OR_ALPHA"
+      },
+      "surface": "packages/data-fabric/src/ledger.ts",
+      "dependencies": [
+        "ontology.wave1"
+      ]
+    },
+    {
+      "id": "master-contract.doc",
+      "kind": "capability",
+      "status": "ALPHA",
+      "maturity": {
+        "level": 3,
+        "label": "L3_CONNECTED_OR_ALPHA"
+      },
+      "surface": "docs/enterprise/MASTER_CONTRACT.md",
+      "dependencies": []
+    },
+    {
+      "id": "enterprise.modules.sections-49-83",
+      "kind": "capability",
+      "status": "ABSENT",
+      "maturity": {
+        "level": 0,
+        "label": "L0_ABSENT"
+      },
+      "surface": "docs/enterprise/MASTER_CONTRACT.md",
+      "dependencies": [
+        "meta.capability-registry"
+      ]
+    },
+    {
+      "id": "vertical-slice.foundation",
+      "kind": "capability",
+      "status": "ALPHA",
+      "maturity": {
+        "level": 6,
+        "label": "L6_END_TO_END_RUNTIME_PROVEN"
+      },
+      "surface": "packages/vertical-slice",
+      "dependencies": [
+        "data-fabric.domain",
+        "ontology.wave1",
+        "ledger.wave1"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "data-fabric.domain",
+      "to": "alpha-loop.baseline"
+    },
+    {
+      "from": "risk-engine.fastapi",
+      "to": "execution-simulator"
+    },
+    {
+      "from": "prediction-engine.fastapi",
+      "to": "control-plane-api"
+    },
+    {
+      "from": "risk-engine.fastapi",
+      "to": "control-plane-api"
+    },
+    {
+      "from": "execution-simulator",
+      "to": "control-plane-api"
+    },
+    {
+      "from": "scaffold.workspace",
+      "to": "meta.capability-registry"
+    },
+    {
+      "from": "data-fabric.domain",
+      "to": "ontology.wave1"
+    },
+    {
+      "from": "ontology.wave1",
+      "to": "ledger.wave1"
+    },
+    {
+      "from": "meta.capability-registry",
+      "to": "enterprise.modules.sections-49-83"
+    },
+    {
+      "from": "data-fabric.domain",
+      "to": "vertical-slice.foundation"
+    },
+    {
+      "from": "ontology.wave1",
+      "to": "vertical-slice.foundation"
+    },
+    {
+      "from": "ledger.wave1",
+      "to": "vertical-slice.foundation"
+    }
+  ],
+  "chain": [
+    "ArchitectureRequirement",
+    "Capability",
+    "Implementation",
+    "Dependencies",
+    "Data",
+    "Contract",
+    "API_Event",
+    "Workflow",
+    "Risk_Governance",
+    "UX",
+    "Test",
+    "RuntimeEvidence",
+    "ProfessionalUse"
+  ]
+}

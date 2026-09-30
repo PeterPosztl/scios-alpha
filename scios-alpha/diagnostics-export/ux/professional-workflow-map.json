@@ -1,0 +1,43 @@
+{
+  "schema": "sci-os-professional-workflow-map/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "goldenWorkflows": [
+    {
+      "id": "investigate_suspicious_event",
+      "status": "NOT_IMPLEMENTED",
+      "archetype": "arch.fraud_investigator"
+    },
+    {
+      "id": "investigate_cyber_alert",
+      "status": "NOT_IMPLEMENTED",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "id": "analyze_entity_network",
+      "status": "NOT_IMPLEMENTED",
+      "archetype": "arch.osint_analyst"
+    },
+    {
+      "id": "evaluate_financial_operational_risk",
+      "status": "NOT_IMPLEMENTED",
+      "archetype": "arch.fin_risk_analyst"
+    },
+    {
+      "id": "prediction_risk_decision",
+      "status": "PARTIAL_engineering_cockpit",
+      "archetype": "arch.fin_risk_analyst",
+      "note": "Vertical slice engineering UI exists; professional view ABSENT"
+    },
+    {
+      "id": "review_approve_high_risk",
+      "status": "NOT_IMPLEMENTED",
+      "archetype": "arch.executive"
+    },
+    {
+      "id": "diagnose_sci_os_incident",
+      "status": "PARTIAL_ops_shell",
+      "archetype": "arch.eng_operator",
+      "note": "sci:status / meta-recovery shell exist; not unified professional shell"
+    }
+  ]
+}

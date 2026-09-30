@@ -1,0 +1,19 @@
+{
+  "at": "2026-08-12T19:49:42.477Z",
+  "bootId": "uu_msqi6dlm_ac8b47",
+  "windowsDefender": {
+    "AMServiceEnabled": true,
+    "RealTimeProtectionEnabled": true,
+    "AntivirusEnabled": true
+  },
+  "smartScreen": "NOT_PROBED_DESTRUCTIVELY",
+  "controlledFolderAccess": "NOT_PROBED_DESTRUCTIVELY",
+  "firewall": "NOT_DISABLED — loopback tests elsewhere",
+  "unsignedBinaries": {
+    "setup": true,
+    "app": true,
+    "codeSigning": "NOT_AVAILABLE",
+    "risk": "SmartScreen may warn on first run of unsigned EXE — EXTERNAL if blocks user"
+  },
+  "remediation": "Sign binaries; do not ask users to disable Defender. Document SmartScreen 'More info → Run anyway' for ALPHA."
+}

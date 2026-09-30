@@ -1,0 +1,14 @@
+{
+  "at": "2026-08-13T10:59:47.013Z",
+  "schema": "sci-os-10-recovery-independence-proof/v1",
+  "buildId": "truth-recon-2026-08-13-c226d748",
+  "requirement": "PACKAGED recovery must not require system Node/pnpm/Cursor/repo",
+  "developmentBats": {
+    "SCI-OS-Repair.bat": "UPDATED_prefer_bundled_node",
+    "SCI-OS-Safe-Mode.bat": "UPDATED_prefer_bundled_node",
+    "SCI-OS-Meta-Recovery.bat": "UPDATED_prefer_bundled_then_dev_pnpm"
+  },
+  "packagedLauncher": "%LOCALAPPDATA%/SCI OS X10/app/SCI-OS-X10.cmd already uses bundled Node",
+  "remainingGap": "Meta-recovery TypeScript package still prefers pnpm in DEVELOPMENT; PACKAGED path should use prebuilt/cjs where available",
+  "status": "PARTIAL"
+}

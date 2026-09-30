@@ -1,0 +1,84 @@
+{
+  "at": "2026-08-19T22:42:28.296Z",
+  "apiPort": 3000,
+  "cockpitPort": 4000,
+  "api": {
+    "healthz": 200,
+    "readyz": 200,
+    "ready": true,
+    "body": {
+      "ready": true,
+      "live": true,
+      "profile": "packaged",
+      "executionMode": "SIMULATION_ONLY",
+      "authMode": "local-packaged",
+      "telemetryMode": "local",
+      "governanceMode": "embedded-foundation",
+      "riskControl": true,
+      "foundationWorker": true,
+      "components": {
+        "riskControl": true,
+        "foundationWorker": true,
+        "database": "optional_absent",
+        "redis": "optional_absent",
+        "oidc": "disabled_local_development",
+        "otel": "local",
+        "hsm": "simulation_local_key_provider",
+        "aiProvider": "OPTIONAL_PROVIDER_UNAVAILABLE"
+      },
+      "dependencyMetrics": {
+        "node": {
+          "name": "bundled_or_runtime_node",
+          "status": "MEASURED",
+          "version": "v20.18.1",
+          "samples": 1
+        },
+        "database": {
+          "name": "postgres",
+          "status": "PROFILE_DISABLED",
+          "samples": 0,
+          "note": "Optional infra absent — not a system failure"
+        },
+        "redis": {
+          "name": "redis",
+          "status": "PROFILE_DISABLED",
+          "samples": 0,
+          "note": "Optional infra absent — not a system failure"
+        },
+        "aiProvider": {
+          "name": "external_llm",
+          "requiredForGw1": false,
+          "status": "OPTIONAL_PROVIDER_UNAVAILABLE",
+          "samples": 0,
+          "note": "GW1 uses in-process baseline-logistic; missing LLM does not fail first-release"
+        }
+      },
+      "foundationWorkerDetail": {
+        "name": "foundation-smoke-worker",
+        "online": true,
+        "lastHeartbeatAt": "2026-08-19T22:42:27.580Z",
+        "lastJobId": "smoke_1787179347580",
+        "lastJobStatus": "completed",
+        "jobsCompleted": 2,
+        "heartbeatAgeMs": 700
+      },
+      "labels": {
+        "productionClaims": false,
+        "simulationOnly": true
+      }
+    }
+  },
+  "cockpit": {
+    "healthz": 200
+  },
+  "verticalSlice": {
+    "status": 200,
+    "hasPrediction": true,
+    "hasRisk": true,
+    "hasGov": true,
+    "hasExec": true,
+    "hasLineage": true,
+    "runId": "run_e64afd45-fd23-4383-a7f2-e1ff0cd14724"
+  },
+  "p0Pass": true
+}

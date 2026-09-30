@@ -1,0 +1,38 @@
+import assert from "node:assert/strict";
+import { test } from "node:test";
+import { applyOsBlueprint } from "./os-blueprint-integration.js";
+import { applyProfessionModules } from "./profession-module-expansion.js";
+import { ACTIVATION_REVIEW_HOOKS, NEXT_WAVE_PREP, buildActivationReviewWave } from "./activation-review.js";
+
+test("activation review keeps LDA/KG/seeds/roles REFUSED and does not enable COMPUTE", () => {
+  const wave = buildActivationReviewWave();
+  assert.equal(ACTIVATION_REVIEW_HOOKS.enabled, false);
+  assert.equal(wave.ready, false);
+  assert.equal(wave.ldaPass, false);
+  assert.equal(wave.nationalGraph, false);
+  assert.equal(wave.causalQuery, false);
+  assert.equal(wave.seedsComplete, 0);
+  assert.equal(wave.seedsResearchRequired, 191);
+  assert.equal(wave.roles200Stabilized, false);
+  assert.equal(wave.computeEnabled, false);
+  assert.equal(wave.autoDecide, false);
+  assert.equal(wave.wave, "REFUSED");
+  assert.equal(wave.health.fail, 0);
+  assert.equal(wave.health.layersUnlocked, 0);
+  assert.equal(wave.layers.find((c) => c.id === "Layer.LDA")?.result, "REFUSED");
+  assert.equal(wave.layers.find((c) => c.id === "Layer.DigitalKG")?.result, "REFUSED");
+  assert.equal(wave.layers.find((c) => c.id === "Layer.Seeds")?.result, "REFUSED");
+  assert.equal(wave.layers.find((c) => c.id === "Layer.RoleCatalog")?.result, "REFUSED");
+  assert.equal(wave.domains.find((c) => c.id === "Domain.cyber")?.result, "ANALOG_CONTRACT");
+  assert.equal(wave.domains.find((c) => c.id === "Domain.hospitality")?.result, "SKIPPED_RESEARCH_REQUIRED");
+  assert.equal(wave.compute.find((c) => c.id === "Compute.prediction")?.result, "REFUSED");
+  assert.equal(wave.next.find((c) => c.id === "Next.liveFeeds")?.result, "PREPARED_DISABLED");
+  assert.equal(NEXT_WAVE_PREP.liveFeeds.siem_feed.enabled, false);
+  assert.equal(NEXT_WAVE_PREP.autoAudit.autoApply, false);
+  const empty = applyOsBlueprint("cyber");
+  assert.equal(empty.prediction.status, "UNKNOWN");
+  assert.equal(empty.intelligence.edge, null);
+  const hosp = applyProfessionModules("hospitality", { occupancy: Array(30).fill(0.7) });
+  assert.equal(hosp.prediction.status, "SKIPPED_RESEARCH_REQUIRED");
+  assert.equal(hosp.prediction.series.length, 0);
+});

@@ -1,0 +1,14 @@
+{
+  "name": "@scios/design-system",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "SCI OS ×10 design tokens — SCI identity, not vendor clone. ALPHA.",
+  "main": "./src/tokens.js",
+  "exports": {
+    ".": "./src/tokens.js",
+    "./tokens.css": "./src/tokens.css",
+    "./layers": "./src/layers.js"
+  },
+  "label": "ALPHA_NON_PRODUCTION"
+}

@@ -71,7 +71,7 @@ async function main() {
   process.env.GOVERNANCE_MODE = process.env.GOVERNANCE_MODE || "embedded-foundation";
 
   const portsMap = listeningPortsMap();
-  const rawProcs = listSciosAlphaProcesses();
+  const rawProcs = listSciosAlphaProcesses(appRoot);
   const processes = rawProcs.map((p) => classifyProcess(p, portsMap));
   const byComponent = {};
   for (const p of processes) {

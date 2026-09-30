@@ -1,10 +1,10 @@
 {
-  "at": "2026-07-17T00:21:39.327Z",
+  "at": "2026-08-12T15:37:14.339Z",
   "profile": "local-foundation",
   "selections": {
     "repositoryRoot": {
       "selected": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
-      "evidence": "resolve-app-root + package.json name scios-alpha",
+      "evidence": "resolve-app-root + package.json name sci-os-x10|scios-alpha",
       "rejected": [
         "sci-os-10",
         "sci-os-x10-ccu-supra"

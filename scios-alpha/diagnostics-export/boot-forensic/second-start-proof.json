@@ -1,0 +1,26 @@
+{
+  "at": "2026-08-12T19:34:43.139Z",
+  "bootId": "d15e661c-73fb-4786-9c84-b0ac73a8675d",
+  "pass": true,
+  "shutdownPortsDown": true,
+  "ready2": true,
+  "gw1": {
+    "pass": true,
+    "runId": "run_aa2c54e5-07bf-4a20-9179-47da092ac0c4",
+    "shell": {
+      "ok": true,
+      "service": "@scios/cockpit-ui",
+      "controlUrl": "http://127.0.0.1:3000",
+      "ux": "3.0-home",
+      "views": [
+        "home",
+        "search",
+        "entity360",
+        "analyze",
+        "evidence",
+        "engineering"
+      ]
+    }
+  },
+  "pid": 8000
+}

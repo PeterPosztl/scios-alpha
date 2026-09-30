@@ -1,0 +1,19 @@
+{
+  "schema": "sci-os-b008-requirements/v1",
+  "contract": "sci-os-experience-spec/v1",
+  "pipeline": [
+    "Intent",
+    "Context Hydration",
+    "Domain Hydration",
+    "Evidence Hydration",
+    "Analysis Hydration",
+    "Risk Hydration",
+    "Decision Hydration",
+    "Experience Specification",
+    "UI Rendering"
+  ],
+  "endpoints": [
+    "GET /v1/experience/compile",
+    "GET /v1/compiler/health"
+  ]
+}

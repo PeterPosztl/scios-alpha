@@ -1,0 +1,14 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "canonical": "20.18.1 family (>=20.18.0 <21)",
+  "nvmrc": "20.18.1",
+  "engines": {
+    "node": ">=20.18.0 <21",
+    "pnpm": ">=8.0.0"
+  },
+  "engineStrict": true,
+  "hostNode": "v24.13.1",
+  "hostSatisfies": false,
+  "packagedNode": "20.18.1"
+}

@@ -1,0 +1,13 @@
+{
+  "at": "2026-08-12T19:49:42.523Z",
+  "bootId": "uu_msqi6dlm_ac8b47",
+  "packagerSnapshot": {
+    "SCI_OS_X10_exe": "READ_ONLY_INSIDE_PACKAGE (pkg snapshot of launcher-entry only)",
+    "runtime_node": "EXTERNAL beside EXE",
+    "backend_server_cjs": "EXTERNAL",
+    "cockpit": "EXTERNAL",
+    "config": "EXTERNAL",
+    "diagnostics": "MUTABLE under install or LOCALAPPDATA"
+  },
+  "rule": "Never write into pkg snapshot; launcher only reads sibling filesystem."
+}

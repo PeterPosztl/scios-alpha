@@ -1,0 +1,145 @@
+{
+  "schema": "sci-os-final-completion/15-final-gap-register/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T10:13:14.945Z",
+  "title": "Final gap register",
+  "sources": [
+    "this session's executed gates and tests",
+    "apps/control-plane-api tsc output",
+    "completion-program/b-007/11-final-gate.json"
+  ],
+  "rule": "A gap is never closed by reclassification. Status changes only with executable evidence.",
+  "closedThisWave": [
+    {
+      "id": "GAP-BOOT-LOCK",
+      "finding": "Installed app could not boot: lock validity decided by PID liveness alone, so a live-but-idle orchestrator produced NO_GO/PROCESS_LOCKED while ports were free.",
+      "impact": "ALPHA_BLOCKER",
+      "status": "PROVEN_FIXED",
+      "evidence": "final-completion/boot-lock-orphan-recovery.json, final-completion/installed-restart-reliability.json"
+    },
+    {
+      "id": "GAP-SHUTDOWN-APPROOT",
+      "finding": "convergence/stop.cjs resolved app root from caller cwd, released the wrong lock, did not verify exit, and discovery matched only the dev folder name.",
+      "impact": "ALPHA_BLOCKER",
+      "status": "PROVEN_FIXED",
+      "evidence": "installed shutdown-report.json restartable=true orphanFree=true"
+    },
+    {
+      "id": "GAP-APPS-NEVER-TYPECHECKED",
+      "finding": "pnpm build covers ./packages/** only and packaging uses esbuild, so apps/** were never typechecked; 75 errors had accumulated in apps/control-plane-api.",
+      "impact": "NON_BLOCKING_TECH_DEBT (masking correctness defects)",
+      "status": "PROVEN_FIXED",
+      "evidence": "final-completion/app-typecheck-gate.json (0 errors across 3 apps), registered in test:release"
+    },
+    {
+      "id": "GAP-JOB-RECOVERY-UNDERREPORT",
+      "finding": "reconcileInterruptedJob returned `reconciled` only on the no-op branch, so boot recovery counted zero for jobs it actually reconciled.",
+      "impact": "PRODUCTION_BLOCKER (WHI-010 correctness)",
+      "status": "PROVEN_FIXED",
+      "evidence": "explicit return contract + app typecheck gate; pnpm test:release PASS"
+    },
+    {
+      "id": "GAP-SESSION-RECENT-CRASH",
+      "finding": "A persisted session file lacking `recent` would throw on session.recent.entities; the shape was untyped so the risk was invisible.",
+      "impact": "PRODUCTION_BLOCKER (availability)",
+      "status": "PROVEN_FIXED",
+      "evidence": "OsSession type + normalizeRecent on merge; app typecheck gate"
+    },
+    {
+      "id": "GAP-LINEAGE-TIPHASH",
+      "finding": "view-adapter dropped the lineage chain tip from the API contract.",
+      "impact": "ALPHA_BLOCKER",
+      "status": "PROVEN_FIXED",
+      "evidence": "packages/vertical-slice view-adapter.test.ts; alpha-final-gate lineageLinkage PASS"
+    },
+    {
+      "id": "GAP-HEALTHZ-DISHONEST",
+      "finding": "/healthz reported flat ok:true while startup readiness reported DEGRADED.",
+      "impact": "ALPHA_BLOCKER (honesty)",
+      "status": "PROVEN_FIXED",
+      "evidence": "describeServiceHealth() shared by /healthz and /readyz; alpha-final-gate degradedModeHonest PASS"
+    },
+    {
+      "id": "GAP-UX-PROVENANCE",
+      "finding": "esbuild stripped renderer provenance so the professional UX contract could not be verified in the packaged shell.",
+      "impact": "ALPHA_BLOCKER (verifiability)",
+      "status": "PROVEN_FIXED",
+      "evidence": "cockpit /healthz professionalUx.contract=sci-os-professional-ux/v1"
+    },
+    {
+      "id": "GAP-SWALLOWED-CATCH",
+      "finding": "loadHome().catch(function(){}) silently discarded a Home reload failure.",
+      "impact": "NON_BLOCKING_TECH_DEBT (observability)",
+      "status": "PROVEN_FIXED",
+      "evidence": "b007-p1-root-closure swallowed_catch_absent PASS"
+    },
+    {
+      "id": "GAP-PRODUCT-KERNEL-UNTYPED",
+      "finding": "@scios/product-kernel and the professional domain registry resolved to implicit any inside the app, so the Product Kernel authority boundary had no type checking.",
+      "impact": "NON_BLOCKING_TECH_DEBT",
+      "status": "PROVEN_FIXED",
+      "evidence": "generated declarations + drift check in app-typecheck-gate; surfaced and fixed a duplicate-label defect in /v1/intent/compile"
+    }
+  ],
+  "openGaps": [
+    {
+      "id": "GAP-PG-PROBE-NONDETERMINISM",
+      "finding": "durable-adapter pgDriverPresent() resolves 'pg' relative to the ecl-dil module, so it reports ABSENT in package unit tests and PRESENT when loaded from the app, where @scios/vertical-slice provides pg. An honesty probe should not vary by import path.",
+      "impact": "NON_BLOCKING_TECH_DEBT",
+      "classification": "PARTIAL",
+      "safetyInvariantsStillHeld": [
+        "livePostgres=false",
+        "optionalInfra=OPTIONAL_INFRA_DEGRADED",
+        "durable=false",
+        "ready!=true"
+      ],
+      "nextAction": "Make the probe report its resolution context explicitly and assert the real invariant (no live Postgres) rather than package absence.",
+      "note": "Not fixed by weakening the assertion; requires a deliberate contract decision."
+    },
+    {
+      "id": "GAP-SMOKE-UNGATED",
+      "finding": "apps/control-plane-api smoke:ecl-dil is not referenced by any gate, so its single failing assertion was invisible.",
+      "impact": "NON_BLOCKING_TECH_DEBT",
+      "classification": "PARTIAL",
+      "nextAction": "Gate it once GAP-PG-PROBE-NONDETERMINISM is resolved; gating it now would hard-fail the release suite on a pre-existing assertion."
+    },
+    {
+      "id": "GAP-EXTERNAL-POSTGRES",
+      "finding": "No reachable PostgreSQL instance and no DATABASE_URL.",
+      "impact": "BETA_BLOCKER",
+      "classification": "OPTIONAL_PROVIDER_UNAVAILABLE",
+      "nextAction": "Provision PostgreSQL and set DATABASE_URL; then run beta-gate pgAdapter and migrationCorrectness.",
+      "owner": "EXTERNAL"
+    },
+    {
+      "id": "GAP-FD001-OIDC",
+      "finding": "OIDC provider not selected, so GOVERNED_APPROVAL cannot be reached.",
+      "impact": "BETA_BLOCKER",
+      "classification": "DEFERRED",
+      "nextAction": "Founder decision FD-001.",
+      "owner": "FOUNDER"
+    },
+    {
+      "id": "GAP-TLS",
+      "finding": "TLS termination not configured.",
+      "impact": "PRODUCTION_BLOCKER",
+      "classification": "ABSENT",
+      "nextAction": "Deployment decision.",
+      "owner": "FOUNDER"
+    },
+    {
+      "id": "GAP-TARGET-C-P1",
+      "finding": "Production target requires P1=0; register count is 92 while b-007 reports engineering-open P1 = 0.",
+      "impact": "PRODUCTION_BLOCKER",
+      "classification": "PARTIAL",
+      "nextAction": "Drain or formally retire register entries with evidence. Counter is not edited to produce a clean number."
+    },
+    {
+      "id": "GAP-PERF-UNMEASURED",
+      "finding": "UI frame rate, large-graph latency and multi-user throughput have no measurement.",
+      "impact": "PRODUCTION_BLOCKER",
+      "classification": "UNKNOWN",
+      "nextAction": "Build measurement harnesses before claiming any performance target."
+    }
+  ]
+}

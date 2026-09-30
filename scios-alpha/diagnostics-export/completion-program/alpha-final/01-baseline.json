@@ -1,0 +1,10 @@
+{
+  "schema": "sci-os-alpha-final-baseline/v1",
+  "at": "2026-09-30T10:05:46.167Z",
+  "checkpoint": "46b03f18",
+  "buildId": "pkg_1790762466624",
+  "mode": "ALPHA_NON_PRODUCTION",
+  "executionMode": "SIMULATION_ONLY",
+  "priorWave": "B-010",
+  "objective": "Verify SCI OS ×10 fully functional in ALPHA mode"
+}

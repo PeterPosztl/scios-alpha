@@ -1,0 +1,13 @@
+{
+  "at": "2026-08-13T14:31:11.804Z",
+  "buildId": "foundations-2026-08-13",
+  "loaded": {
+    "founderIntent": true,
+    "productMemory": true,
+    "designConstitution": true,
+    "currentSystemTruth": true,
+    "currentEvidence": true,
+    "agentHarness": true
+  },
+  "pass": true
+}

@@ -1,0 +1,29 @@
+{
+  "at": "2026-08-12T15:45:16.495140Z",
+  "schema": "sci-os-auto-fill-generator/v1",
+  "engine": "python",
+  "label": "ALPHA_NON_PRODUCTION",
+  "mode": "propose-only",
+  "manifest": {
+    "path": "build/manifest.json",
+    "buildSHA": "c226d7489cf7f445f226930de752e382361021fd",
+    "packageName": "sci-os-x10"
+  },
+  "plan": "dev/fill-plan.json",
+  "templates": "dev/templates",
+  "scanTodos": false,
+  "counts": {
+    "missingManifestFiles": 0,
+    "missingArtifactsReportOnly": 0,
+    "todoFiles": 0,
+    "generated": 0,
+    "proposed": 0,
+    "written": 0
+  },
+  "missingManifestFiles": [],
+  "missingArtifactsReportOnly": [],
+  "todoFilesSample": [],
+  "generated": [],
+  "results": [],
+  "note": "Propose-only by default. dist/ artifacts are never stubbed. Use --scan-todos deliberately. Commit only via auto_fill --commit."
+}

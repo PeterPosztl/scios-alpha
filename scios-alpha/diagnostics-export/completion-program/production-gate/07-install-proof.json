@@ -1,0 +1,9 @@
+{
+  "schema": "sci-os-production-gate-install-proof/v1",
+  "at": "2026-09-30T10:08:15.244Z",
+  "buildId": "pkg_1790762466624",
+  "installationDurability": "PASS",
+  "upgradeDurability": "PASS",
+  "rollbackDurability": "PASS",
+  "status": "PASS"
+}

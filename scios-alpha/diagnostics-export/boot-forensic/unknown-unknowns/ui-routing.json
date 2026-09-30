@@ -1,0 +1,15 @@
+{
+  "at": "2026-08-12T19:49:42.519Z",
+  "bootId": "uu_msqi6dlm_ac8b47",
+  "cockpitPackage": {
+    "name": "@scios/cockpit-ui-packaged",
+    "private": true,
+    "type": "module",
+    "main": "./index.js"
+  },
+  "indexMjs": true,
+  "indexJs": true,
+  "apiBaseExpected": "http://127.0.0.1:3000",
+  "shellUrl": "http://127.0.0.1:4000/",
+  "developmentProxyRequired": false
+}

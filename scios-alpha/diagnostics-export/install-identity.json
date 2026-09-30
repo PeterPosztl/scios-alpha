@@ -1,0 +1,28 @@
+{
+  "at": "2026-08-12T15:22:48.054Z",
+  "step": "identify_install",
+  "ok": true,
+  "appRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+  "layout": "repo",
+  "packageName": "sci-os-x10",
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=18.20.0 <19",
+    "pnpm": ">=8.0.0"
+  },
+  "node": {
+    "path": "C:\\Program Files\\nodejs\\node.exe",
+    "source": "system",
+    "version": "24.13.1",
+    "usable": true,
+    "failureReason": null,
+    "searched": [
+      "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\runtime\\node\\node.exe",
+      "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\runtime\\node\\win-x64\\node.exe",
+      "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\runtime\\node\\bin\\node",
+      "C:\\Program Files\\nodejs\\node.exe"
+    ]
+  },
+  "manifestExists": true,
+  "pnpmLock": true
+}

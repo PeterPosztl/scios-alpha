@@ -1,0 +1,62 @@
+{
+  "B-001": {
+    "expectedVerdict": "PASS",
+    "proof": "diagnostics-export/completion-program/wave-b001-hard-gate-report.json",
+    "proofStatus": "PASS",
+    "integrity": "PASS"
+  },
+  "B-002": {
+    "expectedVerdict": "B_002_JOB_STATE_READY",
+    "proof": "diagnostics-export/completion-program/b-002/20-final-report.json",
+    "proofStatus": "PASS",
+    "integrity": "PASS"
+  },
+  "B-003": {
+    "expectedVerdict": "B_003_POLICY_DECISION_READY",
+    "proof": "diagnostics-export/completion-program/b-003/26-final-report.json",
+    "proofStatus": "PASS",
+    "integrity": "PASS"
+  },
+  "B-004": {
+    "expectedVerdict": "BETA_DURABLE_CORE_READY",
+    "proof": "diagnostics-export/completion-program/b-004/11-final-gate.json",
+    "proofStatus": "PASS",
+    "integrity": "PASS"
+  },
+  "B-005": {
+    "expectedVerdict": "B_005_BETA_ACCEPTANCE_READY",
+    "proof": "diagnostics-export/completion-program/b-005/11-final-gate.json",
+    "proofStatus": "PASS",
+    "integrity": "PASS"
+  },
+  "B-006": {
+    "expectedVerdict": "B_006_PROFESSIONAL_UX_READY",
+    "proof": "diagnostics-export/completion-program/b-006/11-final-gate.json",
+    "proofStatus": "PASS",
+    "integrity": "PASS"
+  },
+  "B-007": {
+    "expectedVerdict": "B_007_P1_ROOT_CLOSURE_READY",
+    "proof": "diagnostics-export/completion-program/b-007/11-final-gate.json",
+    "proofStatus": "PASS",
+    "integrity": "PASS"
+  },
+  "B-008": {
+    "expectedVerdict": "B_008_EXPERIENCE_COMPILER_READY",
+    "proof": "diagnostics-export/completion-program/b-008/11-final-gate.json",
+    "proofStatus": "PASS",
+    "integrity": "PASS"
+  },
+  "B-009": {
+    "expectedVerdict": "B_009_BACKGROUND_SYSTEM_READY",
+    "proof": "diagnostics-export/completion-program/b-009/11-final-gate.json",
+    "proofStatus": "PASS",
+    "integrity": "PASS"
+  },
+  "B-010": {
+    "expectedVerdict": "B_010_PERSISTENCE_BLOCKED_WITH_EVIDENCE",
+    "proof": "diagnostics-export/completion-program/b-010/11-final-gate.json",
+    "proofStatus": "PASS",
+    "integrity": "PASS"
+  }
+}

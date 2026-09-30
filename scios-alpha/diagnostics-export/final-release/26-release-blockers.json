@@ -1,0 +1,49 @@
+{
+  "at": "2026-08-12T17:14:38.329Z",
+  "blockers": [
+    {
+      "id": "packaging.setup_exe",
+      "severity": "P0",
+      "title": "Setup.exe / bundled runtimes missing",
+      "effect": "Clean install + no-terminal launch FAIL"
+    },
+    {
+      "id": "launch.requires_node_pnpm",
+      "severity": "P0",
+      "title": "Normal start still depends on Node/pnpm in tree",
+      "effect": "First-launch dry run FAIL"
+    },
+    {
+      "id": "reboot.acceptance",
+      "severity": "P0",
+      "title": "Windows reboot proof NOT_RUN",
+      "effect": "RC READY blocked"
+    },
+    {
+      "id": "recovery.full_fault_matrix",
+      "severity": "P1",
+      "title": "Full fault-injection matrix not re-certified this pass",
+      "effect": "Recovery PASS partial"
+    },
+    {
+      "id": "pit.live_negative",
+      "severity": "P1",
+      "title": "PIT live negative injection not in certification harness",
+      "effect": "Rely on package tests"
+    },
+    {
+      "id": "config.typed_unified",
+      "severity": "P2",
+      "title": "Typed unified config still PARTIAL",
+      "effect": "Env+manifest coexistence"
+    },
+    {
+      "id": "roles.200_full",
+      "severity": "P3",
+      "title": "200 roles not fully operational",
+      "effect": "Framework only — expected ALPHA boundary"
+    }
+  ],
+  "p0Count": 3,
+  "p1Count": 2
+}

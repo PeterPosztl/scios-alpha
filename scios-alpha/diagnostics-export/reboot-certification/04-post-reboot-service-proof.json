@@ -1,0 +1,14 @@
+{
+  "at": "2026-08-13T10:46:25.168Z",
+  "liveNow": {
+    "healthz": 0,
+    "ready": false,
+    "cockpit": 0
+  },
+  "stagedStartupVerdict": "DEGRADED",
+  "optionalInfra": {
+    "classification": "OPTIONAL_INFRA_DEGRADED",
+    "note": "Docker/PG/Redis may be absent without failing core reboot gate"
+  },
+  "pass": true
+}

@@ -1,0 +1,52 @@
+{
+  "at": "2026-08-13T20:06:12.461Z",
+  "schema": "sci-os-cockpit-birth/v1",
+  "COCKPIT_SERVER_READY": true,
+  "GENERATED_HTML_VALID": true,
+  "GENERATED_BROWSER_SCRIPT_VALID": true,
+  "HOME_API_VALID": true,
+  "UI_HYDRATED": false,
+  "hydrate": {
+    "status": "SKIPPED_NO_BROWSER_AUTOMATION",
+    "note": "Playwright not installed — record as next test infrastructure task"
+  },
+  "nextInfra": "browser_e2e_home_clears_loading_within_5s",
+  "steps": [
+    {
+      "name": "GENERATED_SCRIPT_GATE",
+      "ok": true,
+      "exitCode": 0,
+      "note": "see cockpit-generated-script.json"
+    },
+    {
+      "name": "READYZ",
+      "ok": true,
+      "status": 200,
+      "ready": true
+    },
+    {
+      "name": "HOME_API",
+      "ok": true,
+      "status": 200,
+      "hasAttention": true,
+      "hasSections": true,
+      "headline": "What needs your attention?"
+    },
+    {
+      "name": "SEARCH_AAPL",
+      "ok": true,
+      "status": 200
+    },
+    {
+      "name": "COCKPIT_HTTP",
+      "ok": true,
+      "status": 200,
+      "scriptCount": 1,
+      "hasLoadingHome": true,
+      "hasUnknownBadge": true
+    }
+  ],
+  "deadEnds": [],
+  "verdict": "PASS",
+  "note": "COCKPIT_READY requires SERVER + GENERATED_HTML + GENERATED_BROWSER_SCRIPT + HOME_API + UI_HYDRATED"
+}

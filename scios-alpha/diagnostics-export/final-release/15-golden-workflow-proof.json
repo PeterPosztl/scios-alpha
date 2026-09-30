@@ -1,0 +1,22 @@
+{
+  "id": "golden_workflow_1_aapl_analysis",
+  "at": "2026-08-12T17:14:39.562Z",
+  "pass": true,
+  "steps": {
+    "homeApi": true,
+    "searchAapl": true,
+    "entity360": true,
+    "analyzeHttp": true,
+    "prediction": true,
+    "risk": true,
+    "governance": true,
+    "simulation": true,
+    "lineage": true,
+    "professionalHome": true,
+    "entity360Ui": true,
+    "professionalResult": true,
+    "technicalView": true,
+    "simulatedBadge": true
+  },
+  "runId": "run_d2e39070-4311-4160-9a4c-469821d89d8a"
+}

@@ -1,0 +1,42 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "whySciOsDoesNotUnfold": [
+    {
+      "capability": "product-kernel package",
+      "class": "DISCONNECTED",
+      "chainBreak": "PACKAGE → (not) RUNTIME PROVIDER"
+    },
+    {
+      "capability": "experience-compiler package",
+      "class": "PARTIAL_DUPLICATE",
+      "chainBreak": "REGISTRY vs INLINE dual authority"
+    },
+    {
+      "capability": "home/search/entity/gw1",
+      "class": "ACTIVE",
+      "chain": "Shell → CP routes → vertical-slice → evidence view"
+    },
+    {
+      "capability": "bullmq workers",
+      "class": "PROFILE_DISABLED"
+    },
+    {
+      "capability": "durable lineage",
+      "class": "NO_PROVIDER"
+    },
+    {
+      "capability": "electron desktop",
+      "class": "NO_PROVIDER"
+    },
+    {
+      "capability": "OIDC",
+      "class": "NO_POLICY"
+    },
+    {
+      "capability": "GW2-7",
+      "class": "UNPROVEN",
+      "note": "full vision — not first release"
+    }
+  ]
+}

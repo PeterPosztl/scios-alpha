@@ -1,0 +1,83 @@
+{
+  "at": "2026-08-19T22:42:28.249Z",
+  "schema": "sci-os-repository-truth/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "root": "C:/Users/peter/Desktop/SCI/scios-alpha",
+  "packageName": "sci-os-x10",
+  "packageManager": "pnpm@9.15.0",
+  "scannedFiles": 421,
+  "capabilityRegistryCount": 13,
+  "capabilities": [
+    {
+      "id": "scaffold.workspace",
+      "status": "ALPHA",
+      "surface": "."
+    },
+    {
+      "id": "data-fabric.domain",
+      "status": "ALPHA",
+      "surface": "packages/data-fabric"
+    },
+    {
+      "id": "alpha-loop.baseline",
+      "status": "ALPHA",
+      "surface": "packages/alpha-loop"
+    },
+    {
+      "id": "prediction-engine.fastapi",
+      "status": "STUB",
+      "surface": "apps/prediction-engine"
+    },
+    {
+      "id": "risk-engine.fastapi",
+      "status": "STUB",
+      "surface": "apps/risk-engine"
+    },
+    {
+      "id": "execution-simulator",
+      "status": "STUB",
+      "surface": "apps/execution-simulator"
+    },
+    {
+      "id": "control-plane-api",
+      "status": "ALPHA",
+      "surface": "apps/control-plane-api"
+    },
+    {
+      "id": "meta.capability-registry",
+      "status": "ALPHA",
+      "surface": "packages/meta-intelligence"
+    },
+    {
+      "id": "ontology.wave1",
+      "status": "ALPHA",
+      "surface": "packages/data-fabric/src/ontology.ts"
+    },
+    {
+      "id": "ledger.wave1",
+      "status": "ALPHA",
+      "surface": "packages/data-fabric/src/ledger.ts"
+    },
+    {
+      "id": "master-contract.doc",
+      "status": "ALPHA",
+      "surface": "docs/enterprise/MASTER_CONTRACT.md"
+    },
+    {
+      "id": "enterprise.modules.sections-49-83",
+      "status": "ABSENT",
+      "surface": "docs/enterprise/MASTER_CONTRACT.md"
+    },
+    {
+      "id": "vertical-slice.foundation",
+      "status": "ALPHA",
+      "surface": "packages/vertical-slice"
+    }
+  ],
+  "atomAiParallelTree": "ABSENT_GOOD",
+  "canonicalProduct": "SCI OS ×10 (scios-alpha)",
+  "naming": {
+    "atomAi": "legacy/parallel scripts rejected — not a second OS",
+    "sciOs": "canonical"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "schema": "sci-os-whi-001-installed-shutdown/v1",
+  "cpDown": true,
+  "uiDown": true,
+  "status": "PASS"
+}

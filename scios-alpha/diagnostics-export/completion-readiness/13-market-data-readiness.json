@@ -1,0 +1,15 @@
+{
+  "schema": "sci-os-completion-audit/market-data/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "overallMaturity": "ABSENT",
+  "marketDataProviders": "ABSENT",
+  "economicDataProviders": "ABSENT",
+  "externalDataProviders": {
+    "packages/external-intelligence": {
+      "hasPackageJson": false,
+      "srcFiles": 0,
+      "status": "ABSENT"
+    }
+  },
+  "note": "No market/economic/external data providers implemented. Architecture may be defined in full vision docs but no source code exists."
+}

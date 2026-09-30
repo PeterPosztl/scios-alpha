@@ -162,6 +162,7 @@ function toLineage(result: VerticalSliceResult): Lineage {
   const snap = result.lineage;
   return {
     lineageId: `lin_${result.runId}`,
+    tipHash: snap.tipHash ?? null,
     nodes: snap.nodes.map((n) => ({
       id: n.nodeId,
       type: n.stage,

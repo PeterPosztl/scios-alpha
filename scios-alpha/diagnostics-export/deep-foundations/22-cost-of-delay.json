@@ -1,0 +1,81 @@
+{
+  "at": "2026-08-13T13:09:39.331Z",
+  "buildId": "deep-foundations-2026-08-13",
+  "highIfNotLockedNow": [
+    {
+      "id": "DF-001",
+      "title": "Agent harness + trajectory guardian",
+      "risks": "process/culture only"
+    },
+    {
+      "id": "DF-002",
+      "title": "Desired vs actual reconciliation controller",
+      "risks": "boot rewrite risk MEDIUM"
+    },
+    {
+      "id": "DF-003",
+      "title": "Formal critical invariants",
+      "risks": "silent READY lies"
+    },
+    {
+      "id": "DF-004",
+      "title": "Semantic type system",
+      "risks": "API/data migration HIGH"
+    },
+    {
+      "id": "DF-005",
+      "title": "Temporal truth / as-of queries",
+      "risks": "evidence loss + future leakage HIGH"
+    },
+    {
+      "id": "DF-006",
+      "title": "Epistemic object model",
+      "risks": "UX/API confusion MEDIUM"
+    },
+    {
+      "id": "DF-007",
+      "title": "Decision learning loop + interventions",
+      "risks": "retraining/eval invalidation HIGH"
+    },
+    {
+      "id": "DF-008",
+      "title": "AI provider capability fabric + router",
+      "risks": "vendor hardcode rewrite HIGH"
+    },
+    {
+      "id": "DF-010",
+      "title": "Memory governance",
+      "risks": "privacy/stale memory HIGH"
+    },
+    {
+      "id": "DF-011",
+      "title": "Professional evaluation deliverables dataset",
+      "risks": "blind AI regressions"
+    },
+    {
+      "id": "DF-012",
+      "title": "Organization/actor model contracts",
+      "risks": "data migration HIGH"
+    },
+    {
+      "id": "DF-014",
+      "title": "Policy decision vs enforcement separation",
+      "risks": "security redesign HIGH"
+    },
+    {
+      "id": "DF-015",
+      "title": "Build/release provenance on installed product",
+      "risks": "deployment forensics HIGH"
+    },
+    {
+      "id": "DF-018",
+      "title": "Architecture entropy consolidation",
+      "risks": "Keep finishing governor FIX_BEFORE_EXPAND; no P2 vanity"
+    },
+    {
+      "id": "DF-021",
+      "title": "Packaged GW1 external validation",
+      "risks": "Still the release blocker — not invented by this audit"
+    }
+  ]
+}

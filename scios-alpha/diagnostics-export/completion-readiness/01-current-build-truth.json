@@ -1,0 +1,30 @@
+{
+  "schema": "sci-os-completion-audit/build-truth/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "label": "ALPHA_NON_PRODUCTION",
+  "currentBuild": {
+    "buildId": "pkg_1787147143095",
+    "gitSha": "435f9272",
+    "gitShaFull": "435f927215d15ae31b98a919b47bfdbbf6eb2251",
+    "treeHash": "852a8fcf35081aca07d9a9028722a992d8693ce590585e3634aa94fecc851b61",
+    "packageHash": "30c8c7276670659486010b6d4613361f1bc9e6d5fcb8b1019d13d6e09ac5f8d9",
+    "nodeRuntime": "20.18.1",
+    "packageManager": "pnpm@9.15.0",
+    "engineConstraint": ">=20.18.0 <21",
+    "profile": "local-foundation",
+    "executionMode": "SIMULATION_ONLY",
+    "authMode": "local-development",
+    "ports": { "backend": 3000, "cockpit": 4000, "recoveryShell": 5299, "postgres": 5432, "redis": 6379 }
+  },
+  "installedBuild": {
+    "location": "%LOCALAPPDATA%\\SCI OS X10\\app",
+    "buildId": "pkg_1787147143095",
+    "gitSha": "b8a9b98b6319795c88f7efcff26cb9c481a589a0",
+    "note": "Installed build is from WHI-010 commit; repo HEAD is WHI-004 commit (435f9272)"
+  },
+  "repoScriptCount": 121,
+  "packageCount": 22,
+  "appCount": 7,
+  "lastStartupVerdict": "DEGRADED",
+  "lastStartupAt": "2026-08-12T20:50:12.113Z"
+}

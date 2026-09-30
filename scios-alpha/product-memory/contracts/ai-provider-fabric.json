@@ -1,0 +1,36 @@
+{
+  "schema": "sci-os-ai-provider-capability-fabric/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "status": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+  "rule": "Workflows request capabilities; policy-aware router selects provider — no vendor hardcoding",
+  "descriptorFields": [
+    "reasoning",
+    "structuredOutput",
+    "toolUse",
+    "vision",
+    "audio",
+    "embedding",
+    "reranking",
+    "code",
+    "background",
+    "streaming",
+    "batch",
+    "evalSupport",
+    "privacy",
+    "residency",
+    "latency",
+    "cost",
+    "reliability",
+    "maturity"
+  ],
+  "currentProviders": [
+    {
+      "id": "local-inprocess",
+      "maturity": "ACTIVE",
+      "capabilities": ["structuredOutput"],
+      "note": "GW1 baseline logistic — not an LLM"
+    }
+  ],
+  "explicitlyDeferred": ["multi-cloud LLM router UI", "vendor lock-in"],
+  "ifIgnoredLaterCost": ["API break", "deployment migration", "privacy redesign"]
+}

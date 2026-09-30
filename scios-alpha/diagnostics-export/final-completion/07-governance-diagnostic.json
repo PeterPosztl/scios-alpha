@@ -1,0 +1,25 @@
+{
+  "schema": "sci-os-final-completion/07-governance-diagnostic/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T10:13:14.945Z",
+  "title": "Governance / CF14",
+  "sources": [
+    "completion-program/b-003/11-final-gate.json",
+    "scripts/tests/cf14-policy-enforcement.cjs"
+  ],
+  "actionTypes": [
+    "RECOMMENDATION",
+    "SIMULATION",
+    "LOCAL_REVIEW",
+    "GOVERNED_APPROVAL",
+    "EXECUTION"
+  ],
+  "currentMaxAuthority": "LOCAL_REVIEW",
+  "governedApprovalAvailable": false,
+  "reason": "GOVERNED_APPROVAL requires an identity provider (FD-001). LOCAL_REVIEW is not promoted to satisfy a gate.",
+  "b003": "UNKNOWN",
+  "governanceChecks": {
+    "alphaGovernance": "UNKNOWN",
+    "betaGovernanceOidc": "BLOCKED_WITH_EVIDENCE"
+  }
+}

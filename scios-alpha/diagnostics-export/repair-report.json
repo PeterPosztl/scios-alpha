@@ -1,5 +1,5 @@
 {
-  "at": "2026-07-16T23:35:24.529Z",
+  "at": "2026-08-12T15:26:53.486Z",
   "appRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
   "node": {
     "path": "C:\\Program Files\\nodejs\\node.exe",
@@ -104,7 +104,6 @@
     "valid": true,
     "requiredMissing": [],
     "optionalMissing": [
-      "DATABASE_URL",
       "electron-desktop"
     ],
     "enabledSubsystems": [
@@ -112,56 +111,54 @@
       "control-plane-api",
       "cockpit-ui",
       "boot-modes",
+      "postgresql",
       "redis"
     ],
     "disabledSubsystems": [
-      "postgresql",
       "electron-desktop"
     ],
-    "warnings": [
-      "DATABASE_URL not set — ALPHA in-process mode (no durable DB)"
-    ],
+    "warnings": [],
     "blockers": [],
     "redactedConfig": {
-      "runtimeMode": "alpha-local",
-      "apiPort": 5200,
-      "cockpitPort": 5230,
+      "runtimeMode": "local-foundation",
+      "apiPort": 3000,
+      "cockpitPort": 4000,
       "diagnosticsDir": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export",
-      "controlPlaneUrl": "http://127.0.0.1:5200",
-      "cockpitUrl": "http://127.0.0.1:5230",
+      "controlPlaneUrl": "http://127.0.0.1:3000",
+      "cockpitUrl": "http://127.0.0.1:4000",
       "predictionUrl": "http://127.0.0.1:5201",
-      "DATABASE_URL": null,
-      "REDIS_URL": "redis://127.0.0.1:6379"
+      "DATABASE_URL": "postgresql://***:***@localhost:5432/scios",
+      "REDIS_URL": "redis://localhost:6379"
     }
   },
   "docker": {
-    "status": "AVAILABLE",
-    "failureClass": null,
-    "nextAction": null,
-    "detail": "docker info ok"
+    "status": "ENGINE_STOPPED",
+    "failureClass": "DOCKER_ENGINE_STOPPED",
+    "nextAction": "Start Docker Desktop",
+    "detail": "Client:\n Version:    28.3.3\n Context:    desktop-linux\n Debug Mode: false\n Plugins:\n  ai: Docker AI Agent - Ask Gordon (Docker Inc.)\n    Version:  v1.9.11\n    Path:     C:\\Program Files\\Docker\\cli-plugins\\docker-ai.exe\n  buildx: Docker Buildx (Docker Inc.)\n    Version:  v0.27.0-desktop.1\n    Path:     C:\\Program Files\\Docker\\cli-plugins\\docker-buildx.exe\n  cloud: Docker Cloud (Docker Inc.)\n    Ver"
   },
   "postgres": {
-    "configured": false,
+    "configured": true,
     "reachable": false,
     "authenticated": false,
     "databaseExists": false,
     "migrationsCurrent": false,
     "provisioned": false,
-    "failureClass": null,
-    "nextAction": null,
-    "classification": "NOT_CONFIGURED_OPTIONAL",
-    "redactedUrl": null,
-    "note": "ALPHA spine uses in-memory ledger; DATABASE_URL optional"
+    "failureClass": "DATABASE_UNREACHABLE",
+    "nextAction": "Provide reachable Postgres or unset DATABASE_URL for ALPHA mode",
+    "classification": "CONFIGURED_BUT_UNVERIFIED",
+    "redactedUrl": "postgresql://***:***@localhost:5432/scios",
+    "note": "No pg client bundled in ALPHA startup — cannot fake SELECT 1"
   },
   "redis": {
     "configured": true,
-    "reachable": true,
+    "reachable": false,
     "ping": false,
     "bullmqPreflight": false,
-    "classification": "TCP_OPEN_UNVERIFIED",
-    "failureClass": null,
-    "nextAction": "Install redis client for PING proof (ALPHA stub)",
-    "redactedUrl": "redis://127.0.0.1:6379",
+    "classification": "UNREACHABLE",
+    "failureClass": "REDIS_UNREACHABLE",
+    "nextAction": "Start Redis or unset REDIS_URL",
+    "redactedUrl": "redis://localhost:6379",
     "note": "No ioredis in ALPHA startup — TCP only; PING not claimed PASS"
   },
   "migrations": {
@@ -196,9 +193,9 @@
     {
       "problem": "docker",
       "action": "classify",
-      "result": "AVAILABLE",
-      "residualRisk": "none",
-      "nextAction": null
+      "result": "ENGINE_STOPPED",
+      "residualRisk": "medium",
+      "nextAction": "Start Docker Desktop"
     },
     {
       "problem": "alpha_known_issues",

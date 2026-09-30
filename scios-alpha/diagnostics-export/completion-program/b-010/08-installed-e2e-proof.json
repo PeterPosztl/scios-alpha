@@ -1,0 +1,20 @@
+{
+  "schema": "sci-os-b010-installed-e2e/v1",
+  "at": "2026-09-30T10:09:13.855Z",
+  "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+  "buildId": "pkg_1790762466624",
+  "cases": {
+    "installedExe": "PASS",
+    "healthz": "PASS",
+    "persistenceHealthEndpoint": "PASS",
+    "localPass": "PASS",
+    "postgresHonest": "PASS",
+    "fallbackLocalPrimary": "PASS",
+    "backupSupported": "PASS",
+    "persistenceMatrix": "PASS",
+    "cockpitHttp": "PASS",
+    "cockpitPersistenceHealth": "PASS"
+  },
+  "token": "B_010_PERSISTENCE_BLOCKED_WITH_EVIDENCE",
+  "status": "PASS"
+}

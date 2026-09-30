@@ -1,0 +1,9 @@
+{
+  "at": "2026-08-12T19:27:02.354Z",
+  "pass": true,
+  "note": "Backend remains authoritative; UI reflects AVAILABLE/DEGRADED apps from registry",
+  "degradedApps": [
+    "app.cases",
+    "app.reports"
+  ]
+}

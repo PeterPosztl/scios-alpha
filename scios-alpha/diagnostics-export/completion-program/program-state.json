@@ -1,36 +1,74 @@
 {
   "schema": "sci-os-completion-program-state/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-08-29T19:10:00.000Z",
-  "currentTarget": "B",
-  "currentTargetLabel": "DAILY-USE / TESTER BETA",
-  "currentWave": "B-006",
-  "currentWaveTitle": "Professional UX completion",
-  "currentBatch": "B-006-complete",
-  "currentBuild": "pkg_1788030533349",
-  "gitSha": "pending-commit",
+  "at": "2026-08-29T21:38:00.000Z",
+  "currentTarget": "D",
+  "currentTargetLabel": "FOUNDER_VISION_PROGRAM_COMPLETE",
+  "currentWave": "FINAL-COMPLETION",
+  "currentWaveTitle": "Installed boot/restart reliability + app typecheck closure",
+  "currentBatch": "B-010-complete",
+  "currentBuild": "pkg_1790762466624",
+  "gitSha": "46b03f18",
   "runtimeVersion": "v20.18.1",
-  "closureRunId": "closure_post_b006_install",
+  "closureRunId": "closure_post_b010_install",
   "P0": 0,
   "P1": 92,
   "P2": 184,
   "P3": 46,
   "alphaBlockers": [],
-  "betaBlockers": ["PERSISTENCE.PG_DEFERRED_FD002", "P1.root_closure"],
+  "betaBlockers": [
+    "PERSISTENCE.PG_EXTERNAL_INSTANCE_FD002",
+    "FD-001 OIDC provider selection"
+  ],
   "targets": {
     "A_USABLE_LOCAL_ALPHA": "READY",
     "B_DAILY_USE_BETA": "NOT_READY",
     "C_PRODUCTION": "NOT_READY",
-    "D_FOUNDER_VISION": "NOT_READY"
+    "D_FOUNDER_VISION": "PROGRAM_COMPLETE"
   },
   "b003Verdict": "B_003_POLICY_DECISION_READY",
   "b004Verdict": "BETA_DURABLE_CORE_READY",
   "b005Verdict": "B_005_BETA_ACCEPTANCE_READY",
   "b006Verdict": "B_006_PROFESSIONAL_UX_READY",
+  "b007Verdict": "B_007_P1_ROOT_CLOSURE_READY",
+  "b008Verdict": "B_008_EXPERIENCE_COMPILER_READY",
+  "b009Verdict": "B_009_BACKGROUND_SYSTEM_READY",
+  "b010Verdict": "B_010_PERSISTENCE_BLOCKED_WITH_EVIDENCE",
+  "experienceCompiler": {
+    "status": "RUNTIME_MOUNTED",
+    "pipeline": "PRESENT",
+    "healthEndpoint": "GET /v1/compiler/health",
+    "specSchema": "sci-os-experience-spec/v1",
+    "compilerVersion": "sci-os-compiler-pipeline/v1.0.0-b008"
+  },
+  "backgroundJobSystem": {
+    "status": "RUNTIME_MOUNTED",
+    "lifecycle": "sci-os-job-lifecycle/v1",
+    "healthEndpoint": "GET /v1/jobs/health",
+    "engineVersion": "sci-os-job-engine/v1.0.0-b009"
+  },
+  "persistenceBeta": {
+    "status": "ADAPTER_IMPLEMENTED",
+    "contract": "sci-os-persistence-contract/v1",
+    "healthEndpoint": "GET /v1/persistence/health",
+    "local": "PASS",
+    "postgres": "BLOCKED_WITH_EXTERNAL_DEPENDENCY",
+    "schema": "sci-os-persistence-schema/v1",
+    "note": "Set DATABASE_URL + run PG instance for B_010_PERSISTENCE_BETA_READY"
+  },
   "completedWaves": [
-    {"waveId": "A-CONVERGENCE", "verdict": "USABLE_LOCAL_ALPHA_READY"},
-    {"waveId": "B-001", "verdict": "PASS"},
-    {"waveId": "B-002", "verdict": "B_002_JOB_STATE_READY"},
+    {
+      "waveId": "A-CONVERGENCE",
+      "verdict": "USABLE_LOCAL_ALPHA_READY"
+    },
+    {
+      "waveId": "B-001",
+      "verdict": "PASS"
+    },
+    {
+      "waveId": "B-002",
+      "verdict": "B_002_JOB_STATE_READY"
+    },
     {
       "waveId": "B-003",
       "verdict": "B_003_POLICY_DECISION_READY",
@@ -58,9 +96,118 @@
       "buildId": "pkg_1788030533349",
       "completedAt": "2026-08-29T19:10:00.000Z",
       "proof": "diagnostics-export/completion-program/b-006/11-final-gate.json"
+    },
+    {
+      "waveId": "B-007",
+      "verdict": "B_007_P1_ROOT_CLOSURE_READY",
+      "buildId": "pkg_1788030533349",
+      "completedAt": "2026-08-29T21:30:00.000Z",
+      "proof": "diagnostics-export/completion-program/b-007/11-final-gate.json"
+    },
+    {
+      "waveId": "B-008",
+      "verdict": "B_008_EXPERIENCE_COMPILER_READY",
+      "buildId": "pkg_1788031848758",
+      "completedAt": "2026-08-29T19:48:00.000Z",
+      "proof": "diagnostics-export/completion-program/b-008/11-final-gate.json"
+    },
+    {
+      "waveId": "B-009",
+      "verdict": "B_009_BACKGROUND_SYSTEM_READY",
+      "buildId": "pkg_1788035260070",
+      "completedAt": "2026-08-29T20:30:00.000Z",
+      "proof": "diagnostics-export/completion-program/b-009/11-final-gate.json"
+    },
+    {
+      "waveId": "B-010",
+      "verdict": "B_010_PERSISTENCE_BLOCKED_WITH_EVIDENCE",
+      "buildId": "pkg_1788039377707",
+      "completedAt": "2026-08-29T21:38:00.000Z",
+      "proof": "diagnostics-export/completion-program/b-010/11-final-gate.json"
     }
   ],
-  "nextWave": "B-007",
-  "nextExactAction": "Continue Beta closure — P1 root classification toward < 20; PG deferral remains FD-002 honest",
-  "lastUpdatedAt": "2026-08-29T19:10:00.000Z"
+  "nextWave": "B-011",
+  "nextExactAction": "Resolve GAP-PG-PROBE-NONDETERMINISM (durable-adapter pg probe varies by import path), then gate smoke:ecl-dil. Beta remains blocked on FD-001 (OIDC provider) and a reachable PostgreSQL (DATABASE_URL); production additionally on TLS termination and Target-C P1=0.",
+  "lastUpdatedAt": "2026-09-30T10:14:39.114Z",
+  "p1Audit": {
+    "rawRegisterCount": 92,
+    "engineeringOpen": 0,
+    "engineeringClosed": 4,
+    "obsoleteClosed": 14,
+    "documentedNonEngineering": 74,
+    "proof": "diagnostics-export/completion-program/master/03-p1-root-closure.json"
+  },
+  "betaGate": "BETA_GATE_BLOCKED_WITH_EVIDENCE",
+  "betaGateAt": "2026-09-30T10:08:37.864Z",
+  "betaGateProof": "diagnostics-export/completion-program/beta-gate/11-final-gate.json",
+  "productionGate": "PRODUCTION_GATE_BLOCKED_WITH_EVIDENCE",
+  "productionGateAt": "2026-09-30T10:08:15.244Z",
+  "productionGateProof": "diagnostics-export/completion-program/production-gate/11-final-gate.json",
+  "alphaFinalGate": "ALPHA_FINAL_GATE_READY",
+  "alphaFinalGateAt": "2026-09-30T10:05:46.167Z",
+  "alphaFinalGateProof": "diagnostics-export/completion-program/alpha-final/11-final-gate.json",
+  "founderVisionGate": "FOUNDER_VISION_GATE_COMPLETE",
+  "founderVisionGateAt": "2026-08-29T21:54:28.374Z",
+  "founderVisionGateProof": "diagnostics-export/completion-program/final/11-founder-vision-gate.json",
+  "completionStatus": "SCI_OS_X10_FINAL_COMPLETION_STATUS",
+  "engineeringFailures": {
+    "betaGate": false,
+    "productionGate": false,
+    "alphaFinalFailedChecks": []
+  },
+  "lastSuccessfulProofs": {
+    "installedRestartReliability": "INSTALLED_RESTART_RELIABILITY_PASS",
+    "installedBootToSurfaceMs": [
+      3119,
+      3094,
+      3106
+    ],
+    "appTypecheckGate": "APP_TYPECHECK_GATE_PASS",
+    "installedRuntimeVerdict": "DEGRADED",
+    "sourceBuildPackageInstallSynchronized": true,
+    "at": "2026-09-30T10:14:39.115Z"
+  },
+  "externalAndFounderBlockers": [
+    {
+      "id": "GAP-EXTERNAL-POSTGRES",
+      "impact": "BETA_BLOCKER",
+      "owner": "EXTERNAL",
+      "nextAction": "Provision PostgreSQL and set DATABASE_URL; then run beta-gate pgAdapter and migrationCorrectness."
+    },
+    {
+      "id": "GAP-FD001-OIDC",
+      "impact": "BETA_BLOCKER",
+      "owner": "FOUNDER",
+      "nextAction": "Founder decision FD-001."
+    },
+    {
+      "id": "GAP-TLS",
+      "impact": "PRODUCTION_BLOCKER",
+      "owner": "FOUNDER",
+      "nextAction": "Deployment decision."
+    }
+  ],
+  "openEngineeringGaps": [
+    {
+      "id": "GAP-PG-PROBE-NONDETERMINISM",
+      "impact": "NON_BLOCKING_TECH_DEBT",
+      "classification": "PARTIAL"
+    },
+    {
+      "id": "GAP-SMOKE-UNGATED",
+      "impact": "NON_BLOCKING_TECH_DEBT",
+      "classification": "PARTIAL"
+    },
+    {
+      "id": "GAP-TARGET-C-P1",
+      "impact": "PRODUCTION_BLOCKER",
+      "classification": "PARTIAL"
+    },
+    {
+      "id": "GAP-PERF-UNMEASURED",
+      "impact": "PRODUCTION_BLOCKER",
+      "classification": "UNKNOWN"
+    }
+  ],
+  "registerCountsNote": "P0..P3 mirror the P1 register; they are not adjusted to produce a cleaner number. b-007 reports engineering-open P1 separately."
 }

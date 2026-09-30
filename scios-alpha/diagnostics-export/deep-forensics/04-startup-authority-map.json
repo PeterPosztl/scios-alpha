@@ -1,0 +1,63 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "singularOrchestrator": "installer/scripts/start-sci-os.cjs",
+  "singularBootstrap": "installer/scripts/bootstrap-capsule.cjs",
+  "entries": [
+    {
+      "entry": "SCI-OS-Start.bat",
+      "class": "CANONICAL_DEVELOPMENT",
+      "target": "bootstrap-capsule.cjs"
+    },
+    {
+      "entry": "pnpm sci:start",
+      "class": "CANONICAL_DEVELOPMENT",
+      "target": "bootstrap-capsule.cjs"
+    },
+    {
+      "entry": "pnpm start",
+      "class": "ALIAS",
+      "target": "start-sci-os.cjs --mode=normal"
+    },
+    {
+      "entry": "SCI OS ×10.bat",
+      "class": "CANONICAL_DEVELOPMENT_CASCADE",
+      "target": "sci-os-x10-launcher.cjs → start-sci-os"
+    },
+    {
+      "entry": "SCI-OS-X10.cmd (LOCALAPPDATA)",
+      "class": "CANONICAL_PRODUCTION",
+      "target": "start-sci-os.cjs --packaged"
+    },
+    {
+      "entry": "SCI-OS-Repair.bat",
+      "class": "CANONICAL_RECOVERY",
+      "target": "repair-sci-os + start-sci-os repair"
+    },
+    {
+      "entry": "SCI-OS-Safe-Mode.bat",
+      "class": "CANONICAL_RECOVERY",
+      "target": "start-sci-os --mode=safe"
+    },
+    {
+      "entry": "SCI-OS-Meta-Recovery.bat",
+      "class": "CANONICAL_RECOVERY",
+      "target": "bundled repair OR pnpm meta-recovery (DEV)"
+    },
+    {
+      "entry": "pnpm boot:*",
+      "class": "LEGACY_COMPAT",
+      "target": "scripts/boot/index.mjs"
+    },
+    {
+      "entry": "pnpm supervisor",
+      "class": "LEGACY",
+      "target": "supervisor/supervisor.js"
+    },
+    {
+      "entry": "bootstrap:golden",
+      "class": "ALIAS",
+      "target": "bootstrap/bootstrap-capsule.js → installer capsule"
+    }
+  ]
+}

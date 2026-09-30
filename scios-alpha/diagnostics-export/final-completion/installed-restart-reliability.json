@@ -1,0 +1,109 @@
+{
+  "schema": "sci-os-installed-restart-reliability/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T10:04:21.194Z",
+  "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+  "cycles": 3,
+  "buildId": "pkg_1790762466624",
+  "results": [
+    {
+      "cycle": 1,
+      "checks": {
+        "controlPlaneReady": "PASS",
+        "startupReadiness": "PASS",
+        "shellReady": "PASS",
+        "startupReportFresh": "PASS",
+        "bootAccepted": "PASS",
+        "noProcessLocked": "PASS",
+        "shutdownRestartable": "PASS",
+        "shutdownExitClean": "PASS",
+        "orphanFree": "PASS",
+        "lockReleased": "PASS"
+      },
+      "surface": {
+        "controlPlane": true,
+        "readiness": true,
+        "shell": true,
+        "overall": "DEGRADED",
+        "ok": true,
+        "readyMs": 3119
+      },
+      "readyMs": 3119,
+      "startupVerdict": "DEGRADED",
+      "startupReportAt": "2026-09-30T10:04:32.136Z",
+      "stopExitCode": 0,
+      "residualProcesses": [],
+      "status": "PASS"
+    },
+    {
+      "cycle": 2,
+      "checks": {
+        "controlPlaneReady": "PASS",
+        "startupReadiness": "PASS",
+        "shellReady": "PASS",
+        "startupReportFresh": "PASS",
+        "bootAccepted": "PASS",
+        "noProcessLocked": "PASS",
+        "shutdownRestartable": "PASS",
+        "shutdownExitClean": "PASS",
+        "orphanFree": "PASS",
+        "lockReleased": "PASS"
+      },
+      "surface": {
+        "controlPlane": true,
+        "readiness": true,
+        "shell": true,
+        "overall": "DEGRADED",
+        "ok": true,
+        "readyMs": 3094
+      },
+      "readyMs": 3094,
+      "startupVerdict": "DEGRADED",
+      "startupReportAt": "2026-09-30T10:04:47.861Z",
+      "stopExitCode": 0,
+      "residualProcesses": [],
+      "status": "PASS"
+    },
+    {
+      "cycle": 3,
+      "checks": {
+        "controlPlaneReady": "PASS",
+        "startupReadiness": "PASS",
+        "shellReady": "PASS",
+        "startupReportFresh": "PASS",
+        "bootAccepted": "PASS",
+        "noProcessLocked": "PASS",
+        "shutdownRestartable": "PASS",
+        "shutdownExitClean": "PASS",
+        "orphanFree": "PASS",
+        "lockReleased": "PASS"
+      },
+      "surface": {
+        "controlPlane": true,
+        "readiness": true,
+        "shell": true,
+        "overall": "DEGRADED",
+        "ok": true,
+        "readyMs": 3106
+      },
+      "readyMs": 3106,
+      "startupVerdict": "DEGRADED",
+      "startupReportAt": "2026-09-30T10:05:03.739Z",
+      "stopExitCode": 0,
+      "residualProcesses": [],
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS",
+  "restoredRunning": {
+    "ok": true,
+    "readyMs": 3080,
+    "overall": "DEGRADED"
+  },
+  "readyMsSamples": [
+    3119,
+    3094,
+    3106
+  ],
+  "token": "INSTALLED_RESTART_RELIABILITY_PASS"
+}

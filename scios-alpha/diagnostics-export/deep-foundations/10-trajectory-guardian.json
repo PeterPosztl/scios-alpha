@@ -1,0 +1,24 @@
+{
+  "at": "2026-08-13T14:31:11.804Z",
+  "buildId": "foundations-2026-08-13",
+  "schema": "sci-os-trajectory-guardian/v1",
+  "observe": [
+    "goal",
+    "actions",
+    "tools",
+    "files",
+    "contracts",
+    "policyImpact",
+    "currentDirection"
+  ],
+  "detectCollectiveViolationOf": [
+    "user intent",
+    "Founder Constitution",
+    "protected contracts",
+    "policy",
+    "release scope"
+  ],
+  "status": "CONTRACT_ACTIVE",
+  "note": "Individually OK steps may collectively violate — pause and re-read Product Memory",
+  "agentHarness": "product-memory/agent-harness.json"
+}

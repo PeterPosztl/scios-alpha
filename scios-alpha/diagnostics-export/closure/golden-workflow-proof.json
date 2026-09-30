@@ -1,0 +1,20 @@
+{
+  "at": "2026-08-19T22:42:28.461Z",
+  "workflows": [
+    {
+      "id": "golden_workflow_1_aapl_analysis",
+      "status": "RUNTIME_PARTIAL",
+      "steps": {
+        "prediction": true,
+        "risk": true,
+        "governance": true,
+        "execution": true,
+        "lineage": true,
+        "professionalUx": false,
+        "engineeringUx": true
+      },
+      "maturityTarget": "L7",
+      "currentMaturity": "L6_ENGINEERING"
+    }
+  ]
+}

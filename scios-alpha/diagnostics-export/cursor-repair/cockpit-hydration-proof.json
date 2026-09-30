@@ -1,0 +1,54 @@
+{
+  "schema": "sci-os-cockpit-hydration-proof/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-13T22:08:00.000Z",
+  "buildId": "pkg_1786656680759",
+  "runId": "3b2fb3c8-d95d-4732-814c-f78858a50103",
+  "appRoot": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+  "cockpitArtifact": "cockpit/index.mjs",
+  "cockpitSha256": "0d0a51123de8cd7b21b3fcfbb5c1409379d779035973f6964c45e548d4ee9687",
+  "launch": {
+    "entry": "SCI-OS-X10.cmd",
+    "exePresent": false,
+    "bundledNode": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\runtime\\node\\node.exe",
+    "listeners": {
+      "3000": "bundled node (control plane)",
+      "4000": "bundled node (cockpit)",
+      "5299": "FREE"
+    }
+  },
+  "http": {
+    "controlPlaneHealthz": 200,
+    "home": 200,
+    "readyz": 200,
+    "cockpitHealthz": 200,
+    "cockpitHtml": 200
+  },
+  "hydration": {
+    "timeoutMs": 5000,
+    "elapsedObserved": "immediate_on_load",
+    "loadingHome": "CLEARED",
+    "badge": "DEGRADED",
+    "badgeNotUnknown": true,
+    "headline": "What needs your attention?",
+    "homeSub": "8 recent analyses · 0 notifications · packaged",
+    "professionalRole": "Market analyst",
+    "roleId": "arch.market_analyst",
+    "experience": "RUNTIME_MOUNTED / market_analysis",
+    "searchAapl": "PASS — Entity AAPL — Apple Inc. visible",
+    "browserUrl": "http://127.0.0.1:4000/",
+    "notRecoveryUrl": true
+  },
+  "COCKPIT_GENERATED_SCRIPT": "PASS",
+  "HOME_API": "PASS",
+  "READYZ": "PASS",
+  "SEARCH_AAPL": "PASS",
+  "UI_HYDRATED": "PASS",
+  "COCKPIT_READY": "PASS",
+  "playwright": "NOT_AVAILABLE",
+  "browserMcpProof": "PASS",
+  "metaRecovery": {
+    "port5299": "FREE",
+    "unknownNoProof": "correct when Recovery is not the active product surface"
+  }
+}

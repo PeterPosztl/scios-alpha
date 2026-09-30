@@ -1,0 +1,17 @@
+{
+  "at": "2026-08-12T18:40:40.767Z",
+  "pass": true,
+  "steps": {
+    "home": true,
+    "searchAapl": true,
+    "entity360": true,
+    "analyze": true,
+    "prediction": true,
+    "risk": true,
+    "governance": true,
+    "simulation": true,
+    "lineage": true
+  },
+  "runId": "run_f9171bf1-361f-447d-af10-a8b25049ebd9",
+  "mode": "PACKAGED"
+}

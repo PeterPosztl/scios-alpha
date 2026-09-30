@@ -1,0 +1,56 @@
+{
+  "at": "2026-08-13T14:31:11.804Z",
+  "buildId": "foundations-2026-08-13",
+  "schema": "sci-os-desired-runtime-state/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "profile": "local-foundation",
+  "packaged": false,
+  "components": {
+    "NodeRuntime": {
+      "required": true,
+      "bundledIfPackaged": true
+    },
+    "ControlPlane": {
+      "required": true,
+      "port": 3000,
+      "health": "/healthz"
+    },
+    "Shell": {
+      "required": true,
+      "port": 4000,
+      "health": "/healthz",
+      "home": "/"
+    },
+    "HomeApi": {
+      "required": true,
+      "port": 3000,
+      "path": "/v1/home"
+    },
+    "VerticalSlice": {
+      "required": true,
+      "via": "control-plane"
+    },
+    "PostgreSQL": {
+      "required": false,
+      "allowedDegraded": true
+    },
+    "Redis": {
+      "required": false,
+      "allowedDegraded": true
+    },
+    "Electron": {
+      "required": false,
+      "allowedDegraded": true
+    }
+  },
+  "invariants": [
+    "SHELL_PORT != CONTROL_PLANE_PORT",
+    "HOME_READY ⇒ SHELL_READY",
+    "SHELL_READY ⇒ CORE_READY (CP+Shell health)",
+    "PACKAGED ⇒ bundled runtime preferred",
+    "READY ⇒ no mandatory UNKNOWN",
+    "FAILED_BOOT ⇒ resources released (best-effort)",
+    "ACTION_EXECUTED ⇒ policy enforcement point"
+  ],
+  "userLaunchTarget": "SHELL"
+}

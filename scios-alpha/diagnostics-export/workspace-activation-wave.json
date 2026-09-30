@@ -1,0 +1,95 @@
+{
+  "schema": "sci-os-workspace-activation-wave/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T20:38:25.055Z",
+  "mode": "PROFESSIONAL_WORKSPACE_ACTIVATION_WAVE_SAFE",
+  "wave": "PARTIAL",
+  "ready": false,
+  "holeless": false,
+  "roles200Activated": false,
+  "sessionActivation": true,
+  "enabled": false,
+  "enabledFull": false,
+  "autoTrade": false,
+  "inventedSops": false,
+  "simulationOnly": true,
+  "executionMode": "SIMULATION_ONLY",
+  "persisted": false,
+  "liveExecutionEnabled": false,
+  "oneBoot": true,
+  "oneShell": true,
+  "liveCertifiedFeeds": 0,
+  "unexpectedLiveFeeds": false,
+  "live": {
+    "controlPlane": { "port": 3000, "readyz": true, "executionMode": "SIMULATION_ONLY" },
+    "shell": { "port": 4000, "ok": true, "service": "@scios/cockpit-ui" },
+    "endpoint": "GET /v1/ecl/professional/activate",
+    "auditMutated": false,
+    "auditLen": 1,
+    "ldaAutoPatch": false,
+    "liveAdapter": "ABSENT",
+    "feedsActual": "simulated_alpha"
+  },
+  "health": {
+    "fail": 0,
+    "activatedSimulation": 7,
+    "activatedAnalog": 9,
+    "refused": 1,
+    "skipped": 9,
+    "probes": 9,
+    "archetypesActivated": 9,
+    "rolesSeeded": 200,
+    "rolesFullySpecified": 9,
+    "liveBlocked": 9
+  },
+  "roles": {
+    "RoleCatalog.AllDomains": "ACTIVATED_SIMULATION",
+    "ExperienceCompiler": "ACTIVATED_SIMULATION",
+    "WorkspaceSpecEngine": "ACTIVATED_SIMULATION",
+    "JTBDEngine": "ACTIVATED_ANALOG",
+    "note": "9 archetype workspaces session-mounted. 191 seeds UNKNOWN — never 200 activated apps."
+  },
+  "sandboxes": {
+    "Sandbox.AllDomains": "ACTIVATED_SIMULATION",
+    "Sandbox.mode": "ACTIVATED_SIMULATION",
+    "mode": "* = SIMULATION_ONLY",
+    "count": 16,
+    "absent": 7,
+    "skippedResearchRequired": [
+      "Hospitality",
+      "ProjectManagement",
+      "Consulting",
+      "Healthcare",
+      "Marketing",
+      "Sales",
+      "RealEstate"
+    ]
+  },
+  "blueprints": {
+    "AgentSystem.LDA": "REFUSED",
+    "KnowledgeGraph.Core": "ACTIVATED_ANALOG",
+    "WorkflowDSL.Core": "SKIPPED_UNKNOWN",
+    "DistributedArchitecture.Core": "SKIPPED_UNKNOWN"
+  },
+  "pipelines": {
+    "CapabilityEngine": "ACTIVATED_ANALOG",
+    "PolicyEngine": "ACTIVATED_SIMULATION",
+    "RiskEngine.Professional": "ACTIVATED_SIMULATION",
+    "EvidenceEngine.Professional": "ACTIVATED_ANALOG",
+    "LineageEngine.Professional": "ACTIVATED_ANALOG"
+  },
+  "os": {
+    "WorkflowEngine.RealisticMode": "ACTIVATED_ANALOG",
+    "EventBus.RealisticMode": "ACTIVATED_ANALOG",
+    "SystemHealth.RealisticMode": "ACTIVATED_ANALOG",
+    "AuditEngine.RealisticMode": "ACTIVATED_ANALOG"
+  },
+  "safety": {
+    "simulationOnly": "PASS_CONSTRAINT",
+    "noAutoTrade": "PASS_CONSTRAINT",
+    "persistedFalse": "PASS_CONSTRAINT",
+    "noUnexpectedLiveFeeds": "PASS_CONSTRAINT",
+    "oneBootOneShell": "PASS_CONSTRAINT"
+  },
+  "note": "SAFE session activation of 9 workspace specs. LDA REFUSED. 191 seeds UNKNOWN. Not READY."
+}

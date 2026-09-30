@@ -1,0 +1,85 @@
+{
+  "at": "2026-08-12T21:28:10.288Z",
+  "findings": [
+    {
+      "id": "false-ready-prediction-healthz",
+      "class": "ALREADY_PROVEN",
+      "axis": "FIRST_RELEASE",
+      "note": "Fixed measurable healthz; off canonical path"
+    },
+    {
+      "id": "false-ready-risk-healthz",
+      "class": "ALREADY_PROVEN",
+      "axis": "FIRST_RELEASE",
+      "note": "Fixed measurable healthz; off canonical path"
+    },
+    {
+      "id": "node-engines-vs-bundle",
+      "class": "ALREADY_PROVEN",
+      "axis": "FIRST_RELEASE"
+    },
+    {
+      "id": "adaptive-/app-host",
+      "class": "POST_RELEASE_P2",
+      "axis": "FULL_PRODUCT",
+      "note": "Existing Shell is AppHost; /app not required as second product"
+    },
+    {
+      "id": "experience-compiler-mount",
+      "class": "ALREADY_PROVEN",
+      "axis": "FIRST_RELEASE",
+      "note": "GW1 compile mounted at GET /v1/experience/compile into existing Shell"
+    },
+    {
+      "id": "gw2-7",
+      "class": "POST_RELEASE_P2",
+      "axis": "FULL_PRODUCT"
+    },
+    {
+      "id": "oidc",
+      "class": "POST_RELEASE_P2",
+      "axis": "FULL_PRODUCT",
+      "note": "Local ALPHA single-user — authMode local-development honestly labeled"
+    },
+    {
+      "id": "durable-event-fabric",
+      "class": "POST_RELEASE_P3",
+      "axis": "FULL_PRODUCT",
+      "note": "In-process spine sufficient for first-release GW1"
+    },
+    {
+      "id": "300-plus-capabilities",
+      "class": "POST_RELEASE_P3",
+      "axis": "FULL_PRODUCT"
+    },
+    {
+      "id": "enterprise.modules.sections-49-83",
+      "class": "STALE",
+      "axis": "FULL_PRODUCT",
+      "note": "Abstract ABSENT registry — not runtime disconnect of GW1"
+    },
+    {
+      "id": "professional_ux_shell_contract",
+      "class": "DUPLICATE",
+      "axis": "FIRST_RELEASE",
+      "note": "Superseded by live Shell Home + Professional view"
+    },
+    {
+      "id": "deeper-entity360",
+      "class": "POST_RELEASE_P2",
+      "axis": "FULL_PRODUCT"
+    },
+    {
+      "id": "reboot-certification",
+      "class": "RELEASE_BLOCKER_P1",
+      "axis": "FIRST_RELEASE",
+      "note": "Pre-reboot READY; post-reboot still AWAITING_HOST_REBOOT"
+    },
+    {
+      "id": "docker-pg-redis",
+      "class": "EXTERNAL",
+      "axis": "FIRST_RELEASE",
+      "note": "Honest DEGRADED when infra down — allowed by first-release contract"
+    }
+  ]
+}

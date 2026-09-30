@@ -1,0 +1,23 @@
+{
+  "at": "2026-08-12T20:33:12.804Z",
+  "question": "WHY does current SCI OS startup still call installer/scripts/start-meta-os.cjs?",
+  "answer": "It does NOT. SCI OS ×10 (scios-alpha) canonical path is bootstrap-capsule.cjs → start-sci-os.cjs. start-meta-os.cjs lives in sibling GalaxusMetaOS tree and is LEGACY_META_OS_OUT_OF_TREE.",
+  "sciOsCanonical": {
+    "productionLogical": "SCI OS ×10.exe → launcher-entry / SCI-OS-X10.cmd → start-sci-os.cjs --packaged",
+    "development": "pnpm sci:start → installer/scripts/bootstrap-capsule.cjs → start-sci-os.cjs",
+    "recovery": "SCI-OS-Safe-Mode.bat / SCI-OS-Repair.bat / meta-recovery :5299",
+    "bootstrap": "installer/scripts/bootstrap-capsule.cjs",
+    "supervisor": "installer/scripts/startup/process-supervisor.cjs",
+    "shell": "apps/cockpit-ui :4000 (manifest ports.cockpit)",
+    "controlPlane": "apps/control-plane-api :3000 (manifest ports.backend)"
+  },
+  "metaOs": {
+    "path": "C:/Users/peter/Desktop/SCI/qmis-orion-os-x10/GalaxusMetaOS",
+    "bat": "start-meta-os.bat",
+    "orchestrator": "installer/scripts/start-meta-os.cjs",
+    "classification": "LEGACY_META_OS_OUT_OF_TREE",
+    "silentSystemNodeFallback": true,
+    "action": "DEPRECATE_FROM_SCI_OS_PRODUCT — do not wire into scios-alpha boot"
+  },
+  "namingNote": "Meta-OS naming in recovery packages (meta-recovery) is recovery tooling, not Meta OS orchestrator."
+}

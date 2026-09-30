@@ -120,9 +120,9 @@
       "required": false,
       "dependencies": [],
       "fallbackProviders": [],
-      "state": "UNKNOWN",
+      "state": "MISSING",
       "evidence": [
-        "CONFIGURED"
+        "NOT_CONFIGURED"
       ],
       "safeModeBehavior": "disabled"
     },

@@ -1,0 +1,21 @@
+{
+  "at": "2026-08-13T13:00:49.933Z",
+  "buildId": "ux-dna-2026-08-13",
+  "architecture": true,
+  "checks": {
+    "keyboardNav": "PARTIAL",
+    "focusVisible": "PARTIAL",
+    "semanticStructure": "PARTIAL",
+    "contrast": "UNKNOWN_UNTIL_MEASURED",
+    "zoom": "UNKNOWN",
+    "reducedMotion": "TOKEN_HOOK_PRESENT",
+    "srLabels": "PARTIAL",
+    "densityModes": [
+      "COMFORTABLE",
+      "STANDARD",
+      "EXPERT"
+    ],
+    "densityWired": "STANDARD_DEFAULT_OTHERS_PARTIAL"
+  },
+  "note": "Accessibility is architecture — not deferred polish; measurement PENDING"
+}

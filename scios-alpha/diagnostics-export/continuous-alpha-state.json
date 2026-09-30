@@ -1,0 +1,51 @@
+{
+  "schema": "sci-os-continuous-alpha-state/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T15:12:00.000Z",
+  "mode": "ENTERPRISE_FINAL_COMPLETION",
+  "identity": "ENTERPRISE_GRADE_ALPHA",
+  "autoRepair": "PROPOSAL_ONLY",
+  "ready": false,
+  "holeless": false,
+  "autoTrade": false,
+  "parallelOS": false,
+  "secondShell": false,
+  "boot": "start-sci-os.cjs",
+  "controlPlane": ":3000",
+  "shell": "apps/cockpit-ui :4000",
+  "humanUsableAlpha": true,
+  "liveAdapterDefault": "ABSENT",
+  "stopFinalCompletionMode": true,
+  "allBlockingGapsResolved": true,
+  "appliedThisPass": [
+    "HOME-DECISIONS-EVIDENCE-CARDS",
+    "HOME-SYSTEM-STATUS-NO-FALSE-READY",
+    "WORK-EMPTY-INCLUDES-INTELLIGENCE",
+    "SYSTEM-HEALTH-CORE-READY-NOT-GO",
+    "PDR-ROLE-HINT-ANALYST-LOOP"
+  ],
+  "proposalsByDomain": {
+    "security": ["OIDC-ENTERPRISE"],
+    "observability": ["OTLP-SDK-EXPORT"],
+    "ecl": ["DURABLE-ECL-LEDGER"],
+    "dil": ["LIVE-FEED-DEFAULT-ON", "LIVE-OUTCOME-CALIBRATION"],
+    "ux": ["WEBGL-HEATMAPS"]
+  },
+  "tests": {
+    "lastProven": "2026-09-19T15:07:48.000Z",
+    "unit": "8/8 pass (runtime unchanged this pass)",
+    "smoke": "ok (API unchanged this pass)",
+    "node": "20.18.1 bundled"
+  },
+  "scoreboard": "docs/enterprise/ecl-dil-state.md",
+  "relatedExports": [
+    "diagnostics-export/cursor-build-log.json",
+    "diagnostics-export/cursor-feedback.json",
+    "diagnostics-export/infra-alpha-state.json",
+    "diagnostics-export/calibration-alpha-report.json",
+    "diagnostics-export/track-record-alpha.json",
+    "diagnostics-export/system-coherence-state.json",
+    "diagnostics-export/ux-alpha-state.json"
+  ],
+  "honesty": "HUMAN_USABLE_ALPHA holds. Re-scan closed Home/Work false-READY zavaros. P2 OIDC/OTLP/durable/live-calibrated feeds remain UNKNOWN. Not READY. No auto-trade. One boot, one Shell."
+}

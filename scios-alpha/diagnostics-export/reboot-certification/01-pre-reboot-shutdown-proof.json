@@ -1,0 +1,13 @@
+{
+  "at": "2026-08-12T21:28:20.547Z",
+  "schema": "sci-os-01-pre-reboot-shutdown-proof/v1",
+  "controlPlaneStopped": true,
+  "shellStopped": true,
+  "ownedProcessesRemaining": 0,
+  "remainingProcesses": [],
+  "portsListening": [],
+  "repoLockPresent": false,
+  "stagedLockPresent": false,
+  "note": "Process lock files may be cleared on next start; must not leave RUNNING services",
+  "clean": true
+}

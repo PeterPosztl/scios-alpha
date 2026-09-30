@@ -1,0 +1,37 @@
+{
+  "schema": "sci-os-ux-quality-scorecard/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "note": "No workflow scores COMPLETE (<85). Foundation only.",
+  "workflows": [
+    {
+      "id": "engineering_vertical_slice",
+      "scores": {
+        "clarity": 40,
+        "information_hierarchy": 35,
+        "workflow_efficiency": 55,
+        "error_prevention": 40,
+        "explainability": 50,
+        "evidence_access": 60,
+        "visual_consistency": 45,
+        "accessibility": 20,
+        "professional_density": 50,
+        "expert_efficiency": 60,
+        "novice_usability": 25,
+        "keyboard_efficiency": 15,
+        "perceived_trust": 55,
+        "status_transparency": 50
+      },
+      "total": 42,
+      "complete": false,
+      "criticalIssues": [
+        "Raw JSON default for non-experts",
+        "Empty em-dash states",
+        "No keyboard command palette",
+        "Token drift vs design system",
+        "Gradient vs Swiss flat policy"
+      ]
+    }
+  ],
+  "overallCompleteWorkflows": 0,
+  "gate": "NO_WORKFLOW_COMPLETE"
+}

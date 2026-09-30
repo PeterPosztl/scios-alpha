@@ -1,0 +1,113 @@
+{
+  "at": "2026-08-13T10:59:47.013Z",
+  "schema": "sci-os-01-current-implementation-truth/v1",
+  "buildId": "truth-recon-2026-08-13-c226d748",
+  "gitSha": "c226d7489cf7f445f226930de752e382361021fd",
+  "label": "ALPHA_NON_PRODUCTION",
+  "product": "SCI OS ×10",
+  "repoRoot": "C:/Users/peter/Desktop/SCI/scios-alpha",
+  "canonicalBoot": {
+    "development": "SCI-OS-Start.bat | pnpm sci:start → bootstrap-capsule.cjs → start-sci-os.cjs",
+    "packaged": "%LOCALAPPDATA%/SCI OS X10/app/SCI-OS-X10.cmd → start-sci-os.cjs --packaged"
+  },
+  "canonicalPorts": {
+    "controlPlane": 3000,
+    "shell": 4000,
+    "recoveryShell": 5299
+  },
+  "subsystems": {
+    "Bootstrap": {
+      "class": "WORKING",
+      "evidence": [
+        "installer/scripts/bootstrap-capsule.cjs",
+        "sci-os.manifest.json#bootstrap"
+      ]
+    },
+    "Launcher": {
+      "class": "WORKING",
+      "evidence": [
+        "SCI-OS-Start.bat",
+        "pnpm sci:start",
+        "%LOCALAPPDATA%/SCI OS X10/app/SCI-OS-X10.cmd"
+      ]
+    },
+    "Supervisor": {
+      "class": "PARTIAL",
+      "evidence": [
+        "installer/scripts/startup/process-supervisor.cjs (canonical)",
+        "supervisor/supervisor.js (secondary / non-primary)"
+      ]
+    },
+    "ControlPlane": {
+      "class": "WORKING",
+      "evidence": [
+        "apps/control-plane-api",
+        "ports.backend=3000"
+      ]
+    },
+    "Workers": {
+      "class": "PARTIAL",
+      "note": "In-process foundation smoke worker only; no BullMQ apps/workers"
+    },
+    "ProductKernel": {
+      "class": "PARTIAL",
+      "note": "packages/product-kernel exists; control-plane product routes are inline (not importing kernel package on request path)"
+    },
+    "AppHost": {
+      "class": "PARTIAL",
+      "note": "No separate AppHost package; Shell (cockpit-ui) is the runtime AppHost surface"
+    },
+    "ExperienceCompiler": {
+      "class": "PARTIAL",
+      "note": "packages/professional-domain-registry experience-compiler + control-plane inline compileGw1Experience"
+    },
+    "ShellHome": {
+      "class": "WORKING",
+      "evidence": [
+        "apps/cockpit-ui",
+        "GET /v1/home"
+      ]
+    },
+    "Search": {
+      "class": "PARTIAL",
+      "note": "Hardcoded entity catalog + run-derived hits"
+    },
+    "Entity": {
+      "class": "PARTIAL",
+      "note": "Entity360 shell over catalog AAPL/MSFT/GOOGL"
+    },
+    "GW1": {
+      "class": "PARTIAL",
+      "note": "Analyze → vertical-slice run wired; reboot-cert GW1 evidence still OPEN for packaged first-release close"
+    },
+    "Risk": {
+      "class": "PARTIAL",
+      "note": "Embedded governance-engine / vertical-slice; optional FastAPI risk-engine off canonical path"
+    },
+    "Governance": {
+      "class": "PARTIAL",
+      "note": "Embedded in vertical-slice"
+    },
+    "Execution": {
+      "class": "PARTIAL",
+      "note": "SIMULATION_ONLY fills"
+    },
+    "Evidence": {
+      "class": "PARTIAL",
+      "note": "UI evidence view from last run lineage"
+    },
+    "Lineage": {
+      "class": "PARTIAL",
+      "note": "In-memory ImmutableLineageStore; durable ABSENT"
+    },
+    "Recovery": {
+      "class": "PARTIAL",
+      "note": "Dev BATs exist; packaged recovery must prefer bundled Node (reconciled)"
+    },
+    "Packaging": {
+      "class": "PARTIAL",
+      "note": "package:dist / staged LOCALAPPDATA; reboot TASK-PKG-003 still OPEN"
+    }
+  },
+  "honesty": "No evidence ⇒ UNKNOWN. Classifications from file wiring, not claimed READY."
+}

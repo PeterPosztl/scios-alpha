@@ -1,0 +1,28 @@
+{
+  "at": "2026-08-12T20:22:33.412Z",
+  "schema": "sci-os-repository-truth/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "packageName": "sci-os-x10",
+  "packageManager": "pnpm@9.15.0",
+  "scannedFiles": 164,
+  "capabilityRegistryCount": 13,
+  "classification": {
+    "startup": "WORKING",
+    "verticalSlice": "WORKING",
+    "cockpitHome": "PARTIAL",
+    "productKernel": "PARTIAL",
+    "searchApi": "WORKING",
+    "entity360": "WORKING",
+    "cleanInstallPackaging": "MISSING",
+    "rebootPersistence": "UNPROVEN",
+    "pgRedis": "EXTERNAL_OPTIONAL"
+  },
+  "atomAiParallelTree": "ABSENT_GOOD",
+  "live": {
+    "home": 200,
+    "search": 200,
+    "entity": 200,
+    "cockpit": 200,
+    "p0Pass": true
+  }
+}

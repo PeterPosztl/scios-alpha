@@ -1,7 +1,7 @@
 {
   "schema": "sci-os-decision-semantics-proof/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-08-19T17:13:00.680Z",
+  "at": "2026-08-19T17:35:14.841Z",
   "status": "PASS",
   "option": "OPTION_A_LOCAL_REVIEW",
   "localReview": {

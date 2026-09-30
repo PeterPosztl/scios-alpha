@@ -1,0 +1,60 @@
+{
+  "timestamp": "2026-08-12T15:36:00.073Z",
+  "buildSHA": "c226d7489cf7f445f226930de752e382361021fd",
+  "verdict": "DEGRADED",
+  "label": "ALPHA_NON_PRODUCTION",
+  "parallelSpawnEliminated": true,
+  "delegatedTo": "installer/scripts/bootstrap-capsule.cjs",
+  "handoff": {
+    "skipped": true,
+    "reason": "dry_run_or_no_handoff"
+  },
+  "ports": {
+    "backend": 3000,
+    "cockpit": 4000,
+    "recoveryShell": 5299,
+    "postgres": 5432,
+    "redis": 6379
+  },
+  "services": [
+    {
+      "name": "backend",
+      "healthy": true,
+      "status": "READY",
+      "healthEndpoint": "http://127.0.0.1:3000/healthz",
+      "entry": "apps/control-plane-api/src/server.ts",
+      "spawnedBy": "start-sci-os.cjs"
+    },
+    {
+      "name": "worker",
+      "healthy": false,
+      "status": "UNHEALTHY",
+      "healthEndpoint": "http://127.0.0.1:3000/v1/foundation/worker-smoke",
+      "entry": "embedded-foundation-worker",
+      "spawnedBy": "control-plane-api (in-process)"
+    },
+    {
+      "name": "cockpit",
+      "healthy": true,
+      "status": "READY",
+      "healthEndpoint": "http://127.0.0.1:4000/healthz",
+      "entry": "apps/cockpit-ui/src/index.js",
+      "spawnedBy": "start-sci-os.cjs"
+    }
+  ],
+  "healthChecks": [
+    {
+      "url": "http://127.0.0.1:3000/healthz",
+      "ok": true
+    },
+    {
+      "url": "http://127.0.0.1:3000/readyz",
+      "ok": true
+    },
+    {
+      "url": "http://127.0.0.1:4000/healthz",
+      "ok": true
+    }
+  ],
+  "note": "Golden capsule is a thin shell — never a second orchestrator. expectedStatus is target; verdict is observed."
+}

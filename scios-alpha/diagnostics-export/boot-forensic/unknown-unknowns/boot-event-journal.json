@@ -1,0 +1,449 @@
+{
+  "bootId": "uu_msqi6dlm_ac8b47",
+  "events": [
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 1,
+      "timestamp": "2026-08-12T19:49:26.748Z",
+      "tMs": 4,
+      "component": "UU",
+      "action": "begin",
+      "status": "START",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 2,
+      "timestamp": "2026-08-12T19:49:26.856Z",
+      "tMs": 110,
+      "component": "PACKAGER",
+      "action": "audit",
+      "status": "OK",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 3,
+      "timestamp": "2026-08-12T19:49:35.166Z",
+      "tMs": 8420,
+      "component": "PACKAGER",
+      "action": "minimal_probe",
+      "status": "PACKAGER_THIN_LAUNCHER_COMPATIBLE",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 4,
+      "timestamp": "2026-08-12T19:49:43.812Z",
+      "tMs": 17066,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "START",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 5,
+      "timestamp": "2026-08-12T19:49:51.790Z",
+      "tMs": 25044,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "OK",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 6,
+      "timestamp": "2026-08-12T19:49:53.298Z",
+      "tMs": 26552,
+      "component": "CWD",
+      "action": "launch_install_dir",
+      "status": "START",
+      "pid": 16084,
+      "cwd": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10"
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 7,
+      "timestamp": "2026-08-12T19:49:56.627Z",
+      "tMs": 29881,
+      "component": "CWD",
+      "action": "launch_install_dir",
+      "status": "OK",
+      "pid": 16084,
+      "ready": true,
+      "gw1": true
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 8,
+      "timestamp": "2026-08-12T19:49:56.627Z",
+      "tMs": 29881,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "START",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 9,
+      "timestamp": "2026-08-12T19:50:04.737Z",
+      "tMs": 37991,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "OK",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 10,
+      "timestamp": "2026-08-12T19:50:05.745Z",
+      "tMs": 38999,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "START",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 11,
+      "timestamp": "2026-08-12T19:50:11.846Z",
+      "tMs": 45100,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "OK",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 12,
+      "timestamp": "2026-08-12T19:50:13.351Z",
+      "tMs": 46605,
+      "component": "CWD",
+      "action": "launch_parent_dir",
+      "status": "START",
+      "pid": 16084,
+      "cwd": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist"
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 13,
+      "timestamp": "2026-08-12T19:50:16.629Z",
+      "tMs": 49883,
+      "component": "CWD",
+      "action": "launch_parent_dir",
+      "status": "OK",
+      "pid": 16084,
+      "ready": true,
+      "gw1": true
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 14,
+      "timestamp": "2026-08-12T19:50:16.629Z",
+      "tMs": 49883,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "START",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 15,
+      "timestamp": "2026-08-12T19:50:23.063Z",
+      "tMs": 56317,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "OK",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 16,
+      "timestamp": "2026-08-12T19:50:24.064Z",
+      "tMs": 57318,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "START",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 17,
+      "timestamp": "2026-08-12T19:50:30.046Z",
+      "tMs": 63300,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "OK",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 18,
+      "timestamp": "2026-08-12T19:50:31.555Z",
+      "tMs": 64809,
+      "component": "CWD",
+      "action": "launch_foreign_dir",
+      "status": "START",
+      "pid": 16084,
+      "cwd": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\boot-forensic-cwd"
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 19,
+      "timestamp": "2026-08-12T19:50:34.864Z",
+      "tMs": 68118,
+      "component": "CWD",
+      "action": "launch_foreign_dir",
+      "status": "OK",
+      "pid": 16084,
+      "ready": true,
+      "gw1": true
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 20,
+      "timestamp": "2026-08-12T19:50:34.864Z",
+      "tMs": 68118,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "START",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 21,
+      "timestamp": "2026-08-12T19:50:41.201Z",
+      "tMs": 74455,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "OK",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 22,
+      "timestamp": "2026-08-12T19:50:42.202Z",
+      "tMs": 75456,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "START",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 23,
+      "timestamp": "2026-08-12T19:50:47.904Z",
+      "tMs": 81158,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "OK",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 24,
+      "timestamp": "2026-08-12T19:50:49.407Z",
+      "tMs": 82661,
+      "component": "CWD",
+      "action": "launch_space_path_cwd",
+      "status": "START",
+      "pid": 16084,
+      "cwd": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\uu path with spaces"
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 25,
+      "timestamp": "2026-08-12T19:50:52.700Z",
+      "tMs": 85954,
+      "component": "CWD",
+      "action": "launch_space_path_cwd",
+      "status": "OK",
+      "pid": 16084,
+      "ready": true,
+      "gw1": true
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 26,
+      "timestamp": "2026-08-12T19:50:52.700Z",
+      "tMs": 85954,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "START",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 27,
+      "timestamp": "2026-08-12T19:50:58.934Z",
+      "tMs": 92188,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "OK",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 28,
+      "timestamp": "2026-08-12T19:50:59.937Z",
+      "tMs": 93191,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "START",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 29,
+      "timestamp": "2026-08-12T19:51:05.981Z",
+      "tMs": 99235,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "OK",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 30,
+      "timestamp": "2026-08-12T19:51:07.197Z",
+      "tMs": 100451,
+      "component": "LAUNCH",
+      "action": "first",
+      "status": "START",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 31,
+      "timestamp": "2026-08-12T19:51:10.486Z",
+      "tMs": 103740,
+      "component": "LAUNCH",
+      "action": "first",
+      "status": "OK",
+      "pid": 16084,
+      "ready": {
+        "ok": true,
+        "atMs": 103736,
+        "healthz": 200,
+        "ready": true,
+        "profile": "packaged",
+        "cockpit": 200
+      },
+      "gw": {
+        "pass": true,
+        "home": 200,
+        "search": 200,
+        "shell": 200
+      }
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 32,
+      "timestamp": "2026-08-12T19:51:10.486Z",
+      "tMs": 103740,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "START",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 33,
+      "timestamp": "2026-08-12T19:51:16.878Z",
+      "tMs": 110132,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "OK",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 34,
+      "timestamp": "2026-08-12T19:51:18.095Z",
+      "tMs": 111349,
+      "component": "LAUNCH",
+      "action": "second",
+      "status": "START",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 35,
+      "timestamp": "2026-08-12T19:51:21.405Z",
+      "tMs": 114659,
+      "component": "LAUNCH",
+      "action": "second",
+      "status": "OK",
+      "pid": 16084,
+      "ready": {
+        "ok": true,
+        "atMs": 114653,
+        "healthz": 200,
+        "ready": true,
+        "profile": "packaged",
+        "cockpit": 200
+      },
+      "gw": {
+        "pass": true,
+        "home": 200,
+        "search": 200,
+        "shell": 200
+      }
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 36,
+      "timestamp": "2026-08-12T19:51:21.410Z",
+      "tMs": 114664,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "START",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 37,
+      "timestamp": "2026-08-12T19:51:28.213Z",
+      "tMs": 121467,
+      "component": "CONTROL",
+      "action": "stop_prior",
+      "status": "OK",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 38,
+      "timestamp": "2026-08-12T19:51:29.418Z",
+      "tMs": 122672,
+      "component": "EXE",
+      "action": "launch",
+      "status": "START",
+      "pid": 16084
+    },
+    {
+      "bootId": "uu_msqi6dlm_ac8b47",
+      "sequence": 39,
+      "timestamp": "2026-08-12T19:51:34.010Z",
+      "tMs": 127264,
+      "component": "EXE",
+      "action": "launch",
+      "status": "OK",
+      "pid": 16084,
+      "ready": {
+        "ok": true,
+        "atMs": 127259,
+        "healthz": 200,
+        "ready": true,
+        "profile": "packaged",
+        "cockpit": 200
+      },
+      "gw": {
+        "pass": true,
+        "home": 200,
+        "search": 200,
+        "shell": 200
+      }
+    }
+  ]
+}

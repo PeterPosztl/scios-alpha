@@ -1,0 +1,216 @@
+{
+  "schema": "sci-os-windows-capability-mining/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-18T18:20:00.000Z",
+  "baselineBuildId": "pkg_1787074480539",
+  "methodology": {
+    "sources": [
+      "installed layout under %LOCALAPPDATA%\\SCI OS X10\\app",
+      "installer/scripts/startup/* resolution modules",
+      "scripts/package/* packaging pipeline",
+      "packages/meta-recovery SystemInventoryEngine",
+      "packages/os-environment prove gates",
+      "diagnostics-export/closure + package-sync proofs",
+      "docs/enterprise/PACKAGED_FIRST_LAUNCH.md",
+      "product-memory/architectural-decisions.json"
+    ],
+    "honesty": "Capability hit ≠ READY. No evidence ⇒ UNKNOWN.",
+    "scope": "Windows host layer only — not product GW2–7 or enterprise infra"
+  },
+  "windowsHostCapabilities": {
+    "entryAndLaunch": [
+      {
+        "id": "WH-ENTRY-001",
+        "capability": "Desktop shortcut launch",
+        "windowsMechanism": "Shell link (.lnk) → EXE or CMD",
+        "sciStatus": "PROVEN",
+        "evidence": "package-sync/install-proof.json; shortcuts target SCI-OS-X10.exe",
+        "buildId": "pkg_1787074480539"
+      },
+      {
+        "id": "WH-ENTRY-002",
+        "capability": "Start Menu launch",
+        "windowsMechanism": "Programs\\SCI OS X10.lnk",
+        "sciStatus": "PROVEN",
+        "evidence": "atomic-install shortcuts_localappdata step",
+        "buildId": "pkg_1787074480539"
+      },
+      {
+        "id": "WH-ENTRY-003",
+        "capability": "Thin native EXE wrapper",
+        "windowsMechanism": "C# stub delegates to CMD (no second boot SM)",
+        "sciStatus": "PROVEN",
+        "evidence": "closure/batch_001_P1/windows-entry-proof.json",
+        "note": "Not a full native shell — launcher only"
+      },
+      {
+        "id": "WH-ENTRY-004",
+        "capability": "Setup.exe clean-machine install",
+        "windowsMechanism": "pkg Setup + payload copy",
+        "sciStatus": "PARTIAL",
+        "evidence": "packaging/17-packaging-signoff setupGenerated=true; final-closure/clean-install-proof pass=false",
+        "gap": "No proven fresh-machine install without dev tooling"
+      },
+      {
+        "id": "WH-ENTRY-005",
+        "capability": "Code signing (Authenticode)",
+        "windowsMechanism": "Signtool / SmartScreen trust",
+        "sciStatus": "ABSENT",
+        "evidence": "packaging/17-packaging-signoff NOT_AVAILABLE"
+      }
+    ],
+    "runtimeIsolation": [
+      {
+        "id": "WH-ISO-001",
+        "capability": "Bundled Node runtime (no system Node)",
+        "windowsMechanism": "LOCALAPPDATA app\\runtime\\node\\node.exe",
+        "sciStatus": "PROVEN",
+        "evidence": "package-sync/golden-path-proof BUNDLED_NODE",
+        "version": "20.18.1"
+      },
+      {
+        "id": "WH-ISO-002",
+        "capability": "No repository source at runtime",
+        "windowsMechanism": "Packaged backend/server.cjs + cockpit bundle",
+        "sciStatus": "PROVEN",
+        "evidence": "repoPathLeak=0 in golden-path-proof",
+        "buildId": "pkg_1787074480539"
+      },
+      {
+        "id": "WH-ISO-003",
+        "capability": "Single-instance process lock",
+        "windowsMechanism": "diagnostics-export/.sci-os-startup.lock",
+        "sciStatus": "PROVEN",
+        "evidence": "startup-report processLock.ok",
+        "module": "installer/scripts/startup/process-lock.cjs"
+      },
+      {
+        "id": "WH-ISO-004",
+        "capability": "Child-service failure isolation",
+        "windowsMechanism": "Supervisor + health identity per port",
+        "sciStatus": "UNPROVEN",
+        "evidence": "os-environment/final-os-environment-signoff childServiceIsolation=UNPROVEN"
+      },
+      {
+        "id": "WH-ISO-005",
+        "capability": "Windows Service / session 0 isolation",
+        "windowsMechanism": "sc.exe / NSSM / Task Scheduler",
+        "sciStatus": "ABSENT",
+        "evidence": "STARTUP_RECOVERY_AUDIT Windows service scripts ABSENT; zero NSSM refs"
+      }
+    ],
+    "lifecycle": [
+      {
+        "id": "WH-LIFE-001",
+        "capability": "Atomic install with rollback",
+        "windowsMechanism": "stage → verify → app.backup.last → promote",
+        "sciStatus": "PROVEN",
+        "evidence": "package-sync/install-proof.json",
+        "module": "scripts/package/atomic-install.cjs"
+      },
+      {
+        "id": "WH-LIFE-002",
+        "capability": "Graceful shutdown + port release",
+        "windowsMechanism": "shutdown-request + convergence/stop.cjs",
+        "sciStatus": "PROVEN_WITH_GAPS",
+        "evidence": "package-sync golden path SHUTDOWN PASS; packaging signoff shutdown=false historically",
+        "gap": "Residual process edge cases on forced kill"
+      },
+      {
+        "id": "WH-LIFE-003",
+        "capability": "Host reboot survival + relaunch",
+        "windowsMechanism": "User click after reboot — no auto-start service",
+        "sciStatus": "EXTERNAL_BLOCKER",
+        "evidence": "packaging/17-packaging-signoff windowsReboot=false; reboot-certification suite exists",
+        "gap": "Requires human host restart + post-reboot proof"
+      },
+      {
+        "id": "WH-LIFE-004",
+        "capability": "Session restore after crash",
+        "windowsMechanism": "OS session APIs + SCI state dir",
+        "sciStatus": "PARTIAL",
+        "evidence": "os-environment sessionRestoreApi=true at API level; reboot gate false"
+      },
+      {
+        "id": "WH-LIFE-005",
+        "capability": "Auto-update / delta patch",
+        "windowsMechanism": "Not defined",
+        "sciStatus": "ABSENT",
+        "evidence": "POST_RELEASE_BACKLOG TASK-OS-001 deferred P3"
+      }
+    ],
+    "integration": [
+      {
+        "id": "WH-INT-001",
+        "capability": "Default browser handoff to Cockpit",
+        "windowsMechanism": "ShellExecute http://127.0.0.1:4000/",
+        "sciStatus": "PROVEN",
+        "evidence": "startup-report desktop.opened=true"
+      },
+      {
+        "id": "WH-INT-002",
+        "capability": "Native window chrome / taskbar identity",
+        "windowsMechanism": "Electron or Win32 host",
+        "sciStatus": "ABSENT_BY_DESIGN",
+        "evidence": "packaging/01-package-architecture rejected Electron; TASK-ELE-001 P3",
+        "note": "HTTP Shell at :4000 is canonical AppHost"
+      },
+      {
+        "id": "WH-INT-003",
+        "capability": "Windows Event Log / ETW telemetry",
+        "windowsMechanism": "EventSource / ETW provider",
+        "sciStatus": "ABSENT",
+        "evidence": "No host telemetry bridge in installer"
+      },
+      {
+        "id": "WH-INT-004",
+        "capability": "UAC elevation for install",
+        "windowsMechanism": "Setup.exe manifest",
+        "sciStatus": "UNKNOWN",
+        "evidence": "Per-user LOCALAPPDATA install avoids machine-wide elevation"
+      }
+    ]
+  },
+  "sciProductCapabilitiesOnWindows": {
+    "provenOnCurrentInstall": [
+      "Control Plane HTTP :3000",
+      "Cockpit Shell AppHost :4000",
+      "Recovery server.cjs present",
+      "GW1 vertical slice SIMULATION_ONLY",
+      "Experience compile RUNTIME_MOUNTED",
+      "Evidence + Lineage views",
+      "/v1/models + /readyz.dependencyMetrics"
+    ],
+    "degradedOptional": [
+      "PostgreSQL",
+      "Redis / BullMQ workers",
+      "Docker engine",
+      "Electron desktop",
+      "FastAPI prediction/risk engines as supervised children"
+    ],
+    "miningEngine": {
+      "existing": "@scios/meta-recovery SystemInventoryEngine + SystemCapabilityGraph",
+      "cli": "pnpm sci:capability-scan",
+      "output": "diagnostics-export/meta-recovery/capability-inventory.json",
+      "hostLayerGap": "Inventory scans repo/runtime files — no Windows registry/service/session mining"
+    }
+  },
+  "capabilityMatrixSummary": {
+    "PROVEN": 12,
+    "PROVEN_WITH_GAPS": 1,
+    "PARTIAL": 2,
+    "UNPROVEN": 1,
+    "EXTERNAL_BLOCKER": 1,
+    "ABSENT": 5,
+    "ABSENT_BY_DESIGN": 1,
+    "UNKNOWN": 1
+  },
+  "topHostGapsForBlueprint": [
+    "WH-ISO-005 Windows Service layer undefined",
+    "WH-LIFE-003 Host reboot certification incomplete",
+    "WH-ENTRY-004 Clean-machine Setup proof missing",
+    "WH-ISO-004 Child-service isolation unproven",
+    "WH-INT-002 Native window host deferred P3",
+    "Host capability mining not separated from product capability mining"
+  ]
+}

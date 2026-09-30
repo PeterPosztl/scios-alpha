@@ -388,8 +388,12 @@ function copyInstallerScripts() {
     const src = path.join(ROOT, rel);
     if (fs.existsSync(src)) copyFile(src, path.join(OUT, rel));
   }
-  // Full startup + convergence trees — dependency closure for canonical boot
-  for (const tree of ["installer/scripts/startup", "installer/scripts/convergence"]) {
+  // Full startup + convergence + host trees — dependency closure for canonical boot
+  for (const tree of [
+    "installer/scripts/startup",
+    "installer/scripts/convergence",
+    "installer/scripts/host",
+  ]) {
     const srcTree = path.join(ROOT, tree);
     if (fs.existsSync(srcTree)) copyDir(srcTree, path.join(OUT, tree));
   }
@@ -630,6 +634,15 @@ async function main() {
   console.log(JSON.stringify({ step: "clean_out", out: OUT }));
   fs.rmSync(OUT, { recursive: true, force: true });
   ensureDir(OUT);
+
+  // Packaged backend resolves workspace "default" exports to packages/*/dist.
+  // Rebuild those artifacts from current source before bundling — never ship stale dist.
+  console.log(JSON.stringify({ step: "build_workspace_packages" }));
+  run(
+    process.platform === "win32" ? "pnpm.cmd" : "pnpm",
+    ["-r", "--filter", "./packages/**", "--if-present", "run", "build"],
+    { shell: true }
+  );
 
   const buildId = `pkg_${Date.now()}`;
   const sha = gitSha();

@@ -1,0 +1,10 @@
+{
+  "schema": "sci-os-completion-audit/experience-compiler/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "overallMaturity": "ABSENT",
+  "packageDir": "packages/experience-compiler",
+  "hasPackageJson": false,
+  "srcFiles": 0,
+  "status": "ABSENT",
+  "note": "Directory exists but contains no package.json or source files. Experience compilation is an architectural concept not yet implemented."
+}

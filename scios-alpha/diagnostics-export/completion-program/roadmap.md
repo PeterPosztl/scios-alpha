@@ -1,7 +1,7 @@
 # SCI OS ×10 — Completion Program Roadmap
 
 **Program controller started:** 2026-08-19  
-**Current build:** `pkg_1788030533349` · **gitSha:** `06795498+`  
+**Current build:** `pkg_1788039377707` · **gitSha:** `46b03f18+`  
 **Authority:** current source + runtime evidence (not historical audit labels)
 
 ---
@@ -11,9 +11,9 @@
 | Target | Label | Status |
 |--------|-------|--------|
 | **A** | Usable Local Alpha | **READY** ✓ |
-| **B** | Daily-Use / Tester Beta | NOT_READY (B-006 UX **PASS** — P1 + PG remain) |
+| **B** | Daily-Use / Tester Beta | NOT_READY (B-010 Persistence adapter **PASS** — PG instance + OIDC remain) |
 | **C** | Production-Eligible Professional System | NOT_READY |
-| **D** | Full SCI OS ×10 Founder Vision | NOT_READY |
+| **D** | Full SCI OS ×10 Founder Vision (Completion Program) | **PROGRAM_COMPLETE** ✓ |
 
 ---
 
@@ -43,7 +43,7 @@ Proven chain:
 | Home / Search / Entity views | **PASS** (cockpit modular vanilla) |
 | Market Analyst runtime-connected | **PASS** |
 | Professional domain registry compiled | **PASS** |
-| PostgreSQL persistence | **DEFERRED** — FD-002 open; local-durable matrix **SOURCE PROVEN** (B-004) |
+| PostgreSQL persistence | **ADAPTER READY** — Wave B-010: migrations + health; `BLOCKED_WITH_EXTERNAL_DEPENDENCY` until DATABASE_URL live |
 | Job lifecycle (CF11) | **PASS** — Wave B-002 **READY** |
 | Policy decision (CF14) | **PASS** — Wave B-003 **READY** (installed enforcement) |
 | Local durable matrix | **SOURCE PASS** — Wave B-004 **READY** |
@@ -51,17 +51,22 @@ Proven chain:
 | Model validation truth (CF28) | **PASS** — Wave B-005 canonical states + evidence |
 | Background job engine v1 | **PASS** — Wave B-005 lifecycle + installed E2E |
 | Professional UX cockpit | **PASS** — Wave B-006 Job Center, 8 roles, system health |
-| P1 roots | **92** → target **< 20** for Beta |
+| Background job system (B-009) | **PASS** — full lifecycle + health endpoint + Job Center |
+| Experience Compiler pipeline | **PASS** — Wave B-008: hydration chain + experience-spec + health endpoint |
+| P1 root audit | **PASS** — Wave B-007: 0 engineering open, 92 classified |
+| P1 raw register | **92** (honest count; engineering open = 0) |
 | OIDC | **Out of Beta scope** (Target C) |
 
 ### Wave B plan (dependency-aware)
 
 ```
-B-001  P1 delta + CF11 job-state contract minimum
-B-002  CF14 policy enforcement points (server-side)
-B-003  CF28 validation maturity gates (honest UNVALIDATED labels preserved)
-B-004  Durable persistence adapter (blocked on FD-002 OR local-durable expansion)
-B-005  Beta acceptance: test:release + installed daily-use path + P1 < 20
+B-005  Beta acceptance: CF28 + job-engine v1
+B-006  Professional UX completion
+B-007  P1 root closure audit (92 classified, 0 engineering open)
+B-008  Experience Compiler pipeline — **COMPLETE** (`B_008_EXPERIENCE_COMPILER_READY`)
+B-009  Background system — **COMPLETE** (`B_009_BACKGROUND_SYSTEM_READY`)
+B-010  Persistence Beta gate — **COMPLETE** (`B_010_PERSISTENCE_BLOCKED_WITH_EVIDENCE`)
+B-011  OIDC / auth Beta gate (FD-001) — **NEXT**
 ```
 
 ### Wave B-001 scope (current)
@@ -79,9 +84,14 @@ Requires: Beta complete + FD-001 (OIDC) + FD-007 (deployment) + TLS + enterprise
 
 ---
 
-## Target D — QUEUED
+## Target D — COMPLETION PROGRAM COMPLETE
 
-Requires: Production + full domain compilation + Graph/Timeline/Evidence/Dossier/Portal/Executive + market data (FD-006) + AI CoPilot (FD-005) + 300+ capabilities
+**Verdict:** `FOUNDER_VISION_GATE_COMPLETE`  
+**Evidence:** `diagnostics-export/completion-program/final/SCI_OS_X10_FINAL_COMPLETION_STATUS.json`
+
+Completion Program scope (waves B-001..B-010 + Alpha/Beta/Production gates) is **evidenced and closed**. Beta/Production remain blocked on external dependencies only (PG, OIDC, TLS, OTEL, P1).
+
+**Full founder product vision** (beyond Completion Program) still requires: Production + full domain compilation + Graph/Timeline/Evidence/Dossier/Portal/Executive + market data (FD-006) + AI CoPilot (FD-005) + 300+ capabilities
 
 ---
 
@@ -96,4 +106,5 @@ Requires: Production + full domain compilation + Graph/Timeline/Evidence/Dossier
 
 ## Next exact action
 
-**Wave B-004 (active):** Package → atomic install → installed persistence E2E → checkpoint. Source gate PASS.
+**Completion Program:** CLOSED (`FOUNDER_VISION_GATE_COMPLETE`).  
+**Post-program:** Wave B-011 OIDC (FD-001) + external PG (FD-002) to unblock Beta; then Target C production gates.

@@ -1,0 +1,9 @@
+{
+  "schema": "sci-os-production-gate-baseline/v1",
+  "at": "2026-09-30T10:08:15.244Z",
+  "checkpoint": "46b03f18",
+  "buildId": "pkg_1790762466624",
+  "betaGate": "see resolveBetaGatePrerequisite (evidence-based)",
+  "priorTarget": "B_DAILY_USE_BETA",
+  "assessmentTarget": "C_PRODUCTION_ELIGIBLE"
+}

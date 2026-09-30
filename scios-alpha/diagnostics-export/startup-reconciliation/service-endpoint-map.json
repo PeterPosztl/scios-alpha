@@ -1,0 +1,35 @@
+{
+  "at": "2026-08-12T20:33:12.838Z",
+  "sourceOfTruth": "sci-os.manifest.json ports + live probes",
+  "live": {
+    "controlPlane": {
+      "port": 3000,
+      "healthz": 200,
+      "rootPath": 404,
+      "rootBody": "not_found (expected — API not Shell)",
+      "identity": "@scios/control-plane-api"
+    },
+    "shell": {
+      "port": 4000,
+      "healthz": 200,
+      "homeMarkup": true,
+      "identity": "@scios/cockpit-ui"
+    },
+    "predictionEngine": {
+      "port": 5201,
+      "healthz": 0,
+      "note": "optional FastAPI"
+    },
+    "riskEngine": {
+      "port": 5202,
+      "healthz": 0,
+      "note": "optional FastAPI"
+    },
+    "executionSimulator": {
+      "port": 5210,
+      "healthz": 0,
+      "note": "optional; vertical-slice uses embedded simulation"
+    }
+  },
+  "staleDefaultsRemovedFromValidateConfig": "5200/5230 were wrong defaults — now manifest-driven"
+}

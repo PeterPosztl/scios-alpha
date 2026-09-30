@@ -1,8 +1,8 @@
 {
   "schema": "sci-os-whi-011-p0-regression/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-08-18T20:46:40.346Z",
-  "installedBuild": "pkg_1787085655776",
+  "at": "2026-08-19T13:48:08.417Z",
+  "installedBuild": "pkg_1787147143095",
   "hostTwinLifecycle": "RUNNING",
   "hostDrift": [],
   "jobStatus": "JOB_OBJECT_ACTIVE",
@@ -46,7 +46,7 @@
       "name": "GW1",
       "ok": true,
       "status": 200,
-      "runId": "run_4afcd8b6-5003-4c61-8c91-63636e33c8ed",
+      "runId": "run_d307073c-457e-4124-8914-349f811a9786",
       "pipeline": "APPROVE"
     },
     {

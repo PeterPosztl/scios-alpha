@@ -84,6 +84,7 @@ export const PredictionEnvelopeSchema = z.object({
   }),
   abstain: z.boolean(),
   featureSnapshotId: z.string(),
+  sourceTickIds: z.array(z.string()).optional(),
 });
 export type PredictionEnvelope = z.infer<typeof PredictionEnvelopeSchema>;
 
@@ -133,6 +134,7 @@ export const RiskDecisionEnvelopeSchema = z.object({
   }),
   uncertaintyHaircut: z.number().min(0).max(1),
   killSwitchActive: z.boolean(),
+  sourceTickIds: z.array(z.string()).optional(),
 });
 export type RiskDecisionEnvelope = z.infer<typeof RiskDecisionEnvelopeSchema>;
 
@@ -155,6 +157,9 @@ export const GovernanceDecisionSchema = z.object({
   policy: z.string(),
   reasons: z.array(z.string()),
   timestamp: z.string(),
+  subjectActorId: z.string().optional(),
+  serviceActorId: z.string().optional(),
+  serviceRole: z.string().optional(),
 });
 export type GovernanceDecision = z.infer<typeof GovernanceDecisionSchema>;
 
@@ -210,6 +215,14 @@ export const SliceRunRequestSchema = z.object({
   tenantId: z.string().default("default"),
   seed: z.number().int().optional(),
   payload: z.record(z.unknown()).optional(),
+  /** Additive — Action execution contract correlation */
+  idempotencyKey: z.string().min(8).optional(),
+  executionId: z.string().optional(),
+  actor: z.string().optional(),
+  role: z.string().optional(),
+  roleId: z.string().optional(),
+  sessionId: z.string().optional(),
+  actorContext: z.record(z.unknown()).optional(),
 });
 export type SliceRunRequest = z.infer<typeof SliceRunRequestSchema>;
 export type SliceRunRequestInput = z.input<typeof SliceRunRequestSchema>;

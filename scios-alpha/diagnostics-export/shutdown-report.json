@@ -1,35 +1,29 @@
 {
-  "at": "2026-08-12T13:07:00.621Z",
+  "at": "2026-09-30T10:01:33.168Z",
+  "appRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+  "restartable": true,
+  "appRootSource": "resolved",
   "order": [
+    "graceful_request",
     "cockpit",
     "worker(in-process)",
     "backend",
+    "supervisory_tree",
     "infra_left_running"
   ],
-  "stopped": [
-    {
-      "pid": 6848,
-      "component": "@scios/cockpit-ui",
-      "port": 4000,
-      "reason": "healthz_identity_proven"
-    },
-    {
-      "pid": 18996,
-      "component": "@scios/control-plane-api",
-      "port": 3000,
-      "reason": "healthz_identity_proven"
-    },
-    {
-      "pid": 17732,
-      "component": "control-plane-api"
-    },
-    {
-      "pid": 2832,
-      "component": "startup-orchestrator",
-      "reason": "lock_pid"
-    }
-  ],
+  "shutdownRequest": "CONVERGENCE_STOP",
+  "stopped": [],
   "skipped": [
+    {
+      "pid": null,
+      "component": "port:4000",
+      "reason": "identity_not_proven service=null"
+    },
+    {
+      "pid": null,
+      "component": "port:3000",
+      "reason": "identity_not_proven service=null"
+    },
     {
       "pid": null,
       "component": "port:5200",
@@ -38,12 +32,18 @@
     {
       "pid": null,
       "component": "port:5230",
-      "reason": "identity_not_proven service=@scios/mock-api"
+      "reason": "identity_not_proven service=null"
     }
   ],
+  "escalated": [],
   "afterStop": {
     "apiDown": true,
-    "cockpitDown": true
+    "cockpitDown": true,
+    "orphanProcesses": [],
+    "orphanFree": true
+  },
+  "lockRelease": {
+    "released": false
   },
   "infraDown": {
     "attempted": false

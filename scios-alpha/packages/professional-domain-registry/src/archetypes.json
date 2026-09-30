@@ -211,6 +211,40 @@
       "status": "ARCHETYPE_DEFINED"
     },
     {
+      "roleId": "arch.prediction_decision_analyst",
+      "name": "Prediction & Decision Analyst",
+      "domainFamily": "market_intelligence",
+      "primaryMission": "Find honest edge on prediction markets, size it against bankroll and guardrails, and keep the human as decision maker.",
+      "topQuestions": [
+        "Where is edge on Polymarket and Kalshi?",
+        "What size fits the bankroll?",
+        "What does the agent propose, and why?",
+        "Where do PnL and risk stand today?"
+      ],
+      "topTasks": [
+        "Review market overview",
+        "Inspect edge and risk maps",
+        "Request AI proposal",
+        "Record human decision",
+        "Open ECL reporting"
+      ],
+      "criticalDecisions": ["enter", "trim", "exit", "avoid", "wait"],
+      "inputData": ["Simulated market snapshot", "Bankroll", "Guardrail limits", "Manual signals"],
+      "outputArtifacts": ["Proposal", "Decision log", "ECL report"],
+      "riskLevel": "HIGH",
+      "requiredPermissions": ["entity:read", "analyze", "evidence:read"],
+      "commonEntities": ["Instrument", "Position", "Proposal", "RiskBucket"],
+      "commonVisualizations": ["DilMarketOverview", "EdgeMap", "RiskMap", "EclReporting", "GuardrailPanel", "ProposalPanel"],
+      "commonWorkflows": ["prediction_decision_review"],
+      "requiredSCIcapabilities": ["Prediction", "Risk", "Decision", "Evidence", "Report"],
+      "AIassistance": ["Propose enter_small / wait / avoid / exit_partial — never execute"],
+      "humanApprovalRequirements": ["AGENT → PROPOSAL → HUMAN → DECISION. No auto-trade."],
+      "auditRequirements": ["every proposal and risk event logged"],
+      "noviceMode": "guided_edge_review",
+      "expertMode": "dense_dil_console",
+      "status": "ARCHETYPE_DEFINED"
+    },
+    {
       "roleId": "arch.eng_operator",
       "name": "Engineering Operator",
       "domainFamily": "eng_platform",

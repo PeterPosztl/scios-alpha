@@ -9,7 +9,10 @@ import nodePath from "node:path";
 import { listSliceRuns, getSliceRun } from "@scios/vertical-slice";
 import { ProductKernel, discipline, buildActorContext } from "@scios/product-kernel";
 import { evaluatePolicyDecision, type Role } from "@scios/governance-engine";
-import { compileExperience } from "@scios/professional-domain-registry/compiler";
+import {
+  runExperienceCompilerPipeline,
+  getCompilerHealth,
+} from "@scios/professional-domain-registry/compiler-pipeline";
 import {
   getOrCreateSession,
   saveSession,
@@ -34,6 +37,11 @@ import {
   recoverJob,
   reconcileStaleJobs,
 } from "../jobEngine.js";
+import {
+  jobsHealth,
+  listCanonicalJobs,
+  getCanonicalJob,
+} from "../jobLifecycle.js";
 
 export type SendJson = (res: ServerResponse, status: number, body: unknown) => void;
 
@@ -342,7 +350,7 @@ function matrixRoleFor(professionalRoleId: string): Role {
   return "researcher";
 }
 
-function compileProductExperience(input: {
+export function compileProductExperience(input: {
   roleId?: string | null;
   objectId?: string | null;
   workflowState?: string | null;
@@ -377,6 +385,12 @@ function compileProductExperience(input: {
     "act.local_review.approve",
     "execution:submit",
   ];
+  const policyResults: Array<{
+    actionId: string;
+    can: boolean;
+    decision: string;
+    reasonCodes: string[];
+  }> = [];
   const policyDisabled: { action: string; reason: string }[] = [];
   for (const actionId of policyActions) {
     const decision = evaluatePolicyDecision({
@@ -392,6 +406,12 @@ function compileProductExperience(input: {
       objectRef: input.objectId || null,
       workflowState: input.workflowState || "ready",
     });
+    policyResults.push({
+      actionId,
+      can: decision.can,
+      decision: decision.decision,
+      reasonCodes: decision.reasonCodes || [],
+    });
     if (!decision.can && decision.decision !== "CONDITIONAL") {
       policyDisabled.push({
         action: actionId,
@@ -400,27 +420,41 @@ function compileProductExperience(input: {
     }
   }
 
-  // ONE canonical compiler — Professional Domain Registry
-  return compileExperience({
+  const appRoot =
+    process.env.SCIOS_APP_ROOT || process.cwd();
+  const kernel = getKernel();
+  const kernelProjection = kernel.uiProjection({
     roleId,
-    currentObject: input.objectId || null,
-    workflowState: input.workflowState || "ready",
-    userExperienceLevel: input.userExperienceLevel || "intermediate",
-    runtimeMount: true,
-    actor,
-    permission: actor.permissionContext,
-    riskPolicy: actor.policyContext,
-    executionProfile: actor.executionMode,
-    disabledActions: policyDisabled,
-    availableData: {
-      status: "PARTIAL",
-      bindings: ["vertical-slice.foundation"],
-    },
-    sciOsCapabilities: [
-      { id: "vertical-slice.foundation", proven: true },
-      { id: "product-kernel", proven: true },
-    ],
+    objectId: input.objectId || undefined,
+    workflowState: input.workflowState || undefined,
   });
+
+  let recentRuns: Array<Record<string, unknown>> = [];
+  try {
+    recentRuns = listSliceRuns().slice(0, 8) as Array<Record<string, unknown>>;
+  } catch {
+    recentRuns = [];
+  }
+
+  return runExperienceCompilerPipeline(
+    {
+      roleId,
+      objectId: input.objectId || null,
+      workflowState: input.workflowState || "ready",
+      userExperienceLevel: input.userExperienceLevel || "intermediate",
+      userId: input.userId || "local-dev-user",
+      sessionId: input.sessionId || "default",
+      runtimeMount: true,
+      actor,
+      permission: actor.permissionContext,
+      riskPolicy: actor.policyContext,
+      executionMode: actor.executionMode,
+      disabledActions: policyDisabled,
+      policyResults,
+      kernelProjection,
+    },
+    { appRoot, recentRuns }
+  );
 }
 
 export async function productRouter(opts: {
@@ -446,6 +480,12 @@ export async function productRouter(opts: {
         sessionId: url.searchParams.get("sessionId") || "default",
       })
     );
+    return true;
+  }
+
+  if (method === "GET" && path === "/v1/compiler/health") {
+    const appRoot = process.env.SCIOS_APP_ROOT || process.cwd();
+    sendJson(res, 200, getCompilerHealth({ appRoot }));
     return true;
   }
 
@@ -687,10 +727,39 @@ export async function productRouter(opts: {
           id: url.searchParams.get("objectId") || "AAPL",
         },
       });
-      sendJson(res, 200, { ok: true, label: "ALPHA_NON_PRODUCTION", ...compiled });
+      // Honesty label last so it cannot be dropped by the kernel payload shape.
+      sendJson(res, 200, { ok: true, ...compiled, label: "ALPHA_NON_PRODUCTION" });
     } catch (e) {
       sendJson(res, 500, { ok: false, error: String((e as Error)?.message || e) });
     }
+    return true;
+  }
+
+  if (method === "GET" && path === "/v1/jobs/health") {
+    sendJson(res, 200, jobsHealth());
+    return true;
+  }
+
+  if (method === "GET" && path === "/v1/jobs") {
+    sendJson(res, 200, {
+      schema: "sci-os-jobs-canonical/v1",
+      jobs: listCanonicalJobs(),
+    });
+    return true;
+  }
+
+  if (method === "GET" && path.startsWith("/v1/jobs/") && path !== "/v1/jobs/health") {
+    const jobId = path.slice("/v1/jobs/".length).split("?")[0] ?? "";
+    if (!isSafeJobId(jobId)) {
+      sendJson(res, 400, { error: "invalid_job_id" });
+      return true;
+    }
+    const job = getCanonicalJob(jobId);
+    if (!job) {
+      sendJson(res, 404, { error: "job_not_found", jobId });
+      return true;
+    }
+    sendJson(res, 200, { job });
     return true;
   }
 
@@ -706,12 +775,17 @@ export async function productRouter(opts: {
   }
 
   if (method === "GET" && path === "/v1/os/jobs") {
-    sendJson(res, 200, { schema: "sci-os-jobs/v1", jobs: listJobs(), states: JOB_STATES });
+    sendJson(res, 200, {
+      schema: "sci-os-jobs/v1",
+      jobs: listJobs(),
+      canonical: listCanonicalJobs(),
+      states: JOB_STATES,
+    });
     return true;
   }
 
   if (method === "GET" && path.startsWith("/v1/os/jobs/")) {
-    const jobId = path.slice("/v1/os/jobs/".length).split("?")[0];
+    const jobId = path.slice("/v1/os/jobs/".length).split("?")[0] ?? "";
     if (!isSafeJobId(jobId)) {
       sendJson(res, 400, { error: "invalid_job_id" });
       return true;
@@ -752,9 +826,14 @@ export async function productRouter(opts: {
     return true;
   }
 
+  type JobEngineActionFn = (
+    id: string,
+    meta: Record<string, unknown>
+  ) => { job: unknown; error?: string | null; detail?: unknown };
+
   async function jobEngineAction(
     jobId: string,
-    action: (id: string, meta: Record<string, unknown>) => { job: unknown; error?: string | null; detail?: unknown },
+    action: JobEngineActionFn,
     body: Record<string, unknown>,
     actor: Record<string, unknown>
   ) {
@@ -763,8 +842,8 @@ export async function productRouter(opts: {
 
   const jobActionMatch = path.match(/^\/v1\/os\/jobs\/([^/]+)\/(start|complete|fail|retry|cancel|recover)$/);
   if (method === "POST" && jobActionMatch) {
-    const jobId = jobActionMatch[1];
-    const actionName = jobActionMatch[2];
+    const jobId = jobActionMatch[1] ?? "";
+    const actionName = jobActionMatch[2] ?? "";
     if (!isSafeJobId(jobId)) {
       sendJson(res, 400, { error: "invalid_job_id" });
       return true;
@@ -785,7 +864,7 @@ export async function productRouter(opts: {
       typeof body.sessionId === "string" ? body.sessionId : "default"
     );
     const withActor = sessionWithActor(session);
-    const actions: Record<string, typeof startJob> = {
+    const actions: Record<string, JobEngineActionFn | undefined> = {
       start: startJob,
       complete: (id, meta) => completeJob(id, body.result ?? { ok: true }, meta),
       fail: (id, meta) => failJob(id, body.error ?? { message: "failed" }, meta),
@@ -793,7 +872,12 @@ export async function productRouter(opts: {
       cancel: cancelJob,
       recover: recoverJob,
     };
-    const out = await jobEngineAction(jobId, actions[actionName], body, withActor.actor);
+    const action = actions[actionName];
+    if (!action) {
+      sendJson(res, 404, { error: "unknown_job_action", action: actionName });
+      return true;
+    }
+    const out = await jobEngineAction(jobId, action, body, withActor.actor);
     if (out.error) {
       const status =
         out.error === "NOT_FOUND"
@@ -818,7 +902,7 @@ export async function productRouter(opts: {
   }
 
   if (method === "PATCH" && path.startsWith("/v1/os/jobs/")) {
-    const jobId = path.slice("/v1/os/jobs/".length).split("?")[0];
+    const jobId = path.slice("/v1/os/jobs/".length).split("?")[0] ?? "";
     if (!isSafeJobId(jobId)) {
       sendJson(res, 400, { error: "invalid_job_id" });
       return true;

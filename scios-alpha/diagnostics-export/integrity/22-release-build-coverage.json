@@ -1,0 +1,7 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "rootBuild": "pnpm -r --filter \"./packages/**\" run build",
+  "buildRelease": "pnpm -r --filter \"./packages/**\" --if-present run build && pnpm -r --filter \"./apps/control-plane-api\" --filter \"./apps/cockpit-ui\" --if-present run build",
+  "status": "IMPROVED"
+}

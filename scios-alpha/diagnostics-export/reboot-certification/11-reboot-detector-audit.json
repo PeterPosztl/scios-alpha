@@ -1,0 +1,74 @@
+{
+  "at": "2026-08-12T21:53:00.000Z",
+  "schema": "sci-os-reboot-detector-audit/v1",
+  "question": "Is REBOOT_NOT_DETECTED a false negative of the certification tool?",
+  "answer": "NO — detector is correct; Windows boot identity did not change.",
+  "frozenPreRebootIdentity": {
+    "source": "diagnostics-export/reboot-certification/00-pre-reboot-state.json",
+    "lastBootUpTime": "2026-08-12T13:00:34.2830420+02:00",
+    "lastBootFileTimeUtc": "134310060342830420",
+    "capturedAt": "2026-08-12T21:27:57.456Z"
+  },
+  "liveWindowsSources": {
+    "win32OperatingSystem": {
+      "lastBootUpTime": "2026-08-12T13:00:34.2830420+02:00",
+      "lastBootFileTimeUtc": "134310060342830420",
+      "uptimeMinutes": 652,
+      "localDateTimeAtAudit": "2026-08-12T23:52:07.6230000+02:00"
+    },
+    "eventLog": {
+      "kernelGeneralId12": [
+        "2026-08-12T13:00:31.5438671+02:00 (message: OS started 2026-08-12T11:00:30.500000000Z)"
+      ],
+      "event6005": ["2026-08-12T13:00:47.2529792+02:00"],
+      "event1074_6006_6008_afterFrozenBoot": "NONE in last 2 days after 13:00 boot"
+    },
+    "fastStartup": {
+      "HiberbootEnabled": 1,
+      "note": "Hybrid/Fast Startup is enabled. A Shutdown+power-on can feel like a reboot without updating LastBootUpTime. A true Restart should update boot identity; no Restart markers appear after 13:00."
+    }
+  },
+  "detectorLogicAudit": {
+    "tool": "scripts/package/prove-reboot.cjs",
+    "preSource": "00-pre-reboot-state.json → windowsBootIdentityBefore.lastBootFileTimeUtc",
+    "postSource": "Win32_OperatingSystem.LastBootUpTime.ToFileTimeUtc() via powershell",
+    "comparison": "string inequality of FileTimeUtc integers",
+    "timezoneParsingBug": false,
+    "reasonTimezoneNotCulprit": "FileTimeUtc identical (timezone-independent); ISO strings also identical byte-for-byte including +02:00 offset",
+    "staleEvidenceFileUsedForBootGate": false,
+    "reason": "Boot gate reads live WMI every run; does not trust staged startup-report for rebootDetected",
+    "wrongAppRootAffectsBootGate": false,
+    "wrongCertificationRunSelected": false,
+    "verdict": "TOOL_CORRECT — HOST_BOOT_IDENTITY_UNCHANGED"
+  },
+  "secondaryEvidenceGaps": {
+    "stagedStartupReport": {
+      "path": "%LOCALAPPDATA%/SCI OS X10/app/diagnostics-export/startup-report.json",
+      "timestamp": "2026-08-12T19:51:32.489Z",
+      "appRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10",
+      "matchesCanonicalInstallRoot": false,
+      "staleRelativeToClaimedPostRebootCampaign": true
+    },
+    "rebootCertifyAfterOutputs": {
+      "expectedUnder": "%LOCALAPPDATA%/SCI OS X10/app/diagnostics-export/reboot-certification/",
+      "found": [
+        "00-pre-reboot-state.json",
+        "pre-reboot-state.json",
+        "HOW-TO-AFTER-REBOOT.json"
+      ],
+      "missing": [
+        "final-reboot-certification.json",
+        "post-reboot-boot-trace.json",
+        "post-reboot-runtime-proof.json",
+        "post-reboot-gw1-proof.json",
+        "post-reboot-shutdown-proof.json"
+      ],
+      "conclusion": "REBOOT-CERTIFY-AFTER.cmd did not leave a completed evidence package under the staged install root"
+    },
+    "note": "These gaps do not cause REBOOT_NOT_DETECTED; boot gate fails independently on WMI identity."
+  },
+  "rootCauseClass": "HOST_BOOT_IDENTITY_UNCHANGED",
+  "exactRootCause": "Windows reports the same LastBootUpTime/FileTimeUtc as the frozen pre-reboot identity (2026-08-12T13:00:34+02:00 / 134310060342830420). Independent Event Log Id 12/6005 agree. No post-13:00 restart/shutdown markers. Certification tool correctly refuses PASS.",
+  "doNotRequestImmediateAnotherRebootAsPrimaryFix": true,
+  "guidanceWhenUserNextChoosesToValidate": "Use Start → Restart (not Shutdown). Confirm LastBootUpTime changes before launching SCI OS. Then launch LOCALAPPDATA SCI-OS-X10.cmd only; after HOME+GW1 run REBOOT-CERTIFY-AFTER.cmd while evidence can be written."
+}

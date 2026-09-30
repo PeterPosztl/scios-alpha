@@ -1,0 +1,32 @@
+{
+  "schema": "sci-os-completion-audit/closure/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "closureRunId": "closure_mt066pni_2ed2a7",
+  "gitSha": "435f9272",
+  "buildId": "pkg_1787147143095",
+  "CANONICAL_CONTROLS": 832,
+  "CHECK_INSTANCES": 22285,
+  "PASS": 8438,
+  "FAIL": 1368,
+  "PARTIAL": 3738,
+  "UNKNOWN": 5712,
+  "NOT_APPLICABLE": 2661,
+  "DEFERRED": 368,
+  "ROOT_CAUSES": 321,
+  "P0": 0,
+  "P1": 91,
+  "P2": 184,
+  "P3": 46,
+  "passRate": "37.9%",
+  "failPlusUnknownRate": "31.8%",
+  "nextBatch": "batch_001_P1",
+  "topP1RootCauses": [
+    "CTRL.CF28.validation (model validation)",
+    "CTRL.CF11.job-states (job lifecycle)",
+    "CTRL.CF11.idempotency (job idempotency)",
+    "CTRL.CF11.progress (job progress)",
+    "CTRL.CF11.job-evidence (job evidence)",
+    "CTRL.CF14.policy-decision (policy PDP)",
+    "CTRL.CF14.policy-enforcement (policy PEP)"
+  ]
+}

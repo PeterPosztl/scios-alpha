@@ -1,0 +1,42 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><title>Atom AI / SCI OS Report</title><style>body{font-family:ui-sans-serif,system-ui;margin:2rem;background:#f7f7f8;color:#111}pre{background:#fff;border:1px solid #ddd;padding:1rem;overflow:auto}</style></head><body><h1>Atom AI kit report (SCI OS ×10)</h1><p>Mode: <b>propose-only</b> · Canonical: <code>pnpm sci:start</code></p><pre>{
+  "at": "2026-08-12T15:52:43.639890Z",
+  "schema": "sci-os-atom-ai/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "mode": "propose-only",
+  "constitution": "propose-only; never auto-deploy; no parallel Atom core",
+  "canonicalStartup": "pnpm sci:start",
+  "rejectedParallel": [
+    "run_core.py",
+    "venv Atom AI service",
+    "auto systemctl enable"
+  ],
+  "missing_from_manifest": [],
+  "todo_files": [],
+  "todo_files_count": 0,
+  "generated": [
+    ".atom_ai/systemd/sci-os-x10.service"
+  ],
+  "results": [
+    {
+      "path": ".atom_ai/systemd/sci-os-x10.service",
+      "action": "proposed_systemd_sample",
+      "note": "Not installed. Canonical: pnpm sci:start"
+    },
+    {
+      "path": "dev_atom_ai/health_check.py",
+      "action": "canonical_health_script",
+      "note": "Use this instead of parallel run_core/systemctl heal"
+    }
+  ],
+  "gate": {
+    "ran": false
+  },
+  "lint_suggestions": {},
+  "counts": {
+    "missing": 0,
+    "generated": 1,
+    "proposed": 1,
+    "applied": 0
+  },
+  "note": "Commit/PR only via atom_ai runner --commit. OPEN_PR never automatic."
+}</pre></body></html>

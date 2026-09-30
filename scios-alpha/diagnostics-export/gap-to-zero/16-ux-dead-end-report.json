@@ -1,0 +1,9 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "firstReleaseDeadEndTarget": 0,
+  "observedPrimaryPathDeadEnds": 0,
+  "note": "Primary Home→Search→Entity→Analyze→Evidence path has handlers; technical empty states remain acceptable",
+  "residual": [],
+  "status": "PASS_PRIMARY_PATH"
+}

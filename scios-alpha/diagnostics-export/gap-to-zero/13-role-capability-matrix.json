@@ -1,0 +1,42 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "summary": {
+    "totalRoles": 200,
+    "ARCHITECTURALLY_SUPPORTED": 39,
+    "PARTIAL": 40,
+    "FUTURE": 121,
+    "SUPPORTED_full_runtime": 0
+  },
+  "provenArchetypes": [
+    {
+      "roleId": "arch.soc_analyst",
+      "status": "ARCHETYPE_DEFINED"
+    },
+    {
+      "roleId": "arch.fraud_investigator",
+      "status": "ARCHETYPE_DEFINED"
+    },
+    {
+      "roleId": "arch.fin_risk_analyst",
+      "status": "PARTIAL_GW1_RUNTIME"
+    },
+    {
+      "roleId": "arch.osint_analyst",
+      "status": "ARCHETYPE_DEFINED"
+    },
+    {
+      "roleId": "arch.executive",
+      "status": "ARCHETYPE_DEFINED"
+    },
+    {
+      "roleId": "arch.auditor",
+      "status": "ARCHETYPE_DEFINED"
+    },
+    {
+      "roleId": "arch.eng_operator",
+      "status": "ARCHETYPE_DEFINED"
+    }
+  ],
+  "scalabilityClaim": "PROVEN_AS_ARCHITECTURE — not 200 fully operational products"
+}

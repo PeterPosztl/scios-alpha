@@ -3,13 +3,13 @@
   "status": "PASS",
   "incident": {
     "schema": "sci-os-recovery-intelligence/v1",
-    "incidentId": "inc_f2d16296337a",
+    "incidentId": "inc_ab835fecc82f",
     "buildId": "pkg_test",
     "bootId": "boot_test",
     "runId": "run_test",
-    "detectedAt": "2026-08-19T13:08:04.652Z",
+    "detectedAt": "2026-09-30T10:08:36.018Z",
     "source": "host-digital-twin",
-    "hostTwinSnapshotRef": "2026-08-19T13:08:04.651Z",
+    "hostTwinSnapshotRef": "2026-09-30T10:08:36.018Z",
     "driftIds": [
       "FP:abc"
     ],

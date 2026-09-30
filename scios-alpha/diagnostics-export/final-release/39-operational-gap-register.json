@@ -1,0 +1,20 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "missing": [
+    "backup/restore",
+    "upgrade/downgrade path",
+    "uninstall certification",
+    "log rotation policy",
+    "disk cleanup",
+    "data retention policy",
+    "migration rollback drill",
+    "version compatibility matrix",
+    "production monitoring"
+  ],
+  "present": [
+    "support-bundle scripts",
+    "diagnostics-export",
+    "safe-mode bat",
+    "repair bat"
+  ]
+}

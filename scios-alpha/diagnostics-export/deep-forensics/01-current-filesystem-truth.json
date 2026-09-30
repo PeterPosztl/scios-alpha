@@ -1,0 +1,2793 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "schema": "sci-os-deep-01-filesystem-truth/v1",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "gitSha": "c226d7489cf7f445f226930de752e382361021fd",
+  "repoRoot": "C:/Users/peter/Desktop/SCI/scios-alpha",
+  "fileCountSampled": 345,
+  "truncatedAt": 8000,
+  "excluded": [
+    "node_modules",
+    ".git",
+    "diagnostics-export",
+    "dist"
+  ],
+  "bySubsystem": {
+    "OTHER": 97,
+    "SHELL": 3,
+    "CONTROL_PLANE": 9,
+    "APP": 43,
+    "DOCS": 32,
+    "BOOTSTRAP": 35,
+    "PACKAGE": 76,
+    "PRODUCT_KERNEL": 7,
+    "EXPERIENCE": 9,
+    "CLOSURE": 6,
+    "GW1": 12,
+    "LAUNCHER": 5,
+    "PACKAGING": 11
+  },
+  "untrackedCount": 140,
+  "files": [
+    {
+      "path": ".atom_ai/health.json",
+      "size": 652,
+      "mtime": "2026-08-12T15:52:50.417Z",
+      "hash": "3ef8d23a9aecfe73219615181954e843a4926d7256670e851281544137e0af1f",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": ".atom_ai/report.html",
+      "size": 1533,
+      "mtime": "2026-08-12T15:52:43.645Z",
+      "hash": "ac86c0fc331633ef46b9930268d1901682f83a884cb90af917ea65b93c4a04d5",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": ".atom_ai/report.json",
+      "size": 1128,
+      "mtime": "2026-08-12T15:52:43.643Z",
+      "hash": "cd94077edd2bb04354c20a2e7e9dc339b5bf77b45acb251f916340e215903e67",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": ".atom_ai/systemd/sci-os-x10.service",
+      "size": 602,
+      "mtime": "2026-08-12T15:52:43.639Z",
+      "hash": "28ff4d35192da91e993dafb97dc6ae32b41167d348aedc9cdc659b1507bb4706",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": ".cursor/commands.md",
+      "size": 1603,
+      "mtime": "2026-08-12T11:21:50.235Z",
+      "hash": "5bf520a8b16a3f75b6d7c2acad4499876051829db9b16a584133cf4e30a7cbec",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": ".cursor/rules/00-constitution.mdc",
+      "size": 470,
+      "mtime": "2026-08-12T11:21:50.506Z",
+      "hash": "da3a0b715190f5a7cb168ee36141e29637b5b811b0a299c1157e66ab5380b9bf",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": ".cursor/rules/10-architecture.mdc",
+      "size": 442,
+      "mtime": "2026-08-12T11:21:50.555Z",
+      "hash": "69746dddd433008ab14944395a9975ad4b64e48d91556b838b71affa94acc184",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": ".cursor/rules/30-development-intelligence.mdc",
+      "size": 372,
+      "mtime": "2026-08-12T11:21:50.571Z",
+      "hash": "f0229733b07d3e96baaa975bc2d657ffc6258b64521e51108b107ef35f3ee773",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": ".cursor/rules/60-testing-and-proof.mdc",
+      "size": 317,
+      "mtime": "2026-08-12T11:21:50.539Z",
+      "hash": "81c1dbab28cb4e75d0480aadb5243657a610946fc3d19c4278cb964936269ef7",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": ".cursor/skills/sci-os-platform/SKILL.md",
+      "size": 597,
+      "mtime": "2026-08-13T10:59:42.466Z",
+      "hash": "6eed1e488687e7dac0e0ef015cd2935f0c40a693f9c3f00f346a810100a45e5c",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": ".env",
+      "size": 494,
+      "mtime": "2026-08-13T10:20:09.586Z",
+      "hash": "919b3bbdabbc22b722c2e426cc05be494afbbb6c0c25b341fee3c3d72bf4ae41",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": ".github/workflows/orchestrator.yml",
+      "size": 3008,
+      "mtime": "2026-08-13T10:20:08.855Z",
+      "hash": "dd42598fc4cf8bf80d3ea62c7db280c966954916a3485d85c504687521d9cb3d",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": ".gitignore",
+      "size": 417,
+      "mtime": "2026-08-13T10:20:15.778Z",
+      "hash": "b281790c8551d66bfb1653fae320399e3b2967a8fafa1cdbfdfb5f54262577c5",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": ".npmrc",
+      "size": 74,
+      "mtime": "2026-08-13T10:57:42.972Z",
+      "hash": "4cadf05e68c758f4726d0cc98a7bea4f2f6de42c3d21d8714349d5ce32d13ad2",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": ".nvmrc",
+      "size": 9,
+      "mtime": "2026-08-13T10:57:42.972Z",
+      "hash": "2a3a8eca5ffa0f835b8817be14d1712a099208781cae8a9879cb2d8b0d23e840",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "AGENTS.md",
+      "size": 2874,
+      "mtime": "2026-08-13T10:57:22.468Z",
+      "hash": "7236c29e007ba2f57c7fa2ee8f815c8e43b6c7dc76f5c261cc100b0fa701e660",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/cockpit-ui/Dockerfile",
+      "size": 167,
+      "mtime": "2026-08-13T10:20:09.393Z",
+      "hash": "dc17ed62764e4fa06f772a4f4770c8fbf8fc04048228a1a9f7e6261cec5ad643",
+      "subsystem": "SHELL",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/cockpit-ui/package.json",
+      "size": 416,
+      "mtime": "2026-08-13T10:20:10.945Z",
+      "hash": "da6c6576a3de1feb309eafa1c435ea753e44f440c7d46258b9fa4b84a3e7080f",
+      "subsystem": "SHELL",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/cockpit-ui/src/index.js",
+      "size": 32464,
+      "mtime": "2026-08-13T10:20:14.494Z",
+      "hash": "e7ba692821f2597b4d7a6365b64c0d55dc1cda23e7ddf70d04da301d426d8bcc",
+      "subsystem": "SHELL",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/control-plane-api/Dockerfile",
+      "size": 1329,
+      "mtime": "2026-08-13T10:20:12.496Z",
+      "hash": "ef4563af5d500ae033c2b34da2653f13934e5dd114c1f4186003f076abee9d9f",
+      "subsystem": "CONTROL_PLANE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/control-plane-api/package.json",
+      "size": 765,
+      "mtime": "2026-08-13T11:09:36.367Z",
+      "hash": "f2618a4b95cb18fb1018569b31a2bc11bcbc73636448c762850057f6d86b702b",
+      "subsystem": "CONTROL_PLANE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/control-plane-api/src/demo.ts",
+      "size": 920,
+      "mtime": "2026-08-13T10:20:12.712Z",
+      "hash": "006a0c26739ea54e94736bf52230bd3df1791b6e2a265eae07a916baaa326c4d",
+      "subsystem": "CONTROL_PLANE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/control-plane-api/src/osSession.ts",
+      "size": 3935,
+      "mtime": "2026-08-13T10:20:06.366Z",
+      "hash": "6228aae09b7e5a1338ed4ceca30bc0e3f325b656ef8553b4a9f010201374d973",
+      "subsystem": "CONTROL_PLANE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "apps/control-plane-api/src/routes/product.ts",
+      "size": 15556,
+      "mtime": "2026-08-13T11:11:01.763Z",
+      "hash": "116fec84feb39b5d8d3ffdb08fa4b600c03eea44fd5715f074c77674a8e3f0bf",
+      "subsystem": "CONTROL_PLANE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "apps/control-plane-api/src/routes/system.ts",
+      "size": 14671,
+      "mtime": "2026-08-13T10:20:15.554Z",
+      "hash": "058c93044755b166828e411c0437528be3f31f3ab6fc62df6c7aa5ecdf9db35e",
+      "subsystem": "CONTROL_PLANE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/control-plane-api/src/routes/verticalSlice.ts",
+      "size": 5094,
+      "mtime": "2026-08-13T10:20:07.265Z",
+      "hash": "209342343cf7430f722503a2171bf2150bf61e811c40494e08ea5c8a188b6abb",
+      "subsystem": "CONTROL_PLANE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/control-plane-api/src/server.ts",
+      "size": 14888,
+      "mtime": "2026-08-13T10:57:43.385Z",
+      "hash": "4963fe86a5f25096effe233332c2977e8b56142d210750fd575adcf5e96959a5",
+      "subsystem": "CONTROL_PLANE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/control-plane-api/tsconfig.json",
+      "size": 171,
+      "mtime": "2026-08-13T10:20:06.423Z",
+      "hash": "318238c30ee8a5229acd706f7f7e1827f5f097b796cc4043fdc1dd49e09a0405",
+      "subsystem": "CONTROL_PLANE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/execution-simulator/Dockerfile",
+      "size": 834,
+      "mtime": "2026-08-13T10:20:06.413Z",
+      "hash": "fcdf7b2f0a6b92f5de84ff7045a7ba37846765360fde57eddc6013bac9f9ba8a",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/execution-simulator/package.json",
+      "size": 460,
+      "mtime": "2026-08-13T10:20:15.581Z",
+      "hash": "dfaeecf88ae733db4169dacb4631fdabda02cbff87821ed517c3c69353bf25cc",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/execution-simulator/src/server.ts",
+      "size": 5767,
+      "mtime": "2026-08-12T11:21:50.506Z",
+      "hash": "b6eb943bbb696cbdd5cebcd4754ba838d075a7d0a8d1064509557e06ec757682",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/execution-simulator/tsconfig.json",
+      "size": 171,
+      "mtime": "2026-08-13T10:20:09.195Z",
+      "hash": "318238c30ee8a5229acd706f7f7e1827f5f097b796cc4043fdc1dd49e09a0405",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/meta-recovery-control-plane/package.json",
+      "size": 320,
+      "mtime": "2026-08-12T11:21:50.585Z",
+      "hash": "af89bead96f8f0aff440fcf36d08eaf9811e87d442884044d009e5107c6b446e",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/meta-recovery-control-plane/src/server.ts",
+      "size": 4916,
+      "mtime": "2026-08-12T11:21:50.557Z",
+      "hash": "364ac929902799949916e4ae4b02e7bcf35901f54b0712e5033355f005f38798",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/mock-api/package.json",
+      "size": 616,
+      "mtime": "2026-08-13T10:20:11.104Z",
+      "hash": "467a30882c3adeed1b359c0852de0db90626b929860c73f70d7c88712a0e0363",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/mock-api/src/routes/system.ts",
+      "size": 5968,
+      "mtime": "2026-08-13T10:20:12.714Z",
+      "hash": "1bcf5da6d03b209a603988b9996cb45f4edde5f2ec395c02c0b9e7a672d2ff5e",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/mock-api/src/routes/verticalSlice.ts",
+      "size": 2766,
+      "mtime": "2026-08-13T10:20:12.376Z",
+      "hash": "020ee8639514aec97344c6230e6b18cbd13ee54585319a391def59c135b82f32",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/mock-api/src/server.ts",
+      "size": 2477,
+      "mtime": "2026-08-13T10:20:10.674Z",
+      "hash": "2b1d2b72ff07c92677066761ebf0e8d6287b0a6e95caa2d769c3ec051547480d",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/mock-api/tsconfig.json",
+      "size": 217,
+      "mtime": "2026-08-13T10:20:12.750Z",
+      "hash": "383e4732feadcd663bb412e87f1fa48b6d1778434e0ad985c1046d725e5e95c5",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/prediction-engine/.pytest_cache/.gitignore",
+      "size": 39,
+      "mtime": "2026-07-16T22:26:22.369Z",
+      "hash": "e7c6bb30148cf667606dcd63e7ca77acaa3cfb0c8303bf09e6419e1e1669dc6d",
+      "subsystem": "APP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "apps/prediction-engine/.pytest_cache/CACHEDIR.TAG",
+      "size": 191,
+      "mtime": "2026-07-16T22:26:22.370Z",
+      "hash": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4",
+      "subsystem": "APP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "apps/prediction-engine/.pytest_cache/README.md",
+      "size": 310,
+      "mtime": "2026-07-16T22:26:22.368Z",
+      "hash": "420e808d79a6c25d3cda0af33bc4782314a14949866682c68ce8149e89b66b70",
+      "subsystem": "APP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "apps/prediction-engine/.pytest_cache/v/cache/nodeids",
+      "size": 116,
+      "mtime": "2026-07-16T22:50:41.989Z",
+      "hash": "f21f6596c12aceae2f51894f2e668e3b1516e4192f76a58586e7b38934423006",
+      "subsystem": "APP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "apps/prediction-engine/app/main.py",
+      "size": 1534,
+      "mtime": "2026-08-13T10:20:09.291Z",
+      "hash": "a937eb0559397748cb293c1d3d0bfb8c661d252763fe13ee1f0e926c651b27ba",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/prediction-engine/app/models.py",
+      "size": 3881,
+      "mtime": "2026-08-13T10:20:15.480Z",
+      "hash": "f8311be94d5a14c96e75ad13d3f8720da148ddfc9939517d8edc43cdb8cd04f5",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/prediction-engine/app/__init__.py",
+      "size": 49,
+      "mtime": "2026-08-13T10:20:16.440Z",
+      "hash": "4fd0ebcb027caa03329aad1416870aa112aeba0f65abf7fd19600c937f9b2f8d",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/prediction-engine/app/__pycache__/main.cpython-314.pyc",
+      "size": 2262,
+      "mtime": "2026-07-16T22:26:19.256Z",
+      "hash": "a1e23fdb8ef12e80179ac888f9fb8f9f11b63e70d1a4986c7f0f6374a8cf94ea",
+      "subsystem": "APP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "apps/prediction-engine/app/__pycache__/models.cpython-314.pyc",
+      "size": 7885,
+      "mtime": "2026-07-16T22:26:19.263Z",
+      "hash": "6f13c04a3df14570dff5853caa6ab5b3eb1cd83bbfc589f8284bffaa7d3dfc07",
+      "subsystem": "APP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "apps/prediction-engine/app/__pycache__/__init__.cpython-314.pyc",
+      "size": 232,
+      "mtime": "2026-07-16T22:26:19.251Z",
+      "hash": "0034152b431f93755d654c89497c8f2925fbd86fdded4a38bcdfd7c94a661c43",
+      "subsystem": "APP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "apps/prediction-engine/Dockerfile",
+      "size": 225,
+      "mtime": "2026-08-13T10:20:08.910Z",
+      "hash": "c374e7d91c9f41f0247d53893b502e1849afbbb40666686fb61389f9d69a5112",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/prediction-engine/package.json",
+      "size": 271,
+      "mtime": "2026-08-13T10:20:14.606Z",
+      "hash": "8abb917f76c74b98dac126421e93dc837a04fe72f396db2ddb3f6ff88398e9a4",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/prediction-engine/requirements.txt",
+      "size": 128,
+      "mtime": "2026-08-13T10:20:16.915Z",
+      "hash": "51fb264678cb53d6ffe5c27addc26e6295ff9d62ccf3298db220e5c86d84a468",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/prediction-engine/tests/test_predict.py",
+      "size": 837,
+      "mtime": "2026-08-13T10:20:16.915Z",
+      "hash": "499325642e80b973cb1f77c2b3e94bbf4741ecfc2b2c214ddb0994118d223acb",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/prediction-engine/tests/__init__.py",
+      "size": 0,
+      "mtime": "2026-08-13T10:20:12.640Z",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/prediction-engine/tests/__pycache__/test_predict.cpython-314-pytest-9.0.2.pyc",
+      "size": 7109,
+      "mtime": "2026-07-16T22:26:17.272Z",
+      "hash": "8fecf8456d90688d2276fb7f5e54a55555f59a512a4c3f3c0e7fe8b8fa2f0daa",
+      "subsystem": "APP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "apps/prediction-engine/tests/__pycache__/__init__.cpython-314.pyc",
+      "size": 178,
+      "mtime": "2026-07-16T22:26:17.259Z",
+      "hash": "365a5b28f4802b9e2d61a610618da24ffb4fe5b05f0b8f14df8a1cc7ce253b9e",
+      "subsystem": "APP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "apps/risk-engine/.pytest_cache/.gitignore",
+      "size": 39,
+      "mtime": "2026-07-16T22:25:42.075Z",
+      "hash": "e7c6bb30148cf667606dcd63e7ca77acaa3cfb0c8303bf09e6419e1e1669dc6d",
+      "subsystem": "APP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "apps/risk-engine/.pytest_cache/CACHEDIR.TAG",
+      "size": 191,
+      "mtime": "2026-07-16T22:25:42.106Z",
+      "hash": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4",
+      "subsystem": "APP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "apps/risk-engine/.pytest_cache/README.md",
+      "size": 310,
+      "mtime": "2026-07-16T22:25:42.071Z",
+      "hash": "420e808d79a6c25d3cda0af33bc4782314a14949866682c68ce8149e89b66b70",
+      "subsystem": "APP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "apps/risk-engine/.pytest_cache/v/cache/nodeids",
+      "size": 98,
+      "mtime": "2026-07-16T22:50:46.523Z",
+      "hash": "43734127bf6a991c3f0c847657606c0a6b6980037ca79b715ad1ccae6cfd4ba2",
+      "subsystem": "APP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "apps/risk-engine/app/main.py",
+      "size": 3633,
+      "mtime": "2026-08-13T10:20:07.260Z",
+      "hash": "8cf960543075938152f1acb5b7fb556366361fe41b8d44894106d7dc72c9d390",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/risk-engine/app/__init__.py",
+      "size": 43,
+      "mtime": "2026-08-13T10:20:16.913Z",
+      "hash": "6b46a8c9ea32f10b757ff93690161eacda3c238ec3096e22dee1e501d5ece0a0",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/risk-engine/app/__pycache__/main.cpython-314.pyc",
+      "size": 5869,
+      "mtime": "2026-07-16T22:25:41.189Z",
+      "hash": "b22ee0f0a24c63429b117fa708e715b9013d457980747c287814b80a7af8434c",
+      "subsystem": "APP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "apps/risk-engine/app/__pycache__/__init__.cpython-314.pyc",
+      "size": 220,
+      "mtime": "2026-07-16T22:25:41.180Z",
+      "hash": "1569da1f89fbffc5d5f387f176d26fb747fc832954cd399fcbf4aeb2365ad0b5",
+      "subsystem": "APP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "apps/risk-engine/Dockerfile",
+      "size": 225,
+      "mtime": "2026-08-13T10:20:16.820Z",
+      "hash": "5bae935ddfdc8837e7dfa86e811b4ac43f0a5296c184394a2edcc0b2b8271601",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/risk-engine/package.json",
+      "size": 265,
+      "mtime": "2026-08-13T10:20:12.275Z",
+      "hash": "cacc059055743b8cd06f093179af08dbd87d2341d79a2fc6d6942470d5886a18",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/risk-engine/requirements.txt",
+      "size": 107,
+      "mtime": "2026-08-13T10:20:07.193Z",
+      "hash": "5fb533950ac34f26b2a73b94ac84cf3b355d79723da9754a479464510a956a5b",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/risk-engine/tests/test_risk.py",
+      "size": 956,
+      "mtime": "2026-08-13T10:20:07.193Z",
+      "hash": "109fb7232d03ac40f205dbbe7e13e763375f203ec76f8bb9fea603f7215144b3",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/risk-engine/tests/__init__.py",
+      "size": 0,
+      "mtime": "2026-08-13T10:20:07.188Z",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "subsystem": "APP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "apps/risk-engine/tests/__pycache__/test_risk.cpython-314-pytest-9.0.2.pyc",
+      "size": 5010,
+      "mtime": "2026-07-16T22:25:37.666Z",
+      "hash": "3acaebe8b8653f6d882b130b210062f0183d5d5d61bb709445e0e109cda24f26",
+      "subsystem": "APP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "apps/risk-engine/tests/__pycache__/__init__.cpython-314.pyc",
+      "size": 172,
+      "mtime": "2026-07-16T22:25:37.653Z",
+      "hash": "17354600db40a65f00bd53b945d68e478998a80870c3f3d9bcff81c51d77ee4b",
+      "subsystem": "APP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "bootstrap/boot-manifest.json",
+      "size": 2866,
+      "mtime": "2026-08-13T10:20:06.186Z",
+      "hash": "7d538f65a3814ebb24288d30722c586382eab01537fb27d31fc37112d04c009c",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "bootstrap/bootstrap-capsule.js",
+      "size": 6490,
+      "mtime": "2026-08-13T10:20:14.827Z",
+      "hash": "f60a3911322c43a926c26840aa979fda6106bba4a0b3257dbc20fcf74a2accb9",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "bootstrap-output.log",
+      "size": 1020,
+      "mtime": "2026-08-12T15:23:27.753Z",
+      "hash": "7e585c21aff94ed9f8c5c959bc0d32d255ce1e8eee2ee408c5ec520f5333fe0f",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "bootstrap-output.log.bak",
+      "size": 2806,
+      "mtime": "2026-08-12T13:07:00.219Z",
+      "hash": "d2c3e2c613dee6be16a658e7857cc87153910ccd07b7e443b77dc71fb43c1f3a",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "build/golden-boot.manifest.json",
+      "size": 2798,
+      "mtime": "2026-08-12T15:35:54.849Z",
+      "hash": "d18f4312dcad53ae3f83856935bc0aedbdc8e6656b7812c2485eabfb490fd010",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "build/manifest.json",
+      "size": 1272,
+      "mtime": "2026-08-12T14:15:33.884Z",
+      "hash": "e6aef43dac5a0b508b0d508ca8fc9524ed89ef2be6dc412daad898340c78910a",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev/auto_fill.cjs",
+      "size": 4376,
+      "mtime": "2026-08-13T10:20:16.907Z",
+      "hash": "708754c1575797e3c89bb134bb20591d825f0e628933c42d6c49115b0c4073f5",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev/auto_fill.sh",
+      "size": 3474,
+      "mtime": "2026-08-13T10:20:16.509Z",
+      "hash": "f699e6133188e0f2034da54db2ee3815483f2ab21584ea4c7bc9ac6992693718",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev/fill-plan.json",
+      "size": 208,
+      "mtime": "2026-08-13T10:20:06.385Z",
+      "hash": "04b7bd6fef8e17a567f8cadffbf26dd77be45d9dbb58ce149c424f41cbd8cb7e",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev/generator.cjs",
+      "size": 8922,
+      "mtime": "2026-08-13T10:20:09.939Z",
+      "hash": "8c623e8162d3fdf4c6c68fa81a6da678407f158a6f5d4160ef30e997b88c7033",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev/generator.py",
+      "size": 10657,
+      "mtime": "2026-08-13T10:20:15.842Z",
+      "hash": "8f9f702b9e475ded3b7973bfd8ab96de6f8c242a9e579840fae15cb8e834eca6",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev/templates/js.tpl",
+      "size": 126,
+      "mtime": "2026-08-13T10:20:06.746Z",
+      "hash": "110a53d68d25ca8549068ed7f0c8c0f3009490c2ed737c5254cb4f09a82c4756",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev/templates/json.tpl",
+      "size": 144,
+      "mtime": "2026-08-13T10:20:12.496Z",
+      "hash": "15a2ec01c8e2a83e7d7cb025b5f7f82a6390288b4df1ea2ccd7d714f8e14e278",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev/templates/py.tpl",
+      "size": 147,
+      "mtime": "2026-08-13T10:20:06.563Z",
+      "hash": "49a97e7b2d421055b6d86eeeb9033c7f942aff22ec637c06a3ac10ad6a26386e",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev/templates/stub-module.cjs.tpl",
+      "size": 325,
+      "mtime": "2026-08-13T10:20:09.173Z",
+      "hash": "eca9cf9e3cab14a7237b057d01e0c411f50048abdd0187ca51cbf22c3f2e0fdf",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev/templates/ts.tpl",
+      "size": 172,
+      "mtime": "2026-08-13T10:20:07.261Z",
+      "hash": "ee9f15190d91b57c70c4803ec32ab4877f48e70142ed2fd2b8e11f74eb2fdc6b",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev_atom_ai/atom_ai.cjs",
+      "size": 4404,
+      "mtime": "2026-08-13T10:20:07.259Z",
+      "hash": "057a82908eceb65177317450858579809369d91138993d7f9f58d06851d36390",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev_atom_ai/bootstrap_atom_ai.sh",
+      "size": 436,
+      "mtime": "2026-08-13T10:20:13.778Z",
+      "hash": "00896c0a25e08d9fd59035d82ea0770a70fbb861c8115d6dfc1e0eedd1262e84",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev_atom_ai/generator_atom.py",
+      "size": 13967,
+      "mtime": "2026-08-13T10:20:16.907Z",
+      "hash": "7a8c2a756272eb7919fc13e04f35323db3fe247cbface0498c7527186c0c19bc",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev_atom_ai/health_check.py",
+      "size": 4469,
+      "mtime": "2026-08-13T10:20:13.463Z",
+      "hash": "e764dd32594bcc89c327ce8ee41a19121ecc8ec842b33f8bdf37decb147c15f3",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev_atom_ai/templates/py.tpl",
+      "size": 303,
+      "mtime": "2026-08-13T10:20:16.045Z",
+      "hash": "54d1f27c06aa637b0ac49ef3fd28b6e2e2b087051d417da5bd826856b9a76cc4",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev_atom_ai/templates/run_core.py.tpl",
+      "size": 356,
+      "mtime": "2026-08-13T10:20:14.088Z",
+      "hash": "34e87ec9bf8e7fb7d973668720f280c4c2af8cf47a31e72fd5d4af204787553f",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev_atom_ai/templates/service.tpl",
+      "size": 251,
+      "mtime": "2026-08-13T10:20:09.426Z",
+      "hash": "fc1de6a2be05d77ddf788189c8e1a6d862c2845d600dc2fa5ca28a3bd6a41bbc",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev_auto_finish/auto_fill_strong.sh",
+      "size": 2945,
+      "mtime": "2026-08-13T10:20:12.712Z",
+      "hash": "784434c00eb0309587cb64b3678002d11d85961f8b62aa07d805f0b36f369203",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev_auto_finish/auto_finish.cjs",
+      "size": 4279,
+      "mtime": "2026-08-13T10:20:09.169Z",
+      "hash": "68657fd63fa8c27aa169b2f20760f75ebc2b6122cdfee1db71590b645e221a28",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev_auto_finish/auto_finish.log",
+      "size": 29,
+      "mtime": "2026-08-12T15:48:29.458Z",
+      "hash": "5e3f8d4e47ed60092dec3fe49e8eaf98970ecec293d0005645289741e766328e",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev_auto_finish/bootstrap_auto_finish.sh",
+      "size": 632,
+      "mtime": "2026-08-13T10:20:12.605Z",
+      "hash": "5c009004b134d6637641eeb7b267d02f99b899efd326c4c6f9b81cea3709e4b9",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev_auto_finish/generator_strong.py",
+      "size": 12594,
+      "mtime": "2026-08-13T10:20:12.749Z",
+      "hash": "dfbf59dbae14ef6672302e093d87e0281e26a3c2da155f3cffdcb4f89b1d555e",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev_auto_finish/report.json",
+      "size": 4458,
+      "mtime": "2026-08-12T15:49:25.080Z",
+      "hash": "0ff246963fb9ed2a7706b7452214a514df95224b87c78be7e7b4ac18e8b6812a",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev_auto_finish/templates/js.tpl",
+      "size": 291,
+      "mtime": "2026-08-13T10:20:16.334Z",
+      "hash": "d73dae932afa7cf44b2114d12142ab01aab87a67021baab6de9b20a1d42acd7c",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev_auto_finish/templates/py.tpl",
+      "size": 323,
+      "mtime": "2026-08-13T10:20:07.194Z",
+      "hash": "d918834fa93a84a7ae805b55dfaa7b22d31125e29d0152b99b523579a571b743",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "dev_auto_finish/templates/ts.tpl",
+      "size": 229,
+      "mtime": "2026-08-13T10:20:12.277Z",
+      "hash": "2ff6961e3c65e107da2c2651dcc3f716e193e716a8a5d71f57db1f5dd69101af",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "docs/enterprise/ARCHITECTURE_INVENTORY.md",
+      "size": 5296,
+      "mtime": "2026-08-12T11:21:50.571Z",
+      "hash": "71e90b4148be91a5b8838fa9e4c2f5d0f063d7a06c9e949c4408ccc6e89aaafc",
+      "subsystem": "DOCS",
+      "tracked": "tracked"
+    },
+    {
+      "path": "docs/enterprise/BOOT_MODES.md",
+      "size": 957,
+      "mtime": "2026-08-12T11:21:50.597Z",
+      "hash": "986fa920207b528acf8af4c194194a0e3132b00a44353dd1fe7dcc93d03d03e0",
+      "subsystem": "DOCS",
+      "tracked": "tracked"
+    },
+    {
+      "path": "docs/enterprise/CANONICAL_STARTUP_PATH.md",
+      "size": 2229,
+      "mtime": "2026-08-13T10:20:16.114Z",
+      "hash": "6d1c5a2ecef146ce24498ae125107f9c57dd63b43edc96dacfac083b0b2b0521",
+      "subsystem": "DOCS",
+      "tracked": "tracked"
+    },
+    {
+      "path": "docs/enterprise/CAPABILITY_REGISTRY.json",
+      "size": 8837,
+      "mtime": "2026-08-12T11:21:46.486Z",
+      "hash": "6d31fb41df846d40dceef4e5360282859c8f23f08b88ef57582ff8679b93144b",
+      "subsystem": "DOCS",
+      "tracked": "tracked"
+    },
+    {
+      "path": "docs/enterprise/CURRENT_SYSTEM_TRUTH.md",
+      "size": 4439,
+      "mtime": "2026-08-13T11:12:44.272Z",
+      "hash": "a2f8287d83c74f265b3fbfae46c4d07d23fb3c738dd80238980b2e68b55fe507",
+      "subsystem": "DOCS",
+      "tracked": "tracked"
+    },
+    {
+      "path": "docs/enterprise/DEFINITION_OF_DONE.json",
+      "size": 999,
+      "mtime": "2026-08-12T11:21:50.626Z",
+      "hash": "2c5952a0eae3ec706e8df2a5ad050c73567c566098e30bcc23a032070d009b80",
+      "subsystem": "DOCS",
+      "tracked": "tracked"
+    },
+    {
+      "path": "docs/enterprise/FINAL_PRODUCT_STATE.md",
+      "size": 1206,
+      "mtime": "2026-08-13T10:20:09.588Z",
+      "hash": "20a634cf0925de5bead3e7d9bdac6096bb489b210881c531b40d5b577d94e9c2",
+      "subsystem": "DOCS",
+      "tracked": "untracked"
+    },
+    {
+      "path": "docs/enterprise/IMPLEMENTATION_DEPENDENCY_ORDER.md",
+      "size": 3305,
+      "mtime": "2026-08-12T11:21:50.506Z",
+      "hash": "b52d84f395fd8d347c0b6f86d170d657564d44970d0046dbd6db8c4aa299f2e5",
+      "subsystem": "DOCS",
+      "tracked": "tracked"
+    },
+    {
+      "path": "docs/enterprise/MASTER_CONTRACT.md",
+      "size": 4343,
+      "mtime": "2026-08-13T10:20:07.260Z",
+      "hash": "2ac36fce1c017e8664864f4f2c442bd3b44c364076333dc4c4387c491176708c",
+      "subsystem": "DOCS",
+      "tracked": "tracked"
+    },
+    {
+      "path": "docs/enterprise/MASTER_CONTRACT_2026.json",
+      "size": 7660,
+      "mtime": "2026-08-13T10:20:07.260Z",
+      "hash": "a45707b435993d9bf10f4b65f133c560572444c71a7262ecb06d11c8abf15554",
+      "subsystem": "DOCS",
+      "tracked": "untracked"
+    },
+    {
+      "path": "docs/enterprise/PACKAGED_FIRST_LAUNCH.md",
+      "size": 868,
+      "mtime": "2026-08-13T10:20:09.389Z",
+      "hash": "83b08802b0f65d1787140ace39bf2827cc1ae41f4cbb45fac4d7415730ad82e2",
+      "subsystem": "DOCS",
+      "tracked": "untracked"
+    },
+    {
+      "path": "docs/enterprise/PROTECTED_CONTRACTS.md",
+      "size": 4810,
+      "mtime": "2026-08-12T11:21:50.614Z",
+      "hash": "7f0df3f015392737ffdc9ed382c5bc3cfa153cc3e52165cefd8473e62192d981",
+      "subsystem": "DOCS",
+      "tracked": "tracked"
+    },
+    {
+      "path": "docs/enterprise/REPAIR_RECIPE_CATALOG.md",
+      "size": 1662,
+      "mtime": "2026-08-12T11:21:50.623Z",
+      "hash": "c9dc8c1a67eca3f95608867eb13e9025fddc178bd8cb72fda716a4f08f94e72b",
+      "subsystem": "DOCS",
+      "tracked": "tracked"
+    },
+    {
+      "path": "docs/enterprise/SCI-OS-X10-CASCADE.md",
+      "size": 1032,
+      "mtime": "2026-08-12T11:21:49.108Z",
+      "hash": "4c86e717ae545189053e34cd2f24a996cf25cc7ed8954e0bbe8e28aec5fe066c",
+      "subsystem": "DOCS",
+      "tracked": "tracked"
+    },
+    {
+      "path": "docs/enterprise/STARTUP_RECOVERY_AUDIT.md",
+      "size": 4092,
+      "mtime": "2026-08-12T11:21:50.554Z",
+      "hash": "963e79e4675881883960ddc082bff9f87160c21fecc485f3c772e795ef8471dc",
+      "subsystem": "DOCS",
+      "tracked": "tracked"
+    },
+    {
+      "path": "docs/enterprise/STARTUP_RECOVERY_COMPLETION_STATE.md",
+      "size": 2546,
+      "mtime": "2026-08-12T11:21:50.622Z",
+      "hash": "6428c96aab9052804410fb3ad90e8a94056c076595e1b0fd39121c45c009da6d",
+      "subsystem": "DOCS",
+      "tracked": "tracked"
+    },
+    {
+      "path": "docs/enterprise/SYSTEM_CLOSURE_STATE.md",
+      "size": 2461,
+      "mtime": "2026-08-13T10:20:16.915Z",
+      "hash": "d92c8dd835b1d3a312939eeb4200192150b396e6d8066e8aa1ff6e07ec452761",
+      "subsystem": "DOCS",
+      "tracked": "untracked"
+    },
+    {
+      "path": "docs/enterprise/UX_COMPETITIVE_BENCHMARK.json",
+      "size": 11106,
+      "mtime": "2026-08-12T15:55:32.508Z",
+      "hash": "897777dabac758edc9f1074ecdc4a397bc66aa5e322a5770c733077050099f3d",
+      "subsystem": "DOCS",
+      "tracked": "untracked"
+    },
+    {
+      "path": "docs/enterprise/UX_COMPETITIVE_BENCHMARK.md",
+      "size": 1615,
+      "mtime": "2026-08-13T10:20:12.613Z",
+      "hash": "3542dde8c3e171ff915bdf064126b1c9587fd76532aa26e112890e89eb77a260",
+      "subsystem": "DOCS",
+      "tracked": "untracked"
+    },
+    {
+      "path": "docs/final-release/SCI_OS_FINAL_ERROR_AND_GAP_REPORT.md",
+      "size": 4693,
+      "mtime": "2026-08-12T17:20:05.298Z",
+      "hash": "f087a83e09bf0a8be1eef28052a99fa353039267e6142b53bdb0c9d7f3c263a3",
+      "subsystem": "DOCS",
+      "tracked": "untracked"
+    },
+    {
+      "path": "docs/final-release/SCI_OS_FINAL_EXECUTIVE_STATUS.md",
+      "size": 2029,
+      "mtime": "2026-08-12T17:20:05.296Z",
+      "hash": "ff3a335d34e4cdde6f5ea30e5ebe0d8d6dbed735b3cd0799350fe7cca46a7c70",
+      "subsystem": "DOCS",
+      "tracked": "untracked"
+    },
+    {
+      "path": "docs/final-release/SCI_OS_TASK_CLOSURE_REPORT.md",
+      "size": 2608,
+      "mtime": "2026-08-12T19:42:57.604Z",
+      "hash": "08290f45c86c5ffdc5838a7b69a3f37361ac3eaca1d034e1552a679f2586eb84",
+      "subsystem": "DOCS",
+      "tracked": "untracked"
+    },
+    {
+      "path": "docs/META_INTELLIGENCE_PLANE.md",
+      "size": 2082,
+      "mtime": "2026-08-12T11:21:50.640Z",
+      "hash": "ee4680fd1fc2f9ac2f5e04558657934d263200fd5f098faecd34f5ec1dab212c",
+      "subsystem": "DOCS",
+      "tracked": "tracked"
+    },
+    {
+      "path": "docs/roadmap/SCI_OS_POST_RELEASE_BACKLOG.md",
+      "size": 802,
+      "mtime": "2026-08-12T19:42:57.606Z",
+      "hash": "270a081faa54478364478b28b806f03a416331191c7d9da46fd83325ec796777",
+      "subsystem": "DOCS",
+      "tracked": "untracked"
+    },
+    {
+      "path": "docs/ux/COMPETITIVE_UX_BENCHMARK.md",
+      "size": 2941,
+      "mtime": "2026-08-13T10:20:07.193Z",
+      "hash": "77bf9ed57d8dd1e5184604f614eea337a65383c1931d4b80eaf37def01ac1212",
+      "subsystem": "DOCS",
+      "tracked": "untracked"
+    },
+    {
+      "path": "docs/ux/CURRENT_UX_TRUTH.md",
+      "size": 4378,
+      "mtime": "2026-08-13T10:20:11.446Z",
+      "hash": "5b21255a1b06ce3ba2a2029ce4b804ad2e2d8b139126ca86f99f4d7ffd73c277",
+      "subsystem": "DOCS",
+      "tracked": "untracked"
+    },
+    {
+      "path": "docs/ux/KERNEL_PILLARS.md",
+      "size": 3418,
+      "mtime": "2026-08-13T10:20:15.963Z",
+      "hash": "3eabac6a80bee1be7878ea521b318bd7c9b17893cdf1f713605a1d50917572af",
+      "subsystem": "DOCS",
+      "tracked": "untracked"
+    },
+    {
+      "path": "docs/ux/PRODUCT_KERNEL.md",
+      "size": 3734,
+      "mtime": "2026-08-13T10:20:12.381Z",
+      "hash": "49a2ba2c356f184e17f07d07ef9c50b32f1bd1ed748c089712afcf527801a268",
+      "subsystem": "DOCS",
+      "tracked": "untracked"
+    },
+    {
+      "path": "docs/ux/PROFESSIONAL_DOMAIN_ATLAS.md",
+      "size": 2706,
+      "mtime": "2026-08-13T10:20:11.440Z",
+      "hash": "83b080b242f9eea71f56909abc9c0dcf8a70871d9e8c479689732ff07816f4a1",
+      "subsystem": "DOCS",
+      "tracked": "untracked"
+    },
+    {
+      "path": "docs/ux/PROFESSIONAL_EXPERIENCE_COMPILER.md",
+      "size": 3759,
+      "mtime": "2026-08-13T10:20:07.259Z",
+      "hash": "a824c208f02881f1f5cba1ffec8c40c414dac2759f5931558e1fd49a7a6385a4",
+      "subsystem": "DOCS",
+      "tracked": "untracked"
+    },
+    {
+      "path": "docs/ux/SCI_OS_UX_CORE.md",
+      "size": 3833,
+      "mtime": "2026-08-13T10:20:12.743Z",
+      "hash": "d2faf7243edad08a4a9327ded96c1ab16fec0600acd8c646bed13143bf03db5a",
+      "subsystem": "DOCS",
+      "tracked": "untracked"
+    },
+    {
+      "path": "docs/ux/SCI_OS_UX_DIFFERENTIATION.md",
+      "size": 1944,
+      "mtime": "2026-08-13T10:20:09.393Z",
+      "hash": "c4b8135b4ea7c84b053c7f54486892a06592ba8d1679ba5d94c4768891c22e66",
+      "subsystem": "DOCS",
+      "tracked": "untracked"
+    },
+    {
+      "path": "infra/config/default.yaml",
+      "size": 423,
+      "mtime": "2026-08-13T10:20:12.258Z",
+      "hash": "eca892fc0adb1ad9ca129ef3c8cc6a3e9c13c77726c8d2af0bf5bc461e0fe337",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "infra/config/local.yaml",
+      "size": 801,
+      "mtime": "2026-08-13T10:20:07.263Z",
+      "hash": "b704a6795448e052d805e85533af71221d540e012ccc8dd68228d034c44fecef",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "infra/docker/docker-compose.infra.yml",
+      "size": 716,
+      "mtime": "2026-08-13T10:20:06.851Z",
+      "hash": "7d77d1a6c12fca41a4f48ecc604d62cb656d71230b9360733ae371f90c1c35df",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "infra/docker/docker-compose.local-foundation.yml",
+      "size": 116,
+      "mtime": "2026-08-13T10:20:12.749Z",
+      "hash": "ba970a5ac89d22ce1ae9fd13b59139ddfcf8c05a62b103a8d90d1c75d1ceec9a",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "infra/docker/docker-compose.yml",
+      "size": 1725,
+      "mtime": "2026-08-13T10:20:07.194Z",
+      "hash": "fa2e2981f83f456b1fd83a78d4a471e4b744f76c8932d88223790998f9feb4d5",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "infra/k8s/README.md",
+      "size": 528,
+      "mtime": "2026-08-13T10:20:16.247Z",
+      "hash": "28aed73d4d031ccd664bf8012f0b6a424bd2898337b48ab3c13494a01d462a60",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/golden-boot.manifest.json",
+      "size": 1740,
+      "mtime": "2026-08-13T10:20:16.254Z",
+      "hash": "9dc3628d94dd41b05d6a44a2bb6eeda3fc57897e5072143c67f0182b00164e5b",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "installer/schemas/golden-boot-manifest.schema.json",
+      "size": 1068,
+      "mtime": "2026-08-13T10:20:12.719Z",
+      "hash": "d9b65855b341c8d49f8008393ab229d27c2c54cd3de4fdd6d4a4e6b8b2f0441a",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "installer/schemas/startup-report.schema.json",
+      "size": 1008,
+      "mtime": "2026-08-12T11:21:50.269Z",
+      "hash": "9f8730aba32de36e573a1d14337a1ebb2a1fdb268f6d0942dc4fcfe4d664a7ec",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/bootstrap-capsule.cjs",
+      "size": 4145,
+      "mtime": "2026-08-13T10:59:19.318Z",
+      "hash": "d74b3e1be1b90d5dd891ae2f6a36a4a14be84d7c00a1e42451dbebedc367d8a2",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/bootstrap-kernel.cjs",
+      "size": 2432,
+      "mtime": "2026-08-12T11:21:50.601Z",
+      "hash": "992930ab1989c35e04f42389a0c2119baa4bf93e091cfe5bac485c6ade943790",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/convergence/convergence-gate.cjs",
+      "size": 11961,
+      "mtime": "2026-08-13T10:20:12.275Z",
+      "hash": "194609fc7efcef2fdfd2f5c8b8db33be460602f79fb8d77e1298f879778a6552",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/convergence/lib.cjs",
+      "size": 13291,
+      "mtime": "2026-08-13T10:20:16.913Z",
+      "hash": "86f7b0e239c63161e625c450277e9de47334ca4083eb1ad0287256332fce2f64",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/convergence/startup-proof.cjs",
+      "size": 10994,
+      "mtime": "2026-08-12T11:21:50.602Z",
+      "hash": "bf42651453848e702c55e4cac62451559160a7cc0278e931294f8b122de84c47",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/convergence/status.cjs",
+      "size": 3695,
+      "mtime": "2026-08-13T10:20:13.693Z",
+      "hash": "8233a4b65acb96a913cd0a2973e4bcee99fdceeaf64d0ec3a6e7397494869ca4",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/convergence/stop.cjs",
+      "size": 5774,
+      "mtime": "2026-08-13T10:20:16.280Z",
+      "hash": "df644b5b4533144d47c0e72bed77497796892b42711c62ea3b05f83acc50b18d",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/prove-sci-os-startup.cjs",
+      "size": 891,
+      "mtime": "2026-08-12T11:21:50.268Z",
+      "hash": "378ff3288905473b9aeebfe3ef965c4447a03f1d632cbffdb29f7759eca6a59f",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/repair-sci-os.cjs",
+      "size": 4180,
+      "mtime": "2026-08-12T11:21:50.235Z",
+      "hash": "ab7636e2ef00fd8055dbf22c5d7c9d62d9ad0cb76417e5f579ea9ca3559acfa0",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/sci-os-x10-launcher.cjs",
+      "size": 7756,
+      "mtime": "2026-08-13T10:20:10.471Z",
+      "hash": "2ee936963cca21b3b8134d2d94404f6fe132a840026a954664c8f8505864fb39",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/shutdown-sci-os.cjs",
+      "size": 1466,
+      "mtime": "2026-08-12T11:21:47.923Z",
+      "hash": "4eea90877f7569f7e9efe957941ffa4498119d864db46ea2bbcc0ccffde7524b",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/start-sci-os-safe-mode.cjs",
+      "size": 496,
+      "mtime": "2026-08-12T11:21:50.614Z",
+      "hash": "fed46bbc37058bbd7ef17634f1e72ed3ce9fa4a04072dafce2a46012630cc19f",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/start-sci-os.cjs",
+      "size": 18369,
+      "mtime": "2026-08-13T10:59:22.706Z",
+      "hash": "38efd512897236a927a32c41bdc21da89db11ee87fe672e18d4769dc5669f5b8",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/startup/classify-docker.cjs",
+      "size": 1616,
+      "mtime": "2026-08-13T10:20:11.213Z",
+      "hash": "15ecbb03373407036166f69c2d3f59bba7fc1a00f59912f9d97f80b09c975372",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/startup/ensure-postgres.cjs",
+      "size": 1291,
+      "mtime": "2026-08-12T11:21:48.067Z",
+      "hash": "75f6d68fda22faaf00ccf7109678a7b8131efaf1c1d31e1c38dde3df2e155da0",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/startup/ensure-redis.cjs",
+      "size": 1903,
+      "mtime": "2026-08-12T11:21:50.268Z",
+      "hash": "563c8506f3a378fd788d3ddeab00278d110f8b16764625e51a9875d1840acc26",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/startup/failure-catalog.cjs",
+      "size": 6232,
+      "mtime": "2026-08-12T11:21:50.556Z",
+      "hash": "e02e829e213dd896e97ad148d9c13ecafe9c052e673a0892233820768ad5bed7",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/startup/health-gate.cjs",
+      "size": 1220,
+      "mtime": "2026-08-12T11:21:50.573Z",
+      "hash": "9c45bf164d8f8b4d69ada5db90186e61a8da88ede72a6c49b0b65892a9dcd4bc",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/startup/migration-gate.cjs",
+      "size": 442,
+      "mtime": "2026-08-12T11:21:50.622Z",
+      "hash": "064733072aefa9692be47fe926d56c3159f4b6d7c0c435d45aee06582a7719ab",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/startup/packaged-mode.cjs",
+      "size": 1310,
+      "mtime": "2026-08-13T10:20:14.222Z",
+      "hash": "4ebb45a7cb0b9cae444874915825eee0e62294b123627e373548d80452efacae",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "installer/scripts/startup/process-lock.cjs",
+      "size": 2059,
+      "mtime": "2026-08-12T11:21:50.586Z",
+      "hash": "fe089dbcbee11d9daf0c887082c52b09b47a32577cb7b352c9063e0a0983818e",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/startup/process-supervisor.cjs",
+      "size": 2657,
+      "mtime": "2026-08-12T15:33:52.013Z",
+      "hash": "f9214d1defa12ea7e9f8bbbb462b4180b5e19fbcb030175825bf7cff8c9ff3c0",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/startup/resolve-app-root.cjs",
+      "size": 2412,
+      "mtime": "2026-08-13T10:20:12.805Z",
+      "hash": "36229a7127591626fb4422969ca24ec4b4a90c92ca6a13b58b732693d3d5c4a9",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/startup/resolve-node-runtime.cjs",
+      "size": 7742,
+      "mtime": "2026-08-13T10:20:07.261Z",
+      "hash": "cf9d018204c75f0ed516e147de0fcede22e0d8e36105b5d17fa15c6847cff7de",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/startup/resolve-port.cjs",
+      "size": 2240,
+      "mtime": "2026-08-12T11:21:50.561Z",
+      "hash": "c92d11c85a868be19d4f061847d444d2fdfebae0b74a5d6745764c1fdc3cafbd",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/startup/resolve-runtime-entries.cjs",
+      "size": 1818,
+      "mtime": "2026-08-12T20:05:52.875Z",
+      "hash": "efdfb2c09039ac43170047eaab92098c5cf1ac9985e4765b562e77c5915263b3",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/startup/shell-readiness.cjs",
+      "size": 2725,
+      "mtime": "2026-08-12T20:05:47.503Z",
+      "hash": "ca090697c270d5b3a06a17d604c411ca120e334bc1c0a9179f242a56f8a3edd7",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "untracked"
+    },
+    {
+      "path": "installer/scripts/startup/startup-logger.cjs",
+      "size": 881,
+      "mtime": "2026-08-12T11:21:50.559Z",
+      "hash": "a01b736596d569371d6a13ef9d65c026dae197ddc3a352dfe77efbe4590851b3",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/startup/startup-report.cjs",
+      "size": 2084,
+      "mtime": "2026-08-12T11:21:50.536Z",
+      "hash": "9355e98b018e82ef4ebeaed5335a90f6cc1df1040d5c4b7c2065efce2e71d7cf",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/startup/support-bundle.cjs",
+      "size": 2249,
+      "mtime": "2026-08-12T11:21:50.539Z",
+      "hash": "c5739ccd1568e693e074d1296f3016f618e702c3f083532ae6ec8e57bbb1c54a",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/startup/validate-config.cjs",
+      "size": 5742,
+      "mtime": "2026-08-13T10:20:07.233Z",
+      "hash": "9c467adf77f44ac29f36e2f48e1cca4ac622c739ad302c7b591cf97f1577ec36",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "installer/scripts/startup/worker-readiness.cjs",
+      "size": 1723,
+      "mtime": "2026-08-12T11:21:50.561Z",
+      "hash": "a1f5aa1b9cddf29b826f5c590c04ad2a7d8218a920378366fd0f113e33076732",
+      "subsystem": "BOOTSTRAP",
+      "tracked": "tracked"
+    },
+    {
+      "path": "package.json",
+      "size": 10092,
+      "mtime": "2026-08-13T11:10:40.944Z",
+      "hash": "4228ac1a3dc9dfbd74c3505a3b583e93596adf79cddf298cfbebadf3c10904a8",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/alpha-loop/package.json",
+      "size": 533,
+      "mtime": "2026-08-13T10:20:12.544Z",
+      "hash": "64ae95d3fcb2dfe3418b0d4df7d9e97e3f3d6dd278a81e7f94b2d308e1b9fc73",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/alpha-loop/src/master.ts",
+      "size": 1816,
+      "mtime": "2026-07-16T22:11:53.338Z",
+      "hash": "db19ebed20a16a81efd95a0f7ce21fbd0445d43a6a3f0ddea5cb8ba526e959a8",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/alpha-loop/src/modules/data-fabric.ts",
+      "size": 610,
+      "mtime": "2026-08-12T11:21:50.529Z",
+      "hash": "dd49ebe03c8fef75d23df2f1de19b8549a9a5c76dac6eabe9e9607974e934cbe",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/alpha-loop/src/modules/execution-simulator.ts",
+      "size": 1991,
+      "mtime": "2026-07-16T22:17:03.986Z",
+      "hash": "b8de226ad9f960c74ba89fa6849ec9e33b1193f4b334043a8e799f41af5df297",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/alpha-loop/src/modules/feature-store.ts",
+      "size": 491,
+      "mtime": "2026-07-16T22:14:11.162Z",
+      "hash": "e09407b25b792345e15e479fa4fe12b83dc82a88944ea219d327fcc065a5d1ee",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/alpha-loop/src/modules/prediction-engine.ts",
+      "size": 598,
+      "mtime": "2026-07-16T22:14:47.408Z",
+      "hash": "a9d2b90a65b6b26605cca12665254bf0dce866d4c1d6a77aee60d378728698c9",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/alpha-loop/src/modules/risk-engine.ts",
+      "size": 611,
+      "mtime": "2026-07-16T22:17:42.373Z",
+      "hash": "e0bdff2954a0530ffe63eeb7d7bccd532b971a57361d3afc80a1426819be497c",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/alpha-loop/src/modules/seeded-rng.ts",
+      "size": 567,
+      "mtime": "2026-08-12T11:21:50.613Z",
+      "hash": "6a5a037a47bd3479c0161c22d0dd8f0d153ddef81fafcb8099d6c63850e049fe",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/alpha-loop/tsconfig.json",
+      "size": 408,
+      "mtime": "2026-08-13T10:20:16.560Z",
+      "hash": "dffe7df7b026330f042a040fc9371be2487e2b9e8096caee0e20538aeb7b111c",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/capability-closure/src/index.js",
+      "size": 1221,
+      "mtime": "2026-08-13T10:20:15.484Z",
+      "hash": "867a551c62771fe828eeef1f5672c8bb124000bf3c0cc043a5d12edcb8e389a6",
+      "subsystem": "PACKAGE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/data-fabric/fixtures/prediction-envelope.normative.json",
+      "size": 451,
+      "mtime": "2026-08-12T11:21:50.559Z",
+      "hash": "44666c028093800c4fc0241d4b28a95342556461cae9d0b72c9a1fd3a64e40ba",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/data-fabric/fixtures/risk-decision-envelope.normative.json",
+      "size": 254,
+      "mtime": "2026-08-12T11:21:46.141Z",
+      "hash": "b999c38d9b26b0d321f78d7d2ca9ae61cbbe2cd082f631a1822605549e566778",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/data-fabric/jest-support/package.json",
+      "size": 28,
+      "mtime": "2026-08-13T10:20:16.440Z",
+      "hash": "58b55392b5778941e1e96892a70edc12e2d7bb8541289b237fbddc9926ed51bd",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/data-fabric/jest-support/resolver.js",
+      "size": 759,
+      "mtime": "2026-08-13T10:20:13.866Z",
+      "hash": "3cf44cfa3648f727c3c94ebc2d798001d849851fdb480548ce2c97f998e10a01",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/data-fabric/jest.config.cjs",
+      "size": 642,
+      "mtime": "2026-08-13T10:20:12.534Z",
+      "hash": "003fc9f9cfd8c0a365977a204cc09ca14e69209bfe1f0d597dc570fd1c8041d8",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/data-fabric/package.json",
+      "size": 603,
+      "mtime": "2026-08-13T10:20:10.928Z",
+      "hash": "79f755f554f16f110482e0a3f03890071fbf9e57c80cb1d358dea67a5a42d230",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/data-fabric/src/domain.test.ts",
+      "size": 648,
+      "mtime": "2026-08-13T10:20:12.438Z",
+      "hash": "d7483fbf81457be1ab297a62195524e3298f7f91b4bff747e5242dc6b792e5f8",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/data-fabric/src/domain.ts",
+      "size": 2578,
+      "mtime": "2026-08-13T10:20:14.090Z",
+      "hash": "719950cdc7a60e0e462482bfe7c2bdac49684bc38de24a2d3df94edd39b9493e",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/data-fabric/src/index.ts",
+      "size": 501,
+      "mtime": "2026-08-12T11:21:50.536Z",
+      "hash": "a20aac165cc1d9e4ac74bc459e8c40d3884d1eb12bb6aac028d777fb214ed1f5",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/data-fabric/src/ledger.ts",
+      "size": 1747,
+      "mtime": "2026-08-12T11:21:50.573Z",
+      "hash": "fcc085ba7f09813d2e166265a706c81fa3f2df43610842ec69b25fe297c6704a",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/data-fabric/src/ontology.ledger.test.ts",
+      "size": 1809,
+      "mtime": "2026-08-12T11:21:50.585Z",
+      "hash": "d06c2e3d4b89544e290a2b848b3a9a6b92219b165316d2f0605d52581aa20c3e",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/data-fabric/src/ontology.ts",
+      "size": 7106,
+      "mtime": "2026-08-12T11:21:50.576Z",
+      "hash": "16834c93ac896caca75d27c488d83f08161104e15ee95783879c17b03e9df2d1",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/data-fabric/src/pipeline-contracts.ts",
+      "size": 6733,
+      "mtime": "2026-08-12T11:21:50.636Z",
+      "hash": "5f3392855061afe54271fc71f439ead35c49be8719eaafc5fe9db86180bd33fb",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/data-fabric/src/prediction.envelope.test.ts",
+      "size": 1201,
+      "mtime": "2026-08-12T11:21:50.644Z",
+      "hash": "c14ba5e3e8370ce8e55260dfc76b1947fbd2412320ec11dafee5077e6062b8cb",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/data-fabric/src/risk.decision.test.ts",
+      "size": 1093,
+      "mtime": "2026-08-12T11:21:46.173Z",
+      "hash": "d8d970c6af81c6fe2cdb85d818dbefc47264b8ac7e270b1b31b3509137b80e39",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/data-fabric/tsconfig.json",
+      "size": 220,
+      "mtime": "2026-08-13T10:20:11.327Z",
+      "hash": "b76a42775e9c9b6e1ec3b76a234735e792cc97f96788aad21c8b6ce5ef64a36b",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/experiment-tracker/package.json",
+      "size": 463,
+      "mtime": "2026-08-13T10:20:13.867Z",
+      "hash": "3c66623c262e80b7b92f0ebf07ab38d33df98597ce21ecbada556b6da25da541",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/experiment-tracker/src/index.ts",
+      "size": 1223,
+      "mtime": "2026-08-13T10:20:09.939Z",
+      "hash": "97921ab61d1491529348d35dccc74a86b2f24fc3337e9f9407cab4e6e6d9eaa4",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/experiment-tracker/tsconfig.json",
+      "size": 200,
+      "mtime": "2026-08-13T10:20:13.979Z",
+      "hash": "0ff618d07bf2b406852b3c7c965bbbfaa48a5e68750436cc1e1aee30c05b876f",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/external-intelligence/src/engines/opportunity.js",
+      "size": 2376,
+      "mtime": "2026-08-13T10:20:14.143Z",
+      "hash": "2937deefe76b384f921e37899ca438d5e2869785adfdae993f2c298b8b092615",
+      "subsystem": "PACKAGE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/external-intelligence/src/registries/oss-candidates.js",
+      "size": 5009,
+      "mtime": "2026-08-13T10:20:15.020Z",
+      "hash": "8e2490c9d2ae03d171e660fb165de8ab1c6eaad4e6f619594f3533e5e0c4e79f",
+      "subsystem": "PACKAGE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/external-intelligence/src/registries/sources.js",
+      "size": 4305,
+      "mtime": "2026-08-13T10:20:07.265Z",
+      "hash": "bbf14a87958a1e6e65f2941455fb6642e9a9a00bdc058235b1351d839e3ab6a4",
+      "subsystem": "PACKAGE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/feature-store/package.json",
+      "size": 536,
+      "mtime": "2026-08-13T10:20:17.445Z",
+      "hash": "a9659bbd1d3558f6c90af33d137d52401e007c0d6390c89d71fe359c0c70320d",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/feature-store/src/index.ts",
+      "size": 1322,
+      "mtime": "2026-08-12T11:21:50.537Z",
+      "hash": "a79777fd6852e75ed39790e4931889a4d451c845da25141276d507591b1d3b54",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/feature-store/tsconfig.json",
+      "size": 200,
+      "mtime": "2026-08-13T10:20:15.624Z",
+      "hash": "0ff618d07bf2b406852b3c7c965bbbfaa48a5e68750436cc1e1aee30c05b876f",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/governance-engine/package.json",
+      "size": 540,
+      "mtime": "2026-08-13T10:20:17.387Z",
+      "hash": "c9598de1817e3e3c50b438e58c9cfb4cfe7dfd190477946116fc613595c0f646",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/governance-engine/src/index.ts",
+      "size": 1676,
+      "mtime": "2026-08-13T10:20:12.752Z",
+      "hash": "cfb0fcc0c843967e20f5d2a9220416c604d5d057ae31fd7f31a2af6c4b2baee2",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/governance-engine/tsconfig.json",
+      "size": 200,
+      "mtime": "2026-08-13T10:20:12.749Z",
+      "hash": "0ff618d07bf2b406852b3c7c965bbbfaa48a5e68750436cc1e1aee30c05b876f",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-intelligence/package.json",
+      "size": 526,
+      "mtime": "2026-08-12T11:21:50.600Z",
+      "hash": "e6af9d505dc15ff2c620149a60b3df41ecd4079396bc05c29777feac6e5cee53",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-intelligence/src/evidence-graph.ts",
+      "size": 2953,
+      "mtime": "2026-08-12T11:21:50.557Z",
+      "hash": "e66756d8f72ba6406353086ff1692e2ad8d328dc87d03244519494c8bfb2bba3",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-intelligence/src/index.ts",
+      "size": 5987,
+      "mtime": "2026-08-12T11:21:50.642Z",
+      "hash": "177dfae35255c4fca1314d42dbb893415284af29a8c338fb00818efcebc858cd",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-intelligence/tsconfig.json",
+      "size": 153,
+      "mtime": "2026-08-12T11:21:46.427Z",
+      "hash": "1340d6cd056b8b3ad20d8a3c0dc1b798e24fd021e168b214de36d89d86303be5",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-recovery/package.json",
+      "size": 782,
+      "mtime": "2026-08-12T11:21:50.623Z",
+      "hash": "c7a3efd2411583577eec5d82898df3c20a86f593d2d4ae7059c2e88e50556734",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-recovery/README.md",
+      "size": 547,
+      "mtime": "2026-08-12T11:21:50.287Z",
+      "hash": "4032264f2d9e74c467743f5492e57ca5639e1461fd1d7763d96061dc97e70f45",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-recovery/schemas/meta-recovery-proof.schema.json",
+      "size": 552,
+      "mtime": "2026-08-12T11:21:46.488Z",
+      "hash": "185d7d0841ad6d0903278f514a3c97d6b500c4d95a85319c27dbca3eea1e0887",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-recovery/src/cli.ts",
+      "size": 2352,
+      "mtime": "2026-08-12T11:21:50.260Z",
+      "hash": "f69e1688eb597b7cc36335138584d300dabf6c7df070dfd3749df567d4b326ca",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-recovery/src/controller.ts",
+      "size": 9734,
+      "mtime": "2026-08-12T11:21:48.067Z",
+      "hash": "f8763d9147601031eb1b86d9cebeb2376127a6b2ecc3866a51d06d492208ef81",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-recovery/src/digital-twin.ts",
+      "size": 1777,
+      "mtime": "2026-08-12T11:21:50.587Z",
+      "hash": "f8481e9653d76b8cf5484d2dd8fd968fe28ce6026752d29d44fda9af41acb84b",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-recovery/src/fault-matrix.ts",
+      "size": 2423,
+      "mtime": "2026-08-12T11:21:50.560Z",
+      "hash": "8026ca87cb87d42a73b32dd42424c5d78ac5d89885a118bc816426d073d5e9eb",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-recovery/src/index.ts",
+      "size": 233,
+      "mtime": "2026-08-12T11:21:50.235Z",
+      "hash": "6bdfc7c5cc660372b6772dcab79a05a7f08080160430839016b6b30f0726b9e8",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-recovery/src/inventory.ts",
+      "size": 8249,
+      "mtime": "2026-08-12T11:21:50.536Z",
+      "hash": "6e5f63d58e2cedb378ad749db64f295a6c3af20d86aea49188bdafe33d1657b8",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-recovery/src/observe.ts",
+      "size": 7191,
+      "mtime": "2026-08-12T11:21:50.624Z",
+      "hash": "a572437f16e4b3d2cc541079af108a2425b01520e300efbd419ce5006f367741",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-recovery/src/policy.test.ts",
+      "size": 2845,
+      "mtime": "2026-08-12T11:21:45.152Z",
+      "hash": "38071a9d63bbe99d3c3ad0d532904c7a5ffba2a30a5945c89248cbba3d4d20d4",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-recovery/src/recipes/registry.ts",
+      "size": 5416,
+      "mtime": "2026-08-12T11:21:48.075Z",
+      "hash": "c7da1bc853a025fa76c4543a2caf22b8d8898bf748f4a21d581f1b54c947f862",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-recovery/src/repair.ts",
+      "size": 12132,
+      "mtime": "2026-08-12T11:21:49.278Z",
+      "hash": "65223f75ade1902f17ff7c6c9996b6c3947b1c559083c55819d40946b50c2182",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-recovery/src/telemetry.ts",
+      "size": 486,
+      "mtime": "2026-08-12T11:21:50.537Z",
+      "hash": "9fdec26b16b2af4fdd26189457e5f8b3e82308da6231d37a7bff623b6cfa644c",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-recovery/src/types.ts",
+      "size": 2372,
+      "mtime": "2026-08-12T11:21:50.558Z",
+      "hash": "3d99eb7b1bb47732c785487b15c14f098785b1fb99fc6aace54d374b4dd22358",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/meta-recovery/tsconfig.json",
+      "size": 220,
+      "mtime": "2026-08-12T11:21:50.558Z",
+      "hash": "9e8729a34cc4a8155548f8482eebc6f5a99468f6bb11e417213e280652944821",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/model-registry/package.json",
+      "size": 536,
+      "mtime": "2026-08-13T10:20:17.447Z",
+      "hash": "b32ee87a6f19203943a46306dda38fea07e3c5e38905c6b05b1e8d342c30c746",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/model-registry/src/index.ts",
+      "size": 466,
+      "mtime": "2026-08-13T10:20:14.404Z",
+      "hash": "1ec984758b4960304158de86b0e343bbf5962fc0504285076b0feb94ae786c50",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/model-registry/tsconfig.json",
+      "size": 200,
+      "mtime": "2026-08-13T10:20:11.334Z",
+      "hash": "0ff618d07bf2b406852b3c7c965bbbfaa48a5e68750436cc1e1aee30c05b876f",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/observability/package.json",
+      "size": 468,
+      "mtime": "2026-08-13T10:20:17.442Z",
+      "hash": "93d022709e3f94da300deb2103a018427b30a614aaaa265ebaa5d7cfb718e94a",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/observability/src/event-bus.ts",
+      "size": 2258,
+      "mtime": "2026-08-12T11:21:50.625Z",
+      "hash": "9670666031e6a4b7bde4d103dffac94fb2df1a70ac928ae46748b23580222779",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/observability/src/index.ts",
+      "size": 1672,
+      "mtime": "2026-08-12T11:21:50.522Z",
+      "hash": "1fa200ddd0025b1aa80bc7d6dd2162198881af443ec6b8b70d7143509f419979",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/observability/src/seeded-rng.ts",
+      "size": 506,
+      "mtime": "2026-08-12T11:21:50.535Z",
+      "hash": "b40b7423ae885933c78c685cf9dab0625d788e396a816855840eb3a1960f5efd",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/observability/tsconfig.json",
+      "size": 200,
+      "mtime": "2026-08-13T10:20:06.183Z",
+      "hash": "0ff618d07bf2b406852b3c7c965bbbfaa48a5e68750436cc1e1aee30c05b876f",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/os-environment/package.json",
+      "size": 445,
+      "mtime": "2026-08-13T10:20:09.249Z",
+      "hash": "a495da502f1bd737310a44677de3463158666e2ae0dc58ac86633e2774b20b6a",
+      "subsystem": "PACKAGE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/os-environment/src/export-artifacts.js",
+      "size": 1236,
+      "mtime": "2026-08-13T10:20:15.531Z",
+      "hash": "7f2aae39c411e16cd9b89cb2499e5b4c5460a3c033412de2a9f4c02bb03c16c3",
+      "subsystem": "PACKAGE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/os-environment/src/index.js",
+      "size": 1422,
+      "mtime": "2026-08-13T10:20:06.657Z",
+      "hash": "6f8469695ee65b79d6acf969620bc2aaaa62f1762ef89dbdecb7c30a27892b88",
+      "subsystem": "PACKAGE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/os-environment/src/prove.js",
+      "size": 9749,
+      "mtime": "2026-08-13T10:20:12.257Z",
+      "hash": "54d820d686f09e3e11b8c670c533207c54cd7b0a9995158d10b3eedfaf08f5ea",
+      "subsystem": "PACKAGE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/os-environment/src/registries.js",
+      "size": 10884,
+      "mtime": "2026-08-13T10:20:07.260Z",
+      "hash": "879322b24ce8a18c415af36d1c3afe184b68e1db2dd3ef4a4327cae7aa6ad62f",
+      "subsystem": "PACKAGE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/portfolio-engine/portfolio_engine.py",
+      "size": 314,
+      "mtime": "2026-08-12T11:21:50.561Z",
+      "hash": "0d8bff9f466ec38fe37ddf6656acda0e15f99ddcdd95246de826a5c33dbef4ce",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/probability-engine/probability_engine.py",
+      "size": 363,
+      "mtime": "2026-08-12T11:21:49.190Z",
+      "hash": "ce6652a6f382fa2cb9c6997580e0c172acb09dc991c9323c41b6097f9aecec72",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/product-kernel/package.json",
+      "size": 443,
+      "mtime": "2026-08-13T10:20:09.532Z",
+      "hash": "c07f5926858de9fa2ede60b795f79033c324ba5d671aeeec7a88e6569b2df4af",
+      "subsystem": "PRODUCT_KERNEL",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/product-kernel/src/capability-registry.js",
+      "size": 4827,
+      "mtime": "2026-08-13T10:20:12.544Z",
+      "hash": "f9139c535fc1180e072b942216103202facad7496b7c25a5e833090d94e3a0da",
+      "subsystem": "PRODUCT_KERNEL",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/product-kernel/src/export-artifacts.js",
+      "size": 2839,
+      "mtime": "2026-08-13T10:20:15.510Z",
+      "hash": "70b702449e151d8a34b8a6f539570d95bba22adeb3ff827a6ba64f5df7b5345e",
+      "subsystem": "PRODUCT_KERNEL",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/product-kernel/src/identity.js",
+      "size": 1621,
+      "mtime": "2026-08-13T10:20:15.882Z",
+      "hash": "588b9caed96592dd24896d895697183cf70f7d61b0c1ec456d2c16b8e465b4ed",
+      "subsystem": "PRODUCT_KERNEL",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/product-kernel/src/index.js",
+      "size": 7726,
+      "mtime": "2026-08-13T10:20:06.563Z",
+      "hash": "34db3e77b5d248ad38e13fd52945560a381ab5af863de0d5de5c9014aaf62d12",
+      "subsystem": "PRODUCT_KERNEL",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/product-kernel/src/professional-view.js",
+      "size": 2507,
+      "mtime": "2026-08-13T10:20:16.595Z",
+      "hash": "eefc56a953ce2a2df273cc7e4bcd5c458fa93db53450d5116439ff658dbc0af9",
+      "subsystem": "PRODUCT_KERNEL",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/product-kernel/src/registries.js",
+      "size": 4458,
+      "mtime": "2026-08-13T10:20:07.261Z",
+      "hash": "692b94a3eafa5b7e53269953a5d120285b562e0fd51f31d75ded41bc0106cca5",
+      "subsystem": "PRODUCT_KERNEL",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/professional-domain-registry/package.json",
+      "size": 778,
+      "mtime": "2026-08-13T10:20:08.946Z",
+      "hash": "625a0d2a4c3277e19d882da68b0d65a40727f9f5180034e573a76310ef75cf0d",
+      "subsystem": "EXPERIENCE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/professional-domain-registry/src/archetypes.json",
+      "size": 11263,
+      "mtime": "2026-08-13T10:20:12.605Z",
+      "hash": "648336f820a2d1e14145e1652a393294e18ce4f8b7cc228257e87b7d3560ef99",
+      "subsystem": "EXPERIENCE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/professional-domain-registry/src/check.js",
+      "size": 802,
+      "mtime": "2026-08-13T10:20:11.237Z",
+      "hash": "98601a0b0ebddc1294be076912b021c738600b45cc580767cd2e622935d587a8",
+      "subsystem": "EXPERIENCE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/professional-domain-registry/src/experience-compiler.js",
+      "size": 8365,
+      "mtime": "2026-08-13T10:20:16.790Z",
+      "hash": "30a20d96d46c22e55449dd6fb9e6abc6029fb09a738ddf4a5b5d1b297ac7d4eb",
+      "subsystem": "EXPERIENCE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/professional-domain-registry/src/experience-compiler.schema.json",
+      "size": 4078,
+      "mtime": "2026-08-13T10:20:14.222Z",
+      "hash": "c994c63201909e8898bca13f6695e2e6c790f8e129f6720b9d33959b05d1e3a5",
+      "subsystem": "EXPERIENCE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/professional-domain-registry/src/families.json",
+      "size": 3914,
+      "mtime": "2026-08-13T10:20:14.612Z",
+      "hash": "00c7e0ef15690a8f802e41ff768bc09a6d2530435d6ab4648cc80246d4dc4514",
+      "subsystem": "EXPERIENCE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/professional-domain-registry/src/index.js",
+      "size": 1145,
+      "mtime": "2026-08-13T10:20:12.753Z",
+      "hash": "603e0fa58aba903eba87af22f63d1301298a14f82d676606f026f4f0b0e3a38b",
+      "subsystem": "EXPERIENCE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/professional-domain-registry/src/roles-seed.json",
+      "size": 194513,
+      "mtime": "2026-08-12T16:07:01.649Z",
+      "hash": "5670226578e6324840b860f38431d71499eba4b67bbabbf7dcd50d61aec4e4a7",
+      "subsystem": "EXPERIENCE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/professional-domain-registry/src/ux-grammar.json",
+      "size": 1199,
+      "mtime": "2026-08-13T10:20:06.468Z",
+      "hash": "8eb0c15d2b5b9eab6da291451e4f2a10db0686c0f43b67446bda5e4465056472",
+      "subsystem": "EXPERIENCE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/system-closure/package.json",
+      "size": 518,
+      "mtime": "2026-08-13T10:20:16.046Z",
+      "hash": "52e7c0953d5b77e5350d7c98e761fd8e33c05bb72eae4d47e7f9bc4c51b8036f",
+      "subsystem": "CLOSURE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/system-closure/src/cli.js",
+      "size": 20121,
+      "mtime": "2026-08-13T10:20:16.011Z",
+      "hash": "8bda124aea2d0006d9c9fbd1715f72c84d319aa4d61745f3ff13c5d3396ed122",
+      "subsystem": "CLOSURE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/system-closure/src/final-closure.js",
+      "size": 19734,
+      "mtime": "2026-08-13T10:20:07.194Z",
+      "hash": "1cc9286e0bae5fcf121977c099204f2ac039058eb7c5de421b3f2b419f4e03e5",
+      "subsystem": "CLOSURE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/system-closure/src/forensic.js",
+      "size": 7085,
+      "mtime": "2026-08-13T10:20:14.293Z",
+      "hash": "40f4ae549c0514a4987ba54aade95ff556d58559d0696375c1f7b6002682c146",
+      "subsystem": "CLOSURE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/system-closure/src/index.js",
+      "size": 12,
+      "mtime": "2026-08-13T10:20:09.937Z",
+      "hash": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
+      "subsystem": "CLOSURE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/system-closure/src/startup-reconciliation.cjs",
+      "size": 19835,
+      "mtime": "2026-08-13T10:20:09.291Z",
+      "hash": "f892a9f185bbd35cefe605c6f8144400ab17576e378ff9b2b8d1956c99e55767",
+      "subsystem": "CLOSURE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/validation-engine/validation_engine.py",
+      "size": 365,
+      "mtime": "2026-08-12T11:21:50.557Z",
+      "hash": "7032cfab24aaba53f85b6e0816f1f7c79682569f1c67c487ba1c21427102dc4f",
+      "subsystem": "PACKAGE",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/vertical-slice/jest-support/resolver.cjs",
+      "size": 949,
+      "mtime": "2026-08-12T11:21:50.638Z",
+      "hash": "e43dedbba334cfe5016df7f0ec4aa3a7981611d91a59c722e18df426dd06ba37",
+      "subsystem": "GW1",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/vertical-slice/jest.config.cjs",
+      "size": 924,
+      "mtime": "2026-08-12T11:21:50.625Z",
+      "hash": "8761769629fa4034b0fa1f25c507624448b1758817b6e46051c3a6bc1b588526",
+      "subsystem": "GW1",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/vertical-slice/package.json",
+      "size": 870,
+      "mtime": "2026-08-13T10:20:12.251Z",
+      "hash": "beb55c2000383beaae0b32e1c812de3b24cb97e77fb0c13bcfb8c12baf435827",
+      "subsystem": "GW1",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/vertical-slice/src/boot-smoke.ts",
+      "size": 718,
+      "mtime": "2026-08-12T11:21:50.639Z",
+      "hash": "8b89a0ebe6d3cd9d1db83753d192f5272f8e4cf8352631e2cd7b01a36057082c",
+      "subsystem": "GW1",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/vertical-slice/src/index.ts",
+      "size": 580,
+      "mtime": "2026-08-13T10:20:09.204Z",
+      "hash": "9876458d1148a09fc1ead1aa55fd062cef82e75be64f5e030537e418831286d4",
+      "subsystem": "GW1",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/vertical-slice/src/lineage.ts",
+      "size": 2031,
+      "mtime": "2026-08-12T11:21:46.347Z",
+      "hash": "523419f942cff93923ce06166eecb4d0ad4d83ca15f8789bf44292bf0ae5043d",
+      "subsystem": "GW1",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/vertical-slice/src/pipeline.test.ts",
+      "size": 3776,
+      "mtime": "2026-08-12T11:21:50.534Z",
+      "hash": "c199ce72df981351f8387430d219a9b70c3a31fc5224f8f6791f1ce1fe49b2c4",
+      "subsystem": "GW1",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/vertical-slice/src/pipeline.ts",
+      "size": 15910,
+      "mtime": "2026-08-12T20:05:52.609Z",
+      "hash": "88a5b1b9c76d353dec72b309ef7c66ff3064ce7b363f4bb7eb7e3f3b12943ff4",
+      "subsystem": "GW1",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/vertical-slice/src/types/verticalSlice.ts",
+      "size": 2093,
+      "mtime": "2026-08-13T10:20:11.016Z",
+      "hash": "d3c6e78c2d33b5336bfb83fab941a5aab1906f2e0f7831be0ac40d344247ce03",
+      "subsystem": "GW1",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/vertical-slice/src/view-adapter.test.ts",
+      "size": 1707,
+      "mtime": "2026-08-13T10:20:16.915Z",
+      "hash": "d2c58c60293df5cb4e7d34df8167e3c234c162450c01fe91b4eaeec18a6682cc",
+      "subsystem": "GW1",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/vertical-slice/src/view-adapter.ts",
+      "size": 5645,
+      "mtime": "2026-08-13T10:20:10.442Z",
+      "hash": "ab8933aed66e7c0d334940592346717815fb7366aa50ac40ebec574c03399ec2",
+      "subsystem": "GW1",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/vertical-slice/tsconfig.json",
+      "size": 221,
+      "mtime": "2026-08-12T11:21:49.537Z",
+      "hash": "30a23c9fa6aaffacf1841e69136e13337c820dcf853453c4fe7baa13111b0974",
+      "subsystem": "GW1",
+      "tracked": "tracked"
+    },
+    {
+      "path": "packages/workspace-composer/package.json",
+      "size": 300,
+      "mtime": "2026-08-13T10:20:10.358Z",
+      "hash": "ddb86eebfdf94150f559bdc33e38106a34a11800cd761d6c9a23b29fe0a57be5",
+      "subsystem": "PACKAGE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "packages/workspace-composer/src/index.js",
+      "size": 1253,
+      "mtime": "2026-08-13T10:20:07.260Z",
+      "hash": "d5fa74f028e480dc81d794028ab4ed13e7114b6493972e0159b8ca24868b61b9",
+      "subsystem": "PACKAGE",
+      "tracked": "untracked"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "size": 128330,
+      "mtime": "2026-08-13T11:11:53.168Z",
+      "hash": "83ef49c380534852ff4fe217e1964ba3c503887d5f16121bb1ab2593f67df64d",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "size": 43,
+      "mtime": "2026-08-12T11:21:50.624Z",
+      "hash": "5e5ddd04430189ef06cfb4f36d45f805c18c64da1aec437353cdad61a2f6fdee",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "README.md",
+      "size": 2611,
+      "mtime": "2026-08-13T10:57:38.127Z",
+      "hash": "870d4f367a5a7a03d9e5a4af1d2a36fb96d21bd473ad99128a0770f535af5da9",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "recovery/recovery-state.json",
+      "size": 1014,
+      "mtime": "2026-08-04T12:07:31.714Z",
+      "hash": "004e417c62941790b02049679e591017de3d3e634a045817af688428a2bb95d8",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "runtime/supervisor-state.json",
+      "size": 361,
+      "mtime": "2026-08-12T14:09:42.362Z",
+      "hash": "3b12bb0e724db9247dacda7d3e48b34ba7de3a43474de6d577471d34f18bef5f",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "sandbox/public_repos/.gitkeep",
+      "size": 2,
+      "mtime": "2026-08-13T10:20:07.193Z",
+      "hash": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "SCI OS ×10.bat",
+      "size": 1196,
+      "mtime": "2026-08-13T11:09:10.633Z",
+      "hash": "268763431e59d40f9508f88500e599d71c41dcc1404007fb905209e04f9eaf5d",
+      "subsystem": "LAUNCHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "SCI-OS-Meta-Recovery.bat",
+      "size": 1511,
+      "mtime": "2026-08-13T10:58:44.328Z",
+      "hash": "5f66b68bcdfe284e18bc85e8e871bbd1234dd4096f05d962b2a66ebd97ab5fa2",
+      "subsystem": "LAUNCHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "SCI-OS-Repair.bat",
+      "size": 673,
+      "mtime": "2026-08-13T10:58:35.319Z",
+      "hash": "cc942ea3632d8c0628983389075655c502e9be934cfa4f9eae4c1d8712c843bf",
+      "subsystem": "LAUNCHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "SCI-OS-Safe-Mode.bat",
+      "size": 597,
+      "mtime": "2026-08-13T10:58:37.645Z",
+      "hash": "d65b2167b49a47145bd71c844fc66336ee4fb0b86d1356792cb4755903271d36",
+      "subsystem": "LAUNCHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "SCI-OS-Start.bat",
+      "size": 905,
+      "mtime": "2026-08-13T10:58:35.305Z",
+      "hash": "b94eae6e19f2207702cfd94054fca67f5b61d9331863107a2498df94fc34ae8a",
+      "subsystem": "LAUNCHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "sci-os.manifest.json",
+      "size": 2589,
+      "mtime": "2026-08-13T10:57:41.599Z",
+      "hash": "14ad328cf2c7ec1462c2ead7d0c8a5aaa8d04f4a4175f214574764a56ca2b163",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "scripts/boot/index.mjs",
+      "size": 9142,
+      "mtime": "2026-08-12T11:21:50.646Z",
+      "hash": "02bef61bd8328431f9433be7e706e695cf2d97b6ae12e41e09f1419566fb3298",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "scripts/ci-prediction-foundation-gate.mjs",
+      "size": 6998,
+      "mtime": "2026-08-12T11:21:48.069Z",
+      "hash": "7acf29f9641764fa3108ab9a4860e65f8b7db72e5ee1633d2f2eb46c734928a2",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "scripts/clone.js",
+      "size": 2334,
+      "mtime": "2026-08-13T10:20:14.688Z",
+      "hash": "d8b10b9d56e89657eafcccb7de4ace2ea80191e569f2a70317f6a381fd183ab9",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "scripts/deep-forensics.cjs",
+      "size": 28701,
+      "mtime": "2026-08-13T11:08:52.354Z",
+      "hash": "8ae3482bc6a20f227e690648cf8cb963e50da8486245b4dfebd3d2ca5bd172b3",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/discovery.js",
+      "size": 2800,
+      "mtime": "2026-08-13T10:20:16.591Z",
+      "hash": "c59765549a4ba72db3cb2e178ef4974d553f916b48525911591c86570475e278",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "scripts/fault-injection-harness.js",
+      "size": 6936,
+      "mtime": "2026-08-13T10:20:09.107Z",
+      "hash": "7b62b365b08acd30e9d31c510da14f6ee5282d11b7efadfd4c62ee01721c213b",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/fault-injection-harness.sh",
+      "size": 221,
+      "mtime": "2026-08-13T10:20:12.950Z",
+      "hash": "2aeb443d728cb9f84726618b698d5214a3682437101e4e1ed9d0b2fd4f1cd8be",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/filter.js",
+      "size": 1316,
+      "mtime": "2026-08-13T10:20:12.950Z",
+      "hash": "644264b36276ddff18e97e840acf690a0581eb63b90ad075beebc42f93400de3",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "scripts/gate-contracts.mjs",
+      "size": 2486,
+      "mtime": "2026-08-12T11:21:50.560Z",
+      "hash": "e9ca9e8c2ed06481dc24df5b4672498df341c0eab6e3cdf8a63f2e6c8196924a",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "scripts/gate-foundation.mjs",
+      "size": 3666,
+      "mtime": "2026-08-12T11:21:50.530Z",
+      "hash": "4f14e441bcc0866048a91199e5026052102bfa59ec35bdf4d44bc7dce80b6693",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "scripts/gate-scaffold.mjs",
+      "size": 3963,
+      "mtime": "2026-08-12T11:21:49.107Z",
+      "hash": "5c4b6c0954aa9037ab4f0e41031c1682caa69d81fedd0c8fec60886e8bfc24be",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "scripts/gen-tests.js",
+      "size": 1304,
+      "mtime": "2026-08-13T10:20:07.260Z",
+      "hash": "9a46e377e3919f4517df75ad82b678f2e6c3089d627e8162898a5da445eb44ff",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "scripts/generate-build-manifest.js",
+      "size": 2244,
+      "mtime": "2026-08-13T10:20:10.656Z",
+      "hash": "21447ed039c7b07cb8a59a50e91ba1cda76c669a7ad7cf6c18c5527a0ff3e49c",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/generate-golden-boot-manifest.js",
+      "size": 4400,
+      "mtime": "2026-08-13T10:20:06.221Z",
+      "hash": "aeef1dc0cc7b1f333a97cda03757d6b8b4e7bbf92ad2dc6bcc608a8cff8fc3e7",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/generate-signoff.js",
+      "size": 6849,
+      "mtime": "2026-08-13T10:20:07.071Z",
+      "hash": "c895c35fe21d8c152b9c7c845a3e58ba998a2dc0c146a3a3f3f5ec609ad9d8df",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/keywords.json",
+      "size": 164,
+      "mtime": "2026-08-13T10:20:07.260Z",
+      "hash": "3c53b0ea6f2b53bcb4c80db6104c00961287a20e0968647d5fdce7444a876154",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "scripts/orchestrator/lib.cjs",
+      "size": 1684,
+      "mtime": "2026-08-13T10:20:15.003Z",
+      "hash": "e024a11cbba29de45c715a43ba3b9353a0b1fadadf191fb98c74ad88454a1094",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "scripts/package/build-distribution.cjs",
+      "size": 13916,
+      "mtime": "2026-08-13T10:20:11.336Z",
+      "hash": "3640b6c9aa40f4142ce6e0a2e0107d18d0831c5005adb76117ec0d9ddf0e6bba",
+      "subsystem": "PACKAGING",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/package/build-launcher-exe.cjs",
+      "size": 1140,
+      "mtime": "2026-08-13T10:20:12.718Z",
+      "hash": "1baf8067afa5cd4cfdda2a2c49b23e3774870ffe3f305255101df3fe2fd1f720",
+      "subsystem": "PACKAGING",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/package/build-setup-exe.cjs",
+      "size": 1726,
+      "mtime": "2026-08-13T10:20:06.434Z",
+      "hash": "78459f2c1289897331c2c3e29113e51c714e5f123a0f52c21e7bcf78756b5c39",
+      "subsystem": "PACKAGING",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/package/final-reboot-prep.cjs",
+      "size": 9788,
+      "mtime": "2026-08-13T10:20:10.471Z",
+      "hash": "58dfdd1d3c831e6a32a1170d9381f1a963b1a4e1b1a70f2d2279554ddf2d6f75",
+      "subsystem": "PACKAGING",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/package/launcher-entry.cjs",
+      "size": 2848,
+      "mtime": "2026-08-13T10:20:07.193Z",
+      "hash": "63753ffcf6516dd8ac27b08b16a31c340130caf4c38f8df658407912102ef968",
+      "subsystem": "PACKAGING",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/package/prove-packaged.cjs",
+      "size": 16684,
+      "mtime": "2026-08-13T10:20:07.259Z",
+      "hash": "ba705f226ad88eb20f41716defc6631a722ae8986fd04009d60b398e1a7407f5",
+      "subsystem": "PACKAGING",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/package/prove-reboot.cjs",
+      "size": 11248,
+      "mtime": "2026-08-13T10:20:13.328Z",
+      "hash": "eaac09d04f7501cb8a90e20ac484246a224ea718383b4932e00f703938f9a423",
+      "subsystem": "PACKAGING",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/package/reboot-cert-post.cjs",
+      "size": 10147,
+      "mtime": "2026-08-13T10:20:06.563Z",
+      "hash": "8a24d7753d347407518ac6e94081b673f645e720b069ee00d455edef7834f3a0",
+      "subsystem": "PACKAGING",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/package/reboot-certification.cjs",
+      "size": 12175,
+      "mtime": "2026-08-13T10:20:07.265Z",
+      "hash": "a95a93c6e8ede1bc7c88bab4e936d0a30f6fc2111c529baf0e59f6d8ea303b00",
+      "subsystem": "PACKAGING",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/package/release-reconciliation.cjs",
+      "size": 18752,
+      "mtime": "2026-08-13T10:20:09.661Z",
+      "hash": "c8c8a8236434182be60fffdcfdc996c735eec7523446fe5ea3c8b49cffc01a90",
+      "subsystem": "PACKAGING",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/package/setup-entry.cjs",
+      "size": 4933,
+      "mtime": "2026-08-13T10:20:07.265Z",
+      "hash": "8c8a0417a3ce95c364a2838ab754d48d0af975d50cc8822ee07eaa0d7b7a8dcf",
+      "subsystem": "PACKAGING",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/pkg-entry.cjs",
+      "size": 1328,
+      "mtime": "2026-08-13T10:20:07.193Z",
+      "hash": "7da0c1673c61144b3226adbe603ad2fd872fa618f362be300222c0d80a473269",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/scaffold-adapter.js",
+      "size": 2845,
+      "mtime": "2026-08-13T10:20:12.750Z",
+      "hash": "37ba24bb500ee968b6478ac7a8d41d9c0ea8d9513499fe423a1a00995eecc82f",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "scripts/scan.js",
+      "size": 3838,
+      "mtime": "2026-08-13T10:20:14.687Z",
+      "hash": "4b46a67d52a8b40ec71093a8436ef2200224a2e42c2e5e8a63983758135cc9ee",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "scripts/smoke-vertical-slice.js",
+      "size": 4473,
+      "mtime": "2026-08-13T10:58:17.620Z",
+      "hash": "de2a2bcc90d9ef5c9f9e9e65b57755d4fc0d87451cfa9cb308fdf2f6cb59ba75",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/smoke-vertical-slice.sh",
+      "size": 213,
+      "mtime": "2026-08-13T10:20:07.194Z",
+      "hash": "7d6505593828eef7da66b327f243738acf7d3e4e37e5796396a1e58a7ef14be1",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/truth-reconciliation.cjs",
+      "size": 22487,
+      "mtime": "2026-08-13T10:56:57.582Z",
+      "hash": "a70ba612f2ab43ee6ccd13d193bed71ad1fda6b8a9f8f6565528fdeb0c64d23c",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "scripts/ux-usability-proof.js",
+      "size": 6955,
+      "mtime": "2026-08-13T10:20:12.502Z",
+      "hash": "c74dd790f3aea384e3f15eddd3fad77d7b308fe5158251c15364fc2ea46e4ccb",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "src/master.ts",
+      "size": 1816,
+      "mtime": "2026-08-12T11:21:49.191Z",
+      "hash": "db19ebed20a16a81efd95a0f7ce21fbd0445d43a6a3f0ddea5cb8ba526e959a8",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "src/modules/data-fabric.ts",
+      "size": 303,
+      "mtime": "2026-08-12T11:21:50.589Z",
+      "hash": "73a5bd2f64caab15a6559a9a77410245430a1af4cacc9cd26326f4d2df12163b",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "src/modules/execution-simulator.ts",
+      "size": 1991,
+      "mtime": "2026-08-12T11:21:50.573Z",
+      "hash": "b8de226ad9f960c74ba89fa6849ec9e33b1193f4b334043a8e799f41af5df297",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "src/modules/feature-store.ts",
+      "size": 491,
+      "mtime": "2026-08-12T11:21:50.614Z",
+      "hash": "e09407b25b792345e15e479fa4fe12b83dc82a88944ea219d327fcc065a5d1ee",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "src/modules/prediction-engine.ts",
+      "size": 598,
+      "mtime": "2026-08-12T11:21:50.263Z",
+      "hash": "a9d2b90a65b6b26605cca12665254bf0dce866d4c1d6a77aee60d378728698c9",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "src/modules/risk-engine.ts",
+      "size": 611,
+      "mtime": "2026-08-12T11:21:50.588Z",
+      "hash": "e0bdff2954a0530ffe63eeb7d7bccd532b971a57361d3afc80a1426819be497c",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "supervisor/services.json",
+      "size": 585,
+      "mtime": "2026-08-13T10:20:12.683Z",
+      "hash": "83944f36ab36d66c8d0fcfa1d7dc0ffccc378d2f42a1cb3575f92bd6cbee204e",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "supervisor/supervisor.js",
+      "size": 5716,
+      "mtime": "2026-08-13T10:20:12.275Z",
+      "hash": "49bf51b404b65861aba06c059802862f4cb8de85458218320014a703657e0c9a",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "tmp_untracked.txt",
+      "size": 22659,
+      "mtime": "2026-08-12T13:32:06.981Z",
+      "hash": "ef80b090775ea6dbc984f6a5de9bd840adc1db45e4a530b0e49325e2e3f5687c",
+      "subsystem": "OTHER",
+      "tracked": "untracked"
+    },
+    {
+      "path": "tsconfig.base.json",
+      "size": 345,
+      "mtime": "2026-08-12T11:21:49.147Z",
+      "hash": "fd9efd936bf3ab29b1617d0d3068054ea43a5b0be718c9631e6faec3c0dbd5c8",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    },
+    {
+      "path": "tsconfig.json",
+      "size": 426,
+      "mtime": "2026-08-12T11:21:50.521Z",
+      "hash": "670b528382d6476822fb6a6991215b70048105208a3abcb0da1da2a2f2d2eac0",
+      "subsystem": "OTHER",
+      "tracked": "tracked"
+    }
+  ]
+}

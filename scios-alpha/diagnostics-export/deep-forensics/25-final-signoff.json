@@ -1,0 +1,30 @@
+{
+  "at": "2026-08-13T11:16:00.000Z",
+  "schema": "sci-os-deep-25-signoff/v1",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "philosophyPreserved": true,
+  "noSpeculativeFeaturesAdded": true,
+  "noSpeculativeUxPlatformRebuild": true,
+  "repositoryCoherence": "DEGRADED",
+  "structuralRepairStop": false,
+  "stopBlockedBy": ["GAP-PACKAGED-GW1-EVIDENCE"],
+  "firstRelease": "INTERNAL_BLOCKER",
+  "optionalInfrastructure": "OPTIONAL_INFRA_DEGRADED",
+  "p0StructuralRemaining": true,
+  "p0RemainingCount": 1,
+  "fixedThisPass": [
+    "lock importers for product-kernel/domain-registry/system-closure",
+    "SCI OS ×10.bat bundled Node preference",
+    "build:release script",
+    "GET /v1/kernel/status kernel wire",
+    "auto:fill/auto:finish OFF_PATH exit 2",
+    "deep-forensics 01-25 pack"
+  ],
+  "hypothesesB": {
+    "fixedOrDisproved": 12,
+    "stillProvedAsOpenDefect": ["build packages-only historically", "test narrow", "cockpit monolithic", "types node 22", "packaged evidence contamination risk"]
+  },
+  "nextHumanGate": "Packaged LOCALAPPDATA launch after reboot → HOME → GW1 → REBOOT-CERTIFY-AFTER → prove-reboot (appRoot must be LOCALAPPDATA)",
+  "authorityDoc": "docs/enterprise/CURRENT_SYSTEM_TRUTH.md",
+  "evidenceIndex": "diagnostics-export/current-evidence-index.json"
+}

@@ -1,0 +1,30 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "stores": [
+    {
+      "name": "slice/lineage",
+      "class": "IN_MEMORY",
+      "survivesRestart": false
+    },
+    {
+      "name": "os session",
+      "class": "IN_MEMORY",
+      "survivesRestart": false
+    },
+    {
+      "name": "diagnostics-export",
+      "class": "LOCAL_DURABLE"
+    },
+    {
+      "name": "postgres",
+      "class": "DATABASE",
+      "optional": true
+    },
+    {
+      "name": "redis",
+      "class": "CACHE",
+      "optional": true
+    }
+  ]
+}

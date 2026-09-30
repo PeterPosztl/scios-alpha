@@ -1,0 +1,24 @@
+{
+  "schema": "sci-os-cursor-repair-proof/group-a-home/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-13T17:27:37.625Z",
+  "correlationId": "53f8c436-e4be-4001-8efa-c6dacf9529a6",
+  "chain": {
+    "packaged": true,
+    "bundledNode": "20.18.1",
+    "nodeSource": "bundled",
+    "backend": "backend/server.cjs",
+    "cockpit": "cockpit/index.mjs",
+    "home": true
+  },
+  "http": {
+    "http://127.0.0.1:3000/healthz": 200,
+    "http://127.0.0.1:3000/v1/home": 200,
+    "http://127.0.0.1:4000/healthz": 200,
+    "http://127.0.0.1:4000/": 200
+  },
+  "startupVerdict": "DEGRADED",
+  "blockers": [],
+  "readyClaim": false,
+  "note": "Optional PG/Redis/Docker absent → DEGRADED with exit 0. HOME proven. Not READY."
+}

@@ -1,0 +1,28 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "matrix": [
+    {
+      "capability": "gw1_core",
+      "postgres": false,
+      "redis": false,
+      "docker": false
+    },
+    {
+      "capability": "durable_ledgers",
+      "postgres": true,
+      "redis": false,
+      "docker": "often"
+    },
+    {
+      "capability": "bullmq",
+      "postgres": false,
+      "redis": true,
+      "docker": "often"
+    },
+    {
+      "capability": "fastapi_engines",
+      "python": true
+    }
+  ]
+}

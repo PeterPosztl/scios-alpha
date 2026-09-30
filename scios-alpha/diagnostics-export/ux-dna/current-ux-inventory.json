@@ -1,0 +1,63 @@
+{
+  "at": "2026-08-13T13:00:49.933Z",
+  "buildId": "ux-dna-2026-08-13",
+  "shell": "apps/cockpit-ui/src/index.js",
+  "productMemory": "product-memory/",
+  "designSystem": "packages/design-system",
+  "constitution": "docs/ux/SCI_DESIGN_CONSTITUTION.md",
+  "surfaces": [
+    {
+      "id": "Home",
+      "viewId": "home",
+      "status": "PRESENT"
+    },
+    {
+      "id": "Search",
+      "viewId": "searchResults",
+      "status": "PRESENT"
+    },
+    {
+      "id": "Entity360",
+      "viewId": "entities",
+      "status": "PRESENT"
+    },
+    {
+      "id": "Analysis",
+      "viewId": "slice",
+      "status": "PRESENT"
+    },
+    {
+      "id": "Risk",
+      "viewId": "slice|decisions",
+      "status": "PRESENT"
+    },
+    {
+      "id": "Governance",
+      "viewId": "slice",
+      "status": "PRESENT"
+    },
+    {
+      "id": "Graph",
+      "viewId": "PARTIAL",
+      "status": "PARTIAL"
+    },
+    {
+      "id": "Timeline",
+      "viewId": "PARTIAL",
+      "status": "PARTIAL"
+    },
+    {
+      "id": "Evidence",
+      "viewId": "evidence",
+      "status": "PRESENT"
+    },
+    {
+      "id": "System",
+      "viewId": "system",
+      "status": "PRESENT"
+    }
+  ],
+  "professionalDefault": true,
+  "rawJsonPrimary": false,
+  "founderIntentLoaded": true
+}

@@ -1,0 +1,43 @@
+{
+  "schema": "sci-os-build-provenance-snapshot/v1",
+  "at": "2026-08-13T14:31:11.804Z",
+  "buildId": "foundations-2026-08-13",
+  "sourceIdentity": "scios-alpha",
+  "sourceHash": {
+    "packageJson": "1c50eec6cce333ab1adaf4670ef06e46b3857d42421f79cef48e1b00304c0980",
+    "pnpmLock": "73be4025f0a5e51fa0c552788497d6ab48b2dd4d2e0f6993a07a8b7fc4a4cbd9",
+    "manifest": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701"
+  },
+  "lockfileHash": "73be4025f0a5e51fa0c552788497d6ab48b2dd4d2e0f6993a07a8b7fc4a4cbd9",
+  "runtimeHash": null,
+  "toolchainVersions": {
+    "nodeDeclared": ">=20.18.0 <21",
+    "packageManager": "pnpm@9.15.0"
+  },
+  "configurationSchema": "sci-os.manifest.json + local-foundation",
+  "artifactHashes": {},
+  "status": "PARTIAL — IMPLEMENT_NOW_P1 continue packaging",
+  "contract": {
+    "schema": "sci-os-build-provenance/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "status": "IMPLEMENT_NOW_P1",
+    "requiredFields": [
+      "sourceIdentity",
+      "sourceHash",
+      "lockfileHash",
+      "runtimeHash",
+      "toolchainVersions",
+      "buildId",
+      "artifactHashes",
+      "configurationSchema"
+    ],
+    "current": {
+      "startupReport": "PARTIAL correlationId/appRoot/node",
+      "fullProvenanceManifest": "ABSENT"
+    },
+    "ifIgnoredLaterCost": [
+      "deployment migration",
+      "unable to audit installed bits"
+    ]
+  }
+}

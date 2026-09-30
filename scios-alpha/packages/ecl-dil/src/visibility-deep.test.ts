@@ -1,0 +1,34 @@
+import assert from "node:assert/strict";
+import { test } from "node:test";
+import { buildVisibilityActivationWave } from "./visibility-activation.js";
+import { VISIBILITY_DEEP_HOOKS, buildVisibilityDeepWave } from "./visibility-deep.js";
+import { applyProfessionModules } from "./profession-module-expansion.js";
+
+test("visibility deep-governance does not flip activation to PASS or stamp ABSENT domains validated", () => {
+  const act = buildVisibilityActivationWave();
+  const wave = buildVisibilityDeepWave();
+  assert.equal(act.wave, "REFUSED");
+  assert.equal(act.passGranted, false);
+  assert.equal(VISIBILITY_DEEP_HOOKS.enabled, false);
+  assert.equal(wave.ready, false);
+  assert.equal(wave.wave, "REFUSED");
+  assert.equal(wave.visibilityActivationWave, "REFUSED");
+  assert.equal(wave.visibilityPrepWave, "REFUSED");
+  assert.equal(wave.passGranted, false);
+  assert.equal(wave.deepGovernanceApproved, false);
+  assert.equal(wave.engineSpecsValidated, false);
+  assert.equal(wave.domainResearchDeep, false);
+  assert.equal(wave.kgCausalReady, false);
+  assert.equal(wave.gradual, false);
+  assert.equal(wave.cockpitBindingApproved, false);
+  assert.equal(wave.autoDecide, false);
+  assert.equal(wave.health.fail, 0);
+  assert.equal(wave.health.episodesPassed, 0);
+  assert.equal(wave.health.passGranted, 0);
+  assert.equal(wave.episodes.find((c) => c.id === "Episode.3.validateDomainResearchDeep")?.result, "SKIPPED_RESEARCH_REQUIRED");
+  assert.equal(wave.episodes.find((c) => c.id === "Episode.8.flipVisibilityActivation")?.result, "REFUSED");
+  assert.equal(wave.episodes.find((c) => c.id === "Episode.9.flipGradualMode")?.result, "REFUSED");
+  assert.equal(wave.episodes.find((c) => c.id === "Episode.10.approveCockpitEngineBinding")?.result, "REFUSED");
+  const hosp = applyProfessionModules("hospitality", { demand_series: [1, 2, 3] });
+  assert.equal(hosp.evidence.status, "SKIPPED_RESEARCH_REQUIRED");
+});

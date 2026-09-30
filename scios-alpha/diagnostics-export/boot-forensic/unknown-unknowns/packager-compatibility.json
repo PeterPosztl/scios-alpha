@@ -1,0 +1,65 @@
+{
+  "at": "2026-08-12T19:49:26.856Z",
+  "bootId": "uu_msqi6dlm_ac8b47",
+  "packager": {
+    "packageName": "pkg",
+    "version": "5.8.1",
+    "npmPackage": "pkg",
+    "maintenanceStatus": "ARCHIVED_UPSTREAM_vercel_pkg_since_2024-01",
+    "lastReleaseNote": "5.8.1 (2023-03) — vercel/pkg archived; fork @yao-pkg/pkg maintained",
+    "supportedNodeTargetsDocumented": [
+      "node12",
+      "node14",
+      "node16",
+      "node18"
+    ],
+    "currentBuildTarget": "node18-win-x64",
+    "buildHostNode": "v24.13.1",
+    "windowsArch": "x64",
+    "roleInSciOs": "THIN_LAUNCHER_ONLY — packs scripts/package/launcher-entry.cjs; product runtime is external bundled Node 20"
+  },
+  "bundledRuntime": {
+    "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10\\runtime\\node\\node.exe",
+    "exists": true,
+    "version": "v20.18.1",
+    "expected": "v20.18.1"
+  },
+  "esmCjs": {
+    "launcherEntry": "CJS",
+    "startScript": "CJS",
+    "backendBundle": "CJS (esbuild)",
+    "cockpit": "ESM (type:module / index.mjs)"
+  },
+  "nativeAddonSupportInPackager": "N/A_FOR_PRODUCT — product uses external node.exe not pkg snapshot for backend",
+  "dynamicImportInLauncher": "none required inside pkg binary",
+  "assetInclusionModel": "filesystem beside EXE (not inside pkg snapshot)",
+  "childProcessBehavior": "spawn(bundled node.exe, [start-sci-os.cjs,...], {cwd:installRoot})",
+  "minimalProbe": {
+    "built": true,
+    "externalNodeCopied": true,
+    "pkgExit": 0,
+    "pkgStderrTail": "(node:22988) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)\n",
+    "exe": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\uu-pkg-probe\\uu-probe.exe",
+    "runResult": {
+      "ok": true,
+      "pkg": true,
+      "execPath": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\uu-pkg-probe\\uu-probe.exe",
+      "cwd": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\uu-pkg-probe-cwd",
+      "assetOk": true,
+      "nodeOk": true,
+      "nodePath": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\uu-pkg-probe\\runtime\\node\\node.exe",
+      "childStdout": "CHILD_OK",
+      "childStatus": 0,
+      "childError": null,
+      "pkgExecPathIsNotNode": true,
+      "pkgAsNode": {
+        "status": 1,
+        "stdout": ""
+      },
+      "node": "v18.5.0",
+      "model": "THIN_LAUNCHER_PLUS_EXTERNAL_NODE"
+    },
+    "classification": "PACKAGER_THIN_LAUNCHER_COMPATIBLE",
+    "lesson": "pkg process.execPath is NOT a Node CLI — SCI OS must spawn runtime/node/node.exe (launcher-entry already does)."
+  }
+}

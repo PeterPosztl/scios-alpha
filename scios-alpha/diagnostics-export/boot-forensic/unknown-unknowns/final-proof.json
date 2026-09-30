@@ -1,0 +1,44 @@
+{
+  "at": "2026-08-12T19:51:34.760Z",
+  "bootId": "uu_msqi6dlm_ac8b47",
+  "verdict": "BOOT UNKNOWN-UNKNOWNS ELIMINATED — READY",
+  "earliestRootCause": null,
+  "chain": {
+    "EXE": true,
+    "BOOTSTRAP": true,
+    "MANIFEST": true,
+    "RUNTIME": true,
+    "INFRASTRUCTURE": "OPTIONAL_DEGRADED_OK",
+    "BACKEND": true,
+    "WORKER": true,
+    "PRODUCT_KERNEL": true,
+    "SHELL": true,
+    "HOME": true,
+    "GW1": true
+  },
+  "exe": {
+    "pass": true,
+    "ready": {
+      "ok": true,
+      "atMs": 127259,
+      "healthz": 200,
+      "ready": true,
+      "profile": "packaged",
+      "cockpit": 200
+    },
+    "gw": {
+      "pass": true,
+      "home": 200,
+      "search": 200,
+      "shell": 200
+    },
+    "logFile": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\boot-forensic\\unknown-unknowns\\launch-exe.log",
+    "pid": 20060
+  },
+  "cwdPass": true,
+  "firstSecondPass": true,
+  "ipv4Pass": true,
+  "packagerDecision": "KEEP_CURRENT_PACKAGER",
+  "label": "ALPHA_NON_PRODUCTION",
+  "note": "Windows reboot + code signing remain EXTERNAL (out of unknown-unknown scope once chain proven)."
+}

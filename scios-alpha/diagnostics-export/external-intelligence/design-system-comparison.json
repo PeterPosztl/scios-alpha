@@ -1,0 +1,53 @@
+{
+  "schema": "sci-os-design-system-comparison/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "systems": [
+    {
+      "id": "fluent2",
+      "strengths": [
+        "desktop density",
+        "keyboard",
+        "enterprise apps"
+      ],
+      "weaknesses": [
+        "can feel Microsoft-branded if copied"
+      ],
+      "take": "density modes, focus rings"
+    },
+    {
+      "id": "carbon",
+      "strengths": [
+        "data tables",
+        "enterprise forms",
+        "productive density"
+      ],
+      "weaknesses": [
+        "IBM visual identity if copied wholesale"
+      ],
+      "take": "table density, productive layouts"
+    },
+    {
+      "id": "eui",
+      "strengths": [
+        "security/observability density",
+        "empty/loading patterns"
+      ],
+      "weaknesses": [
+        "Elastic brand cues"
+      ],
+      "take": "compressed analyst layouts, status badges"
+    },
+    {
+      "id": "atlassian",
+      "strengths": [
+        "workflow clarity",
+        "issue/case metaphors"
+      ],
+      "weaknesses": [
+        "not intel-investigation native"
+      ],
+      "take": "status/owner/priority grammar"
+    }
+  ],
+  "synthesis": "SCI_OS_DESIGN_LANGUAGE — Swiss-minimal + analyst-dense; no wholesale copy"
+}

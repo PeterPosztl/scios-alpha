@@ -1,0 +1,16 @@
+{
+  "at": "2026-08-12T18:40:40.751Z",
+  "pass": true,
+  "launcher": {
+    "pid": 19016,
+    "nodeExecutable": "C:/Users/peter/AppData/Local/SCI OS X10/runtime/node/node.exe",
+    "startScript": "C:/Users/peter/AppData/Local/SCI OS X10/installer/scripts/start-sci-os.cjs",
+    "nodeSource": "bundled"
+  },
+  "readiness": {
+    "healthz": 200,
+    "readyz": true,
+    "cockpit": 200
+  },
+  "pathStrippedOfSystemNodeDirs": true
+}

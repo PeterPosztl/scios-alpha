@@ -1,0 +1,80 @@
+{
+  "schema": "sci-os-boot-lock-orphan-recovery/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T09:57:49.874Z",
+  "subject": "installer/scripts/startup/process-lock.cjs",
+  "rootCause": "lock validity decided by PID liveness alone; hung owner blocked all later boots",
+  "cases": [
+    {
+      "name": "orphanedLockReclaimed",
+      "status": "PASS",
+      "detail": {
+        "ok": true,
+        "reason": "LOCK_OWNER_NOT_SERVING"
+      }
+    },
+    {
+      "name": "reclaimedLockOwnedByUs",
+      "status": "PASS",
+      "detail": {
+        "lockPid": 19024
+      }
+    },
+    {
+      "name": "servingOwnerStillBlocks",
+      "status": "PASS",
+      "detail": {
+        "ok": false,
+        "failureClass": "PROCESS_LOCKED"
+      }
+    },
+    {
+      "name": "unknownLivenessFailsClosed",
+      "status": "PASS",
+      "detail": {
+        "ok": false,
+        "reason": "LOCK_OWNER_LIVENESS_UNKNOWN"
+      }
+    },
+    {
+      "name": "foreignAppRootReclaimed",
+      "status": "PASS",
+      "detail": {
+        "ok": true,
+        "reason": "LOCK_FOREIGN_APP_ROOT"
+      }
+    },
+    {
+      "name": "deadOwnerStaleRepair",
+      "status": "PASS",
+      "detail": {
+        "ok": true,
+        "repaired": true
+      }
+    },
+    {
+      "name": "releaseKeepsLiveOwnerLock",
+      "status": "PASS",
+      "detail": {
+        "released": false,
+        "ownerPid": 15920,
+        "reason": "OWNER_ALIVE"
+      }
+    },
+    {
+      "name": "forcedReleaseClearsLock",
+      "status": "PASS",
+      "detail": {
+        "released": true,
+        "ownerPid": 15920,
+        "forced": true
+      }
+    },
+    {
+      "name": "classifierRejectsNonServingOwner",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS",
+  "failed": []
+}

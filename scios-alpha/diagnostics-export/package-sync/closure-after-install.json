@@ -1,0 +1,37 @@
+{
+  "schema": "sci-os-package-sync-closure-after-install/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-18T17:42:36.893Z",
+  "engine": "packages/system-closure/src/continuous-closure-engine.js",
+  "gitSha": "8a0125a18bd017abaf3206f075713bccc28f01e7",
+  "buildId": "pkg_1787074480539",
+  "before": {
+    "P0": 0,
+    "P1": 91,
+    "P2": 184,
+    "P3": 46,
+    "note": "COMPLETION_SWEEP_PASS at checkpoint 8a0125a1"
+  },
+  "after": {
+    "CANONICAL_CONTROLS": 804,
+    "CHECK_INSTANCES": 22224,
+    "PASS": 8382,
+    "FAIL": 1368,
+    "PARTIAL": 3733,
+    "UNKNOWN": 5712,
+    "NOT_APPLICABLE": 2661,
+    "DEFERRED": 368,
+    "ROOT_CAUSES": 321,
+    "P0": 0,
+    "P1": 91,
+    "P2": 184,
+    "P3": 46
+  },
+  "invariant": {
+    "P0_remains_zero": true,
+    "countsUnchangedByInstall": true,
+    "note": "Install/package sync did not modify controls to improve counts."
+  },
+  "status": "PASS",
+  "canonicalSummary": "diagnostics-export/closure/closure-summary.json"
+}

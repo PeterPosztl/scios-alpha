@@ -1,0 +1,31 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "items": [
+    {
+      "id": "ATOM-AI",
+      "action": "KEEP_STALE_EXIT2",
+      "status": "REJECTED_PARALLEL"
+    },
+    {
+      "id": "auto:fill/auto:finish",
+      "action": "MARK_OFF_PATH",
+      "status": "SCAFFOLD"
+    },
+    {
+      "id": "ports 5200/5230",
+      "action": "LEGACY_MARKED",
+      "status": "REJECTED_CANONICAL"
+    },
+    {
+      "id": "supervisor.js primary",
+      "action": "LEGACY",
+      "status": "SECONDARY"
+    },
+    {
+      "id": "boot:* as user entry",
+      "action": "LEGACY_COMPAT",
+      "status": "NON_PRIMARY"
+    }
+  ]
+}

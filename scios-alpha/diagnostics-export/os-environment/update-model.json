@@ -1,0 +1,14 @@
+{
+  "schema": "sci-os-update-model/v1",
+  "states": [
+    "UPDATE_AVAILABLE",
+    "DOWNLOADING",
+    "VERIFYING",
+    "READY_TO_INSTALL",
+    "INSTALLING",
+    "ROLLBACK"
+  ],
+  "autoInstallUnverified": false,
+  "codeSigning": "NOT_AVAILABLE",
+  "label": "ALPHA_NON_PRODUCTION"
+}

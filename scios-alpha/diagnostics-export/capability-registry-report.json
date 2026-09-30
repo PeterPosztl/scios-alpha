@@ -1,10 +1,10 @@
 {
-  "at": "2026-07-16T22:49:46.010Z",
-  "count": 12,
+  "at": "2026-09-06T14:35:14.627Z",
+  "count": 13,
   "byStatus": {
     "ABSENT": 1,
     "STUB": 3,
-    "ALPHA": 8,
+    "ALPHA": 9,
     "BETA": 0,
     "STABLE": 0,
     "DEPRECATED": 0
@@ -313,6 +313,46 @@
       "dataClassification": "internal",
       "surface": "docs/enterprise/MASTER_CONTRACT.md",
       "notes": "Full ENTERPRISE modules remain ABSENT. Wave 1 = contracts vertical slice only."
+    },
+    {
+      "id": "vertical-slice.foundation",
+      "version": "0.1.0-alpha",
+      "owner": "platform",
+      "status": "ALPHA",
+      "riskTier": "high",
+      "inputs": [
+        "raw event"
+      ],
+      "outputs": [
+        "normalized event",
+        "pit features",
+        "baseline prediction",
+        "calibration",
+        "risk gate",
+        "governance decision",
+        "deterministic fill",
+        "outcome",
+        "immutable lineage",
+        "cockpit view"
+      ],
+      "dependencies": [
+        "data-fabric.domain",
+        "ontology.wave1",
+        "ledger.wave1"
+      ],
+      "healthEndpoint": "http://127.0.0.1:5200/v1/slice/run",
+      "tests": [
+        "packages/vertical-slice/src/pipeline.test.ts"
+      ],
+      "proofArtifacts": [
+        "diagnostics-export/gate-foundation-proof.json"
+      ],
+      "rollback": "git revert",
+      "slo": {},
+      "securityClassification": "internal",
+      "dataClassification": "internal",
+      "surface": "packages/vertical-slice",
+      "notes": "NON-PRODUCTION in-process foundation path. Not ENTERPRISE GO."
     }
   ]
 }

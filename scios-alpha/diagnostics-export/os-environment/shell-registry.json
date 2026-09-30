@@ -1,0 +1,24 @@
+{
+  "schema": "sci-os-shell-registry/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "shellId": "sci.os.shell",
+  "responsibilities": [
+    "application_frame",
+    "navigation",
+    "workspace_management",
+    "panel_management",
+    "global_search",
+    "command_palette",
+    "notifications",
+    "system_status",
+    "user_context",
+    "role_context",
+    "background_jobs",
+    "settings",
+    "help",
+    "recovery_access"
+  ],
+  "hostOs": "windows",
+  "ownsKernel": false,
+  "note": "Professional operating environment above host OS — not a kernel"
+}

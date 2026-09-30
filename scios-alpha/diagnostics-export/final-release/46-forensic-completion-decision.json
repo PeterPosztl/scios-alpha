@@ -1,0 +1,78 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "decision": "REQUIRES_FINAL_FIXES",
+  "counts": {
+    "Critical": 2,
+    "High": 2,
+    "Medium": 6,
+    "Low": 2
+  },
+  "top10": [
+    {
+      "errorId": "ERR-PKG-001",
+      "title": "No Setup.exe / bundled runtime for normal-user install",
+      "priority": "P0",
+      "severity": "CRITICAL"
+    },
+    {
+      "errorId": "ERR-LAUNCH-001",
+      "title": "Normal launch path depends on Node and optionally pnpm",
+      "priority": "P0",
+      "severity": "CRITICAL"
+    },
+    {
+      "errorId": "ERR-REBOOT-001",
+      "title": "Windows reboot acceptance not proven",
+      "priority": "P0",
+      "severity": "HIGH"
+    },
+    {
+      "errorId": "ERR-INFRA-001",
+      "title": "Postgres/Redis optional infra down → DEGRADED startup",
+      "priority": "P1",
+      "severity": "MEDIUM"
+    },
+    {
+      "errorId": "ERR-REC-001",
+      "title": "Full recovery fault-injection matrix not re-certified",
+      "priority": "P1",
+      "severity": "HIGH"
+    },
+    {
+      "errorId": "ERR-AUTH-001",
+      "title": "Local-foundation API unauthenticated on localhost",
+      "priority": "P1",
+      "severity": "MEDIUM"
+    },
+    {
+      "errorId": "ERR-RACE-001",
+      "title": "Intermittent failure surface untested beyond 3 consecutive GW1 runs",
+      "priority": "P1",
+      "severity": "MEDIUM"
+    },
+    {
+      "errorId": "ERR-SCI-001",
+      "title": "Calibration / scientific validity still UNPROVEN",
+      "priority": "P2",
+      "severity": "MEDIUM"
+    },
+    {
+      "errorId": "ERR-UX-001",
+      "title": "Command palette / keyboard expert mode not runtime-mounted",
+      "priority": "P2",
+      "severity": "LOW"
+    },
+    {
+      "errorId": "ERR-UX-002",
+      "title": "Entity360 graph/timeline tabs are shell-level not deep investigation UX",
+      "priority": "P2",
+      "severity": "MEDIUM"
+    }
+  ],
+  "exactNextRootCauseFix": "Build and certify a self-contained Windows package (Setup.exe or SCI-OS-X10.exe) with embedded Node runtime and application assets so a normal user can Install → Click → READY → Search AAPL → Analyze without terminal, pnpm, or preinstalled Node.",
+  "live": {
+    "canStartDevAssisted": true,
+    "gw1Works": true,
+    "riskGovBlock": true
+  }
+}

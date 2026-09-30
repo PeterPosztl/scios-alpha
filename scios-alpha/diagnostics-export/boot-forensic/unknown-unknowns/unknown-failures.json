@@ -1,0 +1,26 @@
+{
+  "at": "2026-08-12T19:51:34.754Z",
+  "bootId": "uu_msqi6dlm_ac8b47",
+  "unknowns": [
+    {
+      "id": "MANIFEST_HASH_DRIFT",
+      "severity": "MEDIUM",
+      "drift": [
+        {
+          "rel": "installer/scripts/start-sci-os.cjs",
+          "status": "DRIFT",
+          "expected": "45475c2f3b32fd14a1ca03228c97dc3d6d5550fbd7b52e848c8ef986170ca3d3",
+          "actual": "924144c0c53c171edc5c0ea2543ea42e3f7b11869564215401eba418ae813a59"
+        },
+        {
+          "rel": "SCI OS X10.cmd",
+          "status": "DRIFT",
+          "expected": "6fda022042ac75b49eb9b171d852d74fa7eaa805aa436bc297e314e6c622d036",
+          "actual": "2aad68d819e6f55a827fb2063cf53d82c4ef94e06f2f828460919f05a23a0f81"
+        }
+      ],
+      "note": "Not necessarily boot-blocking if files present; rebuild manifest hashes"
+    }
+  ],
+  "classifiedDirect": []
+}

@@ -1,0 +1,26 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "canonical": "Node 20.18.1 family",
+  "packageEngines": {
+    "node": ">=20.18.0 <21",
+    "pnpm": ">=8.0.0"
+  },
+  "nvmrc": "20.18.1",
+  "engineStrict": true,
+  "typesNode": "^22.10.0",
+  "hostNode": "v24.13.1",
+  "driftRemaining": [
+    {
+      "item": "@types/node",
+      "status": "MAJOR_MISMATCH_22_vs_20",
+      "severity": "P2"
+    },
+    {
+      "item": "host agent node",
+      "status": "OUTSIDE_ENGINES",
+      "severity": "P1_DEV"
+    }
+  ],
+  "verdict": "MOSTLY_ALIGNED"
+}

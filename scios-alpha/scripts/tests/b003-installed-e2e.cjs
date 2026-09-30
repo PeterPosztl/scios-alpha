@@ -78,12 +78,18 @@ async function waitHealthy(maxMs = 90000) {
 }
 
 function stopInstalled() {
-  spawnSync(process.execPath, [path.join(ROOT, "installer/scripts/convergence/stop.cjs")], {
-    cwd: ROOT,
-    encoding: "utf8",
-    windowsHide: true,
-    timeout: 45000,
-  });
+  // Target the install explicitly: cwd-based root resolution stops the repo and
+  // leaves the installed lock owned by a dead process, blocking every reboot.
+  spawnSync(
+    process.execPath,
+    [path.join(ROOT, "installer/scripts/convergence/stop.cjs"), `--app-root=${INSTALL}`],
+    {
+      cwd: ROOT,
+      encoding: "utf8",
+      windowsHide: true,
+      timeout: 45000,
+    }
+  );
 }
 
 async function main() {

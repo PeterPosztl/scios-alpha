@@ -1,0 +1,17 @@
+{
+  "at": "2026-08-12T17:14:38.329Z",
+  "packageManager": "pnpm@9.15.0",
+  "requiredRuntime": {
+    "node": "REQUIRED_FOR_DEV_AND_CURRENT_LAUNCH",
+    "pnpm": "DEVELOPMENT_ONLY_BUT_LEAKED_INTO_USER_START",
+    "python": "OPTIONAL",
+    "docker": "OPTIONAL_FOR_PG_REDIS"
+  },
+  "packaging": {
+    "pkgTarget": "package:exe → dist/SCI-OS-X10.exe",
+    "exePresent": true,
+    "setupExePresent": false,
+    "bundledNode": false
+  },
+  "decision": "P1: bundle Node or ship SCI-OS-X10.exe with assets so normal users need no pnpm"
+}

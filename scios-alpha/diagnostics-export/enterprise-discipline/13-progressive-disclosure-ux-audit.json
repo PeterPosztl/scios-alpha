@@ -1,0 +1,119 @@
+{
+  "at": "2026-08-13T12:39:24.586Z",
+  "buildId": "enterprise-discipline-2026-08-13",
+  "schema": "sci-os-progressive-disclosure-ux-audit/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "layers": [
+    {
+      "id": "L1",
+      "name": "situation"
+    },
+    {
+      "id": "L2",
+      "name": "meaning"
+    },
+    {
+      "id": "L3",
+      "name": "recommendation"
+    },
+    {
+      "id": "L4",
+      "name": "uncertainty"
+    },
+    {
+      "id": "L5",
+      "name": "risk"
+    },
+    {
+      "id": "L6",
+      "name": "decision_action"
+    },
+    {
+      "id": "L7",
+      "name": "explanation"
+    },
+    {
+      "id": "L8",
+      "name": "evidence"
+    },
+    {
+      "id": "L9",
+      "name": "lineage_technical"
+    }
+  ],
+  "defaultPriority": [
+    "attention",
+    "decision",
+    "next_action"
+  ],
+  "surfaces": [
+    {
+      "surface": "Home",
+      "prioritizes": [
+        "attention",
+        "next action"
+      ],
+      "layersPresent": [
+        "L1",
+        "L6"
+      ],
+      "status": "PARTIAL"
+    },
+    {
+      "surface": "Entity360",
+      "prioritizes": [
+        "situation"
+      ],
+      "layersPresent": [
+        "L1"
+      ],
+      "status": "PARTIAL"
+    },
+    {
+      "surface": "Analysis_GW1",
+      "prioritizes": [
+        "attention",
+        "decision",
+        "next action"
+      ],
+      "layersPresent": [
+        "L1",
+        "L2",
+        "L4",
+        "L5",
+        "L6",
+        "L7",
+        "L8",
+        "L9"
+      ],
+      "status": "PARTIAL",
+      "note": "Default professional mode; technical is deliberate"
+    },
+    {
+      "surface": "System",
+      "prioritizes": [
+        "dimensional status"
+      ],
+      "layersPresent": [
+        "L9"
+      ],
+      "status": "PARTIAL"
+    }
+  ],
+  "noFalseSimplicity": {
+    "bannedUniversalScores": [
+      "single risk score as sole truth",
+      "single READY flag"
+    ],
+    "dimensionalStatuses": [
+      "BOOT_READY",
+      "CORE_READY",
+      "CAPABILITY_READY",
+      "DATA_QUALITY",
+      "SCIENTIFIC_MATURITY",
+      "RISK_STATE",
+      "POLICY_STATE",
+      "UX_STATE"
+    ]
+  }
+}

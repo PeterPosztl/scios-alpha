@@ -1,0 +1,19 @@
+{
+  "at": "2026-08-13T14:31:11.804Z",
+  "buildId": "foundations-2026-08-13",
+  "status": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+  "rule": "Do not freeze 2026 vendor details permanently into architecture",
+  "entries": [
+    {
+      "source": "Public enterprise AI patterns 2026",
+      "lastVerifiedAt": "2026-08-13",
+      "reviewBy": "2026-11-01",
+      "maturity": "observe",
+      "founderRelevance": "HIGH",
+      "sciEquivalent": "benchmark contract + pattern translator",
+      "gap": "ongoing review cadence",
+      "adoptionDecision": "ADAPT principles",
+      "risk": "vendor lock-in if hardcoded"
+    }
+  ]
+}

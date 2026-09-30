@@ -1,0 +1,26 @@
+{
+  "schema": "sci-os-process-ownership-proof/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-13T17:54:59.768Z",
+  "serveMode": true,
+  "owned": [
+    {
+      "name": "control-plane",
+      "pid": 4328,
+      "alive": true,
+      "logFile": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10\\diagnostics-export\\proc-logs\\control-plane.log"
+    },
+    {
+      "name": "cockpit",
+      "pid": 19500,
+      "alive": true,
+      "logFile": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10\\diagnostics-export\\proc-logs\\cockpit.log"
+    }
+  ],
+  "stopAllUsesTaskkill": true,
+  "ports": {
+    "3000": true,
+    "4000": true
+  },
+  "note": "During --serve children are owned; stopAll uses taskkill /T /F"
+}

@@ -1,0 +1,28 @@
+{
+  "at": "2026-08-13T12:52:42.652Z",
+  "buildId": "crown-architecture-2026-08-13",
+  "stages": [
+    "PRE_FLIGHT",
+    "RESOLVE_RUNTIME",
+    "RESOLVE_APP_ROOT",
+    "VALIDATE_CONFIG",
+    "CLAIM_RESOURCES",
+    "START_CORE",
+    "VERIFY_CORE",
+    "START_EXPERIENCE",
+    "VERIFY_HOME",
+    "COMMIT_BOOT"
+  ],
+  "failurePhases": [
+    "CLASSIFY",
+    "ROLLBACK",
+    "RELEASE_RESOURCES",
+    "RECOVERY_SAFE_MODE",
+    "EVIDENCE"
+  ],
+  "module": "installer/scripts/startup/transactional-boot.cjs",
+  "wiredIntoStartSciOs": true,
+  "verifyHomeBeforeBrowser": true,
+  "lastRuntimeEvidence": null,
+  "status": "WIRED"
+}

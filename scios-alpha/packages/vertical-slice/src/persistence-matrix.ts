@@ -1,4 +1,5 @@
 import { resolveSciDataRoot, resolveVerticalSliceStateDir } from "./data-root.js";
+import { isPostgresConfigured } from "./persistence/postgres-adapter.js";
 
 export type PersistenceClassification =
   | "DURABLE"
@@ -78,11 +79,13 @@ export function getPersistenceStateMatrix(): PersistenceStateMatrix {
         restartSafe: false,
       },
       postgres: {
-        classification: "PROFILE_DISABLED",
-        store: null,
-        restartSafe: null,
-        externalDependency: "FD-002",
-        note: "Honest deferral — local-durable is Beta truth",
+        classification: isPostgresConfigured() ? "OPTIONAL" : "PROFILE_DISABLED",
+        store: isPostgresConfigured() ? "postgresql://configured" : null,
+        restartSafe: isPostgresConfigured() ? true : null,
+        externalDependency: isPostgresConfigured() ? undefined : "FD-002",
+        note: isPostgresConfigured()
+          ? "B-010 — PG adapter READY when connection succeeds; local remains primary"
+          : "Honest deferral — local-durable is Beta truth until DATABASE_URL set",
       },
       redis: {
         classification: "OPTIONAL",

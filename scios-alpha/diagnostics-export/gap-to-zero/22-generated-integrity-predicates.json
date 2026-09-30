@@ -1,0 +1,14 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "engine": "pnpm integrity:run",
+  "lastSignoff": {
+    "REPOSITORY_COHERENCE": "DEGRADED",
+    "RUNTIME_COHERENCE": "DEGRADED",
+    "PRODUCT_ACTIVATION": "DEGRADED",
+    "UX_FOUNDATION": "DEGRADED",
+    "FIRST_RELEASE": "INTERNAL_BLOCKER",
+    "FULL_PRODUCT_VISION": "ALPHA"
+  },
+  "scalableTo": "thousands+"
+}

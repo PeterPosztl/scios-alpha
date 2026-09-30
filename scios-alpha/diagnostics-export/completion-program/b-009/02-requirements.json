@@ -1,0 +1,32 @@
+{
+  "schema": "sci-os-b009-requirements/v1",
+  "contract": "sci-os-job-lifecycle/v1",
+  "lifecycle": [
+    "SUBMITTED",
+    "STARTED",
+    "RUNNING",
+    "COMPLETED",
+    "FAILED",
+    "RETRY_PENDING",
+    "RETRY_EXHAUSTED",
+    "CANCELLED",
+    "RECOVERED"
+  ],
+  "capabilities": [
+    "lifecycle transitions",
+    "persistence",
+    "restart recovery",
+    "stale reconciliation",
+    "concurrency safety",
+    "duplicate submission protection",
+    "retry boundaries",
+    "actor authorization",
+    "observability",
+    "job center integration"
+  ],
+  "endpoints": [
+    "GET /v1/jobs/health",
+    "GET /v1/jobs",
+    "GET /v1/jobs/:id"
+  ]
+}

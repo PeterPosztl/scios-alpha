@@ -253,10 +253,10 @@
   "status": "PASS",
   "stoppedTwin": {
     "lifecycle": "STOPPED",
-    "actual": "STOPPED",
+    "actual": "RUNNING",
     "driftCount": 0,
     "job": "JOB_OBJECT_CLOSED",
-    "observedAt": "2026-08-18T20:47:03.270Z"
+    "observedAt": "2026-08-19T13:21:42.184Z"
   },
   "cleanShutdown": {
     "apiDown": true,

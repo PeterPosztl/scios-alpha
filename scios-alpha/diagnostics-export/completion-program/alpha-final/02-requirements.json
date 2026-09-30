@@ -1,0 +1,18 @@
+{
+  "schema": "sci-os-alpha-final-requirements/v1",
+  "checks": [
+    "pipeline end-to-end",
+    "compiler health",
+    "job-engine health",
+    "persistence matrix honesty",
+    "degraded-mode correctness",
+    "cockpit panels correctness",
+    "evidence linkage",
+    "lineage linkage",
+    "risk/decision correctness",
+    "system health correctness",
+    "startup-readiness correctness",
+    "installed E2E full suite"
+  ],
+  "token": "ALPHA_FINAL_GATE_READY"
+}

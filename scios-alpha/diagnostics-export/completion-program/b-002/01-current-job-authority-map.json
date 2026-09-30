@@ -1,6 +1,6 @@
 {
   "schema": "sci-os-b002-job-authority-map/v1",
-  "at": "2026-08-19T20:25:35.789Z",
+  "at": "2026-09-30T10:08:40.634Z",
   "canonicalAuthority": "apps/control-plane-api/src/osSession.ts",
   "apiRoutes": "apps/control-plane-api/src/routes/product.ts",
   "endpoints": [

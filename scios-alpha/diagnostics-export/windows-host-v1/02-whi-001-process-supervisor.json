@@ -1,0 +1,149 @@
+{
+  "schema": "sci-os-whi-001-proof/v1",
+  "status": "PASS",
+  "jobObjects": "PROVEN",
+  "topology": {
+    "schema": "sci-os-whi-001-process-topology/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "source": "installer/scripts/start-sci-os.cjs",
+    "group": "SCI_RUNTIME_GROUP",
+    "nodes": [
+      {
+        "id": "launcher",
+        "artifact": "SCI-OS-X10.exe → SCI-OS-X10.cmd",
+        "spawns": [
+          "orchestrator"
+        ],
+        "inRuntimeGroup": false
+      },
+      {
+        "id": "orchestrator",
+        "artifact": "installer/scripts/start-sci-os.cjs",
+        "authority": "SINGLE_BOOT",
+        "spawns": [
+          "control-plane",
+          "cockpit",
+          "job-object-keeper"
+        ],
+        "inRuntimeGroup": false,
+        "owns": "ProcessSupervisor"
+      },
+      {
+        "id": "job-object-keeper",
+        "artifact": "installer/scripts/host/helpers/job-object-keeper.ps1",
+        "role": "hold Job Object handle KILL_ON_JOB_CLOSE",
+        "inRuntimeGroup": false,
+        "optional": true
+      },
+      {
+        "id": "control-plane",
+        "port": 3000,
+        "artifact": "backend/server.cjs (packaged) or apps/control-plane-api",
+        "inRuntimeGroup": true
+      },
+      {
+        "id": "cockpit",
+        "port": 4000,
+        "artifact": "cockpit/index.mjs",
+        "inRuntimeGroup": true,
+        "apphost": true
+      },
+      {
+        "id": "foundation-worker",
+        "artifact": "in-process control-plane",
+        "inRuntimeGroup": false,
+        "note": "not a child process"
+      },
+      {
+        "id": "recovery",
+        "port": 5299,
+        "artifact": "recovery/server.cjs",
+        "inRuntimeGroup": false,
+        "note": "separate — safe-mode spawnSync / on-demand"
+      }
+    ],
+    "detached": "only when not --serve (gate-mode leave-running)",
+    "shutdownOrder": [
+      "graceful request",
+      "job terminateOwned",
+      "cockpit tree",
+      "control-plane tree",
+      "release lock"
+    ],
+    "pidRecording": "ProcessSupervisor.children + runtimeGroup.snapshot + startup-report.services"
+  },
+  "testSteps": [
+    {
+      "name": "SPAWN_OWNED",
+      "ok": true,
+      "pids": [
+        16800,
+        21972
+      ]
+    },
+    {
+      "name": "GROUP_MEMBERS",
+      "ok": true,
+      "group": {
+        "schema": "sci-os-runtime-group/v1",
+        "group": "SCI_RUNTIME_GROUP",
+        "job": {
+          "method": "job-object-keeper",
+          "status": "CREATED",
+          "jobName": "Local\\SCI_OS_RUNTIME_15828",
+          "assigned": [
+            16800,
+            21972
+          ],
+          "proven": true,
+          "lastError": null,
+          "classification": "PROVEN"
+        },
+        "members": [
+          {
+            "name": "control-plane",
+            "pid": 16800,
+            "role": "control-plane",
+            "startedAt": "2026-08-18T18:53:44.905Z",
+            "detached": false,
+            "inJob": true
+          },
+          {
+            "name": "cockpit",
+            "pid": 21972,
+            "role": "cockpit",
+            "startedAt": "2026-08-18T18:53:44.916Z",
+            "detached": false,
+            "inJob": true
+          }
+        ]
+      }
+    },
+    {
+      "name": "JOB_OBJECT_HONEST",
+      "ok": true,
+      "jobClass": "PROVEN"
+    },
+    {
+      "name": "STOP_NO_ORPHANS",
+      "ok": true,
+      "stopped": [
+        {
+          "name": "control-plane",
+          "pid": 16800,
+          "ok": false,
+          "status": 128
+        },
+        {
+          "name": "cockpit",
+          "pid": 21972,
+          "ok": false,
+          "status": 128
+        }
+      ],
+      "orphans": []
+    }
+  ],
+  "ownershipMethod": "SCI_RUNTIME_GROUP + optional Job Object keeper + taskkill tree fallback",
+  "recoverySeparate": true
+}

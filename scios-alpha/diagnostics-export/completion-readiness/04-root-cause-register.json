@@ -1,0 +1,18 @@
+{
+  "schema": "sci-os-completion-audit/root-causes/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "totalRootCauses": 321,
+  "bySeverity": { "P0": 0, "P1": 91, "P2": 184, "P3": 46 },
+  "topP1Categories": [
+    { "id": "CTRL.CF28.validation", "title": "Model validation", "affected": 8 },
+    { "id": "CTRL.CF11.job-states", "title": "Job lifecycle states", "affected": 7 },
+    { "id": "CTRL.CF11.idempotency", "title": "Job idempotency", "affected": 7 },
+    { "id": "CTRL.CF11.progress", "title": "Job progress tracking", "affected": 7 },
+    { "id": "CTRL.CF11.job-evidence", "title": "Job evidence generation", "affected": 7 },
+    { "id": "CTRL.CF14.policy-decision", "title": "Policy decision point", "affected": 7 },
+    { "id": "CTRL.CF14.policy-enforcement", "title": "Policy enforcement point", "affected": 7 }
+  ],
+  "fixableAutonomously": "P2/P3 batch work (~230 root causes)",
+  "requiresFounderDecision": "P1 policy/governance architecture (~91 root causes)",
+  "requiresExternalDeps": "PostgreSQL, Redis, OIDC provider for production readiness"
+}

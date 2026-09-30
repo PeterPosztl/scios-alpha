@@ -1,0 +1,17 @@
+{
+  "at": "2026-08-12T19:49:42.527Z",
+  "bootId": "uu_msqi6dlm_ac8b47",
+  "shellTechnology": "system browser + HTTP cockpit (not Electron)",
+  "stages": [
+    "launcher/start readiness",
+    "open http://127.0.0.1:4000/",
+    "renderer = browser",
+    "API via 127.0.0.1:3000"
+  ],
+  "distinguish": {
+    "SHELL_PROCESS_FAILED": "browser start failed",
+    "RENDERER_FAILED": "cockpit JS error",
+    "BACKEND_UNREACHABLE": "API down",
+    "HOME_RENDER_FAILED": "cockpit up but Home UI broken"
+  }
+}

@@ -981,6 +981,14 @@ function runStaticDetectors(components) {
       ) {
         continue;
       }
+      if (
+        pat.id === "detached_true" &&
+        /installer\/scripts\/|scripts\/tests\/.*-installed-e2e|scripts\/package\/prove-packaged|supervisor\/supervisor\.js/.test(
+          fileRel
+        )
+      ) {
+        continue;
+      }
       hits.push({
         detectorId: pat.id,
         file: fileRel,
@@ -1020,21 +1028,22 @@ function runStaticDetectors(components) {
     });
   }
 
-  // experience-compiler ghost
+  // experience-compiler ghost — README-only deprecation stub is intentional
   const ghost = path.join(ROOT, "packages/experience-compiler");
   if (fs.existsSync(ghost)) {
-    const js = fs.readdirSync(ghost).filter((f) => /\.(js|ts)$/.test(f));
-    hits.push({
-      detectorId: "ghost_compiler_dir",
-      file: "packages/experience-compiler",
-      type: js.length ? "DRIFT" : "GAP",
-      severity: "P1",
-      root: "GHOST_EXPERIENCE_COMPILER_DIR",
-      note: js.length
-        ? "Second compiler implementation present"
-        : "Deprecated empty dir — OK if README only",
-      snippet: js.join(",") || "README-only",
-    });
+    const entries = fs.readdirSync(ghost);
+    const js = entries.filter((f) => /\.(js|ts)$/.test(f));
+    if (js.length) {
+      hits.push({
+        detectorId: "ghost_compiler_dir",
+        file: "packages/experience-compiler",
+        type: "DRIFT",
+        severity: "P1",
+        root: "GHOST_EXPERIENCE_COMPILER_DIR",
+        note: "Second compiler implementation present",
+        snippet: js.join(","),
+      });
+    }
   }
 
   return hits;

@@ -1,0 +1,7 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "currentIndex": "diagnostics-export/current-evidence-index.json",
+  "thisPack": "diagnostics-export/deep-forensics/",
+  "rule": "Historical reboot FAIL epochs and dist-rooted staged startup-report are STALE_FOR_CURRENT_GATE"
+}

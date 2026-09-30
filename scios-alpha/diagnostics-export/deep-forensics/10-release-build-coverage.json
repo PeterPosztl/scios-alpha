@@ -1,0 +1,16 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "rootBuild": "pnpm -r --filter \"./packages/**\" run build",
+  "coversApps": false,
+  "mandatory": [
+    "installer/scripts/*",
+    "apps/control-plane-api",
+    "apps/cockpit-ui",
+    "packages/vertical-slice",
+    "packages/governance-engine",
+    "packaging scripts"
+  ],
+  "gap": "PROVED — packages-only build insufficient for release",
+  "recommendedScript": "build:release"
+}

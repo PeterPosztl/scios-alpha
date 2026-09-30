@@ -1,0 +1,45 @@
+{
+  "schema": "sci-os-final-completion/08-persistence-diagnostic/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T10:13:14.945Z",
+  "title": "Persistence matrix",
+  "sources": [
+    "completion-program/b-010/11-final-gate.json",
+    "completion-program/beta-gate/11-final-gate.json"
+  ],
+  "classes": [
+    "IN_MEMORY",
+    "LOCAL_DURABLE",
+    "POSTGRES_REQUIRED",
+    "REDIS_REQUIRED",
+    "OPTIONAL_PROVIDER",
+    "PRODUCTION_REQUIRED"
+  ],
+  "current": "LOCAL_DURABLE",
+  "b010": {
+    "token": "B_010_PERSISTENCE_BLOCKED_WITH_EVIDENCE",
+    "status": "PASS",
+    "checks": {
+      "sourceTests": "PASS",
+      "package": "PASS",
+      "install": "PASS",
+      "installedE2e": "PASS",
+      "regression": "PASS",
+      "b010-persistence-hard-gate.cjs": "PASS",
+      "b004-persistence-hard-gate.cjs": "PASS",
+      "b009-background-system-hard-gate.cjs": "PASS",
+      "b008-experience-compiler-hard-gate.cjs": "PASS",
+      "b007-p1-root-closure.cjs": "PASS"
+    }
+  },
+  "postgres": {
+    "state": "OPTIONAL_PROVIDER_UNAVAILABLE",
+    "databaseUrlPresent": false,
+    "blocker": "PERSISTENCE.PG_EXTERNAL_INSTANCE_FD002"
+  },
+  "redis": {
+    "state": "OPTIONAL_PROVIDER_UNAVAILABLE",
+    "redisUrlPresent": false
+  },
+  "note": "Postgres/migration checks report SKIP_NO_PG rather than PASS. Absence is never recorded as success."
+}

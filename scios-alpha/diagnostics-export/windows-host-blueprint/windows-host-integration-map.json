@@ -1,0 +1,300 @@
+{
+  "schema": "sci-os-windows-host-integration-map/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-18T18:24:00.000Z",
+  "baselineBuildId": "pkg_1787074480539",
+  "baselineGitSha": "8a0125a18bd017abaf3206f075713bccc28f01e7",
+  "p0Protected": 0,
+  "phase": "BLUEPRINT_SPEC",
+  "integrationVerbs": {
+    "WRAP": "Thin Windows adapter implementing an SCI host contract. Windows API remains authority; SCI never fakes native behavior.",
+    "AUGMENT": "Extend an existing SCI module with Windows-native signals or controls without replacing product contracts or boot authority."
+  },
+  "constraints": [
+    "Single boot authority: start-sci-os.cjs",
+    "Shell IS AppHost — Windows integrations must not become second product host",
+    "Packaged mode: bundled Node 20.18.1 only",
+    "No evidence ⇒ UNKNOWN",
+    "P0 golden path must remain PASS after each integration slice"
+  ],
+  "integrations": [
+    {
+      "id": "WHI-001",
+      "windowsCapability": "Job Objects",
+      "verb": "AUGMENT",
+      "sciTarget": "SCI Process Supervisor",
+      "sciAnchor": {
+        "module": "installer/scripts/startup/process-supervisor.cjs",
+        "class": "ProcessSupervisor",
+        "status": "PROVEN"
+      },
+      "purpose": "Assign CP + Shell (+ future workers) to a Windows Job Object for unified teardown, breakaway control, and child-tree kill without taskkill-only fragility.",
+      "windowsAPIs": [
+        "CreateJobObject",
+        "AssignProcessToJobObject",
+        "SetInformationJobObject (KILL_ON_JOB_CLOSE)",
+        "TerminateJobObject"
+      ],
+      "contractSurface": "host/job-object.cjs → supervisor.assignJob(childPid)",
+      "phase": "P1_HOST_HARDENING",
+      "priority": "P1",
+      "p0Risk": "MEDIUM",
+      "closes": ["WH-ISO-004 child-service isolation", "graceful shutdown gaps"],
+      "mustNot": ["Replace healthz identity checks", "Kill ports without service proof"]
+    },
+    {
+      "id": "WHI-002",
+      "windowsCapability": "Windows Services",
+      "verb": "WRAP",
+      "sciTarget": "SCI Host Service",
+      "sciAnchor": {
+        "module": "PROPOSED — wraps start-sci-os.cjs lifecycle only",
+        "status": "ABSENT",
+        "blueprintRef": "system-services-blueprint.json tier T2"
+      },
+      "purpose": "Optional Session-0 or per-user Windows Service that starts/stops the SCI orchestrator — not individual HTTP microservices.",
+      "windowsAPIs": [
+        "Service Control Manager",
+        "ChangeServiceConfig",
+        "SetServiceStatus",
+        "NSSM or WinSW (candidate wrappers)"
+      ],
+      "contractSurface": "host/windows-service.cjs → SCIHostService { start, stop, status }",
+      "phase": "P2_HOST_SERVICES",
+      "priority": "P2",
+      "p0Risk": "HIGH if attempted before reboot + isolation proofs",
+      "mustNot": [
+        "Second boot state machine",
+        "Require system Node",
+        "Replace SCI-OS-X10.exe as primary user entry in P0 profile"
+      ]
+    },
+    {
+      "id": "WHI-003",
+      "windowsCapability": "Task Scheduler",
+      "verb": "WRAP_AUGMENT",
+      "sciTarget": "SCI Job Engine (later)",
+      "sciAnchor": {
+        "module": "embedded foundation worker + future BullMQ",
+        "status": "PARTIAL",
+        "note": "ALPHA has in-process worker; Redis queue ABSENT"
+      },
+      "purpose": "Near-term: WRAP login/startup triggers for SCI launch. Later: AUGMENT durable SCI Job Engine with scheduled host tasks (integrity scan, reconciliation, backup).",
+      "windowsAPIs": [
+        "ITaskService / RegisterTaskDefinition",
+        "Task Scheduler 2.0 COM",
+        "SCHTASKS (fallback)"
+      ],
+      "contractSurface": {
+        "nearTerm": "host/task-scheduler-launch.cjs",
+        "later": "jobs/engine → host schedule adapter"
+      },
+      "phase": "P1 near-term trigger; P2/P3 job engine fusion",
+      "priority": "P2",
+      "p0Risk": "LOW for opt-in launch trigger; MEDIUM for job engine coupling"
+    },
+    {
+      "id": "WHI-004",
+      "windowsCapability": "Windows Event Log",
+      "verb": "WRAP",
+      "sciTarget": "SCI Host Event Provider → SCI Event Fabric (later)",
+      "sciAnchor": {
+        "module": "diagnostics-export/* + app/events (product)",
+        "hostProvider": "PROPOSED",
+        "eventFabric": "PARTIAL_LOCAL — deferred durable fabric P2/P3"
+      },
+      "purpose": "Emit host lifecycle, boot verdict, supervisor, install, and recovery events to Windows Event Log; later fan-in to SCI Event Fabric without duplicating product event bus.",
+      "windowsAPIs": [
+        "RegisterEventSource",
+        "ReportEvent",
+        "EventLog.CreateEventSource (.NET) or node-windows-eventlog adapter"
+      ],
+      "contractSurface": {
+        "host": "host/event-provider.cjs → emitHostEvent(category, code, meta)",
+        "later": "event-fabric/adapters/windows-event-log"
+      },
+      "phase": "P1 host provider; P2/P3 fabric bridge",
+      "priority": "P1",
+      "p0Risk": "LOW",
+      "redaction": "Must use redactLogMeta — no secrets in Event Log"
+    },
+    {
+      "id": "WHI-005",
+      "windowsCapability": "Performance APIs",
+      "verb": "AUGMENT",
+      "sciTarget": "SCI Resource Intelligence",
+      "sciAnchor": {
+        "module": "GET /readyz dependencyMetrics + startup-report",
+        "status": "PARTIAL",
+        "note": "Node version measured; CPU/memory/disk/host perf not yet"
+      },
+      "purpose": "Augment readyz and host twin with PDH/PerfCounters: CPU, memory, disk, handle count, port listeners, process working set for supervised children.",
+      "windowsAPIs": [
+        "PDH API",
+        "GetProcessMemoryInfo",
+        "GetSystemTimes",
+        "WMI Win32_PerfFormattedData (fallback)"
+      ],
+      "contractSurface": "host/resource-intelligence.cjs → sample() → readyz.dependencyMetrics.host",
+      "phase": "P1",
+      "priority": "P1",
+      "p0Risk": "LOW"
+    },
+    {
+      "id": "WHI-006",
+      "windowsCapability": "DPAPI / Credential Manager",
+      "verb": "WRAP",
+      "sciTarget": "SCI Secret Broker",
+      "sciAnchor": {
+        "module": "PROPOSED",
+        "status": "ABSENT",
+        "note": "Today secrets via .env / optional env — no durable broker"
+      },
+      "purpose": "Wrap CryptProtectData / CredWrite for per-user SCI secrets (API keys, optional DB URLs) without plaintext in diagnostics or logs.",
+      "windowsAPIs": [
+        "CryptProtectData / CryptUnprotectData (DPAPI)",
+        "CredWrite / CredRead (Credential Manager)",
+        "LOCAL_MACHINE vs CURRENT_USER scope policy"
+      ],
+      "contractSurface": "host/secret-broker.cjs → get/set scoped to SCIOS_APP_ROOT user",
+      "phase": "P2",
+      "priority": "P2",
+      "p0Risk": "MEDIUM",
+      "mustNot": ["Store secrets in diagnostics-export", "Commit .env secrets"]
+    },
+    {
+      "id": "WHI-007",
+      "windowsCapability": "Windows Notifications",
+      "verb": "WRAP",
+      "sciTarget": "SCI Attention Engine",
+      "sciAnchor": {
+        "module": "GET /v1/home attention + foundations attention-model",
+        "status": "PARTIAL",
+        "evidence": "diagnostics-export/foundations/18-attention-model.json"
+      },
+      "purpose": "Surface Home attention items and critical host alerts (DEGRADED boot, recovery needed) via Toast notifications — product attention remains API authority.",
+      "windowsAPIs": [
+        "Windows.UI.Notifications (WinRT)",
+        "Shell_NotifyIcon (fallback)",
+        "PowerShell BurntToast (dev-only fallback — not packaged authority)"
+      ],
+      "contractSurface": "host/attention-notify.cjs ← attention engine diff",
+      "phase": "P2",
+      "priority": "P2",
+      "p0Risk": "LOW"
+    },
+    {
+      "id": "WHI-008",
+      "windowsCapability": "Power / Sleep / Resume",
+      "verb": "WRAP",
+      "sciTarget": "SCI Reconciliation",
+      "sciAnchor": {
+        "module": "packages/system-closure startup-reconcile + truth-reconciliation + start-sci-os recoveryAttempts",
+        "status": "PARTIAL"
+      },
+      "purpose": "On suspend/resume and session lock/unlock: reconcile process health, stale locks, port ownership, and re-run host-vs-expected twin diff before declaring READY.",
+      "windowsAPIs": [
+        "WM_POWERBROADCAST",
+        "RegisterPowerSettingNotification",
+        "WTSRegisterSessionNotification (optional)"
+      ],
+      "contractSurface": "host/power-reconcile.cjs → reconciliation.trigger(reason)",
+      "phase": "P1",
+      "priority": "P1",
+      "p0Risk": "MEDIUM",
+      "closes": ["WH-LIFE-003 partial — complements reboot cert", "session restore honesty"]
+    },
+    {
+      "id": "WHI-009",
+      "windowsCapability": "Network state",
+      "verb": "WRAP",
+      "sciTarget": "SCI Connectivity State",
+      "sciAnchor": {
+        "module": "PROPOSED — localhost-first product assumes 127.0.0.1",
+        "status": "ABSENT"
+      },
+      "purpose": "Track NIC up/down, captive portal, offline/online for honest degradation of OSINT/external providers — localhost spine always available.",
+      "windowsAPIs": [
+        "NotifyAddrChange",
+        "GetAdaptersAddresses",
+        "NetworkConnectivityLevel (WinRT)",
+        "InternetGetConnectedState (legacy fallback)"
+      ],
+      "contractSurface": "host/connectivity-state.cjs → readyz.dependencyMetrics.network",
+      "phase": "P2",
+      "priority": "P2",
+      "p0Risk": "LOW",
+      "mustNot": ["Block localhost GW1 when external network down"]
+    },
+    {
+      "id": "WHI-010",
+      "windowsCapability": "Current Recovery stack",
+      "verb": "AUGMENT",
+      "sciTarget": "SCI Recovery Intelligence",
+      "sciAnchor": {
+        "module": "recovery/server.cjs + @scios/meta-recovery + start-sci-os recoveryAttempts",
+        "status": "PROVEN_PRESENT",
+        "evidence": "package-sync golden path RECOVERY_PACKAGE PASS"
+      },
+      "purpose": "Augment meta-recovery inventory/repair with host-aware signals: install corruption, backup.last validity, job object leaks, service state, reboot pending.",
+      "windowsAPIs": [
+        "Existing file/process probes",
+        "Plus WHI-001/005/008 outputs as inputs"
+      ],
+      "contractSurface": "packages/meta-recovery → hostRecoverySignals adapter",
+      "phase": "P1",
+      "priority": "P1",
+      "p0Risk": "LOW"
+    },
+    {
+      "id": "WHI-011",
+      "windowsCapability": "Windows process / system state",
+      "verb": "AUGMENT",
+      "sciTarget": "SCI Host Digital Twin",
+      "sciAnchor": {
+        "module": "packages/meta-recovery StartupDigitalTwin + product-kernel buildDualDigitalTwin",
+        "status": "PARTIAL",
+        "evidence": "diagnostics-export/meta-recovery/startup-digital-twin.json"
+      },
+      "purpose": "Extend sciSystemTwin with host layer: supervised PIDs, job object handle, ports, service state, perf snapshots, power state, connectivity — diff against expected packaged layout.",
+      "windowsAPIs": [
+        "EnumProcesses / WMI Win32_Process",
+        "GetExtendedTcpTable (owned ports)",
+        "Service status queries",
+        "Aggregated WHI-005/008/009 feeds"
+      ],
+      "contractSurface": "host/digital-twin.cjs → augment StartupDigitalTwin.diff()",
+      "phase": "P1",
+      "priority": "P1",
+      "p0Risk": "LOW",
+      "extends": ["StartupDigitalTwin", "buildDualDigitalTwin sciSystemTwin"]
+    }
+  ],
+  "layeredArchitecture": {
+    "L_hostWindows": "Job Objects, SCM, Task Scheduler, Event Log, PDH, DPAPI, Toast, Power, Network APIs",
+    "L_hostWrapAugment": "host/*.cjs adapters (WRAP) + supervisor/meta-recovery augment hooks",
+    "L_hostContracts": "SCI Host Service, Host Event Provider, Secret Broker, Connectivity State, Host Digital Twin",
+    "L_productExisting": "Process Supervisor, Recovery, Reconciliation, Attention (/v1/home), readyz, Event Fabric (later)",
+    "L_productAppHost": "Shell :4000 — unchanged authority"
+  },
+  "implementationOrder": [
+    "WHI-001 Job Objects → Process Supervisor",
+    "WHI-011 Host Digital Twin augment",
+    "WHI-010 Recovery Intelligence augment",
+    "WHI-004 Host Event Provider",
+    "WHI-005 Resource Intelligence → readyz",
+    "WHI-008 Power Reconciliation",
+    "WHI-003 Task Scheduler launch trigger (opt-in)",
+    "WHI-002 Windows Service wrap (after P1 exit)",
+    "WHI-006 Secret Broker",
+    "WHI-007 Notifications → Attention",
+    "WHI-009 Connectivity State",
+    "WHI-003 → SCI Job Engine (later)",
+    "WHI-004 → SCI Event Fabric bridge (later)"
+  ],
+  "founderGates": [
+    "Each WHI-* is a vertical slice with diagnostics-export proof",
+    "P0=0 after every slice",
+    "No WHI implementation during blueprint-only phase without explicit mission"
+  ]
+}

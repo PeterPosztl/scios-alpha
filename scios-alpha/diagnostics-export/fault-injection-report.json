@@ -1,0 +1,150 @@
+{
+  "at": "2026-08-12T14:19:11.986Z",
+  "label": "ALPHA_NON_PRODUCTION",
+  "healthUrl": "http://127.0.0.1:5230/api/system/health",
+  "steps": [
+    {
+      "name": "stop_redis",
+      "started": "2026-08-12T14:19:12.070Z",
+      "ok": false,
+      "error": "error during connect: Get \"http://%2F%2F.%2Fpipe%2FdockerDesktopLinuxEngine/v1.51/containers/json?filters=%7B%22name%22%3A%7B%22redis%22%3Atrue%7D%7D\": open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.",
+      "health": {
+        "ok": true,
+        "status": 200,
+        "body": {
+          "backend": "READY",
+          "worker": "READY",
+          "cockpit": "READY",
+          "infra": "STOPPED",
+          "timestamp": "2026-08-12T14:19:12.428Z",
+          "evidence": {
+            "controlHealthz": 200,
+            "cockpitHealthz": 200,
+            "postgresTcp": false,
+            "redisPing": false,
+            "label": "DEV_MOCK_NON_PRODUCTION"
+          }
+        }
+      }
+    },
+    {
+      "name": "start_redis",
+      "started": "2026-08-12T14:19:12.431Z",
+      "ok": false,
+      "error": "error during connect: Get \"http://%2F%2F.%2Fpipe%2FdockerDesktopLinuxEngine/v1.51/containers/json?all=1&filters=%7B%22name%22%3A%7B%22redis%22%3Atrue%7D%7D\": open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.",
+      "health": {
+        "ok": true,
+        "status": 200,
+        "body": {
+          "backend": "READY",
+          "worker": "READY",
+          "cockpit": "READY",
+          "infra": "STOPPED",
+          "timestamp": "2026-08-12T14:19:12.710Z",
+          "evidence": {
+            "controlHealthz": 200,
+            "cockpitHealthz": 200,
+            "postgresTcp": false,
+            "redisPing": false,
+            "label": "DEV_MOCK_NON_PRODUCTION"
+          }
+        }
+      }
+    },
+    {
+      "name": "kill_worker",
+      "started": "2026-08-12T14:19:12.712Z",
+      "ok": true,
+      "platform": "win32",
+      "pids": [
+        "18160"
+      ],
+      "killed": [
+        {
+          "pid": "18160",
+          "status": 128
+        }
+      ],
+      "health": {
+        "ok": true,
+        "status": 200,
+        "body": {
+          "backend": "READY",
+          "worker": "READY",
+          "cockpit": "READY",
+          "infra": "STOPPED",
+          "timestamp": "2026-08-12T14:19:21.102Z",
+          "evidence": {
+            "controlHealthz": 200,
+            "cockpitHealthz": 200,
+            "postgresTcp": false,
+            "redisPing": false,
+            "label": "DEV_MOCK_NON_PRODUCTION"
+          }
+        }
+      }
+    },
+    {
+      "name": "port_conflict",
+      "started": "2026-08-12T14:19:21.103Z",
+      "ok": false,
+      "error": "listen EADDRINUSE: address already in use 0.0.0.0:4000",
+      "health": {
+        "ok": true,
+        "status": 200,
+        "body": {
+          "backend": "READY",
+          "worker": "READY",
+          "cockpit": "READY",
+          "infra": "STOPPED",
+          "timestamp": "2026-08-12T14:19:21.153Z",
+          "evidence": {
+            "controlHealthz": 200,
+            "cockpitHealthz": 200,
+            "postgresTcp": false,
+            "redisPing": false,
+            "label": "DEV_MOCK_NON_PRODUCTION"
+          }
+        }
+      }
+    }
+  ],
+  "preHealth": {
+    "ok": true,
+    "status": 200,
+    "body": {
+      "backend": "READY",
+      "worker": "READY",
+      "cockpit": "READY",
+      "infra": "STOPPED",
+      "timestamp": "2026-08-12T14:19:12.061Z",
+      "evidence": {
+        "controlHealthz": 200,
+        "cockpitHealthz": 200,
+        "postgresTcp": false,
+        "redisPing": false,
+        "label": "DEV_MOCK_NON_PRODUCTION"
+      }
+    }
+  },
+  "postHealth": {
+    "ok": true,
+    "status": 200,
+    "body": {
+      "backend": "READY",
+      "worker": "READY",
+      "cockpit": "READY",
+      "infra": "STOPPED",
+      "timestamp": "2026-08-12T14:19:21.161Z",
+      "evidence": {
+        "controlHealthz": 200,
+        "cockpitHealthz": 200,
+        "postgresTcp": false,
+        "redisPing": false,
+        "label": "DEV_MOCK_NON_PRODUCTION"
+      }
+    }
+  },
+  "finishedAt": "2026-08-12T14:19:21.163Z",
+  "note": "ALPHA harness — review supervisor / meta-recovery; no fake PASS. Docker optional."
+}

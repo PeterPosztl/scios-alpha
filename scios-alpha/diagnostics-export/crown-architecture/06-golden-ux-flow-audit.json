@@ -1,0 +1,22 @@
+{
+  "at": "2026-08-13T12:52:42.652Z",
+  "buildId": "crown-architecture-2026-08-13",
+  "schema": "sci-os-golden-ux-flow-audit/v1",
+  "pass": true,
+  "missing": [],
+  "present": [
+    "HOME",
+    "SEARCH",
+    "ENTITY360",
+    "ANALYSIS",
+    "UNCERTAINTY",
+    "RISK",
+    "GOVERNANCE",
+    "DECISION",
+    "SIMULATION_ACTION",
+    "EVIDENCE",
+    "LINEAGE"
+  ],
+  "deadControlsTarget": 0,
+  "note": "Structural presence in Shell source — runtime E2E still requires live prove"
+}

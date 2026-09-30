@@ -1,0 +1,39 @@
+{
+  "schema": "sci-os-pre-finalization-snapshot/v1",
+  "at": "2026-08-12T17:14:38.329Z",
+  "label": "ALPHA_NON_PRODUCTION",
+  "repositoryRoot": "C:/Users/peter/Desktop/SCI/scios-alpha",
+  "gitSha": "c226d7489cf7f445f226930de752e382361021fd",
+  "node": "v24.13.1",
+  "pnpm": "9.14.0",
+  "python": "Python 3.14.3",
+  "packageName": "sci-os-x10",
+  "packageManager": "pnpm@9.15.0",
+  "lockfiles": {
+    "pnpmLock": true,
+    "packageLock": false
+  },
+  "goldenBootVersion": "0.1.0",
+  "goldenBootShaField": "c226d7489cf7f445f226930de752e382361021fd",
+  "ports": {
+    "backend": 3000,
+    "cockpit": 4000,
+    "recoveryShell": 5299,
+    "postgres": 5432,
+    "redis": 6379
+  },
+  "live": {
+    "healthz": 200,
+    "readyz": 200,
+    "ready": true,
+    "cockpit": 200,
+    "cockpitUx": "3.0-home",
+    "verticalSlice": 200,
+    "runId": "run_cc479406-5215-45ac-a824-fecbe722750e"
+  },
+  "priorSignoffs": {
+    "finalClosure": "SCI OS FOUNDATION PRODUCT — NO_GO",
+    "gw1Pass": false
+  },
+  "note": "FINALIZATION MODE — no feature expansion"
+}

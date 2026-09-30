@@ -1,0 +1,41 @@
+{
+  "schema": "sci-os-final-completion/00-system-inventory/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T10:13:14.945Z",
+  "title": "Source/runtime inventory",
+  "sources": [
+    "package.json",
+    "sci-os.manifest.json",
+    "git"
+  ],
+  "product": "SCI OS ×10",
+  "scopeNote": "SCI OS ×10 only. ATOM-AI / Meta OS / Galaxus OS are out of scope.",
+  "packageManager": "pnpm@9.15.0",
+  "declaredEngines": {
+    "node": ">=20.18.0 <21",
+    "pnpm": ">=8.0.0"
+  },
+  "runningNode": "v20.18.1",
+  "bundledNode": "UNKNOWN",
+  "canonicalPorts": {
+    "backend": 3000,
+    "cockpit": 4000,
+    "recoveryShell": 5299,
+    "postgres": 5432,
+    "redis": 6379
+  },
+  "profile": {
+    "profile": "local-foundation",
+    "executionMode": "SIMULATION_ONLY",
+    "authMode": "local-development"
+  },
+  "git": {
+    "head": "46b03f18b40cca539e8b581e57db407f505d1b6b",
+    "uncommittedEntries": 624
+  },
+  "workspaceCounts": {
+    "apps": 8,
+    "packages": 23
+  },
+  "installRoot": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app"
+}

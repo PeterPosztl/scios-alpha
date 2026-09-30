@@ -1,0 +1,15 @@
+{
+  "at": "2026-08-13T13:00:49.933Z",
+  "buildId": "ux-dna-2026-08-13",
+  "golden": [
+    "nav_home",
+    "search",
+    "openEntity",
+    "analyze",
+    "approval.approve|reject|hold",
+    "act.evidence",
+    "act.lineage",
+    "mode.tech"
+  ],
+  "rule": "No dead-end visible control"
+}

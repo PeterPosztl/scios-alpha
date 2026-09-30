@@ -1,0 +1,21 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "gaps": [
+    {
+      "state": "analyses",
+      "class": "LOCAL_FILE_DURABLE",
+      "severity": "P2"
+    },
+    {
+      "state": "lineage",
+      "class": "LOCAL_FILE_WITH_RUN",
+      "severity": "P2"
+    },
+    {
+      "state": "session_recent",
+      "class": "LOCALSTORAGE",
+      "severity": "P2"
+    }
+  ]
+}

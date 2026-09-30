@@ -1,0 +1,6 @@
+{
+  "schema": "sci-os-auto-fill-plan/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "note": "Propose-only by default. Prefer vertical slices over mass stubs. Enable targets deliberately.",
+  "targets": []
+}

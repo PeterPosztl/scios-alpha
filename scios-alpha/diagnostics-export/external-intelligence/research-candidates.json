@@ -1,0 +1,23 @@
+{
+  "schema": "sci-os-research-candidates/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "candidates": [
+    {
+      "id": "res.nist_ai_rmf",
+      "paper": "NIST AI RMF",
+      "claim": "Govern AI risk with map/measure/manage/govern",
+      "domain": "ai_governance",
+      "reproducibility": "FRAMEWORK",
+      "decision": "ADAPT",
+      "sciOs": "Trust language + governance evidence fields"
+    },
+    {
+      "id": "res.automation_bias",
+      "paper": "Automation bias literature (public)",
+      "claim": "Users over-trust automated recommendations",
+      "domain": "human_factors",
+      "decision": "ADAPT",
+      "sciOs": "Separate confidence vs risk vs evidence quality; human approval gates"
+    }
+  ]
+}

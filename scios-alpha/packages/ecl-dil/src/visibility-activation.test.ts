@@ -1,0 +1,35 @@
+import assert from "node:assert/strict";
+import { test } from "node:test";
+import { buildVisibilityPrepWave } from "./visibility-prep.js";
+import { VISIBILITY_ACTIVATION_HOOKS, buildVisibilityActivationWave } from "./visibility-activation.js";
+
+test("visibility activation episodes do not flip visibility-prep to PASS or declare engines ready", () => {
+  const prep = buildVisibilityPrepWave();
+  const wave = buildVisibilityActivationWave();
+  assert.equal(prep.wave, "REFUSED");
+  assert.equal(prep.ready, false);
+  assert.equal(VISIBILITY_ACTIVATION_HOOKS.enabled, false);
+  assert.equal(wave.ready, false);
+  assert.equal(wave.wave, "REFUSED");
+  assert.equal(wave.visibilityPrepWave, "REFUSED");
+  assert.equal(wave.passGranted, false);
+  assert.equal(wave.governanceApproved, false);
+  assert.equal(wave.enginesDeclaredReady, false);
+  assert.equal(wave.kgDigitalReady, false);
+  assert.equal(wave.kgCausalReady, false);
+  assert.equal(wave.gradual, false);
+  assert.equal(wave.autoAudit, false);
+  assert.equal(wave.autoDecide, false);
+  assert.equal(wave.health.fail, 0);
+  assert.equal(wave.health.episodesPassed, 0);
+  assert.equal(wave.health.passGranted, 0);
+  assert.equal(wave.episodes.find((c) => c.id === "Episode.2.declareEngineReady")?.result, "REFUSED");
+  assert.equal(wave.episodes.find((c) => c.id === "Episode.3.setDomainProgress")?.result, "SKIPPED_RESEARCH_REQUIRED");
+  assert.equal(wave.episodes.find((c) => c.id === "Episode.4.markKGReady")?.result, "REFUSED");
+  assert.equal(wave.episodes.find((c) => c.id === "Episode.8.requestVisibilityWavePass")?.result, "REFUSED");
+  assert.equal(wave.episodes.find((c) => c.id === "Episode.9.enableGradualVisibility")?.result, "REFUSED");
+  assert.equal(wave.domainProgress.hospitality.applied, false);
+  assert.equal(wave.domainProgress.hospitality.result, "SKIPPED_RESEARCH_REQUIRED");
+  assert.equal(wave.cockpitLinks.autoAudit.live, false);
+  assert.equal(wave.next.find((c) => c.id === "Next.humanReviewFlow")?.result, "ANALOG_CONTRACT");
+});

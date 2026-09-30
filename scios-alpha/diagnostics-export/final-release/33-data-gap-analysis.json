@@ -1,0 +1,20 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "gaps": [
+    {
+      "id": "data.market_live",
+      "state": "data source simulated",
+      "note": "GW1 uses foundation vertical-slice synthetic/deterministic path — not live market feed"
+    },
+    {
+      "id": "data.pit_history",
+      "state": "historical data insufficient for production claims",
+      "note": "ALPHA feature store in-memory"
+    },
+    {
+      "id": "data.case_corpus",
+      "state": "data source absent",
+      "note": "No fraud/cyber case datasets wired"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "at": "2026-08-13T13:09:39.331Z",
+  "buildId": "deep-foundations-2026-08-13",
+  "status": "DEFER_P2",
+  "primitives": [
+    "ownership",
+    "assignment",
+    "handoff",
+    "review",
+    "approval",
+    "watching",
+    "escalation"
+  ],
+  "buildChatSocial": "REJECT unless required",
+  "approvalPresent": true
+}

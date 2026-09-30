@@ -1,0 +1,47 @@
+{
+  "schema": "sci-os-dev-completion-build-log/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T15:47:00.000Z",
+  "identity": "ENTERPRISE_GRADE_ALPHA",
+  "mode": "ENTERPRISE_BUILD_AND_COMPLETION",
+  "ready": false,
+  "holeless": false,
+  "autoTrade": false,
+  "humanUsableAlpha": true,
+  "secondShell": false,
+  "boot": "start-sci-os.cjs",
+  "from": {
+    "reports": "weekly/monthly echoed session realized/unrealized as if independent",
+    "systemHealth": "no OIDC/OTLP/ledger/live-calibration/autoTrade/boot rows",
+    "evidence": "DIL audit only",
+    "infra": "flat ABSENT strings, no prepared-hook contract or GET /v1/ecl/infra",
+    "loaders": "Decisions/Evidence error path could leave loading spinner"
+  },
+  "to": {
+    "reports": "weekly/monthly status=UNKNOWN with reason session_only_alpha",
+    "systemHealth": "autoTrade=false, boot, OIDC/OTLP ABSENT, ledger in-memory, live feeds, live calibration UNKNOWN, hooks PREPARED enabled=false",
+    "evidence": "DIL audit + last GW1 runs pointer",
+    "infra": "ENTERPRISE_HOOKS + GET /v1/ecl/infra persisted=false enabled=false",
+    "loaders": "clearNode then ERROR/OFFLINE/UNKNOWN"
+  },
+  "appliedThisPass": [
+    "ENTERPRISE-HOOKS-PREPARED-ABSENT",
+    "GET-V1-ECL-INFRA",
+    "REPORT-PERIOD-UNKNOWN-NOT-ECHO",
+    "SYSTEM-HEALTH-HOOK-SIGNALS",
+    "EVIDENCE-GW1-PLUS-DIL-AUDIT",
+    "CALIBRATION-ENGINE-PLACEHOLDER-LINE",
+    "RISK-GOV-KELLY-CAP",
+    "LOADER-CLEARNODES-ON-ERROR",
+    "DEV-SPAWN-DOCUMENTED"
+  ],
+  "enterprisePlaceholdersNotEnabled": {
+    "oidc": "ABSENT",
+    "otlp": "ABSENT",
+    "ledger": "in-memory",
+    "liveFeeds": "ABSENT",
+    "liveCalibrationEngine": "UNKNOWN"
+  },
+  "tests": { "unit": "9/9", "smoke": "ok" },
+  "honesty": "Prepared ≠ enabled. ALPHA_NON_PRODUCTION. No auto-trade. One boot, one Shell."
+}

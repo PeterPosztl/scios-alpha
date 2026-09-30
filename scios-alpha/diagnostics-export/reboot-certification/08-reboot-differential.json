@@ -1,0 +1,14 @@
+{
+  "at": "2026-08-13T10:46:25.176Z",
+  "bootTimeChanged": true,
+  "before": {
+    "lastBootUpTime": "2026-08-12T13:00:34.2830420+02:00",
+    "lastBootFileTimeUtc": "134310060342830420"
+  },
+  "after": {
+    "lastBootUpTime": "2026-08-13T12:11:01.5000000+02:00",
+    "lastBootFileTimeUtc": "134310894615000000"
+  },
+  "installRootUnchanged": true,
+  "launcherUnchanged": true
+}

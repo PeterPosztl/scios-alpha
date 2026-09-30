@@ -1,0 +1,15 @@
+{
+  "at": "2026-08-12T17:14:38.329Z",
+  "goldenBoot": {
+    "path": "installer/golden-boot.manifest.json",
+    "version": "0.1.0",
+    "services": [
+      "backend",
+      "worker",
+      "cockpit"
+    ],
+    "buildSHA": "c226d7489cf7f445f226930de752e382361021fd",
+    "gitShaSnapshot": "c226d7489cf7f445f226930de752e382361021fd"
+  },
+  "pass": true
+}

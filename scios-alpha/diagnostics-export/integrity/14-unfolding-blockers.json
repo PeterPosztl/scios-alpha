@@ -1,0 +1,22 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "blockers": [
+    {
+      "why": "Product Kernel historically DISCONNECTED — status now wired; routes still partly inline",
+      "class": "PARTIAL"
+    },
+    {
+      "why": "Monolithic Shell limits scalable compositions without blocking GW1",
+      "class": "NO_EXPERIENCE_LAYER"
+    },
+    {
+      "why": "In-memory lineage/runs vanish on restart",
+      "class": "NO_DATA_DURABILITY"
+    },
+    {
+      "why": "Packaged reboot GW1 evidence missing under LOCALAPPDATA",
+      "class": "UNPROVEN_PACKAGED_E2E"
+    }
+  ]
+}

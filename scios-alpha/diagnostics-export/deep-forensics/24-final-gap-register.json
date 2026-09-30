@@ -1,0 +1,47 @@
+{
+  "at": "2026-08-13T11:16:00.000Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "p0": [
+    {
+      "id": "GAP-PACKAGED-GW1-EVIDENCE",
+      "title": "TASK-PKG-003 — fresh LOCALAPPDATA GW1/appRoot evidence after reboot",
+      "status": "OPEN"
+    }
+  ],
+  "p0ClosedThisPass": [
+    {
+      "id": "GAP-LOCK-IMPORTERS",
+      "title": "product-kernel / domain-registry / system-closure lock importers",
+      "status": "CLOSED",
+      "evidence": "pnpm-lock.yaml importers + control-plane depends on @scios/product-kernel"
+    }
+  ],
+  "p1": [
+    {
+      "id": "GAP-PRODUCT-E2E-GATE",
+      "title": "Automated product E2E gate missing",
+      "status": "OPEN"
+    },
+    {
+      "id": "GAP-KERNEL-FULL-ROUTE-AUTHORITY",
+      "title": "Kernel status wired; Home/Search/Entity still dual-path with inline product.ts",
+      "status": "PARTIAL"
+    }
+  ],
+  "p1ClosedThisPass": [
+    { "id": "GAP-BUILD-RELEASE", "status": "CLOSED", "evidence": "package.json build:release" },
+    { "id": "GAP-CASCADE-BAT", "status": "CLOSED", "evidence": "SCI OS ×10.bat prefers bundled Node" },
+    { "id": "GAP-KERNEL-WIRE", "status": "PARTIAL_CLOSED", "evidence": "GET /v1/kernel/status imports @scios/product-kernel" }
+  ],
+  "p2": [
+    { "id": "GAP-TYPES-NODE-22", "title": "@types/node 22 vs runtime 20" },
+    { "id": "GAP-UX-COMPONENTIZE", "title": "Monolithic cockpit → experience layer (no speculative rebuild this pass)" },
+    { "id": "GAP-PERSISTENCE", "title": "In-memory runs disappear on restart" },
+    {
+      "id": "GAP-STUB-PACKAGES",
+      "title": "Disk packages without package.json depth (portfolio/probability/validation/capability-closure/experience-compiler dirs) need explicit STUB classification",
+      "note": "Listed in filesystem walk; not all are lock importers"
+    }
+  ],
+  "intentionallyDeferred": ["GW2-7", "OIDC", "durable fabric", "300+ caps", "full UX component platform"]
+}

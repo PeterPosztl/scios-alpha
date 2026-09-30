@@ -45,10 +45,12 @@ function runNode(script, args, cwd) {
 }
 
 function runPnpm(args, cwd) {
-  const r = spawnSync("pnpm", args, {
+  const pnpmBin = process.platform === "win32" ? "pnpm.cmd" : "pnpm";
+  const r = spawnSync(pnpmBin, args, {
     cwd,
     encoding: "utf8",
-    shell: true,
+    shell: process.platform === "win32",
+    windowsHide: true,
     env: process.env,
     stdio: ["ignore", "pipe", "pipe"],
   });
@@ -127,11 +129,11 @@ function main() {
   const diagDir = path.join(appRoot, "diagnostics-export");
   process.chdir(appRoot);
 
-  // 2. Normal Startup (gate — no --serve; supervise after READY/DEGRADED via sci:start)
-  console.error("[cascade] Normal Startup");
+  // 2. Normal Startup via canonical capsule (single orchestrator; no parallel bat start)
+  console.error("[cascade] Normal Startup (bootstrap-capsule)");
   const normal = runNode(
-    path.join(appRoot, "installer/scripts/start-sci-os.cjs"),
-    ["--mode=normal", "--no-open"],
+    path.join(appRoot, "installer/scripts/bootstrap-capsule.cjs"),
+    ["--no-open"],
     appRoot
   );
   let normalVerdict =

@@ -1,0 +1,122 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "capabilities": [
+    {
+      "capabilityId": "packaging.setup",
+      "capability": "Windows Setup.exe + bundled runtime",
+      "currentState": "MISSING",
+      "expectedState": "WORKING",
+      "whatExists": "bat launchers, pkg script, bootstrap capsule",
+      "whatIsMissing": [
+        "Setup.exe",
+        "bundled Node",
+        "post-install verify"
+      ],
+      "whyItMatters": "Defines first-release user path",
+      "gapType": "CODE_MISSING",
+      "priority": "P0",
+      "estimatedComplexity": "LARGE"
+    },
+    {
+      "capabilityId": "vertical-slice.foundation",
+      "capability": "AAPL prediction→risk→gov→sim→lineage",
+      "currentState": "WORKING",
+      "expectedState": "WORKING",
+      "whatExists": "Live E2E + Jest reject path",
+      "whatIsMissing": [],
+      "whyItMatters": "Golden Workflow #1",
+      "gapType": null,
+      "priority": "—",
+      "estimatedComplexity": "—"
+    },
+    {
+      "capabilityId": "ux.home_search_entity",
+      "capability": "Professional Home/Search/Entity360",
+      "currentState": "WORKING",
+      "expectedState": "WORKING",
+      "whatExists": "Cockpit 3.0 + APIs",
+      "whatIsMissing": [
+        "deep graph/timeline"
+      ],
+      "whyItMatters": "Human product path",
+      "gapType": "UX_MISSING",
+      "priority": "P2",
+      "estimatedComplexity": "MEDIUM"
+    },
+    {
+      "capabilityId": "graph.entity",
+      "capability": "Interactive EntityGraph",
+      "currentState": "MISSING",
+      "expectedState": "WORKING",
+      "whatExists": "External INSPIRE candidates; Entity360 shell",
+      "whatIsMissing": [
+        "GraphRendererPort",
+        "UX",
+        "tests"
+      ],
+      "whyItMatters": "Fraud/cyber investigation",
+      "gapType": "CODE_MISSING",
+      "priority": "P2",
+      "estimatedComplexity": "LARGE"
+    },
+    {
+      "capabilityId": "recovery.fault_matrix",
+      "capability": "Certified recovery under faults",
+      "currentState": "PARTIAL",
+      "expectedState": "WORKING",
+      "whatExists": "meta-recovery tooling, repair bats",
+      "whatIsMissing": [
+        "fresh matrix evidence"
+      ],
+      "whyItMatters": "Controlled failure behavior",
+      "gapType": "EVIDENCE_MISSING",
+      "priority": "P1",
+      "estimatedComplexity": "MEDIUM"
+    },
+    {
+      "capabilityId": "auth.production",
+      "capability": "Authenticated control plane",
+      "currentState": "MISSING",
+      "expectedState": "WORKING for multi-user",
+      "whatExists": "local-development open API",
+      "whatIsMissing": [
+        "OIDC/authn",
+        "tests"
+      ],
+      "whyItMatters": "Shared machine / BETA",
+      "gapType": "CODE_MISSING",
+      "priority": "P1",
+      "estimatedComplexity": "LARGE"
+    },
+    {
+      "capabilityId": "prediction.calibrated",
+      "capability": "Scientifically validated calibration",
+      "currentState": "UNPROVEN",
+      "expectedState": "SCIENTIFICALLY_VALIDATED",
+      "whatExists": "Envelope + uncertainty fields",
+      "whatIsMissing": [
+        "benchmark proof",
+        "reliability diagram"
+      ],
+      "whyItMatters": "Trust language",
+      "gapType": "EVIDENCE_MISSING",
+      "priority": "P2",
+      "estimatedComplexity": "MEDIUM"
+    },
+    {
+      "capabilityId": "roles.200_e2e",
+      "capability": "200 professional role experiences",
+      "currentState": "PARTIAL",
+      "expectedState": "CONFIGURED→PROVEN over time",
+      "whatExists": "Seeds + 7 archetypes + compiler dry-run",
+      "whatIsMissing": [
+        "E2E per role",
+        "permissions completeness"
+      ],
+      "whyItMatters": "Product vision breadth",
+      "gapType": "WORKFLOW_MISSING",
+      "priority": "P3",
+      "estimatedComplexity": "VERY_LARGE"
+    }
+  ]
+}

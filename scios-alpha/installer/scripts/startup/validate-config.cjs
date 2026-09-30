@@ -131,8 +131,7 @@ function validateConfig(appRoot, opts = {}) {
     }
   } else if (!packaged) {
     // OPTIONAL DEVELOPMENT CONFIG — ports/env come from sci-os.manifest.json + .env.
-    // PACKAGED uses config/packaged.json; do not warn operators on first-release EXE.
-    warnings.push("default.yaml missing");
+    optionalMissing.push("infra/config/default.yaml");
   }
 
   const manifestPorts = loadManifestPorts(appRoot);

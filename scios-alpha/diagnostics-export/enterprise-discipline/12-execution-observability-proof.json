@@ -1,0 +1,50 @@
+{
+  "at": "2026-08-13T12:39:24.586Z",
+  "buildId": "enterprise-discipline-2026-08-13",
+  "schema": "sci-os-execution-observability-proof/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "requiredChain": [
+    "USER",
+    "ROLE",
+    "WORKSPACE",
+    "EXPERIENCE",
+    "ACTION",
+    "WORKFLOW",
+    "AGENT_ENGINE",
+    "TOOL",
+    "MODEL_PROVIDER",
+    "RISK",
+    "POLICY",
+    "RESULT",
+    "EVIDENCE"
+  ],
+  "sample": {
+    "schema": "sci-os-execution-trace/v1",
+    "executionId": "exec_27622616-61b2-4989-b38f-1b26b20e4771",
+    "chain": {
+      "user": "local-dev",
+      "role": "arch.market_analyst",
+      "workspace": "ws.analysis_gw1",
+      "experience": "compile:gw1",
+      "action": "analyze",
+      "workflow": "gw1.market_prediction_analysis",
+      "agentOrEngine": "vertical-slice",
+      "tool": "tool.vertical-slice-run",
+      "modelProvider": "baseline-logistic@local",
+      "risk": "envelope_present",
+      "policy": "embedded-foundation/v1",
+      "result": "SIMULATION_ONLY",
+      "evidence": "lineage+run"
+    },
+    "professionalExplanation": "Analysis ran under simulation policy. Risk and governance reviewed the prediction. Evidence is available in Evidence view.",
+    "technical": {
+      "metrics": {},
+      "logsRef": null,
+      "historyRef": null
+    },
+    "at": "2026-08-13T12:39:24.724Z"
+  },
+  "professionalView": "explanation string only",
+  "technicalView": "full chain + metrics/logs refs",
+  "status": "PARTIAL"
+}

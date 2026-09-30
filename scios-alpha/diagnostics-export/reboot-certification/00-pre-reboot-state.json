@@ -1,0 +1,80 @@
+{
+  "at": "2026-08-12T21:27:57.456Z",
+  "schema": "sci-os-00-pre-reboot-state/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "phase": "BEFORE_REBOOT_FREEZE",
+  "certificationOnly": true,
+  "noFeatureChanges": true,
+  "build": {
+    "gitSha": "c226d7489cf7f445f226930de752e382361021fd",
+    "packageName": "sci-os-x10",
+    "engines": ">=20.18.0 <21",
+    "bundledNodeExpected": "20.18.1",
+    "bundledNodeActual": "v20.18.1",
+    "configHash": "9473e37a5d3f49c257a3d9c3233dd36d0039394cb0509b15d343036714928281",
+    "launcherHash": "a45a7136f7b25e83797ea3cc9122590c2a6279d6c5edcfadac72dc1d1b810cb0",
+    "goldenBootManifest": "installer/golden-boot.manifest.json",
+    "sciOsManifest": "sci-os.manifest.json"
+  },
+  "windowsBootIdentityBefore": {
+    "lastBootUpTime": "2026-08-12T13:00:34.2830420+02:00",
+    "lastBootFileTimeUtc": "134310060342830420"
+  },
+  "canonicalLauncher": "C:/Users/peter/AppData/Local/SCI OS X10/app/SCI-OS-X10.cmd",
+  "installRoot": "C:/Users/peter/AppData/Local/SCI OS X10/app",
+  "installRootOutsideRepo": true,
+  "bundledNodePath": "C:/Users/peter/AppData/Local/SCI OS X10/app/runtime/node/node.exe",
+  "supervisor": "installer/scripts/startup/process-supervisor.cjs",
+  "bootstrap": "installer/scripts/start-sci-os.cjs --packaged",
+  "controlPlaneEndpoint": "http://127.0.0.1:3000/",
+  "shellEndpoint": "http://127.0.0.1:4000/",
+  "processesBeforeShutdown": [
+    {
+      "pid": 11036,
+      "name": "cmd.exe"
+    },
+    {
+      "pid": 9764,
+      "name": "node.exe"
+    },
+    {
+      "pid": 8836,
+      "name": "node.exe"
+    },
+    {
+      "pid": 4296,
+      "name": "cmd.exe"
+    },
+    {
+      "pid": 25228,
+      "name": "node.exe"
+    },
+    {
+      "pid": 22140,
+      "name": "node.exe"
+    },
+    {
+      "pid": 7016,
+      "name": "cmd.exe"
+    },
+    {
+      "pid": 11848,
+      "name": "node.exe"
+    }
+  ],
+  "portsBeforeShutdown": [
+    "  TCP    0.0.0.0:3000           0.0.0.0:0              LISTENING       4448",
+    "  TCP    0.0.0.0:4000           0.0.0.0:0              LISTENING       23556"
+  ],
+  "knownGoodPersisted": {
+    "known-good-finalProduct.json": "C:/Users/peter/Desktop/SCI/scios-alpha/diagnostics-export/reboot-certification/known-good-finalProduct.json",
+    "known-good-startupSignoff.json": "C:/Users/peter/Desktop/SCI/scios-alpha/diagnostics-export/reboot-certification/known-good-startupSignoff.json",
+    "known-good-firstRelease.json": "C:/Users/peter/Desktop/SCI/scios-alpha/diagnostics-export/reboot-certification/known-good-firstRelease.json",
+    "known-good-releaseSummary.json": "C:/Users/peter/Desktop/SCI/scios-alpha/diagnostics-export/reboot-certification/known-good-releaseSummary.json",
+    "known-good-startupReport.json": "C:/Users/peter/Desktop/SCI/scios-alpha/diagnostics-export/reboot-certification/known-good-startupReport.json"
+  },
+  "postRebootProofCommand": "pnpm package:prove-reboot",
+  "postRebootLauncherOnly": "C:/Users/peter/AppData/Local/SCI OS X10/app/SCI-OS-X10.cmd",
+  "postRebootCertifyCmd": "C:/Users/peter/AppData/Local/SCI OS X10/app/REBOOT-CERTIFY-AFTER.cmd",
+  "readyForHumanReboot": true
+}

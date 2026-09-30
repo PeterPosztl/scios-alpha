@@ -1,0 +1,25 @@
+{
+  "at": "2026-08-12T19:34:43.141Z",
+  "schema": "sci-os-final-boot-signoff/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "bootId": "d15e661c-73fb-4786-9c84-b0ac73a8675d",
+  "verdict": "FULL PRODUCT BOOT — EXTERNAL BLOCKER",
+  "gates": {
+    "exeOrCmdPresent": true,
+    "bundledRuntimeUsed": true,
+    "configValid": true,
+    "infraOptionalDegradedOk": true,
+    "backendReady": true,
+    "workersFunctional": true,
+    "shellHomeReachable": true,
+    "gw1Pass": true,
+    "shutdownClean": true,
+    "secondLaunch": true,
+    "windowsReboot": false,
+    "handoffFixed": true
+  },
+  "primaryRootCauseFixed": "SHELL_HANDOFF_NEVER_OPENS_WHILE_SERVE",
+  "next": [
+    "Host Windows reboot → click SCI OS X10 → prove READY→HOME→GW1"
+  ]
+}

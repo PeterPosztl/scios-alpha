@@ -1,0 +1,39 @@
+{
+  "schema": "sci-os-cockpit-birth-e2e/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-19T14:55:53.104Z",
+  "steps": [
+    {
+      "name": "COCKPIT_HTTP",
+      "ok": true,
+      "status": 200
+    },
+    {
+      "name": "GENERATED_SCRIPT",
+      "ok": true
+    },
+    {
+      "name": "HOME_API",
+      "ok": true,
+      "status": 200
+    },
+    {
+      "name": "READYZ",
+      "ok": true,
+      "status": 200
+    },
+    {
+      "name": "SEARCH_AAPL",
+      "ok": true,
+      "status": 200,
+      "hitCount": 1
+    }
+  ],
+  "playwright": {
+    "status": "NOT_AVAILABLE",
+    "note": "playwright package not installed — first-release policy uses node HTTP+script tests; do not add a second test stack without founder approval"
+  },
+  "status": "PASS",
+  "failed": [],
+  "playwrightStatus": "NOT_AVAILABLE"
+}

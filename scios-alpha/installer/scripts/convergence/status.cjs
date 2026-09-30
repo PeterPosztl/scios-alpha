@@ -66,7 +66,7 @@ async function main() {
   const apiPort = config.redactedConfig.apiPort;
   const cockpitPort = config.redactedConfig.cockpitPort;
   const portsMap = listeningPortsMap();
-  const processes = listSciosAlphaProcesses().map((p) =>
+  const processes = listSciosAlphaProcesses(appRoot).map((p) =>
     classifyProcess(p, portsMap)
   );
 

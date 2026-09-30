@@ -1,0 +1,17 @@
+{
+  "at": "2026-09-30T10:01:10.232Z",
+  "ok": true,
+  "buildId": "pkg_1790762466624",
+  "gitSha": "46b03f18b40cca539e8b581e57db407f505d1b6b",
+  "out": "C:/Users/peter/Desktop/SCI/scios-alpha/dist/SCI-OS-X10",
+  "backend": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10\\backend\\server.cjs",
+  "cockpit": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10\\cockpit\\index.mjs",
+  "node": {
+    "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10\\runtime\\node\\node.exe",
+    "reused": false,
+    "version": "20.18.1"
+  },
+  "backendBytes": 1388271,
+  "cockpitBytes": 330527,
+  "note": "Production artifacts built; runtime must not invoke pnpm"
+}

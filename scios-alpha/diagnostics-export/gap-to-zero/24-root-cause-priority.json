@@ -1,0 +1,10 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "order": [
+    "Packaged LOCALAPPDATA GW1 evidence (external validation)",
+    "Experience Layer extraction (P2 depth)",
+    "Enterprise PG/OIDC (post first-release)",
+    "@types/node alignment (P2)"
+  ]
+}

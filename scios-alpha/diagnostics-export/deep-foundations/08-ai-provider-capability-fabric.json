@@ -1,0 +1,58 @@
+{
+  "at": "2026-08-13T13:09:39.331Z",
+  "buildId": "deep-foundations-2026-08-13",
+  "schema": "sci-os-provider-capability-fabric/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "status": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+  "rule": "Workflows request capabilities; policy-aware router selects provider — never hardcode vendor into workflow",
+  "capabilityAxes": [
+    "reasoning",
+    "structuredOutput",
+    "toolUse",
+    "vision",
+    "audio",
+    "embedding",
+    "reranking",
+    "code",
+    "background",
+    "streaming",
+    "batch",
+    "evalSupport",
+    "privacy",
+    "residency",
+    "latency",
+    "cost",
+    "reliability",
+    "maturity"
+  ],
+  "providers": [
+    {
+      "providerId": "local.inprocess",
+      "maturity": "ACTIVE",
+      "capabilities": {
+        "reasoning": "baseline-logistic-only",
+        "structuredOutput": true,
+        "toolUse": false,
+        "privacy": "local",
+        "residency": "local",
+        "cost": 0,
+        "reliability": "process-local"
+      }
+    },
+    {
+      "providerId": "external.llm.unspecified",
+      "maturity": "DRAFT",
+      "capabilities": {},
+      "note": "Descriptor slot only — no vendor hardcode"
+    }
+  ],
+  "router": {
+    "status": "CONTRACT_ONLY",
+    "inputs": [
+      "requestedCapabilities",
+      "policy",
+      "privacy",
+      "costBudget"
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "schema": "sci-os-professional-workspace-compilation/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T19:36:40.000Z",
+  "mode": "PROFESSIONAL_WORKSPACE_COMPILATION_SAFE",
+  "ready": false,
+  "holeless": false,
+  "autoTrade": false,
+  "inventedSops": false,
+  "simulationOnly": true,
+  "executionMode": "SIMULATION_ONLY",
+  "persisted": false,
+  "oneBoot": true,
+  "oneShell": true,
+  "liveDomainData": false,
+  "liveExecution": false,
+  "unexpectedLiveFeeds": false,
+  "liveCertifiedFeeds": 0,
+  "live": {
+    "controlPlane": { "port": 3000, "readyz": true, "executionMode": "SIMULATION_ONLY" },
+    "shell": { "port": 4000, "ok": true, "controlUrl": "http://127.0.0.1:3000" },
+    "endpoint": "GET /v1/ecl/professional/compile"
+  },
+  "roles": {
+    "uniqueArchetypes": 9,
+    "archetypesExecuted": 9,
+    "compilerStatus": "RUNTIME_MOUNTED",
+    "degraded": false,
+    "liveExecutionEnabled": false,
+    "compiled": ["AllDomains", "Finance", "Cybersecurity", "Government", "LegalCompliance", "IT_Technology", "ExecutiveIntelligence"],
+    "analogOnly": ["Procurement", "SupplyChain"],
+    "skippedResearchRequired": ["Hospitality", "ProjectManagement", "Consulting", "Healthcare", "Marketing", "Sales", "RealEstate"]
+  },
+  "professionalLayer": {
+    "ExperienceCompiler": "COMPILED_ANALOG",
+    "WorkspaceSpecEngine": "COMPILED_ANALOG",
+    "JTBDEngine": "COMPILED_ANALOG",
+    "CapabilityEngine": "COMPILED_ANALOG",
+    "PolicyEngine": "COMPILED_ANALOG",
+    "RiskEngine.Professional": "COMPILED_ANALOG",
+    "EvidenceEngine.Professional": "COMPILED_ANALOG",
+    "LineageEngine.Professional": "COMPILED_ANALOG"
+  },
+  "sandboxes": {
+    "count": 16,
+    "mode": "* = SIMULATION_ONLY",
+    "liveData": 0,
+    "allDomains": "COMPILED_ANALOG"
+  },
+  "blueprints": {
+    "AgentSystem.LDA": { "result": "REFUSED", "autoPatch": false },
+    "KnowledgeGraph.Core": { "result": "COMPILED_ANALOG", "nationalGraph": false },
+    "WorkflowDSL.Core": { "result": "SKIPPED_ABSENT", "secondEngine": false },
+    "DistributedArchitecture.Core": { "result": "SKIPPED_ABSENT", "kafka": "ABSENT" }
+  },
+  "os": {
+    "WorkflowEngine.RealisticMode": "COMPILED_ANALOG",
+    "EventBus.RealisticMode": "COMPILED_ANALOG",
+    "SystemHealth.RealisticMode": "COMPILED_ANALOG",
+    "AuditEngine.RealisticMode": "COMPILED_ANALOG"
+  },
+  "validation": {
+    "simulationOnly": true,
+    "persistedFalseUntilLedgerReady": true,
+    "noAutoTrade": true,
+    "oneBootOneShell": true,
+    "auditIntegrity": "GET compile did not mutate audit",
+    "noUnexpectedLiveFeeds": true
+  },
+  "tests": {
+    "eclDil": { "pass": 17, "fail": 0 },
+    "cockpitUi": { "pass": 11, "fail": 0 },
+    "smokeEclDil": { "ok": true, "fails": [], "autoTrade": false }
+  },
+  "refused": {
+    "twoHundredDashboards": "9 archetypes only",
+    "inventedSops": "RESEARCH_REQUIRED stays RESEARCH_REQUIRED",
+    "ldaRuntime": "GOVERNANCE > AGENT",
+    "liveExecution": false,
+    "ready": false
+  },
+  "note": "SAFE compile test mounted 9 archetypes (RUNTIME_MOUNTED, liveExecution=false). Unmapped domains skipped. Not 16 live products. Not READY."
+}

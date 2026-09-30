@@ -1,6 +1,6 @@
 {
   "schema": "sci-os-b006-cockpit-ui-hard-gate/v1",
-  "at": "2026-08-29T19:08:18.771Z",
+  "at": "2026-09-30T10:08:38.600Z",
   "steps": {
     "eightPanels": "PASS",
     "contextHeaderBar": "PASS",
@@ -19,7 +19,7 @@
     "htmlJobCenter": "PASS",
     "htmlEightRoles": "PASS",
     "htmlPanels": "PASS",
-    "cpContract": "SKIP"
+    "cpContract": "PASS"
   },
   "status": "PASS"
 }

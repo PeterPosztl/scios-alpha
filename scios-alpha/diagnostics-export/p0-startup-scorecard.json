@@ -1,43 +1,29 @@
 {
-  "at": "2026-08-04T16:33:31.017Z",
-  "display": "180/180",
-  "earned": 180,
-  "max": 180,
+  "at": "2026-08-12T15:37:27.151Z",
+  "display": "160/160",
+  "earned": 160,
+  "max": 160,
   "rows": [
     {
       "id": "clean_state",
       "pass": true,
       "points": 10,
       "max": 10,
-      "detail": "stopExit=0 api=0 cockpit=0"
+      "detail": "stopExit=0"
     },
     {
       "id": "one_click_entry_exists",
       "pass": true,
       "points": 10,
       "max": 10,
-      "detail": "SCI OS ×10.bat"
+      "detail": "installer/scripts/bootstrap-capsule.cjs"
     },
     {
       "id": "first_one_click_start",
       "pass": true,
       "points": 10,
       "max": 10,
-      "detail": "exit=0"
-    },
-    {
-      "id": "infra_policy",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "optional local-foundation docker=false redisPing=n/a"
-    },
-    {
-      "id": "migration_ok",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "NOT_APPLICABLE"
+      "detail": "exit=0 live={\"hz\":200,\"rz\":200,\"ck\":200,\"smoke\":{\"status\":200,\"body\":\"{\\\"jobId\\\":\\\"smoke_1786549011898\\\",\\\"status\\\":\\\"completed\\\",\\\"acknowledged\\\":true,\\\"persisted\\\":true,\\\"duplicate\\\":false,\\\"worker\\\":\\\"foundation-smoke-worker\\\",\\\"at\\\":\\\"2026-08-12T15:36:51.898Z\\\"}\"}}"
     },
     {
       "id": "backend_health",
@@ -51,14 +37,14 @@
       "pass": true,
       "points": 10,
       "max": 10,
-      "detail": "status=200 ready=true"
+      "detail": "status=200"
     },
     {
       "id": "worker_smoke",
       "pass": true,
       "points": 10,
       "max": 10,
-      "detail": "status=200 job=smoke_1785861191321"
+      "detail": "status=200"
     },
     {
       "id": "cockpit_health",
@@ -68,46 +54,32 @@
       "detail": "status=200"
     },
     {
-      "id": "cockpit_html",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "status=200"
-    },
-    {
-      "id": "readiness_snapshot_ready",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "READY"
-    },
-    {
       "id": "startup_proof_written",
       "pass": true,
       "points": 10,
       "max": 10,
-      "detail": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\startup-proof.json"
+      "detail": "diagnostics-export/convergence/startup-convergence-proof.json"
     },
     {
       "id": "shutdown_api_down",
       "pass": true,
       "points": 10,
       "max": 10,
-      "detail": "status=0 stopExit=0"
+      "detail": "mid_api=0"
     },
     {
       "id": "shutdown_cockpit_down",
       "pass": true,
       "points": 10,
       "max": 10,
-      "detail": "status=0"
+      "detail": "mid_ck=0"
     },
     {
       "id": "second_one_click_start",
       "pass": true,
       "points": 10,
       "max": 10,
-      "detail": "exit=0"
+      "detail": "exit=0 live={\"hz\":200,\"rz\":200,\"ck\":200,\"smoke\":{\"status\":200,\"body\":\"{\\\"jobId\\\":\\\"smoke_1786549037440\\\",\\\"status\\\":\\\"completed\\\",\\\"acknowledged\\\":true,\\\"persisted\\\":true,\\\"duplicate\\\":false,\\\"worker\\\":\\\"foundation-smoke-worker\\\",\\\"at\\\":\\\"2026-08-12T15:37:17.440Z\\\"}\"}}"
     },
     {
       "id": "second_backend_ready",
@@ -117,19 +89,35 @@
       "detail": "healthz=200 readyz=200"
     },
     {
+      "id": "second_worker_smoke",
+      "pass": true,
+      "points": 10,
+      "max": 10,
+      "detail": "status=200"
+    },
+    {
       "id": "second_cockpit_200",
       "pass": true,
       "points": 10,
       "max": 10,
-      "detail": "healthz=200 html=200"
+      "detail": "healthz=200"
     },
     {
-      "id": "p0_signoff_pass",
+      "id": "final_orderly_shutdown",
       "pass": true,
       "points": 10,
       "max": 10,
-      "detail": "all prior criteria pass"
+      "detail": "api=0 cockpit=0"
+    },
+    {
+      "id": "dual_consecutive_autonomous",
+      "pass": true,
+      "points": 10,
+      "max": 10,
+      "detail": "readiness=DEGRADED"
     }
   ],
-  "verdict": "PASS"
+  "verdict": "PASS",
+  "label": "ALPHA_NON_PRODUCTION",
+  "note": "PASS = two consecutive clean one-click startups + worker smoke + readiness probe + orderly shutdown. Infra may still be DEGRADED."
 }

@@ -1,0 +1,53 @@
+{
+  "at": "2026-08-13T12:39:24.586Z",
+  "buildId": "enterprise-discipline-2026-08-13",
+  "philosophyPreserved": true,
+  "extends": [
+    "Product Kernel",
+    "Experience Compiler",
+    "Meta-Intelligence",
+    "System Closure",
+    "Evidence/Lineage",
+    "Runtime"
+  ],
+  "notCreated": [
+    "second Meta-Intelligence",
+    "second System Closure",
+    "second Evidence system",
+    "second Product Kernel",
+    "second Experience Compiler",
+    "second Boot architecture"
+  ],
+  "answers": {
+    "surviveRetriesWithoutDuplicateAction": "YES_SAME_PROCESS",
+    "durableRestartIdempotency": "PARTIAL",
+    "measureOwnReliability": "PARTIAL — SLO registry defined; consumption UNKNOWN_UNTIL_MEASURED",
+    "distinguishExperimentalFromTrusted": "YES — maturity registry + no promote on source alone",
+    "blastRadiusBeforeCoreChange": "YES — impact before/after artifacts mandatory",
+    "detectAiRegressionObjectively": "YES_BASELINE_EQUAL_CURRENT",
+    "traceUserDecisionChain": "PARTIAL",
+    "hideComplexityWithoutHidingEvidence": "PARTIAL",
+    "measureProfessionalOutcomes": "PARTIAL — outcome metrics defined; values UNKNOWN_UNTIL_MEASURED"
+  },
+  "evaluationCompare": {
+    "schema": "sci-os-professional-evaluation-compare/v1",
+    "regressions": [],
+    "improvements": [],
+    "pass": true,
+    "note": "Per-dimension regressions listed; aggregate average must not hide them"
+  },
+  "releaseGovernorVerdict": "ALLOW_INTERNAL_ONLY_EXTERNAL_VALIDATION_PENDING",
+  "verdicts": {
+    "DISCIPLINE_LAYER": "PARTIAL_WIRED",
+    "IDEMPOTENCY": "PARTIAL_PASS",
+    "RELIABILITY_MEASUREMENT": "PARTIAL",
+    "TRUST_MATURITY": "PARTIAL",
+    "CHANGE_IMPACT": "WIRED",
+    "EVALUATION": "BASELINE_SET",
+    "EXECUTION_TRACE": "PARTIAL",
+    "UX_DISCLOSURE": "PARTIAL",
+    "OUTCOMES": "DEFINED_UNMEASURED",
+    "READY": false
+  },
+  "note": "Discipline wired; READY false until measured SLOs + packaged validation + durable idempotency"
+}

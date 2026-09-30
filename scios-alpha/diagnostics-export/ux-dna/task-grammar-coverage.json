@@ -1,0 +1,48 @@
+{
+  "at": "2026-08-13T13:00:49.933Z",
+  "buildId": "ux-dna-2026-08-13",
+  "verbs": [
+    "FIND",
+    "UNDERSTAND",
+    "COMPARE",
+    "INVESTIGATE",
+    "MONITOR",
+    "ASSESS",
+    "PREDICT",
+    "SIMULATE",
+    "DECIDE",
+    "APPROVE",
+    "ACT",
+    "ESCALATE",
+    "REVIEW",
+    "REPORT",
+    "AUDIT"
+  ],
+  "firstReleaseProven": [
+    "FIND",
+    "UNDERSTAND",
+    "PREDICT",
+    "ASSESS",
+    "DECIDE",
+    "APPROVE",
+    "SIMULATE",
+    "REVIEW"
+  ],
+  "architecturallySupported": [
+    "FIND",
+    "UNDERSTAND",
+    "COMPARE",
+    "INVESTIGATE",
+    "MONITOR",
+    "ASSESS",
+    "PREDICT",
+    "SIMULATE",
+    "DECIDE",
+    "APPROVE",
+    "ACT",
+    "ESCALATE",
+    "REVIEW",
+    "REPORT",
+    "AUDIT"
+  ]
+}

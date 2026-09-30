@@ -1,0 +1,28 @@
+{
+  "at": "2026-08-12T19:49:42.517Z",
+  "bootId": "uu_msqi6dlm_ac8b47",
+  "timeouts": [
+    {
+      "where": "launcher-entry.cjs waitReady backend",
+      "waitsFor": "GET 127.0.0.1:3000/readyz === 200",
+      "normalMs": "5–30s",
+      "slowMs": "up to 120000",
+      "onTimeout": "HOME not opened (serve may still run)",
+      "retry": "poll 500ms"
+    },
+    {
+      "where": "launcher-entry.cjs waitReady cockpit",
+      "waitsFor": "GET 127.0.0.1:4000/healthz === 200",
+      "normalMs": "1–10s",
+      "slowMs": "up to 30000",
+      "onTimeout": "HOME not opened",
+      "retry": "poll 500ms"
+    },
+    {
+      "where": "start-sci-os readiness",
+      "waitsFor": "supervisor health + smoke",
+      "predicate": "HTTP readiness — not pure sleep"
+    }
+  ],
+  "antiPatternScan": "Prefer readiness predicates over fixed sleep — launcher uses poll."
+}

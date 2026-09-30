@@ -1,0 +1,21 @@
+{
+  "schema": "sci-os-completion-audit/codebase-cleanliness/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "todoFixmeHackStubFiles": 12,
+  "emptyPackages": [
+    "packages/experience-compiler",
+    "packages/probability-engine",
+    "packages/external-intelligence",
+    "packages/portfolio-engine"
+  ],
+  "stubPackages": [
+    "packages/validation-engine (0 src)",
+    "packages/feature-store (1 file)",
+    "packages/model-registry (1 file)",
+    "packages/workspace-composer (1 file)"
+  ],
+  "devScaffoldDirs": ["dev/", "dev_auto_finish/", "dev_atom_ai/"],
+  "ghostComponents": "Not detected (closure engine tracks registered vs proven)",
+  "overallCleanliness": "PARTIAL",
+  "note": "4 empty packages, 4 stub packages, 3 dev scaffold directories. Core infra code is clean; peripheral packages are hollow."
+}

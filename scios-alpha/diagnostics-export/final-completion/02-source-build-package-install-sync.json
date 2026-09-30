@@ -1,0 +1,19 @@
+{
+  "schema": "sci-os-final-completion/02-source-build-package-install-sync/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T10:13:14.945Z",
+  "title": "SOURCE vs BUILD vs PACKAGE vs INSTALL vs RUNTIME",
+  "sources": [
+    "dist/SCI-OS-X10/manifests/build-identity.json",
+    "%LOCALAPPDATA%/SCI OS X10/app/manifests/build-identity.json",
+    "git rev-parse HEAD"
+  ],
+  "note": "These are distinct artifacts and are not assumed to be in sync; identity is compared, not inferred.",
+  "sourceHead": "46b03f18b40cca539e8b581e57db407f505d1b6b",
+  "packagedBuildId": "pkg_1790762466624",
+  "installedBuildId": "pkg_1790762466624",
+  "packagedGitSha": "46b03f18b40cca539e8b581e57db407f505d1b6b",
+  "synchronized": true,
+  "runtimeServingInstalledBuild": "OBSERVED_VIA_INSTALLED_LAUNCH",
+  "caveat": "Working tree has uncommitted changes; packagedGitSha refers to the last commit, not the packaged tree contents."
+}

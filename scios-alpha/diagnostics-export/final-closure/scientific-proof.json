@@ -1,0 +1,7 @@
+{
+  "at": "2026-08-12T20:22:33.438Z",
+  "pitTests": "PARTIAL — vertical-slice tests exist; full leakage suite incomplete",
+  "calibrationClaim": "DO_NOT_CLAIM_CALIBRATED",
+  "reproducibility": "seeded baseline present in slice",
+  "label": "ALPHA_NON_PRODUCTION"
+}

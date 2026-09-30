@@ -1,0 +1,96 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "domains": [
+    {
+      "domain": "Data",
+      "target": "PIT-safe fabric",
+      "current": "Foundation slice path",
+      "proven": "GW1 normalize+features",
+      "remaining": "Durable store; live feeds"
+    },
+    {
+      "domain": "Prediction",
+      "target": "Calibrated envelopes",
+      "current": "Baseline envelope",
+      "proven": "Runtime envelope",
+      "remaining": "Scientific validation"
+    },
+    {
+      "domain": "Risk",
+      "target": "Independent gate",
+      "current": "Independent gate",
+      "proven": "REJECT blocks execution",
+      "remaining": "Full policy matrix cert"
+    },
+    {
+      "domain": "Governance",
+      "target": "Policy-evidenced decisions",
+      "current": "Embedded foundation gov",
+      "proven": "Reject path",
+      "remaining": "Richer policy versions"
+    },
+    {
+      "domain": "Simulation",
+      "target": "Clear SIMULATED semantics",
+      "current": "SIMULATION_ONLY",
+      "proven": "Labeled + NO_ACTION on deny",
+      "remaining": "Richer scenario compare"
+    },
+    {
+      "domain": "Evidence/Lineage",
+      "target": "Complete chain",
+      "current": "Immutable lineage on slice",
+      "proven": "GW1 lineage present",
+      "remaining": "Broken-link soak tests"
+    },
+    {
+      "domain": "Product Kernel",
+      "target": "Nervous system",
+      "current": "Registries + identity",
+      "proven": "Maps to Home/Search/Entity",
+      "remaining": "Compiler mounted live"
+    },
+    {
+      "domain": "UX",
+      "target": "Professional OS home",
+      "current": "Home/Search/Entity/Pro view",
+      "proven": "GW1 UX E2E",
+      "remaining": "Graph/timeline/palette"
+    },
+    {
+      "domain": "Professional Roles",
+      "target": "~200 experiences",
+      "current": "Seeds + archetypes",
+      "proven": "1 partial (market)",
+      "remaining": "GW2–7 + composition"
+    },
+    {
+      "domain": "Packaging",
+      "target": "Install→click→READY",
+      "current": "Dev bat + Node required",
+      "proven": "Dev start DEGRADED/READY core",
+      "remaining": "Setup.exe + reboot cert"
+    },
+    {
+      "domain": "Recovery",
+      "target": "Controlled faults",
+      "current": "Tooling present",
+      "proven": "Partial",
+      "remaining": "Full matrix"
+    },
+    {
+      "domain": "Security",
+      "target": "Hardened multi-user",
+      "current": "Local open ALPHA",
+      "proven": "No CRITICAL bypass found",
+      "remaining": "Auth + SBOM"
+    },
+    {
+      "domain": "Operations",
+      "target": "Backup/upgrade/uninstall",
+      "current": "Diagnostics + support bundle scripts",
+      "proven": "Partial",
+      "remaining": "Most ops lifecycle"
+    }
+  ]
+}

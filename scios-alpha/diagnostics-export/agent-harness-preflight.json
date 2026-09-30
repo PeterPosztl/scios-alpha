@@ -1,0 +1,16 @@
+{
+  "schema": "sci-os-agent-harness-preflight/v1",
+  "at": "2026-08-13T14:30:41.788Z",
+  "pass": true,
+  "missing": [],
+  "workflow": [
+    "CURRENT_STATE",
+    "EXPECTED_CONTRACT",
+    "IMPACT_GRAPH",
+    "MINIMAL_PATCH",
+    "TARGETED_TEST",
+    "INDEPENDENT_VERIFY",
+    "KEEP_OR_ROLLBACK"
+  ],
+  "trajectoryGuardian": "CONTRACT_ACTIVE"
+}

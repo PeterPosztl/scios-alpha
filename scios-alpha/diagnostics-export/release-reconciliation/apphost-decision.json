@@ -1,0 +1,13 @@
+{
+  "at": "2026-08-12T21:28:10.289Z",
+  "decision": "A_REQUIRED_AS_EXISTING_SHELL_NOT_NEW_PRODUCT",
+  "slashApp": "C_FUTURE_OPTIONAL_ALIAS — do not create second Shell",
+  "architecture": [
+    "SCI OS Shell (cockpit-ui)",
+    "AppHost (= Home/Analyze surfaces)",
+    "Experience Compiler (/v1/experience/compile)",
+    "Workspace Composer (compiled modules/actions)",
+    "Professional Workspace (Professional result panels)"
+  ],
+  "status": "PROVEN_MINIMAL_GW1"
+}

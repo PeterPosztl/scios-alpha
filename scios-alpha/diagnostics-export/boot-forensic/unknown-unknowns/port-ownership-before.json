@@ -1,0 +1,36 @@
+{
+  "at": "2026-08-12T19:49:43.235Z",
+  "ports": {
+    "3000": [
+      {
+        "pid": "25096",
+        "name": "node.exe",
+        "classification": "OWNED_BY_CURRENT_OR_SCI_OS",
+        "line": "TCP    0.0.0.0:3000           0.0.0.0:0              LISTENING       25096"
+      }
+    ],
+    "4000": [
+      {
+        "pid": "24288",
+        "name": "node.exe",
+        "classification": "OWNED_BY_CURRENT_OR_SCI_OS",
+        "line": "TCP    0.0.0.0:4000           0.0.0.0:0              LISTENING       24288"
+      }
+    ],
+    "5299": [
+      {
+        "classification": "FREE"
+      }
+    ],
+    "5432": [
+      {
+        "classification": "FREE"
+      }
+    ],
+    "6379": [
+      {
+        "classification": "FREE"
+      }
+    ]
+  }
+}

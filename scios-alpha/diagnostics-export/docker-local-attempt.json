@@ -1,0 +1,7 @@
+{
+  "at": "2026-08-12T15:26:54.575Z",
+  "command": "pnpm docker:local",
+  "ok": false,
+  "error": "Docker Desktop engine pipe missing (ENGINE_STOPPED)",
+  "compose": "infra/docker/docker-compose.infra.yml"
+}

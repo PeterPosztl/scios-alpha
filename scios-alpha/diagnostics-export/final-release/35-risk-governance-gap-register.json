@@ -1,0 +1,26 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "liveNegative": {
+    "oversizedReject": true,
+    "evidence": "fresh MSFT size=5000 → REJECT + NO_ACTION"
+  },
+  "remainingGaps": [
+    {
+      "id": "rg.kill_switch_live_cert",
+      "note": "SCIOS_KILL_SWITCH env path exists in code; not re-proven in this forensic live matrix",
+      "severity": "MEDIUM"
+    },
+    {
+      "id": "rg.policy_version_always_populated",
+      "note": "Governance reasons present; policyId/version field completeness varies by adapter",
+      "severity": "MEDIUM"
+    },
+    {
+      "id": "rg.authz_multi_role",
+      "note": "Role can() exists; not full product authz UX",
+      "severity": "MEDIUM"
+    }
+  ],
+  "bypassFound": false,
+  "note": "No proven prediction→execution bypass in live oversized test"
+}

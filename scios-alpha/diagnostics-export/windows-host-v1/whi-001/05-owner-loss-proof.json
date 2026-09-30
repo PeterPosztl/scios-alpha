@@ -1,0 +1,11 @@
+{
+  "schema": "sci-os-whi-001-owner-loss/v1",
+  "at": "2026-09-30T09:59:40.667Z",
+  "status": "PASS",
+  "orchestratorPid": 20660,
+  "childPid": 8036,
+  "keeperPid": 12484,
+  "childGone": true,
+  "keeperGone": true,
+  "orchOut": "FIXTURE_READY {\"orchestratorPid\":20660,\"childPid\":8036,\"keeperPid\":12484,\"jobStatus\":\"JOB_OBJECT_ACTIVE\",\"jobAttached\":true,\"at\":\"2026-09-30T09:59:27.288Z\"}"
+}

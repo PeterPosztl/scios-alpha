@@ -1,0 +1,106 @@
+{
+  "schema": "sci-os-completion-audit/final-readiness/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "label": "ALPHA_NON_PRODUCTION",
+  "CURRENT_BUILD": "pkg_1787147143095",
+  "CURRENT_P0": 0,
+  "CURRENT_P1": 91,
+  "CURRENT_P2": 184,
+  "CURRENT_P3": 46,
+  "USABLE_LOCAL_ALPHA": "NEAR_READY",
+  "DAILY_USE_BETA": "NOT_READY",
+  "PRODUCTION": "NOT_READY",
+  "FULL_FOUNDER_VISION": "NOT_READY",
+  "maturity": {
+    "WINDOWS_HOST": "PROVEN",
+    "PRODUCT_KERNEL": "PARTIAL",
+    "EXPERIENCE_COMPILER": "ABSENT",
+    "PROFESSIONAL_UX": "PARTIAL",
+    "DATA_PERSISTENCE": "PARTIAL",
+    "MARKET_DATA": "ABSENT",
+    "BACKGROUND_SYSTEM": "PARTIAL",
+    "GOVERNANCE": "SOURCE_EXISTS",
+    "SECURITY": "PARTIAL",
+    "MODEL_SCIENCE": "SOURCE_EXISTS",
+    "OBSERVABILITY": "PARTIAL",
+    "INSTALL_UPDATE": "PROVEN"
+  },
+  "top10Blockers": [
+    "1. Professional UX — cockpit has 2 files, no views (Graph/Timeline/Evidence/Dossier/Search/Entity)",
+    "2. Experience Compiler — entirely absent (0 source files)",
+    "3. Professional Domain Registry — source exists but not runtime-compiled or UX-bound",
+    "4. Governance — no PDP/PEP, 14 P1 root causes",
+    "5. Background jobs — no proven job execution, 28 P1 root causes (CF11)",
+    "6. OIDC/Auth — local-development only, no production auth",
+    "7. PostgreSQL integration — optional/degraded, no migrations in scios-alpha",
+    "8. Model validation — 8 P1 root causes (CF28)",
+    "9. Market/Economic data providers — entirely absent",
+    "10. UI framework — no React/Next.js component architecture in cockpit-ui"
+  ],
+  "safeAutonomousWorkNow": [
+    "WHI-005 through WHI-009 host slices",
+    "P1 batch_001 (CF28 validation, CF11 jobs, CF14 policy)",
+    "P2/P3 closure batches",
+    "Remove or implement empty packages",
+    "Fresh startup/golden-path proofs on current HEAD",
+    "Add test framework (vitest)"
+  ],
+  "externalDependencies": [
+    "PostgreSQL (beta+)",
+    "Redis (beta+)",
+    "OIDC Provider (production)",
+    "TLS Certificates (production)",
+    "Monitoring stack (production)",
+    "Market data APIs (vision)",
+    "Graph database (vision)",
+    "AI/LLM provider (vision)"
+  ],
+  "genuineFounderDecisions": [
+    "FD-001: OIDC provider selection",
+    "FD-002: Database strategy (PG commitment, graph DB)",
+    "FD-003: UI framework (build cockpit React app vs use sci-shell-web)",
+    "FD-004: Domain priority order",
+    "FD-005: AI/LLM integration scope",
+    "FD-006: Market data providers",
+    "FD-007: Deployment model"
+  ],
+  "missingForLocalAlpha": [
+    "Cockpit home page with minimal working views",
+    "At least one functional golden path (boot → home → one view → shutdown)",
+    "Fresh golden-path proof on current build"
+  ],
+  "missingForBeta": [
+    "All alpha items plus:",
+    "PostgreSQL persistence",
+    "At least 3 professional UX views (Home, Search, Entity)",
+    "Job lifecycle implementation",
+    "Policy decision/enforcement points",
+    "Model validation",
+    "At least one professional domain runtime-connected",
+    "P1 count reduced to <20"
+  ],
+  "missingForProduction": [
+    "All beta items plus:",
+    "OIDC/RBAC",
+    "TLS/CORS/CSP hardening",
+    "OpenTelemetry observability",
+    "Load testing",
+    "Data classification/consent",
+    "Auto-update mechanism",
+    "P1 count = 0"
+  ],
+  "missingForFullSCIOS": [
+    "All production items plus:",
+    "All professional domains compiled",
+    "Experience compiler operational",
+    "Graph/Timeline/Evidence/Dossier/Client Portal/Executive views",
+    "AI Forensic CoPilot",
+    "Market/economic data integration",
+    "WebGL/WASM performance layer",
+    "Causal reasoning engine",
+    "Multi-user collaboration",
+    "Cost control engine"
+  ],
+  "nextCompletionMilestone": "TARGET A — USABLE LOCAL ALPHA",
+  "nextExactAction": "FD-003: Decide cockpit UI framework, then implement minimal home page with system status view"
+}

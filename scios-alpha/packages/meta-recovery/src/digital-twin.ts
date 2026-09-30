@@ -14,7 +14,7 @@ export class StartupDigitalTwin {
         "MetaRecoveryEngine",
       ],
       optionalComponents: ["DesktopElectron", "PostgreSQL", "RedisQueue", "QueueWorkers"],
-      expectedPorts: [5200, 5230],
+      expectedPorts: [3000, 4000],
       allowedDegraded: ["PostgreSQL", "RedisQueue", "QueueWorkers", "DesktopElectron"],
       maxStartupMs: 180000,
     };

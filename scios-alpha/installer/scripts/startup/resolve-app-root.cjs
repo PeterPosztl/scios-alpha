@@ -8,9 +8,7 @@ function isAppRoot(dir) {
     const pkg = path.join(dir, "package.json");
     if (!fs.existsSync(pkg)) return false;
     const j = JSON.parse(fs.readFileSync(pkg, "utf8"));
-    if (j.name !== "scios-alpha" && j.name !== "scios-alpha".replace(/$/, "")) {
-      // allow scios-alpha or future rename with workspace markers
-    }
+    const knownNames = new Set(["sci-os-x10", "scios-alpha"]);
     const markers = [
       "pnpm-workspace.yaml",
       "packages",
@@ -20,7 +18,7 @@ function isAppRoot(dir) {
       "installer/scripts",
     ];
     const hits = markers.filter((m) => fs.existsSync(path.join(dir, m)));
-    return hits.length >= 2 || j.name === "scios-alpha";
+    return hits.length >= 2 || knownNames.has(j.name);
   } catch {
     return false;
   }

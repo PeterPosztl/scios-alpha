@@ -1,0 +1,177 @@
+{
+  "at": "2026-08-12T17:07:05.678Z",
+  "count": 8,
+  "patterns": [
+    {
+      "id": "ux.attention_home",
+      "problem": "User lands without knowing what needs action",
+      "reference": [
+        "ServiceNow queues",
+        "Sentinel incidents",
+        "Datadog alerts"
+      ],
+      "advantages": [
+        "reduces wandering",
+        "role-aware"
+      ],
+      "limitations": [
+        "needs good ranking"
+      ],
+      "sciOsApplicability": "HIGH",
+      "adaptation": "SCI OS Home: What requires my attention?",
+      "status": "ADAPTED",
+      "mapsTo": [
+        "WorkspaceRegistry.home",
+        "cockpit home"
+      ]
+    },
+    {
+      "id": "ux.global_search",
+      "problem": "Cross-object discovery across siloed modules",
+      "reference": [
+        "Splunk search",
+        "Sentinel entity search",
+        "ServiceNow global search"
+      ],
+      "advantages": [
+        "connector across domains"
+      ],
+      "limitations": [
+        "NL search ≠ deterministic retrieval"
+      ],
+      "sciOsApplicability": "HIGH",
+      "adaptation": "GET /v1/search + Home search; AI search cannot replace deterministic",
+      "status": "ADAPTED",
+      "mapsTo": [
+        "ActionRegistry.search",
+        "/v1/search"
+      ]
+    },
+    {
+      "id": "ux.entity360",
+      "problem": "Fragmented object context across pages",
+      "reference": [
+        "Sentinel entity pages",
+        "Foundry object views",
+        "CRM 360"
+      ],
+      "advantages": [
+        "one object workspace"
+      ],
+      "limitations": [
+        "tab overload if not role-filtered"
+      ],
+      "sciOsApplicability": "HIGH",
+      "adaptation": "Entity360 with role-adaptive tabs",
+      "status": "ADAPTED",
+      "mapsTo": [
+        "ObjectRegistry.Entity",
+        "/v1/entities"
+      ]
+    },
+    {
+      "id": "ux.evidence_drawer",
+      "problem": "Provenance requires navigating many systems",
+      "reference": [
+        "investigation evidence panels",
+        "audit drawers"
+      ],
+      "advantages": [
+        "why/source/as-of inline"
+      ],
+      "limitations": [
+        "drawer can hide lineage graph"
+      ],
+      "sciOsApplicability": "HIGH",
+      "adaptation": "Evidence drawer + Technical / Full Lineage",
+      "status": "ADAPTED",
+      "mapsTo": [
+        "EvidenceRegistry",
+        "cockpit evidence drawer"
+      ]
+    },
+    {
+      "id": "ux.pro_vs_tech",
+      "problem": "Engineering JSON overwhelms professionals",
+      "reference": [
+        "progressive disclosure",
+        "expert toggle patterns"
+      ],
+      "advantages": [
+        "novice + expert same data"
+      ],
+      "limitations": [
+        "two modes to maintain"
+      ],
+      "sciOsApplicability": "HIGH",
+      "adaptation": "Professional default; Technical / Evidence secondary",
+      "status": "ADAPTED",
+      "mapsTo": [
+        "ExperienceCompiler",
+        "cockpit mode toggle"
+      ]
+    },
+    {
+      "id": "ux.pipeline_progress",
+      "problem": "Long analysis looks frozen",
+      "reference": [
+        "job progress UIs",
+        "CI step indicators"
+      ],
+      "advantages": [
+        "trust during wait"
+      ],
+      "limitations": [
+        "fake progress is worse"
+      ],
+      "sciOsApplicability": "HIGH",
+      "adaptation": "Real pipeline stage indicators on Analyze",
+      "status": "ADAPTED",
+      "mapsTo": [
+        "cockpit pipeline"
+      ]
+    },
+    {
+      "id": "ux.trust_semantics_split",
+      "problem": "Mixing confidence, risk, health, data quality",
+      "reference": [
+        "NIST AI RMF transparency",
+        "risk UI best practice"
+      ],
+      "advantages": [
+        "reduces automation bias"
+      ],
+      "limitations": [
+        "more UI states"
+      ],
+      "sciOsApplicability": "CRITICAL",
+      "adaptation": "Independent trust language in design language",
+      "status": "ADAPTED",
+      "mapsTo": [
+        "SCI_OS_DESIGN_LANGUAGE.trust"
+      ]
+    },
+    {
+      "id": "ux.operating_mode_badge",
+      "problem": "Simulated results look live",
+      "reference": [
+        "observability env badges",
+        "demo watermarks"
+      ],
+      "advantages": [
+        "LIVE/CACHED/REPLAY/SIMULATED"
+      ],
+      "limitations": [
+        "easy to forget on new surfaces"
+      ],
+      "sciOsApplicability": "CRITICAL",
+      "adaptation": "Mode badges on all result surfaces",
+      "status": "ADAPTED",
+      "mapsTo": [
+        "EXECUTION_MODE SIMULATION_ONLY",
+        "cockpit header SIMULATED badge"
+      ]
+    }
+  ],
+  "designLanguage": "docs/ux/SCI_OS_DESIGN_LANGUAGE.md"
+}

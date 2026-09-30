@@ -1,0 +1,33 @@
+{
+  "schema": "sci-os-completion-audit/missing-engines/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "absent": [
+    "Experience Compiler (packages/experience-compiler — empty)",
+    "Probability Engine (packages/probability-engine — no package.json)",
+    "External Intelligence (packages/external-intelligence — no package.json)",
+    "Portfolio Engine (packages/portfolio-engine — no package.json)",
+    "Validation Engine (packages/validation-engine — no source)",
+    "Causal Reasoning Engine (not present)",
+    "Research Intelligence Engine (not present)",
+    "Collaboration Engine (not present)",
+    "Cost Control Engine (not present)",
+    "Market Data Engine (not present)",
+    "Economic Data Engine (not present)"
+  ],
+  "sourceExistsButUnproven": [
+    "Prediction Engine (apps/prediction-engine — 0 deps)",
+    "Risk Engine (apps/risk-engine — 0 deps)",
+    "Model Registry (packages/model-registry — 1 file)",
+    "Feature Store (packages/feature-store — 1 file)",
+    "Meta Intelligence (packages/meta-intelligence — 2 files)",
+    "Governance Engine (packages/governance-engine — 2 files)"
+  ],
+  "partialButRuntimeConnected": [
+    "Product Kernel (7 files, boot-connected)",
+    "Data Fabric (11 files, fallback connected)",
+    "Meta Recovery (11 files, runtime connected)",
+    "Observability (3 files)",
+    "OS Environment (4 files)",
+    "Vertical Slice (14 files)"
+  ]
+}

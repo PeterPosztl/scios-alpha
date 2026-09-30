@@ -1,0 +1,19 @@
+{
+  "at": "2026-08-12T20:33:12.813Z",
+  "cwd": "C:/Users/peter/Desktop/SCI/scios-alpha/packages/system-closure",
+  "resolved": {
+    "appRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+    "layout": "repo",
+    "evidence": [
+      "package.json+markers@C:\\Users\\peter\\Desktop\\SCI\\scios-alpha"
+    ],
+    "searchedPaths": [
+      "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\system-closure",
+      "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha"
+    ],
+    "ok": true
+  },
+  "batAssumption": "%~dp0 used by SCI-OS-Start.bat — then Node resolveAppRoot verifies package markers",
+  "packaged": "SCIOS_APP_ROOT / install root next to exe (launcher-entry.cjs)",
+  "riskIfBatCopied": "If BAT copied without tree, resolveAppRoot fails ROOT_RESOLUTION_FAILED — no silent wrong root when markers missing"
+}

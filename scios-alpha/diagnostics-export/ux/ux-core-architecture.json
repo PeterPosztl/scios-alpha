@@ -1,0 +1,54 @@
+{
+  "schema": "sci-os-ux-core/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "architecture": "adaptive_composer_not_n_dashboards",
+  "core": "SCI_OS_UX_CORE",
+  "systems": [
+    {
+      "id": "case_system",
+      "children": ["Timeline", "Evidence"],
+      "objects": ["Case", "Incident", "Investigation", "Task", "Report"]
+    },
+    {
+      "id": "entity_system",
+      "children": ["Graph", "Intelligence"],
+      "objects": ["Entity", "Relationship"]
+    },
+    {
+      "id": "risk_system",
+      "children": ["Scenarios", "Decisions"],
+      "objects": ["Risk", "Scenario", "Simulation", "Prediction", "Decision", "Approval"]
+    }
+  ],
+  "composer": {
+    "id": "workspace_composer",
+    "status": "ABSENT_RUNTIME",
+    "profiles": [
+      {
+        "id": "fraud_investigation",
+        "role": "arch.fraud_investigator",
+        "uses": ["case_system", "entity_system", "risk_system"]
+      },
+      {
+        "id": "soc_ops",
+        "role": "arch.soc_analyst",
+        "uses": ["case_system", "entity_system", "risk_system"]
+      },
+      {
+        "id": "portfolio_risk",
+        "role": "arch.fin_risk_analyst",
+        "uses": ["risk_system", "entity_system"]
+      }
+    ]
+  },
+  "rejected": ["per_role_dashboard_routes_x_N"],
+  "targetRoutes": [
+    "/app",
+    "/app/case/:id",
+    "/app/entity/:id",
+    "/app/risk/:id",
+    "/app/workspace/:family",
+    "/app/tech/slice"
+  ],
+  "doc": "docs/ux/SCI_OS_UX_CORE.md"
+}

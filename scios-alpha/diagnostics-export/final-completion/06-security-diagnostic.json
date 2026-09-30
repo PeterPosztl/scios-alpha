@@ -1,0 +1,22 @@
+{
+  "schema": "sci-os-final-completion/06-security-diagnostic/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T10:13:14.945Z",
+  "title": "Security posture",
+  "sources": [
+    "completion-program/production-gate/11-final-gate.json",
+    "scripts/tests/runtime-security-path.cjs (test:release)",
+    "scripts/tests/privacy-safe-logs.cjs (test:release)"
+  ],
+  "authMode": "local-development",
+  "executionMode": "SIMULATION_ONLY",
+  "serverAuthoritative": "UNKNOWN",
+  "gateChecks": {
+    "governanceOidc": "BLOCKED_WITH_EVIDENCE",
+    "tlsProduction": "BLOCKED_WITH_EVIDENCE"
+  },
+  "tlsTermination": "NOT_CONFIGURED",
+  "oidc": "ABSENT_FD001_PENDING",
+  "note": "Security is not solved by disabling functionality. No LLM→arbitrary-shell→administrator path is introduced.",
+  "knownPosture": "Local single-user development profile. Not an enterprise security posture."
+}

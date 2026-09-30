@@ -1,0 +1,55 @@
+{
+  "at": "2026-08-13T12:39:24.586Z",
+  "buildId": "enterprise-discipline-2026-08-13",
+  "schema": "sci-os-workflow-outcome-metrics/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "principle": "Optimize professional work outcomes — not only CPU/API/test vanity",
+  "metrics": [
+    {
+      "id": "timeToUnderstanding",
+      "unit": "seconds",
+      "current": "UNKNOWN_UNTIL_MEASURED"
+    },
+    {
+      "id": "timeToDecision",
+      "unit": "seconds",
+      "current": "UNKNOWN_UNTIL_MEASURED"
+    },
+    {
+      "id": "manualSteps",
+      "unit": "count",
+      "current": "UNKNOWN_UNTIL_MEASURED"
+    },
+    {
+      "id": "contextSwitches",
+      "unit": "count",
+      "current": "UNKNOWN_UNTIL_MEASURED"
+    },
+    {
+      "id": "evidenceCompleteness",
+      "unit": "ratio",
+      "current": "UNKNOWN_UNTIL_MEASURED"
+    },
+    {
+      "id": "decisionReversalRate",
+      "unit": "ratio",
+      "current": "UNKNOWN_UNTIL_MEASURED"
+    },
+    {
+      "id": "falseEscalations",
+      "unit": "count",
+      "current": "UNKNOWN_UNTIL_MEASURED"
+    },
+    {
+      "id": "successfulWorkflowCompletion",
+      "unit": "ratio",
+      "current": "UNKNOWN_UNTIL_MEASURED"
+    },
+    {
+      "id": "recoveryTime",
+      "unit": "seconds",
+      "current": "UNKNOWN_UNTIL_MEASURED"
+    }
+  ],
+  "workflowId": "gw1.market_prediction_analysis"
+}

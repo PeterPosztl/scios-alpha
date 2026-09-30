@@ -1,0 +1,19 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "models": {
+    "baselinePrediction": {
+      "IMPLEMENTED": true,
+      "RUNTIME_PROVEN": "PARTIAL",
+      "CALIBRATED": false,
+      "VALIDATED": false,
+      "PRODUCTION_ELIGIBLE": false,
+      "label": "NON-PRODUCTION"
+    }
+  },
+  "uxMustNotImply": [
+    "production-eligible",
+    "calibrated",
+    "backtest=proof"
+  ]
+}

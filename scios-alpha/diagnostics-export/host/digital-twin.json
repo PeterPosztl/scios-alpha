@@ -1,0 +1,212 @@
+{
+  "schema": "sci-os-host-digital-twin/v1",
+  "slice": "WHI-011",
+  "label": "ALPHA_NON_PRODUCTION",
+  "identity": {
+    "platform": "win32",
+    "hostId": "b0c10e95b73f744e",
+    "observedAt": "2026-09-23T19:48:37.762Z"
+  },
+  "runtime": {
+    "buildId": "pkg_1788708637516",
+    "gitSha": "46b03f18b40cca539e8b581e57db407f505d1b6b",
+    "nodeVersion": "v24.13.1",
+    "installRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+    "runtimeMode": "development",
+    "bootId": "515b4000-f026-41c3-b3b0-138f8d68fa1a",
+    "runId": "515b4000-f026-41c3-b3b0-138f8d68fa1a",
+    "correlationId": "515b4000-f026-41c3-b3b0-138f8d68fa1a"
+  },
+  "processes": {
+    "control-plane": {
+      "role": "control-plane",
+      "pid": 8696,
+      "parentPid": 3228,
+      "jobAttached": true,
+      "startedAt": "2026-09-23T19:48:06.107Z",
+      "expectedRunning": false,
+      "actualRunning": false,
+      "source": "process-supervisor",
+      "executableHint": "node.exe"
+    },
+    "cockpit": {
+      "role": "cockpit",
+      "pid": 15056,
+      "parentPid": 3228,
+      "jobAttached": true,
+      "startedAt": "2026-09-23T19:48:19.710Z",
+      "expectedRunning": false,
+      "actualRunning": false,
+      "source": "process-supervisor",
+      "executableHint": "node.exe"
+    }
+  },
+  "ports": {
+    "controlPlane": {
+      "port": 3000,
+      "bound": false,
+      "ownerClass": "unbound",
+      "service": null,
+      "status": 0
+    },
+    "cockpit": {
+      "port": 4000,
+      "bound": false,
+      "ownerClass": "unbound",
+      "service": null,
+      "status": 0
+    },
+    "recovery": {
+      "port": 5299,
+      "bound": false,
+      "ownerClass": "unbound",
+      "service": null,
+      "status": 0
+    }
+  },
+  "locks": {
+    "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\.sci-os-startup.lock",
+    "present": true,
+    "ownerPid": 3228,
+    "ownerAlive": true,
+    "startedAt": "2026-09-23T19:48:03.466Z",
+    "staleCandidate": false,
+    "payload": {
+      "pid": 3228,
+      "startedAt": "2026-09-23T19:48:03.466Z",
+      "appRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+      "runtimeMode": "local-foundation",
+      "apiPort": 3000,
+      "desktopInstanceId": null,
+      "mode": "normal"
+    }
+  },
+  "resources": {
+    "memory": {
+      "total": 16883044352,
+      "free": 5503983616,
+      "freeRatio": 0.3260065839575898,
+      "level": "HEALTHY"
+    },
+    "disk": {
+      "freeBytes": 165224480768,
+      "level": "HEALTHY"
+    },
+    "cpu": {
+      "estimate": 0,
+      "level": "HEALTHY",
+      "note": "loadavg/ncpus on win may be 0 — UNKNOWN not FAIL"
+    },
+    "overall": "HEALTHY"
+  },
+  "power": {
+    "state": "UNKNOWN"
+  },
+  "network": {
+    "coarse": "NETWORK_AVAILABLE"
+  },
+  "installation": {
+    "packaged": false,
+    "backendArtifact": false,
+    "cockpitArtifact": false
+  },
+  "desired": {
+    "lifecycle": "STOPPED",
+    "packaged": false,
+    "buildId": "pkg_1788708637516",
+    "gitSha": "46b03f18b40cca539e8b581e57db407f505d1b6b",
+    "nodeRuntime": null,
+    "nodeMajor": 20,
+    "nodeMinor": 18,
+    "installRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+    "runtimeMode": "development",
+    "jobContainmentExpected": false,
+    "components": {
+      "NodeRuntime": {
+        "required": true,
+        "bundledIfPackaged": true
+      },
+      "ControlPlane": {
+        "required": true,
+        "port": 3000,
+        "health": "/healthz"
+      },
+      "Shell": {
+        "required": true,
+        "port": 4000,
+        "health": "/healthz",
+        "home": "/"
+      },
+      "HomeApi": {
+        "required": true,
+        "port": 3000,
+        "path": "/v1/home"
+      },
+      "VerticalSlice": {
+        "required": true,
+        "via": "control-plane"
+      },
+      "PostgreSQL": {
+        "required": false,
+        "allowedDegraded": true
+      },
+      "Redis": {
+        "required": false,
+        "allowedDegraded": true
+      },
+      "Electron": {
+        "required": false,
+        "allowedDegraded": true
+      }
+    },
+    "ports": {
+      "controlPlane": 3000,
+      "cockpit": 4000,
+      "recovery": 5299
+    },
+    "processes": {}
+  },
+  "actual": {
+    "runtimeStatus": "STOPPED",
+    "job": {
+      "status": "JOB_OBJECT_CLOSED",
+      "capability": "job-object",
+      "jobName": "SCI-OS-515b4000-f026-41-3228",
+      "keeperPid": null,
+      "assignedPids": [],
+      "assignLog": [
+        {
+          "at": "2026-09-23T19:48:06.306Z",
+          "pid": 8696,
+          "ok": true
+        },
+        {
+          "at": "2026-09-23T19:48:19.715Z",
+          "pid": 15056,
+          "ok": true
+        }
+      ],
+      "initError": null,
+      "providerMode": "live"
+    }
+  },
+  "drift": [],
+  "maturity": {
+    "observeFirst": true,
+    "repairAllowed": false,
+    "stoppedIsNotFail": true,
+    "unknownIsNotHealthy": true
+  },
+  "evidence": {
+    "composedFrom": [
+      "desired-state.cjs",
+      "process-supervisor",
+      "WHI-001 job-object-state",
+      "sciSystemTwin.host"
+    ],
+    "notAuthorities": [
+      "StartupDigitalTwin"
+    ],
+    "writePath": null
+  }
+}

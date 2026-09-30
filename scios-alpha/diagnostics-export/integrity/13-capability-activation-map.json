@@ -1,0 +1,57 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "capabilities": [
+    {
+      "id": "home",
+      "state": "ACTIVE",
+      "path": "Shell→/v1/home"
+    },
+    {
+      "id": "search",
+      "state": "ACTIVE",
+      "path": "Shell→/v1/search"
+    },
+    {
+      "id": "entity360",
+      "state": "ACTIVE",
+      "path": "Shell→/v1/entities"
+    },
+    {
+      "id": "gw1_analyze",
+      "state": "ACTIVE",
+      "path": "Shell Analyze→vertical-slice"
+    },
+    {
+      "id": "professional_view",
+      "state": "ACTIVE",
+      "path": "cockpit modePro"
+    },
+    {
+      "id": "technical_view",
+      "state": "ACTIVE",
+      "path": "cockpit modeTech"
+    },
+    {
+      "id": "product_kernel",
+      "state": "ACTIVE_PARTIAL",
+      "path": "/v1/kernel/status"
+    },
+    {
+      "id": "bullmq_workers",
+      "state": "PROFILE_DISABLED"
+    },
+    {
+      "id": "durable_lineage",
+      "state": "NO_PROVIDER"
+    },
+    {
+      "id": "oidc",
+      "state": "NO_POLICY_BINDING"
+    },
+    {
+      "id": "gw2_7",
+      "state": "UNPROVEN"
+    }
+  ]
+}

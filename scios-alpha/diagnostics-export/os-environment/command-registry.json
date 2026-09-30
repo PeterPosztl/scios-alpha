@@ -1,0 +1,82 @@
+{
+  "schema": "sci-os-command-registry/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "shortcut": "Ctrl+K",
+  "commands": [
+    {
+      "id": "go.home",
+      "title": "Go Home",
+      "appId": "app.home"
+    },
+    {
+      "id": "go.work",
+      "title": "Open Work",
+      "appId": "app.work"
+    },
+    {
+      "id": "search",
+      "title": "Search everything",
+      "appId": "app.home"
+    },
+    {
+      "id": "open.entity",
+      "title": "Open entity…",
+      "appId": "app.entities"
+    },
+    {
+      "id": "analyze.entity",
+      "title": "Analyze entity",
+      "appId": "app.analyze"
+    },
+    {
+      "id": "run.scenario",
+      "title": "Run scenario (simulation)",
+      "appId": "app.simulate"
+    },
+    {
+      "id": "open.evidence",
+      "title": "Open evidence",
+      "appId": "app.evidence"
+    },
+    {
+      "id": "open.lineage",
+      "title": "Open full lineage",
+      "appId": "app.evidence"
+    },
+    {
+      "id": "check.health",
+      "title": "Check system health",
+      "appId": "app.system"
+    },
+    {
+      "id": "toggle.technical",
+      "title": "Toggle technical view",
+      "appId": "app.analyze"
+    },
+    {
+      "id": "open.recovery",
+      "title": "Open recovery",
+      "appId": "app.recovery"
+    },
+    {
+      "id": "open.settings",
+      "title": "Open settings",
+      "appId": "app.settings"
+    },
+    {
+      "id": "new.workspace",
+      "title": "New workspace tab",
+      "appId": "app.home"
+    },
+    {
+      "id": "create.case",
+      "title": "Create case (partial)",
+      "appId": "app.cases"
+    },
+    {
+      "id": "create.report",
+      "title": "Create report (partial)",
+      "appId": "app.reports"
+    }
+  ]
+}

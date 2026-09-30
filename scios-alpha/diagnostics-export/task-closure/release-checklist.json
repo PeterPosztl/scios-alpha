@@ -1,0 +1,101 @@
+{
+  "at": "2026-08-12T19:42:57.595Z",
+  "items": [
+    {
+      "id": "canonical_repository",
+      "pass": true
+    },
+    {
+      "id": "reproducible_build",
+      "pass": true
+    },
+    {
+      "id": "bundled_runtime",
+      "pass": true
+    },
+    {
+      "id": "setup_exe",
+      "pass": true
+    },
+    {
+      "id": "sci_os_x10_exe",
+      "pass": true
+    },
+    {
+      "id": "golden_boot_manifest",
+      "pass": true
+    },
+    {
+      "id": "unified_packaged_config",
+      "pass": true
+    },
+    {
+      "id": "supervisor",
+      "pass": true
+    },
+    {
+      "id": "required_infra",
+      "pass": true,
+      "note": "PG/Redis optional → DEGRADED allowed"
+    },
+    {
+      "id": "backend_ready",
+      "pass": true
+    },
+    {
+      "id": "worker_functional",
+      "pass": true
+    },
+    {
+      "id": "product_kernel",
+      "pass": true
+    },
+    {
+      "id": "shell_home_visible",
+      "pass": true
+    },
+    {
+      "id": "gw1_pass",
+      "pass": true
+    },
+    {
+      "id": "risk_reject_blocks",
+      "pass": true
+    },
+    {
+      "id": "evidence",
+      "pass": true
+    },
+    {
+      "id": "lineage",
+      "pass": true
+    },
+    {
+      "id": "clean_shutdown",
+      "pass": true
+    },
+    {
+      "id": "second_startup",
+      "pass": true
+    },
+    {
+      "id": "reboot_startup",
+      "pass": false,
+      "status": "EXTERNAL_BLOCKER"
+    },
+    {
+      "id": "recovery_minimum",
+      "pass": true,
+      "note": "Recovery view + meta-recovery present"
+    },
+    {
+      "id": "no_critical_security_bypass",
+      "pass": true
+    },
+    {
+      "id": "code_signing",
+      "pass": false,
+      "status": "EXTERNAL_BLOCKER"
+    }
+  ]
+}

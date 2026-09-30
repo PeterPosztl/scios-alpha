@@ -1,0 +1,8 @@
+{
+  "at": "2026-08-12T18:40:47.665Z",
+  "codeSigning": "NOT_AVAILABLE",
+  "limitation": "Release blocker per policy until signing infrastructure exists",
+  "integrityHashes": true,
+  "noPnpmAtRuntime": true,
+  "noDevEnvLoad": true
+}

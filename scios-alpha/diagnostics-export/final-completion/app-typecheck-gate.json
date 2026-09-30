@@ -1,0 +1,36 @@
+{
+  "schema": "sci-os-app-typecheck-gate/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T09:58:49.231Z",
+  "note": "Apps are not covered by `pnpm build` (packages only) and esbuild does not typecheck.",
+  "apps": [
+    {
+      "app": "control-plane-api",
+      "exit": 0,
+      "errorCount": 0,
+      "errors": [],
+      "status": "PASS"
+    },
+    {
+      "app": "execution-simulator",
+      "exit": 0,
+      "errorCount": 0,
+      "errors": [],
+      "status": "PASS"
+    },
+    {
+      "app": "mock-api",
+      "exit": 0,
+      "errorCount": 0,
+      "errors": [],
+      "status": "PASS"
+    }
+  ],
+  "packageDeclarations": {
+    "exit": 0,
+    "status": "PASS",
+    "detail": "{\"ok\":true,\"mode\":\"check\",\"packages\":[{\"pkg\":\"packages/product-kernel\",\"status\":\"PASS\",\"declarationCount\":25,\"drifted\":0},{\"pkg\":\"packages/professional-domain-registry\",\"status\":\"PASS\",\"declarationCount\":11,\"drifted\":0}]}"
+  },
+  "status": "PASS",
+  "token": "APP_TYPECHECK_GATE_PASS"
+}

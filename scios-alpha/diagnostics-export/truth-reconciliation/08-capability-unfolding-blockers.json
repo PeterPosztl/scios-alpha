@@ -1,0 +1,37 @@
+{
+  "at": "2026-08-13T10:59:47.013Z",
+  "schema": "sci-os-08-capability-unfolding-blockers/v1",
+  "buildId": "truth-recon-2026-08-13-c226d748",
+  "blockers": [
+    {
+      "capability": "@scios/product-kernel",
+      "class": "DISCONNECTED",
+      "reason": "Package exports exist; Shell product path uses control-plane inline routes"
+    },
+    {
+      "capability": "experience-compiler package",
+      "class": "PARTIAL_DUPLICATE",
+      "reason": "CLI/package exist; runtime also inlines GW1 compile"
+    },
+    {
+      "capability": "optional FastAPI prediction/risk engines",
+      "class": "PROFILE_DISABLED",
+      "reason": "Not on golden boot; embedded vertical-slice is first-release path"
+    },
+    {
+      "capability": "apps/desktop Electron",
+      "class": "MISSING",
+      "reason": "HTTP cockpit is Shell"
+    },
+    {
+      "capability": "durable lineage store",
+      "class": "NO_RUNTIME_PROVIDER",
+      "reason": "In-memory only under local-foundation"
+    },
+    {
+      "capability": "GW2-7",
+      "class": "FULL_VISION_P2",
+      "reason": "Intentionally not first-release"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "schema": "sci-os-whi-002-proof/v1",
+  "status": "PASS",
+  "stoppedIsNotFail": true,
+  "projection": {
+    "schema": "sci-os-host-result/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "ok": true,
+    "platform": "win32",
+    "capability": "host-digital-twin",
+    "observedAt": "2026-08-18T18:53:48.163Z",
+    "source": "installer/scripts/host",
+    "mode": "SHADOW",
+    "data": {
+      "schema": "sci-os-host-digital-twin/v1",
+      "desired": {
+        "controlPlane": {
+          "required": true,
+          "port": 3000
+        },
+        "cockpit": {
+          "required": true,
+          "port": 4000
+        },
+        "nodeMajor": 20,
+        "nodeMinor": 18,
+        "installRootHint": "repo-or-packaged",
+        "buildId": null
+      },
+      "actual": {
+        "platform": "win32",
+        "release": "10.0.26200",
+        "uptimeSec": 463363,
+        "hostnameHash": "b0c10e95b73f744e",
+        "buildId": "pkg_1787074480539",
+        "gitSha": "8a0125a18bd017abaf3206f075713bccc28f01e7",
+        "nodeVersion": "v20.18.1",
+        "installedRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+        "packaged": false,
+        "controlPlane": {
+          "port": 3000,
+          "healthz": 0
+        },
+        "cockpit": {
+          "port": 4000,
+          "healthz": 0
+        },
+        "lock": {
+          "present": false,
+          "stale": false
+        },
+        "diskAvailableBytes": 208600821760,
+        "memory": {
+          "total": 16883044352,
+          "free": 6138384384
+        },
+        "networkCoarse": "PRESENT",
+        "runtimeStatus": "STOPPED",
+        "expectStoppedOk": false
+      },
+      "drift": [
+        {
+          "code": "RUNTIME_STOPPED",
+          "severity": "INFO",
+          "note": "Stopped runtime is not FAIL when shutdown was intentional"
+        }
+      ],
+      "stoppedIsNotFail": true,
+      "extends": [
+        "desired-state.cjs",
+        "StartupDigitalTwin",
+        "sciSystemTwin"
+      ]
+    },
+    "degraded": false,
+    "error": null,
+    "evidence": null
+  }
+}

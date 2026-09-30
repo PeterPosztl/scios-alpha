@@ -1,0 +1,41 @@
+{
+  "schema": "sci-os-beta-gate-final/v1",
+  "at": "2026-09-30T10:08:37.864Z",
+  "gate": "BETA_GATE",
+  "token": "BETA_GATE_BLOCKED_WITH_EVIDENCE",
+  "buildId": "pkg_1790762466624",
+  "gitSha": "46b03f18",
+  "checks": {
+    "pipelineDurability": "PASS",
+    "localPersistenceDurability": "PASS",
+    "fallbackCorrectness": "PASS",
+    "backupExport": "PASS",
+    "pgAdapter": "BLOCKED_WITH_EVIDENCE",
+    "migrationCorrectness": "SKIP_NO_PG",
+    "jobCreate": "PASS",
+    "jobLifecycleDurability": "PASS",
+    "jobIdempotency": "PASS",
+    "jobEngineHealth": "PASS",
+    "recoveryCorrectness": "PASS",
+    "systemHealthDurability": "PASS",
+    "startupReadiness": "PASS",
+    "governanceOidc": "BLOCKED_WITH_EVIDENCE",
+    "governanceDurability": "PASS",
+    "cockpitDurability": "PASS",
+    "persistenceMatrixHonesty": "PASS",
+    "suite_b004-persistence-hard-gate": "PASS",
+    "suite_b006-cockpit-ui-hard-gate": "PASS",
+    "suite_b008-experience-compiler-hard-gate": "PASS",
+    "suite_b009-background-system-hard-gate": "PASS",
+    "suite_b010-persistence-hard-gate": "PASS",
+    "installed_b008-installed-e2e": "PASS",
+    "installed_b009-installed-e2e": "PASS",
+    "installed_b010-installed-e2e": "PASS"
+  },
+  "blockers": [
+    "PERSISTENCE.PG_EXTERNAL_INSTANCE_FD002",
+    "FD-001 OIDC provider selection"
+  ],
+  "engineeringFail": false,
+  "status": "PASS"
+}

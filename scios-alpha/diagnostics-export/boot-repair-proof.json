@@ -1,7 +1,7 @@
 {
   "gate": "boot:repair",
   "mode": "repair",
-  "at": "2026-07-16T23:35:24.509Z",
+  "at": "2026-08-12T15:26:53.476Z",
   "verdict": "GO",
   "platformLabel": "ALPHA_NON_PRODUCTION",
   "enterpriseClaim": false,
@@ -71,7 +71,7 @@
     {
       "id": "smoke:vertical-slice",
       "ok": true,
-      "detail": "83f5-47a1-a572-fc8b357e3c40\",\"model\":{\"id\":\"baseline-logistic\",\"version\":\"1.0.0\"},\"riskApproved\":true,\"decision\":\"APPROVE\",\"tipHash\":\"35bd3fbb18b2081901c097f050979f9693d205c6478a374d9577a51ef7d24378\"}"
+      "detail": "9d75-42b3-897d-1aef30a2ca92\",\"model\":{\"id\":\"baseline-logistic\",\"version\":\"1.0.0\"},\"riskApproved\":true,\"decision\":\"APPROVE\",\"tipHash\":\"6fd13a4e74152c097a5f9f75db31be7b81b37d1f9759c65a8afc9a6a1cde0165\"}"
     }
   ],
   "rule": "No evidence means UNKNOWN, never PASS"

@@ -1,0 +1,50 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "gaps": [
+    {
+      "screen": "Entity360 tabs",
+      "role": "investigator",
+      "workflow": "gw4",
+      "problem": "Relationships/Timeline show JSON not interactive views",
+      "expectedExperience": "Filterable graph + temporal lane",
+      "recommendedFix": "Wire Graph/Timeline primitives",
+      "validationTest": "Expand neighborhood on AAPL"
+    },
+    {
+      "screen": "Home",
+      "role": "all",
+      "workflow": "attention",
+      "problem": "Cases/Alerts often empty by design (no case engine)",
+      "expectedExperience": "Empty state with next action (partially present)",
+      "recommendedFix": "Keep honest empty states; add case when GW2 exists",
+      "validationTest": "Empty state CTA Analyze"
+    },
+    {
+      "screen": "Global",
+      "role": "expert",
+      "workflow": "keyboard",
+      "problem": "No command palette",
+      "expectedExperience": "Ctrl/Cmd+K actions from ActionRegistry",
+      "recommendedFix": "Mount palette",
+      "validationTest": "Keyboard Analyze"
+    },
+    {
+      "screen": "Analyze professional",
+      "role": "market_analyst",
+      "workflow": "gw1",
+      "problem": "Compare action is advisory text only",
+      "expectedExperience": "Side-by-side scenario compare",
+      "recommendedFix": "Persist two runs + compare panel",
+      "validationTest": "Compare two horizons"
+    },
+    {
+      "screen": "Accessibility",
+      "role": "all",
+      "workflow": "a11y",
+      "problem": "No automated a11y audit evidence this pass",
+      "expectedExperience": "Keyboard/focus/contrast proven",
+      "recommendedFix": "Add axe/keyboard smoke to UX proof",
+      "validationTest": "ux:proof a11y section"
+    }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "at": "2026-08-12T21:28:10.286Z",
+  "count": 24,
+  "productionBlockers": 0,
+  "findings": [
+    {
+      "file": "dev/generator.cjs",
+      "pattern": "TODO",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "DEMO_ONLY",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "dev/generator.cjs",
+      "pattern": "FIXME",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "DEMO_ONLY",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "dev/generator.cjs",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "DEMO_ONLY",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "dev/generator.cjs",
+      "pattern": "placeholder",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "DEMO_ONLY",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "dev/generator.py",
+      "pattern": "TODO",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "DEMO_ONLY",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "dev/generator.py",
+      "pattern": "FIXME",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "DEMO_ONLY",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "dev/generator.py",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "DEMO_ONLY",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "dev/generator.py",
+      "pattern": "placeholder",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "DEMO_ONLY",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "pattern": "placeholder",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "FALSE_POSITIVE",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "installer/scripts/startup/ensure-redis.cjs",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "FALSE_POSITIVE",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "packages/capability-closure/src/index.js",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "FALSE_POSITIVE",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "packages/meta-recovery/src/repair.ts",
+      "pattern": "not_implemented",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "FUTURE",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "packages/meta-recovery/src/repair.ts",
+      "pattern": "placeholder",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "FUTURE",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "packages/probability-engine/probability_engine.py",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "FUTURE",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "packages/product-kernel/src/capability-registry.js",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "FALSE_POSITIVE",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "packages/product-kernel/src/index.js",
+      "pattern": "not_implemented",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "FALSE_POSITIVE",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "packages/product-kernel/src/index.js",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "FALSE_POSITIVE",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "packages/system-closure/src/cli.js",
+      "pattern": "TODO",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "TEST_FIXTURE",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "packages/system-closure/src/cli.js",
+      "pattern": "FIXME",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "TEST_FIXTURE",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "packages/system-closure/src/cli.js",
+      "pattern": "not_implemented",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "TEST_FIXTURE",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "packages/system-closure/src/cli.js",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "TEST_FIXTURE",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "packages/system-closure/src/cli.js",
+      "pattern": "placeholder",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "TEST_FIXTURE",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "packages/validation-engine/validation_engine.py",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "FUTURE",
+      "firstReleaseBlocker": false
+    },
+    {
+      "file": "scripts/gate-scaffold.mjs",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc",
+      "releaseClass": "TEST_FIXTURE",
+      "firstReleaseBlocker": false
+    }
+  ]
+}

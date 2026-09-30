@@ -1,0 +1,173 @@
+{
+  "schema": "sci-os-system-services-blueprint/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-18T18:20:00.000Z",
+  "baselineBuildId": "pkg_1787074480539",
+  "designPrinciple": "Extend existing pkg + bundled Node orchestrator. Do not fork a second boot authority or parallel Windows service stack without ADR.",
+  "terminology": {
+    "sciSystemService": "Logical SCI runtime unit with healthz identity and port contract",
+    "windowsService": "OS-level Windows Service (Session 0) — NOT implemented today",
+    "supervisedChild": "Node child process spawned by start-sci-os process-supervisor"
+  },
+  "currentArchitecture": {
+    "orchestrator": {
+      "id": "SCI-ORCH-001",
+      "name": "Startup Orchestrator",
+      "entry": "installer/scripts/start-sci-os.cjs",
+      "hostProcess": "node.exe (bundled) via SCI-OS-X10.cmd/exe",
+      "supervisor": "installer/scripts/startup/process-supervisor.cjs",
+      "lock": "installer/scripts/startup/process-lock.cjs",
+      "bootContract": "installer/scripts/startup/transactional-boot.cjs",
+      "status": "PROVEN"
+    },
+    "services": [
+      {
+        "id": "SCI-SVC-CP",
+        "name": "Control Plane API",
+        "logicalRole": "Backend / governance / vertical slice / experience compile",
+        "artifact": "backend/server.cjs",
+        "port": 3000,
+        "healthz": "/healthz",
+        "serviceIdentity": "@scios/control-plane-api",
+        "hostBinding": "127.0.0.1",
+        "required": true,
+        "supervision": "child process",
+        "windowsService": "NONE",
+        "status": "PROVEN"
+      },
+      {
+        "id": "SCI-SVC-SHELL",
+        "name": "Cockpit Shell (AppHost)",
+        "logicalRole": "Product UX surface — Home/Search/Entity/GW1/Evidence/Lineage",
+        "artifact": "cockpit/index.mjs",
+        "port": 4000,
+        "healthz": "/healthz",
+        "serviceIdentity": "@scios/cockpit-ui",
+        "hostBinding": "127.0.0.1",
+        "required": true,
+        "supervision": "child process",
+        "windowsService": "NONE",
+        "status": "PROVEN",
+        "adr": "ADR-SHELL-001 Shell IS AppHost"
+      },
+      {
+        "id": "SCI-SVC-RECOVERY",
+        "name": "Recovery Shell",
+        "logicalRole": "Safe diagnostics / meta-recovery HTTP surface",
+        "artifact": "recovery/server.cjs",
+        "port": 5299,
+        "healthz": "/healthz",
+        "required": false,
+        "supervision": "on-demand spawn from orchestrator",
+        "windowsService": "NONE",
+        "status": "PRESENT_NOT_ALWAYS_RUNNING"
+      },
+      {
+        "id": "SCI-SVC-WORKER",
+        "name": "Foundation Worker",
+        "logicalRole": "In-process smoke / heartbeat jobs",
+        "artifact": "embedded in control-plane",
+        "port": null,
+        "required": true,
+        "supervision": "in-process",
+        "windowsService": "NONE",
+        "status": "PROVEN"
+      },
+      {
+        "id": "SCI-SVC-PG",
+        "name": "PostgreSQL",
+        "logicalRole": "Durable persistence",
+        "port": 5432,
+        "required": false,
+        "supervision": "external Docker/host",
+        "windowsService": "OPTIONAL_EXTERNAL",
+        "status": "NOT_CONFIGURED_OPTIONAL"
+      },
+      {
+        "id": "SCI-SVC-REDIS",
+        "name": "Redis / BullMQ",
+        "logicalRole": "Queue workers",
+        "port": 6379,
+        "required": false,
+        "supervision": "external Docker/host",
+        "windowsService": "OPTIONAL_EXTERNAL",
+        "status": "NOT_CONFIGURED_OPTIONAL"
+      }
+    ]
+  },
+  "serviceDependencyGraph": {
+    "launchOrder": [
+      "resolve-app-root",
+      "resolve-node-runtime (bundled only in packaged)",
+      "validate-config",
+      "process-lock acquire",
+      "control-plane bind :3000",
+      "foundation worker heartbeat",
+      "cockpit bind :4000",
+      "health-gate READY/DEGRADED",
+      "optional browser open :4000"
+    ],
+    "shutdownOrder": [
+      "graceful shutdown-request",
+      "cockpit stop",
+      "control-plane stop",
+      "release process-lock",
+      "optional infra down (--infra)"
+    ],
+    "healthContracts": {
+      "controlPlane": "GET :3000/healthz service=@scios/control-plane-api",
+      "cockpit": "GET :4000/healthz service=@scios/cockpit-ui shell=true",
+      "readyz": "GET :3000/readyz ready + dependencyMetrics"
+    }
+  },
+  "proposedWindowsHostServiceModel": {
+    "phase": "BLUEPRINT_ONLY_NOT_IMPLEMENTED",
+    "tiers": [
+      {
+        "tier": "T0_USER_SESSION",
+        "description": "Current proven model — user-launched orchestrator in interactive session",
+        "components": ["SCI-OS-X10.exe", "start-sci-os.cjs", "CP + Shell children"],
+        "when": "First release / ALPHA — KEEP AS DEFAULT",
+        "p0Impact": "NONE if unchanged"
+      },
+      {
+        "tier": "T1_SCHEDULED_TASK",
+        "description": "Optional login-trigger Task Scheduler entry calling SCI-OS-X10.cmd with SCIOS_APP_ROOT",
+        "components": ["Task Scheduler trigger", "same orchestrator"],
+        "when": "Post-P0 convenience — requires reboot proof",
+        "p0Impact": "NONE if opt-in only"
+      },
+      {
+        "tier": "T2_WINDOWS_SERVICE",
+        "description": "Session-0 or per-user service wrapping ONLY orchestrator lifecycle — not replacing HTTP services",
+        "candidates": ["NSSM", "WinSW", "native Service Control Manager wrapper"],
+        "constraints": [
+          "Must not create second boot state machine",
+          "Must preserve healthz identity contracts",
+          "Must not require system Node",
+          "Browser handoff remains user session"
+        ],
+        "when": "Enterprise host profile — P2/P3",
+        "p0Impact": "HIGH RISK if attempted before reboot + isolation proofs"
+      }
+    ],
+    "rejectedPatterns": [
+      "Separate Windows Service per HTTP microservice (CP/Shell/Recovery) without supervisor contract",
+      "Electron as Windows Service host replacing HTTP Shell",
+      "Parallel Meta-OS / Galaxus boot authority",
+      "System Node or pnpm at runtime"
+    ]
+  },
+  "portAndUrlAuthority": {
+    "canonical": "sci-os.manifest.json + installer/scripts/startup/runtime-services.cjs",
+    "ports": { "backend": 3000, "cockpit": 4000, "recoveryShell": 5299 },
+    "invariant": "SHELL_PORT != CONTROL_PLANE_PORT",
+    "userFacingUrl": "http://127.0.0.1:4000/"
+  },
+  "evidenceAnchors": [
+    "diagnostics-export/package-sync/golden-path-proof.json",
+    "diagnostics-export/release-reconciliation/apphost-decision.json",
+    "sci-os.manifest.json",
+    "installer/golden-boot.manifest.json"
+  ]
+}

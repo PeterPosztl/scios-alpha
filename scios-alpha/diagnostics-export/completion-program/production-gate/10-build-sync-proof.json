@@ -1,0 +1,9 @@
+{
+  "schema": "sci-os-production-gate-build-sync/v1",
+  "at": "2026-09-30T10:08:15.244Z",
+  "buildId": "pkg_1790762466624",
+  "gitSha": "46b03f18",
+  "betaGate": "BETA_GATE_BLOCKED_WITH_EVIDENCE",
+  "betaGateEvidence": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\completion-program\\beta-gate\\11-final-gate.json",
+  "status": "PASS"
+}

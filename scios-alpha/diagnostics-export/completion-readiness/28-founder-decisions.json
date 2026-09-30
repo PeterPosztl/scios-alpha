@@ -1,0 +1,55 @@
+{
+  "schema": "sci-os-completion-audit/founder-decisions/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "genuineFounderDecisions": [
+    {
+      "id": "FD-001",
+      "title": "OIDC Provider Selection",
+      "question": "Which identity provider for production auth? (Auth0 / Keycloak / Azure AD / Custom)",
+      "impact": "Blocks production security readiness",
+      "target": "C"
+    },
+    {
+      "id": "FD-002",
+      "title": "Database Strategy",
+      "question": "Commit to PostgreSQL as primary? Add graph DB (Neo4j)? Timeline for PG requirement?",
+      "impact": "Blocks beta data persistence",
+      "target": "B"
+    },
+    {
+      "id": "FD-003",
+      "title": "UI Framework Decision",
+      "question": "Cockpit UI is currently 2 JS files. Build full React/Next.js app in scios-alpha or use sci-shell-web from parent repo?",
+      "impact": "Blocks all professional UX views",
+      "target": "A"
+    },
+    {
+      "id": "FD-004",
+      "title": "Domain Priority Order",
+      "question": "Which professional domains to implement first? (AML, DFIR, CTI, Fraud, OSINT)",
+      "impact": "Blocks professional domain registry activation",
+      "target": "B"
+    },
+    {
+      "id": "FD-005",
+      "title": "AI/LLM Integration Scope",
+      "question": "Which LLM provider? Local vs cloud? Scope of Forensic CoPilot in alpha?",
+      "impact": "Blocks AI reasoning layer",
+      "target": "D"
+    },
+    {
+      "id": "FD-006",
+      "title": "Market Data Providers",
+      "question": "Which market/economic data providers to integrate? Budget constraints?",
+      "impact": "Blocks market data engine",
+      "target": "D"
+    },
+    {
+      "id": "FD-007",
+      "title": "Deployment Model",
+      "question": "Self-hosted only? Cloud offering? SaaS? Affects install/update/rollback architecture",
+      "impact": "Blocks production deployment readiness",
+      "target": "C"
+    }
+  ]
+}

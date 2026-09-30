@@ -1,0 +1,10 @@
+{
+  "schema": "sci-os-beta-gate-baseline/v1",
+  "at": "2026-09-30T10:08:37.864Z",
+  "checkpoint": "46b03f18",
+  "buildId": "pkg_1790762466624",
+  "alphaFinalGate": "ALPHA_FINAL_GATE_READY",
+  "mode": "BETA_READINESS_ASSESSMENT",
+  "executionMode": "SIMULATION_ONLY",
+  "authMode": "local-development"
+}

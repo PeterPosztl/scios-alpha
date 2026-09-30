@@ -1,0 +1,36 @@
+import assert from "node:assert/strict";
+import { test } from "node:test";
+import { applyProfessionModules } from "./profession-module-expansion.js";
+import { VISIBILITY_PREP_HOOKS, buildVisibilityPrepWave } from "./visibility-prep.js";
+
+test("visibility prep REFUSES gradual activation, digital-ready markers, and engine-ready claims", () => {
+  const wave = buildVisibilityPrepWave();
+  assert.equal(VISIBILITY_PREP_HOOKS.enabled, false);
+  assert.equal(wave.ready, false);
+  assert.equal(wave.gradual, false);
+  assert.equal(wave.analogToDigitalHints, false);
+  assert.equal(wave.showDomainProgress, false);
+  assert.equal(wave.digitalReadyMarkers, false);
+  assert.equal(wave.autoAudit, false);
+  assert.equal(wave.autoLimits, false);
+  assert.equal(wave.autoScenarios, false);
+  assert.equal(wave.autoDecide, false);
+  assert.equal(wave.wave, "REFUSED");
+  assert.equal(wave.health.fail, 0);
+  assert.equal(wave.health.enginesReady, 0);
+  assert.equal(wave.health.digitalReadyMarkers, 0);
+  assert.equal(wave.health.progressBarsToEnable, 0);
+  assert.equal(wave.visibility.find((c) => c.id === "Visibility.engine")?.result, "REFUSED");
+  assert.equal(wave.visibility.find((c) => c.id === "Visibility.domainProgressBars")?.result, "REFUSED");
+  assert.equal(wave.visibility.find((c) => c.id === "Visibility.digitalReadyKgMarkers")?.result, "REFUSED");
+  assert.equal(wave.engines.find((c) => c.id === "Engine.autoAudit.ready")?.result, "REFUSED");
+  assert.equal(wave.engines.find((c) => c.id === "Engine.cross_domain_chain_integrity")?.result, "SKIPPED_RESEARCH_REQUIRED");
+  assert.equal(wave.next.find((c) => c.id === "Next.humanReview")?.result, "ANALOG_CONTRACT");
+  assert.equal(wave.next.find((c) => c.id === "Next.causalPathPreview")?.result, "REFUSED");
+  assert.equal(wave.domains.find((d) => d.id === "hospitality")?.result, "SKIPPED_RESEARCH_REQUIRED");
+  assert.equal(wave.domains.find((d) => d.id === "hospitality")?.enable, false);
+  assert.equal(wave.domains.find((d) => d.id === "hospitality")?.progressBar, false);
+  assert.equal(wave.domains.find((d) => d.id === "cyber")?.digitalReady, false);
+  const hosp = applyProfessionModules("hospitality", { demand_series: [1, 2, 3] });
+  assert.equal(hosp.evidence.status, "SKIPPED_RESEARCH_REQUIRED");
+});

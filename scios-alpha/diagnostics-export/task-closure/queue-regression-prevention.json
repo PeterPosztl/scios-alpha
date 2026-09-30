@@ -1,0 +1,6 @@
+{
+  "rule": "New ACTIVE tasks require priority, component, dependency, acceptanceCriteria, releaseRelevance",
+  "ifNotReleaseCritical": "place in docs/roadmap backlog — not ACTIVE queue",
+  "maxWriteConcurrency": 1,
+  "maxReadOnlyAuditConcurrency": 2
+}

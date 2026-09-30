@@ -1,0 +1,11 @@
+{
+  "at": "2026-09-30T10:05:46.167Z",
+  "regressions": {
+    "b006-cockpit-ui-hard-gate.cjs": "PASS",
+    "b008-experience-compiler-hard-gate.cjs": "PASS",
+    "b009-background-system-hard-gate.cjs": "PASS",
+    "b010-persistence-hard-gate.cjs": "PASS",
+    "b004-persistence-hard-gate.cjs": "PASS"
+  },
+  "status": "PASS"
+}

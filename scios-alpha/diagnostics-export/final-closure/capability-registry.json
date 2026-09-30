@@ -1,0 +1,463 @@
+{
+  "schema": "sci-os-product-capability-registry/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "source": "docs/enterprise/CAPABILITY_REGISTRY.json",
+  "capabilities": [
+    {
+      "capabilityId": "scaffold.workspace",
+      "name": "scaffold.workspace",
+      "domain": "platform",
+      "maturity": "L3",
+      "implementationStatus": "PARTIAL",
+      "implementationProvider": ".",
+      "inputs": [],
+      "outputs": [
+        "workspace"
+      ],
+      "requiredObjects": [],
+      "actions": [],
+      "dependencies": [],
+      "permissions": [],
+      "policies": [],
+      "evidenceRequirements": [
+        "diagnostics-export/wave0-inspection-report.json"
+      ],
+      "healthProbe": null,
+      "userFacingViews": [],
+      "supportedRoles": [],
+      "simulationSupport": false,
+      "recoverySupport": false,
+      "riskTier": "low",
+      "tests": [
+        "pnpm build"
+      ],
+      "label": "ALPHA_NON_PRODUCTION"
+    },
+    {
+      "capabilityId": "data-fabric.domain",
+      "name": "data-fabric.domain",
+      "domain": "platform",
+      "maturity": "L1",
+      "implementationStatus": "UNPROVEN",
+      "implementationProvider": "packages/data-fabric",
+      "inputs": [],
+      "outputs": [
+        "BitemporalRecord",
+        "ZodSchemas"
+      ],
+      "requiredObjects": [],
+      "actions": [],
+      "dependencies": [],
+      "permissions": [],
+      "policies": [],
+      "evidenceRequirements": [],
+      "healthProbe": null,
+      "userFacingViews": [],
+      "supportedRoles": [],
+      "simulationSupport": false,
+      "recoverySupport": false,
+      "riskTier": "medium",
+      "tests": [
+        "packages/data-fabric/src/domain.test.ts"
+      ],
+      "label": "ALPHA_NON_PRODUCTION"
+    },
+    {
+      "capabilityId": "alpha-loop.baseline",
+      "name": "alpha-loop.baseline",
+      "domain": "quant",
+      "maturity": "L1",
+      "implementationStatus": "UNPROVEN",
+      "implementationProvider": "packages/alpha-loop",
+      "inputs": [
+        "seeded market snapshot"
+      ],
+      "outputs": [
+        "paper PnL"
+      ],
+      "requiredObjects": [],
+      "actions": [],
+      "dependencies": [
+        "data-fabric.domain"
+      ],
+      "permissions": [],
+      "policies": [],
+      "evidenceRequirements": [],
+      "healthProbe": "pnpm check",
+      "userFacingViews": [],
+      "supportedRoles": [],
+      "simulationSupport": false,
+      "recoverySupport": false,
+      "riskTier": "high",
+      "tests": [
+        "pnpm check",
+        "pnpm sim"
+      ],
+      "label": "ALPHA_NON_PRODUCTION"
+    },
+    {
+      "capabilityId": "prediction-engine.fastapi",
+      "name": "prediction-engine.fastapi",
+      "domain": "quant",
+      "maturity": "L2",
+      "implementationStatus": "STUB",
+      "implementationProvider": "apps/prediction-engine",
+      "inputs": [
+        "featureVector"
+      ],
+      "outputs": [
+        "mean",
+        "variance"
+      ],
+      "requiredObjects": [],
+      "actions": [],
+      "dependencies": [],
+      "permissions": [],
+      "policies": [],
+      "evidenceRequirements": [],
+      "healthProbe": "http://127.0.0.1:5201/healthz",
+      "userFacingViews": [],
+      "supportedRoles": [],
+      "simulationSupport": false,
+      "recoverySupport": false,
+      "riskTier": "high",
+      "tests": [
+        "apps/prediction-engine/tests/test_predict.py"
+      ],
+      "label": "ALPHA_NON_PRODUCTION"
+    },
+    {
+      "capabilityId": "risk-engine.fastapi",
+      "name": "risk-engine.fastapi",
+      "domain": "risk",
+      "maturity": "L2",
+      "implementationStatus": "STUB",
+      "implementationProvider": "apps/risk-engine",
+      "inputs": [
+        "positions",
+        "newOrderProposal"
+      ],
+      "outputs": [
+        "allowed",
+        "var"
+      ],
+      "requiredObjects": [],
+      "actions": [],
+      "dependencies": [],
+      "permissions": [],
+      "policies": [],
+      "evidenceRequirements": [],
+      "healthProbe": "http://127.0.0.1:5202/healthz",
+      "userFacingViews": [],
+      "supportedRoles": [],
+      "simulationSupport": false,
+      "recoverySupport": false,
+      "riskTier": "critical",
+      "tests": [
+        "apps/risk-engine/tests/test_risk.py"
+      ],
+      "label": "ALPHA_NON_PRODUCTION"
+    },
+    {
+      "capabilityId": "execution-simulator",
+      "name": "execution-simulator",
+      "domain": "execution",
+      "maturity": "L2",
+      "implementationStatus": "STUB",
+      "implementationProvider": "apps/execution-simulator",
+      "inputs": [
+        "order"
+      ],
+      "outputs": [
+        "fill"
+      ],
+      "requiredObjects": [],
+      "actions": [],
+      "dependencies": [
+        "risk-engine.fastapi"
+      ],
+      "permissions": [],
+      "policies": [],
+      "evidenceRequirements": [],
+      "healthProbe": "http://127.0.0.1:5210/healthz",
+      "userFacingViews": [],
+      "supportedRoles": [],
+      "simulationSupport": true,
+      "recoverySupport": false,
+      "riskTier": "high",
+      "tests": [],
+      "label": "ALPHA_NON_PRODUCTION"
+    },
+    {
+      "capabilityId": "control-plane-api",
+      "name": "control-plane-api",
+      "domain": "platform",
+      "maturity": "L1",
+      "implementationStatus": "UNPROVEN",
+      "implementationProvider": "apps/control-plane-api",
+      "inputs": [
+        "demo request"
+      ],
+      "outputs": [
+        "orchestration result"
+      ],
+      "requiredObjects": [],
+      "actions": [],
+      "dependencies": [
+        "prediction-engine.fastapi",
+        "risk-engine.fastapi",
+        "execution-simulator"
+      ],
+      "permissions": [],
+      "policies": [],
+      "evidenceRequirements": [],
+      "healthProbe": "http://127.0.0.1:5200/healthz",
+      "userFacingViews": [],
+      "supportedRoles": [],
+      "simulationSupport": false,
+      "recoverySupport": false,
+      "riskTier": "medium",
+      "tests": [],
+      "label": "ALPHA_NON_PRODUCTION"
+    },
+    {
+      "capabilityId": "meta.capability-registry",
+      "name": "meta.capability-registry",
+      "domain": "platform",
+      "maturity": "L3",
+      "implementationStatus": "PARTIAL",
+      "implementationProvider": "packages/meta-intelligence",
+      "inputs": [],
+      "outputs": [
+        "registry",
+        "evidence graph"
+      ],
+      "requiredObjects": [],
+      "actions": [],
+      "dependencies": [
+        "scaffold.workspace"
+      ],
+      "permissions": [],
+      "policies": [],
+      "evidenceRequirements": [
+        "docs/enterprise/CAPABILITY_REGISTRY.json"
+      ],
+      "healthProbe": "http://127.0.0.1:5200/v1/meta",
+      "userFacingViews": [],
+      "supportedRoles": [],
+      "simulationSupport": false,
+      "recoverySupport": true,
+      "riskTier": "medium",
+      "tests": [],
+      "label": "ALPHA_NON_PRODUCTION"
+    },
+    {
+      "capabilityId": "ontology.wave1",
+      "name": "ontology.wave1",
+      "domain": "platform",
+      "maturity": "L3",
+      "implementationStatus": "PARTIAL",
+      "implementationProvider": "packages/data-fabric/src/ontology.ts",
+      "inputs": [],
+      "outputs": [
+        "OntologyEntity",
+        "OntologyRelation",
+        "InMemoryOntologyStore"
+      ],
+      "requiredObjects": [],
+      "actions": [],
+      "dependencies": [
+        "data-fabric.domain"
+      ],
+      "permissions": [],
+      "policies": [],
+      "evidenceRequirements": [
+        "diagnostics-export/gate-contracts-proof.json"
+      ],
+      "healthProbe": null,
+      "userFacingViews": [],
+      "supportedRoles": [],
+      "simulationSupport": false,
+      "recoverySupport": false,
+      "riskTier": "medium",
+      "tests": [
+        "packages/data-fabric/src/ontology.ledger.test.ts"
+      ],
+      "label": "ALPHA_NON_PRODUCTION"
+    },
+    {
+      "capabilityId": "ledger.wave1",
+      "name": "ledger.wave1",
+      "domain": "platform",
+      "maturity": "L3",
+      "implementationStatus": "PARTIAL",
+      "implementationProvider": "packages/data-fabric/src/ledger.ts",
+      "inputs": [],
+      "outputs": [
+        "CanonicalLedger",
+        "InMemoryCanonicalLedger"
+      ],
+      "requiredObjects": [],
+      "actions": [],
+      "dependencies": [
+        "ontology.wave1"
+      ],
+      "permissions": [],
+      "policies": [],
+      "evidenceRequirements": [
+        "diagnostics-export/gate-contracts-proof.json"
+      ],
+      "healthProbe": null,
+      "userFacingViews": [],
+      "supportedRoles": [],
+      "simulationSupport": false,
+      "recoverySupport": false,
+      "riskTier": "high",
+      "tests": [
+        "packages/data-fabric/src/ontology.ledger.test.ts"
+      ],
+      "label": "ALPHA_NON_PRODUCTION"
+    },
+    {
+      "capabilityId": "master-contract.doc",
+      "name": "master-contract.doc",
+      "domain": "platform",
+      "maturity": "L3",
+      "implementationStatus": "PARTIAL",
+      "implementationProvider": "docs/enterprise/MASTER_CONTRACT.md",
+      "inputs": [],
+      "outputs": [
+        "truth map"
+      ],
+      "requiredObjects": [],
+      "actions": [],
+      "dependencies": [],
+      "permissions": [],
+      "policies": [],
+      "evidenceRequirements": [
+        "docs/enterprise/MASTER_CONTRACT.md"
+      ],
+      "healthProbe": null,
+      "userFacingViews": [],
+      "supportedRoles": [],
+      "simulationSupport": false,
+      "recoverySupport": false,
+      "riskTier": "low",
+      "tests": [
+        "pnpm gate:contracts"
+      ],
+      "label": "ALPHA_NON_PRODUCTION"
+    },
+    {
+      "capabilityId": "enterprise.modules.sections-49-83",
+      "name": "enterprise.modules.sections-49-83",
+      "domain": "platform",
+      "maturity": "L1",
+      "implementationStatus": "UNPROVEN",
+      "implementationProvider": "docs/enterprise/MASTER_CONTRACT.md",
+      "inputs": [],
+      "outputs": [],
+      "requiredObjects": [],
+      "actions": [],
+      "dependencies": [
+        "meta.capability-registry"
+      ],
+      "permissions": [],
+      "policies": [],
+      "evidenceRequirements": [],
+      "healthProbe": null,
+      "userFacingViews": [],
+      "supportedRoles": [],
+      "simulationSupport": false,
+      "recoverySupport": false,
+      "riskTier": "critical",
+      "tests": [],
+      "label": "ALPHA_NON_PRODUCTION"
+    },
+    {
+      "capabilityId": "vertical-slice.foundation",
+      "name": "vertical-slice.foundation",
+      "domain": "platform",
+      "maturity": "L3",
+      "implementationStatus": "PARTIAL",
+      "implementationProvider": "packages/vertical-slice",
+      "inputs": [
+        "raw event"
+      ],
+      "outputs": [
+        "normalized event",
+        "pit features",
+        "baseline prediction",
+        "calibration",
+        "risk gate",
+        "governance decision",
+        "deterministic fill",
+        "outcome",
+        "immutable lineage",
+        "cockpit view"
+      ],
+      "requiredObjects": [],
+      "actions": [],
+      "dependencies": [
+        "data-fabric.domain",
+        "ontology.wave1",
+        "ledger.wave1"
+      ],
+      "permissions": [],
+      "policies": [],
+      "evidenceRequirements": [
+        "diagnostics-export/gate-foundation-proof.json"
+      ],
+      "healthProbe": "http://127.0.0.1:5200/v1/slice/run",
+      "userFacingViews": [],
+      "supportedRoles": [],
+      "simulationSupport": false,
+      "recoverySupport": false,
+      "riskTier": "high",
+      "tests": [
+        "packages/vertical-slice/src/pipeline.test.ts"
+      ],
+      "label": "ALPHA_NON_PRODUCTION"
+    },
+    {
+      "capabilityId": "product-kernel.core",
+      "name": "Product Kernel",
+      "domain": "product",
+      "maturity": "L2",
+      "implementationStatus": "PARTIAL",
+      "implementationProvider": "packages/product-kernel",
+      "inputs": [
+        "role",
+        "object",
+        "workflow"
+      ],
+      "outputs": [
+        "workspace",
+        "navigation",
+        "actions"
+      ],
+      "evidenceRequirements": [
+        "diagnostics-export/product-kernel/"
+      ],
+      "simulationSupport": false,
+      "recoverySupport": false
+    },
+    {
+      "capabilityId": "cockpit.professional-view",
+      "name": "Cockpit Professional View",
+      "domain": "ux",
+      "maturity": "L2",
+      "implementationStatus": "PARTIAL",
+      "implementationProvider": "apps/cockpit-ui",
+      "inputs": [
+        "VerticalSliceResponse"
+      ],
+      "outputs": [
+        "professionalAnalysis"
+      ],
+      "evidenceRequirements": [],
+      "simulationSupport": true,
+      "recoverySupport": false
+    }
+  ]
+}

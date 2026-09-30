@@ -1,0 +1,75 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "capabilities": [
+    {
+      "id": "home",
+      "chain": "cockpit→/v1/home",
+      "state": "ACTIVE"
+    },
+    {
+      "id": "search",
+      "chain": "cockpit→/v1/search",
+      "state": "ACTIVE"
+    },
+    {
+      "id": "entity360",
+      "chain": "cockpit→/v1/entities",
+      "state": "ACTIVE"
+    },
+    {
+      "id": "gw1",
+      "chain": "Analyze→vertical-slice→pro view→evidence",
+      "state": "ACTIVE"
+    },
+    {
+      "id": "risk_governance",
+      "chain": "vertical-slice embedded",
+      "state": "ACTIVE"
+    },
+    {
+      "id": "evidence_lineage",
+      "chain": "UI+local-durable+in-memory",
+      "state": "PARTIAL"
+    },
+    {
+      "id": "product_kernel",
+      "chain": "/v1/kernel/status",
+      "state": "PARTIAL"
+    },
+    {
+      "id": "experience_compiler",
+      "chain": "package+inline",
+      "state": "PARTIAL"
+    },
+    {
+      "id": "role_registry",
+      "chain": "professional-domain-registry",
+      "state": "ACTIVE_AS_DATA"
+    },
+    {
+      "id": "bullmq",
+      "state": "PROFILE_DISABLED"
+    },
+    {
+      "id": "oidc",
+      "state": "NO_POLICY"
+    },
+    {
+      "id": "durable_lineage",
+      "state": "LOCAL_FILE_PROVIDER"
+    },
+    {
+      "id": "command_palette",
+      "state": "ACTIVE"
+    },
+    {
+      "id": "approval_card",
+      "state": "ACTIVE"
+    },
+    {
+      "id": "ai_context_panel",
+      "state": "ACTIVE"
+    }
+  ]
+}

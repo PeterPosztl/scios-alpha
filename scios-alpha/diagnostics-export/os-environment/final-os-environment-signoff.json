@@ -1,0 +1,33 @@
+{
+  "at": "2026-08-12T19:27:02.366Z",
+  "schema": "sci-os-environment-signoff/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "verdict": "SCI OS ENTERPRISE OPERATING ENVIRONMENT — DEGRADED",
+  "gates": {
+    "canonicalShell": true,
+    "canonicalLauncher": true,
+    "home": true,
+    "globalSearch": true,
+    "commandPalette": true,
+    "workspaceManager": true,
+    "sessionRestoreApi": true,
+    "notificationCenter": true,
+    "backgroundJobs": true,
+    "systemStatus": true,
+    "entity360Gw1": true,
+    "evidenceIntegrated": true,
+    "recoveryIntegrated": true,
+    "noTerminalRequiredForPackaged": true,
+    "windowsReboot": false,
+    "childServiceIsolation": "UNPROVEN"
+  },
+  "failedGates": [
+    "windowsReboot"
+  ],
+  "note": "Web technologies render the shell; UX is OS-framed. Native window chrome / host reboot still open. Not a second kernel.",
+  "next": [
+    "Host reboot with session restore certification",
+    "Child-service failure isolation soak test",
+    "Optional native window host without replacing pkg launcher"
+  ]
+}

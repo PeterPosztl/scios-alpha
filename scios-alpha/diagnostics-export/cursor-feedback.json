@@ -1,0 +1,34 @@
+{
+  "schema": "sci-os-cursor-feedback/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T15:12:00.000Z",
+  "identity": "ENTERPRISE_GRADE_ALPHA",
+  "ready": false,
+  "holeless": false,
+  "autoTrade": false,
+  "humanUsableAlpha": true,
+  "mode": "ENTERPRISE_FINAL_COMPLETION",
+  "stopFinalCompletionMode": true,
+  "allBlockingGapsResolved": true,
+  "rescan": "Same FINAL_COMPLETION command re-issued. Did not re-open P2. Found remaining Home/Work zavaros points and closed them.",
+  "scan": {
+    "bootBlocking": [],
+    "analystLoopBlocking": [],
+    "enterpriseMissingNotAlphaGate": ["OIDC", "OTLP SDK", "durable ledger", "live feeds", "live calibration"],
+    "secondOS": false,
+    "secondShell": false
+  },
+  "appliedThisPass": [
+    "HOME-DECISIONS-EVIDENCE-CARDS",
+    "HOME-SYSTEM-STATUS-NO-FALSE-READY",
+    "WORK-EMPTY-INCLUDES-INTELLIGENCE",
+    "SYSTEM-HEALTH-CORE-READY-NOT-GO",
+    "PDR-ROLE-HINT-ANALYST-LOOP"
+  ],
+  "tests": {
+    "unit": "8/8 last proven (runtime unchanged this pass)",
+    "smoke": "ok last proven (API unchanged this pass)"
+  },
+  "buildLog": "diagnostics-export/cursor-build-log.json",
+  "honesty": "HUMAN_USABLE_ALPHA holds. Re-scan did not find boot blockers. Home now starts the same analyst loop as nav. P2 stays placeholders. Not READY."
+}

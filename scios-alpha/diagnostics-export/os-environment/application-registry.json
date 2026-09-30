@@ -1,0 +1,283 @@
+{
+  "schema": "sci-os-application-registry/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "apps": [
+    {
+      "appId": "app.home",
+      "name": "Home",
+      "icon": "home",
+      "description": "Attention, recent work, system glance",
+      "requiredCapabilities": [
+        "control-plane-api"
+      ],
+      "supportedRoles": [
+        "*"
+      ],
+      "routes": [
+        "/"
+      ],
+      "commands": [
+        "go.home"
+      ],
+      "workspaceTemplates": [
+        "ws.home"
+      ],
+      "status": "AVAILABLE",
+      "maturity": "L7"
+    },
+    {
+      "appId": "app.work",
+      "name": "Work",
+      "icon": "work",
+      "description": "Recent analyses and open tasks",
+      "requiredCapabilities": [
+        "control-plane-api"
+      ],
+      "supportedRoles": [
+        "*"
+      ],
+      "routes": [
+        "/work"
+      ],
+      "commands": [
+        "go.work"
+      ],
+      "workspaceTemplates": [
+        "ws.work"
+      ],
+      "status": "AVAILABLE",
+      "maturity": "L6"
+    },
+    {
+      "appId": "app.entities",
+      "name": "Entities",
+      "icon": "entity",
+      "description": "Entity360 universal object workspace",
+      "requiredCapabilities": [
+        "control-plane-api"
+      ],
+      "supportedRoles": [
+        "*"
+      ],
+      "routes": [
+        "/entities"
+      ],
+      "commands": [
+        "open.entity",
+        "search"
+      ],
+      "workspaceTemplates": [
+        "ws.entity360"
+      ],
+      "status": "AVAILABLE",
+      "maturity": "L6"
+    },
+    {
+      "appId": "app.analyze",
+      "name": "Analyze",
+      "icon": "analyze",
+      "description": "Market / prediction golden workflow",
+      "requiredCapabilities": [
+        "vertical-slice.foundation"
+      ],
+      "supportedRoles": [
+        "arch.market_analyst",
+        "*"
+      ],
+      "routes": [
+        "/analyze"
+      ],
+      "commands": [
+        "analyze.entity",
+        "run.scenario"
+      ],
+      "workspaceTemplates": [
+        "ws.market_analysis"
+      ],
+      "status": "AVAILABLE",
+      "maturity": "L7"
+    },
+    {
+      "appId": "app.risk",
+      "name": "Risk",
+      "icon": "risk",
+      "description": "Independent risk decisions",
+      "requiredCapabilities": [
+        "vertical-slice.foundation"
+      ],
+      "supportedRoles": [
+        "*"
+      ],
+      "routes": [
+        "/risk"
+      ],
+      "commands": [
+        "open.risk"
+      ],
+      "workspaceTemplates": [
+        "ws.risk"
+      ],
+      "status": "AVAILABLE",
+      "maturity": "L6"
+    },
+    {
+      "appId": "app.simulate",
+      "name": "Simulate",
+      "icon": "sim",
+      "description": "Simulation-only execution outcomes",
+      "requiredCapabilities": [
+        "vertical-slice.foundation"
+      ],
+      "supportedRoles": [
+        "*"
+      ],
+      "routes": [
+        "/simulate"
+      ],
+      "commands": [
+        "run.scenario"
+      ],
+      "workspaceTemplates": [
+        "ws.simulate"
+      ],
+      "status": "AVAILABLE",
+      "maturity": "L6"
+    },
+    {
+      "appId": "app.evidence",
+      "name": "Evidence",
+      "icon": "evidence",
+      "description": "Evidence drawer and lineage",
+      "requiredCapabilities": [
+        "vertical-slice.foundation"
+      ],
+      "supportedRoles": [
+        "*"
+      ],
+      "routes": [
+        "/evidence"
+      ],
+      "commands": [
+        "open.evidence",
+        "open.lineage"
+      ],
+      "workspaceTemplates": [
+        "ws.evidence"
+      ],
+      "status": "AVAILABLE",
+      "maturity": "L6"
+    },
+    {
+      "appId": "app.reports",
+      "name": "Reports",
+      "icon": "report",
+      "description": "Report center (draft/review)",
+      "requiredCapabilities": [],
+      "supportedRoles": [
+        "*"
+      ],
+      "routes": [
+        "/reports"
+      ],
+      "commands": [
+        "create.report"
+      ],
+      "workspaceTemplates": [
+        "ws.reports"
+      ],
+      "status": "DEGRADED",
+      "maturity": "L3",
+      "note": "Shell surface present; deep report builder PARTIAL"
+    },
+    {
+      "appId": "app.cases",
+      "name": "Cases",
+      "icon": "case",
+      "description": "Case workspaces",
+      "requiredCapabilities": [],
+      "supportedRoles": [
+        "*"
+      ],
+      "routes": [
+        "/cases"
+      ],
+      "commands": [
+        "create.case"
+      ],
+      "workspaceTemplates": [
+        "ws.case"
+      ],
+      "status": "DEGRADED",
+      "maturity": "L2",
+      "note": "Navigation present; fraud/cyber golden workflows not L7"
+    },
+    {
+      "appId": "app.system",
+      "name": "System",
+      "icon": "system",
+      "description": "System status and engineering evidence view",
+      "requiredCapabilities": [
+        "control-plane-api"
+      ],
+      "supportedRoles": [
+        "*"
+      ],
+      "routes": [
+        "/system"
+      ],
+      "commands": [
+        "check.health",
+        "toggle.technical"
+      ],
+      "workspaceTemplates": [
+        "ws.system"
+      ],
+      "status": "AVAILABLE",
+      "maturity": "L6"
+    },
+    {
+      "appId": "app.recovery",
+      "name": "Recovery",
+      "icon": "recovery",
+      "description": "Recovery center / safe mode entry",
+      "requiredCapabilities": [
+        "scaffold.workspace"
+      ],
+      "supportedRoles": [
+        "*"
+      ],
+      "routes": [
+        "/recovery"
+      ],
+      "commands": [
+        "open.recovery"
+      ],
+      "workspaceTemplates": [
+        "ws.recovery"
+      ],
+      "status": "AVAILABLE",
+      "maturity": "L5"
+    },
+    {
+      "appId": "app.settings",
+      "name": "Settings",
+      "icon": "settings",
+      "description": "Appearance, workspace, notifications",
+      "requiredCapabilities": [],
+      "supportedRoles": [
+        "*"
+      ],
+      "routes": [
+        "/settings"
+      ],
+      "commands": [
+        "open.settings"
+      ],
+      "workspaceTemplates": [
+        "ws.settings"
+      ],
+      "status": "AVAILABLE",
+      "maturity": "L4"
+    }
+  ]
+}

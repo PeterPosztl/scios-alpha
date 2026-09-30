@@ -1,0 +1,42 @@
+{
+  "schema": "sci-os-cursor-build-log/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T15:12:00.000Z",
+  "identity": "ENTERPRISE_GRADE_ALPHA",
+  "mode": "ENTERPRISE_FINAL_COMPLETION",
+  "ready": false,
+  "holeless": false,
+  "autoTrade": false,
+  "humanUsableAlpha": true,
+  "secondShell": false,
+  "boot": "start-sci-os.cjs",
+  "liveAdapterDefault": "ABSENT",
+  "stopFinalCompletionMode": true,
+  "allBlockingGapsResolved": true,
+  "note": "Command re-issued after stop. Re-scan only. No OIDC/OTLP/ledger/live-feed enablement.",
+  "from": {
+    "home": "Intelligence + Reporting cards only; System Status could print ready=true",
+    "workEmpty": "Analyze-only copy",
+    "systemHealth": "Ready YES looked like enterprise GO"
+  },
+  "to": {
+    "home": "Decisions + Evidence cards; System Status ALPHA_LIVE / DEGRADED / UNREACHABLE + not enterprise READY",
+    "workEmpty": "Analyze or Intelligence",
+    "systemHealth": "Foundation core = CORE_READY (ALPHA — not enterprise GO)"
+  },
+  "appliedThisPass": [
+    "HOME-DECISIONS-EVIDENCE-CARDS",
+    "HOME-SYSTEM-STATUS-NO-FALSE-READY",
+    "WORK-EMPTY-INCLUDES-INTELLIGENCE",
+    "SYSTEM-HEALTH-CORE-READY-NOT-GO",
+    "PDR-ROLE-HINT-ANALYST-LOOP"
+  ],
+  "enterprisePlaceholdersNotEnabled": {
+    "oidc": "ABSENT",
+    "otlp": "ABSENT",
+    "ledger": "in-memory",
+    "liveFeeds": "ABSENT",
+    "liveCalibration": "UNKNOWN"
+  },
+  "honesty": "ALPHA analyst loop now starts on Home. Not READY. No auto-trade. One boot, one Shell."
+}

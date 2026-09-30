@@ -1,0 +1,20 @@
+{
+  "schema": "sci-os-build-provenance/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "status": "IMPLEMENT_NOW_P1",
+  "requiredFields": [
+    "sourceIdentity",
+    "sourceHash",
+    "lockfileHash",
+    "runtimeHash",
+    "toolchainVersions",
+    "buildId",
+    "artifactHashes",
+    "configurationSchema"
+  ],
+  "current": {
+    "startupReport": "PARTIAL correlationId/appRoot/node",
+    "fullProvenanceManifest": "ABSENT"
+  },
+  "ifIgnoredLaterCost": ["deployment migration", "unable to audit installed bits"]
+}

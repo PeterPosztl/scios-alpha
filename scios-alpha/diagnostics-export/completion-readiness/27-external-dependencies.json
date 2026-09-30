@@ -1,0 +1,20 @@
+{
+  "schema": "sci-os-completion-audit/external-deps/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "requiredForBeta": [
+    { "dep": "PostgreSQL", "status": "OPTIONAL_PROVIDER_UNAVAILABLE", "note": "Needed for persistent data; in-memory fallback works for alpha" },
+    { "dep": "Redis", "status": "OPTIONAL_PROVIDER_UNAVAILABLE", "note": "Needed for job queues, caching" }
+  ],
+  "requiredForProduction": [
+    { "dep": "OIDC Provider", "status": "ABSENT", "note": "Auth0/Keycloak/Azure AD for production auth" },
+    { "dep": "TLS Certificates", "status": "ABSENT" },
+    { "dep": "Monitoring Stack", "status": "ABSENT", "note": "OpenTelemetry/Prometheus/Grafana" },
+    { "dep": "Market Data Providers", "status": "ABSENT" },
+    { "dep": "Sanctions/PEP Data Sources", "status": "ABSENT" }
+  ],
+  "requiredForFounderVision": [
+    { "dep": "Neo4j/Graph DB", "status": "ABSENT" },
+    { "dep": "AI/LLM Provider", "status": "ABSENT" },
+    { "dep": "WebGL/WASM Runtime", "status": "ABSENT" }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "at": "2026-08-12T19:30:44.477Z",
+  "bootId": "8e3af5b1-882b-4fdf-ac2a-a299c28d83cf",
+  "packaged": {
+    "schema": "sci-os-packaged-config/v1",
+    "profile": "PACKAGED",
+    "env": {
+      "SCIOS_RUNTIME_MODE": "PACKAGED",
+      "SCI_RUNTIME_PROFILE": "packaged",
+      "SCIOS_API_PORT": "3000",
+      "SCIOS_COCKPIT_PORT": "4000",
+      "PORT": "3000",
+      "EXECUTION_MODE": "SIMULATION_ONLY",
+      "AUTH_MODE": "local-packaged",
+      "TELEMETRY_MODE": "local",
+      "GOVERNANCE_MODE": "embedded-foundation"
+    },
+    "userDataHint": "%LOCALAPPDATA%\\SCI OS X10\\data",
+    "note": "No developer .env loaded in PACKAGED mode"
+  },
+  "note": "Redacted — no secrets in packaged.json ALPHA profile"
+}

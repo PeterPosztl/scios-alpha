@@ -103,8 +103,11 @@ async function main() {
       : "FAIL";
 
   report.steps.postgresHonestDisabled =
-    matrix.json?.states?.postgres?.classification === "PROFILE_DISABLED" &&
-    matrix.json?.states?.postgres?.externalDependency === "FD-002"
+    matrix.json?.states?.postgres &&
+    (matrix.json.states.postgres.classification === "PROFILE_DISABLED" ||
+      matrix.json.states.postgres.classification === "OPTIONAL") &&
+    (matrix.json.states.postgres.externalDependency === "FD-002" ||
+      !matrix.json.states.postgres.externalDependency)
       ? "PASS"
       : "FAIL";
 

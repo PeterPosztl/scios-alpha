@@ -1,0 +1,43 @@
+{
+  "schema": "sci-os-deep-closure-v4",
+  "at": "2026-08-13T17:54:00.000Z",
+  "label": "ALPHA_NON_PRODUCTION",
+  "phase": "PHASE_1",
+  "sourceDistParity": "PASS",
+  "packaging": "PASS",
+  "runtime": "PASS",
+  "bootTruth": "PASS",
+  "processOwnership": "PARTIAL",
+  "recovery": "PARTIAL",
+  "controlPlane": "PASS",
+  "productKernel": "UNKNOWN",
+  "domainRegistry": "UNKNOWN",
+  "experienceCompiler": "UNKNOWN",
+  "experienceRenderer": "UNKNOWN",
+  "designSystem": "UNKNOWN",
+  "windowsInstaller": "UNKNOWN",
+  "gw1": "UNKNOWN",
+  "evidenceIntegrity": "UNKNOWN",
+  "scientificValidation": "ALPHA",
+  "p0Remaining": [],
+  "p1Remaining": [
+    "Failed-boot cleanup E2E not yet automated in this phase",
+    "Launcher SHA256 validation still existence-oriented (H04 deferred to Phase 4)",
+    "Cockpit still copy-staged not esbuild-bundled (G04 deferred)"
+  ],
+  "p2Remaining": [
+    "Product Kernel / Experience Compiler (Phase 2+)",
+    "Windows atomic installer / Start Menu EXE (Phase 4)",
+    "Full founder vision engines (Phase 6)"
+  ],
+  "fullVisionStatus": "ALPHA",
+  "homeProven": {
+    "bundledNode": "v20.18.1",
+    "healthz3000": 200,
+    "homeApi": 200,
+    "productReadiness": 200,
+    "healthz4000": 200,
+    "homeHtml": 200,
+    "startupVerdict": "DEGRADED"
+  }
+}

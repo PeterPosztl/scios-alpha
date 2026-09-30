@@ -1,0 +1,19 @@
+{
+  "at": "2026-08-12T19:49:42.813Z",
+  "bootId": "uu_msqi6dlm_ac8b47",
+  "postgres": {
+    "requiredForCoreBoot": false,
+    "status": "OPTIONAL_DEGRADED_OK",
+    "select1": "SKIPPED_OPTIONAL"
+  },
+  "redis": {
+    "requiredForCoreBoot": false,
+    "status": "OPTIONAL_DEGRADED_OK",
+    "ping": "SKIPPED_OPTIONAL"
+  },
+  "docker": {
+    "available": false,
+    "names": []
+  },
+  "note": "Core READY must not require PG/Redis; DEGRADED is valid with evidence."
+}

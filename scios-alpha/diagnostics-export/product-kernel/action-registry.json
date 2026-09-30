@@ -1,0 +1,63 @@
+{
+  "schema": "sci-os-action-registry/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "actions": [
+    {
+      "actionId": "analyze",
+      "handler": "product-kernel.action.analyze",
+      "requires": [
+        "vertical-slice.foundation"
+      ],
+      "maturity": "L6",
+      "runtimePath": "POST /api/vertical-slice/run"
+    },
+    {
+      "actionId": "openLineage",
+      "handler": "product-kernel.action.openLineage",
+      "requires": [
+        "vertical-slice.foundation"
+      ],
+      "maturity": "L6",
+      "runtimePath": "GET /v1/lineage/:runId"
+    },
+    {
+      "actionId": "toggleTechnicalView",
+      "handler": "product-kernel.action.toggleTechnicalView",
+      "requires": [
+        "cockpit.professional-view"
+      ],
+      "maturity": "L5",
+      "runtimePath": "cockpit-ui mode toggle"
+    },
+    {
+      "actionId": "search",
+      "handler": "product-kernel.action.search",
+      "requires": [
+        "control-plane-api"
+      ],
+      "maturity": "L4",
+      "runtimePath": "GET /v1/search"
+    },
+    {
+      "actionId": "openEntity",
+      "handler": "product-kernel.action.openEntity",
+      "requires": [
+        "control-plane-api"
+      ],
+      "maturity": "L4",
+      "runtimePath": "GET /v1/entities/:id"
+    },
+    {
+      "actionId": "explain",
+      "handler": "product-kernel.action.explain",
+      "maturity": "L3",
+      "note": "Uses governance/risk explanation fields from slice"
+    },
+    {
+      "actionId": "runScenario",
+      "handler": "product-kernel.action.runScenario",
+      "maturity": "L3",
+      "note": "Maps to simulation-only vertical slice re-run"
+    }
+  ]
+}

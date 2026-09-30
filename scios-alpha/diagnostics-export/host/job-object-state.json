@@ -1,0 +1,65 @@
+{
+  "schema": "sci-os-host-job-object-state/v1",
+  "at": "2026-09-30T09:59:27.288Z",
+  "runContext": {
+    "bootId": "owner-loss-20660",
+    "runId": "owner-loss-20660",
+    "buildId": "fixture",
+    "orchestratorPid": 20660,
+    "appRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+    "startedAt": "2026-09-30T09:59:26.570Z",
+    "ports": {}
+  },
+  "job": {
+    "status": "JOB_OBJECT_ACTIVE",
+    "capability": "job-object",
+    "jobName": "SCI-OS-owner-loss-20660-20660",
+    "keeperPid": 12484,
+    "assignedPids": [
+      8036
+    ],
+    "assignLog": [
+      {
+        "at": "2026-09-30T09:59:27.277Z",
+        "pid": 8036,
+        "ok": true
+      }
+    ],
+    "initError": null,
+    "providerMode": "live"
+  },
+  "children": {
+    "long-child": {
+      "pid": 8036,
+      "startedAt": "2026-09-30T09:59:27.240Z",
+      "exitCode": null,
+      "logFile": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\proc-logs\\long-child.log",
+      "restarts": 0,
+      "jobAttached": true,
+      "expectedPort": null,
+      "ownership": {
+        "schema": "sci-os-process-ownership/v1",
+        "label": "ALPHA_NON_PRODUCTION",
+        "bootId": "owner-loss-20660",
+        "runId": "owner-loss-20660",
+        "buildId": "fixture",
+        "role": "long-child",
+        "component": "long-child",
+        "pid": 8036,
+        "parentPid": 20660,
+        "startedAt": "2026-09-30T09:59:27.240Z",
+        "executable": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\cache\\node-v20.18.1-win-x64\\node.exe",
+        "args": [
+          "-e",
+          "setInterval(()=>{}, 120000)"
+        ],
+        "appRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+        "expectedPort": null,
+        "detached": false
+      }
+    }
+  },
+  "phase": "start",
+  "service": "long-child",
+  "pid": 8036
+}

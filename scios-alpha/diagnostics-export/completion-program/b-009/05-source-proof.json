@@ -1,0 +1,13 @@
+{
+  "at": "2026-08-29T20:29:37.679Z",
+  "steps": {
+    "cockpit-generated-script.cjs": "PASS",
+    "b009-background-system-hard-gate.cjs": "PASS",
+    "job-engine-b005-hard-gate.cjs": "PASS",
+    "b008-experience-compiler-hard-gate.cjs": "PASS",
+    "b006-cockpit-ui-hard-gate.cjs": "PASS",
+    "b007-p1-root-closure.cjs": "PASS",
+    "cf28-b005-hard-gate.cjs": "PASS"
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,11 @@
+{
+  "at": "2026-08-29T21:54:28.374Z",
+  "persistenceHealth": {
+    "status": 200,
+    "ok": true
+  },
+  "persistenceMatrix": {
+    "status": 200,
+    "ok": true
+  }
+}

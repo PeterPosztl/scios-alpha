@@ -1,0 +1,40 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "healthz": 200,
+  "readyz": 200,
+  "ready": true,
+  "cockpit": 200,
+  "ux": "3.0-home",
+  "home": 200,
+  "search": 200,
+  "entity": 200,
+  "gw1Ok": true,
+  "gw1Status": "APPROVE",
+  "riskReject": true,
+  "multiPass": true,
+  "multi": [
+    {
+      "i": 0,
+      "status": 200,
+      "runId": "run_ebb436a8-6afb-4e2a-922b-21f09597cb6c",
+      "ok": true
+    },
+    {
+      "i": 1,
+      "status": 200,
+      "runId": "run_ade86f48-964d-417e-8d26-66c22cb062ba",
+      "ok": true
+    },
+    {
+      "i": 2,
+      "status": 200,
+      "runId": "run_43d9d7a3-bc8f-4d7f-a42b-53f8969665c4",
+      "ok": true
+    }
+  ],
+  "simulatedUi": true,
+  "startupVerdict": "DEGRADED",
+  "exe": true,
+  "setupExe": false,
+  "dockerNote": "Docker: ENGINE_STOPPED; Redis configured but unreachable — queues disabled; No pg client bundled in ALPHA startup — cannot fake SELECT 1"
+}

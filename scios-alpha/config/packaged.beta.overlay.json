@@ -1,0 +1,36 @@
+{
+  "schema": "sci-os-packaged-beta-overlay/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "axis": "B_FULL_VISION",
+  "note": "DO NOT merge into A2-clean packaged.json silently. Load into gate/process env or copy to packaged.beta.json after B1 Docker READY. Rollback A = unset DATABASE_URL/REDIS_URL.",
+  "prerequisite": "B1 Docker engine READY (docker info succeeds)",
+  "compose": "infra/docker/docker-compose.infra.beta.yml",
+  "composeProject": "scios-alpha-beta",
+  "portNote": "5432/6379 are held by the out-of-tree GalaxusMetaOS compose project (restart: unless-stopped); B-axis uses 5462/6399.",
+  "env": {
+    "DATABASE_URL": "postgresql://scios:scios_local@127.0.0.1:5462/scios",
+    "REDIS_URL": "redis://127.0.0.1:6399",
+    "TLS_ENABLED": "1",
+    "SCIOS_TLS": "1",
+    "SCI_TLS": "1",
+    "SCI_TLS_CERT_PATH": "${LOCALAPPDATA}/SCI OS X10/dev-tls/dev-cert.pfx",
+    "SCIOS_TLS_CERT_PATH": "${LOCALAPPDATA}/SCI OS X10/dev-tls/dev-cert.pfx",
+    "SCI_TLS_CERT_PASSWORD": "1234",
+    "SCIOS_TLS_CERT_PASSWORD": "1234",
+    "TLS_CERT_PATH": "${LOCALAPPDATA}/SCI OS X10/dev-tls/dev-cert.pem",
+    "TLS_KEY_PATH": "${LOCALAPPDATA}/SCI OS X10/dev-tls/dev-key.pem",
+    "OTEL_ENABLED": "true",
+    "OTEL_EXPORTER_OTLP_ENDPOINT": "http://127.0.0.1:4317",
+    "OTEL_ENDPOINT": "http://127.0.0.1:4317",
+    "OTEL_SERVICE_NAME": "scios-beta",
+    "OIDC_ISSUER": "REPLACE_WITH_REAL_ISSUER",
+    "OIDC_CLIENT_ID": "REPLACE_WITH_REAL_CLIENT_ID",
+    "OIDC_CLIENT_SECRET": "REPLACE_WITH_REAL_CLIENT_SECRET",
+    "AUTH_MODE": "REPLACE_WITH_oidc_OR_packaged-oidc"
+  },
+  "humanRequired": [
+    "B1 Docker Desktop + WSL2",
+    "B3 real OIDC secrets (never commit)",
+    "PRODUCTION_GATE_READY declaration"
+  ]
+}

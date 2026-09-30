@@ -1,0 +1,61 @@
+{
+  "at": "2026-08-19T22:42:28.452Z",
+  "maturity": {
+    "scaffold.workspace": {
+      "level": 3,
+      "label": "L3_CONNECTED_OR_ALPHA"
+    },
+    "data-fabric.domain": {
+      "level": 3,
+      "label": "L3_CONNECTED_OR_ALPHA"
+    },
+    "alpha-loop.baseline": {
+      "level": 3,
+      "label": "L3_CONNECTED_OR_ALPHA"
+    },
+    "prediction-engine.fastapi": {
+      "level": 2,
+      "label": "L2_CODE_EXISTS_STUB"
+    },
+    "risk-engine.fastapi": {
+      "level": 2,
+      "label": "L2_CODE_EXISTS_STUB"
+    },
+    "execution-simulator": {
+      "level": 2,
+      "label": "L2_CODE_EXISTS_STUB"
+    },
+    "control-plane-api": {
+      "level": 5,
+      "label": "L5_RUNTIME_PROVEN"
+    },
+    "meta.capability-registry": {
+      "level": 3,
+      "label": "L3_CONNECTED_OR_ALPHA"
+    },
+    "ontology.wave1": {
+      "level": 3,
+      "label": "L3_CONNECTED_OR_ALPHA"
+    },
+    "ledger.wave1": {
+      "level": 3,
+      "label": "L3_CONNECTED_OR_ALPHA"
+    },
+    "master-contract.doc": {
+      "level": 3,
+      "label": "L3_CONNECTED_OR_ALPHA"
+    },
+    "enterprise.modules.sections-49-83": {
+      "level": 0,
+      "label": "L0_ABSENT"
+    },
+    "vertical-slice.foundation": {
+      "level": 6,
+      "label": "L6_END_TO_END_RUNTIME_PROVEN"
+    }
+  },
+  "objective": {
+    "coreFoundationMin": "L6",
+    "goldenWorkflowMin": "L7"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "sci-os-product-completion-graph/v1",
+  "edges": [
+    "ROLE→JOB→OBJECT→WORKFLOW→ACTION→CAPABILITY→SERVICE→DATA→RISK→POLICY→EVIDENCE→VIEW"
+  ],
+  "gw1Path": [
+    "Home",
+    "Search:AAPL",
+    "Entity360",
+    "Analyze",
+    "PIT",
+    "Prediction",
+    "Risk",
+    "Governance",
+    "Simulation",
+    "Outcome",
+    "Lineage",
+    "ProfessionalResult"
+  ]
+}

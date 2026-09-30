@@ -1,0 +1,15 @@
+{
+  "schema": "sci-os-completion-audit/governance/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "overallMaturity": "SOURCE_EXISTS",
+  "packages/governance-engine": {
+    "srcFiles": 2,
+    "indexSize": 1596,
+    "status": "SOURCE_EXISTS",
+    "note": "Governance engine exists with index.ts but no runtime PDP/PEP. 14 P1 root causes in policy decision/enforcement."
+  },
+  "policyDecisionPoint": "ABSENT",
+  "policyEnforcementPoint": "ABSENT",
+  "auditTrail": "PARTIAL",
+  "complianceFramework": "ARCHITECTURE_DEFINED"
+}

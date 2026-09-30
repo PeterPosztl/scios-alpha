@@ -1,0 +1,19 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "openConflicts": [],
+  "resolvedPrior": [
+    "ports 3000/4000 vs 5200/5230 docs",
+    "nvmrc 20.18.1",
+    "engine-strict true",
+    "manifest UX surfaces",
+    "HTTP authority: product routes sole surface; Product Kernel is capability identity library (not competing boot/HTTP)"
+  ],
+  "residual": [],
+  "conflictingAuthoritiesCount": 0,
+  "model": {
+    "boot": "bootstrap-capsule → start-sci-os.cjs",
+    "httpProductSurface": "control-plane product + vertical-slice routes",
+    "capabilityIdentity": "@scios/product-kernel"
+  }
+}

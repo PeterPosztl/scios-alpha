@@ -1,0 +1,12 @@
+{
+  "schema": "sci-os-whi-001-duplicate-start/v1",
+  "at": "2026-09-30T09:59:40.671Z",
+  "mechanism": "process-lock.cjs single instance per appRoot",
+  "jobIsolation": "Each orchestrator run creates its own JobObjectProvider + keeper",
+  "mustNot": [
+    "steal existing job",
+    "attach unrelated processes"
+  ],
+  "status": "PASS",
+  "note": "Lock prevents duplicate CP/Cockpit; job keeper is per-run"
+}

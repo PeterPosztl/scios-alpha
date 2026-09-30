@@ -15,7 +15,7 @@
     "components": {
       "riskControl": true,
       "foundationWorker": true,
-      "database": "optional_absent",
+      "database": "configured",
       "redis": "configured",
       "oidc": "disabled_local_development",
       "otel": "local",
@@ -24,11 +24,11 @@
     "foundationWorkerDetail": {
       "name": "foundation-smoke-worker",
       "online": true,
-      "lastHeartbeatAt": "2026-07-17T00:21:39.501Z",
-      "lastJobId": "smoke_1784247699501",
+      "lastHeartbeatAt": "2026-08-12T15:37:14.546Z",
+      "lastJobId": "smoke_1786549034546",
       "lastJobStatus": "completed",
       "jobsCompleted": 1,
-      "heartbeatAgeMs": 7
+      "heartbeatAgeMs": 6
     },
     "labels": {
       "productionClaims": false,

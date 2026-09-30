@@ -1,0 +1,18 @@
+{
+  "schema": "sci-os-final-completion/12-install-update-diagnostic/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T10:13:14.945Z",
+  "title": "Install / update / rollback",
+  "sources": [
+    "final-completion/_raw-install.log",
+    "final-completion/_raw-package.log",
+    "completion-program/production-gate/11-final-gate.json"
+  ],
+  "atomicInstall": "OBSERVED",
+  "installedBuildId": "pkg_1790762466624",
+  "bundledNodeOnly": "UNKNOWN",
+  "rollback": "UNKNOWN",
+  "update": "UNKNOWN",
+  "restartProof": "INSTALLED_RESTART_RELIABILITY_PASS",
+  "safetyRule": "Backups are never deleted to make an install succeed; destructive cleanup is not used as a shortcut."
+}

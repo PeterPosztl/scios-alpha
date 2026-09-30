@@ -1,0 +1,32 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "productKernel": {
+    "source": "packages/product-kernel",
+    "workspace": true,
+    "lockImporter": true,
+    "buildable": true,
+    "importedByControlPlane": true,
+    "runtimeReachable": false,
+    "usedByGw1": false,
+    "class": "DISCONNECTED",
+    "evidenceDrift": true
+  },
+  "experienceCompiler": {
+    "source": "packages/professional-domain-registry/src/experience-compiler.js",
+    "lockImporter": true,
+    "controlPlaneInline": true,
+    "class": "PARTIAL_DUPLICATE"
+  },
+  "systemClosure": {
+    "source": "packages/system-closure",
+    "lockImporter": true,
+    "scripts": [
+      "closure:scan",
+      "closure:p0",
+      "closure:final"
+    ],
+    "class": "TOOLING"
+  },
+  "verdict": "EVIDENCE_DRIFT"
+}

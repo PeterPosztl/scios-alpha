@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://scios.local/schemas/sci-os-experience-spec/v1",
+  "title": "SCI OS Experience Specification",
+  "type": "object",
+  "required": [
+    "schema",
+    "intent",
+    "context",
+    "domain",
+    "evidence",
+    "analysis",
+    "risk",
+    "decision",
+    "lineage",
+    "degraded",
+    "roleHints",
+    "timestamps",
+    "compilerVersion"
+  ],
+  "properties": {
+    "schema": { "const": "sci-os-experience-spec/v1" },
+    "label": { "const": "ALPHA_NON_PRODUCTION" },
+    "intent": {
+      "type": "object",
+      "properties": {
+        "roleId": { "type": ["string", "null"] },
+        "objectId": { "type": ["string", "null"] },
+        "workflowState": { "type": ["string", "null"] },
+        "mission": { "type": ["string", "null"] }
+      }
+    },
+    "context": { "type": "object" },
+    "domain": { "type": "object" },
+    "evidence": { "type": "object" },
+    "analysis": { "type": "object" },
+    "risk": { "type": "object" },
+    "decision": { "type": "object" },
+    "lineage": { "type": "object" },
+    "degraded": { "type": "boolean" },
+    "degradedReasons": { "type": "array", "items": { "type": "string" } },
+    "roleHints": { "type": "object" },
+    "timestamps": {
+      "type": "object",
+      "properties": {
+        "compiledAt": { "type": "string" },
+        "hydrationAt": { "type": "string" }
+      }
+    },
+    "compilerVersion": { "type": "string" },
+    "workspaceSpec": { "type": "object" }
+  }
+}

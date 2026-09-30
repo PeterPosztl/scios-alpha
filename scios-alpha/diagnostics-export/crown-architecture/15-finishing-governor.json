@@ -1,0 +1,21 @@
+{
+  "at": "2026-08-13T12:52:42.652Z",
+  "buildId": "crown-architecture-2026-08-13",
+  "schema": "sci-os-finishing-governor/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "inputs": {
+    "internalP0": 0,
+    "internalP1": 0,
+    "bootReliability": "PARTIAL_TRANSACTIONAL_WIRED",
+    "primaryUxDeadEnds": 0,
+    "mandatoryDisconnected": 0,
+    "professionalEvalRegressions": 0,
+    "evidenceFresh": true,
+    "errorBudgetsExhausted": false,
+    "externalValidationOpen": 1
+  },
+  "policy": "If mandatory closure debt exists: FIX BEFORE EXPAND",
+  "verdict": "FIX_BEFORE_EXPAND",
+  "blockP2P3Expansion": true,
+  "note": "Structural P0/P1 closed but packaged GW1 external validation remains — freeze vanity P2/P3"
+}

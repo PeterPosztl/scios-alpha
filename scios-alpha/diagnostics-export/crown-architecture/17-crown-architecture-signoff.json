@@ -1,0 +1,71 @@
+{
+  "at": "2026-08-13T12:52:42.652Z",
+  "buildId": "crown-architecture-2026-08-13",
+  "extendsNorthStar": true,
+  "noParallelArchitecture": true,
+  "answers": {
+    "transactionalBoot": "WIRED",
+    "invariantMesh": "PASS_STATIC",
+    "semanticControlPlane": "PARTIAL",
+    "intentToOutcome": "WIRED",
+    "uxKernel": "PARTIAL",
+    "goldenUxFlowStructural": "PASS_STRUCTURAL",
+    "trustFabric": "PARTIAL",
+    "trustCapsuleUx": "WIRED",
+    "idempotency": "PARTIAL_PASS",
+    "changeImpact": "WIRED",
+    "evaluationLab": "BASELINE_SET",
+    "reliabilityGovernor": "PARTIAL_UNMEASURED",
+    "dualTwin": "PARTIAL",
+    "autonomicLoop": "DEFINED_PROPOSE_ONLY",
+    "finishingGovernor": "FIX_BEFORE_EXPAND"
+  },
+  "finishing": {
+    "schema": "sci-os-finishing-governor/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "inputs": {
+      "internalP0": 0,
+      "internalP1": 0,
+      "bootReliability": "PARTIAL_TRANSACTIONAL_WIRED",
+      "primaryUxDeadEnds": 0,
+      "mandatoryDisconnected": 0,
+      "professionalEvalRegressions": 0,
+      "evidenceFresh": true,
+      "errorBudgetsExhausted": false,
+      "externalValidationOpen": 1
+    },
+    "policy": "If mandatory closure debt exists: FIX BEFORE EXPAND",
+    "verdict": "FIX_BEFORE_EXPAND",
+    "blockP2P3Expansion": true,
+    "note": "Structural P0/P1 closed but packaged GW1 external validation remains — freeze vanity P2/P3"
+  },
+  "gapSignoff": {
+    "TECHNICAL_GAP": "ZERO_P0_P1",
+    "PRODUCT_COHERENCE": "DEGRADED",
+    "UX_2026_PARITY": "PARTIAL",
+    "ROLE_200_ARCHITECTURE": "PARTIAL",
+    "FIRST_RELEASE": "EXTERNAL_VALIDATION_ONLY",
+    "FULL_PRODUCT_VISION": "ALPHA"
+  },
+  "disciplineSignoff": {
+    "DISCIPLINE_LAYER": "PARTIAL_WIRED",
+    "IDEMPOTENCY": "PARTIAL_PASS",
+    "RELIABILITY_MEASUREMENT": "PARTIAL",
+    "TRUST_MATURITY": "PARTIAL",
+    "CHANGE_IMPACT": "WIRED",
+    "EVALUATION": "BASELINE_SET",
+    "EXECUTION_TRACE": "PARTIAL",
+    "UX_DISCLOSURE": "PARTIAL",
+    "OUTCOMES": "DEFINED_UNMEASURED",
+    "READY": false
+  },
+  "verdicts": {
+    "CROWN_ARCHITECTURE": "PARTIAL_WIRED",
+    "STRUCTURAL_GAP_SOURCE_TO_EVIDENCE": "NARROWED_NOT_CLOSED",
+    "TRANSACTIONAL_BOOT": "WIRED",
+    "INVARIANT_MESH": "PASS_STATIC",
+    "FIRST_RELEASE": "EXTERNAL_VALIDATION_ONLY",
+    "READY": false
+  },
+  "note": "Crown disciplines wired into canonical boot/kernel/shell. READY remains false until cold packaged prove + measured SLOs."
+}

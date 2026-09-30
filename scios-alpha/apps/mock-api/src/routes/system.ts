@@ -21,7 +21,7 @@ function resolveAppRoot(): string {
       try {
         const name = (JSON.parse(readFileSync(pkg, "utf8")) as { name?: string })
           .name;
-        if (name === "scios-alpha") return dir;
+        if (name === "sci-os-x10" || name === "scios-alpha") return dir;
       } catch {
         /* walk */
       }

@@ -1,0 +1,69 @@
+{
+  "schema": "sci-os-full-system-build-log/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T18:02:00.000Z",
+  "ready": false,
+  "autoTrade": false,
+  "steps": [
+    {
+      "id": "scan",
+      "result": "PASS",
+      "detail": "Existing Control Plane :3000, Shell :4000, BLUEPRINT_HOOKS, feed-registry, cockpit views already composed. No second OS found."
+    },
+    {
+      "id": "deploy-os",
+      "result": "COMPOSED_WITH_GAPS",
+      "detail": "ControlPlane+Shell live. OSModule/WorkflowEngine/EventBus mapped to GW1+CF11+InMemoryEventBus (PARTIAL). ConsensusEngine ABSENT (governance analog, not Raft)."
+    },
+    {
+      "id": "deploy-cockpit",
+      "result": "COMPOSED",
+      "detail": "Intelligence, Decisions, Evidence, Reporting, RiskGov, SystemHealth, TechnicalCockpit remain views in apps/cockpit-ui."
+    },
+    {
+      "id": "activate-blueprints",
+      "result": "INSPECTION_ONLY",
+      "detail": "inspectionUnlocked=true enabled=false autoApply=false. Agent/KG/Workflow/Distributed studios paint honesty + OSModule analogs. LDA auto-patch refused."
+    },
+    {
+      "id": "integrate-feeds",
+      "result": "REGISTRY_MOUNTED",
+      "detail": "12 feed types. simulated_alpha default. liveCertified=0. SCI_DIL_FEED not enabled."
+    },
+    {
+      "id": "inventory-contract",
+      "result": "PASS",
+      "detail": "Added buildDeploymentInventory + GET /v1/ecl/deployment. 21 modules. persisted=false."
+    },
+    {
+      "id": "restart-one-pair",
+      "result": "PASS",
+      "detail": "Replaced the stale CP+Shell pair with one Control Plane (tsx src/server.ts :3000) and one Shell (cockpit-ui :4000). No second listen()."
+    },
+    {
+      "id": "tests",
+      "result": "PASS",
+      "detail": "ecl-dil 13/13, cockpit-ui 11/11, smoke:ecl-dil ok fails=[] autoTrade=false"
+    },
+    {
+      "id": "browser",
+      "result": "PASS",
+      "detail": "System health shows 12-type feed registry liveCertified=0. Architecture shows 21-module deployment. Intelligence banner simulated_alpha. Workflow Studio enabled=false."
+    }
+  ],
+  "files": [
+    "packages/ecl-dil/src/deployment-inventory.ts",
+    "packages/ecl-dil/src/deployment-inventory.test.ts",
+    "packages/ecl-dil/src/feed-registry.ts",
+    "packages/ecl-dil/src/index.ts",
+    "apps/control-plane-api/src/routes/eclDil.ts",
+    "apps/control-plane-api/src/eclDil.smoke.ts",
+    "apps/cockpit-ui/src/ecl-dil-console.js",
+    "apps/cockpit-ui/src/blueprint-studio.js",
+    "apps/cockpit-ui/src/professional-ux.js",
+    "apps/cockpit-ui/src/index.js",
+    "docs/enterprise/ecl-dil-api.md",
+    "diagnostics-export/full-system-deployment.json",
+    "diagnostics-export/full-system-build-log.json"
+  ]
+}

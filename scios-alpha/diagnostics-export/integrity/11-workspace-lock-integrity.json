@@ -1,0 +1,24 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "diskPackagesWithPackageJson": [
+    "alpha-loop",
+    "data-fabric",
+    "experiment-tracker",
+    "feature-store",
+    "governance-engine",
+    "meta-intelligence",
+    "meta-recovery",
+    "model-registry",
+    "observability",
+    "os-environment",
+    "product-kernel",
+    "professional-domain-registry",
+    "system-closure",
+    "vertical-slice",
+    "workspace-composer"
+  ],
+  "missingLockImporters": [],
+  "controlPlaneDependsKernel": true,
+  "verdict": "PASS"
+}

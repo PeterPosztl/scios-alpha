@@ -1,0 +1,160 @@
+{
+  "schema": "sci-os-host-abstraction-architecture/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-18T18:20:00.000Z",
+  "baselineBuildId": "pkg_1787074480539",
+  "status": "PARTIAL_CODE_FRAGMENTS_NO_UNIFIED_CONTRACT",
+  "definition": {
+    "hostAbstraction": "Stable boundary between Windows OS capabilities and SCI product runtime — resolves roots, runtime mode, node, ports, layout, and lifecycle without hardcoded drives or repo coupling.",
+    "notHostAbstraction": [
+      "HTTP AppHost (cockpit-ui) — product surface, ADR-SHELL-001",
+      "Experience Compiler — product composition",
+      "Meta-recovery capability graph — product inventory"
+    ]
+  },
+  "currentLayers": {
+    "L0_windowsEntry": {
+      "modules": [
+        "SCI-OS-X10.exe (thin wrapper)",
+        "SCI-OS-X10.cmd",
+        "scripts/package/write-thin-exe-launcher.cjs",
+        "scripts/package/atomic-install.cjs"
+      ],
+      "responsibilities": ["User click → working directory → delegate to bundled node"],
+      "contractStatus": "IMPLICIT"
+    },
+    "L1_appRootResolution": {
+      "modules": ["installer/scripts/startup/resolve-app-root.cjs"],
+      "responsibilities": [
+        "Resolve SCIOS_APP_ROOT / cwd / marker walk",
+        "Detect layout: repo | installed | packaged-desktop | container"
+      ],
+      "contractStatus": "PARTIAL",
+      "envVars": ["SCIOS_APP_ROOT", "SCIOS_LAYOUT"]
+    },
+    "L2_runtimeMode": {
+      "modules": ["installer/scripts/startup/packaged-mode.cjs"],
+      "responsibilities": [
+        "Detect packaged layout via marker files",
+        "Map packaged entries (backend, cockpit, recovery, node, manifest)"
+      ],
+      "contractStatus": "PARTIAL",
+      "envVars": ["SCIOS_RUNTIME_MODE", "SCIOS_PACKAGED"]
+    },
+    "L3_nodeRuntime": {
+      "modules": ["installer/scripts/startup/resolve-node-runtime.cjs"],
+      "responsibilities": [
+        "Bundled node.exe only in packaged mode",
+        "Version contract 20.18.x from config/packaged.json",
+        "Reject system Node in packaged profile"
+      ],
+      "contractStatus": "PROVEN",
+      "evidence": "startup-report node.contractStatus=PACKAGED_BUNDLED_OK"
+    },
+    "L4_serviceRegistry": {
+      "modules": ["installer/scripts/startup/runtime-services.cjs"],
+      "responsibilities": [
+        "Canonical ports/URLs from sci-os.manifest.json",
+        "controlPlaneUrl / shellEntryUrl / recoveryUrl helpers"
+      ],
+      "contractStatus": "PROVEN_FOR_HTTP_PORTS",
+      "note": "Named runtime-services but maps HTTP endpoints — not Windows Services"
+    },
+    "L5_processSupervision": {
+      "modules": [
+        "installer/scripts/startup/process-supervisor.cjs",
+        "installer/scripts/startup/process-lock.cjs",
+        "installer/scripts/startup/transactional-boot.cjs",
+        "installer/scripts/startup/health-gate.cjs"
+      ],
+      "responsibilities": [
+        "Spawn/stop CP + Shell",
+        "Single instance lock",
+        "Transactional boot stages + startup-report"
+      ],
+      "contractStatus": "PROVEN"
+    },
+    "L6_convergence": {
+      "modules": [
+        "installer/scripts/convergence/stop.cjs",
+        "installer/scripts/convergence/status.cjs",
+        "installer/scripts/convergence/startup-proof.cjs"
+      ],
+      "responsibilities": ["Graceful shutdown", "Port identity before kill", "Evidence export"],
+      "contractStatus": "PROVEN_WITH_GAPS"
+    },
+    "L7_packagingIdentity": {
+      "modules": [
+        "scripts/package/build-distribution.cjs",
+        "manifests/build-identity.json",
+        "manifests/golden-boot.packaged.json",
+        "config/packaged.json"
+      ],
+      "responsibilities": ["buildId, gitSha, treeHash, node bundle, install parity"],
+      "contractStatus": "PROVEN",
+      "buildId": "pkg_1787074480539"
+    }
+  },
+  "proposedHostAbstractionContract": {
+    "phase": "BLUEPRINT_SPEC",
+    "schema": "sci-os-host-abstraction/v1 (proposed — not yet in product-memory/contracts/)",
+    "surface": {
+      "resolveHostContext()": {
+        "returns": [
+          "appRoot",
+          "layout",
+          "runtimeMode",
+          "nodeRuntime",
+          "dataDir",
+          "stateDir",
+          "buildIdentity",
+          "serviceRegistry"
+        ],
+        "mustNot": ["hardcode C:\\Users\\...", "require repo markers at runtime in packaged mode"]
+      },
+      "launchProduct()": {
+        "delegatesTo": "start-sci-os.cjs only",
+        "mustNot": ["fork parallel orchestrator"]
+      },
+      "shutdownProduct()": {
+        "delegatesTo": "convergence/stop.cjs",
+        "mustNot": ["kill ports without healthz identity proof"]
+      },
+      "proveHostCapability(capId)": {
+        "returns": "PASS | FAIL | UNKNOWN | EXTERNAL_BLOCKER",
+        "evidenceDir": "diagnostics-export/windows-host-blueprint/proofs/"
+      }
+    },
+    "protectedFiles": [
+      "installer/scripts/start-sci-os.cjs",
+      "installer/scripts/startup/transactional-boot.cjs",
+      "product-memory/protected-product-contracts.json"
+    ],
+    "migrationPath": [
+      "Document L0–L7 as formal contract in product-memory/contracts/host-abstraction.json",
+      "Add host-capability prove script separate from product meta-recovery scan",
+      "Do NOT extract to new package until reboot + isolation gates pass",
+      "Optional: thin host-abstraction.cjs facade re-exporting existing modules"
+    ]
+  },
+  "layoutProfiles": {
+    "DEVELOPMENT": {
+      "rootMarkers": ["pnpm-workspace.yaml", "apps", "packages"],
+      "node": "workspace engines >=20.18.0 <21",
+      "entries": "apps/*/src"
+    },
+    "PACKAGED_INSTALLED": {
+      "rootMarkers": ["runtime/node/node.exe", "backend/server.cjs", "config/packaged.json"],
+      "node": "bundled 20.18.1 only",
+      "entries": "backend/server.cjs, cockpit/index.mjs",
+      "appRoot": "%LOCALAPPDATA%\\SCI OS X10\\app"
+    }
+  },
+  "gaps": [
+    "No product-memory contract file for host abstraction",
+    "runtime-services.cjs naming collision with Windows Services concept",
+    "No host-level capability prove CLI (distinct from os-environment product prove)",
+    "No formal dataDir/stateDir resolution module (implicit in packaging)",
+    "Doc drift: final-release docs stale vs Aug 2026 package-sync truth"
+  ]
+}

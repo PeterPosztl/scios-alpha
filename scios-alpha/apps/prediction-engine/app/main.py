@@ -28,8 +28,22 @@ class PredictResponse(BaseModel):
 
 
 @app.get("/healthz")
-def healthz() -> dict[str, str]:
-    return {"status": "ok"}
+def healthz() -> dict[str, Any]:
+    """Measurable liveness — not a constant success badge.
+
+    Optional FastAPI engine (first-release GW1 uses embedded vertical-slice).
+    Never claim READY/PASS here; only process + model load predicates.
+    """
+    model_loaded = _ensemble is not None and hasattr(_ensemble, "predict")
+    return {
+        "ok": True,
+        "service": "prediction-engine",
+        "alive": True,
+        "modelLoaded": model_loaded,
+        "label": "ALPHA_NON_PRODUCTION",
+        "firstReleasePath": "OPTIONAL_OFF_PATH",
+        "note": "ok means process up + ensemble constructible — not calibrated/production READY",
+    }
 
 
 @app.post("/predict", response_model=PredictResponse)

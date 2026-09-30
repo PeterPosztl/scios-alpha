@@ -1,0 +1,6 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "currentIndex": "diagnostics-export/current-evidence-index.json",
+  "rule": "Only indexed CURRENT_BUILD artifacts close gates"
+}

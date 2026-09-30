@@ -4,9 +4,9 @@ const { spawnSync } = require("child_process");
 
 function classifyDocker() {
   const which = spawnSync(
-    process.platform === "win32" ? "where" : "which",
+    process.platform === "win32" ? "where.exe" : "which",
     ["docker"],
-    { encoding: "utf8", shell: true }
+    { encoding: "utf8", shell: false, windowsHide: true }
   );
   if (which.status !== 0 || !String(which.stdout || "").trim()) {
     return {
@@ -17,7 +17,13 @@ function classifyDocker() {
     };
   }
 
-  const info = spawnSync("docker", ["info"], { encoding: "utf8", shell: true, timeout: 4000 });
+  const dockerBin = process.platform === "win32" ? "docker.exe" : "docker";
+  const info = spawnSync(dockerBin, ["info"], {
+    encoding: "utf8",
+    shell: false,
+    windowsHide: true,
+    timeout: 4000,
+  });
   const out = `${info.stdout || ""}${info.stderr || ""}`;
   if (info.status !== 0) {
     if (/permission denied|Access is denied/i.test(out)) {

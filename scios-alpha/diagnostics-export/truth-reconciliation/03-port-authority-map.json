@@ -1,0 +1,272 @@
+{
+  "at": "2026-08-13T10:59:47.013Z",
+  "schema": "sci-os-03-port-authority-map/v1",
+  "buildId": "truth-recon-2026-08-13-c226d748",
+  "canonical": {
+    "controlPlane": {
+      "port": 3000,
+      "url": "http://127.0.0.1:3000/"
+    },
+    "shell": {
+      "port": 4000,
+      "url": "http://127.0.0.1:4000/"
+    },
+    "recoveryShell": {
+      "port": 5299,
+      "url": "http://127.0.0.1:5299/"
+    }
+  },
+  "legacyRejected": {
+    "controlPlane": 5200,
+    "shell": 5230
+  },
+  "authority": "sci-os.manifest.json#ports",
+  "sampleHits": [
+    {
+      "file": "README.md",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "README.md",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "README.md",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "README.md",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "README.md",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "README.md",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "README.md",
+      "port": 4000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "README.md",
+      "port": 4000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "README.md",
+      "port": 4000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "README.md",
+      "port": 4000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "README.md",
+      "port": 5200,
+      "class": "LEGACY"
+    },
+    {
+      "file": "README.md",
+      "port": 5230,
+      "class": "LEGACY"
+    },
+    {
+      "file": "README.md",
+      "port": 5299,
+      "class": "CURRENT"
+    },
+    {
+      "file": "README.md",
+      "port": 5299,
+      "class": "CURRENT"
+    },
+    {
+      "file": "AGENTS.md",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "AGENTS.md",
+      "port": 4000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "AGENTS.md",
+      "port": 4000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "sci-os.manifest.json",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "sci-os.manifest.json",
+      "port": 4000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "sci-os.manifest.json",
+      "port": 4000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "sci-os.manifest.json",
+      "port": 4000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "sci-os.manifest.json",
+      "port": 5299,
+      "class": "CURRENT"
+    },
+    {
+      "file": "apps/control-plane-api/src/server.ts",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "apps/cockpit-ui/src/index.js",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "apps/cockpit-ui/src/index.js",
+      "port": 4000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "apps/cockpit-ui/src/index.js",
+      "port": 5299,
+      "class": "CURRENT"
+    },
+    {
+      "file": "scripts/smoke-vertical-slice.js",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "scripts/smoke-vertical-slice.js",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "scripts/smoke-vertical-slice.js",
+      "port": 5230,
+      "class": "LEGACY"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 3000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 4000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 4000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 4000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 4000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 4000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 4000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 4000,
+      "class": "CURRENT"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 5200,
+      "class": "WRONG_OR_LEGACY"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 5200,
+      "class": "LEGACY"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 5230,
+      "class": "WRONG_OR_LEGACY"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 5230,
+      "class": "LEGACY"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "port": 5299,
+      "class": "CURRENT"
+    }
+  ],
+  "note": "Bare control-plane without PORT env historically defaulted 5200 — reconciled to 3000"
+}

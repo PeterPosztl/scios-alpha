@@ -1,0 +1,770 @@
+{
+  "at": "2026-08-12T19:42:57.584Z",
+  "schema": "sci-os-all-discovered-tasks/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "sources": {
+    "agentConversationThemes": [
+      "canonical startup / dual startup",
+      "atom_ai mass generation (rejected)",
+      "system closure hunters",
+      "final gap closure product",
+      "P0 packaging first-launch",
+      "closure:forensic",
+      "enterprise OS shell",
+      "boot root-cause hunter",
+      "task queue drain"
+    ],
+    "diagnosticsDirs": [
+      "atom-ai",
+      "auto-fill",
+      "auto-finish",
+      "boot-forensic",
+      "closure",
+      "convergence",
+      "external-intelligence",
+      "final-closure",
+      "final-release",
+      "forensic",
+      "meta-recovery",
+      "orchestrator",
+      "os-environment",
+      "packaging",
+      "proc-logs",
+      "product-kernel",
+      "repair-transactions",
+      "support-bundle-2026-07-16T23-56-59-299Z",
+      "support-bundle-2026-07-17T00-17-53-776Z",
+      "support-bundle-2026-08-12T11-58-19-604Z",
+      "support-bundle-2026-08-12T12-01-45-828Z",
+      "support-bundle-2026-08-12T19-17-34-287Z",
+      "task-closure",
+      "ux"
+    ],
+    "packageScripts": [
+      "boot:normal",
+      "boot:repair",
+      "boot:safe",
+      "boot:proof",
+      "sci:start",
+      "sci:stop",
+      "sci:restart",
+      "sci:status",
+      "sci:proof",
+      "sci:desktop",
+      "sci:shutdown",
+      "sci:repair",
+      "sci:meta-recovery",
+      "sci:meta-recovery:dry-run",
+      "sci:meta-recovery:prove",
+      "sci:meta-recovery:fault-test",
+      "sci:meta-recovery:resume",
+      "sci:capability-scan",
+      "sci:dependency-graph",
+      "sci:repair-recipes",
+      "sci:recovery-memory",
+      "sci:recovery-shell",
+      "sci:x10",
+      "sci:bootstrap",
+      "atom:ai",
+      "atom:ai:gates",
+      "atom:ai:todos",
+      "atom:ai:apply",
+      "atom:health",
+      "atom:health:repair",
+      "ux:benchmark",
+      "ux:proof",
+      "ux:truth",
+      "ux:domains",
+      "ux:compile:demo",
+      "ux:kernel",
+      "closure:scan",
+      "closure:p0",
+      "closure:final",
+      "closure:forensic",
+      "os:export",
+      "os:prove",
+      "package:dist",
+      "package:setup",
+      "package:exe",
+      "package:all",
+      "package:prove",
+      "package:prove-reboot",
+      "package:boot-forensic",
+      "package:boot-fix"
+    ],
+    "atomAiTree": "ABSENT",
+    "atomAiDevKits": {
+      "dev_atom_ai": true,
+      ".atom_ai": true
+    },
+    "liveRuntime": {
+      "healthz": 200,
+      "readyz": 200,
+      "ready": true,
+      "cockpit": 200,
+      "liveOk": true
+    }
+  },
+  "count": 27,
+  "tasks": [
+    {
+      "taskId": "TASK-BOOT-001",
+      "originalTitle": "Canonical one-click startup / dual consecutive startups",
+      "source": "agent-prompt+diagnostics/convergence",
+      "originalIntent": "One startup path with proof of two clean startups",
+      "affectedComponents": [
+        "BOOTSTRAP",
+        "SUPERVISOR"
+      ],
+      "expectedOutcome": "Canonical startup READY/DEGRADED with evidence",
+      "acceptanceCriteria": [
+        "sci:start converges",
+        "dual-startup evidence"
+      ],
+      "dependencies": [],
+      "createdFrom": "agent-prompt+diagnostics/convergence",
+      "currentEvidence": [
+        "diagnostics-export/convergence",
+        "installer/scripts/bootstrap-capsule.cjs"
+      ],
+      "currentStatus": "DONE",
+      "priority": "P0",
+      "ownerComponent": "BOOTSTRAP",
+      "notes": ""
+    },
+    {
+      "taskId": "TASK-ATOM-001",
+      "originalTitle": "ATOM-AI / atom_ai parallel OS generation (200 modules)",
+      "source": "agent-prompt+dev_atom_ai",
+      "originalIntent": "Auto-assemble second OS tree claiming READY",
+      "affectedComponents": [
+        "OPERATIONS"
+      ],
+      "expectedOutcome": "No competing product root",
+      "acceptanceCriteria": [
+        "Must NOT create parallel product root"
+      ],
+      "dependencies": [],
+      "createdFrom": "agent-prompt+dev_atom_ai",
+      "currentEvidence": [
+        "AGENTS.md constitution",
+        "atom_ai ABSENT",
+        "dev_atom_ai propose-only"
+      ],
+      "currentStatus": "CANCELLED_INVALID",
+      "priority": "P3",
+      "ownerComponent": "OPERATIONS",
+      "notes": "ATOM-AI = legacy/parallel naming REJECTED. Canonical product = SCI OS ×10 only."
+    },
+    {
+      "taskId": "TASK-CLOSE-001",
+      "originalTitle": "System Closure Engine / hunters",
+      "source": "agent-prompt+packages/system-closure",
+      "originalIntent": "Truth scanners, maturity, no fake READY",
+      "affectedComponents": [
+        "OPERATIONS"
+      ],
+      "expectedOutcome": "Evidence-producing closure tooling",
+      "acceptanceCriteria": [
+        "pnpm closure:scan/final/forensic produce artifacts"
+      ],
+      "dependencies": [],
+      "createdFrom": "agent-prompt+packages/system-closure",
+      "currentEvidence": [
+        "packages/system-closure",
+        "diagnostics-export/closure",
+        "diagnostics-export/forensic"
+      ],
+      "currentStatus": "DONE",
+      "priority": "P1",
+      "ownerComponent": "OPERATIONS",
+      "notes": ""
+    },
+    {
+      "taskId": "TASK-PROD-001",
+      "originalTitle": "Final gap closure — Product Kernel + professional UX + GW1",
+      "source": "agent-prompt+final-closure",
+      "originalIntent": "Turn engineering cockpit into coherent product foundation",
+      "affectedComponents": [
+        "PRODUCT_KERNEL",
+        "UX",
+        "PREDICTION",
+        "RISK"
+      ],
+      "expectedOutcome": "GW1 professional path with real backend",
+      "acceptanceCriteria": [
+        "Product Kernel export",
+        "GW1 E2E",
+        "P0 preserved"
+      ],
+      "dependencies": [],
+      "createdFrom": "agent-prompt+final-closure",
+      "currentEvidence": [
+        "diagnostics-export/final-closure/golden-workflow-1-proof.json",
+        "packages/product-kernel"
+      ],
+      "currentStatus": "DONE",
+      "priority": "P0",
+      "ownerComponent": "PRODUCT_KERNEL",
+      "notes": ""
+    },
+    {
+      "taskId": "TASK-PKG-001",
+      "originalTitle": "ERR-PKG-001 Setup.exe / packaged application",
+      "source": "final-release/46 + packaging",
+      "originalIntent": "Installable Windows package",
+      "affectedComponents": [
+        "PACKAGING"
+      ],
+      "expectedOutcome": "Setup.exe + payload distributable",
+      "acceptanceCriteria": [
+        "Setup.exe exists",
+        "payload complete",
+        "clean install proof"
+      ],
+      "dependencies": [],
+      "createdFrom": "final-release/46 + packaging",
+      "currentEvidence": [
+        "dist/release/SCI-OS-X10-Setup.exe",
+        "diagnostics-export/packaging/06-installer-proof.json"
+      ],
+      "currentStatus": "DONE",
+      "priority": "P0",
+      "ownerComponent": "PACKAGING",
+      "notes": ""
+    },
+    {
+      "taskId": "TASK-PKG-002",
+      "originalTitle": "ERR-LAUNCH-001 Remove system Node/pnpm from user runtime",
+      "source": "final-release/46 + packaging",
+      "originalIntent": "Bundled Node only for packaged mode",
+      "affectedComponents": [
+        "PACKAGING",
+        "SUPERVISOR"
+      ],
+      "expectedOutcome": "No system Node required",
+      "acceptanceCriteria": [
+        "runtime/node/node.exe",
+        "supervisor uses bundled",
+        "foreign CWD launch"
+      ],
+      "dependencies": [],
+      "createdFrom": "final-release/46 + packaging",
+      "currentEvidence": [
+        "diagnostics-export/packaging/08-first-launch-proof.json",
+        "diagnostics-export/boot-forensic/runtime-resolution-report.json"
+      ],
+      "currentStatus": "DONE",
+      "priority": "P0",
+      "ownerComponent": "PACKAGING",
+      "notes": ""
+    },
+    {
+      "taskId": "TASK-PKG-003",
+      "originalTitle": "ERR-REBOOT-001 Windows reboot acceptance",
+      "source": "final-release/46 + packaging + boot-forensic",
+      "originalIntent": "After Windows restart, click SCI OS → READY → HOME → GW1",
+      "affectedComponents": [
+        "PACKAGING",
+        "BOOTSTRAP"
+      ],
+      "expectedOutcome": "Post-reboot one-click READY",
+      "acceptanceCriteria": [
+        "Host reboot",
+        "no Cursor/terminal",
+        "READY",
+        "GW1"
+      ],
+      "dependencies": [],
+      "createdFrom": "final-release/46 + packaging + boot-forensic",
+      "currentEvidence": [
+        "diagnostics-export/boot-forensic/reboot-proof.json",
+        "diagnostics-export/packaging/13-reboot-proof.json"
+      ],
+      "currentStatus": "EXTERNAL_BLOCKER",
+      "priority": "P0",
+      "ownerComponent": "PACKAGING",
+      "notes": "Requires human host reboot. Cold-start simulation PASS ≠ reboot."
+    },
+    {
+      "taskId": "TASK-BOOT-002",
+      "originalTitle": "Shell handoff — HOME never opens under --serve",
+      "source": "boot-forensic",
+      "originalIntent": "EXE/CMD must show HOME when services READY",
+      "affectedComponents": [
+        "BOOTSTRAP",
+        "UX"
+      ],
+      "expectedOutcome": "READY → HOME visible",
+      "acceptanceCriteria": [
+        "No --no-open dead-end",
+        "Home opens while serve alive",
+        "GW1 after boot"
+      ],
+      "dependencies": [
+        "TASK-PKG-002"
+      ],
+      "createdFrom": "boot-forensic",
+      "currentEvidence": [
+        "diagnostics-export/boot-forensic/fixes-applied.json",
+        "diagnostics-export/boot-forensic/final-boot-signoff.json"
+      ],
+      "currentStatus": "DONE",
+      "priority": "P0",
+      "ownerComponent": "BOOTSTRAP",
+      "notes": ""
+    },
+    {
+      "taskId": "TASK-UX-001",
+      "originalTitle": "Enterprise OS Shell / Home / Cmd+K / workspaces",
+      "source": "OS environment prompt",
+      "originalIntent": "Feel like one professional OS environment",
+      "affectedComponents": [
+        "UX",
+        "PRODUCT_KERNEL"
+      ],
+      "expectedOutcome": "Shell HOME + GW1 path",
+      "acceptanceCriteria": [
+        "4.0-shell",
+        "Home attention",
+        "Cmd+K",
+        "session API",
+        "os:prove E2E"
+      ],
+      "dependencies": [],
+      "createdFrom": "OS environment prompt",
+      "currentEvidence": [
+        "apps/cockpit-ui/src/index.js",
+        "diagnostics-export/os-environment/os-shell-e2e-proof.json"
+      ],
+      "currentStatus": "DONE",
+      "priority": "P1",
+      "ownerComponent": "UX",
+      "notes": ""
+    },
+    {
+      "taskId": "TASK-UX-002",
+      "originalTitle": "ERR-UX-001 Command palette not mounted",
+      "source": "final-release/46",
+      "originalIntent": "Ctrl+K palette",
+      "affectedComponents": [
+        "UX"
+      ],
+      "expectedOutcome": "Command palette available",
+      "acceptanceCriteria": [
+        "paletteOverlay in shell"
+      ],
+      "dependencies": [
+        "TASK-UX-001"
+      ],
+      "createdFrom": "final-release/46",
+      "currentEvidence": [
+        "apps/cockpit-ui/src/index.js",
+        "os-shell-e2e-proof cmdk"
+      ],
+      "currentStatus": "MERGED",
+      "priority": "P2",
+      "ownerComponent": "UX",
+      "notes": "Completed via TASK-UX-001"
+    },
+    {
+      "taskId": "TASK-UX-003",
+      "originalTitle": "ERR-UX-002 Entity360 deep graph/timeline",
+      "source": "final-release/46",
+      "originalIntent": "Deep investigation graph/timeline",
+      "affectedComponents": [
+        "UX"
+      ],
+      "expectedOutcome": "Deep graph/timeline in Entity360",
+      "acceptanceCriteria": [
+        "Reusable EntityGraph+Timeline L7"
+      ],
+      "dependencies": [],
+      "createdFrom": "final-release/46",
+      "currentEvidence": [
+        "Entity360 overview present; deep graph ABSENT"
+      ],
+      "currentStatus": "DEFERRED_P2",
+      "priority": "P2",
+      "ownerComponent": "UX",
+      "notes": ""
+    },
+    {
+      "taskId": "TASK-RISK-001",
+      "originalTitle": "Risk REJECT must block execution (negative path)",
+      "source": "vertical-slice + packaging proofs",
+      "originalIntent": "Prediction never authorizes execution directly",
+      "affectedComponents": [
+        "RISK",
+        "GOVERNANCE",
+        "EXECUTION"
+      ],
+      "expectedOutcome": "Blocked execution on reject",
+      "acceptanceCriteria": [
+        "REJECT → NO_ACTION",
+        "packaged negative proof"
+      ],
+      "dependencies": [],
+      "createdFrom": "vertical-slice + packaging proofs",
+      "currentEvidence": [
+        "diagnostics-export/final-closure/golden-workflow-1-proof.json",
+        "diagnostics-export/packaging/10-risk-negative-packaged-proof.json"
+      ],
+      "currentStatus": "DONE",
+      "priority": "P0",
+      "ownerComponent": "RISK",
+      "notes": ""
+    },
+    {
+      "taskId": "TASK-INFRA-001",
+      "originalTitle": "ERR-INFRA-001 Postgres/Redis optional → DEGRADED",
+      "source": "final-release/46",
+      "originalIntent": "Honest DEGRADED when Docker/PG/Redis absent",
+      "affectedComponents": [
+        "DATA",
+        "OPERATIONS"
+      ],
+      "expectedOutcome": "DEGRADED with evidence when optional infra missing",
+      "acceptanceCriteria": [
+        "No false READY",
+        "core usable without PG/Redis"
+      ],
+      "dependencies": [],
+      "createdFrom": "final-release/46",
+      "currentEvidence": [
+        "startup-report DEGRADED",
+        "constitution"
+      ],
+      "currentStatus": "DONE",
+      "priority": "P1",
+      "ownerComponent": "DATA",
+      "notes": "Working as designed for ALPHA; not a false-READY bug."
+    },
+    {
+      "taskId": "TASK-REC-001",
+      "originalTitle": "ERR-REC-001 Full recovery fault-injection matrix",
+      "source": "final-release/46",
+      "originalIntent": "Certify all recovery recipes under fault injection",
+      "affectedComponents": [
+        "RECOVERY"
+      ],
+      "expectedOutcome": "Certified recovery matrix",
+      "acceptanceCriteria": [
+        "Fault matrix PASS",
+        "no security disable as repair"
+      ],
+      "dependencies": [],
+      "createdFrom": "final-release/46",
+      "currentEvidence": [
+        "meta-recovery present",
+        "full matrix uncertified"
+      ],
+      "currentStatus": "DEFERRED_P2",
+      "priority": "P1",
+      "ownerComponent": "RECOVERY",
+      "notes": "Not blocking first ALPHA click-to-Home; recovery view exists. Elevate if release policy requires full matrix."
+    },
+    {
+      "taskId": "TASK-AUTH-001",
+      "originalTitle": "ERR-AUTH-001 Localhost API unauthenticated",
+      "source": "final-release/46",
+      "originalIntent": "Auth for packaged/local API",
+      "affectedComponents": [
+        "SECURITY"
+      ],
+      "expectedOutcome": "Authenticated API surface for non-dev",
+      "acceptanceCriteria": [
+        "Auth mode for non-dev profiles"
+      ],
+      "dependencies": [],
+      "createdFrom": "final-release/46",
+      "currentEvidence": [
+        "AUTH_MODE local-packaged/local-development"
+      ],
+      "currentStatus": "DEFERRED_P2",
+      "priority": "P1",
+      "ownerComponent": "SECURITY",
+      "notes": "ALPHA local-foundation intentional; document as known limitation for networked deploy."
+    },
+    {
+      "taskId": "TASK-RACE-001",
+      "originalTitle": "ERR-RACE-001 Soak/race coverage thin",
+      "source": "final-release/46",
+      "originalIntent": "Intermittent failure soak tests",
+      "affectedComponents": [
+        "OPERATIONS"
+      ],
+      "expectedOutcome": "Soak/race certification",
+      "acceptanceCriteria": [
+        "Soak harness evidence"
+      ],
+      "dependencies": [],
+      "createdFrom": "final-release/46",
+      "currentEvidence": [
+        "GW1 proven multiple times; soak matrix thin"
+      ],
+      "currentStatus": "DEFERRED_P2",
+      "priority": "P1",
+      "ownerComponent": "OPERATIONS",
+      "notes": ""
+    },
+    {
+      "taskId": "TASK-SCI-001",
+      "originalTitle": "ERR-SCI-001 Calibration scientifically UNPROVEN",
+      "source": "final-release/46",
+      "originalIntent": "Do not claim CALIBRATED without proof",
+      "affectedComponents": [
+        "PREDICTION"
+      ],
+      "expectedOutcome": "Proven calibration or explicit UNKNOWN",
+      "acceptanceCriteria": [
+        "Calibration tests + honest labels"
+      ],
+      "dependencies": [],
+      "createdFrom": "final-release/46",
+      "currentEvidence": [
+        "NON-PRODUCTION labels",
+        "scientific-proof PARTIAL"
+      ],
+      "currentStatus": "DEFERRED_P2",
+      "priority": "P2",
+      "ownerComponent": "PREDICTION",
+      "notes": "Policy: do not claim CALIBRATED. Correct behavior is honesty, not fake PASS."
+    },
+    {
+      "taskId": "TASK-SEC-001",
+      "originalTitle": "Code signing for Setup.exe / EXE",
+      "source": "packaging security report",
+      "originalIntent": "Signed release artifacts",
+      "affectedComponents": [
+        "SECURITY",
+        "PACKAGING"
+      ],
+      "expectedOutcome": "Signed installers",
+      "acceptanceCriteria": [
+        "Signed binaries",
+        "trust policy"
+      ],
+      "dependencies": [],
+      "createdFrom": "packaging security report",
+      "currentEvidence": [
+        "codeSigning NOT_AVAILABLE"
+      ],
+      "currentStatus": "EXTERNAL_BLOCKER",
+      "priority": "P1",
+      "ownerComponent": "SECURITY",
+      "notes": "Signing infrastructure not available in this environment — do not fabricate signatures."
+    },
+    {
+      "taskId": "TASK-PKG-004",
+      "originalTitle": "Graceful shutdown residual processes",
+      "source": "packaging next[]",
+      "originalIntent": "Always release ports cleanly",
+      "affectedComponents": [
+        "SUPERVISOR"
+      ],
+      "expectedOutcome": "Clean shutdown",
+      "acceptanceCriteria": [
+        "shutdown ports down",
+        "second start PASS"
+      ],
+      "dependencies": [],
+      "createdFrom": "packaging next[]",
+      "currentEvidence": [
+        "boot-forensic/second-start-proof.json"
+      ],
+      "currentStatus": "DONE",
+      "priority": "P1",
+      "ownerComponent": "SUPERVISOR",
+      "notes": ""
+    },
+    {
+      "taskId": "TASK-KERNEL-001",
+      "originalTitle": "200 professional roles as separate dashboards",
+      "source": "historical UX prompts",
+      "originalIntent": "role1-dashboard … role200-dashboard",
+      "affectedComponents": [
+        "PRODUCT_KERNEL",
+        "UX"
+      ],
+      "expectedOutcome": "Role configs on shared primitives",
+      "acceptanceCriteria": [
+        "Must use Experience Compiler + shared workspaces NOT 200 apps"
+      ],
+      "dependencies": [],
+      "createdFrom": "historical UX prompts",
+      "currentEvidence": [
+        "professional-domain-registry seeds",
+        "OS shell"
+      ],
+      "currentStatus": "SUPERSEDED",
+      "priority": "P3",
+      "ownerComponent": "PRODUCT_KERNEL",
+      "notes": "Superseded by Product Kernel + Experience Compiler + role seeds. Do not implement 200 dashboards."
+    },
+    {
+      "taskId": "TASK-ELE-001",
+      "originalTitle": "Electron desktop as primary shell",
+      "source": "startup reports optional electron",
+      "originalIntent": "Native Electron window",
+      "affectedComponents": [
+        "UX",
+        "PACKAGING"
+      ],
+      "expectedOutcome": "Desktop feel via shell; native host optional later",
+      "acceptanceCriteria": [
+        "Native window without second launcher architecture"
+      ],
+      "dependencies": [],
+      "createdFrom": "startup reports optional electron",
+      "currentEvidence": [
+        "canonical pkg+bundled Node",
+        "electron ABSENT"
+      ],
+      "currentStatus": "SUPERSEDED",
+      "priority": "P2",
+      "ownerComponent": "UX",
+      "notes": "Canonical packaging = pkg launcher + bundled Node. Electron optional future — not competing architecture."
+    },
+    {
+      "taskId": "TASK-START-DUP-001",
+      "originalTitle": "Parallel startup frameworks / second orchestrator",
+      "source": "sci-os.manifest rejectedParallel",
+      "originalIntent": "Multiple start paths",
+      "affectedComponents": [
+        "BOOTSTRAP"
+      ],
+      "expectedOutcome": "One startup owner",
+      "acceptanceCriteria": [
+        "Single canonical path"
+      ],
+      "dependencies": [],
+      "createdFrom": "sci-os.manifest rejectedParallel",
+      "currentEvidence": [
+        "bootstrap-capsule → start-sci-os",
+        "docs/enterprise/CANONICAL_STARTUP_PATH.md"
+      ],
+      "currentStatus": "DONE",
+      "priority": "P0",
+      "ownerComponent": "BOOTSTRAP",
+      "notes": "Canonical path chosen; parallel starts rejected."
+    },
+    {
+      "taskId": "TASK-GW-002",
+      "originalTitle": "Golden workflows 2–7 (fraud/cyber/etc.)",
+      "source": "final gap closure §29",
+      "originalIntent": "Seven golden workflows E2E",
+      "affectedComponents": [
+        "PRODUCT_KERNEL",
+        "UX"
+      ],
+      "expectedOutcome": "Seven golden workflows",
+      "acceptanceCriteria": [
+        "Each GW E2E + evidence"
+      ],
+      "dependencies": [],
+      "createdFrom": "final gap closure §29",
+      "currentEvidence": [
+        "GW1 DONE; GW2–7 MISSING/PARTIAL in workflow registry"
+      ],
+      "currentStatus": "DEFERRED_P2",
+      "priority": "P2",
+      "ownerComponent": "PRODUCT_KERNEL",
+      "notes": ""
+    },
+    {
+      "taskId": "TASK-OS-001",
+      "originalTitle": "Full OS environment (update manager, multi-monitor, AI OS service, …)",
+      "source": "enterprise OS prompt §1–68",
+      "originalIntent": "Complete enterprise OS layer",
+      "affectedComponents": [
+        "UX",
+        "OPERATIONS"
+      ],
+      "expectedOutcome": "Full OS checklist",
+      "acceptanceCriteria": [
+        "See post-release backlog — not first-release scope"
+      ],
+      "dependencies": [],
+      "createdFrom": "enterprise OS prompt §1–68",
+      "currentEvidence": [
+        "Shell L6/L7 slice shipped; many sections DEFERRED"
+      ],
+      "currentStatus": "DEFERRED_P3",
+      "priority": "P3",
+      "ownerComponent": "UX",
+      "notes": "Shell foundation DONE via TASK-UX-001. Remaining OS sections → post-release backlog."
+    },
+    {
+      "taskId": "TASK-FOR-001",
+      "originalTitle": "Stale forensic claim: PKG/LAUNCH missing",
+      "source": "diagnostics-export/final-release/46-forensic-completion-decision.json",
+      "originalIntent": "Historical forensic top10",
+      "affectedComponents": [
+        "OPERATIONS"
+      ],
+      "expectedOutcome": "Current forensic supersedes stale file",
+      "acceptanceCriteria": [
+        "Registry reflects current truth"
+      ],
+      "dependencies": [],
+      "createdFrom": "diagnostics-export/final-release/46-forensic-completion-decision.json",
+      "currentEvidence": [
+        "TASK-PKG-001/002 DONE",
+        "forensic-decision.json updated path"
+      ],
+      "currentStatus": "STALE",
+      "priority": "P0",
+      "ownerComponent": "OPERATIONS",
+      "notes": "46-forensic-completion-decision.json is pre-packaging snapshot. Do not treat as current."
+    },
+    {
+      "taskId": "TASK-DUP-001",
+      "originalTitle": "Universal Bootstrap Capsule (zero-friction)",
+      "source": "interrupted agent prompt",
+      "originalIntent": "Boot dependency resolver pipeline",
+      "affectedComponents": [
+        "BOOTSTRAP"
+      ],
+      "expectedOutcome": "One-click boot",
+      "acceptanceCriteria": [
+        "Covered by packaging + boot forensic"
+      ],
+      "dependencies": [
+        "TASK-BOOT-001"
+      ],
+      "createdFrom": "interrupted agent prompt",
+      "currentEvidence": [
+        "TASK-BOOT-001",
+        "TASK-PKG-002",
+        "TASK-BOOT-002"
+      ],
+      "currentStatus": "MERGED",
+      "priority": "P0",
+      "ownerComponent": "BOOTSTRAP",
+      "notes": "Merged into canonical packaging/boot work."
+    },
+    {
+      "taskId": "TASK-DUP-002",
+      "originalTitle": "pnpm sci:start as only user path",
+      "source": "historical",
+      "originalIntent": "Developer start as product",
+      "affectedComponents": [
+        "PACKAGING"
+      ],
+      "expectedOutcome": "End-user EXE",
+      "acceptanceCriteria": [
+        "Replaced by EXE"
+      ],
+      "dependencies": [],
+      "createdFrom": "historical",
+      "currentEvidence": [
+        "SCI-OS-X10.exe"
+      ],
+      "currentStatus": "SUPERSEDED",
+      "priority": "P0",
+      "ownerComponent": "PACKAGING",
+      "notes": "Developer path remains; end-user path is EXE/Setup."
+    }
+  ]
+}

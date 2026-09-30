@@ -1,0 +1,13 @@
+{
+  "at": "2026-08-13T13:09:39.331Z",
+  "buildId": "deep-foundations-2026-08-13",
+  "status": "IMPLEMENT_NOW_P1_PARTIAL",
+  "note": "Extend existing evaluation baseline with deliverable-shaped tasks — not role compile only",
+  "existing": "diagnostics-export/enterprise-discipline/08-professional-evaluation-baseline.json",
+  "requiredNext": [
+    "cyber triage memo",
+    "fraud case disposition",
+    "compliance abstention when thin evidence",
+    "GW1 decision package"
+  ]
+}

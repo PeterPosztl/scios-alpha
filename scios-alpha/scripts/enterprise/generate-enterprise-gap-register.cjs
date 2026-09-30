@@ -9,6 +9,51 @@ const path = require("node:path");
 const ROOT = path.resolve(__dirname, "../..");
 const OUT_DIR = path.join(ROOT, "diagnostics-export", "closure");
 
+function scanCockpitDomSafety() {
+  const p = path.join(ROOT, "apps/cockpit-ui/src/index.js");
+  const testP = path.join(ROOT, "scripts/tests/cockpit-output-encoding.cjs");
+  if (!fs.existsSync(p)) {
+    return {
+      ok: false,
+      evidence: ["cockpit source missing"],
+    };
+  }
+  const src = fs.readFileSync(p, "utf8");
+  const assigns = [];
+  const re = /\.innerHTML\s*=/g;
+  let m;
+  while ((m = re.exec(src))) {
+    assigns.push(src.slice(m.index, Math.min(src.length, m.index + 96)).replace(/\s+/g, " "));
+  }
+  const dangerous = assigns.filter(
+    (s) => !/\.innerHTML\s*=\s*["']\s*["']/.test(s)
+  );
+  const hasHelper = /function escapeText|SAFE_DOM_BROWSER_SOURCE/.test(src);
+  const hasTest = fs.existsSync(testP);
+  const ok = dangerous.length === 0 && hasHelper && hasTest;
+  return {
+    ok,
+    innerHtmlAssigns: assigns.length,
+    dangerousAssigns: dangerous.length,
+    dangerous: dangerous.slice(0, 8),
+    hasHelper,
+    hasTest,
+    evidence: ok
+      ? [
+          "Cockpit runtime strings use textContent/DOM createElement",
+          "innerHTML not used for untrusted interpolation",
+          "scripts/tests/cockpit-output-encoding.cjs",
+        ]
+      : [
+          dangerous.length
+            ? `innerHTML interpolation residual (${dangerous.length})`
+            : "output-encoding tests or escape helper missing",
+        ],
+  };
+}
+
+const cockpitDom = scanCockpitDomSafety();
+
 /** @typedef {"PROVEN"|"PARTIAL"|"PROFILE_DISABLED"|"DISCONNECTED"|"ABSENT"|"UNKNOWN"|"DEFERRED"} Status */
 /** @typedef {"P0"|"P1"|"P2"|"P3"|null} Priority */
 
@@ -3315,9 +3360,9 @@ const raw = [
     family: "CF24",
     id: "CF24.output-encoding",
     title: "Output encoding",
-    status: "PARTIAL",
+    status: cockpitDom.ok ? "PROVEN" : "PARTIAL",
     why: "Prevent XSS in Shell.",
-    evidence: ["Mostly textContent; some innerHTML templates"],
+    evidence: cockpitDom.evidence,
     components: ["cockpit-ui"],
     firstReleaseRequired: true,
     productionRequired: true,
@@ -3375,9 +3420,9 @@ const raw = [
     family: "CF24",
     id: "CF24.xss",
     title: "XSS controls",
-    status: "PARTIAL",
+    status: cockpitDom.ok ? "PROVEN" : "PARTIAL",
     why: "Shell must not execute untrusted HTML.",
-    evidence: ["innerHTML usage exists — residual"],
+    evidence: cockpitDom.evidence,
     components: ["cockpit-ui"],
     firstReleaseRequired: true,
     productionRequired: true,
@@ -5446,6 +5491,16 @@ const raw = [
     severity: "P1",
   },
 ];
+
+const { scanFirstReleaseControls } = require("./scan-first-release-controls.cjs");
+const fr = scanFirstReleaseControls();
+for (const c of raw) {
+  const hit = fr[c.id];
+  if (hit && hit.status === "PROVEN") {
+    c.status = "PROVEN";
+    if (Array.isArray(hit.evidence) && hit.evidence.length) c.evidence = hit.evidence;
+  }
+}
 
 const controls = raw.map(control);
 const gaps = controls.filter((c) => c.isGap);

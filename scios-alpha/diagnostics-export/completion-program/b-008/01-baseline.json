@@ -1,0 +1,9 @@
+{
+  "schema": "sci-os-b008-baseline/v1",
+  "at": "2026-08-29T19:47:49.908Z",
+  "checkpoint": "46b03f18",
+  "priorBuild": "pkg_1788030533349",
+  "buildId": "pkg_1788031848758",
+  "wave": "B-008",
+  "objective": "Experience Compiler pipeline"
+}

@@ -1,0 +1,239 @@
+{
+  "at": "2026-08-13T14:31:11.804Z",
+  "buildId": "foundations-2026-08-13",
+  "findings": [
+    {
+      "id": "FND-AGENT-HARNESS",
+      "title": "Agent harness + trajectory guardian",
+      "class": "IMPLEMENT_NOW_P1",
+      "done": true,
+      "evidence": "product-memory/agent-harness.json + .cursor/rules/70-agent-harness.mdc",
+      "laterCostIfSkipped": [
+        "constitution drift",
+        "scope explosion"
+      ]
+    },
+    {
+      "id": "FND-DESIRED-STATE",
+      "title": "Desired vs actual reconciliation controller",
+      "class": "IMPLEMENT_NOW_P0",
+      "done": true,
+      "evidence": "installer/scripts/startup/desired-state.cjs + wired in start-sci-os.cjs",
+      "laterCostIfSkipped": [
+        "brittle boot",
+        "false READY",
+        "boot rewrite"
+      ]
+    },
+    {
+      "id": "FND-CRITICAL-INVARIANTS",
+      "title": "Formal critical invariants in reconcile/boot",
+      "class": "IMPLEMENT_NOW_P0",
+      "done": true,
+      "evidence": "desired-state reconcile + 03-critical-invariants.json",
+      "laterCostIfSkipped": [
+        "security redesign",
+        "release lies"
+      ],
+      "next": "fault-inject FAILED_BOOT resource release"
+    },
+    {
+      "id": "FND-SEMANTIC-TYPES",
+      "title": "Semantic type system contracts",
+      "class": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "done": "contract+schemas",
+      "evidence": "packages/data-fabric/src/semantic-types.ts",
+      "laterCostIfSkipped": [
+        "data migration",
+        "API break"
+      ],
+      "reject": "mass rewrite without adapters"
+    },
+    {
+      "id": "FND-TEMPORAL",
+      "title": "Point-in-time knowledge query (WHAT DID SCI KNOW AT T)",
+      "class": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "done": "contract",
+      "evidence": "product-memory/contracts/temporal-truth.json + TemporalAxesSchema",
+      "laterCostIfSkipped": [
+        "evidence loss",
+        "future-data leakage",
+        "retraining"
+      ]
+    },
+    {
+      "id": "FND-EPISTEMIC",
+      "title": "Epistemic kinds on intelligence results",
+      "class": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "done": "contract+schemas",
+      "evidence": "packages/data-fabric/src/epistemic.ts",
+      "laterCostIfSkipped": [
+        "UX rewrite",
+        "API confusion"
+      ]
+    },
+    {
+      "id": "FND-LEARNING-LOOP",
+      "title": "Decision learning loop with interventions",
+      "class": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "done": "contract",
+      "evidence": "product-memory/contracts/ — decision learning",
+      "laterCostIfSkipped": [
+        "retraining",
+        "invalid outcome eval"
+      ]
+    },
+    {
+      "id": "FND-PROVIDER-FABRIC",
+      "title": "AI provider capability fabric + router",
+      "class": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "done": "contract",
+      "laterCostIfSkipped": [
+        "vendor lock-in",
+        "deployment migration"
+      ]
+    },
+    {
+      "id": "FND-CONTEXT-FABRIC",
+      "title": "Unified context fabric (not mega-prompt)",
+      "class": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "done": "contract",
+      "laterCostIfSkipped": [
+        "UX rewrite",
+        "unsafe AI"
+      ]
+    },
+    {
+      "id": "FND-MEMORY-GOV",
+      "title": "Durable memory governance fields",
+      "class": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "done": "contract",
+      "laterCostIfSkipped": [
+        "privacy/security redesign"
+      ]
+    },
+    {
+      "id": "FND-TRAJECTORY",
+      "title": "Trajectory guardian for agent/Cursor drift",
+      "class": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "done": "harness contract",
+      "laterCostIfSkipped": [
+        "scope explosion",
+        "constitution violation"
+      ]
+    },
+    {
+      "id": "FND-EVAL-DATASET",
+      "title": "Professional deliverable evaluation dataset",
+      "class": "IMPLEMENT_NOW_P1",
+      "done": "baseline+lab exists; deepen deliverables next",
+      "laterCostIfSkipped": [
+        "silent AI regression"
+      ]
+    },
+    {
+      "id": "FND-ORG-ACTOR",
+      "title": "Org/user/team/actor contracts",
+      "class": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "done": "contract",
+      "laterCostIfSkipped": [
+        "data migration",
+        "role-model rewrite"
+      ]
+    },
+    {
+      "id": "FND-COLLAB",
+      "title": "Collaboration primitives",
+      "class": "DEFER_P2",
+      "done": false,
+      "laterCostIfSkipped": [
+        "workflow rewrite"
+      ]
+    },
+    {
+      "id": "FND-POLICY-SPLIT",
+      "title": "Policy decision vs enforcement",
+      "class": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "done": "contract",
+      "laterCostIfSkipped": [
+        "security redesign"
+      ],
+      "next": "audit every consequential action hits enforcement point"
+    },
+    {
+      "id": "FND-PROVENANCE",
+      "title": "Build/release provenance manifest",
+      "class": "IMPLEMENT_NOW_P1",
+      "done": "partial snapshot",
+      "evidence": "14-build-provenance.json",
+      "laterCostIfSkipped": [
+        "deployment migration"
+      ]
+    },
+    {
+      "id": "FND-ADVERSARIAL",
+      "title": "Adversarial reality matrix coverage",
+      "class": "DEFER_P2",
+      "done": "matrix drafted",
+      "laterCostIfSkipped": [
+        "unknown failure interactions"
+      ]
+    },
+    {
+      "id": "FND-RADAR",
+      "title": "Technology radar cadence",
+      "class": "DEFER_P3",
+      "done": "contract stub",
+      "laterCostIfSkipped": [
+        "frozen vendor assumptions"
+      ]
+    },
+    {
+      "id": "FND-ENTROPY",
+      "title": "Architecture entropy monitor",
+      "class": "IMPLEMENT_NOW_P1",
+      "done": "lightweight metrics",
+      "laterCostIfSkipped": [
+        "duplicate authorities return"
+      ]
+    },
+    {
+      "id": "FND-ATTENTION",
+      "title": "Cognitive load / attention metrics",
+      "class": "DEFER_P2",
+      "done": false,
+      "laterCostIfSkipped": [
+        "UX rewrite toward volume"
+      ]
+    },
+    {
+      "id": "FND-PACKAGED-GW1",
+      "title": "Packaged cold-start GW1 prove (external)",
+      "class": "IMPLEMENT_NOW_P0",
+      "done": false,
+      "laterCostIfSkipped": [
+        "false first-release READY"
+      ],
+      "note": "EXTERNAL_VALIDATION — TASK-PKG-003"
+    },
+    {
+      "id": "FND-REJECT-MEGA-PROMPT",
+      "title": "One enormous prompt as context architecture",
+      "class": "REJECT",
+      "done": true
+    },
+    {
+      "id": "FND-REJECT-SECOND-BOOT",
+      "title": "Second boot architecture",
+      "class": "REJECT",
+      "done": true
+    },
+    {
+      "id": "FND-REJECT-OIDC-NOW",
+      "title": "Reopen OIDC in this wave",
+      "class": "REJECT",
+      "done": true,
+      "note": "Org contracts only"
+    }
+  ]
+}

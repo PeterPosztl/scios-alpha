@@ -1,7 +1,8 @@
 {
-  "correlationId": "meta_065fb1e3",
+  "correlationId": "meta_0c648320",
   "order": [
     "recipe.accept_alpha_no_db",
+    "recipe.start_control_plane",
     "recipe.document_missing_electron",
     "recipe.document_missing_workers"
   ],

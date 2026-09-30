@@ -1,0 +1,14 @@
+{
+  "at": "2026-08-13T10:59:47.013Z",
+  "schema": "sci-os-15-reconciliation-signoff/v1",
+  "buildId": "truth-recon-2026-08-13-c226d748",
+  "gitSha": "c226d7489cf7f445f226930de752e382361021fd",
+  "repositoryCoherence": "DEGRADED",
+  "repositoryCoherenceReason": "Docs/manifest/ports/node reconciled; remaining disconnected packages + release-build/app test gaps + packaged GW1 evidence gap",
+  "currentFirstRelease": "INTERNAL_BLOCKER",
+  "currentFirstReleaseReason": "Reboot FileTimeUtc differential proven; packaged GW1/appRoot fresh evidence still blocking TASK-PKG-003",
+  "optionalInfrastructure": "OPTIONAL_INFRA_DEGRADED",
+  "p2P3": "NOT_REOPENED",
+  "philosophyPreserved": true,
+  "noNewProductArchitecture": true
+}

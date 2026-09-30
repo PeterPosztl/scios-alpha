@@ -1,0 +1,30 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "buckets": {
+    "P0": [
+      "ERR-PKG-001",
+      "ERR-LAUNCH-001",
+      "ERR-REBOOT-001"
+    ],
+    "P1": [
+      "ERR-INFRA-001",
+      "ERR-REC-001",
+      "ERR-AUTH-001",
+      "ERR-RACE-001"
+    ],
+    "P2": [
+      "ERR-SCI-001",
+      "ERR-UX-001",
+      "ERR-UX-002",
+      "ERR-CFG-001"
+    ],
+    "P3": [
+      "ERR-ROLE-001"
+    ]
+  },
+  "orderedP0": [
+    "ERR-PKG-001",
+    "ERR-LAUNCH-001",
+    "ERR-REBOOT-001"
+  ]
+}

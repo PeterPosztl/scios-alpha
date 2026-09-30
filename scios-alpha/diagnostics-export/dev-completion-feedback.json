@@ -1,0 +1,55 @@
+{
+  "schema": "sci-os-dev-completion-feedback/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T15:47:00.000Z",
+  "identity": "ENTERPRISE_GRADE_ALPHA",
+  "ready": false,
+  "holeless": false,
+  "autoTrade": false,
+  "humanUsableAlpha": true,
+  "mode": "ENTERPRISE_BUILD_AND_COMPLETION",
+  "oneBoot": "start-sci-os.cjs",
+  "oneShell": "apps/cockpit-ui :4000",
+  "scan": {
+    "bootBlocking": [],
+    "analystLoopBlocking": [],
+    "zavarosClosedThisPass": [
+      "REPORT-WEEKLY-MONTHLY-FALSE-SLICE",
+      "SYSTEM-HEALTH-MISSING-ENTERPRISE-HOOKS",
+      "EVIDENCE-MISSING-GW1-POINTER",
+      "LOADER-SILENT-SPINNER-ON-ERROR",
+      "ENTERPRISE-HOOKS-UNPREPARED"
+    ],
+    "enterpriseMissingNotAlphaGate": ["OIDC", "OTLP SDK", "durable ledger", "live feeds", "live calibration engine"],
+    "secondOS": false,
+    "secondShell": false
+  },
+  "appliedThisPass": [
+    "ENTERPRISE-HOOKS-PREPARED-ABSENT",
+    "GET-V1-ECL-INFRA",
+    "REPORT-PERIOD-UNKNOWN-NOT-ECHO",
+    "SYSTEM-HEALTH-HOOK-SIGNALS",
+    "EVIDENCE-GW1-PLUS-DIL-AUDIT",
+    "CALIBRATION-ENGINE-PLACEHOLDER-LINE",
+    "RISK-GOV-KELLY-CAP",
+    "LOADER-CLEARNODES-ON-ERROR",
+    "DEV-SPAWN-DOCUMENTED"
+  ],
+  "refused": {
+    "oidcEnable": "ABSENT — prepared only",
+    "otlpSdk": "ABSENT — prepared only",
+    "durableLedger": "in-memory — prepared only",
+    "liveFeedsAsGO": "default ABSENT",
+    "readyClaim": false,
+    "autoTrade": false,
+    "secondBoot": false
+  },
+  "tests": {
+    "unit": "9/9",
+    "smoke": "ok",
+    "autoTrade": false,
+    "infraEnabled": false
+  },
+  "buildLog": "diagnostics-export/dev-completion-build-log.json",
+  "honesty": "ALPHA analyst loop remains HUMAN_USABLE_ALPHA. P2 hooks now have a contract and UI/health surface with enabled=false. Weekly/monthly reporting no longer pretends session numbers are period evidence. Not READY. Not holeless. Not enterprise GO."
+}

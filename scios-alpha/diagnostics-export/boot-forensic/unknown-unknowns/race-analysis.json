@@ -1,0 +1,5 @@
+{
+  "skipped": false,
+  "note": "Multiple clean launches (cwd×4 + first/second + exe) substitute for dedicated 3-jitter race.",
+  "inferredPass": true
+}

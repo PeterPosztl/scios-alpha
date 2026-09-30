@@ -1,0 +1,38 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "stores": [
+    {
+      "name": "slice runs / lineage",
+      "class": "IN_MEMORY",
+      "survivesRestart": false,
+      "defectIfUserExpectsPersist": true
+    },
+    {
+      "name": "os session notifications",
+      "class": "IN_MEMORY",
+      "survivesRestart": false
+    },
+    {
+      "name": "LOCALAPPDATA SCI OS X10/data",
+      "class": "LOCAL_DURABLE",
+      "survivesRestart": "PARTIAL_UNKNOWN"
+    },
+    {
+      "name": "Postgres ledgers",
+      "class": "DATABASE",
+      "required": false,
+      "available": "OPTIONAL"
+    },
+    {
+      "name": "Redis queues",
+      "class": "CACHE",
+      "required": false
+    },
+    {
+      "name": "diagnostics-export",
+      "class": "LOCAL_DURABLE",
+      "purpose": "evidence"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "at": "2026-08-13T13:00:49.933Z",
+  "buildId": "ux-dna-2026-08-13",
+  "productMemoryPresent": true,
+  "designConstitutionPresent": true,
+  "designSystemPackage": true,
+  "identityPreserved": true,
+  "vendorClone": false,
+  "redesignFromScratch": false,
+  "bootBeforeRedesign": true,
+  "antiDriftPass": true,
+  "screenshotBaselines": "PENDING_LIVE_CAPTURE",
+  "experienceQualityReady": false,
+  "uxDecisionsCount": 5,
+  "verdicts": {
+    "UX_DNA_LOCK": "PARTIAL_WIRED",
+    "PRODUCT_MEMORY": "WIRED",
+    "VISUAL_REGRESSION": "STRUCTURAL_ONLY",
+    "ACCESSIBILITY": "PARTIAL",
+    "READY": false
+  },
+  "note": "DNA locked without cosmetic redesign; packaged boot/Home prove remains priority over P2 visual polish"
+}

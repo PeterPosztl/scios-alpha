@@ -1,0 +1,317 @@
+{
+  "schema": "sci-os-reference-product-registry/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "note": "Expandable. Do not hardcode SCI OS to any vendor.",
+  "categories": {
+    "enterprise_intelligence": [
+      {
+        "id": "palantir_foundry_workshop",
+        "name": "Palantir Foundry Workshop",
+        "publicRefs": [
+          "https://palantir.com/docs/foundry/workshop/application-design-best-practices/"
+        ],
+        "learn": [
+          "object-centric layouts",
+          "persistent headers",
+          "overlay vs page"
+        ],
+        "reject": [
+          "pixel copy",
+          "proprietary ontology lock-in"
+        ]
+      },
+      {
+        "id": "microsoft_fabric_powerbi",
+        "name": "Microsoft analytics / Power BI (public)",
+        "publicRefs": [
+          "https://learn.microsoft.com/power-bi/"
+        ],
+        "learn": [
+          "semantic models",
+          "role-aware reports"
+        ],
+        "reject": [
+          "dashboard sprawl"
+        ]
+      }
+    ],
+    "security_investigation": [
+      {
+        "id": "microsoft_sentinel",
+        "name": "Microsoft Sentinel",
+        "publicRefs": [
+          "https://learn.microsoft.com/azure/sentinel/"
+        ],
+        "learn": [
+          "alert triage queues",
+          "incident workspaces",
+          "entity pages"
+        ],
+        "reject": [
+          "SIEM clone as second OS"
+        ]
+      },
+      {
+        "id": "splunk",
+        "name": "Splunk (public docs)",
+        "publicRefs": [
+          "https://docs.splunk.com/"
+        ],
+        "learn": [
+          "search-driven investigation",
+          "time-bounded queries"
+        ],
+        "reject": [
+          "raw search as only UX"
+        ]
+      },
+      {
+        "id": "elastic_security",
+        "name": "Elastic Security",
+        "publicRefs": [
+          "https://www.elastic.co/guide/en/security/current/index.html"
+        ],
+        "learn": [
+          "detection → case flow",
+          "EUI density"
+        ],
+        "reject": [
+          "alert spam without priority"
+        ]
+      },
+      {
+        "id": "crowdstrike_falcon",
+        "name": "CrowdStrike Falcon (public materials)",
+        "publicRefs": [
+          "https://www.crowdstrike.com/"
+        ],
+        "learn": [
+          "fast triage hierarchy",
+          "host/entity focus"
+        ],
+        "reject": [
+          "brand mimicry"
+        ]
+      },
+      {
+        "id": "servicenow_secops",
+        "name": "ServiceNow Security Operations (public)",
+        "publicRefs": [
+          "https://www.servicenow.com/products/security-operations.html"
+        ],
+        "learn": [
+          "case lifecycle",
+          "assignment/handoff"
+        ],
+        "reject": [
+          "ITSM-only framing for all domains"
+        ]
+      }
+    ],
+    "observability": [
+      {
+        "id": "datadog",
+        "name": "Datadog (public docs)",
+        "publicRefs": [
+          "https://docs.datadoghq.com/"
+        ],
+        "learn": [
+          "service maps",
+          "impact framing of failures"
+        ],
+        "reject": [
+          "metric wallpaper"
+        ]
+      },
+      {
+        "id": "grafana",
+        "name": "Grafana",
+        "publicRefs": [
+          "https://grafana.com/docs/"
+        ],
+        "learn": [
+          "composable panels",
+          "explore mode"
+        ],
+        "reject": [
+          "unbounded dashboard proliferation"
+        ]
+      },
+      {
+        "id": "opentelemetry",
+        "name": "OpenTelemetry ecosystem",
+        "publicRefs": [
+          "https://opentelemetry.io/"
+        ],
+        "learn": [
+          "vendor-neutral telemetry contracts"
+        ],
+        "reject": [
+          "replace SCI evidence with traces alone"
+        ]
+      }
+    ],
+    "graph_intelligence": [
+      {
+        "id": "neo4j_bloom",
+        "name": "Neo4j Bloom",
+        "publicRefs": [
+          "https://neo4j.com/docs/bloom-user-guide/current/"
+        ],
+        "learn": [
+          "expand/collapse",
+          "perspective filters",
+          "path search"
+        ],
+        "reject": [
+          "spaghetti default layout"
+        ]
+      }
+    ],
+    "data_analytics": [
+      {
+        "id": "databricks",
+        "name": "Databricks (public)",
+        "publicRefs": [
+          "https://docs.databricks.com/"
+        ],
+        "learn": [
+          "feature / MLOps separation",
+          "lakehouse contracts"
+        ],
+        "reject": [
+          "force Spark for local ALPHA"
+        ]
+      },
+      {
+        "id": "duckdb",
+        "name": "DuckDB",
+        "publicRefs": [
+          "https://duckdb.org/docs/"
+        ],
+        "learn": [
+          "local analytical queries",
+          "low ops weight"
+        ],
+        "reject": [
+          "replace primary store without need"
+        ]
+      },
+      {
+        "id": "feast",
+        "name": "Feast",
+        "publicRefs": [
+          "https://docs.feast.dev/"
+        ],
+        "learn": [
+          "point-in-time join patterns"
+        ],
+        "reject": [
+          "auto-install as required runtime"
+        ]
+      }
+    ],
+    "workflow_case": [
+      {
+        "id": "servicenow",
+        "name": "ServiceNow platform (public)",
+        "publicRefs": [
+          "https://www.servicenow.com/"
+        ],
+        "learn": [
+          "case status/owner/priority grammar",
+          "approval chains"
+        ],
+        "reject": [
+          "ticket-only product identity"
+        ]
+      }
+    ],
+    "financial_intelligence": [
+      {
+        "id": "bloomberg_terminal_public",
+        "name": "Bloomberg Terminal (publicly described UX traits)",
+        "publicRefs": [
+          "https://www.bloomberg.com/professional/products/bloomberg-terminal/"
+        ],
+        "learn": [
+          "dense keyboard-first",
+          "function-key grammar",
+          "multi-panel"
+        ],
+        "reject": [
+          "trade-secret UI replication",
+          "yellow-black brand copy"
+        ]
+      }
+    ],
+    "design_systems": [
+      {
+        "id": "fluent2",
+        "name": "Fluent 2",
+        "publicRefs": [
+          "https://fluent2.microsoft.design/"
+        ]
+      },
+      {
+        "id": "carbon",
+        "name": "IBM Carbon",
+        "publicRefs": [
+          "https://carbondesignsystem.com/"
+        ]
+      },
+      {
+        "id": "eui",
+        "name": "Elastic EUI",
+        "publicRefs": [
+          "https://eui.elastic.co/"
+        ]
+      },
+      {
+        "id": "ads",
+        "name": "Atlassian Design",
+        "publicRefs": [
+          "https://atlassian.design/"
+        ]
+      },
+      {
+        "id": "spectrum",
+        "name": "Adobe Spectrum",
+        "publicRefs": [
+          "https://spectrum.adobe.com/"
+        ]
+      },
+      {
+        "id": "lightning",
+        "name": "SLDS",
+        "publicRefs": [
+          "https://www.lightningdesignsystem.com/"
+        ]
+      },
+      {
+        "id": "material3",
+        "name": "Material 3",
+        "publicRefs": [
+          "https://m3.material.io/"
+        ]
+      }
+    ],
+    "ai_experience": [
+      {
+        "id": "copilot_patterns_public",
+        "name": "Contextual copilot patterns (public vendor docs)",
+        "publicRefs": [
+          "https://learn.microsoft.com/microsoft-365-copilot/"
+        ],
+        "learn": [
+          "context-bound assist",
+          "citations when offered"
+        ],
+        "reject": [
+          "chatbot as primary OS",
+          "silent override of risk/governance"
+        ]
+      }
+    ]
+  }
+}

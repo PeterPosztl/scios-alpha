@@ -1,0 +1,14 @@
+{
+  "at": "2026-08-12T18:40:23.437Z",
+  "canonical": "pkg-bootstrap + bundled Node runtime (NOT Electron)",
+  "existingHooks": [
+    "scripts/pkg-entry.cjs",
+    "installer/scripts/startup/resolve-node-runtime.cjs",
+    "package.json#package:exe"
+  ],
+  "rejected": [
+    "second Electron architecture",
+    "pnpm at user runtime"
+  ],
+  "decision": "EXTEND_EXISTING_PKG_AND_BUNDLED_NODE"
+}

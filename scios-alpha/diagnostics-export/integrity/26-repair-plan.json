@@ -1,0 +1,23 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "order": [
+    "TRUTH",
+    "RUNTIME",
+    "STARTUP",
+    "CONFIG",
+    "REPRODUCIBILITY",
+    "PRODUCT_KERNEL",
+    "CAPABILITY_ACTIVATION",
+    "UX",
+    "PERSISTENCE",
+    "SECURITY",
+    "RELEASE"
+  ],
+  "next": [
+    "Packaged LOCALAPPDATA GW1 evidence for TASK-PKG-003",
+    "Reduce residual shell:true in non-primary scripts",
+    "Align @types/node to 20.x (P2)",
+    "Optional: extract Experience Layer from monolith (P2)"
+  ]
+}

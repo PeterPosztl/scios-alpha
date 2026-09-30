@@ -1,0 +1,54 @@
+{
+  "schema": "sci-os-whi-001-topology/v1",
+  "at": "2026-09-30T09:59:19.770Z",
+  "bootAuthority": "installer/scripts/start-sci-os.cjs",
+  "supervisor": "installer/scripts/startup/process-supervisor.cjs",
+  "processes": [
+    {
+      "role": "startup-orchestrator",
+      "spawner": "SCI-OS-X10.cmd/exe → bundled node → start-sci-os.cjs --serve",
+      "parent": "user session",
+      "detached": false,
+      "jobEligible": false,
+      "note": "Orchestrator owns keeper; not assigned to its own job"
+    },
+    {
+      "role": "job-object-keeper",
+      "spawner": "ProcessSupervisor.initHostLayer → job-object-provider",
+      "parent": "orchestrator PID",
+      "detached": false,
+      "jobEligible": false,
+      "holdsJobHandle": true
+    },
+    {
+      "role": "control-plane",
+      "spawner": "ProcessSupervisor.start",
+      "parent": "orchestrator",
+      "detached": false,
+      "whenServe": true,
+      "port": 3000,
+      "jobAssigned": true
+    },
+    {
+      "role": "cockpit",
+      "spawner": "ProcessSupervisor.start",
+      "parent": "orchestrator",
+      "detached": false,
+      "whenServe": true,
+      "port": 4000,
+      "jobAssigned": true
+    },
+    {
+      "role": "recovery",
+      "spawner": "safe-mode spawnSync only",
+      "parent": "orchestrator",
+      "detached": true,
+      "jobAssigned": false,
+      "reason": "Recovery intentionally outside primary runtime job group"
+    }
+  ],
+  "shutdown": {
+    "graceful": "SIGTERM → wait → taskkill tree fallback → job TERMINATE",
+    "lock": "releaseProcessLock in finalizeAndExit"
+  }
+}

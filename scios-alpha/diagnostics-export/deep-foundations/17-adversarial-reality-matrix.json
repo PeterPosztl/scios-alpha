@@ -1,0 +1,30 @@
+{
+  "at": "2026-08-13T13:09:39.331Z",
+  "buildId": "deep-foundations-2026-08-13",
+  "status": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+  "dimensions": [
+    "dependency_failure",
+    "timeouts",
+    "duplicate_events",
+    "out_of_order_events",
+    "reboot_mid_action",
+    "stale_state",
+    "clock_skew",
+    "timezone_dst",
+    "permission_change",
+    "policy_change",
+    "partial_responses",
+    "invalid_model_output",
+    "ai_refusal",
+    "cache_staleness",
+    "disk_resource_pressure",
+    "port_conflicts"
+  ],
+  "knownCoveredPartial": [
+    "port_conflicts",
+    "duplicate_action_same_process",
+    "stale_evidence_class",
+    "optional_infra_degraded"
+  ],
+  "unknownInteractions": "SYSTEMATIC_COMBINATORIAL_SUITE_DEFERRED"
+}

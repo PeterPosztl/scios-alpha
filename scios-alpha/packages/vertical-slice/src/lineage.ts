@@ -9,12 +9,14 @@ function sha256(input: string): string {
   return createHash("sha256").update(input).digest("hex");
 }
 
+type LineageNodeExt = LineageNode & { payloadDigest?: string };
+
 /**
  * Append-only immutable lineage graph with hash chain.
- * In-memory only — durable store ABSENT.
+ * In-memory only — durable store ABSENT / optional local file.
  */
 export class ImmutableLineageStore {
-  private readonly nodes: LineageNode[] = [];
+  private readonly nodes: LineageNodeExt[] = [];
   private readonly edges: LineageEdge[] = [];
   private tipHash: string | null = null;
 
@@ -24,8 +26,9 @@ export class ImmutableLineageStore {
     refId: string;
     at: string;
     payload: unknown;
-  }): LineageNode {
+  }): LineageNodeExt {
     const prevHash = this.tipHash;
+    const payloadDigest = sha256(JSON.stringify(input.payload));
     const hash = sha256(
       JSON.stringify({
         nodeId: input.nodeId,
@@ -33,16 +36,17 @@ export class ImmutableLineageStore {
         refId: input.refId,
         at: input.at,
         prevHash,
-        payload: input.payload,
+        payloadDigest,
       })
     );
-    const node: LineageNode = {
+    const node: LineageNodeExt = {
       nodeId: input.nodeId,
       stage: input.stage,
       refId: input.refId,
       at: input.at,
       hash,
       prevHash,
+      payloadDigest,
     };
     this.nodes.push(node);
     this.tipHash = hash;
@@ -60,7 +64,11 @@ export class ImmutableLineageStore {
     return edge;
   }
 
-  snapshot(): { nodes: LineageNode[]; edges: LineageEdge[]; tipHash: string | null } {
+  snapshot(): {
+    nodes: LineageNodeExt[];
+    edges: LineageEdge[];
+    tipHash: string | null;
+  } {
     return {
       nodes: [...this.nodes],
       edges: [...this.edges],
@@ -68,16 +76,39 @@ export class ImmutableLineageStore {
     };
   }
 
-  /** Verify hash chain integrity (immutable proof). */
-  verify(): { ok: boolean; brokenAt?: string } {
+  /**
+   * Verify hash chain: recompute each node hash from canonical fields +
+   * payloadDigest, and verify prevHash adjacency.
+   */
+  verify(): { ok: boolean; brokenAt?: string; mode: string } {
     let prev: string | null = null;
     for (const n of this.nodes) {
       if (n.prevHash !== prev) {
-        return { ok: false, brokenAt: n.nodeId };
+        return { ok: false, brokenAt: n.nodeId, mode: "prevHash_chain" };
+      }
+      const digest = n.payloadDigest;
+      if (!digest) {
+        return {
+          ok: false,
+          brokenAt: n.nodeId,
+          mode: "missing_payload_digest",
+        };
+      }
+      const recomputed = sha256(
+        JSON.stringify({
+          nodeId: n.nodeId,
+          stage: n.stage,
+          refId: n.refId,
+          at: n.at,
+          prevHash: n.prevHash,
+          payloadDigest: digest,
+        })
+      );
+      if (recomputed !== n.hash) {
+        return { ok: false, brokenAt: n.nodeId, mode: "hash_recompute" };
       }
       prev = n.hash;
     }
-    return { ok: true };
+    return { ok: true, mode: "hash_recompute+prevHash" };
   }
 }
-

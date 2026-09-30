@@ -83,6 +83,19 @@ const PROFILE_BY_ROLE = {
     ],
     aiCopilotProfile: "executive_workspace",
   },
+  "arch.prediction_decision_analyst": {
+    workspaceProfileId: "prediction_decision",
+    modules: [
+      { id: "DilMarketOverview", system: "prediction_system", order: 1 },
+      { id: "EdgeMap", system: "prediction_system", order: 2 },
+      { id: "RiskMap", system: "risk_system", order: 3 },
+      { id: "GuardrailPanel", system: "risk_system", order: 4 },
+      { id: "ProposalPanel", system: "risk_system", order: 5 },
+      { id: "EclReporting", system: "risk_system", order: 6 },
+      { id: "EvidencePanel", system: "cross_cutting", order: 7 },
+    ],
+    aiCopilotProfile: "dil_workspace",
+  },
   "arch.auditor": {
     workspaceProfileId: "audit_review",
     modules: [
@@ -118,6 +131,12 @@ const PANEL_TYPE_MAP = {
   SimulationPanel: { type: "scenario", capability: "Execution" },
   EvidencePanel: { type: "evidence", capability: "Evidence" },
   LineagePanel: { type: "lineage", capability: "Lineage" },
+  DilMarketOverview: { type: "prediction", capability: "Prediction" },
+  EdgeMap: { type: "prediction", capability: "Prediction" },
+  RiskMap: { type: "risk", capability: "Risk" },
+  GuardrailPanel: { type: "risk", capability: "Risk" },
+  ProposalPanel: { type: "decision", capability: "Decision" },
+  EclReporting: { type: "decision", capability: "Decision" },
 };
 
 function capabilityState(id, caps, dataStatus) {

@@ -1,0 +1,298 @@
+{
+  "schema": "sci-os-ux-competitive-benchmark/v1",
+  "at": "2026-08-12T15:54:00.000Z",
+  "label": "ALPHA_NON_PRODUCTION",
+  "method": {
+    "sources": "public documentation, design guides, product pages only — no private product access",
+    "scoring": "1=weak … 5=class-leading for forensic/intel investigation UX",
+    "dimensions": [
+      "graph_spatial",
+      "timeline_temporal",
+      "evidence_grounding",
+      "context_continuity",
+      "cognitive_load",
+      "role_surfaces",
+      "motion_predictability",
+      "trust_auditability",
+      "time_to_insight",
+      "design_coherence"
+    ],
+    "note": "Scores are reasoned estimates from public materials, not lab usability tests. No evidence of live user study ⇒ usability PASS claims remain UNKNOWN until proof script + human protocol run."
+  },
+  "competitors": [
+    {
+      "id": "palantir_workshop",
+      "name": "Palantir Foundry Workshop",
+      "publicRefs": [
+        "https://palantir.com/docs/foundry/workshop/application-design-best-practices/",
+        "https://palantir.com/docs/foundry/workshop/concepts-layouts/"
+      ],
+      "scores": {
+        "graph_spatial": 4,
+        "timeline_temporal": 3,
+        "evidence_grounding": 3,
+        "context_continuity": 5,
+        "cognitive_load": 4,
+        "role_surfaces": 5,
+        "motion_predictability": 3,
+        "trust_auditability": 4,
+        "time_to_insight": 4,
+        "design_coherence": 4
+      },
+      "strongPatterns": [
+        "F-shaped hierarchy; filters left, content right",
+        "Persistent module header / object views for consistent entity grammar",
+        "Overlays for secondary tasks; pages for primary workflows",
+        "Whitespace target ~30–40%; limit visible components (~<10)"
+      ],
+      "weaknesses": [
+        "Builder complexity; apps often diverge without design governance",
+        "Heavy ontology learning curve for new analysts",
+        "Can feel dense / enterprise-generic without Swiss restraint"
+      ]
+    },
+    {
+      "id": "linkurious",
+      "name": "Linkurious Enterprise",
+      "publicRefs": [
+        "https://linkurious.com/blog/linkurious-enterprise-neo4j-bloom/",
+        "https://linkurious.com/neo4j/"
+      ],
+      "scores": {
+        "graph_spatial": 5,
+        "timeline_temporal": 3,
+        "evidence_grounding": 3,
+        "context_continuity": 4,
+        "cognitive_load": 4,
+        "role_surfaces": 4,
+        "motion_predictability": 3,
+        "trust_auditability": 4,
+        "time_to_insight": 4,
+        "design_coherence": 4
+      },
+      "strongPatterns": [
+        "Investigation-first graph canvas with alerts + case spaces",
+        "Collaboration / shared visualizations for team investigations",
+        "Pattern detection → alert triage → expand-in-graph loop"
+      ],
+      "weaknesses": [
+        "Weaker native multi-view forensic chain (evidence→dossier→client)",
+        "Enterprise packaging can hide simplicity for one-analyst flow"
+      ]
+    },
+    {
+      "id": "neo4j_bloom",
+      "name": "Neo4j Bloom",
+      "publicRefs": [
+        "https://neo4j.com/docs/bloom-user-guide/current/"
+      ],
+      "scores": {
+        "graph_spatial": 5,
+        "timeline_temporal": 2,
+        "evidence_grounding": 2,
+        "context_continuity": 3,
+        "cognitive_load": 4,
+        "role_surfaces": 2,
+        "motion_predictability": 3,
+        "trust_auditability": 2,
+        "time_to_insight": 4,
+        "design_coherence": 4
+      },
+      "strongPatterns": [
+        "Perspective = business view of graph (categories, styling, search phrases)",
+        "Codeless search-to-visualization for non-engineers",
+        "Scene actions for repeatable investigation moves"
+      ],
+      "weaknesses": [
+        "Graph-only product; not a full forensic OS flow",
+        "Limited dossier / client / executive surfaces",
+        "Weak citation / chain-of-custody UX out of the box"
+      ]
+    },
+    {
+      "id": "maltego",
+      "name": "Maltego",
+      "publicRefs": [
+        "https://www.maltego.com/"
+      ],
+      "scores": {
+        "graph_spatial": 5,
+        "timeline_temporal": 2,
+        "evidence_grounding": 3,
+        "context_continuity": 3,
+        "cognitive_load": 3,
+        "role_surfaces": 2,
+        "motion_predictability": 2,
+        "trust_auditability": 3,
+        "time_to_insight": 3,
+        "design_coherence": 3
+      },
+      "strongPatterns": [
+        "Transform-driven expansion (query → entities → edges)",
+        "OSINT link analysis as primary mental model"
+      ],
+      "weaknesses": [
+        "Desktop-era density; steep transform vocabulary",
+        "Weak Swiss minimalism; limited institutional executive layer"
+      ]
+    },
+    {
+      "id": "elastic_security",
+      "name": "Elastic Security",
+      "publicRefs": [
+        "https://www.elastic.co/docs/solutions/security/investigate/timeline",
+        "https://www.elastic.co/docs/solutions/security/investigate"
+      ],
+      "scores": {
+        "graph_spatial": 2,
+        "timeline_temporal": 5,
+        "evidence_grounding": 4,
+        "context_continuity": 4,
+        "cognitive_load": 3,
+        "role_surfaces": 3,
+        "motion_predictability": 3,
+        "trust_auditability": 4,
+        "time_to_insight": 4,
+        "design_coherence": 3
+      },
+      "strongPatterns": [
+        "Timeline as investigation workspace; drag fields into query",
+        "Timeline templates on detection rules (instant context)",
+        "Alert → Timeline → Case / notes without leaving product",
+        "Investigation guides with one-click prefilled queries"
+      ],
+      "weaknesses": [
+        "Graph/link analysis secondary vs SIEM table culture",
+        "Query languages (KQL/EQL) raise cognitive load for legal/client roles",
+        "Visual language is Kibana-generic, not Apple/Swiss forensic brand"
+      ]
+    },
+    {
+      "id": "splunk_es",
+      "name": "Splunk Enterprise Security (public UX patterns)",
+      "publicRefs": [
+        "https://www.splunk.com/en_us/products/enterprise-security.html"
+      ],
+      "scores": {
+        "graph_spatial": 2,
+        "timeline_temporal": 4,
+        "evidence_grounding": 4,
+        "context_continuity": 3,
+        "cognitive_load": 2,
+        "role_surfaces": 3,
+        "motion_predictability": 2,
+        "trust_auditability": 4,
+        "time_to_insight": 3,
+        "design_coherence": 2
+      },
+      "strongPatterns": [
+        "Notable events / risk-based alerting as triage spine",
+        "Deep operational telemetry → investigation depth"
+      ],
+      "weaknesses": [
+        "Classic dashboard density; high training cost",
+        "Weak unified Graph→Evidence→Dossier→Client narrative"
+      ]
+    }
+  ],
+  "strongestPatternsAcrossMarket": [
+    {
+      "id": "f_layout_filters_left",
+      "pattern": "F-shaped layout: filters/nav left, primary canvas center/right",
+      "adoptForSciOs": "Keep Graph/Timeline canvas dominant; inspector panel secondary (Design System 12-col)"
+    },
+    {
+      "id": "object_entity_grammar",
+      "pattern": "Consistent entity/object view wherever an ID appears",
+      "adoptForSciOs": "One entity inspector grammar across Graph, Timeline, Evidence"
+    },
+    {
+      "id": "selection_carryover",
+      "pattern": "Selection/context survives view transitions",
+      "adoptForSciOs": "Canonical UX Flow: Graph→Timeline→Evidence with deep links + carry-over"
+    },
+    {
+      "id": "timeline_as_workspace",
+      "pattern": "Timeline is a workspace, not a chart widget",
+      "adoptForSciOs": "Timeline View owns temporal investigation; templates for common case types"
+    },
+    {
+      "id": "guided_next_steps",
+      "pattern": "Investigation guides / suggested next actions (human-accepted)",
+      "adoptForSciOs": "Forensic CoPilot chips — never auto-navigate"
+    },
+    {
+      "id": "whitespace_restraint",
+      "pattern": "Whitespace + limited on-screen components",
+      "adoptForSciOs": "Swiss–Apple: Snow White, Fog Grey, Deep Navy; no dashboard chrome soup"
+    },
+    {
+      "id": "case_collaboration",
+      "pattern": "Shared case spaces / notes",
+      "adoptForSciOs": "Dossier + Client Portal as trust layers, not extra graph tools"
+    }
+  ],
+  "weaknessesToAvoid": [
+    "Query-first UX for non-analyst roles (client, executive)",
+    "Module-by-module visual reinvention (Palantir governance failure mode)",
+    "Fake READY / density that signals power but blocks time-to-insight",
+    "Graph-only products without evidence citation and dossier export",
+    "SIEM table culture without spatial Graph entry for forensic narrative"
+  ],
+  "sciOsDesignLanguage": {
+    "sourceOfTruth": [
+      "docs/SCI-OS-DESIGN-SYSTEM.md",
+      "docs/SCI-OS-UX-FLOW-SYSTEM.md",
+      "docs/SCI-OS-MOTION-SYSTEM.md"
+    ],
+    "palette": ["Snow White", "Fog Grey", "Graphite", "Deep Navy", "Swiss Red", "Ice Blue"],
+    "typography": "Suisse / SF Pro; Display→Caption scale",
+    "grid": "12-col · 40px margin · 24px gutter · 8px spacing",
+    "canonicalFlow": [
+      "Graph",
+      "Timeline",
+      "Evidence",
+      "Dossier",
+      "Client Portal",
+      "Executive"
+    ],
+    "differentiators": [
+      "Swiss-grade auditability + citation on AI outputs",
+      "Role-split surfaces (analyst vs client vs executive) with same case context",
+      "Tesla-level simplicity: one primary action per view",
+      "120 FPS motion / 300ms macro transitions with reduced-motion support",
+      "No parallel Atom/AI stub trees — one cockpit language"
+    ],
+    "workflowAccelerationRules": [
+      "Deep link every view with case + selection query params",
+      "Breadcrumb always: Case > View",
+      "Single primary CTA per view; secondary in inspector",
+      "Suggested next (CoPilot) as accept-only chips",
+      "Evidence selection always shows provenance / hash when available"
+    ]
+  },
+  "sciOsTargetScores": {
+    "note": "Design-contract targets (Master Spec). ALPHA cockpit may score lower until usability proof PASS.",
+    "scores": {
+      "graph_spatial": 5,
+      "timeline_temporal": 5,
+      "evidence_grounding": 5,
+      "context_continuity": 5,
+      "cognitive_load": 5,
+      "role_surfaces": 5,
+      "motion_predictability": 5,
+      "trust_auditability": 5,
+      "time_to_insight": 5,
+      "design_coherence": 5
+    }
+  },
+  "alphaObserved": {
+    "cockpit": "apps/cockpit-ui — vertical slice + system health surfaces",
+    "usabilityProof": "UNKNOWN until scripts/ux-usability-proof.js run against live :4000",
+    "gapsVsContract": [
+      "Full Graph→Timeline→Evidence→Dossier→Client→Executive navigation not fully proven in ALPHA HTML",
+      "Design tokens may be partial vs Design System doc",
+      "No lab user-study evidence yet"
+    ]
+  }
+}

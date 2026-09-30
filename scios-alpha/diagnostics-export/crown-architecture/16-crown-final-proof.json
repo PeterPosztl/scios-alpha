@@ -1,0 +1,29 @@
+{
+  "at": "2026-08-13T12:52:42.652Z",
+  "buildId": "crown-architecture-2026-08-13",
+  "schema": "sci-os-crown-final-proof/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "coldInstalledFlow": {
+    "steps": [
+      "ONE_CLICK",
+      "TRANSACTIONAL_BOOT",
+      "HOME",
+      "PROFESSIONAL_WORKFLOW",
+      "EVIDENCE",
+      "CLEAN_SHUTDOWN"
+    ],
+    "status": "EXTERNAL_VALIDATION_OPEN"
+  },
+  "negativeProofs": {
+    "wrongRuntimeUnavailable": "PARTIAL",
+    "wrongAppRootUnavailable": "PARTIAL — invariant defined",
+    "wrongEndpointWiringDetected": "PARTIAL — port invariant + health gate",
+    "duplicateActionPrevented": "PARTIAL_PASS",
+    "staleEvidenceRejected": "PARTIAL — evidence index classes STALE",
+    "policyBypassRejected": "PARTIAL — governance gate + approval card",
+    "brokenUiActionDetected": "PARTIAL — dead-end audit primary path",
+    "dependencyBlastRadiusCalculated": "YES — impact before/after",
+    "professionalRegressionDetected": "YES — evaluation compare"
+  },
+  "ready": false
+}

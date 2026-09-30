@@ -1,0 +1,58 @@
+{
+  "schema": "sci-os-package-sync-install-proof/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-18T17:35:15.704Z",
+  "status": "PASS",
+  "atomicInstall": {
+    "schema": "sci-os-atomic-install/v1",
+    "ok": true,
+    "source": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10",
+    "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+    "dataDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\data",
+    "buildId": "pkg_1787074480539",
+    "primaryEntry": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\SCI-OS-X10.exe",
+    "steps": [
+      { "name": "stage_copy", "ok": true },
+      { "name": "stage_verify", "ok": true, "buildId": "pkg_1787074480539" },
+      { "name": "backup_current", "ok": true, "backup": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.1787074515704" },
+      { "name": "promote_staging", "ok": true },
+      { "name": "live_verify", "ok": true, "buildId": "pkg_1787074480539" },
+      { "name": "retain_backup_last", "ok": true, "last": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.last" },
+      { "name": "shortcuts_localappdata", "ok": true }
+    ]
+  },
+  "oldInstalledBuildId": "pkg_1786656680759",
+  "newInstalledBuildId": "pkg_1787074480539",
+  "mixedVersion": false,
+  "windowsEntry": {
+    "exe": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\SCI-OS-X10.exe",
+    "cmd": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\SCI-OS-X10.cmd",
+    "launchedVia": "SCI-OS-X10.exe",
+    "notUsed": ["pnpm", "Cursor", "system Node", "repository dist"],
+    "status": "PASS"
+  },
+  "backupLast": {
+    "path": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.last",
+    "buildId": "pkg_1786656680759",
+    "gitSha": "55d2a104a264608c217b3b602f116cb9b18661cf",
+    "valid": true,
+    "status": "PASS"
+  },
+  "recovery": {
+    "server": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\recovery\\server.cjs",
+    "present": true,
+    "syntaxCheck": "PASS",
+    "intendedMechanism": "packaged-safe-recovery via start-sci-os.cjs → recovery/server.cjs",
+    "status": "PASS"
+  },
+  "shutdown": {
+    "method": "installer/scripts/convergence/stop.cjs with SCIOS_APP_ROOT=install",
+    "apiDown": true,
+    "cockpitDown": true,
+    "lockReleased": true,
+    "ownedPortsReleased": true,
+    "status": "PASS"
+  },
+  "stalePackageNotInstalled": "pkg_1787074162274",
+  "note": "First package:dist produced stale packages/*/dist (pkg_1787074162274). Canonical rebuild after workspace package build produced pkg_1787074480539; only that package was atomically installed."
+}

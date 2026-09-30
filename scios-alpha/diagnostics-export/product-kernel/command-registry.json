@@ -1,0 +1,11 @@
+{
+  "schema": "sci-os-command-registry/v1",
+  "commands": [
+    "Analyze instrument",
+    "Open lineage",
+    "Explain prediction",
+    "Toggle technical view",
+    "Check system status",
+    "Open recovery shell"
+  ]
+}

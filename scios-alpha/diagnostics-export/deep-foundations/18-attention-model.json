@@ -1,0 +1,14 @@
+{
+  "at": "2026-08-13T14:31:11.804Z",
+  "buildId": "foundations-2026-08-13",
+  "targetFlow": [
+    "ATTENTION",
+    "UNDERSTANDING",
+    "DECISION",
+    "ACTION"
+  ],
+  "homeOptimizesFor": "PARTIAL — attention headline present",
+  "cognitiveLoadMetrics": "ABSENT_MEASURED",
+  "contextSwitchMetrics": "ABSENT_MEASURED",
+  "class": "DEFER_P2_MEASURE — structure PARTIAL now"
+}

@@ -47,8 +47,25 @@ class RiskCheckResponse(BaseModel):
 
 
 @app.get("/healthz")
-def healthz() -> dict[str, str]:
-    return {"status": "ok"}
+def healthz() -> dict[str, Any]:
+    """Measurable liveness — not a constant success badge.
+
+    Optional FastAPI engine (first-release GW1 uses embedded governance/risk in vertical-slice).
+    """
+    limits_ok = (
+        isinstance(LIMITS, dict)
+        and "maxPositionSize" in LIMITS
+        and float(LIMITS["maxPositionSize"]) > 0
+    )
+    return {
+        "ok": True,
+        "service": "risk-engine",
+        "alive": True,
+        "limitsLoaded": limits_ok,
+        "label": "ALPHA_NON_PRODUCTION",
+        "firstReleasePath": "OPTIONAL_OFF_PATH",
+        "note": "ok means process up + limits present — not enterprise risk READY",
+    }
 
 
 @app.get("/risk/limits")

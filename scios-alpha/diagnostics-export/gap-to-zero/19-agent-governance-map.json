@@ -1,0 +1,15 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "policy": "GOVERNANCE > AGENT",
+  "uncontrolledSwarm": false,
+  "agents": [
+    {
+      "id": "foundation-smoke-worker",
+      "purpose": "health smoke",
+      "approval": "n/a",
+      "riskClass": "LOW"
+    }
+  ],
+  "note": "No production multi-agent swarm in first release"
+}

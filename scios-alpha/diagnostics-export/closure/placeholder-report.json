@@ -1,0 +1,217 @@
+{
+  "at": "2026-08-19T22:42:28.381Z",
+  "count": 42,
+  "findings": [
+    {
+      "file": "apps/cockpit-ui/src/index.js",
+      "pattern": "placeholder",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "dev/generator.cjs",
+      "pattern": "TODO",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "dev/generator.cjs",
+      "pattern": "FIXME",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "dev/generator.cjs",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "dev/generator.cjs",
+      "pattern": "placeholder",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "dev/generator.py",
+      "pattern": "TODO",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "dev/generator.py",
+      "pattern": "FIXME",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "dev/generator.py",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "dev/generator.py",
+      "pattern": "placeholder",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "pattern": "placeholder",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "installer/scripts/startup/ensure-redis.cjs",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/capability-closure/src/index.js",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/meta-recovery/src/repair.ts",
+      "pattern": "not_implemented",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/meta-recovery/src/repair.ts",
+      "pattern": "placeholder",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/probability-engine/probability_engine.py",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/product-kernel/src/capability-registry.js",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/product-kernel/src/discipline/maturity.js",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/product-kernel/src/export-artifacts.js",
+      "pattern": "placeholder",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/product-kernel/src/index.js",
+      "pattern": "not_implemented",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/product-kernel/src/index.js",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/system-closure/src/cli.js",
+      "pattern": "TODO",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/system-closure/src/cli.js",
+      "pattern": "FIXME",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/system-closure/src/cli.js",
+      "pattern": "not_implemented",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/system-closure/src/cli.js",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/system-closure/src/cli.js",
+      "pattern": "placeholder",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/system-closure/src/continuous-closure-engine.js",
+      "pattern": "TODO",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/system-closure/src/continuous-closure-engine.js",
+      "pattern": "FIXME",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/system-closure/src/continuous-closure-engine.js",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/system-closure/src/final-closure.js",
+      "pattern": "TODO",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/system-closure/src/final-closure.js",
+      "pattern": "FIXME",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/system-closure/src/final-closure.js",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/system-closure/src/final-closure.js",
+      "pattern": "placeholder",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/system-closure/src/integrity-engine.js",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "packages/validation-engine/validation_engine.py",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "scripts/enterprise/generate-domain-gap-register.mjs",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "scripts/enterprise/generate-enterprise-gap-register.cjs",
+      "pattern": "not_implemented",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "scripts/enterprise/generate-enterprise-gap-register.cjs",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "scripts/foundations-audit.cjs",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "scripts/gate-scaffold.mjs",
+      "pattern": "stub_literal",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "scripts/package/final-reboot-prep.cjs",
+      "pattern": "placeholder",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "scripts/package/release-reconciliation.cjs",
+      "pattern": "placeholder",
+      "note": "Review — may be legitimate test/doc"
+    },
+    {
+      "file": "scripts/tests/cockpit-birth-e2e.cjs",
+      "pattern": "placeholder",
+      "note": "Review — may be legitimate test/doc"
+    }
+  ],
+  "note": "Review required — tests/docs may legitimately contain stubs"
+}

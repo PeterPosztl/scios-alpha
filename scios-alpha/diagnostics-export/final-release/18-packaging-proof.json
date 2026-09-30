@@ -1,0 +1,15 @@
+{
+  "at": "2026-08-12T17:14:38.329Z",
+  "setupExe": false,
+  "sciOsX10Exe": true,
+  "batLaunchers": [
+    "SCI OS ×10.bat",
+    "SCI-OS-Start.bat",
+    "SCI-OS-Safe-Mode.bat"
+  ],
+  "requiresPreinstalledNode": true,
+  "requiresPnpmForSciStart": true,
+  "userTerminalRequired": true,
+  "pass": false,
+  "blocker": "No Setup.exe / bundled runtime — normal user needs Node+pnpm/dev tree"
+}

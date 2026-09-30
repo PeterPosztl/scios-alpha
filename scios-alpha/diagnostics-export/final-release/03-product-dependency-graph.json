@@ -1,0 +1,65 @@
+{
+  "schema": "sci-os-product-dependency-graph/v1",
+  "chain": [
+    "USER",
+    "UX_HOME_SEARCH_ENTITY",
+    "ACTION",
+    "WORKFLOW_GW1",
+    "PRODUCT_KERNEL",
+    "CAPABILITY",
+    "SERVICE",
+    "DATA",
+    "RISK",
+    "GOVERNANCE",
+    "RESULT",
+    "EVIDENCE",
+    "LINEAGE"
+  ],
+  "edges": [
+    {
+      "from": "Home",
+      "to": "Search",
+      "type": "nav"
+    },
+    {
+      "from": "Search",
+      "to": "Entity360",
+      "type": "open"
+    },
+    {
+      "from": "Entity360",
+      "to": "Analyze",
+      "type": "action"
+    },
+    {
+      "from": "Analyze",
+      "to": "vertical-slice.foundation",
+      "type": "capability"
+    },
+    {
+      "from": "vertical-slice.foundation",
+      "to": "prediction",
+      "type": "stage"
+    },
+    {
+      "from": "prediction",
+      "to": "independent_risk",
+      "type": "stage"
+    },
+    {
+      "from": "independent_risk",
+      "to": "governance",
+      "type": "stage"
+    },
+    {
+      "from": "governance",
+      "to": "simulation",
+      "type": "stage"
+    },
+    {
+      "from": "simulation",
+      "to": "outcome_lineage",
+      "type": "stage"
+    }
+  ]
+}

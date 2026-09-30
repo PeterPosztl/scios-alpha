@@ -1,0 +1,65 @@
+{
+    "schema":  "sci-os-a-axis-core-stabilize/v1",
+    "at":  "2026-09-06T15:36:58.8975587Z",
+    "buildId":  "pkg_1788708637516",
+    "label":  "ALPHA_NON_PRODUCTION",
+    "axis":  "A_FIRST_RELEASE_CORE",
+    "entry":  "%LOCALAPPDATA%\\SCI OS X10\\app\\SCI-OS-X10.cmd",
+    "layout":  "app (atomic-install canonical)",
+    "target":  "CORE usable; readiness 180/180; recovery PASS; infra NOT_CONFIGURED_OPTIONAL",
+    "executed":  {
+                     "A1":  "shutdown + scoped kill + lock clear; single start from app\\SCI-OS-X10.cmd (node --serve)",
+                     "A2":  "DATABASE_URL/REDIS_URL absent in app\\config\\packaged.json (dist clean)",
+                     "A6":  "PATH prepended bundled Node 20.18.1 for build/package",
+                     "A3":  "SKIPPED — ALPHA without durable DB",
+                     "A7":  "this proof + live probes",
+                     "A5":  "recovery\\server.cjs present via package:dist bundle_recovery",
+                     "A4":  "pnpm build + package:dist + package:install buildId=pkg_1788708637516; routes present in flat app\\backend\\server.cjs"
+                 },
+    "live":  {
+                 "productReadiness":  {
+                                          "homeApi":  "200",
+                                          "productReady":  "DEGRADED",
+                                          "homeHtml":  "200",
+                                          "coreReady":  "PASS"
+                                      },
+                 "systemHealth":  {
+                                      "backend":  "READY",
+                                      "cockpit":  "READY",
+                                      "infra":  "DEGRADED",
+                                      "worker":  "READY"
+                                  },
+                 "startupReadiness":  {
+                                          "maxScore":  180,
+                                          "overall":  "DEGRADED",
+                                          "score":  180,
+                                          "blockers":  [
+
+                                                       ],
+                                          "recovery":  "PASS",
+                                          "allPass":  true
+                                      },
+                 "routes":  {
+                                "persistence":  "200 (local PASS primary; postgres BLOCKED_WITH_EXTERNAL_DEPENDENCY)",
+                                "otel":  "503 (route exists; exporter not READY — B axis)",
+                                "tls":  "503 (route exists; TLS not READY — B axis)",
+                                "product":  "200"
+                            },
+                 "instances":  {
+                                   "layout":  "app",
+                                   "cockpit":  1,
+                                   "orchestrator":  1,
+                                   "controlPlane":  1
+                               }
+             },
+    "bAxisPrep":  [
+                      "Docker Desktop UP + Linux engine pipe",
+                      "compose PG/Redis",
+                      "PG_PRIMARY + persistence postgres READY",
+                      "Valodi OIDC FD-001",
+                      "TLS READY + OTel collector :4317",
+                      "BullMQ workers",
+                      "production-gate fix + Beta then Prod"
+                  ],
+    "note":  "Root %LOCALAPPDATA%\\SCI OS X10\\SCI-OS-X10.cmd still points at flat parent — prefer app\\ entry / Start Menu shortcut after atomic-install to avoid layout drift."
+}

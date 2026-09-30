@@ -1,0 +1,55 @@
+{
+  "at": "2026-08-13T12:52:42.652Z",
+  "buildId": "crown-architecture-2026-08-13",
+  "schema": "sci-os-change-impact/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "change": {
+    "changeId": "crown-architecture-2026-08-13",
+    "description": "Crown: transactional boot, invariants, intent, trust capsule, UX kernel"
+  },
+  "blastRadius": {
+    "dependentObjects": [
+      "Action",
+      "Evidence",
+      "Workflow",
+      "Capability"
+    ],
+    "packages": [
+      "product-kernel",
+      "vertical-slice",
+      "data-fabric",
+      "control-plane-api",
+      "cockpit-ui"
+    ],
+    "providers": [
+      "in-process vertical-slice"
+    ],
+    "actions": [
+      "analyze",
+      "openLineage",
+      "approval.*"
+    ],
+    "workflows": [
+      "gw1.market_prediction_analysis"
+    ],
+    "policies": [
+      "embedded-foundation/v1"
+    ],
+    "experiences": [
+      "gw1 compile",
+      "professional L1–L9"
+    ],
+    "roles": [
+      "arch.market_analyst",
+      "seeded roles (indirect)"
+    ],
+    "releaseGates": [
+      "gap:zero",
+      "enterprise:discipline",
+      "package:prove-reboot (external)"
+    ]
+  },
+  "riskClass": "MEDIUM",
+  "requiresImpactArtifacts": true,
+  "noGoIfMissing": true
+}

@@ -1,0 +1,54 @@
+{
+  "at": "2026-08-12T19:27:02.350Z",
+  "pass": true,
+  "jobs": [
+    {
+      "jobId": "job_6f99e5e5-a540-4047-9e1d-3165d0f0a8df",
+      "type": "analysis",
+      "title": "AAPL Analysis",
+      "state": "COMPLETE",
+      "priority": "P1",
+      "stages": [],
+      "currentStage": null,
+      "result": {
+        "runId": "run_3d2ab0d0-30f2-4320-aa94-10c3188aaa75"
+      },
+      "error": null,
+      "objectId": "AAPL",
+      "createdAt": "2026-08-12T19:27:02.327Z",
+      "updatedAt": "2026-08-12T19:27:02.335Z"
+    },
+    {
+      "jobId": "job_3e62d46e-c3f7-4ed9-88f3-95f21325ec4e",
+      "type": "analysis",
+      "title": "AAPL Analysis",
+      "state": "COMPLETE",
+      "priority": "P1",
+      "stages": [],
+      "currentStage": null,
+      "result": {
+        "runId": "run_fb105d32-4192-4a04-8595-d2cc17a4c1e2"
+      },
+      "error": null,
+      "objectId": "AAPL",
+      "createdAt": "2026-08-12T19:25:17.030Z",
+      "updatedAt": "2026-08-12T19:25:17.034Z"
+    },
+    {
+      "jobId": "job_7c2aaf15-7831-43a7-8ac1-17e0baaacebc",
+      "type": "analysis",
+      "title": "AAPL Analysis",
+      "state": "COMPLETE",
+      "priority": "P1",
+      "stages": [],
+      "currentStage": null,
+      "result": {
+        "runId": "run_12804a73-aa36-4765-a3d9-79daae769bab"
+      },
+      "error": null,
+      "objectId": "AAPL",
+      "createdAt": "2026-08-12T19:24:19.848Z",
+      "updatedAt": "2026-08-12T19:24:19.856Z"
+    }
+  ]
+}

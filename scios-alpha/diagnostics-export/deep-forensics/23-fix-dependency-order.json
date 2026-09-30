@@ -1,0 +1,19 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "order": [
+    "1 Repository truth / lock integrity",
+    "2 Runtime contract (remaining @types/node P2)",
+    "3 Startup authority (cascade bat bundled node)",
+    "4 Recovery independence",
+    "5 Config/readiness (done)",
+    "6 Reproducible workspace/build:release",
+    "7 Product Kernel import or explicit DISCONNECTED freeze",
+    "8 Capability activation matrix publish",
+    "9 UX platform extract — P1 after wiring (no speculative 200 pages)",
+    "10 GW1 product E2E gate",
+    "11 Persistence honesty in UX",
+    "12 Security bind/auth visibility",
+    "13 Release certification / reboot evidence"
+  ]
+}

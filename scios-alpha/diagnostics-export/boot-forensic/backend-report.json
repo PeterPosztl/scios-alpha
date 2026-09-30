@@ -1,0 +1,10 @@
+{
+  "at": "2026-08-12T19:30:47.500Z",
+  "bootId": "8e3af5b1-882b-4fdf-ac2a-a299c28d83cf",
+  "directRequire": {
+    "status": null,
+    "signal": "SIGTERM",
+    "logTail": "{\"ts\":\"2026-08-12T19:30:44.626Z\",\"service\":\"control-plane-api\",\"level\":\"info\",\"message\":\"listening\",\"port\":3099,\"predictionUrl\":\"http://127.0.0.1:5201\",\"riskUrl\":\"http://127.0.0.1:5202\",\"execUrl\":\"http://127.0.0.1:5210\",\"canonicalFlow\":\"raw_event → normalized_event → pit_feature → baseline_prediction → calibration_uncertainty → independent_risk_gate → governance_decision → deterministic_execution → outcome → immutable_lineage → cockpit_view\"}\n",
+    "listened": true
+  }
+}

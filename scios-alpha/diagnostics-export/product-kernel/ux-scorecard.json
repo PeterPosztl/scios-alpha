@@ -1,0 +1,7 @@
+{
+  "schema": "sci-os-ux-scorecard/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "note": "Measured scores require live UX rubric — placeholder until final-closure run",
+  "target": 85,
+  "measured": null
+}

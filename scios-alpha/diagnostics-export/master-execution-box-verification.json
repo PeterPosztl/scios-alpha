@@ -1,0 +1,187 @@
+{
+  "schema": "sci-os-master-execution-box-verification/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "generatedBy": "scripts/tests/master-execution-box-verify.cjs",
+  "note": "Static source verification. PASS = anchors found in real files. Never a READY stamp.",
+  "ready": false,
+  "roles200Validated": false,
+  "composeCounts": {
+    "roles": 200,
+    "familyOverlays": 21,
+    "heroes": 200
+  },
+  "registryVerdicts": {
+    "legend": "PASS = observed in this package · UNKNOWN = not observable here, resolve via verifier",
+    "verifier": "scripts/tests/master-execution-box-verify.cjs",
+    "backend": {
+      "professionBlueprintV1": "PASS",
+      "inst200": "PASS",
+      "fam21": "PASS",
+      "familyUxV3": "PASS",
+      "heroV3": "PASS",
+      "missionPanels": "PASS",
+      "ledgerActor": "PASS",
+      "engineRoutes": {
+        "prediction": "POST /v1/ecl/engine/prediction",
+        "risk": "POST /v1/ecl/engine/risk-eval",
+        "decision": "POST /v1/ecl/engine/decision",
+        "sim": "POST /v1/ecl/engine/execution-sim",
+        "lineage": "GET /v1/ecl/engine/lineage",
+        "evidence": "GET /v1/ecl/engine/evidence",
+        "compute": "POST /v1/ecl/engine/cockpit-compute"
+      },
+      "engineRoutesWired": "UNKNOWN",
+      "dataFabricObjects": "UNKNOWN",
+      "lineageHash": "UNKNOWN",
+      "evidenceChain": "UNKNOWN"
+    },
+    "frontend": {
+      "tokens": "UNKNOWN",
+      "primitivesSci": "UNKNOWN",
+      "analyze12col": "UNKNOWN",
+      "ribbonStateMachine": "UNKNOWN",
+      "missionPanels": "UNKNOWN",
+      "truthGraph": "UNKNOWN",
+      "familyUxV3": "UNKNOWN",
+      "heroV3": "UNKNOWN",
+      "i18nHonesty": "UNKNOWN"
+    }
+  },
+  "verified": [
+    {
+      "id": "dataFabricObjects",
+      "group": "backend",
+      "verdict": "PASS",
+      "files": [
+        "packages/data-fabric/src/world-connector.ts",
+        "packages/data-fabric/src/pipeline-contracts.ts"
+      ],
+      "missing": []
+    },
+    {
+      "id": "engineRoutesWired",
+      "group": "backend",
+      "verdict": "PASS",
+      "files": [
+        "apps/control-plane-api/src/routes/engine-suite.ts"
+      ],
+      "missing": []
+    },
+    {
+      "id": "lineageHash",
+      "group": "backend",
+      "verdict": "PASS",
+      "files": [
+        "packages/data-fabric/src/world-connector.ts"
+      ],
+      "missing": []
+    },
+    {
+      "id": "evidenceChain",
+      "group": "backend",
+      "verdict": "PASS",
+      "files": [
+        "packages/data-fabric/src/world-connector.ts"
+      ],
+      "missing": []
+    },
+    {
+      "id": "tokens",
+      "group": "frontend",
+      "verdict": "PASS",
+      "files": [
+        "packages/design-system/src/tokens.css",
+        "packages/design-system/src/tokens.js"
+      ],
+      "missing": []
+    },
+    {
+      "id": "primitivesSci",
+      "group": "frontend",
+      "verdict": "PASS",
+      "files": [
+        "apps/cockpit-ui/src/components/primitives.js"
+      ],
+      "missing": []
+    },
+    {
+      "id": "analyze12col",
+      "group": "frontend",
+      "verdict": "PASS",
+      "files": [
+        "apps/cockpit-ui/src/index.js"
+      ],
+      "missing": []
+    },
+    {
+      "id": "ribbonStateMachine",
+      "group": "frontend",
+      "verdict": "PASS",
+      "files": [
+        "apps/cockpit-ui/src/index.js"
+      ],
+      "missing": []
+    },
+    {
+      "id": "missionPanels",
+      "group": "frontend",
+      "verdict": "PASS",
+      "files": [
+        "apps/cockpit-ui/src/index.js"
+      ],
+      "missing": []
+    },
+    {
+      "id": "truthGraph",
+      "group": "frontend",
+      "verdict": "PASS",
+      "files": [
+        "apps/cockpit-ui/src/hero-v3.js"
+      ],
+      "missing": []
+    },
+    {
+      "id": "familyUxV3",
+      "group": "frontend",
+      "verdict": "PASS",
+      "files": [
+        "apps/cockpit-ui/src/hero-v3.js"
+      ],
+      "missing": []
+    },
+    {
+      "id": "heroV3",
+      "group": "frontend",
+      "verdict": "PASS",
+      "files": [
+        "apps/cockpit-ui/src/hero-v3.js",
+        "apps/cockpit-ui/src/index.js"
+      ],
+      "missing": []
+    },
+    {
+      "id": "i18nHonesty",
+      "group": "frontend",
+      "verdict": "PASS",
+      "files": [
+        "apps/cockpit-ui/src/i18n.js"
+      ],
+      "missing": []
+    }
+  ],
+  "unresolved": [],
+  "flagFlips": [],
+  "literalPass": [],
+  "detectorSelfCheck": "PASS",
+  "knownGaps": [
+    {
+      "id": "ribbonLockedStateUnwired",
+      "styled": true,
+      "emitted": false,
+      "open": true,
+      "spec": "VI · ribbon status locked = GW2-7",
+      "blockedOn": "no GW2-7 to ribbon-stage mapping exists; mapping is a founder decision"
+    }
+  ],
+  "ok": true
+}

@@ -1,0 +1,31 @@
+{
+  "at": "2026-08-12T20:33:12.841Z",
+  "sequence": [
+    "INSTALL_ROOT resolved (resolve-app-root)",
+    "Golden Boot / sci-os.manifest loaded",
+    "bundled runtime verified (PACKAGED) or system Node contract-checked (DEVELOPMENT)",
+    "configuration verified (validate-config + manifest ports)",
+    "supervisor started",
+    "infrastructure functional or honest DEGRADED",
+    "Control Plane functional :3000",
+    "workers functional (embedded smoke)",
+    "Product Kernel functional (registries)",
+    "Shell functional :4000",
+    "HOME rendered"
+  ],
+  "productReadyRequires": {
+    "READY_requires": [
+      "infra.postgres HEALTHY",
+      "infra.redis HEALTHY",
+      "backend READY",
+      "worker smoke PASS",
+      "cockpit 200",
+      "startup-proof PASS",
+      "signoff PASS"
+    ],
+    "DEGRADED_allowed_when": "core backend+cockpit up; optional infra down; no risk bypass"
+  },
+  "developmentEntry": "pnpm sci:start",
+  "productionEntry": "SCI-OS-X10.cmd / SCI-OS-X10.exe → start-sci-os --packaged",
+  "recoveryEntry": "SCI-OS-Safe-Mode.bat / SCI-OS-Repair.bat"
+}

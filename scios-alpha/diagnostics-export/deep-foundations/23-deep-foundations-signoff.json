@@ -1,0 +1,69 @@
+{
+  "at": "2026-08-13T14:31:11.804Z",
+  "buildId": "foundations-2026-08-13",
+  "philosophy": "Do not predict every feature — absorb unknowns safely; detect mistakes",
+  "agentHarnessPass": true,
+  "desiredStateWired": true,
+  "noSecondBoot": true,
+  "classificationCounts": {
+    "IMPLEMENT_NOW_P1": 4,
+    "IMPLEMENT_NOW_P0": 3,
+    "LOCK_CONTRACT_NOW_IMPLEMENT_LATER": 10,
+    "DEFER_P2": 3,
+    "DEFER_P3": 1,
+    "REJECT": 3
+  },
+  "implementNowOpen": [
+    {
+      "id": "FND-EVAL-DATASET",
+      "title": "Professional deliverable evaluation dataset",
+      "class": "IMPLEMENT_NOW_P1",
+      "done": "baseline+lab exists; deepen deliverables next",
+      "laterCostIfSkipped": [
+        "silent AI regression"
+      ]
+    },
+    {
+      "id": "FND-PROVENANCE",
+      "title": "Build/release provenance manifest",
+      "class": "IMPLEMENT_NOW_P1",
+      "done": "partial snapshot",
+      "evidence": "14-build-provenance.json",
+      "laterCostIfSkipped": [
+        "deployment migration"
+      ]
+    },
+    {
+      "id": "FND-ENTROPY",
+      "title": "Architecture entropy monitor",
+      "class": "IMPLEMENT_NOW_P1",
+      "done": "lightweight metrics",
+      "laterCostIfSkipped": [
+        "duplicate authorities return"
+      ]
+    },
+    {
+      "id": "FND-PACKAGED-GW1",
+      "title": "Packaged cold-start GW1 prove (external)",
+      "class": "IMPLEMENT_NOW_P0",
+      "done": false,
+      "laterCostIfSkipped": [
+        "false first-release READY"
+      ],
+      "note": "EXTERNAL_VALIDATION — TASK-PKG-003"
+    }
+  ],
+  "contractLocked": 10,
+  "deferred": 4,
+  "rejected": 3,
+  "gapFirstRelease": "EXTERNAL_VALIDATION_ONLY",
+  "verdicts": {
+    "FOUNDATIONS_AUDIT": "COMPLETE_CLASSIFIED",
+    "DESIRED_STATE_CONTROLLER": "WIRED",
+    "UNKNOWN_UNKNOWNS": "SURFACED_NOT_ALL_FIXED",
+    "SCOPE_EXPANSION": "AVOIDED",
+    "READY": false
+  },
+  "note": "Desired-state reconcile wired into start-sci-os. Contracts locked for types/temporal/epistemic/org/provider/memory/policy. Open P0: packaged GW1 prove. Do not implement all discoveries now.",
+  "schema": "sci-os-deep-foundations-signoff/v1"
+}

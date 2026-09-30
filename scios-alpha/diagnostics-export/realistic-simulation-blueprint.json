@@ -1,0 +1,76 @@
+{
+  "schema": "sci-os-realistic-simulation-blueprint/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T18:24:30.000Z",
+  "mode": "REALISTIC_SIMULATION_SAFE",
+  "ready": false,
+  "holeless": false,
+  "autoTrade": false,
+  "enabledFull": false,
+  "monteCarlo": false,
+  "doCalculus": false,
+  "affectModel": false,
+  "simulationOnly": true,
+  "executionMode": "SIMULATION_ONLY",
+  "persisted": false,
+  "oneBoot": true,
+  "oneShell": true,
+  "unexpectedLiveFeeds": false,
+  "liveCertifiedFeeds": 0,
+  "blueprints": {
+    "safeActivation": true,
+    "enabled": false,
+    "autoApply": false,
+    "lda": { "status": "ABSENT", "autoPatch": false },
+    "knowledgeGraph": { "status": "PARTIAL", "nationalGraph": false },
+    "workflowDsl": { "status": "ABSENT", "secondEngine": false },
+    "distributedOs": { "status": "ABSENT", "kafka": "ABSENT" },
+    "shellViews": ["agent", "kg", "workflow", "dist"]
+  },
+  "realisticSim": {
+    "endpoint": "GET /v1/ecl/realistic-sim",
+    "layerMounted": true,
+    "enabledFull": false,
+    "engines": {
+      "RiskPropagationEngine": "PARTIAL",
+      "CausalGraphEngine": "PARTIAL",
+      "SSE.RealisticTimeline": "PARTIAL",
+      "EmotionalEngine.RealisticMode": "ABSENT",
+      "Reporting.RealisticPnL": "PARTIAL",
+      "Evidence.RealisticChain": "PARTIAL",
+      "Lineage.RealisticMode": "PARTIAL"
+    },
+    "live": { "riskNodes": 3, "persisted": false, "autoTrade": false }
+  },
+  "feeds": {
+    "registered": 13,
+    "mode": "SIMULATION_ONLY",
+    "starWiredTo": ["Intelligence", "CausalEngine", "SSE", "Reporting", "RiskGov"],
+    "systemHealth": "FeedHealthMonitor",
+    "liveCertified": 0,
+    "ohlc": "simulated_structure from implied yes — not a venue tape"
+  },
+  "deployment": { "registered": 28, "enabledRuntimes": false },
+  "validation": {
+    "simulationOnly": true,
+    "persistedFalseUntilLedgerReady": true,
+    "noAutoTrade": true,
+    "oneBootOneShell": true,
+    "auditIntegrity": "GET persisted=false",
+    "noUnexpectedLiveFeeds": true
+  },
+  "tests": {
+    "eclDil": { "pass": 14, "fail": 0 },
+    "cockpitUi": { "pass": 11, "fail": 0 },
+    "smokeEclDil": { "ok": true, "fails": [], "autoTrade": false }
+  },
+  "refused": {
+    "ldaRuntime": "GOVERNANCE > AGENT",
+    "sseMonteCarlo": "horizon+timeline ≠ SSE.3.x",
+    "causalDoCalculus": "typed graph ≠ CausalEngine.4.x",
+    "emotionalAffect": "UX roles ≠ affect model",
+    "liveFeeds": "SCI_DIL_FEED unset",
+    "ready": false
+  },
+  "note": "Realistic simulation of structure on the in-memory book. Not live markets. Not READY."
+}

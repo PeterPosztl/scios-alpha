@@ -1,0 +1,72 @@
+{
+  "schema": "sci-os-windows-host-baseline/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-18T18:20:00.000Z",
+  "phase": "BLUEPRINT_AUDIT_ONLY",
+  "note": "Runtime intentionally stopped after package-sync proof. Stopped runtime is not failure.",
+  "source": {
+    "gitSha": "8a0125a18bd017abaf3206f075713bccc28f01e7",
+    "checkpoint": "8a0125a1",
+    "repo": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha"
+  },
+  "package": {
+    "buildId": "pkg_1787074480539",
+    "treeHash": "e49bc30c4bbce1a57e29f4a91b14697d8ee8edcda5f84d64f21208c940ec87b5",
+    "packageHash": "6dd9ed095a2238b000e59b709e76a0689453bf8a6a6210bcb12282d811798df5",
+    "timestamp": "2026-08-18T17:34:42.182Z"
+  },
+  "install": {
+    "root": "%LOCALAPPDATA%\\SCI OS X10\\app",
+    "buildId": "pkg_1787074480539",
+    "primaryEntry": "%LOCALAPPDATA%\\SCI OS X10\\app\\SCI-OS-X10.exe",
+    "fallbackEntry": "%LOCALAPPDATA%\\SCI OS X10\\app\\SCI-OS-X10.cmd",
+    "dataDir": "%LOCALAPPDATA%\\SCI OS X10\\data",
+    "stateDir": "%LOCALAPPDATA%\\SCI OS X10\\state"
+  },
+  "runtime": {
+    "buildId": "pkg_1787074480539",
+    "bundledNode": "20.18.1",
+    "nodePath": "runtime/node/node.exe",
+    "profile": "packaged",
+    "currentlyRunning": false,
+    "stoppedReason": "clean proof shutdown after package-sync"
+  },
+  "previousValidBuild": {
+    "buildId": "pkg_1786656680759",
+    "location": "%LOCALAPPDATA%\\SCI OS X10\\app.backup.last"
+  },
+  "goldenPath": {
+    "status": "PASS",
+    "path": [
+      "Windows installed entry",
+      "bundled Node 20.18.1",
+      "Control Plane :3000",
+      "Cockpit :4000",
+      "Home",
+      "Search AAPL",
+      "Entity",
+      "Experience compile",
+      "GW1 Analyze",
+      "Uncertainty",
+      "Risk/Governance",
+      "Evidence",
+      "Lineage",
+      "clean shutdown",
+      "Recovery server present"
+    ],
+    "proof": "diagnostics-export/package-sync/golden-path-proof.json"
+  },
+  "closure": {
+    "P0": 0,
+    "P1": 91,
+    "P2": 184,
+    "P3": 46
+  },
+  "protectedInvariants": [
+    "P0 first-release baseline MUST remain 0",
+    "Do not reopen completed source/package/install synchronization",
+    "Do not rebuild or reinstall merely to begin blueprint audit",
+    "Blueprint phase does not authorize automatic Windows Host implementation"
+  ],
+  "synchronizedChain": "SOURCE = PACKAGE = INSTALL = RUNTIME = pkg_1787074480539"
+}

@@ -1,7 +1,7 @@
 {
-  "at": "2026-07-17T00:21:39.497Z",
-  "apiPort": 5200,
-  "cockpitPort": 5230,
+  "at": "2026-08-12T15:37:14.541Z",
+  "apiPort": 3000,
+  "cockpitPort": 4000,
   "backend": {
     "healthzStatus": 200,
     "healthzOk": true,
@@ -27,7 +27,7 @@
       "components": {
         "riskControl": true,
         "foundationWorker": true,
-        "database": "optional_absent",
+        "database": "configured",
         "redis": "configured",
         "oidc": "disabled_local_development",
         "otel": "local",
@@ -36,11 +36,11 @@
       "foundationWorkerDetail": {
         "name": "foundation-smoke-worker",
         "online": true,
-        "lastHeartbeatAt": "2026-07-17T00:21:34.978Z",
+        "lastHeartbeatAt": "2026-08-12T15:37:09.858Z",
         "lastJobId": null,
         "lastJobStatus": null,
         "jobsCompleted": 0,
-        "heartbeatAgeMs": 4502
+        "heartbeatAgeMs": 4671
       },
       "labels": {
         "productionClaims": false,
@@ -58,14 +58,14 @@
     "metaOsReachable": true
   },
   "database": {
-    "configured": false,
-    "ok": true,
-    "mode": "in-memory-alpha"
+    "configured": true,
+    "ok": false,
+    "mode": "external"
   },
   "redis": {
     "configured": true,
-    "ok": true,
-    "tcp": true
+    "ok": false,
+    "tcp": false
   },
   "note": "Verified rather than recreated; healthy listeners reused"
 }

@@ -1,0 +1,18 @@
+{
+  "at": "2026-08-13T13:09:39.331Z",
+  "buildId": "deep-foundations-2026-08-13",
+  "status": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+  "unify": [
+    "object context",
+    "data semantics",
+    "workflow context",
+    "role context",
+    "organization knowledge",
+    "decision memory",
+    "evidence",
+    "workspace context envelope",
+    "runtime context"
+  ],
+  "antiPattern": "One enormous prompt",
+  "current": "Workspace context envelope + AI panel PARTIAL — not unified fabric"
+}

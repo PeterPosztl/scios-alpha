@@ -1,0 +1,34 @@
+{
+  "at": "2026-08-12T19:49:42.522Z",
+  "bootId": "uu_msqi6dlm_ac8b47",
+  "expectedChain": [
+    {
+      "parent": "SCI-OS-X10.exe (pkg)",
+      "command": "runtime/node/node.exe",
+      "argv": [
+        "installer/scripts/start-sci-os.cjs",
+        "--serve",
+        "--packaged"
+      ],
+      "cwd": "installRoot",
+      "windowsHide": false,
+      "shell": false
+    },
+    {
+      "parent": "start-sci-os",
+      "command": "bundled node",
+      "argv": [
+        "backend/server.cjs"
+      ],
+      "note": "via process-supervisor"
+    },
+    {
+      "parent": "start-sci-os",
+      "command": "bundled node",
+      "argv": [
+        "cockpit server"
+      ]
+    }
+  ],
+  "quotingPolicy": "Prefer argv arrays; openHome uses cmd /c start for URL only"
+}

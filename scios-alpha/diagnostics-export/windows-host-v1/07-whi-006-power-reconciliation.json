@@ -1,0 +1,103 @@
+{
+  "schema": "sci-os-whi-006-proof/v1",
+  "status": "PASS",
+  "reconciliation": {
+    "schema": "sci-os-host-result/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "ok": true,
+    "platform": "win32",
+    "capability": "power-reconciliation",
+    "observedAt": "2026-08-18T18:53:48.753Z",
+    "source": "installer/scripts/host",
+    "mode": "SHADOW",
+    "data": {
+      "schema": "sci-os-power-reconciliation/v1",
+      "event": "RESUME",
+      "suspendAt": "2026-08-18T18:52:18.717Z",
+      "resumeAt": "2026-08-18T18:53:48.719Z",
+      "elapsedMs": 90002,
+      "twin": {
+        "schema": "sci-os-host-digital-twin/v1",
+        "desired": {
+          "controlPlane": {
+            "required": true,
+            "port": 3000
+          },
+          "cockpit": {
+            "required": true,
+            "port": 4000
+          },
+          "nodeMajor": 20,
+          "nodeMinor": 18,
+          "installRootHint": "repo-or-packaged",
+          "buildId": null
+        },
+        "actual": {
+          "platform": "win32",
+          "release": "10.0.26200",
+          "uptimeSec": 463364,
+          "hostnameHash": "b0c10e95b73f744e",
+          "buildId": "pkg_1787074480539",
+          "gitSha": "8a0125a18bd017abaf3206f075713bccc28f01e7",
+          "nodeVersion": "v20.18.1",
+          "installedRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+          "packaged": false,
+          "controlPlane": {
+            "port": 3000,
+            "healthz": 0
+          },
+          "cockpit": {
+            "port": 4000,
+            "healthz": 0
+          },
+          "lock": {
+            "present": false,
+            "stale": false
+          },
+          "diskAvailableBytes": 208600801280,
+          "memory": {
+            "total": 16883044352,
+            "free": 6162907136
+          },
+          "networkCoarse": "PRESENT",
+          "runtimeStatus": "STOPPED",
+          "expectStoppedOk": false
+        },
+        "drift": [
+          {
+            "code": "RUNTIME_STOPPED",
+            "severity": "INFO",
+            "note": "Stopped runtime is not FAIL when shutdown was intentional"
+          }
+        ],
+        "stoppedIsNotFail": true,
+        "extends": [
+          "desired-state.cjs",
+          "StartupDigitalTwin",
+          "sciSystemTwin"
+        ]
+      },
+      "resources": {
+        "overall": "HEALTHY",
+        "schedulerInputs": {
+          "canRunHeavyBackgroundWork": true,
+          "canRunNormalBackgroundWork": true,
+          "resourcePressure": false
+        }
+      },
+      "staleTimeSensitive": {
+        "marketDataFreshness": "STALE_AFTER_SUSPEND",
+        "timeouts": "REBASE_ON_WALL_CLOCK",
+        "providerSessions": "REVALIDATE",
+        "jobDeadlines": "RECOMPUTE_REMAINING",
+        "evidenceTimestamps": "WALL_CLOCK_NOT_MONOTONIC_UPTIME"
+      },
+      "realSleepResumeProof": "USER_ACTION_REQUIRED",
+      "note": "V1 uses simulated sleep; physical sleep is not auto-invoked"
+    },
+    "degraded": false,
+    "error": null,
+    "evidence": null
+  },
+  "REAL_SLEEP_RESUME_PROOF": "USER_ACTION_REQUIRED"
+}

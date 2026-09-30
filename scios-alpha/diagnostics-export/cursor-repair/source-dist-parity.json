@@ -1,0 +1,82 @@
+{
+  "schema": "sci-os-source-dist-parity/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T10:01:09.601Z",
+  "buildId": "pkg_1790762466624",
+  "gitSha": "46b03f18b40cca539e8b581e57db407f505d1b6b",
+  "sourceRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+  "distRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10",
+  "files": [
+    {
+      "source": "installer/scripts/start-sci-os.cjs",
+      "dist": "installer/scripts/start-sci-os.cjs",
+      "sourceSha256": "8d044fc2480fbffc2aa1e18f490a7ede0da36f824884a9200892efc0ba805a6d",
+      "distSha256": "8d044fc2480fbffc2aa1e18f490a7ede0da36f824884a9200892efc0ba805a6d",
+      "match": true,
+      "note": null
+    },
+    {
+      "source": "installer/scripts/startup/resolve-runtime-entries.cjs",
+      "dist": "installer/scripts/startup/resolve-runtime-entries.cjs",
+      "sourceSha256": "c17e146eb3df7febcfc477e7063fa6ead37eefda63892454480dd0162a8c8751",
+      "distSha256": "c17e146eb3df7febcfc477e7063fa6ead37eefda63892454480dd0162a8c8751",
+      "match": true,
+      "note": null
+    },
+    {
+      "source": "installer/scripts/startup/resolve-app-root.cjs",
+      "dist": "installer/scripts/startup/resolve-app-root.cjs",
+      "sourceSha256": "36229a7127591626fb4422969ca24ec4b4a90c92ca6a13b58b732693d3d5c4a9",
+      "distSha256": "36229a7127591626fb4422969ca24ec4b4a90c92ca6a13b58b732693d3d5c4a9",
+      "match": true,
+      "note": null
+    },
+    {
+      "source": "installer/scripts/startup/resolve-node-runtime.cjs",
+      "dist": "installer/scripts/startup/resolve-node-runtime.cjs",
+      "sourceSha256": "57e9eddf98062e3117b4d5749e07d431ea198f39d9bb68aa8e5ff4cb1b07c8ae",
+      "distSha256": "57e9eddf98062e3117b4d5749e07d431ea198f39d9bb68aa8e5ff4cb1b07c8ae",
+      "match": true,
+      "note": null
+    },
+    {
+      "source": "installer/scripts/startup/transactional-boot.cjs",
+      "dist": "installer/scripts/startup/transactional-boot.cjs",
+      "sourceSha256": "7cbd022fcf278346b719cd9473e58d374529f4009e162b773db040ed43e3aa4b",
+      "distSha256": "7cbd022fcf278346b719cd9473e58d374529f4009e162b773db040ed43e3aa4b",
+      "match": true,
+      "note": null
+    },
+    {
+      "source": "installer/scripts/startup/desired-state.cjs",
+      "dist": "installer/scripts/startup/desired-state.cjs",
+      "sourceSha256": "ce00b97ecde915fdf4a5f86ae45bf7279b0165cd0c9f2e11e09c40933ee70fbf",
+      "distSha256": "ce00b97ecde915fdf4a5f86ae45bf7279b0165cd0c9f2e11e09c40933ee70fbf",
+      "match": true,
+      "note": null
+    },
+    {
+      "source": "apps/cockpit-ui/src/index.js",
+      "dist": "cockpit/index.mjs",
+      "sourceSha256": "b6dc42783765cacd5ac64d1ab29156ef63e99fef8b23828a4a06290c7af5d026",
+      "distSha256": "52ce596c90b300cd182c0496c2bd14512bbdabab024735fbd4a5f2093c96d3b3",
+      "match": true,
+      "note": "cockpit_esbuild_bundle"
+    },
+    {
+      "source": "sci-os.manifest.json",
+      "dist": "sci-os.manifest.json",
+      "sourceSha256": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701",
+      "distSha256": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701",
+      "match": true,
+      "note": null
+    }
+  ],
+  "artifacts": {
+    "backend": "eb2288e66fe84218f3d2a07adb0ae61e45ea1eca11629d3932f636ea75255c68",
+    "cockpit": "52ce596c90b300cd182c0496c2bd14512bbdabab024735fbd4a5f2093c96d3b3",
+    "recovery": "79558d02b335bb2aaf0417d627a91137c12f47439aa551f9c69c594a8ef315db",
+    "node": "06c1dec1b428927d6ff01c8f5882f119ec13b61ac77483760aa7fba215c72cf5"
+  },
+  "ok": true
+}

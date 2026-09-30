@@ -8,6 +8,7 @@
       ],
       "attemptedSafeRemediations": [
         "recipe.accept_alpha_no_db",
+        "recipe.start_control_plane",
         "recipe.document_missing_electron",
         "recipe.document_missing_workers"
       ],
@@ -24,6 +25,7 @@
       ],
       "attemptedSafeRemediations": [
         "recipe.accept_alpha_no_db",
+        "recipe.start_control_plane",
         "recipe.document_missing_electron",
         "recipe.document_missing_workers"
       ],
@@ -40,6 +42,7 @@
       ],
       "attemptedSafeRemediations": [
         "recipe.accept_alpha_no_db",
+        "recipe.start_control_plane",
         "recipe.document_missing_electron",
         "recipe.document_missing_workers"
       ],

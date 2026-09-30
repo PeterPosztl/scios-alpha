@@ -1,0 +1,270 @@
+{
+  "at": "2026-08-12T19:30:50.648Z",
+  "bootId": "8e3af5b1-882b-4fdf-ac2a-a299c28d83cf",
+  "chain": [
+    "SCI-OS-X10.exe",
+    "launcher-entry / CMD",
+    "bundled runtime/node/node.exe",
+    "installer/scripts/start-sci-os.cjs --serve --packaged",
+    "supervisor",
+    "backend/server.cjs",
+    "cockpit/index.mjs",
+    "readyz",
+    "HOME (browser)"
+  ],
+  "timeline": [
+    {
+      "tMs": 0,
+      "event": "boot_forensic_start",
+      "bootId": "8e3af5b1-882b-4fdf-ac2a-a299c28d83cf"
+    },
+    {
+      "tMs": 6273,
+      "event": "stopped_prior_stack"
+    },
+    {
+      "tMs": 6274,
+      "event": "preflight",
+      "preflight": {
+        "bootId": "8e3af5b1-882b-4fdf-ac2a-a299c28d83cf",
+        "distExists": true,
+        "nodeExists": true,
+        "startExists": true,
+        "exeExists": true,
+        "cmdExists": true,
+        "backendExists": true,
+        "cockpitExists": true,
+        "manifestExists": true,
+        "configExists": true
+      }
+    },
+    {
+      "tMs": 7570,
+      "event": "direct_backend_probe_start"
+    },
+    {
+      "tMs": 10594,
+      "event": "direct_backend_probe_done"
+    },
+    {
+      "tMs": 10598,
+      "event": "packaged_start_spawn",
+      "cwd": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\boot-forensic-cwd"
+    },
+    {
+      "tMs": 10609,
+      "event": "packaged_start_pid",
+      "pid": 17840,
+      "nodeExecutable": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10\\runtime\\node\\node.exe"
+    },
+    {
+      "tMs": 13728,
+      "event": "services_ready",
+      "ready": {
+        "ok": true,
+        "healthz": {
+          "status": 200,
+          "body": {
+            "ok": true,
+            "service": "@scios/control-plane-api",
+            "models": 0,
+            "verticalSlice": true,
+            "profile": "packaged"
+          }
+        },
+        "readyz": {
+          "status": 200,
+          "body": {
+            "ready": true,
+            "live": true,
+            "profile": "packaged",
+            "executionMode": "SIMULATION_ONLY",
+            "authMode": "local-packaged",
+            "telemetryMode": "local",
+            "governanceMode": "embedded-foundation",
+            "riskControl": true,
+            "foundationWorker": true,
+            "components": {
+              "riskControl": true,
+              "foundationWorker": true,
+              "database": "optional_absent",
+              "redis": "optional_absent",
+              "oidc": "disabled_local_development",
+              "otel": "local",
+              "hsm": "simulation_local_key_provider"
+            },
+            "foundationWorkerDetail": {
+              "name": "foundation-smoke-worker",
+              "online": true,
+              "lastHeartbeatAt": "2026-08-12T19:30:49.397Z",
+              "lastJobId": null,
+              "lastJobStatus": null,
+              "jobsCompleted": 0,
+              "heartbeatAgeMs": 1232
+            },
+            "labels": {
+              "productionClaims": false,
+              "simulationOnly": true
+            }
+          }
+        },
+        "cockpit": {
+          "status": 200,
+          "body": {
+            "ok": true,
+            "service": "@scios/cockpit-ui",
+            "controlUrl": "http://127.0.0.1:3000",
+            "ux": "3.0-home",
+            "views": [
+              "home",
+              "search",
+              "entity360",
+              "analyze",
+              "evidence",
+              "engineering"
+            ]
+          }
+        },
+        "atMs": 13728
+      }
+    },
+    {
+      "tMs": 13735,
+      "event": "home_shell_probe",
+      "homeOk": true,
+      "shellHealth": {
+        "status": 200,
+        "body": {
+          "ok": true,
+          "service": "@scios/cockpit-ui",
+          "controlUrl": "http://127.0.0.1:3000",
+          "ux": "3.0-home",
+          "views": [
+            "home",
+            "search",
+            "entity360",
+            "analyze",
+            "evidence",
+            "engineering"
+          ]
+        }
+      }
+    }
+  ],
+  "preflight": {
+    "bootId": "8e3af5b1-882b-4fdf-ac2a-a299c28d83cf",
+    "distExists": true,
+    "nodeExists": true,
+    "startExists": true,
+    "exeExists": true,
+    "cmdExists": true,
+    "backendExists": true,
+    "cockpitExists": true,
+    "manifestExists": true,
+    "configExists": true
+  },
+  "ready": {
+    "ok": true,
+    "healthz": {
+      "status": 200,
+      "body": {
+        "ok": true,
+        "service": "@scios/control-plane-api",
+        "models": 0,
+        "verticalSlice": true,
+        "profile": "packaged"
+      }
+    },
+    "readyz": {
+      "status": 200,
+      "body": {
+        "ready": true,
+        "live": true,
+        "profile": "packaged",
+        "executionMode": "SIMULATION_ONLY",
+        "authMode": "local-packaged",
+        "telemetryMode": "local",
+        "governanceMode": "embedded-foundation",
+        "riskControl": true,
+        "foundationWorker": true,
+        "components": {
+          "riskControl": true,
+          "foundationWorker": true,
+          "database": "optional_absent",
+          "redis": "optional_absent",
+          "oidc": "disabled_local_development",
+          "otel": "local",
+          "hsm": "simulation_local_key_provider"
+        },
+        "foundationWorkerDetail": {
+          "name": "foundation-smoke-worker",
+          "online": true,
+          "lastHeartbeatAt": "2026-08-12T19:30:49.397Z",
+          "lastJobId": null,
+          "lastJobStatus": null,
+          "jobsCompleted": 0,
+          "heartbeatAgeMs": 1232
+        },
+        "labels": {
+          "productionClaims": false,
+          "simulationOnly": true
+        }
+      }
+    },
+    "cockpit": {
+      "status": 200,
+      "body": {
+        "ok": true,
+        "service": "@scios/cockpit-ui",
+        "controlUrl": "http://127.0.0.1:3000",
+        "ux": "3.0-home",
+        "views": [
+          "home",
+          "search",
+          "entity360",
+          "analyze",
+          "evidence",
+          "engineering"
+        ]
+      }
+    },
+    "atMs": 13728
+  },
+  "startLogTail": "{\n  \"correlationId\": \"dbeb1fb3-491f-43ee-bab5-4735d08329e7\",\n  \"mode\": \"normal\",\n  \"verdict\": \"DEGRADED\",\n  \"nextAction\": \"Core cockpit usable; optional PG/Redis/Electron/Docker limited — see warnings\",\n  \"cockpit\": \"http://127.0.0.1:4000/\",\n  \"diagnostics\": \"C:\\\\Users\\\\peter\\\\Desktop\\\\SCI\\\\scios-alpha\\\\dist\\\\SCI-OS-X10\\\\diagnostics-export\\\\startup-report.json\",\n  \"supportBundle\": null,\n  \"blockers\": [],\n  \"warnings\": [\n    \"default.yaml missing\",\n    \"DATABASE_URL not set — ALPHA in-process mode (no durable DB)\",\n    \"REDIS_URL not set — queue workers disabled\",\n    \"Docker: CLI_MISSING\"\n  ]\n}\n",
+  "foreignCwdLaunch": true,
+  "nodeUsed": "C:/Users/peter/Desktop/SCI/scios-alpha/dist/SCI-OS-X10/runtime/node/node.exe",
+  "postFix": {
+    "at": "2026-08-12T19:34:24.351Z",
+    "bootId": "d15e661c-73fb-4786-9c84-b0ac73a8675d",
+    "launch1": {
+      "pid": 20468,
+      "node": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10\\runtime\\node\\node.exe",
+      "args": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10\\installer\\scripts\\start-sci-os.cjs",
+        "--serve",
+        "--packaged"
+      ]
+    },
+    "ready1": true,
+    "gw1": {
+      "pass": true,
+      "runId": "run_277e87fc-2976-4ea3-853e-81291f8e13f3",
+      "shell": {
+        "ok": true,
+        "service": "@scios/cockpit-ui",
+        "controlUrl": "http://127.0.0.1:3000",
+        "ux": "3.0-home",
+        "views": [
+          "home",
+          "search",
+          "entity360",
+          "analyze",
+          "evidence",
+          "engineering"
+        ]
+      }
+    },
+    "nodeUsed": "C:/Users/peter/Desktop/SCI/scios-alpha/dist/SCI-OS-X10/runtime/node/node.exe",
+    "foreignCwd": "C:/Users/peter/Desktop/SCI/scios-alpha/dist/boot-prove-cwd"
+  }
+}

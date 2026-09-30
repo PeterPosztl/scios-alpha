@@ -1,0 +1,65 @@
+{
+  "at": "2026-08-13T13:00:00.000Z",
+  "schema": "sci-os-current-evidence-index/v1",
+  "buildId": "ux-dna-2026-08-13",
+  "pillars": {
+    "founderBlueprint": "docs/enterprise/FOUNDER_BLUEPRINT.md",
+    "benchmarkContract": "docs/enterprise/BENCHMARK_CONTRACT.md",
+    "currentSystemTruth": "docs/enterprise/CURRENT_SYSTEM_TRUTH.md",
+    "currentEvidence": "docs/enterprise/CURRENT_EVIDENCE.md",
+    "index": "docs/enterprise/FOUR_PILLARS.md",
+    "enterpriseDiscipline": "docs/enterprise/ENTERPRISE_OPERATING_DISCIPLINE.md",
+    "crownArchitecture": "docs/enterprise/CROWN_ARCHITECTURE.md",
+    "productMemory": "product-memory/",
+    "designConstitution": "docs/ux/SCI_DESIGN_CONSTITUTION.md"
+  },
+  "current": [
+    {
+      "id": "ux-dna",
+      "path": "diagnostics-export/ux-dna/",
+      "class": "CURRENT_BUILD"
+    },
+    {
+      "id": "crown-architecture",
+      "path": "diagnostics-export/crown-architecture/",
+      "class": "CURRENT_BUILD"
+    },
+    {
+      "id": "enterprise-discipline",
+      "path": "diagnostics-export/enterprise-discipline/",
+      "class": "CURRENT_BUILD"
+    },
+    {
+      "id": "gap-to-zero",
+      "path": "diagnostics-export/gap-to-zero/",
+      "class": "CURRENT_BUILD"
+    },
+    {
+      "id": "integrity",
+      "path": "diagnostics-export/integrity/",
+      "class": "CURRENT_BUILD"
+    },
+    {
+      "id": "deep-forensics",
+      "path": "diagnostics-export/deep-forensics/",
+      "class": "CURRENT_BUILD"
+    },
+    {
+      "id": "truth-reconciliation",
+      "path": "diagnostics-export/truth-reconciliation/",
+      "class": "CURRENT_BUILD"
+    },
+    {
+      "id": "reboot-boot-differential",
+      "path": "diagnostics-export/reboot-certification/02-post-reboot-system-proof.json",
+      "class": "CURRENT_BUILD"
+    }
+  ],
+  "historical": [
+    {
+      "path": "%LOCALAPPDATA% dist-rooted startup-report",
+      "class": "STALE_FOR_CURRENT_GATE"
+    }
+  ],
+  "signoffPointer": "diagnostics-export/crown-architecture/17-crown-architecture-signoff.json"
+}

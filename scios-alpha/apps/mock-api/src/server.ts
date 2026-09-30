@@ -8,6 +8,7 @@ import { verticalSliceRouter } from "./routes/verticalSlice.js";
 import { systemRouter } from "./routes/system.js";
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 5230;
+const BIND = process.env.SCIOS_BIND ?? "127.0.0.1";
 
 function sendJson(res: ServerResponse, status: number, body: unknown): void {
   res.writeHead(status, {
@@ -70,7 +71,7 @@ const server = createServer((req, res) => {
   });
 });
 
-server.listen(PORT, "0.0.0.0", () => {
+server.listen(PORT, BIND, () => {
   console.log(
     JSON.stringify({
       ts: new Date().toISOString(),

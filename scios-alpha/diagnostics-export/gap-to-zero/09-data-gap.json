@@ -1,0 +1,17 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "gaps": [
+    {
+      "id": "DURABLE_LINEAGE",
+      "severity": "P2",
+      "state": "LOCAL_FILE_DURABLE",
+      "note": "Enterprise PG durable lineage remains post-first-release"
+    },
+    {
+      "id": "WORKSPACE_PERSIST",
+      "severity": "P2",
+      "state": "LOCALSTORAGE_SESSION"
+    }
+  ]
+}

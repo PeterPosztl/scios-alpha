@@ -1,0 +1,20 @@
+{
+  "schema": "sci-os-collaboration-primitives/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "status": "DEFER_P2",
+  "primitives": [
+    "ownership",
+    "assignment",
+    "handoff",
+    "review",
+    "approval",
+    "watching",
+    "escalation"
+  ],
+  "current": {
+    "approval": "PARTIAL GW1 human approval card",
+    "others": "ABSENT"
+  },
+  "doNotBuild": ["chat social feed", "presence theater"],
+  "dependsOn": ["org-actor-model"]
+}

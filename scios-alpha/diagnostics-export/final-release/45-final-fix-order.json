@@ -1,0 +1,81 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "sequence": [
+    {
+      "step": 1,
+      "fix": "ERR-PKG-001 Produce Setup.exe / SCI-OS-X10.exe with bundled Node + assets",
+      "unblocks": [
+        "ERR-LAUNCH-001",
+        "ERR-REBOOT-001",
+        "clean_install",
+        "first_launch_dry_run"
+      ]
+    },
+    {
+      "step": 2,
+      "fix": "ERR-LAUNCH-001 Point shortcut at packaged supervisor (no pnpm)",
+      "unblocks": [
+        "user_first_launch",
+        "GW1_from_icon"
+      ]
+    },
+    {
+      "step": 3,
+      "fix": "Certify clean install → GW1 → shutdown → second start",
+      "unblocks": [
+        "RC READY path"
+      ]
+    },
+    {
+      "step": 4,
+      "fix": "ERR-REBOOT-001 Windows reboot certification",
+      "unblocks": [
+        "reboot_proof"
+      ]
+    },
+    {
+      "step": 5,
+      "fix": "ERR-REC-001 Fault-injection matrix (no false READY)",
+      "unblocks": [
+        "recovery_signoff"
+      ]
+    },
+    {
+      "step": 6,
+      "fix": "ERR-AUTH-001 / harden localhost profile for shared machines",
+      "unblocks": [
+        "serious_alpha_multiuser"
+      ]
+    },
+    {
+      "step": 7,
+      "fix": "ERR-CFG-001 Unified EffectiveConfig",
+      "unblocks": [
+        "config_divergence_class"
+      ]
+    },
+    {
+      "step": 8,
+      "fix": "ERR-UX-002 EntityGraph/Timeline",
+      "unblocks": [
+        "gw2",
+        "gw3",
+        "gw4"
+      ]
+    },
+    {
+      "step": 9,
+      "fix": "ERR-SCI-001 Calibration evidence",
+      "unblocks": [
+        "calibrated_claims"
+      ]
+    },
+    {
+      "step": 10,
+      "fix": "ERR-ROLE-001 Compose additional golden workflows",
+      "unblocks": [
+        "role_coverage"
+      ]
+    }
+  ]
+}

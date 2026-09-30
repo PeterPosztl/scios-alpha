@@ -2,13 +2,13 @@
   "ok": true,
   "status": 200,
   "body": {
-    "jobId": "smoke_1784247699501",
+    "jobId": "smoke_1786549034546",
     "status": "completed",
     "acknowledged": true,
     "persisted": true,
     "duplicate": false,
     "worker": "foundation-smoke-worker",
-    "at": "2026-07-17T00:21:39.501Z"
+    "at": "2026-08-12T15:37:14.546Z"
   },
   "evidence": "POST /v1/foundation/worker-smoke"
 }

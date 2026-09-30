@@ -1,20 +1,50 @@
 {
   "schema": "sci-os-current-root-causes/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-08-29T19:10:00.000Z",
-  "closureRunId": "closure_post_b005_install",
+  "at": "2026-08-29T21:54:28.374Z",
+  "closureRunId": "closure_post_b010_install",
   "P0": 0,
   "P1": 92,
   "P2": 184,
   "P3": 46,
   "ROOT_CAUSES": 322,
+  "persistenceBeta": {
+    "status": "ADAPTER_IMPLEMENTED",
+    "local": "PASS",
+    "postgres": "BLOCKED_WITH_EXTERNAL_DEPENDENCY",
+    "wave": "B-010",
+    "healthEndpoint": "GET /v1/persistence/health",
+    "proof": "diagnostics-export/completion-program/b-010/11-final-gate.json"
+  },
+  "experienceCompiler": {
+    "status": "RUNTIME_MOUNTED",
+    "pipeline": "PRESENT",
+    "wave": "B-008",
+    "proof": "diagnostics-export/completion-program/b-008/11-final-gate.json"
+  },
+  "backgroundJobSystem": {
+    "status": "RUNTIME_MOUNTED",
+    "lifecycle": "sci-os-job-lifecycle/v1",
+    "wave": "B-009",
+    "proof": "diagnostics-export/completion-program/b-009/11-final-gate.json"
+  },
+  "p1Audit": {
+    "rawRegisterCount": 92,
+    "engineeringOpen": 0,
+    "engineeringClosed": 4,
+    "obsoleteClosed": 14,
+    "documentedNonEngineering": 74,
+    "proof": "diagnostics-export/completion-program/master/03-p1-root-closure.json"
+  },
   "closedThisWave": [
-    "UX.professional-cockpit"
+    "PERSISTENCE.PG_ADAPTER",
+    "PERSISTENCE.MIGRATIONS",
+    "PERSISTENCE.HEALTH_ENDPOINT"
   ],
   "alphaBlockers": [],
   "betaBlockers": [
-    "PERSISTENCE.PG_DEFERRED_FD002",
-    "P1.root_closure"
+    "PERSISTENCE.PG_EXTERNAL_INSTANCE_FD002",
+    "FD-001 OIDC provider selection"
   ],
   "productionBlockers": [
     "FD-001 OIDC provider selection",
@@ -26,8 +56,15 @@
     "300+ capability scale-out"
   ],
   "nextBetaRoots": [
-    "PERSISTENCE.PG_DEFERRED_FD002",
-    "P1.root_closure"
+    "FD-001 OIDC provider selection",
+    "PERSISTENCE.PG_EXTERNAL_INSTANCE_FD002"
   ],
-  "p1TargetForBeta": 20
+  "p1TargetForBeta": 20,
+  "p1EngineeringOpen": 0,
+  "founderVisionGate": {
+    "status": "FOUNDER_VISION_GATE_COMPLETE",
+    "programComplete": true,
+    "proof": "diagnostics-export/completion-program/final/11-founder-vision-gate.json",
+    "completionStatus": "diagnostics-export/completion-program/final/SCI_OS_X10_FINAL_COMPLETION_STATUS.json"
+  }
 }

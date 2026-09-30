@@ -1,0 +1,60 @@
+{
+  "$schema": "./schemas/golden-boot-manifest.schema.json",
+  "version": "0.1.0",
+  "buildSHA": "c226d7489cf7f445f226930de752e382361021fd",
+  "gitSha": "c226d7489cf7f445f226930de752e382361021fd",
+  "runtimeProfile": "local-foundation",
+  "applicationVersion": "0.1.0-alpha",
+  "canonicalBootstrap": "installer/scripts/bootstrap-capsule.cjs",
+  "canonicalOrchestrator": "installer/scripts/start-sci-os.cjs",
+  "services": [
+    {
+      "name": "backend",
+      "entry": "apps/control-plane-api/src/server.ts",
+      "args": [],
+      "healthEndpoint": "http://127.0.0.1:3000/healthz",
+      "readyEndpoint": "http://127.0.0.1:3000/readyz",
+      "expectedStatus": "READY",
+      "spawnedBy": "start-sci-os.cjs"
+    },
+    {
+      "name": "worker",
+      "entry": "embedded-foundation-worker",
+      "args": [],
+      "healthEndpoint": "http://127.0.0.1:3000/v1/foundation/worker-smoke",
+      "expectedStatus": "READY",
+      "spawnedBy": "control-plane-api (in-process)"
+    },
+    {
+      "name": "cockpit",
+      "entry": "apps/cockpit-ui/src/index.js",
+      "args": [],
+      "healthEndpoint": "http://127.0.0.1:4000/healthz",
+      "expectedStatus": "READY",
+      "spawnedBy": "start-sci-os.cjs"
+    }
+  ],
+  "ports": {
+    "backend": 3000,
+    "cockpit": 4000,
+    "recoveryShell": 5299,
+    "postgres": 5432,
+    "redis": 6379
+  },
+  "healthChecks": [
+    "http://127.0.0.1:3000/healthz",
+    "http://127.0.0.1:3000/readyz",
+    "http://127.0.0.1:4000/healthz"
+  ],
+  "acceptance": {
+    "autonomousStartupRequires": [
+      "two_consecutive_clean_one_click_startups",
+      "worker_smoke_pass",
+      "readiness_check",
+      "orderly_shutdown"
+    ]
+  },
+  "fileHashes": {},
+  "note": "ALPHA_NON_PRODUCTION. Aligns with sci-os.manifest.json. Do not spawn a second orchestrator — capsule delegates to canonical bootstrap.",
+  "certifiedAt": "2026-08-12T17:14:38.329Z"
+}

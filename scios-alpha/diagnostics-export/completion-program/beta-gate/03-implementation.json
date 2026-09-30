@@ -1,0 +1,14 @@
+{
+  "at": "2026-09-30T10:08:37.864Z",
+  "dataRoot": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\data",
+  "endpoints": [
+    "GET /v1/persistence/health",
+    "POST /v1/slice/run",
+    "POST /v1/os/jobs",
+    "GET /v1/jobs/health",
+    "POST /v1/os/job-engine/reconcile-stale"
+  ],
+  "pgStatus": "BLOCKED_WITH_EXTERNAL_DEPENDENCY",
+  "authMode": "local-development",
+  "oidcConfigured": false
+}

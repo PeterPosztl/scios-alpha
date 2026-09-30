@@ -1,0 +1,26 @@
+{
+  "at": "2026-09-30T09:59:43.620Z",
+  "checks": [
+    {
+      "id": "swallowed_catch_absent",
+      "ok": true
+    },
+    {
+      "id": "shell_true_absent_inventory",
+      "ok": true
+    },
+    {
+      "id": "pdr_package_export",
+      "ok": true
+    },
+    {
+      "id": "ghost_readme_only_ok",
+      "ok": true
+    },
+    {
+      "id": "detached_harness_skip",
+      "ok": true
+    }
+  ],
+  "ok": true
+}

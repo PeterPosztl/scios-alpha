@@ -1,0 +1,11 @@
+{
+  "at": "2026-08-12T19:34:20.166Z",
+  "bootId": "d15e661c-73fb-4786-9c84-b0ac73a8675d",
+  "primaryFixed": "SHELL_HANDOFF_NEVER_OPENS_WHILE_SERVE",
+  "changes": [
+    "scripts/package/launcher-entry.cjs — poll readyz/healthz then open Home while serve stays alive",
+    "SCI OS X10.cmd — remove --no-open; start-sci-os opens browser on READY",
+    "start-sci-os.cjs — record shell_handoff in recoveryAttempts"
+  ],
+  "handoffFixed": true
+}

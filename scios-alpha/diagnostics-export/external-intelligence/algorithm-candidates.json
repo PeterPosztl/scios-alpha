@@ -1,0 +1,29 @@
+{
+  "schema": "sci-os-algorithm-candidates/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "candidates": [
+    {
+      "id": "alg.platt_scaling",
+      "claim": "Improve probability calibration",
+      "domain": "prediction",
+      "applicability": "HIGH",
+      "decision": "REPRODUCE_LATER",
+      "note": "Do not mark CALIBRATED until benchmark vs baseline"
+    },
+    {
+      "id": "alg.conformal_prediction",
+      "claim": "Distribution-free prediction intervals",
+      "domain": "uncertainty",
+      "applicability": "HIGH",
+      "decision": "RESEARCH",
+      "note": "Requires dataset + reproducibility check"
+    },
+    {
+      "id": "alg.entity_resolution_pairwise",
+      "claim": "Resolve duplicate entities",
+      "domain": "entity",
+      "applicability": "MEDIUM",
+      "decision": "DEFER"
+    }
+  ]
+}

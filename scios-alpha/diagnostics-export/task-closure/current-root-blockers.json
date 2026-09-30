@@ -1,0 +1,24 @@
+{
+  "at": "2026-08-12T21:32:30.000Z",
+  "queue": [
+    {
+      "order": "P0-1",
+      "taskId": "TASK-PKG-003",
+      "status": "OPEN",
+      "title": "ERR-REBOOT-001 Windows reboot acceptance",
+      "humanAction": "Detector audit: HOST_BOOT_IDENTITY_UNCHANGED (tool correct). Fast Startup HiberbootEnabled=1; no post-13:00 restart markers. When ready: Start→Restart, confirm boot time changes, then LOCALAPPDATA SCI-OS-X10.cmd → HOME+GW1 → REBOOT-CERTIFY-AFTER → pnpm package:prove-reboot.",
+      "evidence": [
+        "diagnostics-export/reboot-certification/09-final-reboot-certification.json",
+        "diagnostics-export/reboot-certification/11-reboot-detector-audit.json"
+      ]
+    },
+    {
+      "order": "P1-2",
+      "taskId": "TASK-SEC-001",
+      "status": "EXTERNAL_BLOCKER",
+      "title": "Code signing for Setup.exe / EXE",
+      "humanAction": "Signing infrastructure not available in this environment — do not fabricate signatures."
+    }
+  ],
+  "note": "Only external/human or failed internal remain — no parallel queues"
+}

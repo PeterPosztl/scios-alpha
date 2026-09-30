@@ -1,235 +1,38 @@
 {
-  "at": "2026-08-04T16:33:31.017Z",
+  "timestamp": "2026-08-12T15:38:47.370Z",
+  "gitSHA": "c226d7489cf7f445f226930de752e382361021fd",
   "gate": "p0-startup-acceptance",
   "profile": "local-foundation",
-  "verdict": "PASS",
-  "scorecard": "180/180",
-  "earned": 180,
-  "max": 180,
-  "criteria": [
-    {
-      "id": "clean_state",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "stopExit=0 api=0 cockpit=0"
-    },
-    {
-      "id": "one_click_entry_exists",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "SCI OS ×10.bat"
-    },
-    {
-      "id": "first_one_click_start",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "exit=0"
-    },
-    {
-      "id": "infra_policy",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "optional local-foundation docker=false redisPing=n/a"
-    },
-    {
-      "id": "migration_ok",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "NOT_APPLICABLE"
-    },
-    {
-      "id": "backend_health",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "status=200"
-    },
-    {
-      "id": "backend_readyz",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "status=200 ready=true"
-    },
-    {
-      "id": "worker_smoke",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "status=200 job=smoke_1785861191321"
-    },
-    {
-      "id": "cockpit_health",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "status=200"
-    },
-    {
-      "id": "cockpit_html",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "status=200"
-    },
-    {
-      "id": "readiness_snapshot_ready",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "READY"
-    },
-    {
-      "id": "startup_proof_written",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\startup-proof.json"
-    },
-    {
-      "id": "shutdown_api_down",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "status=0 stopExit=0"
-    },
-    {
-      "id": "shutdown_cockpit_down",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "status=0"
-    },
-    {
-      "id": "second_one_click_start",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "exit=0"
-    },
-    {
-      "id": "second_backend_ready",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "healthz=200 readyz=200"
-    },
-    {
-      "id": "second_cockpit_200",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "healthz=200 html=200"
-    },
-    {
-      "id": "p0_signoff_pass",
-      "pass": true,
-      "points": 10,
-      "max": 10,
-      "detail": "all prior criteria pass"
-    }
-  ],
-  "artifacts": {
-    "startupProof": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\startup-proof.json",
-    "signoff": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\p0-startup-signoff.json",
-    "scorecard": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\p0-startup-scorecard.json"
+  "verdict": "DEGRADED_PASS",
+  "label": "ALPHA_NON_PRODUCTION",
+  "system": {
+    "startupProof": true,
+    "verticalSlice": true,
+    "cockpit": true
   },
-  "oneClick": "SCI OS ×10.bat",
-  "orchestrator": "installer/scripts/start-sci-os.cjs",
-  "firstStartExit": 0,
-  "secondStartExit": 0,
-  "readinessSnapshot": {
-    "at": "2026-08-04T16:33:11.324Z",
-    "backend": "READY",
-    "worker": "READY",
-    "cockpit": "READY",
-    "infra": "READY",
-    "migration": "READY",
-    "overall": "READY",
-    "details": {
-      "healthz": {
-        "status": 200,
-        "body": {
-          "ok": true,
-          "service": "@scios/control-plane-api",
-          "models": 0,
-          "verticalSlice": true,
-          "profile": "local-foundation"
-        }
-      },
-      "readyz": {
-        "status": 200,
-        "body": {
-          "ready": true,
-          "live": true,
-          "profile": "local-foundation",
-          "executionMode": "SIMULATION_ONLY",
-          "authMode": "local-development",
-          "telemetryMode": "local",
-          "governanceMode": "embedded-foundation",
-          "riskControl": true,
-          "foundationWorker": true,
-          "components": {
-            "riskControl": true,
-            "foundationWorker": true,
-            "database": "optional_absent",
-            "redis": "optional_absent",
-            "oidc": "disabled_local_development",
-            "otel": "local",
-            "hsm": "simulation_local_key_provider"
-          },
-          "foundationWorkerDetail": {
-            "name": "foundation-smoke-worker",
-            "online": true,
-            "lastHeartbeatAt": "2026-08-04T16:33:09.769Z",
-            "lastJobId": null,
-            "lastJobStatus": null,
-            "jobsCompleted": 0,
-            "heartbeatAgeMs": 1507
-          },
-          "labels": {
-            "productionClaims": false,
-            "simulationOnly": true
-          }
-        }
-      },
-      "workerSmoke": {
-        "status": 200,
-        "body": {
-          "jobId": "smoke_1785861191321",
-          "status": "completed",
-          "acknowledged": true,
-          "persisted": true,
-          "duplicate": false,
-          "worker": "foundation-smoke-worker",
-          "at": "2026-08-04T16:33:11.321Z"
-        }
-      },
-      "cockpitHttp": {
-        "status": 200
-      },
-      "infra": {
-        "dockerOk": false,
-        "redisPing": null,
-        "postgresConfigured": false,
-        "infraRequired": false
-      },
-      "migrations": {
-        "lockAcquired": true,
-        "expectedVersion": "alpha-inmemory-0",
-        "installedVersion": "alpha-inmemory-0",
-        "pending": [],
-        "destructivePending": [],
-        "status": "NOT_APPLICABLE",
-        "ok": true,
-        "note": "No durable schema migrations in ALPHA vertical slice"
-      }
+  "evidence": {
+    "startupReportVerdict": "DEGRADED",
+    "scorecard": {
+      "display": "160/160",
+      "verdict": "PASS"
+    },
+    "dualAutonomous": true,
+    "dualVerdict": "STARTUP_CONVERGED_DEGRADED",
+    "convergenceVerdict": "STARTUP_CONVERGED_DEGRADED",
+    "probes": {
+      "backendHealthz": 0,
+      "cockpitHealthz": 0,
+      "apiPort": 3000,
+      "cockpitPort": 4000,
+      "note": "cockpit proven during dual-startup then orderly stopped"
+    },
+    "artifacts": {
+      "startupProof": true,
+      "startupReport": true,
+      "scorecard": true,
+      "dualStartup": true,
+      "verticalSlicePipeline": true
     }
   },
-  "note": "Infra optional unless REQUIRE_INFRA=1; Redis PING recorded when Docker available"
+  "note": "Core flags true but startup not READY (infra optional / DEGRADED); dual consecutive startups may be proven"
 }

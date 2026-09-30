@@ -1,0 +1,189 @@
+{
+  "schema": "sci-os-ops-run/v1",
+  "at": "2026-08-12T15:26:54.576Z",
+  "correlationId": "590f367e-9c70-47ad-9787-895ca462d658",
+  "sequence": [
+    {
+      "step": "identify_install",
+      "ok": true,
+      "evidence": "diagnostics-export/install-identity.json"
+    },
+    {
+      "step": "runtime_preflight",
+      "ok": true,
+      "evidence": "diagnostics-export/runtime-preflight.json",
+      "note": "backend+cockpit were up; PG/Redis down"
+    },
+    {
+      "step": "stop_stale",
+      "ok": true,
+      "evidence": "diagnostics-export/convergence/stop-report.json"
+    },
+    {
+      "step": "start_infra",
+      "ok": false,
+      "evidence": null,
+      "detail": {
+        "at": "2026-08-12T15:26:54.575Z",
+        "command": "pnpm docker:local",
+        "ok": false,
+        "error": "Docker Desktop engine pipe missing (ENGINE_STOPPED)",
+        "compose": "infra/docker/docker-compose.infra.yml"
+      }
+    },
+    {
+      "step": "start_backend_worker_cockpit",
+      "ok": true,
+      "evidence": "diagnostics-export/startup-report.json",
+      "verdict": "DEGRADED"
+    },
+    {
+      "step": "prove_readiness",
+      "ok": true,
+      "evidence": "diagnostics-export/convergence/startup-convergence-proof.json",
+      "verdict": "STARTUP_CONVERGED_DEGRADED"
+    },
+    {
+      "step": "recovery_mode",
+      "ok": true,
+      "entered": true,
+      "reason": "infra_external_blocker_docker_engine_stopped",
+      "command": "pnpm sci:meta-recovery",
+      "evidence": "diagnostics-export/meta-recovery/"
+    },
+    {
+      "step": "signoff",
+      "ok": true,
+      "evidence": "diagnostics-export/p0-startup-signoff.json",
+      "verdict": "DEGRADED_PASS"
+    }
+  ],
+  "verdict": "DEGRADED",
+  "readiness": {
+    "profile": "local-foundation",
+    "required": {
+      "runtime": true,
+      "config": true,
+      "backendLive": true,
+      "backendReady": true,
+      "cockpit": true,
+      "riskControl": true,
+      "foundationWorker": true
+    },
+    "blockers": [],
+    "optionalMissing": [
+      "bullmq-queue-workers",
+      "electron-desktop",
+      "oidc-production",
+      "otel-saas"
+    ],
+    "verdict": "DEGRADED",
+    "policy": "local-foundation: DB/Redis/OIDC/OTel/HSM optional unless REQUIRE_* set; embedded risk + foundation worker required"
+  },
+  "signoffVerdict": "DEGRADED_PASS",
+  "endpoints": {
+    "cockpit": "http://127.0.0.1:4000/",
+    "backend": "http://127.0.0.1:3000",
+    "recoveryShell": "http://127.0.0.1:5299 (pnpm sci:recovery-shell)"
+  },
+  "blockers": [
+    {
+      "id": "DOCKER_ENGINE_STOPPED",
+      "humanAction": "Start Docker Desktop, then pnpm docker:local && pnpm sci:restart"
+    },
+    {
+      "id": "DesktopElectron",
+      "humanAction": "Use browser cockpit at :5230 until Electron installer ships"
+    },
+    {
+      "id": "PostgreSQL",
+      "humanAction": "Provide DATABASE_URL for a permitted non-production database, then pnpm sci:meta-recovery:resume"
+    },
+    {
+      "id": "QueueWorkers",
+      "humanAction": "Implement BullMQ workers or accept DEGRADED without queue processing"
+    }
+  ],
+  "artifacts": {
+    "installIdentity": "diagnostics-export/install-identity.json",
+    "runtimePreflight": "diagnostics-export/runtime-preflight.json",
+    "startupReport": "diagnostics-export/startup-report.json",
+    "startupProof": "diagnostics-export/startup-proof.json",
+    "convergenceProof": "diagnostics-export/convergence/startup-convergence-proof.json",
+    "statusSnapshot": "diagnostics-export/convergence/status-snapshot.json",
+    "signoff": "diagnostics-export/p0-startup-signoff.json",
+    "metaRecovery": "diagnostics-export/meta-recovery/meta-recovery-proof.json",
+    "externalBlockers": "diagnostics-export/meta-recovery/external-blocker-report.json",
+    "thisPack": "diagnostics-export/ops-run-evidence.json"
+  },
+  "install": {
+    "at": "2026-08-12T15:22:48.054Z",
+    "step": "identify_install",
+    "ok": true,
+    "appRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+    "layout": "repo",
+    "packageName": "sci-os-x10",
+    "packageManager": "pnpm@9.15.0",
+    "engines": {
+      "node": ">=18.20.0 <19",
+      "pnpm": ">=8.0.0"
+    },
+    "node": {
+      "path": "C:\\Program Files\\nodejs\\node.exe",
+      "source": "system",
+      "version": "24.13.1",
+      "usable": true,
+      "failureReason": null,
+      "searched": [
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\runtime\\node\\node.exe",
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\runtime\\node\\win-x64\\node.exe",
+        "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\runtime\\node\\bin\\node",
+        "C:\\Program Files\\nodejs\\node.exe"
+      ]
+    },
+    "manifestExists": true,
+    "pnpmLock": true
+  },
+  "runtimeSummary": {
+    "ports": {
+      "api": 3000,
+      "cockpit": 4000
+    },
+    "infra": {
+      "postgresTcp": false,
+      "redisPing": false
+    },
+    "dockerEngine": "STOPPED_OR_UNREACHABLE",
+    "node": "v24.13.1"
+  },
+  "status": {
+    "backend": {
+      "pid": 5136,
+      "status": "RUNNING",
+      "port": 3000
+    },
+    "worker": {
+      "pid": 5136,
+      "status": "RUNNING"
+    },
+    "cockpit": {
+      "pid": 18868,
+      "status": "RUNNING",
+      "port": 4000
+    },
+    "infra": {
+      "postgres": "UNHEALTHY",
+      "redis": "UNHEALTHY"
+    },
+    "evidence": {
+      "at": "2026-08-12T15:25:11.166Z",
+      "healthz": 200,
+      "readyz": 200,
+      "cockpitHealthz": 200,
+      "postgresTcp5432": false,
+      "redisPing": false,
+      "note": "Live probes only; Docker inspect skipped to avoid hung engine pipe"
+    }
+  },
+  "metaRecoveryVerdict": "EXTERNAL_BLOCKER_PROVEN"
+}

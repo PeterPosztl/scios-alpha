@@ -14,27 +14,25 @@
   },
   "redacted": {
     "runtimeMode": "local-foundation",
-    "apiPort": 5200,
-    "cockpitPort": 5230,
+    "apiPort": 3000,
+    "cockpitPort": 4000,
     "diagnosticsDir": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export",
-    "controlPlaneUrl": "http://127.0.0.1:5200",
-    "cockpitUrl": "http://127.0.0.1:5230",
+    "controlPlaneUrl": "http://127.0.0.1:3000",
+    "cockpitUrl": "http://127.0.0.1:4000",
     "predictionUrl": "http://127.0.0.1:5201",
-    "DATABASE_URL": null,
-    "REDIS_URL": "redis://127.0.0.1:6379"
+    "DATABASE_URL": "postgresql://***:***@localhost:5432/scios",
+    "REDIS_URL": "redis://localhost:6379"
   },
   "enabledSubsystems": [
     "vertical-slice",
     "control-plane-api",
     "cockpit-ui",
     "boot-modes",
+    "postgresql",
     "redis"
   ],
   "disabledSubsystems": [
-    "postgresql",
     "electron-desktop"
   ],
-  "warnings": [
-    "DATABASE_URL not set — ALPHA in-process mode (no durable DB)"
-  ]
+  "warnings": []
 }

@@ -1,0 +1,22 @@
+{
+  "schema": "sci-os-completion-audit/p0-p1-gaps/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "P0": {
+    "count": 0,
+    "status": "CLEAR",
+    "evidence": "Closure engine run closure_mt066pni_2ed2a7 confirms P0=0"
+  },
+  "P1": {
+    "count": 91,
+    "status": "OPEN",
+    "majorCategories": [
+      { "category": "Model validation (CF28)", "count": 8, "impact": "Data integrity for professional domains" },
+      { "category": "Job lifecycle (CF11)", "count": 28, "impact": "Background job reliability/evidence" },
+      { "category": "Policy/governance (CF14)", "count": 14, "impact": "RBAC, PDP, PEP enforcement" },
+      { "category": "Other P1s", "count": 41, "impact": "Various subsystem gaps" }
+    ],
+    "requiredForAlpha": false,
+    "requiredForBeta": true,
+    "requiredForProduction": true
+  }
+}

@@ -1,9 +1,20 @@
 {
-  "correlationId": "meta_065fb1e3",
+  "correlationId": "meta_0c648320",
   "observations": [
     {
-      "id": "obs_9336e1ca",
-      "at": "2026-07-16T23:55:34.351Z",
+      "id": "obs_ec569638",
+      "at": "2026-08-12T15:26:36.911Z",
+      "phase": "backend_health",
+      "message": "control-plane health status=0 connect ECONNREFUSED 127.0.0.1:5200",
+      "failureClass": "HEALTH_TIMEOUT",
+      "known": true,
+      "evidence": [
+        "http://127.0.0.1:5200/healthz"
+      ]
+    },
+    {
+      "id": "obs_8c67d07a",
+      "at": "2026-08-12T15:26:36.911Z",
       "phase": "infrastructure",
       "message": "DATABASE_URL not configured (ALPHA optional)",
       "failureClass": "CONFIG_MISSING",

@@ -36,9 +36,21 @@ async function provenOnPort(port, expectedService, portsMap) {
   };
 }
 
+function parseAppRootArg(argv) {
+  const flag = argv.find((a) => a.startsWith("--app-root="));
+  if (flag) return flag.slice("--app-root=".length);
+  const idx = argv.indexOf("--app-root");
+  if (idx !== -1 && argv[idx + 1]) return argv[idx + 1];
+  return null;
+}
+
 async function main() {
   const infra = process.argv.includes("--infra") || process.env.SCI_STOP_INFRA === "1";
-  const rootRes = resolveAppRoot();
+  // Stopping an installation from another working directory must not silently
+  // retarget the caller's root: cwd-based resolution released the repo lock
+  // while the installed lock kept a dead owner and blocked every later boot.
+  const cliRoot = parseAppRootArg(process.argv);
+  const rootRes = resolveAppRoot(cliRoot ? { cliRoot } : {});
   if (!rootRes.ok) process.exit(3);
   const appRoot = rootRes.appRoot;
   loadDotEnv(appRoot);
@@ -82,7 +94,7 @@ async function main() {
   }
 
   const portsMap = listeningPortsMap();
-  const processes = listSciosAlphaProcesses().map((p) => classifyProcess(p, portsMap));
+  const processes = listSciosAlphaProcesses(appRoot).map((p) => classifyProcess(p, portsMap));
   const stopped = [];
   const skipped = [];
 
@@ -135,39 +147,32 @@ async function main() {
     };
   }
 
-  releaseProcessLock(appRoot);
-
-  // Also stop supervisor/orchestrator recorded in lock (or still alive)
+  // Stop the supervising tree last: orchestrator, its launcher chain and the
+  // host job keeper hold no port, so port probes alone never prove they exited.
   const lockFile = path.join(appRoot, "diagnostics-export", ".sci-os-startup.lock");
-  if (fs.existsSync(lockFile)) {
+  const lockOwnerPid = (() => {
     try {
-      const lock = JSON.parse(fs.readFileSync(lockFile, "utf8"));
-      if (lock.pid) {
-        try {
-          process.kill(lock.pid, "SIGTERM");
-          stopped.push({ pid: lock.pid, component: "startup-orchestrator", reason: "lock_pid" });
-        } catch (e) {
-          skipped.push({ pid: lock.pid, component: "startup-orchestrator", reason: String(e) });
-        }
-      }
-      fs.unlinkSync(lockFile);
+      return JSON.parse(fs.readFileSync(lockFile, "utf8")).pid || null;
     } catch {
-      try {
-        fs.unlinkSync(lockFile);
-      } catch {
-        /* ignore */
-      }
+      return null;
     }
+  })();
+
+  const supervisory = ["startup-orchestrator", "installed-launcher", "host-job-keeper"];
+  const treeTargets = [];
+  if (lockOwnerPid) treeTargets.push({ pid: lockOwnerPid, component: "startup-orchestrator", reason: "lock_pid" });
+  for (const p of processes) {
+    if (!supervisory.includes(p.component)) continue;
+    treeTargets.push({ pid: p.pid, component: p.component, reason: "app_root_match" });
   }
 
-  for (const p of processes) {
-    if (p.component !== "startup-orchestrator") continue;
-    if (stopped.some((s) => s.pid === p.pid)) continue;
+  for (const t of treeTargets) {
+    if (stopped.some((s) => s.pid === t.pid)) continue;
     try {
-      process.kill(p.pid, "SIGTERM");
-      stopped.push({ pid: p.pid, component: p.component });
+      process.kill(t.pid, "SIGTERM");
+      stopped.push(t);
     } catch (e) {
-      skipped.push({ pid: p.pid, component: p.component, reason: String(e) });
+      skipped.push({ pid: t.pid, component: t.component, reason: String(e) });
     }
   }
 
@@ -176,17 +181,60 @@ async function main() {
     api: await httpGet(`http://127.0.0.1:${apiPort}/healthz`, 1500),
     cockpit: await httpGet(`http://127.0.0.1:${cockpitPort}/healthz`, 1500),
   };
+  const nothingServing = after.api.status === 0 && after.cockpit.status === 0;
+
+  // Verify exit instead of assuming it: a closed port is not a stopped process.
+  const ownable = (p) =>
+    p.pid !== process.pid &&
+    (supervisory.includes(p.component) ||
+      p.component === "control-plane-api" ||
+      p.component === "cockpit-ui");
+  const findResidual = () => {
+    const map = listeningPortsMap();
+    return listSciosAlphaProcesses(appRoot)
+      .map((p) => classifyProcess(p, map))
+      .filter(ownable);
+  };
+
+  let residual = findResidual();
+  const escalated = [];
+  for (let attempt = 0; attempt < 2 && residual.length; attempt++) {
+    for (const p of residual) {
+      try {
+        process.kill(p.pid, "SIGKILL");
+        escalated.push({ pid: p.pid, component: p.component, signal: "SIGKILL" });
+      } catch (e) {
+        escalated.push({ pid: p.pid, component: p.component, error: String(e.message || e) });
+      }
+    }
+    await new Promise((r) => setTimeout(r, 1200));
+    residual = findResidual();
+  }
+  const orphans = residual.map((p) => ({ pid: p.pid, component: p.component }));
+
+  // The lock may only be force-released once nothing is serving, otherwise a
+  // concurrent healthy instance would lose its claim.
+  const lockRelease = releaseProcessLock(appRoot, { force: nothingServing });
+  // Restartability is the contract: nothing serving AND no lock left behind.
+  const lockGone = !fs.existsSync(lockFile);
 
   const lastState = {
     at: new Date().toISOString(),
-    order: ["graceful_request", "cockpit", "worker(in-process)", "backend", infra ? "infra" : "infra_left_running"],
+    appRoot,
+    restartable: nothingServing && lockGone,
+    appRootSource: cliRoot ? "cli" : "resolved",
+    order: ["graceful_request", "cockpit", "worker(in-process)", "backend", "supervisory_tree", infra ? "infra" : "infra_left_running"],
     shutdownRequest: "CONVERGENCE_STOP",
     stopped,
     skipped,
+    escalated,
     afterStop: {
       apiDown: after.api.status === 0,
       cockpitDown: after.cockpit.status === 0,
+      orphanProcesses: orphans,
+      orphanFree: orphans.length === 0,
     },
+    lockRelease,
     infraDown,
     note: "No business-data mutation. Resume: pnpm sci:start",
   };
@@ -206,7 +254,7 @@ async function main() {
     /* ignore */
   }
   console.log(JSON.stringify(lastState, null, 2));
-  process.exit(after.api.status === 0 && after.cockpit.status === 0 ? 0 : 2);
+  process.exit(lastState.restartable ? 0 : 2);
 }
 
 main().catch((e) => {

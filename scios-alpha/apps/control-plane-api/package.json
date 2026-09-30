@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "start": "tsx src/server.ts",
-    "demo": "tsx src/demo.ts"
+    "demo": "tsx src/demo.ts",
+    "smoke:ecl-dil": "tsx src/eclDil.smoke.ts"
   },
   "dependencies": {
     "@scios/data-fabric": "workspace:*",
@@ -17,6 +18,9 @@
     "@scios/model-registry": "workspace:*",
     "@scios/meta-intelligence": "workspace:*",
     "@scios/vertical-slice": "workspace:*",
+    "@scios/product-kernel": "workspace:*",
+    "@scios/professional-domain-registry": "workspace:*",
+    "@scios/ecl-dil": "workspace:*",
     "tsx": "^4.19.2"
   },
   "devDependencies": {

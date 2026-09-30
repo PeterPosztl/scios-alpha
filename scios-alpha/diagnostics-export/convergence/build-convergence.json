@@ -1,8 +1,8 @@
 {
   "command": "pnpm --filter @scios/meta-recovery build",
-  "start": "2026-07-17T00:21:39.525Z",
-  "end": "2026-07-17T00:21:42.088Z",
+  "start": "2026-08-12T15:37:14.564Z",
+  "end": "2026-08-12T15:37:17.414Z",
   "exitCode": 0,
   "note": "Full pnpm build deferred to ci:startup-convergence-gate; repaired meta-recovery first-blocker",
-  "stderrTail": "\n> @scios/meta-recovery@0.1.0 build C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\meta-recovery\n> tsc -p tsconfig.json\n\n"
+  "stderrTail": ".                                        |  WARN  Unsupported engine: wanted: {\"node\":\">=18.20.0 <19\"} (current: {\"node\":\"v24.13.1\",\"pnpm\":\"9.14.0\"})\n\n> @scios/meta-recovery@0.1.0 build C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\packages\\meta-recovery\n> tsc -p tsconfig.json\n\n"
 }

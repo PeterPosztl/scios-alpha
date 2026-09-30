@@ -1,0 +1,10 @@
+{
+  "at": "2026-08-12T20:22:33.427Z",
+  "duplicates": [
+    {
+      "concern": "startup_paths",
+      "canonical": "pnpm sci:start → bootstrap-capsule.cjs",
+      "status": "CANONICAL_CHOSEN"
+    }
+  ]
+}

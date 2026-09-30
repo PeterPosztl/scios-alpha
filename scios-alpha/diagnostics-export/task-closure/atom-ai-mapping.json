@@ -1,0 +1,10 @@
+{
+  "at": "2026-08-12T19:42:57.593Z",
+  "decision": "LEGACY_PARALLEL_REJECTED",
+  "atomAi": "legacy/prototype naming + propose-only kits under dev_atom_ai — NOT a second product",
+  "canonicalProduct": "SCI OS ×10 (scios-alpha)",
+  "tasks": [
+    "TASK-ATOM-001"
+  ],
+  "action": "Do not implement atom_ai/ tree; keep generators propose-only"
+}

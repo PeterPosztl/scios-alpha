@@ -1,0 +1,38 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "checks": [
+    {
+      "id": "nvmrc",
+      "status": "PASS"
+    },
+    {
+      "id": "engine-strict",
+      "status": "PASS"
+    },
+    {
+      "id": "start-shell-false",
+      "status": "PASS"
+    },
+    {
+      "id": "agents-first-release-axis",
+      "status": "PASS"
+    },
+    {
+      "id": "readme-legacy-ports",
+      "status": "PASS"
+    },
+    {
+      "id": "kernel-import",
+      "status": "PASS"
+    },
+    {
+      "id": "build-release-script",
+      "status": "PASS"
+    },
+    {
+      "id": "start-node18-message",
+      "status": "PASS"
+    }
+  ]
+}

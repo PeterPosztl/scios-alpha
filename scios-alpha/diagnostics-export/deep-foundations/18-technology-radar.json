@@ -1,0 +1,30 @@
+{
+  "at": "2026-08-13T13:09:39.331Z",
+  "buildId": "deep-foundations-2026-08-13",
+  "status": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+  "rule": "Do not freeze 2026 vendor details permanently into architecture",
+  "entries": [
+    {
+      "source": "Palantir AIP public patterns",
+      "lastVerifiedAt": "2026-08-13",
+      "reviewBy": "2026-11-01",
+      "maturity": "external",
+      "founderRelevance": "objects/actions/approval",
+      "sciEquivalent": "Action+Gov+Ontology PARTIAL",
+      "gap": "enterprise writeback",
+      "adoptionDecision": "ADAPT",
+      "risk": "copy-UI temptation"
+    },
+    {
+      "source": "Local in-process baseline model",
+      "lastVerifiedAt": "2026-08-13",
+      "reviewBy": "2026-09-01",
+      "maturity": "EXPERIMENTAL",
+      "founderRelevance": "NON-PRODUCTION science",
+      "sciEquivalent": "vertical-slice baseline-logistic",
+      "gap": "calibration READY",
+      "adoptionDecision": "KEEP_LABELED",
+      "risk": "false production readiness"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "sci-os-completion-audit/windows-host/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "overallMaturity": "PROVEN",
+  "slices": {
+    "WHI-001": { "title": "Job Objects / ProcessSupervisor", "status": "PROVEN", "proofDir": "diagnostics-export/windows-host-v1/whi-001", "testFile": "scripts/tests/whi-001-job-object.cjs" },
+    "WHI-004": { "title": "Host Event Provider", "status": "PROVEN", "proofDir": "diagnostics-export/windows-host-v1/whi-004", "testFile": "scripts/tests/whi-004-host-event-provider.cjs" },
+    "WHI-010": { "title": "Recovery Intelligence", "status": "PROVEN", "proofDir": "diagnostics-export/windows-host-v1/whi-010", "testFile": "scripts/tests/whi-010-recovery-intelligence.cjs" },
+    "WHI-011": { "title": "Host Digital Twin", "status": "PROVEN", "proofDir": "diagnostics-export/windows-host-v1/host-digital-twin", "testFile": "scripts/tests/whi-011-host-digital-twin.cjs" }
+  },
+  "proofArtifactCount": 96,
+  "remainingSlices": {
+    "WHI-005": { "title": "Host Performance Collector", "status": "ARCHITECTURE_DEFINED", "note": "Blueprint exists, not yet implemented" },
+    "WHI-006": { "title": "Host Storage Health", "status": "ARCHITECTURE_DEFINED" },
+    "WHI-007": { "title": "Host Network Observer", "status": "ARCHITECTURE_DEFINED" },
+    "WHI-008": { "title": "Host Security Posture", "status": "ARCHITECTURE_DEFINED" },
+    "WHI-009": { "title": "Host Update State", "status": "ARCHITECTURE_DEFINED" }
+  },
+  "closureControlsWHI": "All WHI P2 closure controls PROVEN"
+}

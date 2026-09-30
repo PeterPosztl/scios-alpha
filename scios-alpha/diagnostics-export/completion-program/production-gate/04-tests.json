@@ -1,0 +1,45 @@
+{
+  "at": "2026-09-30T10:08:15.244Z",
+  "checks": {
+    "installationDurability": "PASS",
+    "upgradeDurability": "PASS",
+    "rollbackDurability": "PASS",
+    "persistenceFallback": "PASS",
+    "pgProduction": "BLOCKED_WITH_EVIDENCE",
+    "jobLifecycleUnderLoad": "PASS",
+    "pipelineUnderLoad": "PASS",
+    "cockpitUnderLoad": "PASS",
+    "systemHealthUnderLoad": "PASS",
+    "systemHealthEndpoint": "PASS",
+    "governanceOidc": "BLOCKED_WITH_EVIDENCE",
+    "governanceInProcess": "PASS",
+    "betaGatePrerequisite": "BLOCKED_WITH_EVIDENCE",
+    "betaGateToken": "BETA_GATE_BLOCKED_WITH_EVIDENCE",
+    "betaGateEvidence": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\completion-program\\beta-gate\\11-final-gate.json",
+    "tlsProduction": "BLOCKED_WITH_EVIDENCE",
+    "deploymentModel": "PARTIAL",
+    "p1Zero": "BLOCKED_WITH_EVIDENCE",
+    "enterpriseObservability": "PASS",
+    "suite_b009-background-system-hard-gate": "PASS",
+    "suite_b010-persistence-hard-gate": "PASS",
+    "suite_whi-010-recovery-intelligence": "PASS",
+    "suite_beta-gate": "PASS",
+    "suite_b008-installed-e2e": "PASS"
+  },
+  "productionSuite": {
+    "b009-background-system-hard-gate.cjs": "PASS",
+    "b010-persistence-hard-gate.cjs": "PASS",
+    "whi-010-recovery-intelligence.cjs": "PASS",
+    "beta-gate.cjs": "PASS",
+    "b008-installed-e2e.cjs": "PASS"
+  },
+  "blockers": [
+    "PERSISTENCE.PG_EXTERNAL_INSTANCE_FD002",
+    "FD-001 OIDC provider selection",
+    "BETA_GATE blocked with evidence (see beta-gate/11-final-gate.json)",
+    "TLS termination not configured",
+    "P1 register count 92 (Target C requires P1=0)"
+  ],
+  "token": "PRODUCTION_GATE_BLOCKED_WITH_EVIDENCE",
+  "status": "PASS"
+}

@@ -9,7 +9,7 @@ description: Operate as SCI OS ×10 platform engineer — evidence-first Wave ex
 
 1. Read `AGENTS.md` and `docs/enterprise/CAPABILITY_REGISTRY.json`.
 2. Inspect real files; do not invent readiness.
-3. Prefer Wave 0/1 vertical slice over empty trees.
+3. Prefer Wave 0/1 vertical slice with proof. Canonical truth: `docs/enterprise/CURRENT_SYSTEM_TRUTH.md`.
 
 ## Definition of done
 

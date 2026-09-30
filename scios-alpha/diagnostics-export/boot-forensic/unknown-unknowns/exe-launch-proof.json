@@ -1,0 +1,19 @@
+{
+  "pass": true,
+  "ready": {
+    "ok": true,
+    "atMs": 127259,
+    "healthz": 200,
+    "ready": true,
+    "profile": "packaged",
+    "cockpit": 200
+  },
+  "gw": {
+    "pass": true,
+    "home": 200,
+    "search": 200,
+    "shell": 200
+  },
+  "logFile": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\boot-forensic\\unknown-unknowns\\launch-exe.log",
+  "pid": 20060
+}

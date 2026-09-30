@@ -1,0 +1,29 @@
+{
+  "at": "2026-08-12T15:52:50.411536Z",
+  "schema": "sci-os-atom-ai-health/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "canonicalStartup": "pnpm sci:start",
+  "ports": {
+    "api": 3000,
+    "cockpit": 4000
+  },
+  "probes": {
+    "backend_healthz": 0,
+    "backend_readyz": 0,
+    "cockpit_healthz": 0
+  },
+  "core_ok": false,
+  "disk_ok": true,
+  "self_heal": {
+    "systemctl": "rejected",
+    "suggested": [
+      "pnpm sci:status",
+      "pnpm sci:repair",
+      "pnpm sci:meta-recovery",
+      "pnpm sci:recovery-shell"
+    ],
+    "repair_ran": false,
+    "repair_exit": null
+  },
+  "verdict": "UNHEALTHY_OR_STOPPED"
+}

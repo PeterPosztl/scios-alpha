@@ -1,0 +1,526 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "scripts": [
+    {
+      "name": "backend",
+      "cmd": "pnpm --filter @scios/control-plane-api start",
+      "status": "OK"
+    },
+    {
+      "name": "cockpit",
+      "cmd": "pnpm --filter @scios/cockpit-ui start",
+      "status": "OK"
+    },
+    {
+      "name": "dev",
+      "cmd": "pnpm -r --parallel --filter \"./apps/**\" run dev",
+      "status": "OK"
+    },
+    {
+      "name": "dev:alpha",
+      "cmd": "pnpm --filter @scios/alpha-loop start",
+      "status": "OK"
+    },
+    {
+      "name": "dev:mock",
+      "cmd": "pnpm --filter @scios/mock-api dev",
+      "status": "OK"
+    },
+    {
+      "name": "sim",
+      "cmd": "pnpm --filter @scios/alpha-loop sim",
+      "status": "OK"
+    },
+    {
+      "name": "check",
+      "cmd": "pnpm --filter @scios/alpha-loop check",
+      "status": "OK"
+    },
+    {
+      "name": "build",
+      "cmd": "pnpm -r --filter \"./packages/**\" run build",
+      "status": "OK"
+    },
+    {
+      "name": "build:release",
+      "cmd": "pnpm -r --filter \"./packages/**\" --if-present run build && pnpm -r --filter \"./apps/control-plane-api\" --filter \"./apps/cockpit-ui\" --if-present run build",
+      "status": "OK"
+    },
+    {
+      "name": "typecheck",
+      "cmd": "pnpm -r --filter \"./packages/**\" --if-present run typecheck",
+      "status": "OK"
+    },
+    {
+      "name": "test",
+      "cmd": "pnpm --filter @scios/data-fabric test && pnpm --filter @scios/vertical-slice test",
+      "status": "OK"
+    },
+    {
+      "name": "test:product-smoke",
+      "cmd": "node scripts/smoke-vertical-slice.js",
+      "status": "OK"
+    },
+    {
+      "name": "demo",
+      "cmd": "pnpm --filter @scios/control-plane-api demo",
+      "status": "OK"
+    },
+    {
+      "name": "mock:dev",
+      "cmd": "pnpm --filter @scios/mock-api dev",
+      "status": "OK"
+    },
+    {
+      "name": "mock:build",
+      "cmd": "pnpm build && pnpm --filter @scios/mock-api build",
+      "status": "OK"
+    },
+    {
+      "name": "mock:start",
+      "cmd": "pnpm --filter @scios/mock-api start",
+      "status": "OK"
+    },
+    {
+      "name": "mock:start:dist",
+      "cmd": "pnpm --filter @scios/mock-api start:dist",
+      "status": "OK"
+    },
+    {
+      "name": "start",
+      "cmd": "node installer/scripts/start-sci-os.cjs --mode=normal",
+      "status": "OK"
+    },
+    {
+      "name": "docker:up",
+      "cmd": "docker compose -f infra/docker/docker-compose.yml up --build",
+      "status": "OK"
+    },
+    {
+      "name": "docker:local",
+      "cmd": "docker compose -f infra/docker/docker-compose.infra.yml up -d",
+      "status": "OK"
+    },
+    {
+      "name": "docker:local:down",
+      "cmd": "docker compose -f infra/docker/docker-compose.infra.yml down",
+      "status": "OK"
+    },
+    {
+      "name": "docker:local:ps",
+      "cmd": "docker compose -f infra/docker/docker-compose.infra.yml ps",
+      "status": "OK"
+    },
+    {
+      "name": "gate:scaffold",
+      "cmd": "node scripts/gate-scaffold.mjs",
+      "status": "OK"
+    },
+    {
+      "name": "gate:contracts",
+      "cmd": "node scripts/gate-contracts.mjs",
+      "status": "OK"
+    },
+    {
+      "name": "gate:foundation",
+      "cmd": "node scripts/gate-foundation.mjs",
+      "status": "OK"
+    },
+    {
+      "name": "ci:prediction-foundation-gate",
+      "cmd": "node scripts/ci-prediction-foundation-gate.mjs",
+      "status": "OK"
+    },
+    {
+      "name": "boot",
+      "cmd": "node scripts/boot/index.mjs",
+      "status": "LEGACY_COMPAT"
+    },
+    {
+      "name": "boot:normal",
+      "cmd": "node scripts/boot/index.mjs normal",
+      "status": "LEGACY_COMPAT"
+    },
+    {
+      "name": "boot:repair",
+      "cmd": "node scripts/boot/index.mjs repair",
+      "status": "LEGACY_COMPAT"
+    },
+    {
+      "name": "boot:safe",
+      "cmd": "node scripts/boot/index.mjs safe",
+      "status": "LEGACY_COMPAT"
+    },
+    {
+      "name": "boot:proof",
+      "cmd": "node scripts/boot/index.mjs proof",
+      "status": "LEGACY_COMPAT"
+    },
+    {
+      "name": "sci:start",
+      "cmd": "node installer/scripts/bootstrap-capsule.cjs --serve",
+      "status": "OK"
+    },
+    {
+      "name": "sci:stop",
+      "cmd": "node installer/scripts/convergence/stop.cjs",
+      "status": "OK"
+    },
+    {
+      "name": "sci:restart",
+      "cmd": "node installer/scripts/convergence/stop.cjs && node installer/scripts/bootstrap-capsule.cjs --serve",
+      "status": "OK"
+    },
+    {
+      "name": "sci:status",
+      "cmd": "node installer/scripts/convergence/status.cjs",
+      "status": "OK"
+    },
+    {
+      "name": "sci:proof",
+      "cmd": "node installer/scripts/convergence/startup-proof.cjs",
+      "status": "OK"
+    },
+    {
+      "name": "ci:startup-convergence-gate",
+      "cmd": "node installer/scripts/convergence/convergence-gate.cjs",
+      "status": "OK"
+    },
+    {
+      "name": "sci:desktop",
+      "cmd": "node installer/scripts/bootstrap-capsule.cjs --serve",
+      "status": "OK"
+    },
+    {
+      "name": "sci:shutdown",
+      "cmd": "node installer/scripts/convergence/stop.cjs --infra",
+      "status": "OK"
+    },
+    {
+      "name": "sci:repair",
+      "cmd": "node installer/scripts/repair-sci-os.cjs",
+      "status": "OK"
+    },
+    {
+      "name": "sci:meta-recovery",
+      "cmd": "pnpm --filter @scios/meta-recovery run run",
+      "status": "OK"
+    },
+    {
+      "name": "sci:meta-recovery:dry-run",
+      "cmd": "pnpm --filter @scios/meta-recovery run dry-run",
+      "status": "OK"
+    },
+    {
+      "name": "sci:meta-recovery:prove",
+      "cmd": "pnpm --filter @scios/meta-recovery run prove",
+      "status": "OK"
+    },
+    {
+      "name": "sci:meta-recovery:fault-test",
+      "cmd": "pnpm --filter @scios/meta-recovery exec tsx src/cli.ts --fault-test",
+      "status": "OK"
+    },
+    {
+      "name": "sci:meta-recovery:resume",
+      "cmd": "pnpm --filter @scios/meta-recovery exec tsx src/cli.ts --resume",
+      "status": "OK"
+    },
+    {
+      "name": "sci:capability-scan",
+      "cmd": "pnpm --filter @scios/meta-recovery exec tsx src/cli.ts --dry-run",
+      "status": "OK"
+    },
+    {
+      "name": "sci:dependency-graph",
+      "cmd": "pnpm --filter @scios/meta-recovery exec tsx src/cli.ts --dry-run",
+      "status": "OK"
+    },
+    {
+      "name": "sci:repair-recipes",
+      "cmd": "node -e \"console.log(require('fs').readFileSync('docs/enterprise/REPAIR_RECIPE_CATALOG.md','utf8'))\"",
+      "status": "OK"
+    },
+    {
+      "name": "sci:recovery-memory",
+      "cmd": "node -e \"const p=require('path').join('diagnostics-export','meta-recovery','recovery-memory.json');console.log(require('fs').existsSync(p)?require('fs').readFileSync(p,'utf8'):'{}')\"",
+      "status": "OK"
+    },
+    {
+      "name": "sci:recovery-shell",
+      "cmd": "pnpm --filter @scios/meta-recovery-control-plane start",
+      "status": "OK"
+    },
+    {
+      "name": "sci:x10",
+      "cmd": "node installer/scripts/sci-os-x10-launcher.cjs",
+      "status": "OK"
+    },
+    {
+      "name": "sci:bootstrap",
+      "cmd": "node installer/scripts/bootstrap-kernel.cjs",
+      "status": "OK"
+    },
+    {
+      "name": "orchestrator:discover",
+      "cmd": "node scripts/discovery.js",
+      "status": "OK"
+    },
+    {
+      "name": "orchestrator:filter",
+      "cmd": "node scripts/filter.js",
+      "status": "OK"
+    },
+    {
+      "name": "orchestrator:clone",
+      "cmd": "node scripts/clone.js",
+      "status": "OK"
+    },
+    {
+      "name": "orchestrator:scan",
+      "cmd": "node scripts/scan.js",
+      "status": "OK"
+    },
+    {
+      "name": "orchestrator:scaffold",
+      "cmd": "node scripts/scaffold-adapter.js",
+      "status": "OK"
+    },
+    {
+      "name": "orchestrator:gen-tests",
+      "cmd": "node scripts/gen-tests.js",
+      "status": "OK"
+    },
+    {
+      "name": "orchestrator:all",
+      "cmd": "pnpm orchestrator:discover && pnpm orchestrator:filter && pnpm orchestrator:clone && pnpm orchestrator:scan && pnpm orchestrator:scaffold && pnpm orchestrator:gen-tests",
+      "status": "OK"
+    },
+    {
+      "name": "signoff:generate",
+      "cmd": "node scripts/generate-signoff.js",
+      "status": "OK"
+    },
+    {
+      "name": "build:manifest",
+      "cmd": "node scripts/generate-build-manifest.js",
+      "status": "OK"
+    },
+    {
+      "name": "build:golden-boot",
+      "cmd": "node scripts/generate-golden-boot-manifest.js",
+      "status": "OK"
+    },
+    {
+      "name": "bootstrap:golden",
+      "cmd": "node bootstrap/bootstrap-capsule.js",
+      "status": "OK"
+    },
+    {
+      "name": "bootstrap:golden:dry",
+      "cmd": "node bootstrap/bootstrap-capsule.js --dry-run",
+      "status": "OK"
+    },
+    {
+      "name": "supervisor",
+      "cmd": "node supervisor/supervisor.js",
+      "status": "OK"
+    },
+    {
+      "name": "fault:inject",
+      "cmd": "node scripts/fault-injection-harness.js",
+      "status": "OK"
+    },
+    {
+      "name": "smoke:slice",
+      "cmd": "node scripts/smoke-vertical-slice.js",
+      "status": "OK"
+    },
+    {
+      "name": "auto:fill",
+      "cmd": "node -e \"console.error('OFF_PATH: auto:fill is scaffold-only; not boot authority'); process.exit(2)\"",
+      "status": "OFF_PATH_SCAFFOLD"
+    },
+    {
+      "name": "auto:fill:apply",
+      "cmd": "node -e \"console.error('OFF_PATH: auto:fill rejected'); process.exit(2)\"",
+      "status": "OFF_PATH_SCAFFOLD"
+    },
+    {
+      "name": "auto:fill:python",
+      "cmd": "node -e \"console.error('OFF_PATH: auto:fill rejected'); process.exit(2)\"",
+      "status": "OFF_PATH_SCAFFOLD"
+    },
+    {
+      "name": "auto:fill:sh",
+      "cmd": "node -e \"console.error('OFF_PATH: auto:fill rejected'); process.exit(2)\"",
+      "status": "OFF_PATH_SCAFFOLD"
+    },
+    {
+      "name": "generator:py",
+      "cmd": "python dev/generator.py --manifest build/manifest.json --templates dev/templates --plan dev/fill-plan.json",
+      "status": "OFF_PATH_SCAFFOLD"
+    },
+    {
+      "name": "generator:py:todos",
+      "cmd": "python dev/generator.py --manifest build/manifest.json --templates dev/templates --plan dev/fill-plan.json --scan-todos",
+      "status": "OFF_PATH_SCAFFOLD"
+    },
+    {
+      "name": "auto:finish",
+      "cmd": "node -e \"console.error('OFF_PATH: auto:finish is scaffold-only'); process.exit(2)\"",
+      "status": "OFF_PATH_SCAFFOLD"
+    },
+    {
+      "name": "auto:finish:gates",
+      "cmd": "node -e \"console.error('OFF_PATH: auto:finish rejected'); process.exit(2)\"",
+      "status": "OFF_PATH_SCAFFOLD"
+    },
+    {
+      "name": "auto:finish:todos",
+      "cmd": "node -e \"console.error('OFF_PATH: auto:finish rejected'); process.exit(2)\"",
+      "status": "OFF_PATH_SCAFFOLD"
+    },
+    {
+      "name": "auto:finish:apply",
+      "cmd": "node -e \"console.error('OFF_PATH: auto:finish rejected'); process.exit(2)\"",
+      "status": "OFF_PATH_SCAFFOLD"
+    },
+    {
+      "name": "ux:benchmark",
+      "cmd": "node -e \"const fs=require('fs');const p='diagnostics-export/ux-competitive-benchmark.json';if(!fs.existsSync(p)){console.error('MISSING '+p);process.exit(1)}console.log(JSON.stringify({ok:true,path:p,competitors:JSON.parse(fs.readFileSync(p,'utf8')).competitors.length},null,2))\"",
+      "status": "OK"
+    },
+    {
+      "name": "ux:proof",
+      "cmd": "node scripts/ux-usability-proof.js",
+      "status": "OK"
+    },
+    {
+      "name": "ux:truth",
+      "cmd": "node -e \"const fs=require('fs');const p='diagnostics-export/ux/current-ux-inventory.json';const d='docs/ux/CURRENT_UX_TRUTH.md';if(!fs.existsSync(p)||!fs.existsSync(d)){console.error('MISSING truth artifacts');process.exit(1)}console.log(JSON.stringify({ok:true,inventory:p,doc:d,verdict:JSON.parse(fs.readFileSync(p,'utf8')).foundationVerdict},null,2))\"",
+      "status": "OK"
+    },
+    {
+      "name": "ux:domains",
+      "cmd": "pnpm --filter @scios/professional-domain-registry check",
+      "status": "OK"
+    },
+    {
+      "name": "ux:compile:demo",
+      "cmd": "pnpm --filter @scios/professional-domain-registry compile:demo",
+      "status": "OK"
+    },
+    {
+      "name": "ux:kernel",
+      "cmd": "node -e \"const p='diagnostics-export/ux/product-kernel.json';const k='diagnostics-export/ux/kernel-pillars.json';const j=require('./'+p);const x=require('./'+k);console.log(JSON.stringify({ok:true,verdict:j.verdict,registryCaps:j.counts.capabilitiesInRegistryNow,pillars:x.pillars.map(t=>t.id+':'+t.status),path:p},null,2))\"",
+      "status": "OK"
+    },
+    {
+      "name": "closure:scan",
+      "cmd": "pnpm --filter @scios/system-closure run scan",
+      "status": "OK"
+    },
+    {
+      "name": "closure:p0",
+      "cmd": "pnpm --filter @scios/system-closure run p0",
+      "status": "OK"
+    },
+    {
+      "name": "closure:final",
+      "cmd": "pnpm --filter @scios/system-closure run final",
+      "status": "OK"
+    },
+    {
+      "name": "closure:startup",
+      "cmd": "pnpm --filter @scios/system-closure run startup-reconcile",
+      "status": "OK"
+    },
+    {
+      "name": "kernel:export",
+      "cmd": "pnpm --filter @scios/product-kernel run export",
+      "status": "OK"
+    },
+    {
+      "name": "package:exe",
+      "cmd": "pnpm build && node scripts/generate-build-manifest.js && pnpm exec pkg . --targets node20-win-x64 --output dist/SCI-OS-X10.exe",
+      "status": "OK"
+    },
+    {
+      "name": "package:dist",
+      "cmd": "node scripts/package/build-distribution.cjs",
+      "status": "OK"
+    },
+    {
+      "name": "reboot:pre",
+      "cmd": "node scripts/package/reboot-certification.cjs --pre",
+      "status": "OK"
+    },
+    {
+      "name": "reboot:post",
+      "cmd": "node scripts/package/reboot-cert-post.cjs",
+      "status": "OK"
+    },
+    {
+      "name": "package:reboot-prep",
+      "cmd": "node scripts/package/final-reboot-prep.cjs",
+      "status": "OK"
+    },
+    {
+      "name": "package:prove-reboot",
+      "cmd": "node scripts/package/prove-reboot.cjs",
+      "status": "OK"
+    },
+    {
+      "name": "release:reconcile",
+      "cmd": "node scripts/package/release-reconciliation.cjs",
+      "status": "OK"
+    },
+    {
+      "name": "truth:reconcile",
+      "cmd": "node scripts/truth-reconciliation.cjs",
+      "status": "OK"
+    },
+    {
+      "name": "deep:forensics",
+      "cmd": "node scripts/deep-forensics.cjs",
+      "status": "OK"
+    },
+    {
+      "name": "atom:ai",
+      "cmd": "node -e \"console.error('STALE: ATOM-AI rejected as parallel canonical product'); process.exit(2)\"",
+      "status": "STALE_REJECTED"
+    },
+    {
+      "name": "atom:ai:gates",
+      "cmd": "node -e \"console.error('STALE: ATOM-AI rejected'); process.exit(2)\"",
+      "status": "STALE_REJECTED"
+    },
+    {
+      "name": "atom:ai:todos",
+      "cmd": "node -e \"console.error('STALE: ATOM-AI rejected'); process.exit(2)\"",
+      "status": "STALE_REJECTED"
+    },
+    {
+      "name": "atom:ai:apply",
+      "cmd": "node -e \"console.error('STALE: ATOM-AI rejected'); process.exit(2)\"",
+      "status": "STALE_REJECTED"
+    },
+    {
+      "name": "atom:health",
+      "cmd": "node -e \"console.error('STALE: ATOM-AI health rejected'); process.exit(2)\"",
+      "status": "STALE_REJECTED"
+    },
+    {
+      "name": "atom:health:repair",
+      "cmd": "node -e \"console.error('STALE: ATOM-AI health rejected'); process.exit(2)\"",
+      "status": "STALE_REJECTED"
+    },
+    {
+      "name": "install:repro",
+      "cmd": "pnpm install --frozen-lockfile",
+      "status": "OK"
+    }
+  ]
+}

@@ -111,7 +111,7 @@
       }
     },
     "compilerStatus": {
-      "enum": ["CONTRACT_ONLY", "DRY_RUN", "ACTIVE"]
+      "enum": ["CONTRACT_ONLY", "DRY_RUN", "ACTIVE", "RUNTIME_MOUNTED", "DEGRADED"]
     }
   }
 }

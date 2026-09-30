@@ -1,7 +1,22 @@
 {
   "hypotheses": [
     {
-      "hypothesisId": "hyp_e39921ee",
+      "hypothesisId": "hyp_525cc05a",
+      "explanation": "Control-plane not listening or crashed — restart via startup pack",
+      "supportingEvidence": [
+        "http://127.0.0.1:5200/healthz"
+      ],
+      "contradictingEvidence": [],
+      "affectedCapability": "ControlPlaneBackend",
+      "confidence": 0.82,
+      "diagnosticAction": "probe_/healthz",
+      "repairCandidate": "recipe.start_control_plane",
+      "risk": "R2",
+      "rollback": "sci:shutdown",
+      "verificationMethod": "healthz_200"
+    },
+    {
+      "hypothesisId": "hyp_aa23c3ca",
       "explanation": "Postgres optional in ALPHA — degrade, do not invent credentials",
       "supportingEvidence": [
         "env"
@@ -18,8 +33,20 @@
   ],
   "classified": [
     {
-      "id": "obs_9336e1ca",
-      "at": "2026-07-16T23:55:34.351Z",
+      "id": "obs_ec569638",
+      "at": "2026-08-12T15:26:36.911Z",
+      "phase": "backend_health",
+      "message": "control-plane health status=0 connect ECONNREFUSED 127.0.0.1:5200",
+      "failureClass": "HEALTH_TIMEOUT",
+      "known": true,
+      "evidence": [
+        "http://127.0.0.1:5200/healthz"
+      ],
+      "domain": "BACKEND_API"
+    },
+    {
+      "id": "obs_8c67d07a",
+      "at": "2026-08-12T15:26:36.911Z",
       "phase": "infrastructure",
       "message": "DATABASE_URL not configured (ALPHA optional)",
       "failureClass": "CONFIG_MISSING",

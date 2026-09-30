@@ -1,0 +1,30 @@
+{
+  "postgresql": {
+    "adapter": "IMPLEMENTED",
+    "runtime": "BLOCKED_WITH_EXTERNAL_DEPENDENCY",
+    "blocker": "PERSISTENCE.PG_EXTERNAL_INSTANCE_FD002",
+    "honest": true
+  },
+  "oidc": {
+    "status": "NOT_CONFIGURED",
+    "blocker": "FD-001 OIDC provider selection",
+    "authMode": "local-development",
+    "honest": true
+  },
+  "tls": {
+    "status": "NOT_CONFIGURED",
+    "blocker": "TLS termination not configured",
+    "honest": true
+  },
+  "observability": {
+    "status": "LOCAL_ONLY",
+    "blocker": "OpenTelemetry enterprise observability deferred Target C",
+    "honest": true
+  },
+  "p1Register": {
+    "rawCount": 92,
+    "engineeringOpen": 0,
+    "targetCRequiresZero": true,
+    "honest": true
+  }
+}

@@ -1,0 +1,44 @@
+{
+    "schema":  "sci-os-b-axis-execution-status/v1",
+    "at":  "2026-09-06T15:53:55.2933956Z",
+    "commandBoxHonored":  true,
+    "aCore":  {
+                  "untouched":  true,
+                  "overall":  "DEGRADED",
+                  "score":  "180/180",
+                  "packagedDb":  false,
+                  "packagedRedis":  false
+              },
+    "B1":  {
+               "status":  "BLOCKED_HUMAN",
+               "dockerComposeVersion":  "v2.39.2-desktop.1",
+               "error":  "open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified",
+               "engine":  "PIPE_MISSING",
+               "next":  "Start Docker Desktop UI → green whale → docker info shows Server Version"
+           },
+    "B2":  {
+               "status":  "BLOCKED_ON_B1",
+               "note":  "compose not started (parancsbox: no auto without engine)"
+           },
+    "B3":  {
+               "status":  "BLOCKED_HUMAN",
+               "note":  "OIDC tenant/secrets"
+           },
+    "B4":  {
+               "status":  "PREPARED",
+               "tlsCertsOnDisk":  true,
+               "otelCompose":  "infra/docker/docker-compose.otel.yml"
+           },
+    "B5":  {
+               "status":  "CODE_FIXED",
+               "resolveBetaGatePrerequisite":  true,
+               "gatesNotRun":  "waiting B1-B4 + human"
+           },
+    "B6":  {
+               "status":  "BLOCKED_ON_B2"
+           },
+    "B7":  {
+               "status":  "ROADMAP"
+           },
+    "stopReason":  "Parancsbox: B1 emberi — ne compose / ne fake READY amíg engine pipe hiányzik"
+}

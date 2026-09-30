@@ -20,8 +20,9 @@ export class SystemInventoryEngine {
       : [];
 
     const nodeV = spawnSync("node", ["--version"], { encoding: "utf8" });
-    const pnpmV = spawnSync("pnpm", ["--version"], { encoding: "utf8", shell: true });
-    const docker = spawnSync("docker", ["info"], { encoding: "utf8", shell: true, timeout: 8000 });
+    const pnpmBin = process.platform === "win32" ? "pnpm.cmd" : "pnpm";
+    const pnpmV = spawnSync(pnpmBin, ["--version"], { encoding: "utf8" });
+    const docker = spawnSync("docker", ["info"], { encoding: "utf8", timeout: 8000 });
 
     return {
       at: new Date().toISOString(),

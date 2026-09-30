@@ -1,0 +1,20 @@
+{
+  "at": "2026-08-19T22:42:28.449Z",
+  "findings": [
+    {
+      "id": "enterprise.modules.sections-49-83",
+      "classification": "ABSENT",
+      "note": "Registry marks ABSENT — not disconnected code"
+    },
+    {
+      "id": "professional_ux_shell",
+      "classification": "DISCONNECTED_CONTRACT",
+      "note": "UX Core/compiler contracts exist; adaptive /app host ABSENT"
+    },
+    {
+      "id": "experience_compiler",
+      "classification": "PARTIAL",
+      "note": "Dry-run compiler PRESENT; not mounted in cockpit"
+    }
+  ]
+}

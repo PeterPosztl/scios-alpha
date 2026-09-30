@@ -1,0 +1,51 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "items": [
+    {
+      "topic": "prediction performance",
+      "state": "IMPLEMENTED",
+      "validated": false
+    },
+    {
+      "topic": "calibration",
+      "state": "PARTIAL",
+      "validated": false
+    },
+    {
+      "topic": "uncertainty",
+      "state": "IMPLEMENTED",
+      "validated": false
+    },
+    {
+      "topic": "OOD",
+      "state": "UNPROVEN",
+      "validated": false
+    },
+    {
+      "topic": "drift",
+      "state": "MISSING",
+      "validated": false
+    },
+    {
+      "topic": "reproducibility",
+      "state": "PARTIAL",
+      "validated": "seeded_slice_tests"
+    },
+    {
+      "topic": "backtest validity",
+      "state": "UNPROVEN",
+      "validated": false
+    },
+    {
+      "topic": "feature leakage",
+      "state": "PARTIAL_TESTS",
+      "validated": "package_tests"
+    },
+    {
+      "topic": "baseline superiority",
+      "state": "UNPROVEN",
+      "validated": false
+    }
+  ],
+  "rule": "IMPLEMENTED ≠ SCIENTIFICALLY_VALIDATED"
+}

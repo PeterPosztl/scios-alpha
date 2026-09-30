@@ -1,0 +1,8 @@
+{
+  "at": "2026-08-12T19:49:36.092Z",
+  "bootId": "uu_msqi6dlm_ac8b47",
+  "nativeAddonsInPackage": [],
+  "count": 0,
+  "pass": true,
+  "note": "No .node binaries in packaged tree — ABI mismatch not applicable for packaged backend."
+}

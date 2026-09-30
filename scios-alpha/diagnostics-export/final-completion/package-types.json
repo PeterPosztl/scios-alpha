@@ -1,0 +1,24 @@
+{
+  "schema": "sci-os-package-types/v1",
+  "at": "2026-09-30T09:59:11.836Z",
+  "mode": "check",
+  "packages": [
+    {
+      "pkg": "packages/product-kernel",
+      "tscExit": 0,
+      "declarationCount": 25,
+      "drifted": [],
+      "stale": [],
+      "status": "PASS"
+    },
+    {
+      "pkg": "packages/professional-domain-registry",
+      "tscExit": 0,
+      "declarationCount": 11,
+      "drifted": [],
+      "stale": [],
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS"
+}

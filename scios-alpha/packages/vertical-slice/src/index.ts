@@ -18,6 +18,15 @@ export {
   type PersistenceStateEntry,
   type PersistenceClassification,
 } from "./persistence-matrix.js";
+export {
+  bootPersistenceLayer,
+  getPersistenceHealth,
+  runPostgresMigrations,
+  isPostgresConfigured,
+  exportLocalBackup,
+  PERSISTENCE_TABLES,
+  type PersistenceHealth,
+} from "./persistence/index.js";
 export { runIdempotentAnalyze, clearActionGate } from "./action-gate.js";
 export { toVerticalSliceResponse } from "./view-adapter.js";
 export type {

@@ -1,0 +1,42 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "roots": [
+    {
+      "id": "RC-PACKAGED-EVIDENCE",
+      "cause": "Stale/missing LOCALAPPDATA post-reboot GW1 artifacts",
+      "symptoms": [
+        "TASK-PKG-003",
+        "FIRST RELEASE INTERNAL_BLOCKER"
+      ]
+    },
+    {
+      "id": "RC-UX-MONOLITH",
+      "cause": "Single-file Shell",
+      "symptoms": [
+        "hard to scale primitives"
+      ],
+      "notBlockingGw1": true
+    },
+    {
+      "id": "RC-TYPES-NODE",
+      "cause": "@types/node 22 vs runtime 20",
+      "severity": "P2"
+    },
+    {
+      "id": "RC-SHELL-TRUE-RESIDUAL",
+      "cause": "Non-primary scripts still shell:true",
+      "severity": "P2",
+      "evidence": [
+        {
+          "file": "installer/scripts/convergence/convergence-gate.cjs",
+          "count": 1
+        },
+        {
+          "file": "installer/scripts/convergence/startup-proof.cjs",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

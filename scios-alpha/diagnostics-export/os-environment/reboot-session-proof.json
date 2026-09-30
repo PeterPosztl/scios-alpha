@@ -1,0 +1,6 @@
+{
+  "at": "2026-08-12T19:27:02.360Z",
+  "pass": false,
+  "status": "EXTERNAL_BLOCKER_REQUIRES_HOST_REBOOT",
+  "note": "Session file persistence proven via API; Windows reboot restore not certified in this pass"
+}

@@ -1,0 +1,95 @@
+{
+  "schema": "sci-os-deep-workspace-validation/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T20:22:10.217Z",
+  "mode": "PROFESSIONAL_WORKSPACE_DEEP_VALIDATION_WAVE_SAFE",
+  "wave": "PARTIAL",
+  "ready": false,
+  "holeless": false,
+  "roles200Validated": false,
+  "autoTrade": false,
+  "inventedSops": false,
+  "simulationOnly": true,
+  "executionMode": "SIMULATION_ONLY",
+  "persisted": false,
+  "oneBoot": true,
+  "oneShell": true,
+  "liveCertifiedFeeds": 0,
+  "unexpectedLiveFeeds": false,
+  "live": {
+    "controlPlane": { "port": 3000, "readyz": true, "executionMode": "SIMULATION_ONLY" },
+    "shell": { "port": 4000, "ok": true, "service": "@scios/cockpit-ui" },
+    "endpoint": "GET /v1/ecl/professional/validate/deep",
+    "auditMutated": false,
+    "auditLen": 1,
+    "deploymentRegistered": 36,
+    "enabledRuntimes": false,
+    "blueprintsEnabled": false,
+    "ldaAutoPatch": false,
+    "liveAdapter": "ABSENT",
+    "feedsActual": "simulated_alpha"
+  },
+  "health": {
+    "fail": 0,
+    "passConstraint": 9,
+    "partial": 29,
+    "unknown": 4,
+    "probes": 9,
+    "archetypesEvidenced": 9,
+    "rolesSeeded": 200,
+    "rolesFullySpecified": 9,
+    "liveBlocked": 9
+  },
+  "probes": [
+    { "roleId": "arch.soc_analyst", "workspaceProfileId": "soc_ops", "compilerStatus": "RUNTIME_MOUNTED", "panelCount": 5, "liveBlocked": true, "liveExecutionEnabled": false, "jtbdMission": true, "modelScience": "UNVALIDATED", "executionProfile": "SIMULATION_ONLY" },
+    { "roleId": "arch.fraud_investigator", "workspaceProfileId": "fraud_investigation", "compilerStatus": "RUNTIME_MOUNTED", "panelCount": 7, "liveBlocked": true, "liveExecutionEnabled": false, "jtbdMission": true, "modelScience": "UNVALIDATED", "executionProfile": "SIMULATION_ONLY" },
+    { "roleId": "arch.fin_risk_analyst", "workspaceProfileId": "portfolio_risk", "compilerStatus": "RUNTIME_MOUNTED", "panelCount": 4, "liveBlocked": true, "liveExecutionEnabled": false, "jtbdMission": true, "modelScience": "UNVALIDATED", "executionProfile": "SIMULATION_ONLY" },
+    { "roleId": "arch.osint_analyst", "workspaceProfileId": "osint_research", "compilerStatus": "RUNTIME_MOUNTED", "panelCount": 4, "liveBlocked": true, "liveExecutionEnabled": false, "jtbdMission": true, "modelScience": "UNVALIDATED", "executionProfile": "SIMULATION_ONLY" },
+    { "roleId": "arch.executive", "workspaceProfileId": "executive_brief", "compilerStatus": "RUNTIME_MOUNTED", "panelCount": 4, "liveBlocked": true, "liveExecutionEnabled": false, "jtbdMission": true, "modelScience": "UNVALIDATED", "executionProfile": "SIMULATION_ONLY" },
+    { "roleId": "arch.auditor", "workspaceProfileId": "audit_review", "compilerStatus": "RUNTIME_MOUNTED", "panelCount": 4, "liveBlocked": true, "liveExecutionEnabled": false, "jtbdMission": true, "modelScience": "UNVALIDATED", "executionProfile": "SIMULATION_ONLY" },
+    { "roleId": "arch.market_analyst", "workspaceProfileId": "market_analysis", "compilerStatus": "RUNTIME_MOUNTED", "panelCount": 8, "liveBlocked": true, "liveExecutionEnabled": false, "jtbdMission": true, "modelScience": "UNVALIDATED", "executionProfile": "SIMULATION_ONLY" },
+    { "roleId": "arch.prediction_decision_analyst", "workspaceProfileId": "prediction_decision", "compilerStatus": "RUNTIME_MOUNTED", "panelCount": 7, "liveBlocked": true, "liveExecutionEnabled": false, "jtbdMission": true, "modelScience": "UNVALIDATED", "executionProfile": "SIMULATION_ONLY" },
+    { "roleId": "arch.eng_operator", "workspaceProfileId": "eng_ops", "compilerStatus": "RUNTIME_MOUNTED", "panelCount": 3, "liveBlocked": true, "liveExecutionEnabled": false, "jtbdMission": true, "modelScience": "UNVALIDATED", "executionProfile": "SIMULATION_ONLY" }
+  ],
+  "roles": {
+    "RoleCatalog.AllDomains.deep": "PARTIAL",
+    "ExperienceCompiler.deep": "PARTIAL",
+    "WorkspaceSpecEngine.deep": "PARTIAL",
+    "JTBDEngine.deep": "PARTIAL",
+    "note": "9 workspaceSpecs deep-inspected. 191 seeds UNKNOWN — never PASS. Panel layout READY ≠ product READY."
+  },
+  "sandboxes": {
+    "Sandbox.AllDomains.deep": "PARTIAL",
+    "mode": "* = SIMULATION_ONLY",
+    "count": 16,
+    "absent": 7,
+    "liveData": 0
+  },
+  "blueprints": {
+    "AgentSystem.LDA.deep": "PASS_CONSTRAINT",
+    "KnowledgeGraph.Core.deep": "PARTIAL",
+    "WorkflowDSL.Core.deep": "UNKNOWN",
+    "DistributedArchitecture.Core.deep": "UNKNOWN"
+  },
+  "pipelines": {
+    "CapabilityEngine.deep": "PARTIAL",
+    "PolicyEngine.deep": "PASS_CONSTRAINT",
+    "RiskEngine.Professional.deep": "PARTIAL",
+    "EvidenceEngine.Professional.deep": "PARTIAL",
+    "LineageEngine.Professional.deep": "PARTIAL"
+  },
+  "os": {
+    "WorkflowEngine.RealisticMode.deep": "PARTIAL",
+    "EventBus.RealisticMode.deep": "PARTIAL",
+    "SystemHealth.RealisticMode.deep": "PARTIAL",
+    "AuditEngine.RealisticMode.deep": "PARTIAL"
+  },
+  "safety": {
+    "simulationOnly": "PASS_CONSTRAINT",
+    "noAutoTrade": "PASS_CONSTRAINT",
+    "persistedFalse": "PASS_CONSTRAINT",
+    "noUnexpectedLiveFeeds": "PASS_CONSTRAINT",
+    "oneBootOneShell": "PASS_CONSTRAINT"
+  },
+  "note": "Deep validation of 9 workspace specs. Constraints can PASS. 200 roles cannot. Not READY."
+}

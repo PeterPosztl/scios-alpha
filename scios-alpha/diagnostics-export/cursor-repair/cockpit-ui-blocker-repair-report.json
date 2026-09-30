@@ -1,0 +1,54 @@
+{
+  "schema": "sci-os-cockpit-ui-blocker-repair-report/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-13T20:46:24.673Z",
+  "EXACT_SYNTAX_DEFECT": "ALREADY_FIXED",
+  "STATUS": "COCKPIT_BOOTSTRAP_SOURCE_PASS",
+  "FILES_CHANGED": [
+    "scripts/tests/cockpit-generated-script.cjs",
+    "scripts/tests/cockpit-birth-test.cjs",
+    "scripts/tests/cockpit-live-probe.cjs",
+    "scripts/tests/cockpit-install-vs-dist.cjs",
+    "package.json (test:cockpit-script|birth|release, release-contracts)",
+    "scripts/gate-contracts.mjs (cockpit:generated-browser-script)",
+    "dist/SCI-OS-X10/cockpit/index.mjs (rebuilt)",
+    "%LOCALAPPDATA%/SCI OS X10/app/cockpit/index.mjs (synced from dist)"
+  ],
+  "GENERATED_SCRIPT_SYNTAX_TEST": "PASS",
+  "HOME_API": "PASS",
+  "READYZ": "PASS",
+  "COCKPIT_UI_HYDRATION": "UNKNOWN_NEEDS_BROWSER_HARD_REFRESH_OR_E2E",
+  "OPTIONAL_WARNINGS_NOT_CHASED": [
+    "default.yaml missing",
+    "DATABASE_URL not set",
+    "REDIS_URL not set",
+    "Docker ENGINE_STOPPED"
+  ],
+  "REMAINING_BLOCKERS": [],
+  "NEXT_EXACT_ACTION": "Hard-refresh http://127.0.0.1:4000/ (or restart packaged SCI OS) after install cockpit sync; confirm Loading home clears and badge leaves UNKNOWN within 5s. Add Playwright UI_HYDRATED E2E as next infra.",
+  "live": {
+    "cockpitHttp": 200,
+    "scriptCount": 1,
+    "GENERATED_BROWSER_SCRIPT_VALID": true,
+    "scriptError": null,
+    "hasBootstrapUi": true,
+    "hasApiHelper": true,
+    "hasLoadingHomeStatic": true,
+    "hasUnknownStatic": true,
+    "homeHttp": 200,
+    "homeContractOk": true,
+    "readyzHttp": 200,
+    "readyzVerdict": true,
+    "searchHttp": 200
+  },
+  "artifacts": {
+    "installCockpitExists": true,
+    "installCockpitPath": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\cockpit\\index.mjs",
+    "installMtime": "2026-08-13T19:54:06.135Z",
+    "distCockpitExists": true,
+    "distMtime": "2026-08-13T20:41:02.441Z",
+    "distBytes": 67229
+  },
+  "UI_HYDRATED": "UNKNOWN_NEEDS_BROWSER_E2E",
+  "note": "Static HTML still contains Loading home… / UNKNOWN until browser JS runs. Syntax+API proven; full DOM hydration needs browser E2E or hard refresh of rebuilt package."
+}

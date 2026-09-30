@@ -1,0 +1,16 @@
+{
+  "correlationId": "f5093570-7e6c-4e25-99ad-eda2601b450d",
+  "mode": "normal",
+  "verdict": "DEGRADED",
+  "nextAction": "Core cockpit usable; optional PG/Redis/Electron/Docker limited — see warnings",
+  "cockpit": "http://127.0.0.1:4000/",
+  "diagnostics": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10\\diagnostics-export\\startup-report.json",
+  "supportBundle": null,
+  "blockers": [],
+  "warnings": [
+    "default.yaml missing",
+    "DATABASE_URL not set — ALPHA in-process mode (no durable DB)",
+    "REDIS_URL not set — queue workers disabled",
+    "Docker: CLI_MISSING"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "schema": "sci-os-workspace-validation-wave-log/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T20:04:40.000Z",
+  "ready": false,
+  "roles200Validated": false,
+  "autoTrade": false,
+  "steps": [
+    {
+      "id": "live-probe",
+      "result": "PASS",
+      "detail": "Existing pair still up. Control Plane :3000 readyz true SIMULATION_ONLY. Shell :4000 healthz ok. No second boot."
+    },
+    {
+      "id": "validate-roles",
+      "result": "PARTIAL",
+      "detail": "GET /v1/ecl/professional/validate. 9/200 evidenced. roles200Validated=false. AllDomains/Compiler/WorkspaceSpec PARTIAL."
+    },
+    {
+      "id": "validate-sandboxes",
+      "result": "PASS_CONSTRAINT",
+      "detail": "Sandbox.mode PASS_CONSTRAINT. AllDomains PARTIAL. liveCertified=0 unexpectedLive=false."
+    },
+    {
+      "id": "validate-blueprints",
+      "result": "PASS",
+      "detail": "LDA PASS_CONSTRAINT (refused, autoPatch=false, enabled=false). KG PARTIAL. DSL and Kafka UNKNOWN."
+    },
+    {
+      "id": "validate-pipelines",
+      "result": "PARTIAL",
+      "detail": "JTBD/Capability/Policy/Risk/Evidence/Lineage PARTIAL analogs."
+    },
+    {
+      "id": "validate-os",
+      "result": "PARTIAL",
+      "detail": "Workflow/EventBus/SystemHealth/Audit PARTIAL analogs. deployment 36 enabledRuntimes=false."
+    },
+    {
+      "id": "safety",
+      "result": "PASS_CONSTRAINT",
+      "detail": "simulationOnly noAutoTrade persisted=false oneBootOneShell. Validate GET did not mutate audit."
+    },
+    {
+      "id": "exports",
+      "result": "PASS",
+      "detail": "diagnostics-export/workspace-validation-wave.json + workspace-validation-wave-log.json refreshed from live probe."
+    }
+  ]
+}

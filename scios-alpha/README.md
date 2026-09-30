@@ -1,91 +1,77 @@
-## Truth (Wave 0)
+# SCI OS ×10 (`scios-alpha`)
 
-This is an **ALPHA scaffold**. Enterprise sections 49–83 are mostly **ABSENT** — see `docs/enterprise/CAPABILITY_REGISTRY.json`.
+**ALPHA / NON-PRODUCTION.** No evidence ⇒ UNKNOWN. Do not claim enterprise READY.
 
-```bash
-pnpm install:repro   # frozen lockfile
-pnpm build
-pnpm test
-pnpm gate:scaffold   # Wave 0 evidence
-pnpm gate:contracts  # Wave 1 ontology + ledgers evidence
-```
+Canonical current state: [`docs/enterprise/CURRENT_SYSTEM_TRUTH.md`](docs/enterprise/CURRENT_SYSTEM_TRUTH.md)  
+Evidence index: [`diagnostics-export/current-evidence-index.json`](diagnostics-export/current-evidence-index.json)
 
-Master Contract truth map: `docs/enterprise/MASTER_CONTRACT.md`  
-**Not ENTERPRISE GO** — Wave 1 vertical slice only.
+## Maturity axes
+
+| Axis | Status intent |
+|------|----------------|
+| **First Release Foundation** | Home → Search → Entity → GW1 → Evidence/Lineage on Control Plane `:3000` + Shell `:4000` |
+| **Full Product Vision** | Separate P2/P3 roadmap (GW2–7, OIDC, durable fabric, …) — not implied by first-release UX |
 
 ## Prerequisites
 
-- Node.js ≥ 20
-- pnpm ≥ 9
-- Python 3.11+ (for prediction / risk engines locally)
-- Docker (optional)
+- Node.js **20.18.x** (`engines`: `>=20.18.0 <21`; packaged **20.18.1**)
+- pnpm ≥ 9 (`packageManager`: `pnpm@9.15.0`)
+- Docker / Postgres / Redis **optional** (OPTIONAL_INFRA_DEGRADED when absent)
 
 ## Install
 
 ```bash
-pnpm install
+pnpm install:repro   # frozen lockfile
 pnpm build
+pnpm gate:scaffold
+pnpm gate:foundation
 ```
 
-## Local services (pnpm filters)
+## Canonical start
 
 ```bash
-pnpm --filter @scios/prediction-engine dev
-pnpm --filter @scios/risk-engine dev
-pnpm --filter @scios/execution-simulator dev
-pnpm --filter @scios/control-plane-api dev
-pnpm --filter @scios/cockpit-ui dev
+pnpm sci:start
+# or: SCI-OS-Start.bat
 ```
 
-Or start all Node apps in parallel:
+| Service | Port | URL |
+|---------|------|-----|
+| Control Plane | **3000** | http://127.0.0.1:3000/ |
+| Shell (Home) | **4000** | http://127.0.0.1:4000/ |
+| Recovery Shell | 5299 | http://127.0.0.1:5299/ (on failure) |
+
+Legacy ports **5200 / 5230** are **rejected** for the canonical product path (mock-api / historical only).
+
+User hand-off is the **Shell on :4000**, not the Control Plane root.
+
+## Product path (first release)
+
+Shell: Home → Search → Entity → Analyze (GW1) → Evidence / Lineage → normal shutdown.
 
 ```bash
-pnpm dev
+curl -s http://127.0.0.1:3000/v1/home
+curl -s "http://127.0.0.1:3000/v1/search?q=AAPL"
+curl -s -X POST http://127.0.0.1:3000/api/vertical-slice/run -H "content-type: application/json" -d "{\"instrumentId\":\"AAPL\",\"horizonSec\":3600,\"size\":10}"
 ```
 
-| Service | Port |
-|---------|------|
-| control-plane-api | 5200 |
-| prediction-engine | 5201 |
-| risk-engine | 5202 |
-| execution-simulator | 5210 |
-| cockpit-ui | 5230 |
-
-## Alpha loop (in-process)
+## Optional local engines (not required for first-release core)
 
 ```bash
-pnpm check      # health
-pnpm sim        # 60-minute simulation
-pnpm dev:alpha  # continuous ALPHA live loop
+pnpm --filter @scios/prediction-engine dev   # optional
+pnpm --filter @scios/risk-engine dev         # optional
+pnpm --filter @scios/execution-simulator dev # optional
 ```
 
-## Demo curl
+## Packaged install
 
-```bash
-curl -X POST http://127.0.0.1:5200/demo/predict-and-simulate -H "content-type: application/json" -d "{\"instrumentId\":\"AAPL\",\"horizonSec\":3600,\"size\":10}"
+```text
+%LOCALAPPDATA%\SCI OS X10\app\SCI-OS-X10.cmd
 ```
 
-Or:
+Uses **bundled Node 20.18.1** — no system Node, no pnpm, no Cursor required to start.
 
-```bash
-pnpm demo
-```
+## Honesty
 
-## Docker Compose
-
-```bash
-docker compose -f infra/docker/docker-compose.yml up --build
-```
-
-Then open http://127.0.0.1:5230 (cockpit) or hit the curl demo above.
-
-## Meta-Intelligence Plane
-
-See [`docs/META_INTELLIGENCE_PLANE.md`](docs/META_INTELLIGENCE_PLANE.md).
-
-```bash
-# After control-plane is up:
-curl http://127.0.0.1:5200/v1/meta
-```
-
-Package: `@scios/meta-intelligence` — Capability Registry + propose-only Self-Evolution.
+- ATOM-AI / parallel trees are **not** the canonical product.
+- Optional Docker/PG/Redis absence ⇒ **OPTIONAL_INFRA_DEGRADED**, not fake READY.
+- Master Contract: [`docs/enterprise/MASTER_CONTRACT.md`](docs/enterprise/MASTER_CONTRACT.md)

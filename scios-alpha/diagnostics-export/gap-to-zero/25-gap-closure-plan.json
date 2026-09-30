@@ -1,0 +1,13 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "order": [
+    "canonical truth (done)",
+    "reproducibility (mostly done)",
+    "runtime/boot/recovery (mostly done)",
+    "bind localhost + local durable + approval/AI panels (this pass)",
+    "packaged reboot proof (human/external)",
+    "Experience Layer + generative UI schemas (post)",
+    "full regression"
+  ]
+}

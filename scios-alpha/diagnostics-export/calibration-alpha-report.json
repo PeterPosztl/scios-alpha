@@ -1,0 +1,34 @@
+{
+  "schema": "sci-os-calibration-alpha-report/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T14:29:27.341Z",
+  "identity": "ENTERPRISE_GRADE_ALPHA",
+  "ready": false,
+  "productionEligible": false,
+  "winRateClaim": null,
+  "autoTrade": false,
+  "source": "diagnostics-export/track-record-alpha.json",
+  "liveCalibration": "UNKNOWN",
+  "probabilityCalibratedLive": false,
+  "status": "ADEQUATE_ALPHA",
+  "simulated": {
+    "n": 12,
+    "brier": 0.18675000000000005,
+    "meanAbsEdge": 0.09583333333333334,
+    "edgeSignHitRate": 0.8333333333333334,
+    "hypotheticalPnl": 452.2,
+    "hypoMaxDrawdown": 0.0014229485327089124,
+    "noNewRiskAvoidRate": 1,
+    "adequate": true,
+    "bins": [
+      { "bin": 0, "lo": 0, "hi": 0.2, "n": 0, "meanP": 0, "meanY": 0 },
+      { "bin": 1, "lo": 0.2, "hi": 0.4, "n": 3, "meanP": 0.31, "meanY": 0 },
+      { "bin": 2, "lo": 0.4, "hi": 0.6, "n": 5, "meanP": 0.494, "meanY": 0.8 },
+      { "bin": 3, "lo": 0.6, "hi": 0.8, "n": 4, "meanP": 0.67, "meanY": 0.75 },
+      { "bin": 4, "lo": 0.8, "hi": 1, "n": 0, "meanP": 0, "meanY": 0 }
+    ]
+  },
+  "decisionsLogged": 12,
+  "scenariosLogged": 12,
+  "note": "Simulated closed-loop only. Live probability calibration is UNKNOWN. Hypothetical PnL is not a live book. Not READY. Not a 90% win-rate."
+}

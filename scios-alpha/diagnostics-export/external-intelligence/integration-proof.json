@@ -1,0 +1,24 @@
+{
+  "at": "2026-08-12T17:07:05.685Z",
+  "schema": "sci-os-external-integration-proof/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "dependenciesIntroducedThisWave": [],
+  "note": "Wave1 synthesizes patterns into docs + registries; no new runtime npm deps",
+  "mappedIntoProductKernel": [
+    "ObjectRegistry.Entity",
+    "ActionRegistry.search/analyze",
+    "WorkflowRegistry.gw1",
+    "Evidence drawer / Technical view",
+    "Home attention pattern"
+  ],
+  "measurableWorkflowDelta": {
+    "workflow": "gw1.market_prediction_analysis",
+    "before": "Engineering-first vertical slice boxes",
+    "after": "Home + Search + Entity360 + Professional result + Technical/Evidence",
+    "gw1ProofPass": true,
+    "gw1RunId": "run_bfaea1e7-914b-41b9-99c3-1175d7846c60",
+    "source": "diagnostics-export/final-closure/golden-workflow-1-proof.json"
+  },
+  "feedsSystemClosure": true,
+  "productionPromotion": "SEPARATE — research refresh ≠ auto upgrade"
+}

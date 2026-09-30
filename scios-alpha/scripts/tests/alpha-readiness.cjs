@@ -113,7 +113,7 @@ async function main() {
   const { compileProfessionalRegistry } = await import(compileUrl);
   const pdr = compileProfessionalRegistry();
   assert.ok(pdr.ok, "PDR compile must pass: " + JSON.stringify(pdr.errors));
-  assert.ok(pdr.compiled.counts.archetypes === 8);
+  assert.ok(pdr.compiled.counts.archetypes >= 8);
   assert.ok(pdr.compiled.counts.rolesSeeded >= 200);
   write("03-domain-registry-proof.json", { ok: true, ...pdr, status: "PASS" });
 

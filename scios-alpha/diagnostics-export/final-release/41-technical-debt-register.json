@@ -1,0 +1,25 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "debt": [
+    {
+      "id": "td.boot_delegate",
+      "item": "bootstrap/bootstrap-capsule.js delegate layer",
+      "note": "Compatibility — must not become second orchestrator"
+    },
+    {
+      "id": "td.env_config",
+      "item": "Env-scattered configuration",
+      "note": "Pending typed EffectiveConfig"
+    },
+    {
+      "id": "td.cockpit_monolith_html",
+      "item": "Cockpit single HTML string",
+      "note": "Works for ALPHA; extract components before large UX growth"
+    },
+    {
+      "id": "td.vertical_slice_dist",
+      "item": "Package exports dist/ — rebuild required after src changes",
+      "note": "Caused search 500 until rebuild (instrumentId)"
+    }
+  ]
+}

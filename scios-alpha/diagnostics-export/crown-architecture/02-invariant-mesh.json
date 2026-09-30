@@ -1,0 +1,98 @@
+{
+  "at": "2026-08-13T12:52:42.652Z",
+  "buildId": "crown-architecture-2026-08-13",
+  "schema": "sci-os-invariant-mesh/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "results": [
+    {
+      "id": "USER_LAUNCH_TARGET_EQ_SHELL",
+      "predicate": "USER_LAUNCH_TARGET == SHELL",
+      "pass": true,
+      "class": "PASS",
+      "observed": "SHELL"
+    },
+    {
+      "id": "SHELL_PORT_NE_CONTROL_PLANE_PORT",
+      "predicate": "SHELL_PORT != CONTROL_PLANE_PORT",
+      "pass": true,
+      "class": "PASS",
+      "observed": {
+        "shell": 4000,
+        "cp": 3000
+      }
+    },
+    {
+      "id": "PACKAGED_RUNTIME_BUNDLED",
+      "predicate": "INSTALLED_RUNTIME == BUNDLED_RUNTIME when packaged",
+      "pass": true,
+      "class": "NOT_APPLICABLE",
+      "observed": "not_packaged"
+    },
+    {
+      "id": "INSTALLED_APP_ROOT_NE_SOURCE_DIST",
+      "predicate": "INSTALLED_APP_ROOT != SOURCE_DIST_ROOT when packaged",
+      "pass": true,
+      "class": "NOT_APPLICABLE",
+      "observed": "not_packaged"
+    },
+    {
+      "id": "ACTION_REQUIRES_RISK_GOVERNANCE",
+      "predicate": "ACTION_EXECUTION requires RISK + GOVERNANCE where policy requires",
+      "pass": true,
+      "class": "PASS",
+      "observed": {
+        "analyzeProducesRiskAndGov": true
+      }
+    },
+    {
+      "id": "EVIDENCE_BUILDID_MATCH",
+      "predicate": "CURRENT_EVIDENCE.buildId aligns with CURRENT_RELEASE.buildId",
+      "pass": true,
+      "class": "PASS",
+      "observed": {
+        "ev": "gap-to-zero-2026-08-13",
+        "rel": "crown-architecture-2026-08-13",
+        "sameDay": true
+      }
+    },
+    {
+      "id": "VISIBLE_ACTION_IN_REGISTRY",
+      "predicate": "VISIBLE_ACTION exists in ActionRegistry",
+      "pass": true,
+      "class": "PASS",
+      "observed": {
+        "missing": []
+      }
+    },
+    {
+      "id": "ACTION_PROVIDER_EXISTS",
+      "predicate": "ActionRegistry provider exists",
+      "pass": true,
+      "class": "PASS",
+      "observed": {
+        "missing": []
+      }
+    },
+    {
+      "id": "EXPERIENCE_CAPABILITY_REGISTERED",
+      "predicate": "Experience capability exists in CapabilityRegistry",
+      "pass": true,
+      "class": "PASS",
+      "observed": {
+        "experienceCapabilityRegistered": true
+      }
+    },
+    {
+      "id": "NO_UNKNOWN_MANDATORY_FOR_READY",
+      "predicate": "No UNKNOWN mandatory dependency may produce READY",
+      "pass": true,
+      "class": "PASS",
+      "observed": {
+        "unknownMandatory": [],
+        "claimedReady": false
+      }
+    }
+  ],
+  "allPass": true,
+  "failCount": 0
+}

@@ -4,7 +4,7 @@
   "fixturePort": 39991,
   "drift": [
     {
-      "driftId": "PORT_FOREIGN_OWNER:827f93",
+      "driftId": "PORT_FOREIGN_OWNER:e365ee",
       "type": "PORT_FOREIGN_OWNER",
       "severity": "P1",
       "expected": {
@@ -18,7 +18,7 @@
         "service": "fixture-foreign",
         "status": 200
       },
-      "observedAt": "2026-08-18T20:42:21.277Z",
+      "observedAt": "2026-09-30T09:59:40.853Z",
       "evidence": null,
       "repairAuthority": "NONE_THIS_SLICE",
       "repairAllowed": false

@@ -1,0 +1,26 @@
+{
+  "at": "2026-08-12T21:53:10.000Z",
+  "schema": "sci-os-first-release-status/v1",
+  "axis": "FIRST_RELEASE_READINESS",
+  "verdict": "NOT READY",
+  "detail": "POST-REBOOT INTERNAL BLOCKER — REBOOT_NOT_DETECTED",
+  "counts": {
+    "internalP0": 0,
+    "internalP1": 1,
+    "externalBlockers": 1,
+    "falseReadyHighAfterResolution": 0,
+    "pendingMandatoryValidation": 1,
+    "nodeContract": "ALIGNED",
+    "apphost": "PROVEN"
+  },
+  "rebootCertification": {
+    "pass": false,
+    "verdict": "POST-REBOOT INTERNAL BLOCKER — REBOOT_NOT_DETECTED",
+    "bootBefore": "2026-08-12T13:00:34.2830420+02:00",
+    "bootAfter": "2026-08-12T13:00:34.2830420+02:00",
+    "detectorAudit": "diagnostics-export/reboot-certification/11-reboot-detector-audit.json"
+  },
+  "activeReleaseQueue": ["reboot-certification"],
+  "taskPkg003": "OPEN",
+  "p2P3FullVision": "NOT_REOPENED"
+}

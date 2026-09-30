@@ -1,0 +1,42 @@
+# SCI OS x10 - B-axis (full vision) infra: Postgres + Redis on non-conflicting host ports.
+#
+# Standalone, NOT an override of docker-compose.infra.yml: Compose appends `ports`
+# entries when merging files, so an override cannot free the canonical 5432/6379.
+#
+# Host ports 5432/6379 are held by the out-of-tree GalaxusMetaOS project
+# (restart: unless-stopped), so the B-axis binds 5462/6399 instead.
+# Keep in sync with DATABASE_URL / REDIS_URL in config/packaged.beta.overlay.json.
+#
+# Start: docker compose -p scios-alpha-beta -f infra/docker/docker-compose.infra.beta.yml up -d
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: scios-beta-postgres
+    environment:
+      POSTGRES_USER: scios
+      POSTGRES_PASSWORD: scios_local
+      POSTGRES_DB: scios
+    ports:
+      - "5462:5432"
+    volumes:
+      - scios-beta-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U scios"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    image: redis:7
+    container_name: scios-beta-redis
+    ports:
+      - "6399:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "PING"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  scios-beta-pgdata:

@@ -1,0 +1,49 @@
+{
+  "at": "2026-08-12T17:14:38.329Z",
+  "schema": "sci-os-system-truth/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "apps": [
+    "cockpit-ui",
+    "control-plane-api",
+    "execution-simulator",
+    "meta-recovery-control-plane",
+    "mock-api",
+    "prediction-engine",
+    "risk-engine"
+  ],
+  "packages": [
+    "alpha-loop",
+    "capability-closure",
+    "data-fabric",
+    "experience-compiler",
+    "experiment-tracker",
+    "external-intelligence",
+    "feature-store",
+    "governance-engine",
+    "meta-intelligence",
+    "meta-recovery",
+    "model-registry",
+    "observability",
+    "portfolio-engine",
+    "probability-engine",
+    "product-kernel",
+    "professional-domain-registry",
+    "system-closure",
+    "validation-engine",
+    "vertical-slice",
+    "workspace-composer"
+  ],
+  "canonicalStartup": "SCI-OS-Start.bat | pnpm sci:start → bootstrap-capsule.cjs → start-sci-os.cjs",
+  "classification": {
+    "startup": "WORKING",
+    "verticalSlice": "WORKING",
+    "cockpitHome": "WORKING",
+    "productKernel": "PARTIAL",
+    "packagingSetupExe": "UNPROVEN",
+    "cleanInstall": "UNPROVEN",
+    "rebootPersistence": "UNPROVEN",
+    "postgres": "EXTERNAL_OPTIONAL_DEGRADED",
+    "redis": "EXTERNAL_OPTIONAL_DEGRADED",
+    "atomAi": "ABSENT_GOOD"
+  }
+}

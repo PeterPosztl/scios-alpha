@@ -120,3 +120,11 @@ Outputs:
 - **Persistence:** local durable run index under `%LOCALAPPDATA%\SCI OS X10\state` + Shell `localStorage` session (not enterprise PG)
 - **Enterprise discipline:** extends Product Kernel (pnpm enterprise:discipline) — SLO/idempotency/maturity/tower/eval/impact/governor; **READY false**
 - **Dev Node:** workspace enforces `>=20.18.0 <21` (`engine-strict=true`); host Node 24 is outside engines by design
+
+## Composed layers (ALPHA — not first-release READY)
+
+ECL (Enterprise Control Layer) and DIL (Decision Intelligence Layer) compose **into** Control Plane routes `/v1/ecl/*`, `/v1/dil/*`, `/v1/ai/proposals/*` and Cockpit views **Intelligence** / **Reporting**. Product identity is **ENTERPRISE_GRADE_ALPHA** (unified professional OS language — **not** READY / holeless / enterprise GO). Boot remains `start-sci-os.cjs`. Shell remains `apps/cockpit-ui`. Agent path is **proposal-only** (no auto-trade). Market feeds are `simulated_alpha`. Simulated closed-loop track-record can reach `ADEQUATE_ALPHA`; **live calibration remains UNKNOWN**. Label remains `ALPHA_NON_PRODUCTION` until a proven **live** track-record exists.
+
+Docs: [ecl-dil-architecture.md](./ecl-dil-architecture.md) · [ecl-dil-api.md](./ecl-dil-api.md) · [ecl-dil-risk-policy.md](./ecl-dil-risk-policy.md) · [ecl-dil-ui.md](./ecl-dil-ui.md) · [desktop-launch.md](./desktop-launch.md)
+
+Enterprise hooks (`GET /v1/ecl/infra`): OIDC, OTLP, durable ledger, live feeds, live calibration engine are **prepared placeholders** (`prepared=true`, `enabled=false`). Status remains **ABSENT / UNKNOWN**. Not first-release GO.

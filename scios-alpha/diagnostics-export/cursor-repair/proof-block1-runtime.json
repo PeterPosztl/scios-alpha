@@ -1,0 +1,20 @@
+{
+  "schema": "sci-os-repair-block1-proof/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-13T18:30:00.000Z",
+  "status": "PASS",
+  "chain": {
+    "exe": "dist/SCI-OS-X10/SCI-OS-X10.exe",
+    "bundledNode": "v20.18.1",
+    "controlPlane": "http://127.0.0.1:3000/healthz",
+    "homeApi": "http://127.0.0.1:3000/v1/home",
+    "cockpit": "http://127.0.0.1:4000/healthz",
+    "homeHtml": "http://127.0.0.1:4000/",
+    "startupVerdict": "DEGRADED",
+    "blockers": [],
+    "installedApp": "%LOCALAPPDATA%\\SCI OS X10\\app",
+    "primaryEntryInstalled": "%LOCALAPPDATA%\\SCI OS X10\\app\\SCI-OS-X10.exe"
+  },
+  "readyClaim": false,
+  "note": "Optional PG/Redis/Docker absent → DEGRADED. HOME proven via EXE → bundled Node 20.18.1."
+}

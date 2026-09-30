@@ -1,0 +1,55 @@
+{
+  "at": "2026-08-12T20:33:12.863Z",
+  "schema": "sci-os-final-startup-signoff/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "verdict": "NODE RUNTIME CONTRACT BLOCKER",
+  "productionEntry": "SCI-OS-X10.cmd | SCI-OS-X10.exe → installer/scripts/start-sci-os.cjs --packaged",
+  "developmentEntry": "pnpm sci:start → bootstrap-capsule.cjs → start-sci-os.cjs",
+  "recoveryEntry": "SCI-OS-Safe-Mode.bat / SCI-OS-Repair.bat / Recovery :5299",
+  "supervisor": "installer/scripts/startup/process-supervisor.cjs",
+  "bootstrap": "installer/scripts/bootstrap-capsule.cjs",
+  "shell": "http://127.0.0.1:4000/ (apps/cockpit-ui)",
+  "controlPlane": "http://127.0.0.1:3000/ (apps/control-plane-api)",
+  "metaOsOnSciBootChain": false,
+  "silentSystemNodeInPackaged": false,
+  "portsCanonical": {
+    "backend": 3000,
+    "cockpit": 4000,
+    "recoveryShell": 5299,
+    "postgres": 5432,
+    "redis": 6379
+  },
+  "p0": {
+    "healthz": true,
+    "readyz": true,
+    "cockpit": true
+  },
+  "gw1": {
+    "times3": [
+      {
+        "i": 1,
+        "ok": true,
+        "runId": "run_9ac5d2b9-9437-4e04-86fe-167255a10752"
+      },
+      {
+        "i": 2,
+        "ok": true,
+        "runId": "run_97b39c7b-38a1-4d01-8eef-e12fda6c72b6"
+      },
+      {
+        "i": 3,
+        "ok": true,
+        "runId": "run_e44f14cd-c275-41e6-97aa-5e246bc0acb7"
+      }
+    ],
+    "allPass": true,
+    "riskRejectBlocks": true,
+    "homeApi": true,
+    "shellHome": true
+  },
+  "remainingBlockers": [
+    "Live Node outside package.json engines — align bundled runtime + prove; do not broaden blindly",
+    "No bundled runtime/node in repo — system-node independence proof PENDING until package:build",
+    "Explorer / wrong-cwd packaged launch proofs still required on built dist"
+  ]
+}

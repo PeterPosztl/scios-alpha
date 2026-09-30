@@ -1,0 +1,7 @@
+{
+  "at": "2026-08-12T17:14:38.329Z",
+  "status": "PARTIAL_DEV_ASSISTED",
+  "note": "Dual consecutive startups proven earlier under diagnostics-export/dual-startup-evidence.json when using sci:start — not packaged icon path",
+  "priorDualStartup": true,
+  "pass": false
+}

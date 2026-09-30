@@ -1,0 +1,21 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "gitSha": "c226d7489cf7f445f226930de752e382361021fd",
+  "philosophyPreserved": true,
+  "noSpeculativeFeatures": true,
+  "noParallelProduct": true,
+  "verdicts": {
+    "REPOSITORY_COHERENCE": "DEGRADED",
+    "RUNTIME_COHERENCE": "DEGRADED",
+    "PRODUCT_ACTIVATION": "DEGRADED",
+    "UX_FOUNDATION": "DEGRADED",
+    "FIRST_RELEASE": "INTERNAL_BLOCKER",
+    "FULL_PRODUCT_VISION": "ALPHA"
+  },
+  "p0Remaining": [
+    "GAP-PACKAGED-GW1-EVIDENCE"
+  ],
+  "integrityEngine": "@scios/system-closure integrity",
+  "regenerate": "pnpm integrity:run"
+}

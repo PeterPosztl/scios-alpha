@@ -1,0 +1,108 @@
+{
+  "schema": "sci-os-system-coherence-state/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T14:04:27.000Z",
+  "mode": "ENTERPRISE_GRADE_IDENTITY",
+  "identity": "ENTERPRISE_GRADE_ALPHA",
+  "identityMeaning": "Professional OS identity and unified compose — not READY, not holeless, not enterprise GO",
+  "stopCondition": "HUMAN_USABLE_ALPHA",
+  "ready": false,
+  "holeless": false,
+  "autoTrade": false,
+  "parallelOS": false,
+  "secondShell": false,
+  "boot": "start-sci-os.cjs",
+  "controlPlane": ":3000",
+  "shell": "apps/cockpit-ui :4000",
+  "humanUsableAlpha": true,
+  "unified": {
+    "architecture": true,
+    "cockpit": true,
+    "ecl": true,
+    "dil": true,
+    "aiProposals": true,
+    "designSystem": true,
+    "diagnostics": true,
+    "reporting": true,
+    "intelligence": true
+  },
+  "composeMap": {
+    "sap.erp_core": "ecl.finance + ecl.risk + ecl.reporting",
+    "palantir.cockpit": "cockpit.professional + cockpit.technical",
+    "citadel.quant_core": "dil.probability + dil.edge + dil.risk + dil.scenario",
+    "google.platform": "unified navigation + command palette",
+    "apple.design": "packages/design-system SCI tokens",
+    "bloomberg.data_ui": "Intelligence + Reporting + Evidence operational panels"
+  },
+  "fragmentationScan": {
+    "criticalApplied": [
+      {
+        "id": "FALSE-READY-CONTEXT",
+        "severity": "P0",
+        "finding": "Context bar cockpitVerdict was READY when Control Plane was reachable — false READY chip.",
+        "repair": "cockpitVerdict ALPHA_LIVE; header badge remains CORE READY (ALPHA) for first-release Home reachability only."
+      },
+      {
+        "id": "GET-DECISION-DOC-DRIFT",
+        "severity": "P0",
+        "finding": "ecl-dil-api.md still said GET /v1/dil/decision/:id logs a decision after previewDecision shipped.",
+        "repair": "Docs + smoke assert persisted:false; GET scenario also preview-only."
+      },
+      {
+        "id": "DIL-SCENARIO-MISSING",
+        "severity": "P1",
+        "finding": "citadel.quant_core mapping listed dil.scenario with no compose surface.",
+        "repair": "previewScenario + GET /v1/dil/scenario/:id + Intelligence scenario line. Not Monte Carlo."
+      },
+      {
+        "id": "GUARDRAIL-ERROR-VS-WARN",
+        "severity": "P1",
+        "finding": "Advisory guardrail breach painted ERROR (system failure) instead of WARN.",
+        "repair": "toneForGuardrail → WARN; empty/offline/loading states unified."
+      }
+    ],
+    "proposalsNotApplied": [
+      {
+        "id": "LIVE-VENUE-ADAPTER",
+        "severity": "P2",
+        "finding": "Polymarket/Kalshi remain simulated_alpha.",
+        "repair": "Optional live_unverified adapter — do not apply without venue evidence."
+      },
+      {
+        "id": "DURABLE-ECL-LEDGER",
+        "severity": "P2",
+        "finding": "In-memory book resets on process restart.",
+        "repair": "P2 durable ledger; do not fork GW1/CF11."
+      },
+      {
+        "id": "WEBGL-HEATMAPS",
+        "severity": "P3",
+        "finding": "Edge/risk maps are CSS cells.",
+        "repair": "Keep CSS until Home/boot proof demands otherwise."
+      }
+    ]
+  },
+  "tests": {
+    "unit": {
+      "command": "pnpm --filter @scios/ecl-dil test",
+      "result": "4/4 pass",
+      "node": "20.18.1 bundled"
+    },
+    "smoke": {
+      "command": "pnpm --filter @scios/control-plane-api run smoke:ecl-dil",
+      "result": "ok",
+      "checks": [
+        "autoTrade=false",
+        "ALPHA_NON_PRODUCTION",
+        "identity ENTERPRISE_GRADE_ALPHA",
+        "identity.ready=false",
+        "secondShell=false",
+        "proposal requiresHuman",
+        "GET scenario persisted=false",
+        "GET decision persisted=false"
+      ]
+    }
+  },
+  "scoreboard": "docs/enterprise/ecl-dil-state.md",
+  "honesty": "HUMAN_USABLE_ALPHA and ENTERPRISE_GRADE_ALPHA identity achieved for the ECL/DIL compose slice. Not READY. Not holeless. Not a vendor clone. Diagnostics do not auto-deploy repairs."
+}

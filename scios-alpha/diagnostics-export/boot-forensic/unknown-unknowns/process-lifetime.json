@@ -1,0 +1,11 @@
+{
+  "at": "2026-08-12T19:49:42.525Z",
+  "bootId": "uu_msqi6dlm_ac8b47",
+  "model": {
+    "launcherExe": "stays open while child start-sci-os --serve runs (stdio inherit / wait exit)",
+    "startSciOs": "parent of backend+cockpit via supervisor",
+    "backendCrash": "should surface in supervisor; launcher remains until start exits",
+    "shell": "browser — independent of launcher after handoff"
+  },
+  "risk": "If launcher killed, child may orphan depending on Windows job object — monitor in soak."
+}

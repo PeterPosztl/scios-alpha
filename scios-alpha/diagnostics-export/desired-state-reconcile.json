@@ -1,0 +1,34 @@
+{
+  "schema": "sci-os-desired-actual-reconcile/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-23T19:48:30.013Z",
+  "desiredSummary": {
+    "packaged": false,
+    "apiPort": 3000,
+    "shellPort": 4000,
+    "userLaunchTarget": "SHELL"
+  },
+  "actualSummary": {
+    "nodeUsable": true,
+    "coreReady": true,
+    "shellReady": true,
+    "homeReady": true,
+    "claimedReady": false
+  },
+  "passes": [
+    "SHELL_PORT_NE_CP",
+    "NODE_USABLE",
+    "CORE_HEALTH",
+    "SHELL_READY",
+    "HOME_READY_IMPLIES_SHELL",
+    "NO_FALSE_READY_CLAIM"
+  ],
+  "gaps": [
+    {
+      "id": "FAILED_BOOT_LOCK_NOT_RELEASED",
+      "severity": "P1"
+    }
+  ],
+  "ok": true,
+  "controller": "reconcileDesiredActual — extend start-sci-os; not a second boot"
+}

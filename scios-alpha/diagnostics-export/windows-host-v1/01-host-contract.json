@@ -1,0 +1,17 @@
+{
+  "schema": "sci-os-host-result/v1",
+  "fields": [
+    "ok",
+    "platform",
+    "capability",
+    "observedAt",
+    "source",
+    "mode",
+    "data",
+    "degraded",
+    "error",
+    "evidence"
+  ],
+  "module": "installer/scripts/host/contract.cjs",
+  "productKernelImportsWindowsApis": false
+}

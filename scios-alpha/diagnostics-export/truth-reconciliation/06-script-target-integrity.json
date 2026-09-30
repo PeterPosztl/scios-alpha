@@ -1,0 +1,616 @@
+{
+  "at": "2026-08-13T10:59:47.013Z",
+  "schema": "sci-os-06-script-target-integrity/v1",
+  "buildId": "truth-recon-2026-08-13-c226d748",
+  "scripts": [
+    {
+      "name": "backend",
+      "cmd": "pnpm --filter @scios/control-plane-api start",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "cockpit",
+      "cmd": "pnpm --filter @scios/cockpit-ui start",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "dev",
+      "cmd": "pnpm -r --parallel --filter \"./apps/**\" run dev",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "dev:alpha",
+      "cmd": "pnpm --filter @scios/alpha-loop start",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "dev:mock",
+      "cmd": "pnpm --filter @scios/mock-api dev",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "sim",
+      "cmd": "pnpm --filter @scios/alpha-loop sim",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "check",
+      "cmd": "pnpm --filter @scios/alpha-loop check",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "build",
+      "cmd": "pnpm -r --filter \"./packages/**\" run build",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "typecheck",
+      "cmd": "pnpm -r --filter \"./packages/**\" --if-present run typecheck",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "test",
+      "cmd": "pnpm --filter @scios/data-fabric test && pnpm --filter @scios/vertical-slice test",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "demo",
+      "cmd": "pnpm --filter @scios/control-plane-api demo",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "mock:dev",
+      "cmd": "pnpm --filter @scios/mock-api dev",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "mock:build",
+      "cmd": "pnpm build && pnpm --filter @scios/mock-api build",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "mock:start",
+      "cmd": "pnpm --filter @scios/mock-api start",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "mock:start:dist",
+      "cmd": "pnpm --filter @scios/mock-api start:dist",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "start",
+      "cmd": "node installer/scripts/start-sci-os.cjs --mode=normal",
+      "status": "CANONICAL",
+      "note": null
+    },
+    {
+      "name": "docker:up",
+      "cmd": "docker compose -f infra/docker/docker-compose.yml up --build",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "docker:local",
+      "cmd": "docker compose -f infra/docker/docker-compose.infra.yml up -d",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "docker:local:down",
+      "cmd": "docker compose -f infra/docker/docker-compose.infra.yml down",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "docker:local:ps",
+      "cmd": "docker compose -f infra/docker/docker-compose.infra.yml ps",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "gate:scaffold",
+      "cmd": "node scripts/gate-scaffold.mjs",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "gate:contracts",
+      "cmd": "node scripts/gate-contracts.mjs",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "gate:foundation",
+      "cmd": "node scripts/gate-foundation.mjs",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "ci:prediction-foundation-gate",
+      "cmd": "node scripts/ci-prediction-foundation-gate.mjs",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "boot",
+      "cmd": "node scripts/boot/index.mjs",
+      "status": "COMPATIBILITY_LEAF",
+      "note": "scripts/boot/index.mjs — not user primary"
+    },
+    {
+      "name": "boot:normal",
+      "cmd": "node scripts/boot/index.mjs normal",
+      "status": "COMPATIBILITY_LEAF",
+      "note": "scripts/boot/index.mjs — not user primary"
+    },
+    {
+      "name": "boot:repair",
+      "cmd": "node scripts/boot/index.mjs repair",
+      "status": "COMPATIBILITY_LEAF",
+      "note": "scripts/boot/index.mjs — not user primary"
+    },
+    {
+      "name": "boot:safe",
+      "cmd": "node scripts/boot/index.mjs safe",
+      "status": "COMPATIBILITY_LEAF",
+      "note": "scripts/boot/index.mjs — not user primary"
+    },
+    {
+      "name": "boot:proof",
+      "cmd": "node scripts/boot/index.mjs proof",
+      "status": "COMPATIBILITY_LEAF",
+      "note": "scripts/boot/index.mjs — not user primary"
+    },
+    {
+      "name": "sci:start",
+      "cmd": "node installer/scripts/bootstrap-capsule.cjs --serve",
+      "status": "CANONICAL",
+      "note": null
+    },
+    {
+      "name": "sci:stop",
+      "cmd": "node installer/scripts/convergence/stop.cjs",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "sci:restart",
+      "cmd": "node installer/scripts/convergence/stop.cjs && node installer/scripts/bootstrap-capsule.cjs --serve",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "sci:status",
+      "cmd": "node installer/scripts/convergence/status.cjs",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "sci:proof",
+      "cmd": "node installer/scripts/convergence/startup-proof.cjs",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "ci:startup-convergence-gate",
+      "cmd": "node installer/scripts/convergence/convergence-gate.cjs",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "sci:desktop",
+      "cmd": "node installer/scripts/bootstrap-capsule.cjs --serve",
+      "status": "CANONICAL",
+      "note": null
+    },
+    {
+      "name": "sci:shutdown",
+      "cmd": "node installer/scripts/convergence/stop.cjs --infra",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "sci:repair",
+      "cmd": "node installer/scripts/repair-sci-os.cjs",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "sci:meta-recovery",
+      "cmd": "pnpm --filter @scios/meta-recovery run run",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "sci:meta-recovery:dry-run",
+      "cmd": "pnpm --filter @scios/meta-recovery run dry-run",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "sci:meta-recovery:prove",
+      "cmd": "pnpm --filter @scios/meta-recovery run prove",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "sci:meta-recovery:fault-test",
+      "cmd": "pnpm --filter @scios/meta-recovery exec tsx src/cli.ts --fault-test",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "sci:meta-recovery:resume",
+      "cmd": "pnpm --filter @scios/meta-recovery exec tsx src/cli.ts --resume",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "sci:capability-scan",
+      "cmd": "pnpm --filter @scios/meta-recovery exec tsx src/cli.ts --dry-run",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "sci:dependency-graph",
+      "cmd": "pnpm --filter @scios/meta-recovery exec tsx src/cli.ts --dry-run",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "sci:repair-recipes",
+      "cmd": "node -e \"console.log(require('fs').readFileSync('docs/enterprise/REPAIR_RECIPE_CATALOG.md','utf8'))\"",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "sci:recovery-memory",
+      "cmd": "node -e \"const p=require('path').join('diagnostics-export','meta-recovery','recovery-memory.json');console.log(require('fs').existsSync(p)?require('fs').readFileSync(p,'utf8'):'{}')\"",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "sci:recovery-shell",
+      "cmd": "pnpm --filter @scios/meta-recovery-control-plane start",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "sci:x10",
+      "cmd": "node installer/scripts/sci-os-x10-launcher.cjs",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "sci:bootstrap",
+      "cmd": "node installer/scripts/bootstrap-kernel.cjs",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "orchestrator:discover",
+      "cmd": "node scripts/discovery.js",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "orchestrator:filter",
+      "cmd": "node scripts/filter.js",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "orchestrator:clone",
+      "cmd": "node scripts/clone.js",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "orchestrator:scan",
+      "cmd": "node scripts/scan.js",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "orchestrator:scaffold",
+      "cmd": "node scripts/scaffold-adapter.js",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "orchestrator:gen-tests",
+      "cmd": "node scripts/gen-tests.js",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "orchestrator:all",
+      "cmd": "pnpm orchestrator:discover && pnpm orchestrator:filter && pnpm orchestrator:clone && pnpm orchestrator:scan && pnpm orchestrator:scaffold && pnpm orchestrator:gen-tests",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "signoff:generate",
+      "cmd": "node scripts/generate-signoff.js",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "build:manifest",
+      "cmd": "node scripts/generate-build-manifest.js",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "build:golden-boot",
+      "cmd": "node scripts/generate-golden-boot-manifest.js",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "bootstrap:golden",
+      "cmd": "node bootstrap/bootstrap-capsule.js",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "bootstrap:golden:dry",
+      "cmd": "node bootstrap/bootstrap-capsule.js --dry-run",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "supervisor",
+      "cmd": "node supervisor/supervisor.js",
+      "status": "SECONDARY",
+      "note": null
+    },
+    {
+      "name": "fault:inject",
+      "cmd": "node scripts/fault-injection-harness.js",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "smoke:slice",
+      "cmd": "node scripts/smoke-vertical-slice.js",
+      "status": "LEGACY_DEFAULT_PORT",
+      "note": "Default BASE was 5230 — reconciled toward 3000"
+    },
+    {
+      "name": "auto:fill",
+      "cmd": "node dev/auto_fill.cjs",
+      "status": "OFF_PATH_SCAFFOLD",
+      "note": "Scaffold generators — not boot authority"
+    },
+    {
+      "name": "auto:fill:apply",
+      "cmd": "node dev/auto_fill.cjs --apply",
+      "status": "OFF_PATH_SCAFFOLD",
+      "note": "Scaffold generators — not boot authority"
+    },
+    {
+      "name": "auto:fill:python",
+      "cmd": "node dev/auto_fill.cjs --python",
+      "status": "OFF_PATH_SCAFFOLD",
+      "note": "Scaffold generators — not boot authority"
+    },
+    {
+      "name": "auto:fill:sh",
+      "cmd": "bash dev/auto_fill.sh",
+      "status": "OFF_PATH_SCAFFOLD",
+      "note": "Scaffold generators — not boot authority"
+    },
+    {
+      "name": "generator:py",
+      "cmd": "python dev/generator.py --manifest build/manifest.json --templates dev/templates --plan dev/fill-plan.json",
+      "status": "OFF_PATH_SCAFFOLD",
+      "note": "Scaffold generators — not boot authority"
+    },
+    {
+      "name": "generator:py:todos",
+      "cmd": "python dev/generator.py --manifest build/manifest.json --templates dev/templates --plan dev/fill-plan.json --scan-todos",
+      "status": "OFF_PATH_SCAFFOLD",
+      "note": "Scaffold generators — not boot authority"
+    },
+    {
+      "name": "auto:finish",
+      "cmd": "node dev_auto_finish/auto_finish.cjs",
+      "status": "OFF_PATH_SCAFFOLD",
+      "note": "Scaffold generators — not boot authority"
+    },
+    {
+      "name": "auto:finish:gates",
+      "cmd": "node dev_auto_finish/auto_finish.cjs --run-gates",
+      "status": "OFF_PATH_SCAFFOLD",
+      "note": "Scaffold generators — not boot authority"
+    },
+    {
+      "name": "auto:finish:todos",
+      "cmd": "node dev_auto_finish/auto_finish.cjs --scan-todos",
+      "status": "OFF_PATH_SCAFFOLD",
+      "note": "Scaffold generators — not boot authority"
+    },
+    {
+      "name": "auto:finish:apply",
+      "cmd": "node dev_auto_finish/auto_finish.cjs --apply --run-gates",
+      "status": "OFF_PATH_SCAFFOLD",
+      "note": "Scaffold generators — not boot authority"
+    },
+    {
+      "name": "ux:benchmark",
+      "cmd": "node -e \"const fs=require('fs');const p='diagnostics-export/ux-competitive-benchmark.json';if(!fs.existsSync(p)){console.error('MISSING '+p);process.exit(1)}console.log(JSON.stringify({ok:true,path:p,competitors:JSON.parse(fs.readFileSync(p,'utf8')).competitors.length},null,2))\"",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "ux:proof",
+      "cmd": "node scripts/ux-usability-proof.js",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "ux:truth",
+      "cmd": "node -e \"const fs=require('fs');const p='diagnostics-export/ux/current-ux-inventory.json';const d='docs/ux/CURRENT_UX_TRUTH.md';if(!fs.existsSync(p)||!fs.existsSync(d)){console.error('MISSING truth artifacts');process.exit(1)}console.log(JSON.stringify({ok:true,inventory:p,doc:d,verdict:JSON.parse(fs.readFileSync(p,'utf8')).foundationVerdict},null,2))\"",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "ux:domains",
+      "cmd": "pnpm --filter @scios/professional-domain-registry check",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "ux:compile:demo",
+      "cmd": "pnpm --filter @scios/professional-domain-registry compile:demo",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "ux:kernel",
+      "cmd": "node -e \"const p='diagnostics-export/ux/product-kernel.json';const k='diagnostics-export/ux/kernel-pillars.json';const j=require('./'+p);const x=require('./'+k);console.log(JSON.stringify({ok:true,verdict:j.verdict,registryCaps:j.counts.capabilitiesInRegistryNow,pillars:x.pillars.map(t=>t.id+':'+t.status),path:p},null,2))\"",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "closure:scan",
+      "cmd": "pnpm --filter @scios/system-closure run scan",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "closure:p0",
+      "cmd": "pnpm --filter @scios/system-closure run p0",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "closure:final",
+      "cmd": "pnpm --filter @scios/system-closure run final",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "closure:startup",
+      "cmd": "pnpm --filter @scios/system-closure run startup-reconcile",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "kernel:export",
+      "cmd": "pnpm --filter @scios/product-kernel run export",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "package:exe",
+      "cmd": "pnpm build && node scripts/generate-build-manifest.js && pnpm exec pkg . --targets node20-win-x64 --output dist/SCI-OS-X10.exe",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "package:dist",
+      "cmd": "node scripts/package/build-distribution.cjs",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "reboot:pre",
+      "cmd": "node scripts/package/reboot-certification.cjs --pre",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "reboot:post",
+      "cmd": "node scripts/package/reboot-cert-post.cjs",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "package:reboot-prep",
+      "cmd": "node scripts/package/final-reboot-prep.cjs",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "package:prove-reboot",
+      "cmd": "node scripts/package/prove-reboot.cjs",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "release:reconcile",
+      "cmd": "node scripts/package/release-reconciliation.cjs",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "truth:reconcile",
+      "cmd": "node scripts/truth-reconciliation.cjs",
+      "status": "OK",
+      "note": null
+    },
+    {
+      "name": "atom:ai",
+      "cmd": "node -e \"console.error('STALE: ATOM-AI rejected as parallel canonical product'); process.exit(2)\"",
+      "status": "STALE_REJECTED_PARALLEL",
+      "note": "ATOM-AI not canonical product"
+    },
+    {
+      "name": "atom:ai:gates",
+      "cmd": "node -e \"console.error('STALE: ATOM-AI rejected'); process.exit(2)\"",
+      "status": "STALE_REJECTED_PARALLEL",
+      "note": "ATOM-AI not canonical product"
+    },
+    {
+      "name": "atom:ai:todos",
+      "cmd": "node -e \"console.error('STALE: ATOM-AI rejected'); process.exit(2)\"",
+      "status": "STALE_REJECTED_PARALLEL",
+      "note": "ATOM-AI not canonical product"
+    },
+    {
+      "name": "atom:ai:apply",
+      "cmd": "node -e \"console.error('STALE: ATOM-AI rejected'); process.exit(2)\"",
+      "status": "STALE_REJECTED_PARALLEL",
+      "note": "ATOM-AI not canonical product"
+    },
+    {
+      "name": "atom:health",
+      "cmd": "node -e \"console.error('STALE: ATOM-AI health rejected'); process.exit(2)\"",
+      "status": "STALE_REJECTED_PARALLEL",
+      "note": "ATOM-AI not canonical product"
+    },
+    {
+      "name": "atom:health:repair",
+      "cmd": "node -e \"console.error('STALE: ATOM-AI health rejected'); process.exit(2)\"",
+      "status": "STALE_REJECTED_PARALLEL",
+      "note": "ATOM-AI not canonical product"
+    },
+    {
+      "name": "install:repro",
+      "cmd": "pnpm install --frozen-lockfile",
+      "status": "OK",
+      "note": null
+    }
+  ],
+  "canonicalUserEntry": "pnpm sci:start | SCI-OS-Start.bat | packaged SCI-OS-X10.cmd",
+  "canonicalDevEntry": "pnpm sci:start",
+  "canonicalRecoveryEntry": "SCI-OS-Repair.bat / SCI-OS-Safe-Mode.bat / packaged recovery with bundled Node"
+}

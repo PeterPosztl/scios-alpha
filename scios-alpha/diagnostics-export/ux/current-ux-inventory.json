@@ -1,0 +1,60 @@
+{
+  "schema": "sci-os-current-ux-inventory/v1",
+  "at": "2026-08-12T16:00:00.000Z",
+  "label": "ALPHA_NON_PRODUCTION",
+  "phase": "UX-0",
+  "foundationVerdict": "UX_FOUNDATION_DEGRADED",
+  "professionalUxReady": false,
+  "surfaces": [
+    {
+      "id": "cockpit-ui",
+      "path": "apps/cockpit-ui/src/index.js",
+      "port": 4000,
+      "views": [
+        "Dashboard",
+        "Vertical Slice",
+        "Lineage Explorer",
+        "Risk / Gov Studio",
+        "Execution Monitor",
+        "System Health"
+      ],
+      "canonicalForensicNav": "ABSENT",
+      "professionalView": "ABSENT",
+      "engineeringView": "PRESENT",
+      "framework": "inline-html-string"
+    },
+    {
+      "id": "meta-recovery-shell",
+      "path": "apps/meta-recovery-control-plane",
+      "port": 5299,
+      "role": "ops_recovery"
+    },
+    {
+      "id": "electron",
+      "status": "ABSENT"
+    }
+  ],
+  "designSystemPackages": {
+    "design-system": "MISSING",
+    "design-tokens": "MISSING",
+    "workspace-kit": "MISSING",
+    "data-visualization": "MISSING",
+    "docsCanonical": [
+      "docs/SCI-OS-DESIGN-SYSTEM.md",
+      "docs/SCI-OS-UX-FLOW-SYSTEM.md"
+    ],
+    "tokenDriftVsDoc": true
+  },
+  "authUx": {
+    "cockpitRbac": "ABSENT",
+    "apiRoleSkeleton": ["researcher", "operator", "risk_officer", "admin"]
+  },
+  "emptyStates": {
+    "informative": "PARTIAL",
+    "dashPlaceholder": "em-dash",
+    "lineageHint": "Run a slice first."
+  },
+  "usabilityProof": "PARTIAL",
+  "p0Protected": true,
+  "note": "Inventory only. No 200-page generation."
+}

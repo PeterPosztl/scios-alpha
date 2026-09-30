@@ -1,0 +1,71 @@
+{
+  "at": "2026-08-12T20:22:33.448Z",
+  "apiPort": 3000,
+  "cockpitPort": 4000,
+  "api": {
+    "healthz": 200,
+    "readyz": 200,
+    "body": {
+      "ready": true,
+      "live": true,
+      "profile": "local-foundation",
+      "executionMode": "SIMULATION_ONLY",
+      "authMode": "local-development",
+      "telemetryMode": "local",
+      "governanceMode": "embedded-foundation",
+      "riskControl": true,
+      "foundationWorker": true,
+      "components": {
+        "riskControl": true,
+        "foundationWorker": true,
+        "database": "configured",
+        "redis": "configured",
+        "oidc": "disabled_local_development",
+        "otel": "local",
+        "hsm": "simulation_local_key_provider"
+      },
+      "foundationWorkerDetail": {
+        "name": "foundation-smoke-worker",
+        "online": true,
+        "lastHeartbeatAt": "2026-08-12T20:22:33.353Z",
+        "lastJobId": "smoke_1786566153353",
+        "lastJobStatus": "completed",
+        "jobsCompleted": 17,
+        "heartbeatAgeMs": 92
+      },
+      "labels": {
+        "productionClaims": false,
+        "simulationOnly": true
+      }
+    }
+  },
+  "cockpit": {
+    "healthz": 200,
+    "body": {
+      "ok": true,
+      "service": "@scios/cockpit-ui",
+      "controlUrl": "http://127.0.0.1:3000",
+      "ux": "3.0-home"
+    }
+  },
+  "verticalSlice": {
+    "status": 200,
+    "runId": "run_a0fa8998-904e-4f64-bcfa-7d2583e6a3d7",
+    "hasPrediction": true,
+    "hasRisk": true,
+    "hasGov": true,
+    "hasExec": true,
+    "hasLineage": true,
+    "statusField": "APPROVE"
+  },
+  "workerSmoke": {
+    "jobId": "smoke_1786566153445",
+    "status": "completed",
+    "acknowledged": true,
+    "persisted": true,
+    "duplicate": false,
+    "worker": "foundation-smoke-worker",
+    "at": "2026-08-12T20:22:33.445Z"
+  },
+  "p0Pass": true
+}

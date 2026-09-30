@@ -1,0 +1,26 @@
+{
+  "at": "2026-08-19T22:42:28.448Z",
+  "duplicates": [
+    {
+      "concern": "startup",
+      "candidates": [
+        "installer/scripts/start-sci-os.cjs",
+        "installer/scripts/bootstrap-capsule.cjs",
+        "bootstrap/bootstrap-capsule.js",
+        "scripts/boot/index.mjs"
+      ],
+      "canonical": "pnpm sci:start → bootstrap-capsule.cjs → start-sci-os.cjs",
+      "status": "CANONICAL_CHOSEN"
+    },
+    {
+      "concern": "parallel_atom_ai",
+      "candidates": [
+        "atom_ai/",
+        "dev_atom_ai/",
+        "historical assembler scripts"
+      ],
+      "canonical": "SCI OS ×10 only — reject parallel OS trees",
+      "status": "DEPRECATE_PARALLEL"
+    }
+  ]
+}

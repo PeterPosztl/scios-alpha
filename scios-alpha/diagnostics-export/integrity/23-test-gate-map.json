@@ -1,0 +1,24 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "layers": {
+    "STATIC": [
+      "gate:scaffold",
+      "integrity:run"
+    ],
+    "UNIT": [
+      "pnpm test (narrow)"
+    ],
+    "CONTRACT": [
+      "gate:contracts",
+      "gate:foundation"
+    ],
+    "RUNTIME": [
+      "sci:proof"
+    ],
+    "PRODUCT_E2E": "MISSING_AUTOMATED",
+    "PACKAGED_E2E": "package:prove-reboot",
+    "RECOVERY": "PARTIAL",
+    "REBOOT": "TASK-PKG-003 OPEN"
+  }
+}

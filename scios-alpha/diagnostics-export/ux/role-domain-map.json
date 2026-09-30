@@ -1,0 +1,34 @@
+{
+  "schema": "sci-os-role-domain-map/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "families": 20,
+  "archetypes": 7,
+  "rolesSeeded": 200,
+  "compositionRule": "Map SEED_RESEARCH_REQUIRED roles onto shared capability families after golden workflows validate",
+  "sharedPrimitives": [
+    "CaseWorkspace",
+    "Entity360",
+    "Timeline",
+    "EvidenceDrawer",
+    "RiskPanel",
+    "DecisionApproval",
+    "ReportBuilder",
+    "CommandPalette",
+    "UnifiedSearch",
+    "ProvenanceDrawer"
+  ],
+  "implementationStatus": {
+    "CaseWorkspace": "ABSENT",
+    "Entity360": "ABSENT",
+    "Timeline": "ABSENT",
+    "EvidenceDrawer": "ABSENT",
+    "RiskPanel": "PARTIAL_engineering_json",
+    "DecisionApproval": "ABSENT_ui",
+    "ReportBuilder": "ABSENT",
+    "CommandPalette": "ABSENT",
+    "UnifiedSearch": "ABSENT",
+    "ProvenanceDrawer": "ABSENT",
+    "UniversalShell": "ABSENT",
+    "DesignSystemPackage": "ABSENT"
+  }
+}

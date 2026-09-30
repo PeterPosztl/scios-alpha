@@ -1,0 +1,20 @@
+{
+  "at": "2026-08-12T20:22:33.426Z",
+  "findings": [
+    {
+      "id": "experience_compiler",
+      "classification": "CONNECT",
+      "note": "Dry-run present; not mounted as /app Adaptive Workspace"
+    },
+    {
+      "id": "universal_graph_timeline",
+      "classification": "KEEP_FUTURE",
+      "note": "Contracts exist; Entity360 shows overview only"
+    },
+    {
+      "id": "setup_exe_packaging",
+      "classification": "MISSING",
+      "note": "package:exe exists; clean-machine proof ABSENT"
+    }
+  ]
+}

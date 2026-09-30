@@ -1,0 +1,16 @@
+{
+  "at": "2026-08-13T10:59:47.013Z",
+  "schema": "sci-os-12-evidence-freshness-audit/v1",
+  "buildId": "truth-recon-2026-08-13-c226d748",
+  "rule": "Only current-evidence-index entries may close current gates",
+  "historicalClasses": [
+    "HISTORICAL",
+    "STALE_FOR_CURRENT_GATE",
+    "UNKNOWN_BUILD"
+  ],
+  "currentIndex": "diagnostics-export/current-evidence-index.json",
+  "staleExamples": [
+    "LOCALAPPDATA startup-report.json with dist appRoot @ 2026-08-12T19:51Z",
+    "reboot-certification final awaiting artifacts from prior epochs"
+  ]
+}

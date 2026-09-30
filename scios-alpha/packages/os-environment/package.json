@@ -1,0 +1,16 @@
+{
+  "name": "@scios/os-environment",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "SCI OS ×10 Enterprise Operating Environment — shell, apps, workspaces, jobs. ALPHA_NON_PRODUCTION.",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "export": "node src/export-artifacts.js",
+    "prove": "node src/prove.js"
+  },
+  "label": "ALPHA_NON_PRODUCTION"
+}

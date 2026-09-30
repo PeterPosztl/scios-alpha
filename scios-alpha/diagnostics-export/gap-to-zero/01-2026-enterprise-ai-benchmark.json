@@ -1,0 +1,98 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "sources": [
+    "Palantir AIP/Foundry public docs — ontology objects/actions, human approval defaults, lineage",
+    "Microsoft Copilot Studio — agents, connectors, human-in-loop patterns (public)",
+    "ServiceNow AI Control Tower / Agent Orchestrator — operational monitoring patterns (public)",
+    "Salesforce Agentforce — role/task agents with governance (public)"
+  ],
+  "note": "Pattern benchmark only — no vendor branding/code claims.",
+  "items": [
+    {
+      "id": "ontology_objects_actions",
+      "sci": "PARTIAL",
+      "note": "Entity/Case/Action concepts exist; not full enterprise ontology writeback"
+    },
+    {
+      "id": "context_aware_ai",
+      "sci": "PARTIAL",
+      "note": "Contextual AI assistant not first-class OS service yet"
+    },
+    {
+      "id": "workflow_orchestration",
+      "sci": "PARTIAL",
+      "note": "GW1 workflow proven; multi-step enterprise workflows limited"
+    },
+    {
+      "id": "governed_actions",
+      "sci": "PARTIAL",
+      "note": "Governance > agent + risk gate + human approval card on GW1"
+    },
+    {
+      "id": "human_approval",
+      "sci": "PARTIAL",
+      "note": "Consequential approval card present; enterprise object-level Manual actions still shallower than AIP"
+    },
+    {
+      "id": "audit_explainability",
+      "sci": "PARTIAL",
+      "note": "Evidence/lineage views exist; object timelines weaker than Foundry 2026"
+    },
+    {
+      "id": "data_lineage",
+      "sci": "PARTIAL",
+      "note": "Local durable file lineage/index; enterprise PG lineage ABSENT"
+    },
+    {
+      "id": "role_adaptation",
+      "sci": "PARTIAL",
+      "note": "Role registry + Experience Compiler architecture; not runtime role-switch UX"
+    },
+    {
+      "id": "global_search",
+      "sci": "PARITY",
+      "note": "Global search in Shell"
+    },
+    {
+      "id": "workspace_composition",
+      "sci": "PARTIAL",
+      "note": "Compiler exists; compositions limited"
+    },
+    {
+      "id": "interactive_ai_ui",
+      "sci": "PARTIAL",
+      "note": "Contextual AI panel; governed generative UI schema renderer still limited"
+    },
+    {
+      "id": "monitoring_jobs_notifications",
+      "sci": "PARTIAL",
+      "note": "APIs + Shell hooks; Job Center depth limited"
+    },
+    {
+      "id": "session_persistence",
+      "sci": "PARTIAL",
+      "note": "localStorage session + LOCALAPPDATA run index; not multi-device sync"
+    },
+    {
+      "id": "collaboration",
+      "sci": "ABSENT",
+      "note": "Not first-release"
+    },
+    {
+      "id": "recovery_ops",
+      "sci": "PARTIAL",
+      "note": "Meta-recovery exists; packaged independence PARTIAL"
+    },
+    {
+      "id": "security_enterprise_auth",
+      "sci": "BEHIND",
+      "note": "local-development auth; OIDC future"
+    },
+    {
+      "id": "deployment_packaging",
+      "sci": "PARTIAL",
+      "note": "Packaged path exists; reboot GW1 evidence EXTERNAL_VALIDATION OPEN"
+    }
+  ]
+}

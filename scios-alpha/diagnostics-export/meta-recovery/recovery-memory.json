@@ -67,6 +67,24 @@
         "cockpit": true,
         "sliceSmoke": null
       }
+    },
+    {
+      "correlationId": "meta_0c648320",
+      "machineFingerprint": "92875c9bbaeb48b843a034d5",
+      "at": "2026-08-12T15:26:53.559Z",
+      "failureSignature": "HEALTH_TIMEOUT|CONFIG_MISSING",
+      "successfulRecipes": [
+        "recipe.accept_alpha_no_db",
+        "recipe.start_control_plane",
+        "recipe.document_missing_electron",
+        "recipe.document_missing_workers"
+      ],
+      "failedRecipes": [],
+      "verification": {
+        "controlPlane": false,
+        "cockpit": true,
+        "sliceSmoke": null
+      }
     }
   ]
 }

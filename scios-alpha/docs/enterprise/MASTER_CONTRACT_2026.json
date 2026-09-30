@@ -1,0 +1,189 @@
+{
+  "schemaVersion": "2026.1.0",
+  "title": "SCI OS ×10 — 2026 Global Completion Directive / Master Implementation Contract",
+  "kind": "MASTER_CONTRACT",
+  "honesty": "ALPHA scaffold — not ENTERPRISE READY. No evidence ⇒ UNKNOWN. Mass stubs forbidden.",
+  "inspectedAt": "2026-08-12T14:21:00.000Z",
+  "platformVerdict": {
+    "enterprise": "ENTERPRISE_NO_GO",
+    "alpha": "ALPHA_GO_FOUNDATION_SLICE",
+    "rationale": "Vertical slice + gates proven; Meta-Intelligence and most §4–17 enterprise modules ABSENT or STUB. Startup DEGRADED without Docker infra."
+  },
+  "stopConditions": {
+    "ENTERPRISE_GO": "All P0 sections evidence-backed + durable ledgers + independent risk + scientific integrity — NOT MET",
+    "ENTERPRISE_DEGRADED": "Core operator path usable with declared limits — NOT CLAIMED as enterprise",
+    "ENTERPRISE_NO_GO": "Critical enterprise blockers remain (durable store, calibration, OIDC, etc.) — CURRENT for enterprise scope",
+    "ALPHA_GO": "gate:scaffold + gate:contracts + gate:foundation + vertical-slice smoke — TARGET for Wave 0/1"
+  },
+  "constitution": [
+    "Prefer vertical slices with proof over mass stubs",
+    "Self-evolution propose-only; never auto-deploy",
+    "pnpm only",
+    "Do not rewrite stable contracts without approval"
+  ],
+  "sections": [
+    {
+      "id": 1,
+      "name": "Meta-Intelligence Plane",
+      "modules": [
+        { "id": "EnterpriseOntologyEngine", "status": "ALPHA", "surface": "packages/data-fabric/src/ontology.ts" },
+        { "id": "CapabilityRegistry", "status": "ALPHA", "surface": "docs/enterprise/CAPABILITY_REGISTRY.json; packages/meta-intelligence" },
+        { "id": "SystemGraphEngine", "status": "ABSENT" },
+        { "id": "DevelopmentIntelligenceEngine", "status": "ABSENT" },
+        { "id": "EngineeringIntelligenceEngine", "status": "ABSENT" },
+        { "id": "ResearchIntelligenceEngine", "status": "ABSENT" },
+        { "id": "DecisionIntelligenceEngine", "status": "STUB", "surface": "vertical-slice governance decision" },
+        { "id": "OperationsIntelligenceEngine", "status": "STUB", "surface": "packages/observability; meta-recovery" },
+        { "id": "GovernanceIntelligenceEngine", "status": "ALPHA", "surface": "packages/governance-engine" },
+        { "id": "EconomicIntelligenceEngine", "status": "ABSENT" },
+        { "id": "SelfEvolutionController", "status": "STUB", "notes": "propose-only" },
+        { "id": "EvidenceGraphEngine", "status": "ALPHA", "surface": "packages/meta-intelligence" },
+        { "id": "PlatformDigitalTwin", "status": "STUB", "surface": "packages/meta-recovery digital-twin" },
+        { "id": "ChangeImpactEngine", "status": "ABSENT" },
+        { "id": "EnterpriseMemoryEngine", "status": "STUB", "surface": "meta-recovery recovery-memory" },
+        { "id": "MissionControlEngine", "status": "ABSENT" }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Enterprise Ontology",
+      "status": "ALPHA",
+      "surface": "packages/data-fabric/src/ontology.ts",
+      "entitiesPresent": [
+        "Tenant", "User", "Role", "Policy", "Dataset", "DataSource", "DataContract",
+        "Feature", "Experiment", "Hypothesis", "Model", "ModelVersion", "Prediction",
+        "Decision", "RiskDecision", "Approval", "Order", "Execution", "Position",
+        "Exposure", "Settlement", "Outcome", "Incident", "Service", "ProofArtifact"
+      ],
+      "entitiesAbsentOrPartial": [
+        "Strategy", "Runbook", "Deployment", "Repository", "File", "Symbol", "Test", "Build", "Release"
+      ],
+      "notes": "Zod typed + relations vocabulary; full graph traversal / migrations ABSENT"
+    },
+    {
+      "id": 3,
+      "name": "Canonical Ledgers",
+      "status": "ALPHA",
+      "surface": "packages/data-fabric/src/ledger.ts; vertical-slice appends",
+      "notes": "In-memory append-only; durable hash-chain store ABSENT"
+    },
+    {
+      "id": 4,
+      "name": "Data Fabric",
+      "status": "STUB_ALPHA",
+      "notes": "Normalization + PIT features in vertical-slice; Schema Registry / Entitlement / full bitemporal ABSENT"
+    },
+    {
+      "id": 5,
+      "name": "Feature Platform",
+      "status": "STUB",
+      "surface": "packages/feature-store"
+    },
+    {
+      "id": 6,
+      "name": "Prediction Engine",
+      "status": "STUB_ALPHA",
+      "notes": "Baseline logistic + calibration envelope in vertical-slice; ML/DL/Bayesian adapters ABSENT; NON-PRODUCTION"
+    },
+    {
+      "id": 7,
+      "name": "Risk Engine",
+      "status": "STUB_ALPHA",
+      "notes": "Independent in-process risk gate + FastAPI stub; full VaR/ES suite ABSENT"
+    },
+    {
+      "id": 8,
+      "name": "Decision Intelligence",
+      "status": "STUB",
+      "notes": "Governance decide in slice only"
+    },
+    {
+      "id": 9,
+      "name": "Execution Simulator",
+      "status": "STUB_ALPHA",
+      "notes": "Seeded paper fills; OMS/venues ABSENT"
+    },
+    {
+      "id": 10,
+      "name": "Simulation & Digital Twin",
+      "status": "STUB",
+      "notes": "Seeded RNG + startup digital-twin inventory; Monte Carlo / agent-based ABSENT"
+    },
+    {
+      "id": 11,
+      "name": "Scientific Integrity",
+      "status": "ABSENT"
+    },
+    {
+      "id": 12,
+      "name": "Model Lifecycle",
+      "status": "STUB",
+      "surface": "packages/model-registry"
+    },
+    {
+      "id": 13,
+      "name": "Governance & Security",
+      "status": "ALPHA",
+      "surface": "packages/governance-engine",
+      "notes": "RBAC skeleton; OIDC/ABAC/break-glass ABSENT"
+    },
+    {
+      "id": 14,
+      "name": "Observability & Lineage",
+      "status": "STUB_ALPHA",
+      "notes": "Immutable lineage in vertical-slice; OTel backend ABSENT"
+    },
+    {
+      "id": 15,
+      "name": "Engineering Intelligence",
+      "status": "ABSENT",
+      "notes": "Orchestrator discover/filter/scan is propose-only tooling, not EngIntel plane"
+    },
+    {
+      "id": 16,
+      "name": "Development Intelligence",
+      "status": "ABSENT"
+    },
+    {
+      "id": 17,
+      "name": "Cockpit & Desktop",
+      "status": "ALPHA",
+      "surface": "apps/cockpit-ui; mock-api; Electron ABSENT"
+    }
+  ],
+  "foundationVerticalSlice": {
+    "status": "ALPHA",
+    "path": "raw → normalize → PIT → baseline → calibration → risk → governance → execution → outcome → lineage → cockpit",
+    "packages": ["@scios/vertical-slice", "@scios/data-fabric", "@scios/feature-store", "@scios/governance-engine"],
+    "proof": [
+      "pnpm gate:foundation",
+      "pnpm smoke:slice",
+      "diagnostics-export/gate-foundation-proof.json",
+      "diagnostics-export/smoke-vertical-slice.json"
+    ]
+  },
+  "nextWaves": [
+    {
+      "wave": "1b",
+      "focus": "Complete ontology entities Strategy/Runbook/Deployment/Repository/File/Symbol/Test/Build/Release + relation tests",
+      "forbidden": "Mass Meta-Intelligence stubs"
+    },
+    {
+      "wave": "2",
+      "focus": "Durable ledger adapter behind CanonicalLedger (optional PG when Docker healthy)",
+      "forbidden": "Fake ENTERPRISE GO"
+    },
+    {
+      "wave": "3",
+      "focus": "Independent risk process + kill-switch proof artifacts",
+      "forbidden": "Capital claims without calibration evidence"
+    }
+  ],
+  "canonicalDocs": [
+    "docs/enterprise/MASTER_CONTRACT.md",
+    "docs/enterprise/CAPABILITY_REGISTRY.json",
+    "docs/enterprise/IMPLEMENTATION_DEPENDENCY_ORDER.md",
+    "docs/enterprise/CURRENT_SYSTEM_TRUTH.md",
+    "docs/enterprise/DEFINITION_OF_DONE.json"
+  ]
+}

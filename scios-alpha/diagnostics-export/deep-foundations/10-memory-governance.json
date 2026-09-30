@@ -1,0 +1,26 @@
+{
+  "at": "2026-08-13T13:09:39.331Z",
+  "buildId": "deep-foundations-2026-08-13",
+  "schema": "sci-os-memory-governance/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "status": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+  "requiredFields": [
+    "type",
+    "source",
+    "owner",
+    "confidence",
+    "createdAt",
+    "expiresAt",
+    "supersededBy",
+    "privacy",
+    "evidence"
+  ],
+  "rule": "Stale memory must be invalidatable; no immortal undated claims",
+  "types": [
+    "session",
+    "decision_memory",
+    "role_preference",
+    "org_knowledge",
+    "ai_scratch"
+  ]
+}

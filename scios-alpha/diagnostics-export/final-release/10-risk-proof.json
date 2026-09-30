@@ -1,0 +1,20 @@
+{
+  "at": "2026-08-12T17:14:38.329Z",
+  "test": "oversized_position_size_5000",
+  "httpStatus": 200,
+  "riskVerdict": "REJECT",
+  "reason": "max_position_exceeded; max_exposure_exceeded",
+  "executionBlocked": true,
+  "executionOutcome": {
+    "executionId": "out_e7f8255e-3898-424e-9c08-2284b352a7c2",
+    "simulated": true,
+    "action": "DENY",
+    "outcome": "NO_ACTION",
+    "details": {
+      "status": "blocked",
+      "realizedPnl": 0,
+      "markPrice": 100
+    }
+  },
+  "pass": true
+}

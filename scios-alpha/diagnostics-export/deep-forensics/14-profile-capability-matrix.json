@@ -1,0 +1,72 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "profiles": {
+    "LOCAL_FOUNDATION": {
+      "enabled": [
+        "cp",
+        "shell",
+        "home",
+        "search",
+        "entity",
+        "gw1",
+        "embedded-risk",
+        "sim-exec",
+        "memory-lineage"
+      ],
+      "disabled": [
+        "oidc",
+        "bullmq",
+        "electron",
+        "live-money"
+      ],
+      "degraded": [
+        "postgres",
+        "redis",
+        "docker",
+        "fastapi-engines"
+      ]
+    },
+    "FIRST_RELEASE": {
+      "required": [
+        "bundled-or-dev-node-20.18",
+        "cp:3000",
+        "shell:4000",
+        "home",
+        "gw1",
+        "evidence-view",
+        "shutdown"
+      ],
+      "optional": [
+        "postgres",
+        "redis",
+        "docker"
+      ]
+    },
+    "SAFE": {
+      "enabled": [
+        "diagnostics",
+        "read-only"
+      ],
+      "disabled": [
+        "writes",
+        "queues"
+      ]
+    },
+    "RECOVERY": {
+      "enabled": [
+        "repair",
+        "safe",
+        "recovery-shell:5299"
+      ]
+    },
+    "FUTURE_ENTERPRISE": {
+      "enabled": [
+        "oidc",
+        "durable-fabric",
+        "gw2-7",
+        "full-profile-ready"
+      ]
+    }
+  }
+}

@@ -1,0 +1,260 @@
+{
+  "at": "2026-08-13T12:52:42.652Z",
+  "buildId": "crown-architecture-2026-08-13",
+  "slo": {
+    "schema": "sci-os-slo-registry/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "policy": "Error budget exhaustion blocks unrelated expansion on the dependency path",
+    "slos": [
+      {
+        "id": "STARTUP_TO_HOME",
+        "metric": "p95_ms_boot_to_home_http_ok",
+        "target": "<= 45000",
+        "measurementWindow": "7d_rolling_or_release_candidate",
+        "errorBudget": "10% of starts may miss",
+        "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+        "releaseImpact": "P0 if budget exhausted during release candidate",
+        "dependencyPath": [
+          "bootstrap",
+          "start-sci-os",
+          "control-plane",
+          "cockpit"
+        ]
+      },
+      {
+        "id": "SEARCH_SUCCESS",
+        "metric": "success_rate_v1_search_for_known_instrument",
+        "target": ">= 0.99",
+        "measurementWindow": "7d_rolling_or_release_candidate",
+        "errorBudget": "1%",
+        "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+        "releaseImpact": "P1 — blocks search UX expansion",
+        "dependencyPath": [
+          "control-plane",
+          "product.search"
+        ]
+      },
+      {
+        "id": "ENTITY360_OPEN",
+        "metric": "success_rate_v1_entities_open",
+        "target": ">= 0.99",
+        "measurementWindow": "7d_rolling_or_release_candidate",
+        "errorBudget": "1%",
+        "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+        "releaseImpact": "P1",
+        "dependencyPath": [
+          "control-plane",
+          "product.entity"
+        ]
+      },
+      {
+        "id": "ANALYSIS_COMPLETION",
+        "metric": "success_rate_vertical_slice_run_http_2xx",
+        "target": ">= 0.98",
+        "measurementWindow": "7d_rolling_or_release_candidate",
+        "errorBudget": "2%",
+        "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+        "releaseImpact": "P0 for GW1 path",
+        "dependencyPath": [
+          "vertical-slice",
+          "prediction",
+          "risk",
+          "governance"
+        ]
+      },
+      {
+        "id": "RISK_GOVERNANCE_COMPLETION",
+        "metric": "rate_risk_and_governance_envelopes_present",
+        "target": ">= 0.995",
+        "measurementWindow": "7d_rolling_or_release_candidate",
+        "errorBudget": "0.5%",
+        "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+        "releaseImpact": "P0 — philosophy violation if missing",
+        "dependencyPath": [
+          "vertical-slice",
+          "governance-engine"
+        ]
+      },
+      {
+        "id": "EVIDENCE_OPEN",
+        "metric": "success_rate_lineage_fetch_after_run",
+        "target": ">= 0.99",
+        "measurementWindow": "7d_rolling_or_release_candidate",
+        "errorBudget": "1%",
+        "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+        "releaseImpact": "P1",
+        "dependencyPath": [
+          "vertical-slice.lineage",
+          "cockpit.evidence"
+        ]
+      },
+      {
+        "id": "GW1_COMPLETION",
+        "metric": "e2e_home_search_entity_analyze_evidence",
+        "target": ">= 0.95",
+        "measurementWindow": "7d_rolling_or_release_candidate",
+        "errorBudget": "5%",
+        "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+        "releaseImpact": "P0 first-release gate",
+        "dependencyPath": [
+          "shell",
+          "control-plane",
+          "vertical-slice"
+        ]
+      },
+      {
+        "id": "CLEAN_SHUTDOWN",
+        "metric": "rate_supervisor_clean_exit",
+        "target": ">= 0.98",
+        "measurementWindow": "7d_rolling_or_release_candidate",
+        "errorBudget": "2%",
+        "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+        "releaseImpact": "P1 packaged path",
+        "dependencyPath": [
+          "process-supervisor",
+          "bootstrap"
+        ]
+      },
+      {
+        "id": "RECOVERY_SUCCESS",
+        "metric": "rate_meta_recovery_or_repair_restores_core",
+        "target": ">= 0.90",
+        "measurementWindow": "7d_rolling_or_release_candidate",
+        "errorBudget": "10%",
+        "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+        "releaseImpact": "P1",
+        "dependencyPath": [
+          "meta-recovery",
+          "bundled-node"
+        ]
+      }
+    ]
+  },
+  "budgets": {
+    "schema": "sci-os-error-budget-status/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "anyExhausted": false,
+    "expansionBlockedPaths": [],
+    "statuses": [
+      {
+        "sloId": "STARTUP_TO_HOME",
+        "budgetState": "UNKNOWN",
+        "blockExpansion": false,
+        "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+        "dependencyPath": [
+          "bootstrap",
+          "start-sci-os",
+          "control-plane",
+          "cockpit"
+        ]
+      },
+      {
+        "sloId": "SEARCH_SUCCESS",
+        "budgetState": "UNKNOWN",
+        "blockExpansion": false,
+        "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+        "dependencyPath": [
+          "control-plane",
+          "product.search"
+        ]
+      },
+      {
+        "sloId": "ENTITY360_OPEN",
+        "budgetState": "UNKNOWN",
+        "blockExpansion": false,
+        "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+        "dependencyPath": [
+          "control-plane",
+          "product.entity"
+        ]
+      },
+      {
+        "sloId": "ANALYSIS_COMPLETION",
+        "budgetState": "UNKNOWN",
+        "blockExpansion": false,
+        "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+        "dependencyPath": [
+          "vertical-slice",
+          "prediction",
+          "risk",
+          "governance"
+        ]
+      },
+      {
+        "sloId": "RISK_GOVERNANCE_COMPLETION",
+        "budgetState": "UNKNOWN",
+        "blockExpansion": false,
+        "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+        "dependencyPath": [
+          "vertical-slice",
+          "governance-engine"
+        ]
+      },
+      {
+        "sloId": "EVIDENCE_OPEN",
+        "budgetState": "UNKNOWN",
+        "blockExpansion": false,
+        "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+        "dependencyPath": [
+          "vertical-slice.lineage",
+          "cockpit.evidence"
+        ]
+      },
+      {
+        "sloId": "GW1_COMPLETION",
+        "budgetState": "UNKNOWN",
+        "blockExpansion": false,
+        "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+        "dependencyPath": [
+          "shell",
+          "control-plane",
+          "vertical-slice"
+        ]
+      },
+      {
+        "sloId": "CLEAN_SHUTDOWN",
+        "budgetState": "UNKNOWN",
+        "blockExpansion": false,
+        "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+        "dependencyPath": [
+          "process-supervisor",
+          "bootstrap"
+        ]
+      },
+      {
+        "sloId": "RECOVERY_SUCCESS",
+        "budgetState": "UNKNOWN",
+        "blockExpansion": false,
+        "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+        "dependencyPath": [
+          "meta-recovery",
+          "bundled-node"
+        ]
+      }
+    ],
+    "note": "No measured production traffic yet — UNKNOWN is honest, not PASS"
+  },
+  "release": {
+    "schema": "sci-os-release-governor/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "inputs": {
+      "reliabilityStatus": "UNKNOWN_UNTIL_MEASURED",
+      "knownP0StructuralGaps": 0,
+      "knownP1ProductGaps": 0,
+      "sloErrorBudgetsExhausted": false,
+      "evaluationRegressions": 0,
+      "uxDeadEnds": 0,
+      "disconnectedMandatoryCapabilities": 0,
+      "evidenceFreshnessOk": true,
+      "technicalDebtNotes": [
+        "monolithic shell",
+        "enterprise PG lineage P2",
+        "packaged GW1 external validation"
+      ],
+      "externalValidationOpen": 1
+    },
+    "policy": "If structural/reliability debt exceeds policy, prioritize closure before expansion",
+    "verdict": "ALLOW_INTERNAL_ONLY_EXTERNAL_VALIDATION_PENDING",
+    "blockUnrelatedFeatureExpansion": false
+  }
+}

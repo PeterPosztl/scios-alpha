@@ -1,0 +1,37 @@
+{
+  "schema": "sci-os-alpha-readiness-gate/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-29T18:17:38.102Z",
+  "buildId": "pkg_1788026654253",
+  "checkpoint": "873e537f",
+  "p0": 0,
+  "alphaBlockerRoots": 0,
+  "verdict": "ALPHA_READY",
+  "token": "ALPHA_READY",
+  "convergenceVerdict": "USABLE_LOCAL_ALPHA_READY",
+  "proof": [
+    "diagnostics-export/alpha-product-convergence/23-final-report.json",
+    "diagnostics-export/completion-program/wave-history.json (A-CONVERGENCE)"
+  ],
+  "flow": {
+    "launcher": "PRESENT",
+    "bundledNode": "PRESENT",
+    "controlPlane": ":3000",
+    "appHost": ":4000",
+    "homeSearchEntity": "PROVEN",
+    "analyzeExperiencePrediction": "PROVEN (vertical-slice GW1)",
+    "governanceLocalReview": "LOCAL_REVIEW_STATE honest",
+    "jobs": "CF11 B-002",
+    "recovery": "WHI-010"
+  },
+  "liveProbes": {
+    "status": "OFFLINE",
+    "steps": {
+      "healthz": "FAIL",
+      "home": "FAIL",
+      "search": "FAIL",
+      "entity": "FAIL",
+      "experience": "FAIL"
+    }
+  }
+}

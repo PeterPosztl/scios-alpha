@@ -1,0 +1,152 @@
+{
+  "at": "2026-08-13T13:09:39.331Z",
+  "buildId": "deep-foundations-2026-08-13",
+  "rule": "Each finding exactly one classification — no uncontrolled expansion",
+  "findings": [
+    {
+      "id": "DF-001",
+      "title": "Agent harness + trajectory guardian",
+      "classification": "IMPLEMENT_NOW_P1",
+      "done": "agent-harness.json + cursor rule",
+      "migrationIfLate": "process/culture only"
+    },
+    {
+      "id": "DF-002",
+      "title": "Desired vs actual reconciliation controller",
+      "classification": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "done": "desired-state.js contract + sample reconcile",
+      "migrationIfLate": "boot rewrite risk MEDIUM"
+    },
+    {
+      "id": "DF-003",
+      "title": "Formal critical invariants",
+      "classification": "IMPLEMENT_NOW_P1",
+      "done": "critical-invariants.js + evidence",
+      "next": "fault-injection for FAILED_BOOT resource release",
+      "migrationIfLate": "silent READY lies"
+    },
+    {
+      "id": "DF-004",
+      "title": "Semantic type system",
+      "classification": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "done": "semantic-types.ts exported",
+      "reject": "mass rewrite without adapters",
+      "migrationIfLate": "API/data migration HIGH"
+    },
+    {
+      "id": "DF-005",
+      "title": "Temporal truth / as-of queries",
+      "classification": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "migrationIfLate": "evidence loss + future leakage HIGH"
+    },
+    {
+      "id": "DF-006",
+      "title": "Epistemic object model",
+      "classification": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "migrationIfLate": "UX/API confusion MEDIUM"
+    },
+    {
+      "id": "DF-007",
+      "title": "Decision learning loop + interventions",
+      "classification": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "migrationIfLate": "retraining/eval invalidation HIGH"
+    },
+    {
+      "id": "DF-008",
+      "title": "AI provider capability fabric + router",
+      "classification": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "migrationIfLate": "vendor hardcode rewrite HIGH"
+    },
+    {
+      "id": "DF-009",
+      "title": "Unified context fabric",
+      "classification": "DEFER_P2",
+      "lock": "workspace context envelope already partial",
+      "migrationIfLate": "MEDIUM"
+    },
+    {
+      "id": "DF-010",
+      "title": "Memory governance",
+      "classification": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "migrationIfLate": "privacy/stale memory HIGH"
+    },
+    {
+      "id": "DF-011",
+      "title": "Professional evaluation deliverables dataset",
+      "classification": "IMPLEMENT_NOW_P1",
+      "note": "Extend baseline with deliverable tasks — do not only compile roles",
+      "migrationIfLate": "blind AI regressions"
+    },
+    {
+      "id": "DF-012",
+      "title": "Organization/actor model contracts",
+      "classification": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "rejectNow": "OIDC implementation",
+      "migrationIfLate": "data migration HIGH"
+    },
+    {
+      "id": "DF-013",
+      "title": "Collaboration primitives",
+      "classification": "DEFER_P2",
+      "reject": "chat/social unless required"
+    },
+    {
+      "id": "DF-014",
+      "title": "Policy decision vs enforcement separation",
+      "classification": "IMPLEMENT_NOW_P1",
+      "note": "Enforce at action-gate; UI hide insufficient — audit remaining ungated actions",
+      "migrationIfLate": "security redesign HIGH"
+    },
+    {
+      "id": "DF-015",
+      "title": "Build/release provenance on installed product",
+      "classification": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+      "migrationIfLate": "deployment forensics HIGH"
+    },
+    {
+      "id": "DF-016",
+      "title": "Adversarial reality combinatorial suite",
+      "classification": "DEFER_P2",
+      "lock": "matrix dimensions recorded"
+    },
+    {
+      "id": "DF-017",
+      "title": "Technology radar freshness",
+      "classification": "DEFER_P3",
+      "lock": "radar schema + seed entries"
+    },
+    {
+      "id": "DF-018",
+      "title": "Architecture entropy consolidation",
+      "classification": "IMPLEMENT_NOW_P1",
+      "note": "Keep finishing governor FIX_BEFORE_EXPAND; no P2 vanity"
+    },
+    {
+      "id": "DF-019",
+      "title": "Attention/cognitive-load metrics",
+      "classification": "DEFER_P2",
+      "lock": "attention model target recorded"
+    },
+    {
+      "id": "DF-020",
+      "title": "Second boot architecture",
+      "classification": "REJECT",
+      "reason": "Extend start-sci-os/supervisor only"
+    },
+    {
+      "id": "DF-021",
+      "title": "Packaged GW1 external validation",
+      "classification": "IMPLEMENT_NOW_P0",
+      "note": "Still the release blocker — not invented by this audit",
+      "evidence": "gap-to-zero EXTERNAL_VALIDATION_ONLY"
+    }
+  ],
+  "counts": {
+    "IMPLEMENT_NOW_P0": 1,
+    "IMPLEMENT_NOW_P1": 5,
+    "LOCK_CONTRACT_NOW_IMPLEMENT_LATER": 9,
+    "DEFER_P2": 4,
+    "DEFER_P3": 1,
+    "REJECT": 1
+  }
+}

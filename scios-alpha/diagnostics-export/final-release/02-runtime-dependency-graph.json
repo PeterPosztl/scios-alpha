@@ -1,0 +1,39 @@
+{
+  "schema": "sci-os-runtime-dependency-graph/v1",
+  "chain": [
+    "LAUNCHER",
+    "BOOTSTRAP_CAPSULE",
+    "GOLDEN_BOOT_MANIFEST",
+    "PROCESS_SUPERVISOR",
+    "OPTIONAL_INFRA_PG_REDIS",
+    "BACKEND_CONTROL_PLANE",
+    "EMBEDDED_WORKER",
+    "COCKPIT",
+    "READINESS"
+  ],
+  "canonical": {
+    "launcher": [
+      "SCI OS ×10.bat",
+      "SCI-OS-Start.bat",
+      "pnpm sci:start"
+    ],
+    "bootstrap": "installer/scripts/bootstrap-capsule.cjs",
+    "orchestrator": "installer/scripts/start-sci-os.cjs",
+    "supervisor": "installer/scripts/startup/process-supervisor.cjs",
+    "backend": "apps/control-plane-api/src/server.ts",
+    "cockpit": "apps/cockpit-ui/src/index.js",
+    "worker": "embedded-foundation-worker"
+  },
+  "deprecatedParallel": [
+    {
+      "path": "bootstrap/bootstrap-capsule.js",
+      "status": "DEPRECATE_AS_DELEGATE",
+      "note": "Must delegate; not second orchestrator"
+    },
+    {
+      "path": "atom_ai / dev_atom_ai",
+      "status": "DEPRECATE",
+      "note": "Not a second OS"
+    }
+  ]
+}

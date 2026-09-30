@@ -1,0 +1,157 @@
+{
+  "at": "2026-08-13T12:39:24.586Z",
+  "buildId": "enterprise-discipline-2026-08-13",
+  "schema": "sci-os-operational-ontology/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "pattern": "OBJECT + RELATIONSHIP + ACTION",
+  "extends": [
+    "sci-os-object-registry/v1",
+    "sci-os-action-registry/v1",
+    "data-fabric ontology"
+  ],
+  "objectFamilies": [
+    {
+      "family": "Identity",
+      "types": [
+        "Entity",
+        "Person",
+        "Organization",
+        "Account",
+        "Wallet",
+        "Asset",
+        "Device"
+      ]
+    },
+    {
+      "family": "Event",
+      "types": [
+        "Event",
+        "Alert",
+        "Transaction"
+      ]
+    },
+    {
+      "family": "Casework",
+      "types": [
+        "Case",
+        "Incident",
+        "Task",
+        "Workflow",
+        "Report"
+      ]
+    },
+    {
+      "family": "Intelligence",
+      "types": [
+        "Prediction",
+        "FeatureSet",
+        "Model",
+        "Scenario",
+        "Simulation"
+      ]
+    },
+    {
+      "family": "Control",
+      "types": [
+        "RiskAssessment",
+        "Decision",
+        "Policy",
+        "Execution",
+        "Outcome",
+        "Evidence"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "type": "MENTIONS",
+      "from": "Event",
+      "to": "Entity"
+    },
+    {
+      "type": "ABOUT",
+      "from": "Case",
+      "to": "Entity"
+    },
+    {
+      "type": "PRODUCED",
+      "from": "Prediction",
+      "to": "FeatureSet"
+    },
+    {
+      "type": "GATES",
+      "from": "RiskAssessment",
+      "to": "Prediction"
+    },
+    {
+      "type": "DECIDES",
+      "from": "Decision",
+      "to": "RiskAssessment"
+    },
+    {
+      "type": "SIMULATES",
+      "from": "Execution",
+      "to": "Decision"
+    },
+    {
+      "type": "EVIDENCES",
+      "from": "Evidence",
+      "to": "Outcome"
+    },
+    {
+      "type": "LINEAGE_OF",
+      "from": "Evidence",
+      "to": "Prediction"
+    }
+  ],
+  "actions": [
+    {
+      "actionId": "analyze",
+      "governed": true,
+      "runtimePath": "POST /api/vertical-slice/run",
+      "note": "UI should invoke Action contract, not raw internal service functions"
+    },
+    {
+      "actionId": "openLineage",
+      "governed": true,
+      "runtimePath": "GET /v1/lineage/:runId",
+      "note": "UI should invoke Action contract, not raw internal service functions"
+    },
+    {
+      "actionId": "toggleTechnicalView",
+      "governed": true,
+      "runtimePath": "cockpit-ui mode toggle",
+      "note": "UI should invoke Action contract, not raw internal service functions"
+    },
+    {
+      "actionId": "search",
+      "governed": true,
+      "runtimePath": "GET /v1/search",
+      "note": "UI should invoke Action contract, not raw internal service functions"
+    },
+    {
+      "actionId": "openEntity",
+      "governed": true,
+      "runtimePath": "GET /v1/entities/:id",
+      "note": "UI should invoke Action contract, not raw internal service functions"
+    },
+    {
+      "actionId": "explain",
+      "governed": true,
+      "runtimePath": null,
+      "note": "UI should invoke Action contract, not raw internal service functions"
+    },
+    {
+      "actionId": "runScenario",
+      "governed": true,
+      "runtimePath": null,
+      "note": "UI should invoke Action contract, not raw internal service functions"
+    }
+  ],
+  "objectTypeCount": 29,
+  "gaps": [
+    "Full enterprise writeback ontology ABSENT",
+    "UI still partly calls product HTTP routes directly (acceptable adapter if ActionId stamped)"
+  ],
+  "status": "PARTIAL"
+}

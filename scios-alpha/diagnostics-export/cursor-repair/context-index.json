@@ -1,0 +1,9 @@
+{
+  "schema": "sci-os-cursor-repair-context-index/v1",
+  "at": "2026-08-13T16:07:01.870Z",
+  "playbook": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\docs\\repair\\SCI_OS_X10_CURSOR_SURGICAL_MASTER_REPAIR_V2.txt",
+  "playbookExists": false,
+  "canonicalContext": [],
+  "docsRepairDirEntries": [],
+  "note": "Playbook still missing on disk; Phase 0 not started"
+}

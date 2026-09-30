@@ -1,0 +1,22 @@
+{
+  "schema": "sci-os-completion-audit/data-persistence/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "overallMaturity": "PARTIAL",
+  "packages/data-fabric": {
+    "srcFiles": 11,
+    "status": "SOURCE_EXISTS",
+    "note": "Data fabric package exists with 11 source files. In-memory fallback when PG absent."
+  },
+  "postgresql": {
+    "status": "OPTIONAL_PROVIDER_UNAVAILABLE",
+    "note": "Configured but not required for alpha. Startup degrades gracefully."
+  },
+  "redis": {
+    "status": "OPTIONAL_PROVIDER_UNAVAILABLE",
+    "note": "Configured but not required for alpha."
+  },
+  "inMemoryFallback": "RUNTIME_CONNECTED",
+  "migrations": "ABSENT",
+  "orm": "ABSENT",
+  "note": "No Prisma/Drizzle/Knex in scios-alpha. Backend Python app at ../backend has SQLAlchemy+Alembic but that is a separate codebase."
+}

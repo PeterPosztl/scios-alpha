@@ -1,0 +1,12 @@
+{
+  "schema": "sci-os-whi-001-final/v1",
+  "at": "2026-08-18T19:14:21.422Z",
+  "baselineBuild": "pkg_1787074480539",
+  "status": "WHI_001_PASS",
+  "newBuild": "pkg_1787080434560",
+  "testRun": "PASS",
+  "jobObjects": "PROVEN",
+  "package": "PASS",
+  "installed": "PASS",
+  "p0After": 0
+}

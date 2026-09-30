@@ -1,0 +1,93 @@
+{
+  "schema": "sci-os-whi-001-test-run/v1",
+  "at": "2026-09-30T09:59:40.687Z",
+  "platform": "win32",
+  "steps": [
+    {
+      "name": "JOB_CAPABILITY_DETECTION",
+      "ok": true,
+      "platform": "win32",
+      "status": "JOB_OBJECT_ACTIVE",
+      "degraded": false
+    },
+    {
+      "name": "OWNERSHIP_REGISTRATION",
+      "ok": true,
+      "pid": 4216
+    },
+    {
+      "name": "VALID_SCI_CHILD_ATTACH",
+      "ok": true,
+      "jobAttached": true,
+      "jobStatus": "JOB_OBJECT_ACTIVE"
+    },
+    {
+      "name": "UNOWNED_PID_REJECTION",
+      "ok": true,
+      "error": "UNOWNED_PID"
+    },
+    {
+      "name": "NORMAL_CLEANUP",
+      "ok": true,
+      "stop": [
+        {
+          "name": "whi-fixture",
+          "pid": 4216,
+          "gracefulAttempted": true,
+          "ok": false,
+          "status": 128,
+          "method": "taskkill_tree"
+        },
+        {
+          "name": "whi-fixture",
+          "pid": 4216,
+          "phase": "job_fallback",
+          "ok": false,
+          "status": 128,
+          "method": "taskkill_tree"
+        }
+      ],
+      "pid": 4216
+    },
+    {
+      "name": "CHILD_CRASH_DETECTED",
+      "ok": true,
+      "exitCode": 3
+    },
+    {
+      "name": "OWNER_LOSS_CLEANUP",
+      "ok": true,
+      "status": "PASS",
+      "orchestratorPid": 20660,
+      "childPid": 8036,
+      "keeperPid": 12484,
+      "childGone": true,
+      "keeperGone": true,
+      "orchOut": "FIXTURE_READY {\"orchestratorPid\":20660,\"childPid\":8036,\"keeperPid\":12484,\"jobStatus\":\"JOB_OBJECT_ACTIVE\",\"jobAttached\":true,\"at\":\"2026-09-30T09:59:27.288Z\"}"
+    },
+    {
+      "name": "DUPLICATE_START_SAFE",
+      "ok": true,
+      "via": "process-lock + per-run keeper"
+    },
+    {
+      "name": "HELPER_FAILURE_HONEST",
+      "ok": true,
+      "status": "JOB_OBJECT_UNAVAILABLE"
+    },
+    {
+      "name": "NON_WINDOWS_CONTRACT",
+      "ok": true,
+      "status": "N/A_ON_WIN32",
+      "simulated": "PLATFORM_UNAVAILABLE path exists in provider"
+    },
+    {
+      "name": "SECURITY_CONTRACT",
+      "ok": true
+    }
+  ],
+  "failed": [],
+  "status": "PASS",
+  "jobObjects": "PROVEN",
+  "scaffoldVerdict": "REAL_JOB_OBJECT_READY"
+}

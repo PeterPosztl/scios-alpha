@@ -1,0 +1,8 @@
+{
+  "at": "2026-08-13T11:21:12.349Z",
+  "schema": "sci-os-runtime-preflight/v1",
+  "expected": ">=20.18.0 <21",
+  "observed": "v24.13.1",
+  "ok": false,
+  "force": false
+}

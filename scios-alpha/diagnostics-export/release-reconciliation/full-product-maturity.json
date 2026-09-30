@@ -1,0 +1,21 @@
+{
+  "at": "2026-08-12T21:28:10.312Z",
+  "schema": "sci-os-full-product-maturity/v1",
+  "axis": "FULL_PRODUCT_VISION_MATURITY",
+  "verdict": "DEGRADED",
+  "maturityLabel": "ALPHA",
+  "includesNotInFirstRelease": [
+    "GW2–7",
+    "200 roles fully specified",
+    "300+ capabilities",
+    "OIDC multi-user",
+    "durable event fabric",
+    "advanced Entity360 graph",
+    "Adaptive /app as separate host"
+  ],
+  "counts": {
+    "postReleaseP2": 4,
+    "postReleaseP3": 2
+  },
+  "note": "FOUNDATION_DEGRADED on full-vision axis must NOT reopen first-release queue"
+}

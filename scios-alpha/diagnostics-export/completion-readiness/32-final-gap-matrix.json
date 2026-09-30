@@ -1,0 +1,30 @@
+{
+  "schema": "sci-os-completion-audit/gap-matrix/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "matrix": [
+    { "area": "Build/Package/Install", "alpha": "READY", "beta": "NEAR_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Golden Path (boot→home→shutdown)", "alpha": "NEAR_READY", "beta": "NOT_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Closure Engine", "alpha": "READY", "beta": "READY", "production": "READY", "vision": "READY" },
+    { "area": "P0 Root Causes", "alpha": "READY", "beta": "READY", "production": "READY", "vision": "READY" },
+    { "area": "Windows Host Layer", "alpha": "READY", "beta": "NEAR_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Process/Runtime/Recovery", "alpha": "READY", "beta": "READY", "production": "NEAR_READY", "vision": "NOT_READY" },
+    { "area": "Product Kernel", "alpha": "NEAR_READY", "beta": "NOT_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Professional Domain Registry", "alpha": "NOT_READY", "beta": "NOT_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Experience Compiler", "alpha": "NOT_READY", "beta": "NOT_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Professional UX", "alpha": "NOT_READY", "beta": "NOT_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Governance", "alpha": "NOT_READY", "beta": "NOT_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Data/Persistence", "alpha": "NEAR_READY", "beta": "NOT_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Market/Economic Data", "alpha": "NA", "beta": "NOT_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Background System/Jobs", "alpha": "NOT_READY", "beta": "NOT_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Model Science/Prediction", "alpha": "NOT_READY", "beta": "NOT_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Risk/Simulation", "alpha": "NOT_READY", "beta": "NOT_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Security", "alpha": "NEAR_READY", "beta": "NOT_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Privacy", "alpha": "NEAR_READY", "beta": "NOT_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Observability", "alpha": "NEAR_READY", "beta": "NOT_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Performance", "alpha": "NEAR_READY", "beta": "NOT_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Install/Update/Rollback", "alpha": "READY", "beta": "NEAR_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Testing", "alpha": "NEAR_READY", "beta": "NOT_READY", "production": "NOT_READY", "vision": "NOT_READY" },
+    { "area": "Evidence/Lineage", "alpha": "READY", "beta": "READY", "production": "NEAR_READY", "vision": "NOT_READY" },
+    { "area": "Codebase Cleanliness", "alpha": "NEAR_READY", "beta": "NOT_READY", "production": "NOT_READY", "vision": "NOT_READY" }
+  ]
+}

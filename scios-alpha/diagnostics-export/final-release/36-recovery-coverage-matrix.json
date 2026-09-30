@@ -1,0 +1,53 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "scenarios": [
+    {
+      "scenario": "backend terminated",
+      "DETECTED": "PARTIAL",
+      "DIAGNOSED": "PARTIAL",
+      "AUTO_REPAIRABLE": "UNPROVEN",
+      "ROLLBACK_AVAILABLE": "PARTIAL",
+      "SAFE_MODE_AVAILABLE": true,
+      "USER_MESSAGE_CLEAR": "PARTIAL",
+      "EVIDENCE_AVAILABLE": "PARTIAL"
+    },
+    {
+      "scenario": "worker terminated",
+      "DETECTED": "PARTIAL",
+      "AUTO_REPAIRABLE": "UNPROVEN",
+      "SAFE_MODE_AVAILABLE": true,
+      "EVIDENCE_AVAILABLE": "PARTIAL"
+    },
+    {
+      "scenario": "Redis unavailable",
+      "DETECTED": true,
+      "DIAGNOSED": true,
+      "AUTO_REPAIRABLE": false,
+      "SAFE_MODE_AVAILABLE": true,
+      "USER_MESSAGE_CLEAR": true,
+      "EVIDENCE_AVAILABLE": true,
+      "note": "DEGRADED expected for local-foundation"
+    },
+    {
+      "scenario": "database unavailable",
+      "DETECTED": true,
+      "AUTO_REPAIRABLE": false,
+      "SAFE_MODE_AVAILABLE": true,
+      "EVIDENCE_AVAILABLE": true
+    },
+    {
+      "scenario": "port occupied",
+      "DETECTED": "PARTIAL",
+      "AUTO_REPAIRABLE": "PARTIAL",
+      "EVIDENCE_AVAILABLE": "PARTIAL"
+    },
+    {
+      "scenario": "bad config",
+      "DETECTED": "PARTIAL",
+      "AUTO_REPAIRABLE": false,
+      "SAFE_MODE_AVAILABLE": true,
+      "EVIDENCE_AVAILABLE": "PARTIAL"
+    }
+  ],
+  "goal": "100% controlled behavior — not 100% auto-repair"
+}

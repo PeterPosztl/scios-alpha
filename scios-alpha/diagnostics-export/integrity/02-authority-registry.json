@@ -1,0 +1,25 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "authorities": {
+    "PRODUCT_IDENTITY": "sci-os.manifest.json#id",
+    "CURRENT_SYSTEM_TRUTH": "docs/enterprise/CURRENT_SYSTEM_TRUTH.md",
+    "NODE_RUNTIME": "package.json#engines + .nvmrc + packaged runtime/node",
+    "PACKAGE_MANAGER": "package.json#packageManager",
+    "INSTALL_ROOT": "SCIOS_APP_ROOT / resolve-app-root.cjs",
+    "RUNTIME_PROFILE": "SCI_RUNTIME_PROFILE / sci-os.manifest.json#profile",
+    "CONFIG": ".env + validate-config.cjs",
+    "PORTS": "sci-os.manifest.json#ports",
+    "BOOTSTRAP": "installer/scripts/bootstrap-capsule.cjs",
+    "LAUNCHER": "SCI-OS-X10.cmd (PACKAGED) | SCI-OS-Start.bat (DEV)",
+    "SUPERVISOR": "installer/scripts/startup/process-supervisor.cjs",
+    "RECOVERY": "SCI-OS-Repair/Safe/Meta-Recovery.bat → bundled Node",
+    "CAPABILITY_REGISTRY": "docs/enterprise/CAPABILITY_REGISTRY.json + product-kernel",
+    "WORKFLOW_REGISTRY": "packages/product-kernel registries",
+    "APPLICATION_REGISTRY": "sci-os.manifest.json#entries",
+    "UX_ENTRY": "apps/cockpit-ui (Shell :4000)",
+    "READINESS": "sci-os.manifest.json#readiness + start-sci-os verdict",
+    "RELEASE_STATUS": "diagnostics-export/current-evidence-index.json",
+    "EVIDENCE_INDEX": "diagnostics-export/current-evidence-index.json"
+  }
+}

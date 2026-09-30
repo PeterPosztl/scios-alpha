@@ -1,0 +1,109 @@
+{
+  "at": "2026-08-19T22:42:28.301Z",
+  "claims": [
+    {
+      "historicalClaim": "Risk Gate missing",
+      "relatedCaps": [
+        "risk-engine.fastapi",
+        "vertical-slice.foundation"
+      ],
+      "registryStatuses": [
+        "STUB",
+        "ALPHA"
+      ],
+      "classification": "PARTIAL",
+      "staleClaim": true,
+      "action": "Do NOT re-implement — connect/harden existing"
+    },
+    {
+      "historicalClaim": "Governance missing",
+      "relatedCaps": [
+        "vertical-slice.foundation",
+        "control-plane-api"
+      ],
+      "registryStatuses": [
+        "ALPHA",
+        "ALPHA"
+      ],
+      "classification": "PARTIAL",
+      "staleClaim": true,
+      "action": "Do NOT re-implement — connect/harden existing"
+    },
+    {
+      "historicalClaim": "Execution missing",
+      "relatedCaps": [
+        "execution-simulator",
+        "vertical-slice.foundation"
+      ],
+      "registryStatuses": [
+        "STUB",
+        "ALPHA"
+      ],
+      "classification": "PARTIAL",
+      "staleClaim": true,
+      "action": "Do NOT re-implement — connect/harden existing"
+    },
+    {
+      "historicalClaim": "Lineage missing",
+      "relatedCaps": [
+        "vertical-slice.foundation",
+        "ledger.wave1"
+      ],
+      "registryStatuses": [
+        "ALPHA",
+        "ALPHA"
+      ],
+      "classification": "PARTIAL",
+      "staleClaim": true,
+      "action": "Do NOT re-implement — connect/harden existing"
+    },
+    {
+      "historicalClaim": "API missing",
+      "relatedCaps": [
+        "control-plane-api"
+      ],
+      "registryStatuses": [
+        "ALPHA"
+      ],
+      "classification": "WORKING",
+      "staleClaim": true,
+      "action": "Do NOT re-implement — connect/harden existing"
+    },
+    {
+      "historicalClaim": "Cockpit missing",
+      "relatedCaps": [
+        "vertical-slice.foundation"
+      ],
+      "registryStatuses": [
+        "ALPHA"
+      ],
+      "classification": "WORKING",
+      "staleClaim": true,
+      "action": "Do NOT re-implement — connect/harden existing"
+    },
+    {
+      "historicalClaim": "Startup missing",
+      "relatedCaps": [
+        "scaffold.workspace"
+      ],
+      "registryStatuses": [
+        "ALPHA"
+      ],
+      "classification": "WORKING",
+      "staleClaim": true,
+      "action": "Do NOT re-implement — connect/harden existing"
+    },
+    {
+      "historicalClaim": "Health missing",
+      "relatedCaps": [
+        "control-plane-api"
+      ],
+      "registryStatuses": [
+        "ALPHA"
+      ],
+      "classification": "WORKING",
+      "staleClaim": true,
+      "action": "Do NOT re-implement — connect/harden existing"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "singularOrchestrator": "installer/scripts/start-sci-os.cjs",
+  "singularBootstrap": "installer/scripts/bootstrap-capsule.cjs",
+  "entries": [
+    {
+      "id": "SCI-OS-X10.cmd",
+      "class": "CANONICAL_PRODUCTION"
+    },
+    {
+      "id": "SCI-OS-Start.bat",
+      "class": "CANONICAL_DEVELOPMENT"
+    },
+    {
+      "id": "pnpm sci:start",
+      "class": "CANONICAL_DEVELOPMENT"
+    },
+    {
+      "id": "SCI OS ×10.bat",
+      "class": "CANONICAL_DEVELOPMENT_CASCADE"
+    },
+    {
+      "id": "pnpm start",
+      "class": "COMPATIBILITY_ALIAS"
+    },
+    {
+      "id": "pnpm boot:*",
+      "class": "LEGACY"
+    },
+    {
+      "id": "bootstrap/bootstrap-capsule.js",
+      "class": "PACKAGER_THIN_WRAPPER"
+    }
+  ]
+}

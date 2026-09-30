@@ -1,0 +1,88 @@
+{
+  "schema": "sci-os-whi-003-proof/v1",
+  "status": "PASS",
+  "intelligence": {
+    "schema": "sci-os-host-result/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "ok": true,
+    "platform": "win32",
+    "capability": "recovery-intelligence",
+    "observedAt": "2026-08-18T18:53:48.186Z",
+    "source": "installer/scripts/host",
+    "mode": "SHADOW",
+    "data": {
+      "schema": "sci-os-recovery-intelligence/v1",
+      "classification": {
+        "class": "RUNTIME_STOPPED",
+        "evidence": {
+          "note": "intentional_or_not_started"
+        }
+      },
+      "proposal": {
+        "action": "RECORD_ONLY",
+        "unattended": true,
+        "shadow": true,
+        "verify": "none"
+      },
+      "apply": {
+        "applied": false,
+        "reason": "record_or_hint_only",
+        "verified": false
+      },
+      "budget": {
+        "attempts": 1,
+        "byClass": {
+          "RUNTIME_STOPPED": 1
+        },
+        "lastAt": "2026-08-18T18:53:48.185Z",
+        "open": false
+      },
+      "twinDrift": [
+        {
+          "code": "RUNTIME_STOPPED",
+          "severity": "INFO",
+          "note": "Stopped runtime is not FAIL when shutdown was intentional"
+        }
+      ],
+      "bootAuthority": "installer/scripts/start-sci-os.cjs"
+    },
+    "degraded": false,
+    "error": null,
+    "evidence": null
+  },
+  "controlledScenario": [
+    {
+      "name": "REC_CLASS_STALE",
+      "ok": true,
+      "class": "STALE_LOCK",
+      "evidence": {
+        "lock": {
+          "stale": true
+        }
+      }
+    },
+    {
+      "name": "REC_PROPOSE_CLEAN",
+      "ok": true,
+      "action": "CLEAN_STALE_LOCK",
+      "unattended": true,
+      "shadow": false,
+      "verify": "lock_absent_or_owner_alive"
+    },
+    {
+      "name": "REC_APPLY_VERIFY",
+      "ok": true,
+      "applied": true,
+      "verified": true,
+      "reason": "stale_lock_removed"
+    },
+    {
+      "name": "REC_CIRCUIT",
+      "ok": true
+    },
+    {
+      "name": "REC_NO_ARBITRARY_KILL",
+      "ok": true
+    }
+  ]
+}

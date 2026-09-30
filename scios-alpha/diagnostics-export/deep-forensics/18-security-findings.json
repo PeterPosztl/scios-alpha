@@ -1,0 +1,27 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "findings": [
+    {
+      "id": "SEC-BIND",
+      "detail": "services bind 0.0.0.0 in server listen — localhost product assumption",
+      "severity": "P1"
+    },
+    {
+      "id": "SEC-AUTH",
+      "detail": "AUTH_MODE=local-development unauthenticated API",
+      "severity": "P1_EXPECTED_ALPHA"
+    },
+    {
+      "id": "SEC-SHELL",
+      "detail": "remaining shell:true sites outside primary start path",
+      "severity": "P2"
+    },
+    {
+      "id": "SEC-CORS",
+      "detail": "review cockpit↔CP same-origin/localhost",
+      "severity": "P2"
+    }
+  ],
+  "authModeLimited": true
+}

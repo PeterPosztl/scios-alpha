@@ -1,0 +1,12 @@
+{
+  "schema": "sci-os-b007-final-gate/v1",
+  "at": "2026-08-29T19:19:26.176Z",
+  "wave": "B-007",
+  "token": "B_007_P1_ROOT_CLOSURE_READY",
+  "buildId": "pkg_1788030533349",
+  "steps": {
+    "classification": "PASS",
+    "cockpitRegression": "PASS"
+  },
+  "status": "PASS"
+}

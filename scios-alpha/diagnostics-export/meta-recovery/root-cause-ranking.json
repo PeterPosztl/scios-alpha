@@ -1,7 +1,7 @@
 {
   "ranked": [
     {
-      "hypothesisId": "hyp_e39921ee",
+      "hypothesisId": "hyp_aa23c3ca",
       "explanation": "Postgres optional in ALPHA — degrade, do not invent credentials",
       "supportingEvidence": [
         "env"
@@ -14,6 +14,21 @@
       "risk": "R1",
       "rollback": "none",
       "verificationMethod": "config_redacted_ok"
+    },
+    {
+      "hypothesisId": "hyp_525cc05a",
+      "explanation": "Control-plane not listening or crashed — restart via startup pack",
+      "supportingEvidence": [
+        "http://127.0.0.1:5200/healthz"
+      ],
+      "contradictingEvidence": [],
+      "affectedCapability": "ControlPlaneBackend",
+      "confidence": 0.82,
+      "diagnosticAction": "probe_/healthz",
+      "repairCandidate": "recipe.start_control_plane",
+      "risk": "R2",
+      "rollback": "sci:shutdown",
+      "verificationMethod": "healthz_200"
     }
   ]
 }

@@ -100,13 +100,21 @@ function nodeBin() {
 }
 
 async function stopAll() {
-  spawnSync(nodeBin(), [path.join(ROOT, "installer/scripts/convergence/stop.cjs")], {
-    cwd: ROOT,
-    encoding: "utf8",
-    shell: false,
-    windowsHide: true,
-    timeout: 90000,
-  });
+  // This gate boots the dist tree, so the dist root owns the lock. Stopping the
+  // repo root instead would leave that lock behind and block the next boot.
+  const distRoot = path.join(ROOT, "dist/SCI-OS-X10");
+  const target = fs.existsSync(distRoot) ? distRoot : ROOT;
+  spawnSync(
+    nodeBin(),
+    [path.join(ROOT, "installer/scripts/convergence/stop.cjs"), `--app-root=${target}`],
+    {
+      cwd: ROOT,
+      encoding: "utf8",
+      shell: false,
+      windowsHide: true,
+      timeout: 90000,
+    }
+  );
   await new Promise((r) => setTimeout(r, 1200));
 }
 

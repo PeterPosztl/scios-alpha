@@ -1,0 +1,34 @@
+import assert from "node:assert/strict";
+import { test } from "node:test";
+import { SCI_DEPLOY_IDS, buildDeploymentInventory } from "./deployment-inventory.js";
+
+test("deployment inventory maps modules without a second OS or live runtimes", () => {
+  const d = buildDeploymentInventory();
+  assert.equal(SCI_DEPLOY_IDS.length, 36);
+  assert.equal(d.modules.length, 36);
+  assert.equal(d.health.registered, 36);
+  assert.equal(d.enabledRuntimes, false);
+  assert.equal(d.ready, false);
+  assert.equal(d.autoTrade, false);
+  assert.equal(d.secondWorkflowEngine, false);
+  assert.equal(d.secondShell, false);
+  assert.equal(d.parallelOS, false);
+  assert.equal(d.oneBoot, true);
+  assert.equal(d.oneShell, true);
+  assert.equal(d.simulationOnly, true);
+  assert.equal(d.liveCertifiedFeeds, 0);
+  assert.equal(d.persisted, false);
+  assert.ok(d.modules.every((m) => m.enabledRuntime === false && m.secondInstance === false && m.autoTrade === false));
+  assert.equal(d.modules.find((m) => m.id === "ControlPlane")?.status, "COMPOSED");
+  assert.equal(d.modules.find((m) => m.id === "Shell")?.status, "COMPOSED");
+  assert.equal(d.modules.find((m) => m.id === "WorkflowEngine")?.status, "PARTIAL");
+  assert.equal(d.modules.find((m) => m.id === "ConsensusEngine")?.status, "ABSENT");
+  assert.equal(d.modules.find((m) => m.id === "WorkflowDSL")?.status, "ABSENT");
+  assert.equal(d.modules.find((m) => m.id === "FeedRegistry")?.status, "COMPOSED");
+  assert.equal(d.modules.find((m) => m.id === "SseRealisticTimeline")?.status, "PARTIAL");
+  assert.equal(d.modules.find((m) => m.id === "EmotionalEngineRealistic")?.status, "ABSENT");
+  assert.equal(d.modules.find((m) => m.id === "LegalGuardian")?.status, "PARTIAL");
+  assert.equal(d.modules.find((m) => m.id === "CompetitionEngine")?.status, "PARTIAL");
+  assert.equal(d.modules.find((m) => m.id === "RoleCatalog")?.status, "PARTIAL");
+  assert.equal(d.modules.find((m) => m.id === "DomainSandbox")?.status, "PARTIAL");
+});

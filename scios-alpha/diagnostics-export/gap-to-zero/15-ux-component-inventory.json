@@ -1,0 +1,26 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "designTokens": true,
+  "surfaces": [
+    "Home",
+    "GlobalSearch",
+    "Entity360",
+    "AnalysisWorkspace",
+    "Evidence",
+    "TechnicalView",
+    "ProfessionalView",
+    "System"
+  ],
+  "missingPrimitives": [
+    "CaseWorkspace_depth",
+    "GraphSurface_full",
+    "Timeline_full",
+    "GovernedGenerativeUI_schema_renderer"
+  ],
+  "presentFirstRelease": [
+    "ApprovalCard",
+    "AIContextPanel",
+    "SessionLocalStorage"
+  ]
+}

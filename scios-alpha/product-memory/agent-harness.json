@@ -1,0 +1,50 @@
+{
+  "schema": "sci-os-agent-harness/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "purpose": "Cursor is implementer, not architecture authority",
+  "requiredLoadsBeforeProtectedModification": [
+    "product-memory/founder-intent.json",
+    "docs/enterprise/FOUNDER_BLUEPRINT.md",
+    "product-memory/README.md",
+    "product-memory/protected-product-contracts.json",
+    "product-memory/architectural-decisions.json",
+    "product-memory/ux-decisions.json",
+    "docs/ux/SCI_DESIGN_CONSTITUTION.md",
+    "docs/enterprise/CURRENT_SYSTEM_TRUTH.md",
+    "docs/enterprise/CURRENT_EVIDENCE.md"
+  ],
+  "workflow": [
+    "CURRENT_STATE",
+    "EXPECTED_CONTRACT",
+    "IMPACT_GRAPH",
+    "MINIMAL_PATCH",
+    "TARGETED_TEST",
+    "INDEPENDENT_VERIFY",
+    "KEEP_OR_ROLLBACK"
+  ],
+  "trajectoryGuardian": {
+    "schema": "sci-os-trajectory-guardian/v1",
+    "observe": [
+      "goal",
+      "actions",
+      "tools",
+      "files",
+      "contracts",
+      "policyImpact",
+      "currentDirection"
+    ],
+    "detectCollectiveViolationOf": [
+      "user intent",
+      "Founder Constitution",
+      "protected contracts",
+      "policy",
+      "release scope"
+    ],
+    "status": "CONTRACT_ACTIVE",
+    "note": "Individually OK steps may collectively violate — pause and re-read Product Memory"
+  },
+  "commands": {
+    "preflight": "pnpm agent:harness",
+    "foundations": "pnpm foundations:audit"
+  }
+}

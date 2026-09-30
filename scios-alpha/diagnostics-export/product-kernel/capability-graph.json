@@ -1,0 +1,136 @@
+{
+  "schema": "sci-os-capability-graph/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "edges": [
+    {
+      "from": "data-fabric.domain",
+      "to": "alpha-loop.baseline",
+      "type": "depends_on"
+    },
+    {
+      "from": "risk-engine.fastapi",
+      "to": "execution-simulator",
+      "type": "depends_on"
+    },
+    {
+      "from": "prediction-engine.fastapi",
+      "to": "control-plane-api",
+      "type": "depends_on"
+    },
+    {
+      "from": "risk-engine.fastapi",
+      "to": "control-plane-api",
+      "type": "depends_on"
+    },
+    {
+      "from": "execution-simulator",
+      "to": "control-plane-api",
+      "type": "depends_on"
+    },
+    {
+      "from": "scaffold.workspace",
+      "to": "meta.capability-registry",
+      "type": "depends_on"
+    },
+    {
+      "from": "data-fabric.domain",
+      "to": "ontology.wave1",
+      "type": "depends_on"
+    },
+    {
+      "from": "ontology.wave1",
+      "to": "ledger.wave1",
+      "type": "depends_on"
+    },
+    {
+      "from": "meta.capability-registry",
+      "to": "enterprise.modules.sections-49-83",
+      "type": "depends_on"
+    },
+    {
+      "from": "data-fabric.domain",
+      "to": "vertical-slice.foundation",
+      "type": "depends_on"
+    },
+    {
+      "from": "ontology.wave1",
+      "to": "vertical-slice.foundation",
+      "type": "depends_on"
+    },
+    {
+      "from": "ledger.wave1",
+      "to": "vertical-slice.foundation",
+      "type": "depends_on"
+    },
+    {
+      "from": "arch.market_analyst",
+      "to": "gw1.market_prediction_analysis",
+      "type": "role_workflow"
+    },
+    {
+      "from": "gw1.market_prediction_analysis",
+      "to": "vertical-slice.foundation",
+      "type": "workflow_capability"
+    },
+    {
+      "from": "gw1.market_prediction_analysis",
+      "to": "control-plane-api",
+      "type": "workflow_capability"
+    },
+    {
+      "from": "gw1.market_prediction_analysis",
+      "to": "cockpit.professional-view",
+      "type": "workflow_capability"
+    },
+    {
+      "from": "role:unknown",
+      "to": "gw2.fraud_investigation",
+      "type": "role_workflow"
+    },
+    {
+      "from": "role:unknown",
+      "to": "gw3.cyber_incident",
+      "type": "role_workflow"
+    },
+    {
+      "from": "role:unknown",
+      "to": "gw4.entity_intelligence",
+      "type": "role_workflow"
+    },
+    {
+      "from": "gw4.entity_intelligence",
+      "to": "control-plane-api",
+      "type": "workflow_capability"
+    },
+    {
+      "from": "role:unknown",
+      "to": "gw5.risk_evaluation",
+      "type": "role_workflow"
+    },
+    {
+      "from": "gw5.risk_evaluation",
+      "to": "vertical-slice.foundation",
+      "type": "workflow_capability"
+    },
+    {
+      "from": "role:unknown",
+      "to": "gw6.governance_approval",
+      "type": "role_workflow"
+    },
+    {
+      "from": "gw6.governance_approval",
+      "to": "vertical-slice.foundation",
+      "type": "workflow_capability"
+    },
+    {
+      "from": "role:unknown",
+      "to": "gw7.incident_recovery",
+      "type": "role_workflow"
+    },
+    {
+      "from": "gw7.incident_recovery",
+      "to": "scaffold.workspace",
+      "type": "workflow_capability"
+    }
+  ]
+}

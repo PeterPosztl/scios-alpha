@@ -1,0 +1,66 @@
+{
+  "schema": "sci-os-final-completion/05-alpha-beta-production-blockers/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T10:13:14.945Z",
+  "title": "Blocker classes by release target",
+  "sources": [
+    "completion-program/{alpha-final,beta-gate,production-gate}/11-final-gate.json"
+  ],
+  "impactVocabulary": [
+    "ALPHA_BLOCKER",
+    "BETA_BLOCKER",
+    "PRODUCTION_BLOCKER",
+    "VISION_ONLY",
+    "NON_BLOCKING_TECH_DEBT"
+  ],
+  "alphaFinal": {
+    "token": "ALPHA_FINAL_GATE_READY",
+    "failed": []
+  },
+  "beta": {
+    "token": "BETA_GATE_BLOCKED_WITH_EVIDENCE",
+    "blockers": [
+      "PERSISTENCE.PG_EXTERNAL_INSTANCE_FD002",
+      "FD-001 OIDC provider selection"
+    ],
+    "engineeringFail": false
+  },
+  "production": {
+    "token": "PRODUCTION_GATE_BLOCKED_WITH_EVIDENCE",
+    "blockers": [
+      "PERSISTENCE.PG_EXTERNAL_INSTANCE_FD002",
+      "FD-001 OIDC provider selection",
+      "BETA_GATE blocked with evidence (see beta-gate/11-final-gate.json)",
+      "TLS termination not configured",
+      "P1 register count 92 (Target C requires P1=0)"
+    ],
+    "engineeringFail": false
+  },
+  "engineeringBlockersRemaining": 0,
+  "externalOrFounderBlockers": [
+    {
+      "id": "PERSISTENCE.PG_EXTERNAL_INSTANCE_FD002",
+      "class": "BETA_BLOCKER",
+      "type": "EXTERNAL_DEPENDENCY",
+      "need": "reachable PostgreSQL + DATABASE_URL"
+    },
+    {
+      "id": "FD-001",
+      "class": "BETA_BLOCKER",
+      "type": "FOUNDER_DECISION",
+      "need": "OIDC provider selection"
+    },
+    {
+      "id": "TLS_TERMINATION",
+      "class": "PRODUCTION_BLOCKER",
+      "type": "DEPLOYMENT_DECISION",
+      "need": "TLS termination strategy"
+    },
+    {
+      "id": "TARGET_C_P1_ZERO",
+      "class": "PRODUCTION_BLOCKER",
+      "type": "PROGRAM_POLICY",
+      "need": "P1 register drained to 0"
+    }
+  ]
+}

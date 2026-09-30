@@ -1,0 +1,82 @@
+{
+  "at": "2026-08-13T13:00:49.933Z",
+  "buildId": "ux-dna-2026-08-13",
+  "surface": "Governance",
+  "viewId": "slice",
+  "route": "/",
+  "api": [
+    "governance envelope"
+  ],
+  "domSource": "apps/cockpit-ui/src/index.js",
+  "interactionMap": [
+    "approvalApprove|Reject|Hold"
+  ],
+  "designTokenSnapshot": {
+    "schema": "sci-os-design-tokens/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "color": {
+      "snow": "#F7F8FA",
+      "fog": "#E8ECF0",
+      "graphite": "#2C333A",
+      "navy": "#0B1F33",
+      "red": "#C8102E",
+      "ice": "#D6E4F0",
+      "ok": "#1B7A4E",
+      "warn": "#B45309",
+      "surface": "#ffffff",
+      "surfaceMuted": "#fafbfc"
+    },
+    "typography": {
+      "fontFamily": "\"SF Pro Text\",\"Segoe UI\",system-ui,sans-serif",
+      "brandSize": "1.35rem",
+      "body": "1rem",
+      "meta": "0.75rem"
+    },
+    "space": {
+      "1": "0.25rem",
+      "2": "0.5rem",
+      "3": "0.75rem",
+      "4": "1rem"
+    },
+    "radius": "0",
+    "focus": "2px solid #0B1F33",
+    "density": {
+      "COMFORTABLE": {
+        "spaceScale": 1.15,
+        "fontScale": 1.05
+      },
+      "STANDARD": {
+        "spaceScale": 1,
+        "fontScale": 1
+      },
+      "EXPERT": {
+        "spaceScale": 0.9,
+        "fontScale": 0.95
+      }
+    },
+    "risk": {
+      "approve": "navy-action",
+      "reject": "red",
+      "hold": "warn",
+      "proposalNotDone": "warn-badge"
+    },
+    "evidence": {
+      "available": "ice-border",
+      "missing": "UNKNOWN label required"
+    }
+  },
+  "importantStates": [
+    "proposal",
+    "approved_simulation",
+    "rejected",
+    "hold"
+  ],
+  "viewport": "desktop-reference 1280x800",
+  "dataScenario": "GW1 AAPL local-foundation",
+  "screenshot": {
+    "path": "docs/ux/reference-experience/screenshots/governance.png",
+    "status": "PENDING_LIVE_CAPTURE"
+  },
+  "captureClass": "STRUCTURE_FROM_SOURCE",
+  "status": "CAPTURED_STRUCTURE"
+}

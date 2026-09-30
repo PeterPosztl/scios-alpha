@@ -1,0 +1,39 @@
+{
+  "schema": "sci-os-realistic-simulation-build-log/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T18:24:30.000Z",
+  "ready": false,
+  "autoTrade": false,
+  "steps": [
+    {
+      "id": "blueprints",
+      "result": "INSPECTION_ONLY",
+      "detail": "enabled=false autoApply=false. Agent/KG/Workflow/Dist studios remain in Shell."
+    },
+    {
+      "id": "realistic-layer",
+      "result": "MOUNTED",
+      "detail": "GET /v1/ecl/realistic-sim. Risk/causal/timeline/evidence/lineage analogs. EmotionalEngine ABSENT. monteCarlo=false doCalculus=false."
+    },
+    {
+      "id": "feeds-star",
+      "result": "PASS",
+      "detail": "13 types SIMULATION_ONLY. Intelligence/Causal/SSE/Reporting/RiskGov consume all IDs. SystemHealth consumes FeedHealthMonitor."
+    },
+    {
+      "id": "safety",
+      "result": "PASS",
+      "detail": "liveCertified=0 unexpectedLive=false persisted=false autoTrade=false."
+    },
+    {
+      "id": "restart",
+      "result": "PASS",
+      "detail": "pnpm sci:stop then one Control Plane :3000 and one Shell :4000."
+    },
+    {
+      "id": "tests",
+      "result": "PASS",
+      "detail": "ecl-dil 14/14, cockpit 11/11, smoke ok fails=[]"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "schema": "sci-os-infra-alpha-state/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T14:40:00.000Z",
+  "identity": "ENTERPRISE_GRADE_ALPHA",
+  "ready": false,
+  "holeless": false,
+  "autoTrade": false,
+  "note": "Full-vision TARGET items are classified, not executed. CURRENT_SYSTEM_TRUTH: OIDC / durable enterprise fabric / OTLP SDK = P2/P3. Do not reopen as silent ALPHA fixes.",
+  "actual": {
+    "auth": {
+      "mode": "local-development",
+      "oidc": "ABSENT",
+      "roles": "governance-engine 4-role + additive professional archetypes",
+      "evidence": "AUTH_MODE=local-development; GAP-0010 / GAP-0289"
+    },
+    "observability": {
+      "structuredLogs": "WORKING",
+      "inProcessMetrics": "WORKING",
+      "otlpSdkExport": "ABSENT",
+      "otelHealthProbe": "PARTIAL",
+      "evidence": "docs/enterprise/ecl-dil-api.md — no OTLP spans yet"
+    },
+    "ledger": {
+      "eclBook": "in-memory simulated_alpha",
+      "localDurableRunIndex": "PARTIAL (%LOCALAPPDATA%\\SCI OS X10\\state)",
+      "enterprisePgFabric": "ABSENT",
+      "integrity": "UNKNOWN for ECL across process restart"
+    },
+    "feeds": {
+      "default": "simulated_alpha",
+      "liveAdapter": "ABSENT",
+      "optional": "SCI_DIL_FEED=live_unverified (UNVERIFIED, not a calibration source)"
+    },
+    "desktop": {
+      "dev": "SCI-OS-Start.bat / pnpm sci:start",
+      "packaged": "%LOCALAPPDATA%\\SCI OS X10\\app\\SCI-OS-X10.cmd",
+      "secondBoot": false,
+      "docs": "docs/enterprise/desktop-launch.md"
+    }
+  },
+  "masterPlanStopCondition": {
+    "humanUsableAlpha": true,
+    "architecture.unified": true,
+    "cockpit.professional": "fully_operational_alpha",
+    "cockpit.technical": "fully_operational_alpha",
+    "feeds.live": false,
+    "probability.calibratedLive": false,
+    "edge.measured": "simulated_alpha",
+    "trackRecord.established": "simulated_alpha",
+    "ledger.durable": false,
+    "oidc.integrated": false,
+    "otlp.integrated": false,
+    "ux.enterpriseGrade": "alpha",
+    "windows.desktopEntry": "documented_canonical",
+    "stopContinuousDev": false,
+    "reason": "AND-clause full-vision items remain P2. Authorized ALPHA stop is HUMAN_USABLE_ALPHA, not this conjunction. Not READY."
+  },
+  "proposalsNotApplied": [
+    {
+      "id": "OIDC-ENTERPRISE",
+      "domain": "security",
+      "severity": "P2",
+      "finding": "AUTH_MODE=local-development. No IdP, no user store.",
+      "repair": "Keep UNKNOWN until a chosen IdP and evidence. Do not fake OIDC in ALPHA."
+    },
+    {
+      "id": "OTLP-SDK-EXPORT",
+      "domain": "observability",
+      "severity": "P2",
+      "finding": "Logger + counters exist; OTLP SDK export does not.",
+      "repair": "Optional exporter behind config; local JSON remains authority."
+    },
+    {
+      "id": "DURABLE-ECL-LEDGER",
+      "domain": "ecl",
+      "severity": "P2",
+      "finding": "ECL book is process-local. Local durable run index is GW1/runs, not ECL positions.",
+      "repair": "P2 ledger without forking GW1/CF11."
+    },
+    {
+      "id": "LIVE-FEED-DEFAULT-ON",
+      "domain": "dil",
+      "severity": "P2",
+      "finding": "Live adapter ABSENT by default (SIMULATION_ONLY).",
+      "repair": "Do not default-on. live_unverified still does not calibrate live probability."
+    },
+    {
+      "id": "LIVE-OUTCOME-CALIBRATION",
+      "domain": "dil",
+      "severity": "P2",
+      "finding": "Brier ADEQUATE_ALPHA is seeded simulated. Live resolve forbidden unless simulated:true.",
+      "repair": "Venue-certified settlements required before liveCalibration leaves UNKNOWN."
+    }
+  ]
+}

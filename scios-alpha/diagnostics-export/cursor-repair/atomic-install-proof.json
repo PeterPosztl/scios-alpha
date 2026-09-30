@@ -1,22 +1,22 @@
 {
   "schema": "sci-os-atomic-install/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-08-19T22:14:44.186Z",
+  "at": "2026-09-30T10:01:27.611Z",
   "source": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10",
   "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
   "dataDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\data",
   "steps": [
     {
       "name": "preinstall_process_state",
-      "at": "2026-08-19T22:14:46.921Z",
+      "at": "2026-09-30T10:01:28.359Z",
       "processes": []
     },
     {
       "name": "quiescence_gate",
-      "at": "2026-08-19T22:14:55.952Z",
+      "at": "2026-09-30T10:01:38.205Z",
       "quiescence": {
         "schema": "sci-os-install-quiescence/v1",
-        "at": "2026-08-19T22:14:46.922Z",
+        "at": "2026-09-30T10:01:28.360Z",
         "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
         "attempts": [
           {
@@ -34,24 +34,24 @@
     },
     {
       "name": "stage_copy",
-      "at": "2026-08-19T22:14:55.953Z",
+      "at": "2026-09-30T10:01:38.206Z",
       "staging": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.staging"
     },
     {
       "name": "stage_verify",
-      "at": "2026-08-19T22:14:57.254Z",
+      "at": "2026-09-30T10:01:39.850Z",
       "ok": true,
-      "buildId": "pkg_1787177679954"
+      "buildId": "pkg_1790762466624"
     },
     {
       "name": "backup_current",
-      "at": "2026-08-19T22:14:57.254Z",
-      "backup": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.1787177684186",
+      "at": "2026-09-30T10:01:39.850Z",
+      "backup": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.1790762487611",
       "operation": "rename installDir → backup"
     },
     {
       "name": "backup_rename",
-      "at": "2026-08-19T22:14:57.256Z",
+      "at": "2026-09-30T10:01:39.852Z",
       "ok": true,
       "attempts": [
         {
@@ -63,13 +63,13 @@
     },
     {
       "name": "promote_staging",
-      "at": "2026-08-19T22:14:57.256Z",
+      "at": "2026-09-30T10:01:39.852Z",
       "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
       "operation": "rename staging → installDir"
     },
     {
       "name": "promote_rename",
-      "at": "2026-08-19T22:14:57.257Z",
+      "at": "2026-09-30T10:01:39.854Z",
       "ok": true,
       "attempts": [
         {
@@ -81,19 +81,19 @@
     },
     {
       "name": "live_verify",
-      "at": "2026-08-19T22:14:57.493Z",
+      "at": "2026-09-30T10:01:40.201Z",
       "ok": true,
-      "buildId": "pkg_1787177679954"
+      "buildId": "pkg_1790762466624"
     },
     {
       "name": "retain_backup_last",
-      "at": "2026-08-19T22:14:57.576Z",
+      "at": "2026-09-30T10:01:40.315Z",
       "last": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.last",
       "attempt": 0
     },
     {
       "name": "shortcuts_localappdata",
-      "at": "2026-08-19T22:14:58.499Z",
+      "at": "2026-09-30T10:01:41.409Z",
       "startMenu": {
         "link": "C:\\Users\\peter\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\SCI OS X10.lnk",
         "target": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\SCI-OS-X10.exe",
@@ -120,7 +120,7 @@
     "quiescenceGate": true
   },
   "primaryEntry": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\SCI-OS-X10.exe",
-  "buildId": "pkg_1787177679954",
+  "buildId": "pkg_1790762466624",
   "shortcuts": {
     "startMenu": {
       "link": "C:\\Users\\peter\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\SCI OS X10.lnk",

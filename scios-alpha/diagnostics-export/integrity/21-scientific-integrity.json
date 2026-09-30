@@ -1,0 +1,13 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "baseline": {
+    "CODE_EXISTS": true,
+    "RUNTIME_PROVEN": "PARTIAL",
+    "CALIBRATED": false,
+    "TEMPORALLY_VALIDATED": false,
+    "SCIENTIFICALLY_VALIDATED": false,
+    "PRODUCTION_ELIGIBLE": false,
+    "label": "NON-PRODUCTION"
+  }
+}

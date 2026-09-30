@@ -1,0 +1,49 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "architecture": "MONOLITHIC_WITH_PROFESSIONAL_MODE",
+  "patterns": [
+    {
+      "pattern": "contextual_ai",
+      "sci": "PARTIAL"
+    },
+    {
+      "pattern": "workflow_guidance",
+      "sci": "PARTIAL"
+    },
+    {
+      "pattern": "object_centric_nav",
+      "sci": "PARTIAL"
+    },
+    {
+      "pattern": "visual_evidence",
+      "sci": "PARTIAL"
+    },
+    {
+      "pattern": "agent_transparency",
+      "sci": "PARTIAL"
+    },
+    {
+      "pattern": "approval_cards",
+      "sci": "PARTIAL"
+    },
+    {
+      "pattern": "workspace_composition",
+      "sci": "PARTIAL"
+    },
+    {
+      "pattern": "role_adaptation",
+      "sci": "PARTIAL"
+    },
+    {
+      "pattern": "ops_monitoring",
+      "sci": "PARTIAL"
+    },
+    {
+      "pattern": "progressive_disclosure_L1_L7",
+      "sci": "PARTIAL"
+    }
+  ],
+  "primaryJsonAsDefault": false,
+  "professionalDefaultExists": true
+}

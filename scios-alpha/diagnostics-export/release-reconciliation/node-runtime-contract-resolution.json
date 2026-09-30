@@ -1,0 +1,37 @@
+{
+  "at": "2026-08-12T21:28:10.284Z",
+  "schema": "sci-os-node-runtime-contract-resolution/v1",
+  "owners": {
+    "rootEngines": "scios-alpha/package.json#engines.node",
+    "cockpitEngines": "apps/cockpit-ui/package.json#engines.node",
+    "bundledRuntime": "scripts/package/build-distribution.cjs SCIOS_BUNDLE_NODE_VERSION",
+    "packagedConfig": "config/packaged.json#bundledRuntime"
+  },
+  "priorMismatch": {
+    "engines": ">=18.20.0 <19",
+    "developerObserved": "v24.13.1",
+    "packagedBundled": "v20.18.1"
+  },
+  "canonicalProduction": {
+    "range": ">=20.18.0 <21",
+    "pinnedBundle": "20.18.1",
+    "rationale": "DECLARED=TESTED=PACKAGED — distribution already ships Node 20.18.1; build target node20"
+  },
+  "afterAlignment": {
+    "rootEngines": ">=20.18.0 <21",
+    "cockpitEngines": ">=20.18.0 <21",
+    "pkgTarget": [
+      "node20-win-x64"
+    ],
+    "bundledVersionActual": "v20.18.1",
+    "developerProcessVersion": "v24.13.1"
+  },
+  "status": "ALIGNED",
+  "developmentPolicy": {
+    "supported": "Node 20.18.x",
+    "unsupportedUntilProven": [
+      "Node 24.x"
+    ],
+    "note": "Developer may temporarily use other majors only with DEGRADED_OUTSIDE_ENGINES warning — not first-release certification node"
+  }
+}

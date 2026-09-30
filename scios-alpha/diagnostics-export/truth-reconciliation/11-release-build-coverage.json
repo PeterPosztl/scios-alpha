@@ -1,0 +1,17 @@
+{
+  "at": "2026-08-13T10:59:47.013Z",
+  "schema": "sci-os-11-release-build-coverage/v1",
+  "buildId": "truth-recon-2026-08-13-c226d748",
+  "currentRootBuild": "pnpm -r --filter \"./packages/**\" run build",
+  "currentRootTest": "data-fabric + vertical-slice only",
+  "firstReleaseRequired": [
+    "packages/**",
+    "apps/control-plane-api",
+    "apps/cockpit-ui",
+    "installer/scripts/start-sci-os.cjs",
+    "packaging scripts"
+  ],
+  "gap": "Root build does not build apps; release gate must cover apps",
+  "recommendedGate": "pnpm gate:foundation + sci:proof + package:prove-reboot (when reboot evidence fresh)",
+  "status": "DOCUMENTED_GAP"
+}

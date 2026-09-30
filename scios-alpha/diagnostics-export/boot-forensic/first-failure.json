@@ -1,0 +1,9 @@
+{
+  "at": "2026-08-12T19:34:43.141Z",
+  "bootId": "d15e661c-73fb-4786-9c84-b0ac73a8675d",
+  "PRIMARY_BOOT_BLOCKER": {
+    "id": "SHELL_HANDOFF_NEVER_OPENS_WHILE_SERVE",
+    "status": "FIXED",
+    "residualBlocker": "ERR-REBOOT-001 host reboot unproven"
+  }
+}

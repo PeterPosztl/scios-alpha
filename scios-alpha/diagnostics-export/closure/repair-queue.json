@@ -1,0 +1,1913 @@
+{
+  "schema": "sci-os-repair-queue/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-19T20:26:37.374Z",
+  "order": [
+    "P0 runtime",
+    "P0 security/corruption",
+    "P1 first-release",
+    "P1 governance/evidence",
+    "P2 production",
+    "P3 enhance"
+  ],
+  "batchMax": 5,
+  "batches": [
+    {
+      "batchId": "batch_001_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "ACTION_CHAIN.POST_/v1/governance/evaluate",
+        "CTRL.CF28.validation",
+        "CTRL.CF11.job-states",
+        "CTRL.CF11.idempotency",
+        "CTRL.CF11.progress"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_002_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "CTRL.CF11.job-evidence",
+        "CTRL.CF14.policy-decision",
+        "CTRL.CF14.policy-enforcement",
+        "CTRL.CF14.policy-version",
+        "CTRL.CF14.policy-evidence"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_003_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "CTRL.CF14.deny-reason",
+        "CTRL.CF14.policy-test",
+        "CTRL.CF15.risk-taxonomy",
+        "CTRL.CF15.risk-score",
+        "CTRL.CF15.risk-confidence"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_004_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "CTRL.CF15.risk-source",
+        "CTRL.CF15.risk-threshold",
+        "CTRL.CF15.risk-veto",
+        "CTRL.CF20.race-conditions",
+        "CTRL.CF20.duplicate-execution"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_005_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "CTRL.CF23.reproducible-build",
+        "CTRL.CF23.release-manifest",
+        "CTRL.CF23.rollback",
+        "CTRL.CF23.upgrade",
+        "CTRL.CF27.no-bypass-permission"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_006_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "CTRL.CF27.no-bypass-policy",
+        "CTRL.CF27.source-attribution",
+        "CTRL.CF27.human-approval",
+        "CTRL.CF29.target-definition",
+        "CTRL.CF29.time-horizon"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_007_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "CTRL.CF29.confidence-intervals",
+        "CTRL.CF02.approval-gates",
+        "CTRL.CF02.privileged-actions",
+        "CTRL.CF39.runbooks",
+        "CTRL.CF39.health-dashboard"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_008_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "CTRL.CF39.upgrade-mode",
+        "CTRL.CF04.schema-versioning",
+        "CTRL.CF04.unknown-field-policy",
+        "CTRL.CF04.null-semantics",
+        "CTRL.CF04.time-zones"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_009_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "CTRL.CF32.decision-object",
+        "CTRL.CF32.criteria",
+        "CTRL.CF32.recommendation",
+        "CTRL.CF32.confidence",
+        "CTRL.CF32.risk"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_010_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "CTRL.CF32.approval",
+        "CTRL.CF32.chosen-action",
+        "CTRL.CF32.outcome",
+        "CTRL.CF37.progressive-disclosure",
+        "CTRL.CF37.no-internal-port-leakage"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_011_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "CTRL.CF37.no-dead-end-controls",
+        "CTRL.CF37.role-relevance",
+        "CTRL.CF37.object-continuity",
+        "CTRL.CF37.context-preservation",
+        "CTRL.CF06.canonical-entity-ids"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_012_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "CTRL.CF06.aliasing",
+        "CTRL.CF08.risk",
+        "CTRL.CF08.evidence",
+        "CTRL.CF08.actions",
+        "CTRL.CF08.history"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_013_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "CTRL.CF31.simulation-id",
+        "CTRL.CF31.seed",
+        "CTRL.CF31.assumptions",
+        "CTRL.CF31.parameters",
+        "CTRL.CF31.constraints"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_014_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "CTRL.CF31.results",
+        "CTRL.CF31.uncertainty",
+        "CTRL.CF31.evidence",
+        "CTRL.CF33.decision-link",
+        "CTRL.CF33.action-link"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_015_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "CTRL.CF33.outcome-capture",
+        "CTRL.CF34.activity-feed",
+        "CTRL.CF36.keyboard",
+        "CTRL.CF36.focus",
+        "CTRL.CF36.screen-reader"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_016_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "CTRL.CF36.aria",
+        "CTRL.CF36.contrast",
+        "CTRL.CF36.zoom",
+        "CTRL.CF36.reduced-motion",
+        "CTRL.CF36.error-messages"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_017_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "CTRL.CF36.loading-states",
+        "CTRL.CF38.storage-growth",
+        "CTRL.CF40.affected-ux",
+        "CTRL.CF40.affected-tests",
+        "CTRL.CF40.required-regression-set"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_018_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "DETACHED_PROCESS",
+        "CTRL.CF35.types",
+        "CTRL.CF35.evidence-link",
+        "SWALLOWED_CATCH",
+        "SHELL_TRUE_PROCESS_SPAWN"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_019_P1",
+      "severity": "P1",
+      "rootCauseIds": [
+        "SOURCE_TREE_FS_DEPENDENCY",
+        "GHOST_EXPERIENCE_COMPILER_DIR"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_020_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "UI_NAV_ACTION_CHAIN_PARTIAL",
+        "HARDCODED_LOCALHOST",
+        "PROCESS_EXIT_USAGE",
+        "CTRL.CF19.retry",
+        "CTRL.CF19.retry-budget"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_021_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF19.circuit-breaker",
+        "CTRL.CF19.backpressure",
+        "CTRL.CF19.bounded-queues",
+        "CTRL.CF19.load-shedding",
+        "CTRL.CF19.read-only-mode"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_022_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF22.rpo",
+        "CTRL.CF22.rto",
+        "CTRL.CF22.backup-validation",
+        "CTRL.CF22.recovery-drill",
+        "CTRL.CF12.expected-version"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_023_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF12.cancel",
+        "CTRL.CF12.rollback",
+        "CTRL.CF13.transition",
+        "CTRL.CF13.sla",
+        "CTRL.CF13.timeout"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_024_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF13.escalation",
+        "CTRL.CF13.recovery",
+        "CTRL.CF16.retention",
+        "CTRL.CF16.export",
+        "CTRL.CF16.audit-access"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_025_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF17.metrics",
+        "CTRL.CF17.traces",
+        "CTRL.CF17.latency",
+        "CTRL.CF17.error-rates",
+        "CTRL.CF17.resource-metrics"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_026_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF21.retention",
+        "CTRL.CF24.dependency-vulnerabilities",
+        "CTRL.CF24.csrf",
+        "CTRL.CF24.rate-limiting",
+        "CTRL.CF24.abuse-controls"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_027_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF25.retention",
+        "CTRL.CF25.deletion",
+        "CTRL.CF25.export",
+        "CTRL.CF25.sensitive-field-classification",
+        "CTRL.CF25.access-audit"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_028_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF26.provider-registry",
+        "CTRL.CF26.provider-health",
+        "CTRL.CF26.rate-limits",
+        "CTRL.CF26.cost-budget",
+        "CTRL.CF26.fallback"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_029_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF26.timeout",
+        "CTRL.CF26.prompt-version",
+        "CTRL.CF28.training-data-provenance",
+        "CTRL.CF28.evaluation",
+        "CTRL.CF28.calibration"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_030_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF28.promotion",
+        "CTRL.CF28.rollback",
+        "CTRL.CF28.drift",
+        "CTRL.CF28.performance",
+        "CTRL.CF10.causation-id"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_031_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF10.delivery-semantics",
+        "CTRL.CF10.replay",
+        "CTRL.CF10.dead-letter",
+        "CTRL.CF10.event-versioning",
+        "CTRL.CF10.event-retention"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_032_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF11.retry",
+        "CTRL.CF11.timeout",
+        "CTRL.CF11.cancellation",
+        "CTRL.CF11.dlq",
+        "CTRL.CF11.poison-handling"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_033_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF11.resource-limits",
+        "CTRL.CF14.exception",
+        "CTRL.CF14.override",
+        "CTRL.CF14.policy-rollback",
+        "CTRL.CF15.risk-aggregation"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_034_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF15.risk-scenario",
+        "CTRL.CF15.calibration",
+        "CTRL.CF15.validation",
+        "CTRL.CF20.optimistic-locking",
+        "CTRL.CF20.expected-version"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_035_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF20.locking",
+        "CTRL.CF20.transaction-boundaries",
+        "CTRL.CF20.lost-update-prevention",
+        "CTRL.CF23.signed-artifact",
+        "CTRL.CF23.sbom"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_036_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF23.provenance",
+        "CTRL.CF27.tool-allowlist",
+        "CTRL.CF27.data-access-policy",
+        "CTRL.CF27.prompt-injection-defense",
+        "CTRL.CF27.output-validation"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_037_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF29.training-set",
+        "CTRL.CF29.backtest",
+        "CTRL.CF29.calibration",
+        "CTRL.CF29.epistemic-uncertainty",
+        "CTRL.CF29.aleatoric-uncertainty"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_038_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF29.baseline-comparison",
+        "CTRL.CF29.drift",
+        "CTRL.CF01.service-identity",
+        "CTRL.CF01.machine-identity",
+        "CTRL.CF01.api-client-identity"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_039_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF01.permission-inheritance",
+        "CTRL.CF01.impersonation-controls",
+        "CTRL.CF01.service-to-service-identity",
+        "CTRL.CF02.resource-permissions",
+        "CTRL.CF02.purpose-based-access"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_040_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF02.break-glass",
+        "CTRL.CF18.availability-sli",
+        "CTRL.CF18.latency-sli",
+        "CTRL.CF18.error-sli",
+        "CTRL.CF18.job-completion-sli"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_041_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF18.freshness-sli",
+        "CTRL.CF18.accuracy-sli",
+        "CTRL.CF18.slo-targets",
+        "CTRL.CF18.error-budget",
+        "CTRL.CF18.burn-rate"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_042_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF18.release-policy",
+        "CTRL.CF39.incident-states",
+        "CTRL.CF39.incident-ownership",
+        "CTRL.CF39.maintenance-mode",
+        "CTRL.CF39.support-bundle"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_043_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF39.operator-evidence",
+        "TIMER_UNREF",
+        "CTRL.CF03.workspace-isolation",
+        "CTRL.CF04.schema-registry",
+        "CTRL.CF04.compatibility"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_044_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF04.semantic-types",
+        "CTRL.CF04.currency",
+        "CTRL.CF04.data-classification",
+        "CTRL.CF32.alternatives",
+        "EMPTY_PACKAGE_DIRECTORY"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_045_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF05.observation-time",
+        "CTRL.CF05.effective-time",
+        "CTRL.CF05.valid-to",
+        "CTRL.CF05.bitemporal-truth",
+        "CTRL.CF05.clock-skew"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_046_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF05.historical-reconstruction",
+        "CTRL.CF06.deduplication",
+        "CTRL.CF06.merge",
+        "CTRL.CF06.split",
+        "CTRL.CF06.identity-confidence"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_047_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF06.source-precedence",
+        "CTRL.CF06.conflicting-attributes",
+        "CTRL.CF06.entity-history",
+        "CTRL.CF07.case-search",
+        "CTRL.CF07.evidence-search"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_048_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF07.full-text",
+        "CTRL.CF07.permissions-aware-search",
+        "CTRL.CF07.filters",
+        "CTRL.CF07.search-audit",
+        "CTRL.CF08.relationships"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_049_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF08.timeline",
+        "CTRL.CF08.cases",
+        "CTRL.CF08.decisions",
+        "CTRL.CF08.source-confidence",
+        "CTRL.CF08.related-entities"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_050_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF09.typed-nodes",
+        "CTRL.CF09.typed-edges",
+        "CTRL.CF09.edge-evidence",
+        "CTRL.CF09.temporal-edges",
+        "CTRL.CF09.confidence"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_051_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF09.graph-provenance",
+        "CTRL.CF09.graph-query",
+        "CTRL.CF31.scenario",
+        "CTRL.CF31.replay",
+        "CTRL.CF33.expected-vs-actual"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_052_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF33.error-analysis",
+        "CTRL.CF34.review",
+        "CTRL.CF34.approval",
+        "CTRL.CF34.ownership",
+        "CTRL.CF34.notifications"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_053_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF36.responsive",
+        "CTRL.CF38.cpu-budget",
+        "CTRL.CF38.memory-budget",
+        "CTRL.CF38.disk-budget",
+        "CTRL.CF38.job-budget"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_054_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF38.ai-token-budget",
+        "CTRL.CF38.provider-cost-budget",
+        "CTRL.CF38.resource-exhaustion",
+        "CTRL.CF38.quota",
+        "CTRL.CF40.dependency-graph"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_055_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF40.affected-packages",
+        "CTRL.CF40.affected-capabilities",
+        "CTRL.CF40.affected-roles",
+        "CTRL.CF40.affected-routes",
+        "CTRL.CF40.affected-policies"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_056_P2",
+      "severity": "P2",
+      "rootCauseIds": [
+        "CTRL.CF40.affected-data",
+        "CTRL.CF35.delivery",
+        "CTRL.CF35.escalation",
+        "CTRL.CF35.permissions"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_057_P3",
+      "severity": "P3",
+      "rootCauseIds": [
+        "SHELL_TRUE_NON_SPAWN",
+        "IMPORT_META_ESM_OK",
+        "CTRL.CF19.bulkhead",
+        "CTRL.CF13.versioning",
+        "CTRL.CF21.archival"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_058_P3",
+      "severity": "P3",
+      "rootCauseIds": [
+        "CTRL.CF28.retirement",
+        "CTRL.CF11.priority",
+        "CTRL.CF14.policy-simulation",
+        "CTRL.CF15.risk-trend",
+        "CTRL.CF20.deadlocks"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_059_P3",
+      "severity": "P3",
+      "rootCauseIds": [
+        "CTRL.CF04.units",
+        "CTRL.CF04.locale",
+        "CTRL.CF32.tradeoffs",
+        "CTRL.CF32.learning",
+        "CTRL.CF37.unsaved-change-safety"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_060_P3",
+      "severity": "P3",
+      "rootCauseIds": [
+        "CTRL.CF06.cross-dataset-resolution",
+        "CTRL.CF07.semantic-retrieval",
+        "CTRL.CF07.ranking",
+        "CTRL.CF07.facets",
+        "CTRL.CF07.highlighting"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_061_P3",
+      "severity": "P3",
+      "rootCauseIds": [
+        "CTRL.CF07.saved-searches",
+        "CTRL.CF09.path-reasoning",
+        "CTRL.CF09.subgraph-views",
+        "CTRL.CF09.conflict-resolution",
+        "CTRL.CF31.comparison"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_062_P3",
+      "severity": "P3",
+      "rootCauseIds": [
+        "CTRL.CF33.lesson",
+        "CTRL.CF33.model-update-proposal",
+        "CTRL.CF33.policy-update-proposal",
+        "CTRL.CF33.rollback",
+        "CTRL.CF34.presence"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_063_P3",
+      "severity": "P3",
+      "rootCauseIds": [
+        "CTRL.CF38.retention-cost",
+        "TODO_NON_CRITICAL",
+        "CTRL.CF30.hypothesis",
+        "CTRL.CF30.assumptions",
+        "CTRL.CF30.causal-graph"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_064_P3",
+      "severity": "P3",
+      "rootCauseIds": [
+        "CTRL.CF30.confounders",
+        "CTRL.CF30.intervention",
+        "CTRL.CF30.counterfactual",
+        "CTRL.CF30.sensitivity-analysis",
+        "CTRL.CF30.identifiability"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_065_P3",
+      "severity": "P3",
+      "rootCauseIds": [
+        "CTRL.CF30.evidence",
+        "CTRL.CF30.uncertainty",
+        "CTRL.CF35.priority",
+        "CTRL.CF35.deduplication",
+        "CTRL.CF35.read-state"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    },
+    {
+      "batchId": "batch_066_P3",
+      "severity": "P3",
+      "rootCauseIds": [
+        "CTRL.CF35.quiet-hours"
+      ],
+      "maxRootCauses": 5,
+      "protocol": [
+        "DISCOVER",
+        "REPRODUCE",
+        "ROOT_CAUSE",
+        "BLAST_RADIUS",
+        "PATCH",
+        "TARGETED_TEST",
+        "INTEGRATION_TEST",
+        "RUNTIME_TEST",
+        "EVIDENCE",
+        "ACCEPT_OR_ROLLBACK",
+        "STATE_UPDATE",
+        "RESCAN_IMPACTED"
+      ],
+      "status": "QUEUED",
+      "note": "Do not edit 100 unrelated files in one batch"
+    }
+  ],
+  "nextBatch": {
+    "batchId": "batch_001_P1",
+    "severity": "P1",
+    "rootCauseIds": [
+      "ACTION_CHAIN.POST_/v1/governance/evaluate",
+      "CTRL.CF28.validation",
+      "CTRL.CF11.job-states",
+      "CTRL.CF11.idempotency",
+      "CTRL.CF11.progress"
+    ],
+    "maxRootCauses": 5,
+    "protocol": [
+      "DISCOVER",
+      "REPRODUCE",
+      "ROOT_CAUSE",
+      "BLAST_RADIUS",
+      "PATCH",
+      "TARGETED_TEST",
+      "INTEGRATION_TEST",
+      "RUNTIME_TEST",
+      "EVIDENCE",
+      "ACCEPT_OR_ROLLBACK",
+      "STATE_UPDATE",
+      "RESCAN_IMPACTED"
+    ],
+    "status": "QUEUED",
+    "note": "Do not edit 100 unrelated files in one batch"
+  },
+  "stopCondition": {
+    "firstRelease": {
+      "p0Open": 0,
+      "p1Open": 0,
+      "mandatoryUnknown": 0,
+      "require": [
+        "package runtime PASS",
+        "Home PASS",
+        "GW1 PASS",
+        "governance PASS",
+        "Evidence/Lineage PASS",
+        "shutdown PASS"
+      ]
+    }
+  },
+  "identity": {
+    "schema": "sci-os-closure-identity/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "runId": "closure_mt0jl4vl_81a556",
+    "at": "2026-08-19T20:26:36.658Z",
+    "gitSha": "dcfdd3145ea6e9aa3e06a3120fefcf697779e41d",
+    "treeHash": "852a8fcf35081aca07d9a9028722a992d8693ce590585e3634aa94fecc851b61",
+    "buildId": "pkg_1787170915142",
+    "packageHash": "3d16f5cb7318161840e7e913d4aac83503cce3d4b313fbe37d7244eeedd0828a",
+    "manifestHash": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701",
+    "runtimeVersion": "v20.18.1",
+    "profile": "local-foundation",
+    "note": "Stale evidence must not close current issues — compare runId/treeHash/gitSha"
+  }
+}

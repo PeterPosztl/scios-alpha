@@ -1,19 +1,19 @@
 {
-  "at": "2026-07-16T23:55:34.299Z",
+  "at": "2026-08-12T15:26:36.878Z",
   "machine": {
     "platform": "win32",
-    "release": "10.0.26100",
+    "release": "10.0.26200",
     "arch": "x64",
     "cpus": 8,
     "memoryBytes": 16883044352,
-    "freeMemoryBytes": 2731884544,
+    "freeMemoryBytes": 4687482880,
     "hostnameHash": "b0c10e95b73f744e",
     "userInfo": {
       "username": "peter"
     }
   },
   "repository": {
-    "name": "scios-alpha",
+    "name": "sci-os-x10",
     "packageManager": "pnpm@9.15.0",
     "packages": [
       "alpha-loop",
@@ -35,6 +35,7 @@
       "control-plane-api",
       "execution-simulator",
       "meta-recovery-control-plane",
+      "mock-api",
       "prediction-engine",
       "risk-engine"
     ],
@@ -52,8 +53,8 @@
       "usable": true
     },
     "docker": {
-      "usable": true,
-      "detail": "AVAILABLE"
+      "usable": false,
+      "detail": "UNAVAILABLE_OR_STOPPED"
     },
     "electron": {
       "usable": false,
@@ -62,7 +63,7 @@
   },
   "infrastructure": {
     "postgresql": "NOT_CONFIGURED",
-    "redis": "CONFIGURED"
+    "redis": "NOT_CONFIGURED"
   },
-  "fingerprint": "d9f1de5fe38960b025cd9215"
+  "fingerprint": "92875c9bbaeb48b843a034d5"
 }

@@ -1,0 +1,55 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "chains": [
+    {
+      "id": "RC-PACKAGING",
+      "rootCause": "No self-contained Windows package with embedded runtime and installer",
+      "primaryFailure": "Clean install / no-terminal launch impossible",
+      "secondaryFailures": [
+        "Reboot acceptance untestable",
+        "Second-start packaged path untestable",
+        "Normal users see Node requirement"
+      ],
+      "userVisibleSymptoms": [
+        "No Setup.exe",
+        "Bat asks for Node.js",
+        "Developer terminal still required"
+      ],
+      "errorIds": [
+        "ERR-PKG-001",
+        "ERR-LAUNCH-001",
+        "ERR-REBOOT-001"
+      ]
+    },
+    {
+      "id": "RC-INFRA-OPTIONAL",
+      "rootCause": "Docker engine stopped; PG/Redis optional for local-foundation",
+      "primaryFailure": "Startup DEGRADED (not false READY)",
+      "secondaryFailures": [
+        "Queues disabled",
+        "No durable SELECT 1"
+      ],
+      "userVisibleSymptoms": [
+        "System status shows degraded infra warnings"
+      ],
+      "errorIds": [
+        "ERR-INFRA-001"
+      ]
+    },
+    {
+      "id": "RC-INVESTIGATION-DEPTH",
+      "rootCause": "Entity360/search/home connected for GW1; graph/timeline deep UX not integrated",
+      "primaryFailure": "Fraud/cyber investigation workflows incomplete",
+      "secondaryFailures": [
+        "200 roles remain configured-only"
+      ],
+      "userVisibleSymptoms": [
+        "Entity tabs show shallow JSON"
+      ],
+      "errorIds": [
+        "ERR-UX-002",
+        "ERR-ROLE-001"
+      ]
+    }
+  ]
+}

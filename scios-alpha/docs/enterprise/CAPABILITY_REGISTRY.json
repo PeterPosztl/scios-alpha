@@ -187,7 +187,7 @@
       "securityClassification": "confidential",
       "dataClassification": "confidential",
       "surface": "packages/data-fabric/src/ledger.ts",
-      "notes": "In-memory only — not durable enterprise ledger"
+      "notes": "In-memory CanonicalLedger. Optional Postgres adapter + sci_ecl book DAO exist; durable=true only after INSERT. pg driver not bundled. Not enterprise fabric."
     },
     {
       "id": "master-contract.doc",
@@ -259,6 +259,44 @@
       "dataClassification": "internal",
       "surface": "packages/vertical-slice",
       "notes": "NON-PRODUCTION in-process foundation path. Not ENTERPRISE GO."
+    },
+    {
+      "id": "ecl.control-layer",
+      "version": "0.1.0-alpha",
+      "owner": "platform",
+      "status": "ALPHA",
+      "riskTier": "high",
+      "inputs": ["simulated positions", "trades", "bankroll"],
+      "outputs": ["PnL", "drawdown", "exposure", "guardrail", "reports", "audit"],
+      "dependencies": ["data-fabric.domain"],
+      "healthEndpoint": "http://127.0.0.1:3000/v1/ecl/guardrail",
+      "tests": ["packages/ecl-dil/src/ecl-dil.test.ts"],
+      "proofArtifacts": ["docs/enterprise/ecl-dil-architecture.md"],
+      "rollback": "git revert",
+      "slo": {},
+      "securityClassification": "internal",
+      "dataClassification": "internal",
+      "surface": "packages/ecl-dil",
+      "notes": "SAP-like spine composed into Control Plane. Simulated book. No READY. No auto-trade."
+    },
+    {
+      "id": "dil.decision-intelligence",
+      "version": "0.1.0-alpha",
+      "owner": "quant",
+      "status": "ALPHA",
+      "riskTier": "high",
+      "inputs": ["simulated Polymarket/Kalshi snapshot", "bankroll"],
+      "outputs": ["probabilityEstimate", "edgeScore", "dilRisk", "scenarioPreview", "decision proposal", "simulatedCalibration"],
+      "dependencies": ["ecl.control-layer", "model-registry"],
+      "healthEndpoint": "http://127.0.0.1:3000/v1/dil/markets",
+      "tests": ["packages/ecl-dil/src/ecl-dil.test.ts"],
+      "proofArtifacts": ["docs/enterprise/ecl-dil-api.md", "diagnostics-export/track-record-alpha.json"],
+      "rollback": "git revert",
+      "slo": {},
+      "securityClassification": "internal",
+      "dataClassification": "internal",
+      "surface": "packages/ecl-dil",
+      "notes": "Proposal-only. Live probability calibration UNKNOWN. Simulated ADEQUATE_ALPHA is not a 90% win-rate or READY claim."
     }
   ]
 }

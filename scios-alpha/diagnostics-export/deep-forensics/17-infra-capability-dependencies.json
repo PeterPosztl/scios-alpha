@@ -1,0 +1,35 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "matrix": [
+    {
+      "capability": "home/search/entity/gw1",
+      "postgres": false,
+      "redis": false,
+      "docker": false,
+      "python": false
+    },
+    {
+      "capability": "durable ledgers",
+      "postgres": true,
+      "redis": false,
+      "docker": "often",
+      "python": false
+    },
+    {
+      "capability": "bullmq workers",
+      "postgres": false,
+      "redis": true,
+      "docker": "often",
+      "python": false
+    },
+    {
+      "capability": "optional FastAPI engines",
+      "postgres": false,
+      "redis": false,
+      "docker": false,
+      "python": true
+    }
+  ],
+  "rule": "Do not label capability optional if that capability requires infra; label infra optional for core first-release only"
+}

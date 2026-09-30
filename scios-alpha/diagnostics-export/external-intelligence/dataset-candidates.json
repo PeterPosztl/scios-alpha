@@ -1,0 +1,25 @@
+{
+  "schema": "sci-os-dataset-candidates/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "candidates": [
+    {
+      "id": "ds.uci_credit",
+      "name": "UCI Credit Card Default (public)",
+      "use": [
+        "fraud_model_benchmark_only"
+      ],
+      "terms": "UCI repository terms",
+      "decision": "CATALOG_ONLY"
+    },
+    {
+      "id": "ds.synthetic_pit",
+      "name": "Synthetic PIT leakage stress sets (internal)",
+      "use": [
+        "pit_tests",
+        "look_ahead_bias"
+      ],
+      "terms": "SCI generated",
+      "decision": "BUILD"
+    }
+  ]
+}

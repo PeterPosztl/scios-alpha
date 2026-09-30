@@ -1,0 +1,6 @@
+{
+  "at": "2026-08-12T17:14:38.329Z",
+  "status": "NOT_RUN",
+  "pass": false,
+  "blocker": "Windows reboot acceptance requires packaged install"
+}

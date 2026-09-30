@@ -1,0 +1,20 @@
+{
+  "at": "2026-08-13T10:59:47.013Z",
+  "schema": "sci-os-02-governing-instruction-drift/v1",
+  "buildId": "truth-recon-2026-08-13-c226d748",
+  "preservedHonesty": [
+    "NO EVIDENCE => UNKNOWN",
+    "NO FALSE READY",
+    "ALPHA != PRODUCTION"
+  ],
+  "findings": [
+    {
+      "file": "docs/enterprise/CURRENT_SYSTEM_TRUTH.md",
+      "claim": "No lineage runtime / unit tests data-fabric only",
+      "status": "STALE",
+      "currentTruth": "In-memory lineage + vertical-slice tests exist; document rewritten"
+    }
+  ],
+  "canonicalTruthPointer": "docs/enterprise/CURRENT_SYSTEM_TRUTH.md",
+  "evidenceIndex": "diagnostics-export/current-evidence-index.json"
+}

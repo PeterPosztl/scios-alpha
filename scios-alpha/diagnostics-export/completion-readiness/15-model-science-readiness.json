@@ -1,0 +1,13 @@
+{
+  "schema": "sci-os-completion-audit/model-science/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "overallMaturity": "SOURCE_EXISTS",
+  "apps/prediction-engine": { "status": "SOURCE_EXISTS", "scripts": 3, "deps": 0, "note": "App exists but 0 dependencies; likely stub" },
+  "packages/probability-engine": { "status": "ABSENT", "note": "No package.json, no source" },
+  "packages/model-registry": { "srcFiles": 1, "status": "SOURCE_EXISTS", "note": "Single source file" },
+  "packages/experiment-tracker": { "srcFiles": 0, "status": "SOURCE_EXISTS", "note": "Package exists, minimal" },
+  "packages/feature-store": { "srcFiles": 1, "status": "SOURCE_EXISTS", "note": "Single source file" },
+  "causalReasoning": "ABSENT",
+  "researchIntelligence": "ABSENT",
+  "collaboration": "ABSENT"
+}

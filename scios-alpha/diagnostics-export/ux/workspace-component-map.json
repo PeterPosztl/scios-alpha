@@ -1,0 +1,17 @@
+{
+  "schema": "sci-os-workspace-component-map/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "components": {
+    "GlobalCommandBar": "ABSENT",
+    "RoleAdaptiveNav": "ABSENT",
+    "ContextHeader": "ABSENT",
+    "PrimaryWorkspaceHost": "ABSENT",
+    "EvidenceTimelineDetailsSplit": "ABSENT",
+    "StatusFreshnessBar": "ABSENT",
+    "CaseSummary": "ABSENT",
+    "EntityGraph": "ABSENT",
+    "HypothesisPanel": "ABSENT",
+    "ProfessionalVerticalSlice": "ABSENT",
+    "EngineeringVerticalSlice": "PRESENT"
+  }
+}

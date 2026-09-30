@@ -1,0 +1,69 @@
+{
+  "schema": "sci-os-product-kernel/v1",
+  "at": "2026-08-12T16:25:00.000Z",
+  "label": "ALPHA_NON_PRODUCTION",
+  "formula": {
+    "inputs": [
+      "roles(~200)",
+      "capabilities(target_300_plus)",
+      "data",
+      "prediction",
+      "risk",
+      "governance",
+      "execution",
+      "AI",
+      "recovery",
+      "UX"
+    ],
+    "kernel": "PRODUCT_KERNEL",
+    "output": "one_adaptive_application"
+  },
+  "experienceCompiler": {
+    "inputs": [
+      "ROLE",
+      "JOB_TO_BE_DONE",
+      "PERMISSION",
+      "DOMAIN_ONTOLOGY",
+      "AVAILABLE_DATA",
+      "SCI_OS_CAPABILITIES",
+      "RISK_POLICY",
+      "USER_EXPERIENCE_LEVEL"
+    ],
+    "output": "ADAPTIVE_WORKSPACE"
+  },
+  "counts": {
+    "rolesSeeded": 200,
+    "archetypesDefined": 7,
+    "domainFamilies": 20,
+    "capabilitiesInRegistryNow": 13,
+    "capabilitiesTargetCatalog": "300+",
+    "note": "13 proven-or-listed ALPHA caps ≠ 300 READY"
+  },
+  "lanes": {
+    "data": "PARTIAL",
+    "prediction": "PARTIAL",
+    "risk": "PARTIAL",
+    "governance": "PARTIAL",
+    "execution": "SIMULATION_ONLY",
+    "AI": "CONTRACT_ONLY",
+    "recovery": "PRESENT",
+    "UX_core_contract": "PRESENT",
+    "UX_shell_runtime": "ABSENT",
+    "experience_compiler": "DRY_RUN",
+    "adaptive_workspace_host": "ABSENT"
+  },
+  "oneApp": {
+    "targetEntry": "/app",
+    "protectedP0": "/app/tech/slice",
+    "currentWorkingSurface": "apps/cockpit-ui :4000"
+  },
+  "rejected": [
+    "atom_ai_stub_trees",
+    "per_role_dashboard_x_200",
+    "fake_ready_from_directory_count"
+  ],
+  "verdict": "PRODUCT_KERNEL_DEGRADED",
+  "doc": "docs/ux/PRODUCT_KERNEL.md",
+  "pillarsDoc": "docs/ux/KERNEL_PILLARS.md",
+  "pillarsEvidence": "diagnostics-export/ux/kernel-pillars.json"
+}

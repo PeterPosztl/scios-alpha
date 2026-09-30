@@ -27,6 +27,11 @@ describe("toVerticalSliceResponse", () => {
     );
     expect(view.lineage?.lineageId).toBe(`lin_${internal.runId}`);
     expect(view.lineage?.nodes.length).toBeGreaterThanOrEqual(11);
+    // The chain tip must reach the consumer, and must be the last node's hash.
+    expect(view.lineage?.tipHash).toBe(internal.lineage.tipHash);
+    expect(view.lineage?.tipHash).toBe(
+      view.lineage?.nodes[view.lineage.nodes.length - 1]?.meta?.hash
+    );
     expect(view.predictionEnvelope?.validationStatus).toBe("UNVALIDATED");
     expect(view.predictionEnvelope?.provenance?.modelId).toBe("baseline-logistic");
     expect(view.predictionEnvelope?.provenance?.maturityLabel).toBe("NON-PRODUCTION");

@@ -1,0 +1,39 @@
+{
+  "schema": "sci-os-real-feed-blueprint-build-log/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T18:11:30.000Z",
+  "ready": false,
+  "autoTrade": false,
+  "steps": [
+    {
+      "id": "blueprints-safe-activate",
+      "result": "INSPECTION_ONLY",
+      "detail": "safeActivation=true wiredIntoOs=true enabled=false autoApply=false. Agent Studio / KG / Workflow / Dist views already in Shell. LDA auto-patch refused."
+    },
+    {
+      "id": "feed-ids",
+      "result": "PASS",
+      "detail": "13 primary types: prediction.kalshi, prediction.polymarket, market.*, macro.*, news.*, risk.*. Compat aliases for market_data.* and crypto.spot. All mode=SIMULATION_ONLY."
+    },
+    {
+      "id": "consumers",
+      "result": "PASS",
+      "detail": "Per-module wiring on registry.consumers. CausalEngine/SSE remain analogs (not full 4.x / Monte Carlo)."
+    },
+    {
+      "id": "safety",
+      "result": "PASS",
+      "detail": "enabledLive=false liveCertified=0 unexpectedLive=false persisted=false autoTrade=false SCI_DIL_FEED unset."
+    },
+    {
+      "id": "live-pair",
+      "result": "PASS",
+      "detail": "Replaced one Control Plane :3000 and one Shell :4000. readyz SIMULATION_ONLY."
+    },
+    {
+      "id": "tests",
+      "result": "PASS",
+      "detail": "ecl-dil 13/13, cockpit 11/11, smoke:ecl-dil ok fails=[]"
+    }
+  ]
+}

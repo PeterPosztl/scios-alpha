@@ -1,0 +1,41 @@
+{
+  "at": "2026-08-12T19:30:50.654Z",
+  "bootId": "8e3af5b1-882b-4fdf-ac2a-a299c28d83cf",
+  "worker": "embedded-foundation-worker in control-plane",
+  "readyz": {
+    "status": 200,
+    "body": {
+      "ready": true,
+      "live": true,
+      "profile": "packaged",
+      "executionMode": "SIMULATION_ONLY",
+      "authMode": "local-packaged",
+      "telemetryMode": "local",
+      "governanceMode": "embedded-foundation",
+      "riskControl": true,
+      "foundationWorker": true,
+      "components": {
+        "riskControl": true,
+        "foundationWorker": true,
+        "database": "optional_absent",
+        "redis": "optional_absent",
+        "oidc": "disabled_local_development",
+        "otel": "local",
+        "hsm": "simulation_local_key_provider"
+      },
+      "foundationWorkerDetail": {
+        "name": "foundation-smoke-worker",
+        "online": true,
+        "lastHeartbeatAt": "2026-08-12T19:30:49.397Z",
+        "lastJobId": null,
+        "lastJobStatus": null,
+        "jobsCompleted": 0,
+        "heartbeatAgeMs": 1232
+      },
+      "labels": {
+        "productionClaims": false,
+        "simulationOnly": true
+      }
+    }
+  }
+}

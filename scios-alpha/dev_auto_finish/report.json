@@ -1,0 +1,161 @@
+{
+  "at": "2026-08-12T15:49:25.079841Z",
+  "schema": "sci-os-auto-finish/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "mode": "propose-only",
+  "constitution": "propose-only; never auto-deploy; no mass stubs",
+  "missing_from_manifest": [],
+  "missing_artifacts_report_only": [],
+  "todo_files": [],
+  "todo_files_count": 0,
+  "generated": [],
+  "results": [],
+  "dependency_graph": {
+    "packageJson": [
+      {
+        "path": "package.json",
+        "name": "sci-os-x10",
+        "dependencies": [],
+        "devDependencies": [
+          "@types/jest",
+          "@types/node",
+          "jest",
+          "nodemon",
+          "pkg",
+          "ts-jest",
+          "ts-node",
+          "typescript"
+        ],
+        "packageManager": "pnpm@9.15.0"
+      },
+      {
+        "path": "packages/alpha-loop/package.json",
+        "name": "@scios/alpha-loop",
+        "dependencies": []
+      },
+      {
+        "path": "packages/data-fabric/package.json",
+        "name": "@scios/data-fabric",
+        "dependencies": [
+          "zod"
+        ]
+      },
+      {
+        "path": "packages/experiment-tracker/package.json",
+        "name": "@scios/experiment-tracker",
+        "dependencies": []
+      },
+      {
+        "path": "packages/feature-store/package.json",
+        "name": "@scios/feature-store",
+        "dependencies": [
+          "@scios/data-fabric"
+        ]
+      },
+      {
+        "path": "packages/governance-engine/package.json",
+        "name": "@scios/governance-engine",
+        "dependencies": [
+          "@scios/data-fabric"
+        ]
+      },
+      {
+        "path": "packages/meta-intelligence/package.json",
+        "name": "@scios/meta-intelligence",
+        "dependencies": []
+      },
+      {
+        "path": "packages/meta-recovery/package.json",
+        "name": "@scios/meta-recovery",
+        "dependencies": [
+          "@scios/observability"
+        ]
+      },
+      {
+        "path": "packages/model-registry/package.json",
+        "name": "@scios/model-registry",
+        "dependencies": [
+          "@scios/data-fabric"
+        ]
+      },
+      {
+        "path": "packages/observability/package.json",
+        "name": "@scios/observability",
+        "dependencies": []
+      },
+      {
+        "path": "packages/vertical-slice/package.json",
+        "name": "@scios/vertical-slice",
+        "dependencies": [
+          "@scios/data-fabric",
+          "@scios/feature-store",
+          "@scios/governance-engine",
+          "@scios/observability"
+        ]
+      },
+      {
+        "path": "apps/cockpit-ui/package.json",
+        "name": "@scios/cockpit-ui",
+        "dependencies": []
+      },
+      {
+        "path": "apps/control-plane-api/package.json",
+        "name": "@scios/control-plane-api",
+        "dependencies": [
+          "@scios/data-fabric",
+          "@scios/feature-store",
+          "@scios/governance-engine",
+          "@scios/meta-intelligence",
+          "@scios/model-registry",
+          "@scios/observability",
+          "@scios/vertical-slice",
+          "tsx"
+        ]
+      },
+      {
+        "path": "apps/execution-simulator/package.json",
+        "name": "@scios/execution-simulator",
+        "dependencies": [
+          "@scios/data-fabric",
+          "@scios/observability",
+          "tsx"
+        ]
+      },
+      {
+        "path": "apps/meta-recovery-control-plane/package.json",
+        "name": "@scios/meta-recovery-control-plane",
+        "dependencies": []
+      },
+      {
+        "path": "apps/mock-api/package.json",
+        "name": "@scios/mock-api",
+        "dependencies": [
+          "@scios/vertical-slice"
+        ]
+      },
+      {
+        "path": "apps/prediction-engine/package.json",
+        "name": "@scios/prediction-engine",
+        "dependencies": []
+      },
+      {
+        "path": "apps/risk-engine/package.json",
+        "name": "@scios/risk-engine",
+        "dependencies": []
+      }
+    ],
+    "requirements": [],
+    "pnpmWorkspace": "packages:\n  - \"apps/*\"\n  - \"packages/*\"\n"
+  },
+  "gate": {
+    "ran": false
+  },
+  "lint_suggestions": {},
+  "counts": {
+    "missing": 0,
+    "generated": 0,
+    "proposed": 0,
+    "applied": 0
+  },
+  "note": "Default is propose-only. Commit/PR only via auto_finish_strong.sh --commit. OPEN_PR is never automatic without explicit human config."
+}

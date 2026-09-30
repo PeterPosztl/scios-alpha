@@ -1,0 +1,30 @@
+{
+  "at": "2026-08-12T20:33:12.805Z",
+  "owner": "scios-alpha/package.json#engines",
+  "engines": {
+    "node": ">=18.20.0 <19",
+    "pnpm": ">=8.0.0"
+  },
+  "pkgTarget": [
+    "node18-win-x64"
+  ],
+  "resolveNodeRuntimePolicy": "installer/scripts/startup/resolve-node-runtime.cjs — PACKAGED requires bundled; DEVELOPMENT may use system with contract check",
+  "liveNode": "v24.13.1",
+  "conflict": {
+    "enginesWants": ">=18.20.0 <19",
+    "live": "v24.13.1",
+    "outsideEnginesRange": true,
+    "note": "System Node v24 is outside engines >=18.20.0 <19. Packaged target is node18-win-x64. Development currently runs despite pnpm engine warning — CONTRACT NOT CLOSED."
+  },
+  "productionContract": {
+    "id": "SCI_OS_NODE_PRODUCTION_V1",
+    "runtime": "bundled Node matching pkg target node18 (18.20.x)",
+    "systemNodeFallback": "FORBIDDEN"
+  },
+  "developmentContract": {
+    "id": "SCI_OS_NODE_DEVELOPMENT_V1",
+    "preferred": "Node 18.20.x to match engines",
+    "allowedWithWarning": "Node >=18.20 when SCIOS_RUNTIME_MODE!=PACKAGED",
+    "systemNode": "ALLOWED_EXPLICITLY_IN_DEVELOPMENT"
+  }
+}

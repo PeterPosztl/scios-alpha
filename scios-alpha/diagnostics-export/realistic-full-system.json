@@ -1,0 +1,125 @@
+{
+  "schema": "sci-os-realistic-full-system/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T18:34:20.000Z",
+  "mode": "REALISTIC_FULL_SYSTEM_OPERATION_SAFE",
+  "ready": false,
+  "holeless": false,
+  "autoTrade": false,
+  "enabledFull": false,
+  "monteCarlo": false,
+  "doCalculus": false,
+  "affectModel": false,
+  "legalCounsel": false,
+  "raft": false,
+  "fullSystemOperation": true,
+  "simulationOnly": true,
+  "executionMode": "SIMULATION_ONLY",
+  "persisted": false,
+  "oneBoot": true,
+  "oneShell": true,
+  "unexpectedLiveFeeds": false,
+  "liveCertifiedFeeds": 0,
+  "live": {
+    "controlPlane": { "port": 3000, "readyz": true, "executionMode": "SIMULATION_ONLY" },
+    "shell": { "port": 4000, "ok": true, "controlUrl": "http://127.0.0.1:3000" },
+    "boot": "start-sci-os.cjs",
+    "pair": "one Control Plane + one Shell after pnpm sci:stop"
+  },
+  "osRealism": {
+    "WorkflowEngine.RealisticMode": { "status": "PARTIAL", "analog": "GW1 VERTICAL_SLICE_STAGES — the only live OS workflow" },
+    "EventBus.RealisticMode": { "status": "PARTIAL", "analog": "InMemoryEventBus Wave 0", "kafka": "ABSENT" },
+    "ConsensusEngine.RealisticMode": { "status": "ABSENT", "analog": "independent_risk_gate + governance_decision", "raft": false },
+    "SystemHealth.RealisticMode": { "status": "PARTIAL", "analog": "#system dashboard + feed health" },
+    "AuditEngine.RealisticMode": { "status": "PARTIAL", "analog": "ECL/DIL in-memory audit chain", "persisted": false }
+  },
+  "cockpitRealism": {
+    "Intelligence.RealisticMode": { "status": "PARTIAL", "analog": "#dil workspace + feed registry + realistic sim card" },
+    "Decisions.RealisticMode": { "status": "PARTIAL", "analog": "/v1/ai/proposals review → audit only", "executed": false },
+    "Evidence.RealisticMode": { "status": "PARTIAL", "analog": "ECL audit + GW1 lineage" },
+    "Reporting.RealisticPnL": { "status": "PARTIAL", "weekly": "UNKNOWN", "monthly": "UNKNOWN" },
+    "RiskGov.RealisticMode": { "status": "PARTIAL", "analog": "ECL guardrail studio" },
+    "Technical.RealisticMode": { "status": "PARTIAL", "analog": "#engineering GW1 JSON + blueprint studios" }
+  },
+  "engineRealism": {
+    "CausalEngine.RealisticMode": { "status": "PARTIAL", "doCalculus": false },
+    "SSE.RealisticTimeline": { "status": "PARTIAL", "monteCarlo": false },
+    "EmotionalEngine.RealisticMode": { "status": "ABSENT", "affectModel": false },
+    "CompetitionEngine.RealisticMode": { "status": "PARTIAL", "ranked": 3, "autoTrade": false },
+    "LegalGuardian.RealisticMode": { "status": "PARTIAL", "requiresHuman": true, "legalCounsel": false, "governance": "AGENT → PROPOSAL → HUMAN → DECISION" }
+  },
+  "feedRealism": {
+    "DataFeedEngine.RealisticMode": { "status": "PARTIAL" },
+    "InstrumentAdapterLayer.RealisticMode": { "status": "PARTIAL" },
+    "FeedRegistry.RealisticMode": { "status": "COMPOSED" },
+    "FeedHealthMonitor.RealisticMode": { "status": "COMPOSED" },
+    "registered": 13,
+    "mode": "* = SIMULATION_ONLY",
+    "liveCertified": 0,
+    "unexpectedLive": false,
+    "SCI_DIL_FEED": "unset",
+    "ohlc": "simulated_structure from implied yes — not a venue tape",
+    "orderbook": "ABSENT",
+    "depth": "ABSENT"
+  },
+  "blueprints": {
+    "safeActivation": true,
+    "enabled": false,
+    "autoApply": false,
+    "wiredIntoOs": true,
+    "lda": { "status": "ABSENT", "autoPatch": false },
+    "knowledgeGraph": { "status": "PARTIAL", "nationalGraph": false },
+    "workflowDsl": { "status": "ABSENT", "secondEngine": false },
+    "distributedOs": { "status": "ABSENT", "kafka": "ABSENT" },
+    "shellViews": ["agent", "kg", "workflow", "dist"]
+  },
+  "deployment": {
+    "registered": 31,
+    "enabledRuntimes": false,
+    "secondWorkflowEngine": false,
+    "secondShell": false,
+    "parallelOS": false
+  },
+  "validation": {
+    "simulationOnly": true,
+    "persistedFalseUntilLedgerReady": true,
+    "noAutoTrade": true,
+    "oneBootOneShell": true,
+    "auditIntegrity": "GET persisted=false",
+    "noUnexpectedLiveFeeds": true
+  },
+  "probes": {
+    "GET /v1/ecl/realistic-sim": {
+      "fullSystemOperation": true,
+      "enabledFull": false,
+      "engines": 24,
+      "raft": false,
+      "legalCounsel": false,
+      "requiresHuman": true,
+      "competitionRanked": 3,
+      "persisted": false,
+      "autoTrade": false
+    },
+    "GET /v1/ecl/feeds": { "liveCertified": 0, "unexpectedLive": false, "actual": "simulated_alpha" },
+    "GET /v1/ecl/deployment": { "registered": 31, "enabledRuntimes": false },
+    "GET /v1/ecl/blueprints": { "enabled": false, "safeActivation": true }
+  },
+  "tests": {
+    "eclDil": { "pass": 14, "fail": 0 },
+    "cockpitUi": { "pass": 11, "fail": 0 },
+    "smokeEclDil": { "ok": true, "fails": [], "autoTrade": false }
+  },
+  "refused": {
+    "ldaRuntime": "GOVERNANCE > AGENT",
+    "secondWorkflowEngine": "GAP-0006",
+    "kafka": "InMemoryEventBus ≠ Kafka",
+    "raft": "governance analog ≠ Raft/Paxos",
+    "sseMonteCarlo": "horizon+timeline ≠ SSE.3.x",
+    "causalDoCalculus": "typed graph ≠ CausalEngine.4.x",
+    "emotionalAffect": "UX roles ≠ affect model",
+    "legalCounsel": "guardrail ≠ licensed legal opinion",
+    "liveCertifiedFeeds": "SCI_DIL_FEED unset; liveCertified=0",
+    "ready": false
+  },
+  "note": "Realistic full-system operation on analogs. Not live markets. Not Monte Carlo. Not do-calculus. No auto-trade. Not READY."
+}

@@ -6,8 +6,12 @@ import http from "node:http";
 import { readFileSync, existsSync } from "node:fs";
 import { join, resolve } from "node:path";
 
-const PORT = Number(process.env.META_RECOVERY_PORT || 5299);
-const APP_ROOT = resolve(process.env.SCI_APP_ROOT || join(import.meta.dirname, "../../.."));
+const PORT = Number(process.env.META_RECOVERY_PORT || process.env.PORT || 5299);
+const APP_ROOT = resolve(
+  process.env.SCIOS_APP_ROOT ||
+    process.env.SCI_APP_ROOT ||
+    process.cwd()
+);
 
 function readMeta(name: string) {
   const p = join(APP_ROOT, "diagnostics-export", "meta-recovery", name);

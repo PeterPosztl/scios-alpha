@@ -1,0 +1,38 @@
+{
+  "schema": "sci-os-product-memory-founder-intent/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-13",
+  "source": "docs/enterprise/FOUNDER_BLUEPRINT.md",
+  "intent": {
+    "product": "Unified enterprise intelligence operating environment — not a chatbot, dashboard pile, or 200 apps",
+    "spine": "DATA→CONTEXT→INTERPRETATION→PREDICTION→UNCERTAINTY→RISK→GOVERNANCE→DECISION→ACTION/SIMULATION→OUTCOME→EVIDENCE→LINEAGE",
+    "uxIdentity": "Professional decision-first experience with evidence, uncertainty, risk, and governance visible; technical detail on demand",
+    "scaleModel": "Role composition via Experience Compiler — never 200 hardcoded applications",
+    "philosophy": [
+      "EVIDENCE > CLAIM",
+      "UNKNOWN != PASS",
+      "NO FALSE READY",
+      "RISK > PREDICTION",
+      "GOVERNANCE > AGENT",
+      "NO_ACTION IS VALID",
+      "SIMULATION != LIVE",
+      "ONE CANONICAL PRODUCT",
+      "ONE CANONICAL BOOT"
+    ]
+  },
+  "mustPreserve": [
+    "SCI object model",
+    "Evidence / lineage philosophy",
+    "Risk / governance model",
+    "Professional vs Technical progressive disclosure",
+    "Swiss-minimal visual language (Snow/Fog/Graphite/Navy/Red/Ice)",
+    "Canonical ports 3000/4000"
+  ],
+  "mustNotBecome": [
+    "Microsoft Copilot clone",
+    "Palantir Foundry clone",
+    "ServiceNow clone",
+    "Generic AI chatbot shell",
+    "Developer-only JSON cockpit as primary UX"
+  ]
+}

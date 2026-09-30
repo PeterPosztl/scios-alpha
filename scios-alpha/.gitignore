@@ -1,5 +1,6 @@
 node_modules/
 dist/
+build/
 .turbo/
 __pycache__/
 *.pyc
@@ -7,6 +8,8 @@ __pycache__/
 .venv/
 *.tsbuildinfo
 .env
+oidc.config.json
+.local-postgres/
 .DS_Store
 sandbox/public_repos/*
 !sandbox/public_repos/.gitkeep
@@ -19,3 +22,5 @@ diagnostics-export/.bootstrap-write-probe
 diagnostics-export/repair-transactions/
 runtime/
 recovery/
+infra/tls/*.pfx
+.atom_ai/

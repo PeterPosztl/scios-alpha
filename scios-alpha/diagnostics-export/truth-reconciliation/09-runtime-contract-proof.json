@@ -1,0 +1,15 @@
+{
+  "at": "2026-08-13T10:59:47.013Z",
+  "schema": "sci-os-09-runtime-contract-proof/v1",
+  "buildId": "truth-recon-2026-08-13-c226d748",
+  "DECLARED_NODE": ">=20.18.0 <21",
+  "PACKAGED_NODE": "20.18.1",
+  "DEVELOPMENT_SUPPORTED_NODE": "20.18.x",
+  "TEST_NODE": "20.18.x",
+  "nvmrcBefore": "18.20.0",
+  "nvmrcAfter": "20.18.1",
+  "engineStrictBefore": false,
+  "engineStrictAfter": true,
+  "hostSystemNode": "v24.13.1",
+  "note": "Does not uninstall host Node; SCI OS enforces engines for this workspace"
+}

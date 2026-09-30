@@ -1,0 +1,86 @@
+{
+  "schema": "sci-os-production-readiness-gate/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-29T18:17:38.102Z",
+  "buildId": "pkg_1788026654253",
+  "checkpoint": "873e537f",
+  "verdict": "PRODUCTION_BLOCKED_WITH_EVIDENCE",
+  "token": "PRODUCTION_BLOCKED_WITH_EVIDENCE",
+  "prerequisites": {
+    "betaComplete": false,
+    "p1Zero": false
+  },
+  "requirements": {
+    "realAuthentication": {
+      "status": "BLOCKED",
+      "mode": "local-development",
+      "blocker": "FD-001 OIDC"
+    },
+    "tls": {
+      "status": "BLOCKED",
+      "note": "Loopback-only local-foundation default"
+    },
+    "productionDb": {
+      "status": "BLOCKED",
+      "classification": "PROFILE_DISABLED",
+      "blocker": "FD-002"
+    },
+    "redis": {
+      "status": "PARTIAL",
+      "configured": false
+    },
+    "monitoring": {
+      "status": "PARTIAL",
+      "openTelemetry": "NOT_IMPLEMENTED"
+    },
+    "logging": {
+      "status": "PARTIAL",
+      "package": true
+    },
+    "backups": {
+      "status": "PARTIAL",
+      "installBackup": "app.backup.last proven",
+      "dbBackup": "NOT_IMPLEMENTED"
+    },
+    "restore": {
+      "status": "PARTIAL",
+      "whi010": true,
+      "dbRestore": "NOT_IMPLEMENTED"
+    },
+    "securityHardening": {
+      "status": "PARTIAL",
+      "csp": "PARTIAL",
+      "oidc": "BLOCKED"
+    },
+    "deploymentProcess": {
+      "status": "PARTIAL",
+      "atomicInstall": "PROVEN",
+      "blocker": "FD-007"
+    },
+    "rollback": {
+      "status": "PASS",
+      "proof": "package-sync-prove APP_BACKUP_LAST"
+    },
+    "operationalDocumentation": {
+      "status": "PARTIAL"
+    },
+    "incidentRecovery": {
+      "status": "PARTIAL",
+      "whi010": "PASS",
+      "enterpriseRunbooks": "NOT_READY"
+    }
+  },
+  "blockers": [
+    "Beta not complete",
+    "FD-001 OIDC provider selection",
+    "FD-002 PostgreSQL production store",
+    "FD-007 deployment model",
+    "P1=92 (Target C requires P1=0)",
+    "TLS not configured",
+    "Enterprise observability not deployed"
+  ],
+  "productionLikeE2e": {
+    "status": "NOT_RUN",
+    "reason": "Production architecture blocked — no production-like environment"
+  }
+}

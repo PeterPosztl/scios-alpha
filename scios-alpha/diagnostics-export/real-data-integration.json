@@ -1,0 +1,49 @@
+{
+  "schema": "sci-os-real-data-integration/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T18:02:00.000Z",
+  "ready": false,
+  "autoTrade": false,
+  "enabledLive": false,
+  "persisted": false,
+  "simulationOnly": true,
+  "liveCertified": 0,
+  "engine": "DataFeedEngine",
+  "adapters": "InstrumentAdapterLayer",
+  "monitor": "FeedHealthMonitor",
+  "endpoint": "GET /v1/ecl/feeds",
+  "actual": "simulated_alpha",
+  "liveAdapter": "ABSENT",
+  "registered": [
+    "market_data.spot",
+    "market_data.orderbook",
+    "market_data.depth",
+    "market_data.ohlc",
+    "crypto.spot",
+    "macro.gdp",
+    "macro.cpi",
+    "macro.rates",
+    "news.economic",
+    "news.political",
+    "risk.credit",
+    "risk.geopolitical"
+  ],
+  "health": {
+    "registered": 12,
+    "simulated": 2,
+    "stub": 5,
+    "absent": 5,
+    "liveCertified": 0
+  },
+  "wiredTo": [
+    "Intelligence",
+    "Decisions",
+    "Evidence",
+    "Reporting",
+    "RiskGov",
+    "CausalEngine",
+    "SSE",
+    "SystemHealth"
+  ],
+  "note": "Registry is mounted. Certified live feeds remain 0. GDP/CPI/FOMC/orderbook are not venue tapes. SCI_DIL_FEED was not enabled."
+}

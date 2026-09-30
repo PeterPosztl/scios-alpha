@@ -1,0 +1,10 @@
+{
+  "at": "2026-08-19T22:42:28.450Z",
+  "findings": [
+    {
+      "id": "canonical_forensic_nav",
+      "classification": "KEEP_FOR_FUTURE",
+      "note": "Graph→Executive nav documented; not in ALPHA cockpit"
+    }
+  ]
+}

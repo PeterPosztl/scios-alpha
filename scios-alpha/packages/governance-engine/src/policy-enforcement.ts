@@ -82,8 +82,8 @@ export interface PolicyEvaluationInput {
   expectedPolicyVersion?: string;
   highRisk?: boolean;
   evaluationFailed?: boolean;
-  buildId?: string;
-  runId?: string;
+  buildId?: string | null;
+  runId?: string | null;
   /** @deprecated use actorContext */
   actorId?: string;
   roleId?: string;

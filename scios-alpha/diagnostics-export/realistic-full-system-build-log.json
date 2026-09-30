@@ -1,0 +1,59 @@
+{
+  "schema": "sci-os-realistic-full-system-build-log/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T18:34:20.000Z",
+  "ready": false,
+  "autoTrade": false,
+  "steps": [
+    {
+      "id": "os-realism",
+      "result": "MOUNTED",
+      "detail": "Workflow/EventBus/SystemHealth/Audit PARTIAL. ConsensusEngine ABSENT (not Raft). GET /v1/ecl/realistic-sim engines=24."
+    },
+    {
+      "id": "cockpit-realism",
+      "result": "MOUNTED",
+      "detail": "Intelligence/Decisions/Evidence/Reporting/RiskGov/Technical analogs in one Shell. executed=false."
+    },
+    {
+      "id": "engine-realism",
+      "result": "MOUNTED",
+      "detail": "Causal/SSE/Competition/LegalGuardian PARTIAL. EmotionalEngine ABSENT. monteCarlo=false doCalculus=false legalCounsel=false."
+    },
+    {
+      "id": "feed-realism",
+      "result": "PASS",
+      "detail": "13 types SIMULATION_ONLY. liveCertified=0 unexpectedLive=false. SCI_DIL_FEED unset."
+    },
+    {
+      "id": "blueprints",
+      "result": "INSPECTION_ONLY",
+      "detail": "enabled=false autoApply=false wiredIntoOs=true. Agent/KG/Workflow/Dist studios remain in Shell. LDA auto-patch refused."
+    },
+    {
+      "id": "deployment",
+      "result": "PASS",
+      "detail": "31 modules registered. enabledRuntimes=false. oneBoot=true oneShell=true."
+    },
+    {
+      "id": "safety",
+      "result": "PASS",
+      "detail": "simulationOnly persisted=false autoTrade=false raft=false legalCounsel=false requiresHuman=true."
+    },
+    {
+      "id": "restart",
+      "result": "PASS",
+      "detail": "pnpm sci:stop then Control Plane :3000 (readyz true SIMULATION_ONLY) and Shell :4000 (healthz ok)."
+    },
+    {
+      "id": "tests",
+      "result": "PASS",
+      "detail": "ecl-dil 14/14, cockpit 11/11, smoke ok fails=[]"
+    },
+    {
+      "id": "exports",
+      "result": "PASS",
+      "detail": "diagnostics-export/realistic-full-system.json + realistic-full-system-build-log.json"
+    }
+  ]
+}

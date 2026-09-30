@@ -1,0 +1,88 @@
+{
+  "at": "2026-08-12T19:50:59.935Z",
+  "bootId": "uu_msqi6dlm_ac8b47",
+  "results": [
+    {
+      "name": "install_dir",
+      "cwd": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10",
+      "spawnPid": 22848,
+      "ready": {
+        "ok": true,
+        "atMs": 29877,
+        "healthz": 200,
+        "ready": true,
+        "profile": "packaged",
+        "cockpit": 200
+      },
+      "gw1": {
+        "pass": true,
+        "home": 200,
+        "search": 200,
+        "shell": 200
+      },
+      "pass": true
+    },
+    {
+      "name": "parent_dir",
+      "cwd": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist",
+      "spawnPid": 5668,
+      "ready": {
+        "ok": true,
+        "atMs": 49880,
+        "healthz": 200,
+        "ready": true,
+        "profile": "packaged",
+        "cockpit": 200
+      },
+      "gw1": {
+        "pass": true,
+        "home": 200,
+        "search": 200,
+        "shell": 200
+      },
+      "pass": true
+    },
+    {
+      "name": "foreign_dir",
+      "cwd": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\boot-forensic-cwd",
+      "spawnPid": 20988,
+      "ready": {
+        "ok": true,
+        "atMs": 68115,
+        "healthz": 200,
+        "ready": true,
+        "profile": "packaged",
+        "cockpit": 200
+      },
+      "gw1": {
+        "pass": true,
+        "home": 200,
+        "search": 200,
+        "shell": 200
+      },
+      "pass": true
+    },
+    {
+      "name": "space_path_cwd",
+      "cwd": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\uu path with spaces",
+      "spawnPid": 18960,
+      "ready": {
+        "ok": true,
+        "atMs": 85951,
+        "healthz": 200,
+        "ready": true,
+        "profile": "packaged",
+        "cockpit": 200
+      },
+      "gw1": {
+        "pass": true,
+        "home": 200,
+        "search": 200,
+        "shell": 200
+      },
+      "pass": true
+    }
+  ],
+  "pass": true,
+  "note": "Launches use scrubbed env + SCIOS_APP_ROOT=DIST so cwd must not matter."
+}

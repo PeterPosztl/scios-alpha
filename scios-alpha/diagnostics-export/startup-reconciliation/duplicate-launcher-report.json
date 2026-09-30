@@ -1,0 +1,179 @@
+{
+  "at": "2026-08-12T20:33:12.802Z",
+  "duplicates": [
+    {
+      "hash": "eed6189626d323cc0b7e09859aac088588dd872846e8deaffe6a6a083c67dd78",
+      "paths": [
+        "bootstrap/bootstrap-capsule.js",
+        "dist/install-alt/SCI OS X10/bootstrap/bootstrap-capsule.js",
+        "dist/install-via-setup/bootstrap/bootstrap-capsule.js",
+        "dist/release/payload/bootstrap/bootstrap-capsule.js",
+        "dist/SCI-OS-X10/bootstrap/bootstrap-capsule.js"
+      ],
+      "classification": "EXACT_DUPLICATE"
+    },
+    {
+      "hash": "920630a1d1ec47aedea7345e3c868ecdc07e191373497bbf47fbbf5942fbad4f",
+      "paths": [
+        "dist/cache/node-v20.18.1-win-x64/corepack.cmd",
+        "dist/install-alt/SCI OS X10/runtime/node/corepack.cmd",
+        "dist/install-via-setup/runtime/node/corepack.cmd",
+        "dist/release/payload/runtime/node/corepack.cmd",
+        "dist/SCI-OS-X10/runtime/node/corepack.cmd"
+      ],
+      "classification": "EXACT_DUPLICATE"
+    },
+    {
+      "hash": "7f34f73126f62888c7354fea6ec4ed48679824e8972ae47f650b520055b8a975",
+      "paths": [
+        "dist/cache/node-v20.18.1-win-x64/install_tools.bat",
+        "dist/install-alt/SCI OS X10/runtime/node/install_tools.bat",
+        "dist/install-via-setup/runtime/node/install_tools.bat",
+        "dist/release/payload/runtime/node/install_tools.bat",
+        "dist/SCI-OS-X10/runtime/node/install_tools.bat"
+      ],
+      "classification": "EXACT_DUPLICATE"
+    },
+    {
+      "hash": "a2b020e2f641524c6fd1b8ebbcd9ee03c7dc44009f2b78e701e773ad048be9a5",
+      "paths": [
+        "dist/cache/node-v20.18.1-win-x64/nodevars.bat",
+        "dist/install-alt/SCI OS X10/runtime/node/nodevars.bat",
+        "dist/install-via-setup/runtime/node/nodevars.bat",
+        "dist/release/payload/runtime/node/nodevars.bat",
+        "dist/SCI-OS-X10/runtime/node/nodevars.bat"
+      ],
+      "classification": "EXACT_DUPLICATE"
+    },
+    {
+      "hash": "21b46c69ad6e2f231f02a9e120f4ba6c8e75fef5a45637103002eab99f888ab8",
+      "paths": [
+        "dist/cache/node-v20.18.1-win-x64/npm.cmd",
+        "dist/install-alt/SCI OS X10/runtime/node/npm.cmd",
+        "dist/install-via-setup/runtime/node/npm.cmd",
+        "dist/release/payload/runtime/node/npm.cmd",
+        "dist/SCI-OS-X10/runtime/node/npm.cmd"
+      ],
+      "classification": "EXACT_DUPLICATE"
+    },
+    {
+      "hash": "4dd3574f4396fc3b45c52b6ac80fd52be2dd2660d2a153b4cc807dbbfeefa7a0",
+      "paths": [
+        "dist/cache/node-v20.18.1-win-x64/npx.cmd",
+        "dist/install-alt/SCI OS X10/runtime/node/npx.cmd",
+        "dist/install-via-setup/runtime/node/npx.cmd",
+        "dist/release/payload/runtime/node/npx.cmd",
+        "dist/SCI-OS-X10/runtime/node/npx.cmd"
+      ],
+      "classification": "EXACT_DUPLICATE"
+    },
+    {
+      "hash": "ca3a951146f685ef4a635b10fccb10de13f3355c4417899fedc656c714457c20",
+      "paths": [
+        "dist/install-alt/SCI OS X10/installer/golden-boot.manifest.json",
+        "dist/install-via-setup/installer/golden-boot.manifest.json",
+        "dist/release/payload/installer/golden-boot.manifest.json",
+        "dist/SCI-OS-X10/installer/golden-boot.manifest.json"
+      ],
+      "classification": "EXACT_DUPLICATE"
+    },
+    {
+      "hash": "467126f9599ee89e9b89edcac1879896d2340163a6fe73c0204291a2273c74a8",
+      "paths": [
+        "dist/install-alt/SCI OS X10/installer/scripts/bootstrap-capsule.cjs",
+        "dist/install-via-setup/installer/scripts/bootstrap-capsule.cjs",
+        "dist/release/payload/installer/scripts/bootstrap-capsule.cjs",
+        "dist/SCI-OS-X10/installer/scripts/bootstrap-capsule.cjs"
+      ],
+      "classification": "EXACT_DUPLICATE"
+    },
+    {
+      "hash": "8f5c7ce991ffb04c98813dee25bef9f00fe3b32177e0cddf6411108156b88ccd",
+      "paths": [
+        "dist/install-alt/SCI OS X10/installer/scripts/convergence/lib.cjs",
+        "dist/install-via-setup/installer/scripts/convergence/lib.cjs",
+        "dist/release/payload/installer/scripts/convergence/lib.cjs",
+        "dist/SCI-OS-X10/installer/scripts/convergence/lib.cjs"
+      ],
+      "classification": "EXACT_DUPLICATE"
+    },
+    {
+      "hash": "df644b5b4533144d47c0e72bed77497796892b42711c62ea3b05f83acc50b18d",
+      "paths": [
+        "dist/install-alt/SCI OS X10/installer/scripts/convergence/stop.cjs",
+        "dist/install-via-setup/installer/scripts/convergence/stop.cjs",
+        "dist/release/payload/installer/scripts/convergence/stop.cjs",
+        "dist/SCI-OS-X10/installer/scripts/convergence/stop.cjs",
+        "installer/scripts/convergence/stop.cjs"
+      ],
+      "classification": "EXACT_DUPLICATE"
+    },
+    {
+      "hash": "81220ecb5c94dde55201ad3fde6a7b94e0f9f034053da96946f4ae150aa525dc",
+      "paths": [
+        "dist/install-alt/SCI OS X10/installer/scripts/startup/packaged-mode.cjs",
+        "dist/install-via-setup/installer/scripts/startup/packaged-mode.cjs",
+        "dist/release/payload/installer/scripts/startup/packaged-mode.cjs"
+      ],
+      "classification": "EXACT_DUPLICATE"
+    },
+    {
+      "hash": "f9214d1defa12ea7e9f8bbbb462b4180b5e19fbcb030175825bf7cff8c9ff3c0",
+      "paths": [
+        "dist/install-alt/SCI OS X10/installer/scripts/startup/process-supervisor.cjs",
+        "dist/install-via-setup/installer/scripts/startup/process-supervisor.cjs",
+        "dist/release/payload/installer/scripts/startup/process-supervisor.cjs",
+        "dist/SCI-OS-X10/installer/scripts/startup/process-supervisor.cjs",
+        "installer/scripts/startup/process-supervisor.cjs"
+      ],
+      "classification": "EXACT_DUPLICATE"
+    },
+    {
+      "hash": "1bdb55421e3e3c11bb6db7e725d24956f61a67776adfe169ac54d4d4cbcfa90f",
+      "paths": [
+        "dist/install-alt/SCI OS X10/installer/scripts/startup/resolve-runtime-entries.cjs",
+        "dist/install-via-setup/installer/scripts/startup/resolve-runtime-entries.cjs",
+        "dist/release/payload/installer/scripts/startup/resolve-runtime-entries.cjs",
+        "dist/SCI-OS-X10/installer/scripts/startup/resolve-runtime-entries.cjs"
+      ],
+      "classification": "EXACT_DUPLICATE"
+    },
+    {
+      "hash": "6fda022042ac75b49eb9b171d852d74fa7eaa805aa436bc297e314e6c622d036",
+      "paths": [
+        "dist/install-alt/SCI OS X10/SCI OS X10.cmd",
+        "dist/install-alt/SCI OS X10/SCI-OS-X10.cmd",
+        "dist/install-via-setup/SCI OS X10.cmd",
+        "dist/install-via-setup/SCI-OS-X10.cmd"
+      ],
+      "classification": "EXACT_DUPLICATE"
+    },
+    {
+      "hash": "1c56e2c196a0b99d3ec8c4220f665e639456d0c5a2a33a84dcb05c8520a7ea0c",
+      "paths": [
+        "dist/install-via-setup/installer/scripts/start-sci-os.cjs",
+        "dist/SCI-OS-X10/installer/scripts/start-sci-os.cjs"
+      ],
+      "classification": "EXACT_DUPLICATE"
+    },
+    {
+      "hash": "66481969b11da81b70a14cf607018938de6b8be43c75162734b9b45e8f0b16ea",
+      "paths": [
+        "dist/install-via-setup/installer/scripts/startup/shell-readiness.cjs",
+        "dist/SCI-OS-X10/installer/scripts/startup/shell-readiness.cjs"
+      ],
+      "classification": "EXACT_DUPLICATE"
+    },
+    {
+      "hash": "2aad68d819e6f55a827fb2063cf53d82c4ef94e06f2f828460919f05a23a0f81",
+      "paths": [
+        "dist/release/payload/SCI OS X10.cmd",
+        "dist/release/payload/SCI-OS-X10.cmd",
+        "dist/SCI-OS-X10/SCI OS X10.cmd",
+        "dist/SCI-OS-X10/SCI-OS-X10.cmd"
+      ],
+      "classification": "EXACT_DUPLICATE"
+    }
+  ],
+  "note": "Exact content duplicates only; semantic near-duplicates classified in inventory"
+}

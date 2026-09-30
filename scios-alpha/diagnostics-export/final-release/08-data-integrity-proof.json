@@ -1,0 +1,7 @@
+{
+  "at": "2026-08-12T17:14:38.329Z",
+  "pitNegativeTest": "PACKAGE_TESTS_PASS",
+  "verticalSliceJest": "5 passed (pipeline + view-adapter including REJECT/NO_ACTION)",
+  "note": "Jest suite covers oversized reject and PIT-related contracts; live certification harness does not inject future features",
+  "pass": true
+}

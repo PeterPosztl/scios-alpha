@@ -6,18 +6,39 @@
   "description": "SCI OS ×10 professional domain registry — roles/families/JTBD. ALPHA: archetypes filled; bulk roles RESEARCH_REQUIRED.",
   "main": "./src/index.js",
   "exports": {
-    ".": "./src/index.js",
+    ".": {
+      "types": "./types/index.d.ts",
+      "default": "./src/index.js"
+    },
     "./families": "./src/families.json",
     "./archetypes": "./src/archetypes.json",
     "./roles": "./src/roles-seed.json",
     "./grammar": "./src/ux-grammar.json",
-    "./compiler": "./src/experience-compiler.js",
+    "./compiler": {
+      "types": "./types/experience-compiler.d.ts",
+      "default": "./src/experience-compiler.js"
+    },
+    "./compiler-pipeline": {
+      "types": "./types/compiler-pipeline.d.ts",
+      "default": "./src/compiler-pipeline.js"
+    },
     "./compiler-schema": "./src/experience-compiler.schema.json",
-    "./compile-registry": "./src/compile-registry.js"
+    "./experience-spec-schema": "./src/experience-spec.schema.json",
+    "./compile-registry": {
+      "types": "./types/compile-registry.d.ts",
+      "default": "./src/compile-registry.js"
+    },
+    "./blueprint": {
+      "types": "./types/profession-blueprint.d.ts",
+      "default": "./src/profession-blueprint.js"
+    },
+    "./family-overlays": "./src/family-overlays.json"
   },
   "scripts": {
     "check": "node src/check.js",
+    "test": "node --test src/profession-blueprint.test.js",
     "compile:demo": "node src/experience-compiler.js"
   },
-  "label": "ALPHA_NON_PRODUCTION"
+  "label": "ALPHA_NON_PRODUCTION",
+  "types": "./types/index.d.ts"
 }

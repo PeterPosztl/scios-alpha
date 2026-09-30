@@ -1,0 +1,25 @@
+{
+  "at": "2026-08-13T13:09:39.331Z",
+  "buildId": "deep-foundations-2026-08-13",
+  "status": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+  "requiredFields": [
+    "sourceIdentity",
+    "sourceHash",
+    "lockfileHash",
+    "runtimeHash",
+    "toolchainVersions",
+    "buildId",
+    "artifactHashes",
+    "configurationSchema"
+  ],
+  "observed": {
+    "packageName": "sci-os-x10",
+    "packageManager": "pnpm@9.15.0",
+    "lockfilePresent": true,
+    "engines": {
+      "node": ">=20.18.0 <21",
+      "pnpm": ">=8.0.0"
+    },
+    "provenanceOnInstalledProduct": "ABSENT"
+  }
+}

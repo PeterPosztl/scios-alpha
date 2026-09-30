@@ -1,0 +1,67 @@
+{
+  "correlationId": "515b4000-f026-41c3-b3b0-138f8d68fa1a",
+  "at": "2026-09-23T19:48:33.864Z",
+  "reason": "NO_GO_FINALIZE",
+  "shutdownReason": "NO_GO_FINALIZE",
+  "verdict": "NO_GO",
+  "startupAccepted": false,
+  "startupExitCode": 2,
+  "stopAll": [
+    {
+      "name": "control-plane",
+      "pid": 8696,
+      "gracefulAttempted": true,
+      "ok": false,
+      "status": 128,
+      "method": "taskkill_tree"
+    },
+    {
+      "name": "cockpit",
+      "pid": 15056,
+      "gracefulAttempted": true,
+      "ok": false,
+      "status": 128,
+      "method": "taskkill_tree"
+    },
+    {
+      "name": "control-plane",
+      "pid": 8696,
+      "phase": "job_fallback",
+      "ok": false,
+      "status": 128,
+      "method": "taskkill_tree"
+    },
+    {
+      "name": "cockpit",
+      "pid": 15056,
+      "phase": "job_fallback",
+      "ok": false,
+      "status": 128,
+      "method": "taskkill_tree"
+    }
+  ],
+  "lockReleased": true,
+  "classification": "STARTUP_FAILURE",
+  "hostLayer": {
+    "status": "JOB_OBJECT_CLOSED",
+    "capability": "job-object",
+    "jobName": "SCI-OS-515b4000-f026-41-3228",
+    "keeperPid": null,
+    "assignedPids": [],
+    "assignLog": [
+      {
+        "at": "2026-09-23T19:48:06.306Z",
+        "pid": 8696,
+        "ok": true
+      },
+      {
+        "at": "2026-09-23T19:48:19.715Z",
+        "pid": 15056,
+        "ok": true
+      }
+    ],
+    "initError": null,
+    "providerMode": "live"
+  },
+  "exitCode": 2
+}

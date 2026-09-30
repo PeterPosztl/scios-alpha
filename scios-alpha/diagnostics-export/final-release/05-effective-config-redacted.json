@@ -1,0 +1,26 @@
+{
+  "schema": "sci-os-effective-config-redacted/v1",
+  "at": "2026-08-12T17:14:38.329Z",
+  "runtimeProfile": "local-foundation",
+  "ports": {
+    "backend": 3000,
+    "cockpit": 4000,
+    "recovery": 5299
+  },
+  "executionMode": "SIMULATION_ONLY",
+  "authMode": "local-development",
+  "telemetryMode": "local",
+  "governanceMode": "embedded-foundation",
+  "database": {
+    "provider": "OPTIONAL_DOCKER_OR_EXTERNAL",
+    "status": "NOT_REQUIRED_FOR_LOCAL_FOUNDATION_CORE",
+    "url": "[REDACTED]"
+  },
+  "redis": {
+    "provider": "OPTIONAL_DOCKER_OR_EXTERNAL",
+    "status": "NOT_REQUIRED_FOR_EMBEDDED_WORKER",
+    "url": "[REDACTED]"
+  },
+  "hash": "1bf0684e727a9db4a4cc5f1d24dc3b6ec325caeca5c3aefa665536f6a3fa858a",
+  "note": "Unified typed config package still PARTIAL — env + golden-boot authoritative for boot"
+}

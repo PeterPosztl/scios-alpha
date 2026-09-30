@@ -1,0 +1,25 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "canonical": {
+    "backend": 3000,
+    "cockpit": 4000,
+    "recoveryShell": 5299,
+    "postgres": 5432,
+    "redis": 6379
+  },
+  "controlPlaneDefault": "3000",
+  "readmeDocumentsLegacyAsLegacy": true,
+  "map": {
+    "3000": "CURRENT CONTROL_PLANE",
+    "4000": "CURRENT SHELL",
+    "5200": "LEGACY",
+    "5201": "OPTIONAL PREDICTION",
+    "5202": "OPTIONAL RISK",
+    "5210": "OPTIONAL EXECUTION",
+    "5230": "LEGACY",
+    "5299": "CURRENT RECOVERY",
+    "5432": "OPTIONAL POSTGRES",
+    "6379": "OPTIONAL REDIS"
+  }
+}

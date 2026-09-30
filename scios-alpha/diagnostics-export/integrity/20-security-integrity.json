@@ -1,0 +1,28 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "findings": [
+    {
+      "id": "AUTH_LOCAL_DEV",
+      "status": "EXPECTED_ALPHA"
+    },
+    {
+      "id": "BIND_0_0_0_0",
+      "status": "DEGRADED"
+    },
+    {
+      "id": "SHELL_TRUE_RESIDUAL",
+      "status": "DEGRADED",
+      "hits": [
+        {
+          "file": "installer/scripts/convergence/convergence-gate.cjs",
+          "count": 1
+        },
+        {
+          "file": "installer/scripts/convergence/startup-proof.cjs",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

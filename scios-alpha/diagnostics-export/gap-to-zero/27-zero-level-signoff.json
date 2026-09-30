@@ -1,0 +1,22 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "philosophyPreserved": true,
+  "knownP0StructuralGaps": 0,
+  "knownP1ProductGaps": 0,
+  "conflictingAuthorities": 0,
+  "firstReleaseDisconnectedMandatoryCapabilities": 0,
+  "primaryWorkflowRawJsonDefault": false,
+  "unexplainedReleaseUnknown": 0,
+  "externalValidationOpen": 1,
+  "zeroLevelAchieved": true,
+  "verdicts": {
+    "TECHNICAL_GAP": "ZERO_P0_P1",
+    "PRODUCT_COHERENCE": "DEGRADED",
+    "UX_2026_PARITY": "PARTIAL",
+    "ROLE_200_ARCHITECTURE": "PARTIAL",
+    "FIRST_RELEASE": "EXTERNAL_VALIDATION_ONLY",
+    "FULL_PRODUCT_VISION": "ALPHA"
+  },
+  "note": "Structural P0/P1 closed. FIRST RELEASE remains EXTERNAL_VALIDATION_ONLY until packaged GW1 evidence."
+}

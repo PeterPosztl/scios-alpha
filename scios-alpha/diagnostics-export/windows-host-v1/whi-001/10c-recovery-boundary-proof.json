@@ -1,0 +1,7 @@
+{
+  "schema": "sci-os-whi-001-recovery/v1",
+  "recoveryArtifact": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\recovery\\server.cjs",
+  "exists": true,
+  "note": "Safe-mode recovery spawn remains outside primary job group by design",
+  "status": "PASS"
+}

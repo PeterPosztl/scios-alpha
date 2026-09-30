@@ -1,0 +1,7 @@
+{
+  "at": "2026-08-12T20:22:33.439Z",
+  "authMode": "local-development",
+  "executionMode": "SIMULATION_ONLY",
+  "note": "Foundation security closure incomplete for packaged release",
+  "criticalBlockerKnown": false
+}

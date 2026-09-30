@@ -1,0 +1,42 @@
+{
+  "schema": "sci-os-service-registry/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "services": [
+    {
+      "serviceId": "svc.analysis_engine",
+      "name": "Analysis Engine",
+      "process": "control-plane / vertical-slice",
+      "health": "/healthz",
+      "readiness": "/readyz",
+      "userImpact": "Predictions and Analyze unavailable when FAILED"
+    },
+    {
+      "serviceId": "svc.workers",
+      "name": "Workers",
+      "process": "embedded-foundation-worker",
+      "health": "/v1/foundation/worker-smoke",
+      "userImpact": "Background jobs delayed"
+    },
+    {
+      "serviceId": "svc.cockpit_shell",
+      "name": "SCI OS Shell",
+      "process": "cockpit-ui",
+      "health": "/healthz:4000",
+      "userImpact": "Entire UI unavailable"
+    },
+    {
+      "serviceId": "svc.data",
+      "name": "Data Services",
+      "process": "optional PG/Redis",
+      "health": "external",
+      "userImpact": "DEGRADED when absent — core still usable"
+    },
+    {
+      "serviceId": "svc.risk",
+      "name": "Risk",
+      "process": "independent risk gate in vertical-slice",
+      "health": "pipeline",
+      "userImpact": "Execution blocked if risk REJECT"
+    }
+  ]
+}

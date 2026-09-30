@@ -1,0 +1,11 @@
+{
+  "at": "2026-08-19T22:42:28.447Z",
+  "count": 1,
+  "findings": [
+    {
+      "file": "scripts/package/release-reconciliation.cjs",
+      "kind": "constant_success_object",
+      "severity": "high"
+    }
+  ]
+}

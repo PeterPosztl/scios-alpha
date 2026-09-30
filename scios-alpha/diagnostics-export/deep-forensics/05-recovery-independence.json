@@ -1,0 +1,21 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "packagedRequirement": "bundled Node only; no system node/pnpm/Cursor/repo",
+  "repair": {
+    "prefersBundled": true,
+    "status": "PARTIAL_OK"
+  },
+  "safe": {
+    "prefersBundled": true,
+    "status": "PARTIAL_OK"
+  },
+  "meta": {
+    "packagedBranch": true,
+    "devStillNeedsPnpm": true,
+    "status": "PARTIAL"
+  },
+  "cascadeBatSystemNodeOnly": false,
+  "scrubbedPathTest": "NOT_EXECUTED_IN_THIS_RUN",
+  "remainingP0": []
+}

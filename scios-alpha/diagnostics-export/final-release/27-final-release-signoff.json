@@ -1,0 +1,101 @@
+{
+  "schema": "sci-os-final-release-signoff/v1",
+  "at": "2026-08-12T17:14:39.591Z",
+  "label": "ALPHA_NON_PRODUCTION",
+  "verdict": "SCI OS ×10 RELEASE CANDIDATE — DEGRADED",
+  "alphaProductBoundary": {
+    "coreFoundation": "PROVEN_DEGRADED_INFRA",
+    "goldenWorkflow1": "PROVEN",
+    "professionalRoleFramework": "AVAILABLE",
+    "additionalRoles": "PARTIAL_FUTURE",
+    "packaging": "MISSING_SETUP_EXE",
+    "externalIntegrations": "PER_CAPABILITY"
+  },
+  "successConditions": {
+    "p0StillPasses": true,
+    "cleanInstallPasses": false,
+    "oneClickLaunchPasses": false,
+    "noTerminalRequired": false,
+    "runtimeDepsResolvedForUser": false,
+    "supervisorOwnsProcesses": true,
+    "databaseFunctional": false,
+    "queueFunctional": false,
+    "backendReady": true,
+    "workerFunctional": true,
+    "productKernelConnected": true,
+    "gw1E2E": true,
+    "pitNegative": "PARTIAL",
+    "riskRejectBlocksExecution": true,
+    "govRejectBlocksExecution": true,
+    "simulationLabeled": true,
+    "evidenceComplete": true,
+    "lineageComplete": true,
+    "normalUxUnderstandable": true,
+    "technicalViewRetained": true,
+    "shutdownClean": "UNPROVEN_THIS_PASS",
+    "secondStartup": false,
+    "rebootStartup": false,
+    "recoveryTest": "PARTIAL",
+    "noCriticalSecurityBlocker": true,
+    "noP0P1Blocker": false
+  },
+  "failedHard": [
+    "cleanInstallPasses",
+    "oneClickLaunchPasses",
+    "noTerminalRequired",
+    "runtimeDepsResolvedForUser",
+    "databaseFunctional",
+    "queueFunctional",
+    "secondStartup",
+    "rebootStartup",
+    "noP0P1Blocker"
+  ],
+  "blockers": [
+    {
+      "id": "packaging.setup_exe",
+      "severity": "P0",
+      "title": "Setup.exe / bundled runtimes missing",
+      "effect": "Clean install + no-terminal launch FAIL"
+    },
+    {
+      "id": "launch.requires_node_pnpm",
+      "severity": "P0",
+      "title": "Normal start still depends on Node/pnpm in tree",
+      "effect": "First-launch dry run FAIL"
+    },
+    {
+      "id": "reboot.acceptance",
+      "severity": "P0",
+      "title": "Windows reboot proof NOT_RUN",
+      "effect": "RC READY blocked"
+    },
+    {
+      "id": "recovery.full_fault_matrix",
+      "severity": "P1",
+      "title": "Full fault-injection matrix not re-certified this pass",
+      "effect": "Recovery PASS partial"
+    },
+    {
+      "id": "pit.live_negative",
+      "severity": "P1",
+      "title": "PIT live negative injection not in certification harness",
+      "effect": "Rely on package tests"
+    },
+    {
+      "id": "config.typed_unified",
+      "severity": "P2",
+      "title": "Typed unified config still PARTIAL",
+      "effect": "Env+manifest coexistence"
+    },
+    {
+      "id": "roles.200_full",
+      "severity": "P3",
+      "title": "200 roles not fully operational",
+      "effect": "Framework only — expected ALPHA boundary"
+    }
+  ],
+  "gitSha": "c226d7489cf7f445f226930de752e382361021fd",
+  "proofDir": "diagnostics-export/final-release/",
+  "nextHumanAction": "Build/package SCI-OS-X10.exe or Setup.exe with bundled Node; certify clean install → icon → READY → GW1 → reboot",
+  "note": "Honest maturity: local-foundation product loop works with developer start; first-launch without Node/pnpm is NOT proven."
+}

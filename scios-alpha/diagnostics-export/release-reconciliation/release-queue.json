@@ -1,0 +1,23 @@
+{
+  "at": "2026-08-12T21:28:10.313Z",
+  "active": [
+    "reboot-certification"
+  ],
+  "queued": [],
+  "superseded": [
+    "Mount Experience Compiler → Adaptive /app host as separate product",
+    "Implement GW2–7 before first release",
+    "Manufacture 300+ capabilities",
+    "OIDC for local ALPHA"
+  ],
+  "p2": [
+    "adaptive-/app-host",
+    "gw2-7",
+    "oidc",
+    "deeper-entity360"
+  ],
+  "p3": [
+    "durable-event-fabric",
+    "300-plus-capabilities"
+  ]
+}

@@ -1,0 +1,277 @@
+{
+  "schema": "sci-os-package-sync-golden-path/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-18T19:15:26.264Z",
+  "expectedBuildId": "pkg_1787074480539",
+  "oldBuildId": "pkg_1786656680759",
+  "dist": {
+    "schema": "sci-os-build-identity/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "buildId": "pkg_1787080434560",
+    "gitSha": "8a0125a18bd017abaf3206f075713bccc28f01e7",
+    "timestamp": "2026-08-18T19:13:56.235Z",
+    "nodeRuntime": "20.18.1",
+    "treeHash": "04bbfdec30b8f93fb9f5f53c1f5be9f457781e4032097fa260d29dc491be7534",
+    "packageHash": "ad17403fb4d4a0356893de3a4d817ba8aae6e539a3ca4df7af5bfe411dbb1aab",
+    "lockfileHash": "3867763aab63894dc22fd64e4df4ea42a7816ce3682600fde82c59df49c0479c",
+    "manifestHash": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701",
+    "packagedManifestHash": "8d9e3fd7142680ebc7e8eb7c7ef406f71d94f458b43c668d2b02c430578f373c"
+  },
+  "installed": {
+    "schema": "sci-os-build-identity/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "buildId": "pkg_1787080434560",
+    "gitSha": "8a0125a18bd017abaf3206f075713bccc28f01e7",
+    "timestamp": "2026-08-18T19:13:56.235Z",
+    "nodeRuntime": "20.18.1",
+    "treeHash": "04bbfdec30b8f93fb9f5f53c1f5be9f457781e4032097fa260d29dc491be7534",
+    "packageHash": "ad17403fb4d4a0356893de3a4d817ba8aae6e539a3ca4df7af5bfe411dbb1aab",
+    "lockfileHash": "3867763aab63894dc22fd64e4df4ea42a7816ce3682600fde82c59df49c0479c",
+    "manifestHash": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701",
+    "packagedManifestHash": "8d9e3fd7142680ebc7e8eb7c7ef406f71d94f458b43c668d2b02c430578f373c"
+  },
+  "backup": {
+    "schema": "sci-os-build-identity/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "buildId": "pkg_1787074480539",
+    "gitSha": "8a0125a18bd017abaf3206f075713bccc28f01e7",
+    "timestamp": "2026-08-18T17:34:42.182Z",
+    "nodeRuntime": "20.18.1",
+    "treeHash": "e49bc30c4bbce1a57e29f4a91b14697d8ee8edcda5f84d64f21208c940ec87b5",
+    "packageHash": "6dd9ed095a2238b000e59b709e76a0689453bf8a6a6210bcb12282d811798df5",
+    "lockfileHash": "3867763aab63894dc22fd64e4df4ea42a7816ce3682600fde82c59df49c0479c",
+    "manifestHash": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701",
+    "packagedManifestHash": "cad9593b0940e771a0d4a7aa3eeafcea5b769229fc925fdba4286672c40136b1"
+  },
+  "gitSha": "8a0125a18bd017abaf3206f075713bccc28f01e7",
+  "bundledNode": "v20.18.1",
+  "startup": {
+    "appRoot": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+    "verdict": "DEGRADED",
+    "node": {
+      "path": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\runtime\\node\\node.exe",
+      "source": "bundled",
+      "version": "20.18.1",
+      "usable": true,
+      "failureReason": null,
+      "searched": [
+        "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\runtime\\node\\node.exe"
+      ],
+      "packaged": true,
+      "profile": "PACKAGED",
+      "contractStatus": "PACKAGED_BUNDLED_OK",
+      "packagedContract": {
+        "nodeVersion": "20.18.1",
+        "acceptMajor": [
+          20
+        ],
+        "requireMinor": 18,
+        "path": "runtime/node/node.exe"
+      },
+      "systemNodeAllowed": false
+    },
+    "runtimeMode": "packaged"
+  },
+  "runId": "run_5fd98a04-18b9-4601-8c83-6579da20618e",
+  "steps": [
+    {
+      "name": "IDENTITY_SOURCE_PACKAGE_INSTALL",
+      "ok": false,
+      "distBuildId": "pkg_1787080434560",
+      "installedBuildId": "pkg_1787080434560",
+      "gitSha": "8a0125a18bd017abaf3206f075713bccc28f01e7",
+      "oldActive": false
+    },
+    {
+      "name": "BUNDLED_NODE",
+      "ok": true,
+      "bundledNode": "v20.18.1",
+      "startupNode": {
+        "path": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\runtime\\node\\node.exe",
+        "source": "bundled",
+        "version": "20.18.1",
+        "usable": true,
+        "failureReason": null,
+        "searched": [
+          "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\runtime\\node\\node.exe"
+        ],
+        "packaged": true,
+        "profile": "PACKAGED",
+        "contractStatus": "PACKAGED_BUNDLED_OK",
+        "packagedContract": {
+          "nodeVersion": "20.18.1",
+          "acceptMajor": [
+            20
+          ],
+          "requireMinor": 18,
+          "path": "runtime/node/node.exe"
+        },
+        "systemNodeAllowed": false
+      }
+    },
+    {
+      "name": "WINDOWS_ENTRY_EXE",
+      "ok": true,
+      "exe": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\SCI-OS-X10.exe",
+      "cmd": true
+    },
+    {
+      "name": "RUNTIME_APPROOT",
+      "ok": true,
+      "appRoot": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+      "verdict": "DEGRADED"
+    },
+    {
+      "name": "CP_HEALTH",
+      "ok": true,
+      "status": 200,
+      "service": "@scios/control-plane-api",
+      "profile": "packaged"
+    },
+    {
+      "name": "COCKPIT_HEALTH",
+      "ok": true,
+      "status": 200,
+      "shell": true
+    },
+    {
+      "name": "HOME",
+      "ok": true,
+      "status": 200,
+      "headline": "What needs your attention?",
+      "badge": "HYDRATED_API",
+      "hasAttention": true
+    },
+    {
+      "name": "READYZ_DEPENDENCY_METRICS",
+      "ok": true,
+      "status": 200,
+      "nodeVersion": "v20.18.1",
+      "ready": true
+    },
+    {
+      "name": "MODELS_ENDPOINT",
+      "ok": true,
+      "status": 200,
+      "count": 1,
+      "first": "baseline-logistic"
+    },
+    {
+      "name": "SEARCH",
+      "ok": true,
+      "status": 200,
+      "hitCount": 1,
+      "first": "Entity:AAPL"
+    },
+    {
+      "name": "ENTITY",
+      "ok": true,
+      "status": 200,
+      "entityId": "Entity:AAPL",
+      "title": "AAPL — Apple Inc."
+    },
+    {
+      "name": "EXPERIENCE",
+      "ok": true,
+      "status": 200,
+      "compilerStatus": "RUNTIME_MOUNTED",
+      "actPrefixLeak": false
+    },
+    {
+      "name": "GW1",
+      "ok": true,
+      "status": 200,
+      "runId": "run_5fd98a04-18b9-4601-8c83-6579da20618e",
+      "decision": "APPROVE",
+      "simulated": true
+    },
+    {
+      "name": "UNCERTAINTY",
+      "ok": true,
+      "scienceStatus": "FOUNDATION",
+      "provenance": {
+        "runId": "run_5fd98a04-18b9-4601-8c83-6579da20618e",
+        "modelId": "baseline-logistic",
+        "modelVersion": "1.0.0",
+        "maturityLabel": "NON-PRODUCTION",
+        "evidenceRefs": [
+          {
+            "kind": "run",
+            "id": "run_5fd98a04-18b9-4601-8c83-6579da20618e"
+          }
+        ]
+      }
+    },
+    {
+      "name": "PROVENANCE",
+      "ok": true,
+      "provenance": {
+        "runId": "run_5fd98a04-18b9-4601-8c83-6579da20618e",
+        "modelId": "baseline-logistic",
+        "modelVersion": "1.0.0",
+        "maturityLabel": "NON-PRODUCTION",
+        "evidenceRefs": [
+          {
+            "kind": "run",
+            "id": "run_5fd98a04-18b9-4601-8c83-6579da20618e"
+          }
+        ]
+      }
+    },
+    {
+      "name": "RISK_GOVERNANCE",
+      "ok": true,
+      "risk": null,
+      "governance": null,
+      "pipelineStatus": "APPROVE"
+    },
+    {
+      "name": "LINEAGE",
+      "ok": true,
+      "status": 200,
+      "nodeCount": 0
+    },
+    {
+      "name": "EVIDENCE",
+      "ok": true,
+      "status": 200,
+      "runId": "run_5fd98a04-18b9-4601-8c83-6579da20618e",
+      "lineageVerifiedOnRun": true
+    },
+    {
+      "name": "UI_E2E",
+      "ok": true,
+      "status": 200,
+      "scriptOk": true,
+      "scriptError": null,
+      "hasBootstrapUi": true,
+      "hasApiHelper": true,
+      "note": "HTTP 200 insufficient; VM syntax + bootstrapUi + Home/Search contracts required"
+    },
+    {
+      "name": "COMPLETION_SWEEP_IN_INSTALL",
+      "ok": true,
+      "provenance": true,
+      "redactLogMeta": true,
+      "dependencyMetrics": true,
+      "modelsRoute": true,
+      "repoPathLeak": 0
+    },
+    {
+      "name": "APP_BACKUP_LAST",
+      "ok": false,
+      "backupBuildId": "pkg_1787074480539",
+      "backupDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.last"
+    },
+    {
+      "name": "RECOVERY_PACKAGE",
+      "ok": true,
+      "recoveryPath": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\recovery\\server.cjs"
+    }
+  ],
+  "status": "FAIL",
+  "failed": [
+    "IDENTITY_SOURCE_PACKAGE_INSTALL",
+    "APP_BACKUP_LAST"
+  ]
+}

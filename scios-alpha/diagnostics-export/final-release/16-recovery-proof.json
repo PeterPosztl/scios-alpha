@@ -1,0 +1,11 @@
+{
+  "at": "2026-08-12T17:14:38.329Z",
+  "status": "PARTIAL",
+  "faultInjectionMatrix": "NOT_FULLY_RERUN_THIS_PASS",
+  "recoveryParadox": "bootstrap_capsule_independent_of_backend — DESIGNED",
+  "priorArtifacts": [
+    "diagnostics-export/meta-recovery/",
+    "installer/scripts/repair-sci-os.cjs"
+  ],
+  "pass": "PARTIAL"
+}

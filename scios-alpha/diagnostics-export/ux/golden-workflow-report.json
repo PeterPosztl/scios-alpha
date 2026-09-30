@@ -1,0 +1,6 @@
+{
+  "schema": "sci-os-golden-workflow-report/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "status": "NOT_RUN",
+  "note": "Deferred until UX-4/5/7. Honesty: UNKNOWN/NOT_RUN ≠ PASS."
+}

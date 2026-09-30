@@ -1,0 +1,11 @@
+{
+  "at": "2026-08-12T18:40:47.663Z",
+  "pass": false,
+  "status": "EXTERNAL_BLOCKER_REQUIRES_HOST_REBOOT",
+  "coldStartSimulation": {
+    "pass": true,
+    "note": "Process-kill + relaunch from install dir with PATH stripped — not a Windows reboot",
+    "pid": 24636
+  },
+  "userActionRequired": "Restart Windows, do not open Cursor/terminal, click SCI OS X10, then run: pnpm package:prove-reboot"
+}

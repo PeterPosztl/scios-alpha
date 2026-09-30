@@ -1,0 +1,12 @@
+{
+  "at": "2026-08-13T20:09:09.149Z",
+  "schema": "sci-os-cockpit-hydrate/v1",
+  "url": "http://127.0.0.1:4000/",
+  "verdict": "CORE READY (ALPHA)",
+  "homeSub": "7 recent analyses · 0 notifications · packaged",
+  "loadingHome": "CLEARED",
+  "unknownBadge": false,
+  "UI_HYDRATED": true,
+  "browserSyntaxErrors": 0,
+  "method": "cursor-ide-browser Runtime.evaluate"
+}

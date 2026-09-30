@@ -1,0 +1,62 @@
+{
+  "at": "2026-08-12T20:55:53.464Z",
+  "schema": "sci-os-first-release-status/v1",
+  "axis": "FIRST_RELEASE_READINESS",
+  "scope": [
+    "INSTALL",
+    "CLICK",
+    "READY",
+    "HOME",
+    "GW1",
+    "EVIDENCE",
+    "SHUTDOWN",
+    "SECOND_START",
+    "REBOOT"
+  ],
+  "verdict": "DEGRADED",
+  "counts": {
+    "internalP0": 0,
+    "internalP1": 1,
+    "externalBlockers": 1,
+    "falseReadyHighAfterResolution": 0,
+    "nodeContract": "ALIGNED",
+    "apphost": "PROVEN",
+    "experienceCompilerGw1": "PROVEN"
+  },
+  "live": {
+    "healthz": 200,
+    "ready": true,
+    "cockpit": 200,
+    "home": 200,
+    "experienceCompile": 200,
+    "gw1Live": {
+      "times3": [
+        {
+          "ok": true,
+          "runId": "run_8966f93d-883c-4a00-aa8c-d028e3e9f314"
+        },
+        {
+          "ok": true,
+          "runId": "run_9186cf20-9ff7-4d0f-97ba-bd6dde34af84"
+        },
+        {
+          "ok": true,
+          "runId": "run_b94a147c-b1c1-4ab9-b0b7-581a09b9724a"
+        }
+      ],
+      "allPass": true,
+      "riskRejectBlocks": true,
+      "experienceMounted": true
+    }
+  },
+  "priorEvidence": {
+    "p0Pass": true,
+    "gw1Pass": true,
+    "finalProductVerdict": "SCI OS FOUNDATION PRODUCT — DEGRADED",
+    "rebootPreReady": true
+  },
+  "activeReleaseQueue": [
+    "reboot-certification"
+  ],
+  "queuedAfterReconciliation": 0
+}

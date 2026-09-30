@@ -1,0 +1,204 @@
+{
+  "schema": "sci-os-beta-readiness-gate/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-29T19:24:01.588Z",
+  "buildId": "pkg_1788030533349",
+  "gitSha": "46b03f18",
+  "p0": 0,
+  "p1": 92,
+  "alphaTarget": "READY",
+  "betaTarget": "NOT_READY",
+  "requirements": {
+    "postgresql": {
+      "required": true,
+      "status": "BLOCKED",
+      "classification": "PROFILE_DISABLED",
+      "externalDependency": "FD-002",
+      "evidence": "diagnostics-export/completion-program/b-004/05-postgres-deferred-truth.json",
+      "note": "Local-durable is Beta truth; PostgreSQL adapter not READY"
+    },
+    "redis": {
+      "required": "where_required",
+      "status": "PARTIAL",
+      "configured": false,
+      "classification": "OPTIONAL",
+      "note": "Queue workers degrade when REDIS_URL unset — acceptable for local Alpha, Beta daily-use needs explicit gate"
+    },
+    "authentication": {
+      "required": true,
+      "status": "BLOCKED",
+      "mode": "local-development",
+      "oidc": "FD-001 open",
+      "note": "Local-dev auth only; OIDC production auth not Beta-ready"
+    },
+    "backgroundJobs": {
+      "required": true,
+      "status": "PARTIAL",
+      "cf11Authority": "apps/control-plane-api/src/osSession.ts",
+      "jobEngineSource": "PRESENT",
+      "jobEngineRoutesWired": true,
+      "waveProof": "diagnostics-export/completion-program/b-002/",
+      "note": "Job engine v1 wired"
+    },
+    "governance": {
+      "required": true,
+      "status": "PASS",
+      "authority": "packages/governance-engine/src/policy-enforcement.ts",
+      "waveProof": "diagnostics-export/completion-program/b-003/26-final-report.json",
+      "b003Verdict": "B_003_POLICY_DECISION_READY",
+      "note": "CF14 server-side PEP proven B-003"
+    },
+    "persistence": {
+      "required": true,
+      "status": "PASS",
+      "local": "PASS",
+      "postgres": "BLOCKED_WITH_EXTERNAL_DEPENDENCY",
+      "matrixRoute": "GET /v1/system/persistence-matrix",
+      "waveProof": "diagnostics-export/completion-program/b-004/11-final-gate.json",
+      "b004Verdict": "BETA_DURABLE_CORE_READY"
+    },
+    "observability": {
+      "required": true,
+      "status": "PARTIAL",
+      "package": true,
+      "openTelemetry": "NOT_BETA_SCOPE",
+      "healthRoutes": "GET /healthz, GET /v1/system/health",
+      "note": "Local logging + health probes; enterprise OTel deferred Target C"
+    },
+    "recovery": {
+      "required": true,
+      "status": "PASS",
+      "whi010": true,
+      "reconcileJob": "osSession.reconcileInterruptedJob",
+      "stopScript": "installer/scripts/convergence/stop.cjs",
+      "note": "WHI-010 recovery intelligence proven"
+    },
+    "professionalUx": {
+      "required": true,
+      "status": "PASS",
+      "cockpit": "apps/cockpit-ui/src/index.js",
+      "workspaceRenderer": true,
+      "waveProof": "B-006 complete",
+      "note": "Professional UX wave closed — Job Center, 8 roles, system health"
+    },
+    "modelValidation": {
+      "required": true,
+      "status": "PASS",
+      "cf28": "SOURCE_PRESENT",
+      "honestLabel": "NOT_VALIDATED / UNVALIDATED displayed",
+      "waveProof": "B-005 complete",
+      "note": "CF28 canonical states — wave B-005 closed"
+    },
+    "domainRegistry": {
+      "required": true,
+      "status": "PASS",
+      "authority": "packages/professional-domain-registry",
+      "archetypes": 8,
+      "note": "PDR compile-registry validates 8 archetypes + 200+ seeds"
+    },
+    "experienceCompilation": {
+      "required": true,
+      "status": "PASS",
+      "authority": "packages/professional-domain-registry/src/experience-compiler.js",
+      "pipelineModule": "MISSING",
+      "route": "GET /v1/experience/compile",
+      "note": "Compiler present; B-008 pipeline wave not closed"
+    }
+  },
+  "liveProbes": {
+    "status": "OFFLINE",
+    "note": "Installed launcher did not reach healthz in time",
+    "cleanShutdown": "ATTEMPTED"
+  },
+  "waveEvidence": {
+    "B-002": {
+      "status": "NOT_COMPLETE",
+      "proof": null
+    },
+    "B-003": {
+      "status": "NOT_COMPLETE",
+      "proof": null
+    },
+    "B-004": {
+      "status": "COMPLETE",
+      "token": "BETA_DURABLE_CORE_READY",
+      "proof": "b-004/11-final-gate.json"
+    },
+    "B-005": {
+      "status": "COMPLETE",
+      "token": "B_005_BETA_ACCEPTANCE_READY",
+      "proof": "b-005/11-final-gate.json"
+    },
+    "B-006": {
+      "status": "COMPLETE",
+      "token": "B_006_PROFESSIONAL_UX_READY",
+      "proof": "b-006/11-final-gate.json"
+    },
+    "B-007": {
+      "status": "COMPLETE",
+      "token": "B_007_P1_ROOT_CLOSURE_READY",
+      "proof": "b-007/11-final-gate.json"
+    },
+    "B-008": {
+      "status": "NOT_COMPLETE",
+      "proof": null
+    },
+    "B-009": {
+      "status": "NOT_COMPLETE",
+      "proof": null
+    },
+    "B-010": {
+      "status": "NOT_COMPLETE",
+      "proof": null
+    }
+  },
+  "blockers": [
+    "PERSISTENCE.PG_DEFERRED_FD002",
+    "FD-001 OIDC provider selection"
+  ],
+  "partialItems": [
+    "REDIS_URL unset — background queue degraded",
+    "OpenTelemetry enterprise observability deferred to Target C",
+    "B-008 experience compiler pipeline wave not complete",
+    "Live Beta probes offline — source evidence only"
+  ],
+  "verdict": "BETA_BLOCKED_WITH_EVIDENCE",
+  "token": "BETA_BLOCKED_WITH_EVIDENCE",
+  "p1Gate": {
+    "current": 92,
+    "engineeringOpen": 0,
+    "targetForBeta": 20,
+    "auditClosed": true,
+    "status": "PASS",
+    "note": "B-007 audit: 0 engineering P1 open; raw register count 92 unchanged"
+  },
+  "installed": {
+    "exePresent": true,
+    "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+    "bundledNodePresent": true
+  },
+  "summary": {
+    "alphaReady": true,
+    "betaReady": false,
+    "completedWaves": [
+      "A-CONVERGENCE",
+      "B-001",
+      "B-002",
+      "B-003",
+      "B-004",
+      "B-005",
+      "B-006",
+      "B-007"
+    ],
+    "openWaves": [
+      "B-008",
+      "B-009",
+      "B-010"
+    ],
+    "primaryBlockers": [
+      "PERSISTENCE.PG_DEFERRED_FD002",
+      "FD-001 OIDC provider selection"
+    ],
+    "partialCount": 4
+  }
+}

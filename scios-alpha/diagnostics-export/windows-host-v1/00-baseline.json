@@ -1,0 +1,37 @@
+{
+  "schema": "sci-os-windows-host-v1-baseline/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-18T18:53:44.691Z",
+  "gitSha": "8a0125a18bd017abaf3206f075713bccc28f01e7",
+  "priorBuildId": "pkg_1787074480539",
+  "priorPackage": {
+    "schema": "sci-os-build-identity/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "buildId": "pkg_1787074480539",
+    "gitSha": "8a0125a18bd017abaf3206f075713bccc28f01e7",
+    "timestamp": "2026-08-18T17:34:42.182Z",
+    "nodeRuntime": "20.18.1",
+    "treeHash": "e49bc30c4bbce1a57e29f4a91b14697d8ee8edcda5f84d64f21208c940ec87b5",
+    "packageHash": "6dd9ed095a2238b000e59b709e76a0689453bf8a6a6210bcb12282d811798df5",
+    "lockfileHash": "3867763aab63894dc22fd64e4df4ea42a7816ce3682600fde82c59df49c0479c",
+    "manifestHash": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701",
+    "packagedManifestHash": "cad9593b0940e771a0d4a7aa3eeafcea5b769229fc925fdba4286672c40136b1"
+  },
+  "bundledNode": "20.18.1",
+  "closureBefore": {
+    "P0": 0,
+    "P1": 91,
+    "P2": 184,
+    "P3": 46
+  },
+  "bootAuthority": "installer/scripts/start-sci-os.cjs",
+  "apphost": "http://127.0.0.1:4000/",
+  "shadowDefault": true,
+  "notImplemented": [
+    "Windows Service",
+    "Secret Broker",
+    "Task Scheduler Job Engine",
+    "Event Fabric",
+    "Connectivity subsystem"
+  ]
+}

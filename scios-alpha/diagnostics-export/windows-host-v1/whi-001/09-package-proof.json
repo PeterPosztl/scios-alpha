@@ -1,0 +1,42 @@
+{
+  "schema": "sci-os-whi-001-package/v1",
+  "at": "2026-08-18T19:14:21.424Z",
+  "distRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10",
+  "files": [
+    {
+      "rel": "installer/scripts/host/job-object-provider.cjs",
+      "exists": true
+    },
+    {
+      "rel": "installer/scripts/host/process-ownership.cjs",
+      "exists": true
+    },
+    {
+      "rel": "installer/scripts/host/contract.cjs",
+      "exists": true
+    },
+    {
+      "rel": "installer/scripts/host/helpers/job-object-keeper.ps1",
+      "exists": true
+    },
+    {
+      "rel": "installer/scripts/startup/process-supervisor.cjs",
+      "exists": true
+    }
+  ],
+  "allPresent": true,
+  "buildIdentity": {
+    "schema": "sci-os-build-identity/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "buildId": "pkg_1787080434560",
+    "gitSha": "8a0125a18bd017abaf3206f075713bccc28f01e7",
+    "timestamp": "2026-08-18T19:13:56.235Z",
+    "nodeRuntime": "20.18.1",
+    "treeHash": "04bbfdec30b8f93fb9f5f53c1f5be9f457781e4032097fa260d29dc491be7534",
+    "packageHash": "ad17403fb4d4a0356893de3a4d817ba8aae6e539a3ca4df7af5bfe411dbb1aab",
+    "lockfileHash": "3867763aab63894dc22fd64e4df4ea42a7816ce3682600fde82c59df49c0479c",
+    "manifestHash": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701",
+    "packagedManifestHash": "8d9e3fd7142680ebc7e8eb7c7ef406f71d94f458b43c668d2b02c430578f373c"
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,92 @@
+{
+  "at": "2026-08-13T14:31:11.804Z",
+  "buildId": "foundations-2026-08-13",
+  "orgActor": {
+    "schema": "sci-os-org-actor-model/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "status": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+    "note": "Prepare multi-org/user evolution without reopening OIDC now",
+    "concepts": {
+      "organization": {
+        "fields": [
+          "orgId",
+          "name",
+          "status"
+        ],
+        "status": "CONTRACT"
+      },
+      "user": {
+        "fields": [
+          "userId",
+          "orgId",
+          "displayName"
+        ],
+        "status": "CONTRACT"
+      },
+      "team": {
+        "fields": [
+          "teamId",
+          "orgId",
+          "memberUserIds"
+        ],
+        "status": "CONTRACT"
+      },
+      "actor": {
+        "fields": [
+          "actorId",
+          "kind:user|agent|system",
+          "orgId"
+        ],
+        "status": "CONTRACT"
+      },
+      "role": {
+        "fields": [
+          "roleId",
+          "orgId?",
+          "bindings"
+        ],
+        "status": "PARTIAL_EXISTING"
+      },
+      "workspace": {
+        "fields": [
+          "workspaceId",
+          "orgId",
+          "roleLens"
+        ],
+        "status": "PARTIAL_EXISTING"
+      }
+    },
+    "explicitlyDeferred": [
+      "OIDC",
+      "SSO",
+      "enterprise IdP"
+    ],
+    "migrationRiskIfIgnored": "HIGH — user/org foreign keys and evidence attribution"
+  },
+  "collaboration": {
+    "schema": "sci-os-collaboration-primitives/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "status": "DEFER_P2",
+    "primitives": [
+      "ownership",
+      "assignment",
+      "handoff",
+      "review",
+      "approval",
+      "watching",
+      "escalation"
+    ],
+    "current": {
+      "approval": "PARTIAL GW1 human approval card",
+      "others": "ABSENT"
+    },
+    "doNotBuild": [
+      "chat social feed",
+      "presence theater"
+    ],
+    "dependsOn": [
+      "org-actor-model"
+    ]
+  },
+  "oidc": "DEFER_P2 — do not reopen"
+}

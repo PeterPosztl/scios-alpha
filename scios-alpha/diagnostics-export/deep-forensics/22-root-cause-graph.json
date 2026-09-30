@@ -1,0 +1,56 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "roots": [
+    {
+      "id": "RC-LOCK-DRIFT",
+      "cause": "Workspace packages on disk not in pnpm-lock importers",
+      "blocks": [
+        "reproducible kernel",
+        "closure",
+        "domain-registry"
+      ]
+    },
+    {
+      "id": "RC-KERNEL-DISCONNECT",
+      "cause": "Product HTTP path inline; package unused",
+      "blocks": [
+        "single product authority"
+      ]
+    },
+    {
+      "id": "RC-BUILD-NARROW",
+      "cause": "root build packages-only",
+      "blocks": [
+        "release proof of apps"
+      ]
+    },
+    {
+      "id": "RC-TEST-NARROW",
+      "cause": "root test ≠ product E2E",
+      "blocks": [
+        "false whole-product confidence"
+      ]
+    },
+    {
+      "id": "RC-UX-MONOLITH",
+      "cause": "single index.js shell",
+      "blocks": [
+        "scalable professional UX platform"
+      ],
+      "notP0If": "GW1 surfaces already reachable"
+    },
+    {
+      "id": "RC-PACKAGED-EVIDENCE",
+      "cause": "stale dist appRoot + missing post-reboot GW1 artifacts",
+      "blocks": [
+        "TASK-PKG-003 / FIRST RELEASE close"
+      ]
+    },
+    {
+      "id": "RC-CASCADE-BAT",
+      "cause": "SCI OS ×10.bat system node only",
+      "blocks": "recovery independence for cascade entry"
+    }
+  ]
+}

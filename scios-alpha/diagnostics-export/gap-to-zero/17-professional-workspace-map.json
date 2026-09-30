@@ -1,0 +1,30 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "workspaces": [
+    {
+      "id": "ws.home",
+      "roleAdaptive": true
+    },
+    {
+      "id": "ws.entity360",
+      "objects": [
+        "Entity"
+      ]
+    },
+    {
+      "id": "ws.analysis_gw1",
+      "workflow": "gw1_aapl_analysis"
+    },
+    {
+      "id": "ws.evidence",
+      "objects": [
+        "Lineage"
+      ]
+    },
+    {
+      "id": "ws.engineering",
+      "audience": "technical"
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 {
   "schema": "sci-os-batch-001-build-identity/v1",
-  "at": "2026-08-13T21:45:41.539Z",
-  "gitSha": "55d2a104a264608c217b3b602f116cb9b18661cf",
-  "treeHash": "1d46cd2df3d305b6b680c32d53c3b63f4d0110350d891a83b7b2ce2f08229c07",
-  "packageHash": "fef6cc36e7cd739fada0de42478486cc71eb7c7eeeeb9d74f940c6a3954b5adf",
+  "at": "2026-08-19T20:26:59.865Z",
+  "gitSha": "dcfdd3145ea6e9aa3e06a3120fefcf697779e41d",
+  "treeHash": "8e286f2b55d28615f422e5ce4ba9a41e82d6c977f113ee30f2f6289ab70d2913",
+  "packageHash": "3d16f5cb7318161840e7e913d4aac83503cce3d4b313fbe37d7244eeedd0828a",
   "lockfileHash": "3867763aab63894dc22fd64e4df4ea42a7816ce3682600fde82c59df49c0479c",
   "manifestHash": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701",
-  "buildId": "pkg_1786656680759",
+  "buildId": "pkg_1787171251736",
   "nodeRuntime": "v20.18.1",
-  "distributionBuildId": "pkg_1786656680759"
+  "distributionBuildId": "pkg_1787171251736"
 }

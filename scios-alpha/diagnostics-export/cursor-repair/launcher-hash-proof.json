@@ -1,0 +1,10 @@
+{
+  "schema": "sci-os-launcher-hash-proof/v1",
+  "at": "2026-08-13T18:29:42.604Z",
+  "buildId": "pkg_1786645657883",
+  "checked": 9,
+  "mismatches": [],
+  "ok": true,
+  "exeExists": true,
+  "nodeVersion": "v20.18.1"
+}

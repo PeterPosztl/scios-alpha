@@ -1,0 +1,72 @@
+{
+  "schema": "sci-os-readiness-probe-test/v1",
+  "at": "2026-08-13T18:29:42.749Z",
+  "ok": true,
+  "results": [
+    {
+      "name": "accepted_200",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "reject_404",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "reject_500",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "reject_0",
+      "ok": true,
+      "detail": null
+    },
+    {
+      "name": "probe_200_html",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "status": 200,
+        "reason": null
+      }
+    },
+    {
+      "name": "probe_404_fail",
+      "ok": true,
+      "detail": {
+        "ok": false,
+        "status": 404,
+        "reason": "HTTP_404_NOT_READY"
+      }
+    },
+    {
+      "name": "probe_500_fail",
+      "ok": true,
+      "detail": {
+        "ok": false,
+        "status": 500,
+        "reason": "HTTP_500_NOT_READY"
+      }
+    },
+    {
+      "name": "probe_refused_fail",
+      "ok": true,
+      "detail": {
+        "ok": false,
+        "error": "connect ECONNREFUSED 127.0.0.1:1",
+        "status": 0
+      }
+    },
+    {
+      "name": "probe_timeout_or_error",
+      "ok": true,
+      "detail": {
+        "ok": false,
+        "error": "timeout",
+        "status": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "at": "2026-08-13T14:31:11.804Z",
+  "buildId": "foundations-2026-08-13",
+  "cases": [
+    {
+      "id": "dependency_failure",
+      "coverage": "PARTIAL",
+      "class": "DEFER_P2"
+    },
+    {
+      "id": "timeouts",
+      "coverage": "UNTESTED",
+      "class": "DEFER_P2"
+    },
+    {
+      "id": "duplicate_events",
+      "coverage": "UNTESTED",
+      "class": "IMPLEMENT_NOW_P1"
+    },
+    {
+      "id": "out_of_order_events",
+      "coverage": "UNTESTED",
+      "class": "DEFER_P2"
+    },
+    {
+      "id": "reboot_mid_action",
+      "coverage": "EXTERNAL_VALIDATION",
+      "class": "IMPLEMENT_NOW_P1"
+    },
+    {
+      "id": "stale_state",
+      "coverage": "PARTIAL",
+      "class": "DEFER_P2"
+    },
+    {
+      "id": "clock_skew",
+      "coverage": "UNTESTED",
+      "class": "DEFER_P2"
+    },
+    {
+      "id": "timezone_dst",
+      "coverage": "UNTESTED",
+      "class": "DEFER_P2"
+    },
+    {
+      "id": "permission_change",
+      "coverage": "UNTESTED",
+      "class": "DEFER_P2"
+    },
+    {
+      "id": "policy_change",
+      "coverage": "UNTESTED",
+      "class": "DEFER_P2"
+    },
+    {
+      "id": "partial_responses",
+      "coverage": "UNTESTED",
+      "class": "DEFER_P2"
+    },
+    {
+      "id": "invalid_model_output",
+      "coverage": "UNTESTED",
+      "class": "DEFER_P2"
+    },
+    {
+      "id": "ai_refusal",
+      "coverage": "UNTESTED",
+      "class": "DEFER_P2"
+    },
+    {
+      "id": "cache_staleness",
+      "coverage": "UNTESTED",
+      "class": "DEFER_P2"
+    },
+    {
+      "id": "disk_pressure",
+      "coverage": "UNTESTED",
+      "class": "DEFER_P2"
+    },
+    {
+      "id": "port_conflicts",
+      "coverage": "PARTIAL",
+      "class": "DEFER_P2"
+    }
+  ],
+  "note": "Find unknown failure interactions — do not expand into full chaos suite now"
+}

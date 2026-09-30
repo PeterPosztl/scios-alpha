@@ -1,0 +1,28 @@
+{
+  "at": "2026-08-19T22:42:28.466Z",
+  "schema": "sci-os-system-closure-signoff/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "verdict": "FOUNDATION_DEGRADED",
+  "p0Pass": true,
+  "goldenWorkflow1": {
+    "id": "golden_workflow_1_aapl_analysis",
+    "status": "RUNTIME_PARTIAL",
+    "steps": {
+      "prediction": true,
+      "risk": true,
+      "governance": true,
+      "execution": true,
+      "lineage": true,
+      "professionalUx": false,
+      "engineeringUx": true
+    },
+    "maturityTarget": "L7",
+    "currentMaturity": "L6_ENGINEERING"
+  },
+  "staleClaimsReviewed": 8,
+  "placeholderFindings": 42,
+  "falseReadyHigh": 1,
+  "nextDependencyBlocker": "Mount Experience Compiler → Adaptive Workspace host; professional view for Golden Workflow #1",
+  "stopConditionFoundationClosed": false,
+  "note": "FOUNDATION CLOSED requires professional UX on real results + GW1 E2E L7. Do not equate scan tooling with product closure."
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@scios/workspace-composer",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Compose adaptive workspaces from Experience Compiler. ALPHA.",
+  "main": "./src/index.js",
+  "exports": { ".": "./src/index.js" },
+  "dependencies": {
+    "@scios/professional-domain-registry": "workspace:*"
+  },
+  "label": "ALPHA_NON_PRODUCTION"
+}

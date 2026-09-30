@@ -1,0 +1,43 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "dimensions": [
+    "BOOTSTRAP_READY",
+    "CORE_READY",
+    "SERVICE_READY",
+    "CAPABILITY_READY",
+    "OPTIONAL_INFRA_DEGRADED",
+    "FULL_PROFILE_READY"
+  ],
+  "firstReleaseUses": [
+    "BOOTSTRAP_READY",
+    "CORE_READY",
+    "CAPABILITY_READY"
+  ],
+  "manifest": {
+    "BOOTSTRAP_READY": [
+      "runtime.node usable",
+      "manifest valid"
+    ],
+    "CORE_READY": [
+      "backend healthz",
+      "cockpit healthz",
+      "shell handoff :4000"
+    ],
+    "CAPABILITY_READY_firstRelease": [
+      "GET /v1/home",
+      "GET /v1/search",
+      "GET /v1/entities/:id",
+      "POST /api/vertical-slice/run",
+      "evidence+lineage viewable"
+    ],
+    "FULL_PROFILE_READY_requires": [
+      "infra.postgres HEALTHY",
+      "infra.redis HEALTHY",
+      "startup-proof PASS",
+      "signoff PASS"
+    ],
+    "OPTIONAL_INFRA_DEGRADED_allowed_when": "CORE_READY; Postgres/Redis/Docker absent; no risk bypass; ALPHA_NON_PRODUCTION",
+    "READY_alias_note": "Manifest historical READY meant FULL_PROFILE_READY — not first-release CORE_READY"
+  }
+}

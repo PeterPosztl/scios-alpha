@@ -1,5 +1,5 @@
 {
-  "at": "2026-07-16T23:55:34.316Z",
+  "at": "2026-08-12T15:26:36.891Z",
   "expected": {
     "requiredComponents": [
       "NodeRuntime",
@@ -37,7 +37,7 @@
     "VerticalSlice": "AVAILABLE",
     "DesktopElectron": "MISSING",
     "PostgreSQL": "MISSING",
-    "RedisQueue": "UNKNOWN",
+    "RedisQueue": "MISSING",
     "QueueWorkers": "MISSING",
     "MetaRecoveryEngine": "AVAILABLE"
   },

@@ -1,0 +1,115 @@
+{
+  "schema": "sci-os-visualization-pattern-registry/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "patterns": [
+    {
+      "id": "viz.forecast_interval",
+      "question": "What does the system expect, and how wide is uncertainty?",
+      "domains": [
+        "market",
+        "risk"
+      ],
+      "reference": [
+        "forecast fan charts",
+        "prediction intervals"
+      ],
+      "sciOs": "Prediction Envelope → Professional Expected + Uncertainty",
+      "status": "ADAPTED_PARTIAL"
+    },
+    {
+      "id": "viz.calibration",
+      "question": "Is the model well-calibrated?",
+      "domains": [
+        "market",
+        "ml"
+      ],
+      "reference": [
+        "reliability diagrams"
+      ],
+      "sciOs": "Do not claim CALIBRATED without proof artifacts",
+      "status": "CANDIDATE"
+    },
+    {
+      "id": "viz.entity_graph",
+      "question": "How are entities related under filters?",
+      "domains": [
+        "fraud",
+        "cyber",
+        "entity"
+      ],
+      "reference": [
+        "Neo4j Bloom expand/filter",
+        "investigation graphs"
+      ],
+      "sciOs": "EntityGraph with filter/group/time — avoid spaghetti",
+      "status": "CANDIDATE"
+    },
+    {
+      "id": "viz.unified_timeline",
+      "question": "What happened in what order, with provenance?",
+      "domains": [
+        "fraud",
+        "cyber",
+        "ops"
+      ],
+      "reference": [
+        "incident timelines",
+        "transaction timelines"
+      ],
+      "sciOs": "Universal Timeline grammar (events/alerts/decisions/executions)",
+      "status": "CANDIDATE"
+    },
+    {
+      "id": "viz.lineage_chain",
+      "question": "How did this result form?",
+      "domains": [
+        "all"
+      ],
+      "reference": [
+        "data lineage UIs",
+        "ML lineage"
+      ],
+      "sciOs": "Immutable lineage nodes with real artifact IDs",
+      "status": "ADAPTED"
+    },
+    {
+      "id": "viz.exposure_heatmap",
+      "question": "Where is risk concentrated?",
+      "domains": [
+        "risk"
+      ],
+      "reference": [
+        "portfolio risk heatmaps"
+      ],
+      "sciOs": "Risk Evaluation golden workflow",
+      "status": "CANDIDATE"
+    },
+    {
+      "id": "viz.scenario_compare",
+      "question": "How do alternatives differ?",
+      "domains": [
+        "risk",
+        "market"
+      ],
+      "reference": [
+        "scenario comparison panels"
+      ],
+      "sciOs": "Run Scenario / Compare actions",
+      "status": "PARTIAL"
+    },
+    {
+      "id": "viz.service_topology",
+      "question": "What failed and what depends on it?",
+      "domains": [
+        "ops",
+        "recovery"
+      ],
+      "reference": [
+        "Datadog service map",
+        "dependency graphs"
+      ],
+      "sciOs": "Recovery / System Health impact framing",
+      "status": "CANDIDATE"
+    }
+  ]
+}

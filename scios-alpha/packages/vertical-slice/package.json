@@ -22,11 +22,13 @@
     "@scios/data-fabric": "workspace:*",
     "@scios/feature-store": "workspace:*",
     "@scios/governance-engine": "workspace:*",
-    "@scios/observability": "workspace:*"
+    "@scios/observability": "workspace:*",
+    "pg": "^8.13.1"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "@types/node": "^22.10.0",
+    "@types/pg": "^8.11.10",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5",
     "tsx": "^4.19.2",

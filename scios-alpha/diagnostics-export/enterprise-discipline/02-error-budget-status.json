@@ -1,0 +1,106 @@
+{
+  "at": "2026-08-13T12:39:24.586Z",
+  "buildId": "enterprise-discipline-2026-08-13",
+  "schema": "sci-os-error-budget-status/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "anyExhausted": false,
+  "expansionBlockedPaths": [],
+  "statuses": [
+    {
+      "sloId": "STARTUP_TO_HOME",
+      "budgetState": "UNKNOWN",
+      "blockExpansion": false,
+      "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+      "dependencyPath": [
+        "bootstrap",
+        "start-sci-os",
+        "control-plane",
+        "cockpit"
+      ]
+    },
+    {
+      "sloId": "SEARCH_SUCCESS",
+      "budgetState": "UNKNOWN",
+      "blockExpansion": false,
+      "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+      "dependencyPath": [
+        "control-plane",
+        "product.search"
+      ]
+    },
+    {
+      "sloId": "ENTITY360_OPEN",
+      "budgetState": "UNKNOWN",
+      "blockExpansion": false,
+      "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+      "dependencyPath": [
+        "control-plane",
+        "product.entity"
+      ]
+    },
+    {
+      "sloId": "ANALYSIS_COMPLETION",
+      "budgetState": "UNKNOWN",
+      "blockExpansion": false,
+      "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+      "dependencyPath": [
+        "vertical-slice",
+        "prediction",
+        "risk",
+        "governance"
+      ]
+    },
+    {
+      "sloId": "RISK_GOVERNANCE_COMPLETION",
+      "budgetState": "UNKNOWN",
+      "blockExpansion": false,
+      "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+      "dependencyPath": [
+        "vertical-slice",
+        "governance-engine"
+      ]
+    },
+    {
+      "sloId": "EVIDENCE_OPEN",
+      "budgetState": "UNKNOWN",
+      "blockExpansion": false,
+      "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+      "dependencyPath": [
+        "vertical-slice.lineage",
+        "cockpit.evidence"
+      ]
+    },
+    {
+      "sloId": "GW1_COMPLETION",
+      "budgetState": "UNKNOWN",
+      "blockExpansion": false,
+      "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+      "dependencyPath": [
+        "shell",
+        "control-plane",
+        "vertical-slice"
+      ]
+    },
+    {
+      "sloId": "CLEAN_SHUTDOWN",
+      "budgetState": "UNKNOWN",
+      "blockExpansion": false,
+      "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+      "dependencyPath": [
+        "process-supervisor",
+        "bootstrap"
+      ]
+    },
+    {
+      "sloId": "RECOVERY_SUCCESS",
+      "budgetState": "UNKNOWN",
+      "blockExpansion": false,
+      "currentConsumption": "UNKNOWN_UNTIL_MEASURED",
+      "dependencyPath": [
+        "meta-recovery",
+        "bundled-node"
+      ]
+    }
+  ],
+  "note": "No measured production traffic yet — UNKNOWN is honest, not PASS"
+}

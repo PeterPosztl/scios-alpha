@@ -1,0 +1,23 @@
+{
+  "schema": "sci-os-ux-foundation-verdict/v1",
+  "at": "2026-08-12T16:05:00.000Z",
+  "label": "ALPHA_NON_PRODUCTION",
+  "verdict": "UX_FOUNDATION_DEGRADED",
+  "professionalUxReady": false,
+  "reasons": [
+    "CURRENT_UX_TRUTH completed",
+    "Domain registry scaffold with 20 families + 7 archetypes + 200 RESEARCH_REQUIRED seeds",
+    "Competitive benchmark docs present",
+    "Universal shell ABSENT",
+    "design-system packages ABSENT",
+    "Golden workflows not implemented (except partial engineering slice / ops shell)",
+    "Usability proof PARTIAL; lab UNKNOWN; E2E NOT_RUN"
+  ],
+  "commands": [
+    "pnpm ux:truth",
+    "pnpm ux:domains",
+    "pnpm ux:benchmark",
+    "pnpm ux:proof",
+    "pnpm sci:start -- --no-open"
+  ]
+}

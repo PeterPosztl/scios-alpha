@@ -15,7 +15,13 @@ import { VERTICAL_SLICE_STAGES } from "@scios/data-fabric";
 import { verticalSliceRouter } from "./routes/verticalSlice.js";
 import { systemRouter, type SystemRouteDeps } from "./routes/system.js";
 import { productRouter } from "./routes/product.js";
+import { eclDilRouter } from "./routes/eclDil.js";
 import { buildActorContext } from "@scios/product-kernel";
+import { bootJobSystem } from "./jobLifecycle.js";
+import { bootPersistenceLayer } from "@scios/vertical-slice";
+import { getTlsHealth } from "./tlsHealth.js";
+import { getOtelHealth } from "./otelHealth.js";
+import { getObservabilityHealth } from "./observabilityHealth.js";
 
 const PORT = Number(process.env.PORT ?? 3000);
 /** Local-foundation / packaged default: loopback only. Set SCIOS_BIND=0.0.0.0 only when intentional. */
@@ -39,6 +45,46 @@ const foundationWorker = {
   lastJobStatus: null as string | null,
   jobsCompleted: 0,
 };
+
+/**
+ * Single readiness verdict for /healthz and /readyz.
+ *
+ * Readiness lived only in /readyz, so /healthz answered a flat ok:true while the
+ * profile was running without Postgres/Redis. One source of truth keeps the two
+ * endpoints from disagreeing about whether the system is degraded.
+ */
+function describeServiceHealth(): {
+  ready: boolean;
+  degraded: boolean;
+  verdict: "READY" | "DEGRADED" | "UNHEALTHY";
+  degradedReasons: string[];
+  workerFresh: boolean;
+  riskControlActive: boolean;
+  heartbeatAgeMs: number;
+} {
+  const heartbeatAgeMs = Date.now() - Date.parse(foundationWorker.lastHeartbeatAt);
+  const workerFresh = heartbeatAgeMs < 30_000;
+  const riskControlActive =
+    can("operator", "execution:submit") || can("admin", "execution:submit");
+  const ready = workerFresh && riskControlActive && EXECUTION_MODE === "SIMULATION_ONLY";
+
+  const degradedReasons: string[] = [];
+  if (!process.env.DATABASE_URL) degradedReasons.push("POSTGRES_NOT_CONFIGURED_OPTIONAL");
+  if (!process.env.REDIS_URL) degradedReasons.push("REDIS_NOT_CONFIGURED_OPTIONAL");
+  if (!workerFresh) degradedReasons.push("FOUNDATION_WORKER_HEARTBEAT_STALE");
+  if (!riskControlActive) degradedReasons.push("RISK_CONTROL_INACTIVE");
+
+  const verdict = !ready ? "UNHEALTHY" : degradedReasons.length ? "DEGRADED" : "READY";
+  return {
+    ready,
+    degraded: verdict === "DEGRADED",
+    verdict,
+    degradedReasons,
+    workerFresh,
+    riskControlActive,
+    heartbeatAgeMs,
+  };
+}
 
 function optionalDepMetric(name: string, configured: boolean) {
   return {
@@ -310,28 +356,34 @@ const server = createServer((req, res) => {
 
   void (async () => {
     if (method === "GET" && path === "/healthz") {
+      // ok/service stay liveness-only: port identity detection and the shutdown
+      // path match on them. The readiness fields are additive so a caller cannot
+      // read a bare ok:true as "every capability is available" while optional
+      // infrastructure is absent.
+      const health = describeServiceHealth();
       sendJson(res, 200, {
         ok: true,
         service: "@scios/control-plane-api",
         models: modelRegistry.list().length,
         verticalSlice: true,
         profile: RUNTIME_PROFILE,
+        ready: health.ready,
+        degraded: health.degraded,
+        verdict: health.verdict,
+        degradedReasons: health.degradedReasons,
       });
       return;
     }
 
     if (method === "GET" && path === "/readyz") {
-      const heartbeatAgeMs =
-        Date.now() - Date.parse(foundationWorker.lastHeartbeatAt);
-      const workerFresh = heartbeatAgeMs < 30_000;
-      const riskControlActive = can("operator", "execution:submit") || can("admin", "execution:submit");
-      const ready =
-        workerFresh &&
-        riskControlActive &&
-        EXECUTION_MODE === "SIMULATION_ONLY";
+      const health = describeServiceHealth();
+      const { heartbeatAgeMs, workerFresh, riskControlActive, ready } = health;
       sendJson(res, ready ? 200 : 503, {
         ready,
         live: true,
+        degraded: health.degraded,
+        verdict: health.verdict,
+        degradedReasons: health.degradedReasons,
         profile: RUNTIME_PROFILE,
         executionMode: EXECUTION_MODE,
         authMode: AUTH_MODE,
@@ -345,7 +397,9 @@ const server = createServer((req, res) => {
           database: process.env.DATABASE_URL ? "configured" : "optional_absent",
           redis: process.env.REDIS_URL ? "configured" : "optional_absent",
           oidc: "disabled_local_development",
-          otel: "local",
+          tls: getTlsHealth().tls.status,
+          otel: (await getOtelHealth()).otel.status,
+          observability: (await getObservabilityHealth()).observability.status,
           hsm: "simulation_local_key_provider",
           aiProvider: aiProviderMetric().status,
         },
@@ -708,7 +762,21 @@ const server = createServer((req, res) => {
       return;
     }
 
-    // Router composition: product surface → vertical slice → system
+    // Router composition: ECL/DIL → product surface → vertical slice → system
+    if (
+      await eclDilRouter({
+        method,
+        path,
+        url,
+        req,
+        res,
+        sendJson,
+        readJson,
+      })
+    ) {
+      return;
+    }
+
     if (
       await productRouter({
         method,
@@ -826,13 +894,18 @@ const server = createServer((req, res) => {
 });
 
 server.listen(PORT, BIND, () => {
-  log.info("listening", {
-    port: PORT,
-    bind: BIND,
-    predictionUrl: PREDICTION_URL,
-    riskUrl: RISK_URL,
-    execUrl: EXEC_URL,
-    canonicalFlow: CANONICAL_FLOW.join(" → "),
+  const jobBoot = bootJobSystem();
+  void bootPersistenceLayer().then((persistenceBoot) => {
+    log.info("listening", {
+      port: PORT,
+      bind: BIND,
+      predictionUrl: PREDICTION_URL,
+      riskUrl: RISK_URL,
+      execUrl: EXEC_URL,
+      canonicalFlow: CANONICAL_FLOW.join(" → "),
+      jobSystemBoot: jobBoot,
+      persistenceBoot,
+    });
   });
 });
 

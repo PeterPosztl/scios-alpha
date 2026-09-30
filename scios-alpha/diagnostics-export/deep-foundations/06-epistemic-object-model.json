@@ -1,0 +1,18 @@
+{
+  "at": "2026-08-13T13:09:39.331Z",
+  "buildId": "deep-foundations-2026-08-13",
+  "types": [
+    "FACT",
+    "OBSERVATION",
+    "ASSUMPTION",
+    "HYPOTHESIS",
+    "INFERENCE",
+    "PREDICTION",
+    "SCENARIO",
+    "DECISION",
+    "OUTCOME"
+  ],
+  "schema": "sci.EpistemicEnvelope/v1",
+  "status": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+  "note": "Prediction envelopes exist; epistemicType field not yet mandatory on all results"
+}

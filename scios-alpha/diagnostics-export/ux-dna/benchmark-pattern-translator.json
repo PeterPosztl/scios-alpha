@@ -1,0 +1,62 @@
+{
+  "at": "2026-08-13T13:00:49.933Z",
+  "buildId": "ux-dna-2026-08-13",
+  "rule": "Never COPY PRODUCT",
+  "patterns": [
+    {
+      "SOURCE": "Palantir AIP (public)",
+      "PATTERN": "Ontology objects + actions + human approval defaults",
+      "WHY_IT_WORKS": "Keeps actions governed and auditable",
+      "FOUNDER_RELEVANCE": "Aligns with SCI Action + Risk + Governance",
+      "SCI_CURRENT_EQUIVALENT": "Action registry + approval card + vertical-slice",
+      "SCI_GAP": "Shallower enterprise ontology writeback",
+      "SCI_NATIVE_TRANSLATION": "Keep SCI envelopes; deepen Action contract — do not copy Foundry UI",
+      "COPY_RISK": "HIGH_IF_UI_COPIED",
+      "DECISION": "ADAPT"
+    },
+    {
+      "SOURCE": "Microsoft Copilot Studio (public)",
+      "PATTERN": "Human-in-the-loop agent steps",
+      "WHY_IT_WORKS": "Prevents unsupervised consequential acts",
+      "FOUNDER_RELEVANCE": "GOVERNANCE > AGENT",
+      "SCI_CURRENT_EQUIVALENT": "Approval card + NO_ACTION",
+      "SCI_GAP": "No full agent studio",
+      "SCI_NATIVE_TRANSLATION": "Retain proposal≠executed visual grammar",
+      "COPY_RISK": "HIGH_IF_UI_COPIED",
+      "DECISION": "ADOPT PRINCIPLE"
+    },
+    {
+      "SOURCE": "Apple HIG (public)",
+      "PATTERN": "Clarity, hierarchy, progressive disclosure",
+      "WHY_IT_WORKS": "Reduces cognitive load",
+      "FOUNDER_RELEVANCE": "Professional density without chaos",
+      "SCI_CURRENT_EQUIVALENT": "L1–L9 professional cards",
+      "SCI_GAP": "Motion/a11y depth",
+      "SCI_NATIVE_TRANSLATION": "SCI tokens + disclosure — not Apple visual clone",
+      "COPY_RISK": "HIGH_IF_UI_COPIED",
+      "DECISION": "ADAPT"
+    },
+    {
+      "SOURCE": "ServiceNow AI Control Tower (public)",
+      "PATTERN": "Operational monitoring of AI assets",
+      "WHY_IT_WORKS": "Trust inventory for models/agents",
+      "FOUNDER_RELEVANCE": "Intelligence Control Tower",
+      "SCI_CURRENT_EQUIVALENT": "discipline/control-tower.js",
+      "SCI_GAP": "Engineering-only exposure",
+      "SCI_NATIVE_TRANSLATION": "Keep tower out of primary professional Home",
+      "COPY_RISK": "HIGH_IF_UI_COPIED",
+      "DECISION": "ALREADY PRESENT"
+    },
+    {
+      "SOURCE": "Generic purple AI marketing UI",
+      "PATTERN": "Purple gradients + chatbot-first shell",
+      "WHY_IT_WORKS": "Familiar but erases identity",
+      "FOUNDER_RELEVANCE": "Negative — rejected",
+      "SCI_CURRENT_EQUIVALENT": "None desired",
+      "SCI_GAP": "N/A",
+      "SCI_NATIVE_TRANSLATION": "Reject",
+      "COPY_RISK": "HIGH",
+      "DECISION": "REJECT"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "schema": "sci-os-api-candidates/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "note": "Never hardwire vendor schemas into business logic — adapter contracts only.",
+  "candidates": [
+    {
+      "id": "api.market_data_generic",
+      "provider": "Multiple (Polygon, Alpha Vantage, exchange feeds)",
+      "purpose": "Instrument quotes / bars for market analysis",
+      "terms": "Vendor-specific; check redistribution",
+      "auth": "API key typical",
+      "cost": "Freemium→paid",
+      "rateLimits": "Strict on free tiers",
+      "dataQuality": "VENDOR_DEPENDENT",
+      "freshness": "NEAR_REALTIME_TO_DELAYED",
+      "legal": "No silent production use without terms review",
+      "fallback": "Deterministic simulated market path (current ALPHA)",
+      "domainRoles": [
+        "arch.market_analyst",
+        "arch.risk_manager"
+      ],
+      "adapter": "MarketDataPort",
+      "decision": "SKIP_FOR_NOW",
+      "reason": "GW1 uses foundation vertical-slice; external market API is optional enrichment after packaging"
+    },
+    {
+      "id": "api.otx_alienvault",
+      "provider": "AlienVault OTX",
+      "purpose": "Threat intel pulses / IOCs",
+      "terms": "Public API ToS",
+      "auth": "API key",
+      "cost": "Free tier",
+      "rateLimits": "Yes",
+      "dataQuality": "CROWD_PLUS_VENDOR",
+      "freshness": "VARIABLE",
+      "legal": "Review attribution/ToS",
+      "fallback": "Manual IOC attach",
+      "domainRoles": [
+        "arch.soc_analyst"
+      ],
+      "adapter": "ThreatIntelPort",
+      "decision": "SKIP_FOR_NOW",
+      "reason": "GW3 cyber workflow not yet E2E"
+    },
+    {
+      "id": "api.open_meteo",
+      "provider": "Open-Meteo",
+      "purpose": "Weather for supply-chain / ops context",
+      "terms": "Open; attribution",
+      "auth": "None for basic",
+      "cost": "Free",
+      "rateLimits": "Fair use",
+      "dataQuality": "GOOD_FOR_WEATHER",
+      "freshness": "HOURLY",
+      "legal": "Check commercial terms",
+      "fallback": "Omit weather context",
+      "domainRoles": [
+        "supply_chain_RESEARCH"
+      ],
+      "adapter": "WeatherPort",
+      "decision": "SKIP",
+      "reason": "Not a current golden-workflow blocker"
+    }
+  ]
+}

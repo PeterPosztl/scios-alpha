@@ -1,0 +1,41 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "risks": [
+    {
+      "failureMode": "Port conflict after crash leaves stale listener",
+      "precondition": "Forced kill without sci:stop",
+      "likelihood": "MEDIUM",
+      "impact": "Start DEGRADED/NO_GO",
+      "earlyWarning": "healthz identity mismatch",
+      "preventiveControl": "Supervisor lock + proven stop",
+      "futureTest": "Kill -9 then start"
+    },
+    {
+      "failureMode": "Disk growth of diagnostics-export",
+      "precondition": "Long-running usage",
+      "likelihood": "HIGH over time",
+      "impact": "Disk full → write failures",
+      "earlyWarning": "disk space probe",
+      "preventiveControl": "Rotation/retention",
+      "futureTest": "Fill diagnostics; assert cleanup"
+    },
+    {
+      "failureMode": "In-memory run index lost on restart",
+      "precondition": "No durable DB",
+      "likelihood": "HIGH",
+      "impact": "Search loses prior predictions after restart",
+      "earlyWarning": "empty analyses on Home",
+      "preventiveControl": "Persist runs when PG available",
+      "futureTest": "Restart; assert persistence policy"
+    },
+    {
+      "failureMode": "External API throttle when market feed added",
+      "precondition": "Live MarketDataPort",
+      "likelihood": "MEDIUM",
+      "impact": "Analyze fails / stale",
+      "earlyWarning": "429 metrics",
+      "preventiveControl": "Fallback SIMULATED + cache",
+      "futureTest": "Inject 429"
+    }
+  ]
+}

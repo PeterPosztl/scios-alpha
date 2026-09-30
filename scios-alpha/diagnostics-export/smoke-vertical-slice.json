@@ -1,0 +1,24 @@
+{
+  "at": "2026-08-12T14:21:04.791Z",
+  "ok": true,
+  "base": "http://127.0.0.1:5230",
+  "runId": "run_c26cf7ad-32a9-495e-a34a-09469c458031",
+  "status": "APPROVE",
+  "lineageNodes": 11,
+  "health": {
+    "backend": "READY",
+    "worker": "READY",
+    "cockpit": "READY",
+    "infra": "STOPPED",
+    "timestamp": "2026-08-12T14:21:04.777Z",
+    "evidence": {
+      "controlHealthz": 200,
+      "cockpitHealthz": 200,
+      "postgresTcp": false,
+      "redisPing": false,
+      "label": "DEV_MOCK_NON_PRODUCTION"
+    }
+  },
+  "signoffVerdict": "DEGRADED_PASS",
+  "label": "ALPHA_NON_PRODUCTION"
+}

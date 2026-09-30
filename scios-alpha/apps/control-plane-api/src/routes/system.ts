@@ -9,7 +9,10 @@ import { fileURLToPath } from "node:url";
 import { get as httpGet, request as httpRequest } from "node:http";
 import type { ServerResponse } from "node:http";
 import { can } from "@scios/governance-engine";
-import { getPersistenceStateMatrix } from "@scios/vertical-slice";
+import { getPersistenceStateMatrix, getPersistenceHealth } from "@scios/vertical-slice";
+import { getTlsHealth } from "../tlsHealth.js";
+import { getOtelHealth } from "../otelHealth.js";
+import { getObservabilityHealth } from "../observabilityHealth.js";
 import type { JsonSender } from "./verticalSlice.js";
 
 export type ComponentStatus = "READY" | "DEGRADED" | "UNHEALTHY" | "STOPPED" | "UNKNOWN";
@@ -98,29 +101,46 @@ function resolveAppRoot(): string {
     process.env.SCIOS_PACKAGED === "1" ||
     process.env.SCIOS_RUNTIME_MODE === "PACKAGED"
   ) {
-    return process.cwd();
+    return process.cwd() || ".";
   }
 
   try {
-    let dir = dirname(fileURLToPath(import.meta.url));
-    for (let i = 0; i < 8; i++) {
-      const pkgPath = join(dir, "package.json");
-      if (existsSync(pkgPath)) {
-        try {
-          const pkg = JSON.parse(readFileSync(pkgPath, "utf8")) as { name?: string };
-          if (pkg.name === "sci-os-x10" || pkg.name === "scios-alpha") return dir;
-        } catch {
-          /* continue walk */
+    // Guard: esbuild CJS leaves import.meta.url undefined — fileURLToPath(undefined) throws.
+    const metaUrl =
+      typeof import.meta !== "undefined" && import.meta && import.meta.url
+        ? import.meta.url
+        : undefined;
+    if (metaUrl) {
+      let dir = dirname(fileURLToPath(metaUrl));
+      for (let i = 0; i < 8; i++) {
+        const pkgPath = join(dir, "package.json");
+        if (existsSync(pkgPath)) {
+          try {
+            const pkg = JSON.parse(readFileSync(pkgPath, "utf8")) as { name?: string };
+            if (pkg.name === "sci-os-x10" || pkg.name === "scios-alpha") return dir;
+          } catch {
+            /* continue walk */
+          }
         }
+        const parent = dirname(dir);
+        if (parent === dir) break;
+        dir = parent;
       }
-      const parent = dirname(dir);
-      if (parent === dir) break;
-      dir = parent;
     }
   } catch {
     /* bundled CJS may not have import.meta */
   }
-  return process.cwd();
+
+  const cwd = process.cwd();
+  if (cwd && existsSync(join(cwd, "backend", "server.cjs"))) return cwd;
+  const localAppData = process.env.LOCALAPPDATA;
+  if (localAppData) {
+    const installed = join(localAppData, "SCI OS X10");
+    if (existsSync(join(installed, "backend", "server.cjs"))) return installed;
+    const installedApp = join(installed, "app");
+    if (existsSync(join(installedApp, "backend", "server.cjs"))) return installedApp;
+  }
+  return cwd || ".";
 }
 
 function parseUrlHostPort(
@@ -625,9 +645,23 @@ export async function handleStartupReadiness(
   res: ServerResponse,
   sendJson: JsonSender
 ): Promise<void> {
-  const body = await buildStartupReadiness(deps);
-  const httpStatus = body.overall === "NO_GO" ? 503 : 200;
-  sendJson(res, httpStatus, body);
+  try {
+    const body = await buildStartupReadiness(deps);
+    const httpStatus = body.overall === "NO_GO" ? 503 : 200;
+    sendJson(res, httpStatus, body);
+  } catch (err) {
+    sendJson(res, 500, {
+      overall: "NO_GO",
+      verdict: "NO_GO",
+      score: 0,
+      maxScore: 0,
+      details: {
+        error: err instanceof Error ? err.message : String(err),
+      },
+      timestamp: new Date().toISOString(),
+      blockers: ["STARTUP_READINESS_INTERNAL_ERROR"],
+    });
+  }
 }
 
 /**
@@ -656,6 +690,30 @@ export async function systemRouter(opts: {
     opts.path === "/v1/system/startup-readiness"
   ) {
     await handleStartupReadiness(opts.deps, opts.res, opts.sendJson);
+    return true;
+  }
+
+  if (opts.path === "/v1/persistence/health") {
+    const health = await getPersistenceHealth();
+    opts.sendJson(opts.res, 200, health);
+    return true;
+  }
+
+  if (opts.path === "/v1/tls/health") {
+    const health = getTlsHealth();
+    opts.sendJson(opts.res, health.status === "READY" ? 200 : 503, health);
+    return true;
+  }
+
+  if (opts.path === "/v1/otel/health") {
+    const health = await getOtelHealth();
+    opts.sendJson(opts.res, health.status === "READY" ? 200 : 503, health);
+    return true;
+  }
+
+  if (opts.path === "/v1/observability/health") {
+    const health = await getObservabilityHealth();
+    opts.sendJson(opts.res, health.status === "READY" ? 200 : 503, health);
     return true;
   }
 

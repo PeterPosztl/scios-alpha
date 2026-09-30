@@ -1,0 +1,40 @@
+{
+  "schema": "sci-os-b008-experience-compiler-scope/v1",
+  "at": "2026-08-29T21:45:00.000Z",
+  "wave": "B-008",
+  "tokenTarget": "B_008_EXPERIENCE_COMPILER_READY",
+  "note": "Renumbered from blueprint B-007 after B-007 consumed by P1 root closure audit",
+  "authority": "packages/professional-domain-registry/src/experience-compiler.js",
+  "currentState": {
+    "compiler": "RUNTIME_MOUNTED via GET /v1/experience/compile",
+    "pipelineModule": "PRESENT — compiler-pipeline.js",
+    "hydration": "PASS — context/domain/evidence/analysis/risk/decision",
+    "healthEndpoint": "GET /v1/compiler/health",
+    "degradedMode": "SERVER — compilerStatus DEGRADED with degradedReasons",
+    "ghostDir": "packages/experience-compiler README-only (deprecated, OK)",
+    "wave": "B-008 COMPLETE"
+  },
+  "deliverables": [
+    "packages/professional-domain-registry/src/compiler-pipeline.js",
+    "Wire compileProductExperience through pipeline (kernel + domain + evidence hydration)",
+    "GET /v1/experience/health or extend /v1/system/health with compiler probe",
+    "Server-side degraded compile contract (compilerStatus: DEGRADED + degradedReason)",
+    "Sync experience-compiler.schema.json with sci-os-experience-compile/v1",
+    "scripts/tests/b008-experience-compiler-hard-gate.cjs",
+    "diagnostics-export/completion-program/b-008/11-final-gate.json"
+  ],
+  "inputsToHydrate": [
+    "buildActorContext / session envelope",
+    "ProductKernel.uiProjection via /v1/product/context",
+    "compileProfessionalRegistry domain validation",
+    "CAPABILITY_REGISTRY.json proven + evidence refs"
+  ],
+  "existingTests": [
+    "experience-compiler-matrix.cjs",
+    "block2-experience-proof.cjs",
+    "alpha-readiness.cjs",
+    "cf14-b003-hard-gate.cjs"
+  ],
+  "dependencies": ["B-006", "B-007"],
+  "downstream": ["B-009 Background system", "B-010 Persistence Beta gate"]
+}

@@ -1,0 +1,47 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "product": "SCI OS ×10 — unified enterprise intelligence operating environment (ALPHA)",
+  "not": [
+    "chatbot",
+    "dashboard pile",
+    "200 separate apps",
+    "agent swarm"
+  ],
+  "canonicalFlow": [
+    "DATA",
+    "CONTEXT",
+    "INTERPRETATION",
+    "PREDICTION",
+    "UNCERTAINTY",
+    "RISK",
+    "GOVERNANCE",
+    "DECISION",
+    "ACTION/SIMULATION",
+    "OUTCOME",
+    "EVIDENCE",
+    "LINEAGE"
+  ],
+  "subsystems": {
+    "DataFabric": "IMPLEMENTED",
+    "FeaturePlatform": "PARTIAL",
+    "Prediction": "PARTIAL",
+    "Risk": "PARTIAL",
+    "Governance": "PARTIAL",
+    "ExecutionSimulation": "PARTIAL",
+    "Evidence": "PARTIAL",
+    "Lineage": "PARTIAL",
+    "MetaIntelligence": "PARTIAL",
+    "MetaRecovery": "PARTIAL",
+    "ProductKernel": "PARTIAL",
+    "ExperienceCompiler": "PARTIAL",
+    "ProfessionalDomainRegistry": "IMPLEMENTED_AS_DATA",
+    "SystemClosure": "IMPLEMENTED",
+    "AppHost": "PARTIAL_SHELL_IS_HOST",
+    "ShellHomeSearchEntityGW1": "IMPLEMENTED",
+    "CaseWorkspace": "PARTIAL",
+    "GraphTimeline": "PARTIAL",
+    "CommandPalette": "ABSENT",
+    "NotificationsJobs": "PARTIAL"
+  }
+}

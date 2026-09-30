@@ -1,0 +1,29 @@
+{
+  "schema": "sci-os-real-data-build-log/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T18:02:00.000Z",
+  "ready": false,
+  "autoTrade": false,
+  "steps": [
+    {
+      "id": "registry",
+      "result": "PASS",
+      "detail": "SCI_FEED_IDS length 12. buildFeedRegistry certified=false persisted=false autoTrade=false liveCertified=0."
+    },
+    {
+      "id": "runtime",
+      "result": "PASS",
+      "detail": "currentFeedStatus().registry attached. GET /v1/ecl/feeds and /v1/dil/feeds persisted=false."
+    },
+    {
+      "id": "ui",
+      "result": "PASS",
+      "detail": "renderFeedRegistry inlined. Intelligence/Reporting/Evidence/Decisions/RiskGov/System Health/Architecture consume registry."
+    },
+    {
+      "id": "live",
+      "result": "PASS",
+      "detail": "Live GET /v1/ecl/feeds: registered=12 liveCertified=0 enabledLive=false actual=simulated_alpha."
+    }
+  ]
+}

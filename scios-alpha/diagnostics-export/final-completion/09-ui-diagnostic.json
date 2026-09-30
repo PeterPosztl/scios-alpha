@@ -1,0 +1,20 @@
+{
+  "schema": "sci-os-final-completion/09-ui-diagnostic/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T10:13:14.945Z",
+  "title": "Professional UI surface",
+  "sources": [
+    "completion-program/b-006/11-final-gate.json",
+    "GET :4000/healthz",
+    "scripts/tests/alpha-final-gate.cjs (cockpitPanels)"
+  ],
+  "shellReachable": true,
+  "professionalUxContract": "sci-os-professional-ux/v1",
+  "professionalUxSourceId": "apps/cockpit-ui/src/professional-ux.js",
+  "b006": {
+    "token": "B_006_PROFESSIONAL_UX_READY",
+    "status": "PASS"
+  },
+  "cockpitPanelsCheck": "PASS",
+  "honestyRule": "UI must not render a green ready state for an unavailable capability; degraded mode is surfaced from server-side readiness."
+}

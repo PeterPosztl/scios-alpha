@@ -1,0 +1,27 @@
+{
+  "at": "2026-08-13T14:31:11.804Z",
+  "buildId": "foundations-2026-08-13",
+  "context": {
+    "schema": "sci-os-context-fabric/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "status": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+    "rule": "Do not solve context with one enormous prompt",
+    "layers": [
+      "objectContext",
+      "dataSemantics",
+      "workflowContext",
+      "roleContext",
+      "organizationKnowledge",
+      "decisionMemory",
+      "evidence",
+      "workspaceContext",
+      "runtimeContext"
+    ],
+    "current": {
+      "workspaceContextEnvelope": "PRESENT discipline/ux-dna",
+      "unifiedRetriever": "ABSENT",
+      "promptStuffing": "REJECTED pattern"
+    }
+  },
+  "memory": null
+}

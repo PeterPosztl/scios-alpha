@@ -1,0 +1,181 @@
+{
+  "schema": "sci-os-native-autonomy-roadmap/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-18T18:20:00.000Z",
+  "baselineBuildId": "pkg_1787074480539",
+  "baselineClosure": { "P0": 0, "P1": 91, "P2": 184, "P3": 46 },
+  "definition": {
+    "nativeAutonomy": "SCI OS ability to start, supervise, recover, update, and prove itself on Windows with minimal external tooling — without faking READY or breaking P0 golden path.",
+    "nonGoals": [
+      "Replace HTTP Shell AppHost with Electron in first release",
+      "Auto-implement Windows Services during blueprint phase",
+      "Self-deploy without founder approval",
+      "Claim PRODUCTION_VALIDATED model or enterprise READY"
+    ]
+  },
+  "currentAutonomyLevel": {
+    "level": "L2_PACKAGED_USER_LAUNCH",
+    "description": "User can install, launch, run GW1, shutdown, and rollback via LOCALAPPDATA — no pnpm/Cursor/system Node.",
+    "proven": true,
+    "evidence": "diagnostics-export/package-sync/*",
+    "notYetProven": [
+      "Host reboot relaunch",
+      "Clean-machine Setup-only install",
+      "Child-service isolation soak",
+      "Auto-update",
+      "Unattended service mode"
+    ]
+  },
+  "phases": [
+    {
+      "phase": "P0_PROTECTED",
+      "name": "First-Release Host Baseline (CURRENT)",
+      "status": "COMPLETE",
+      "deliverables": [
+        "SOURCE=PACKAGE=INSTALL=RUNTIME synchronized",
+        "Bundled Node 20.18.1",
+        "Atomic install + app.backup.last",
+        "Thin EXE + CMD entry",
+        "Golden path PASS",
+        "P0=0"
+      ],
+      "doNotReopen": true
+    },
+    {
+      "phase": "P1_HOST_HARDENING",
+      "name": "Windows Host Evidence Closure",
+      "status": "QUEUED",
+      "priority": "P1",
+      "prerequisites": ["Blueprint audit accepted", "No P0 regression"],
+      "workItems": [
+        {
+          "id": "NA-P1-001",
+          "task": "Host reboot certification",
+          "action": "Human Windows restart → SCI-OS-X10.exe only → Home+GW1 → package:prove-reboot",
+          "evidence": "diagnostics-export/reboot-certification/",
+          "closureImpact": "Closes ERR-REBOOT-001 / windowsReboot gate",
+          "p0Risk": "LOW if proof-only"
+        },
+        {
+          "id": "NA-P1-002",
+          "task": "Child-service isolation soak",
+          "action": "Prove CP crash does not orphan Shell falsely healthy; vice versa",
+          "evidence": "diagnostics-export/os-environment/",
+          "closureImpact": "Closes childServiceIsolation UNPROVEN",
+          "p0Risk": "MEDIUM — requires careful supervisor patches"
+        },
+        {
+          "id": "NA-P1-003",
+          "task": "Host abstraction contract in product-memory",
+          "action": "Formalize L0–L7 contract JSON; no runtime behavior change",
+          "evidence": "product-memory/contracts/host-abstraction.json",
+          "p0Risk": "NONE"
+        },
+        {
+          "id": "NA-P1-004",
+          "task": "Truth reconciliation for stale final-release docs",
+          "action": "Align SCI_OS_FINAL_EXECUTIVE_STATUS with package-sync Aug 2026",
+          "p0Risk": "NONE"
+        },
+        {
+          "id": "NA-P1-005",
+          "task": "Clean-machine Setup.exe proof",
+          "action": "VM or fresh profile: Setup only → golden path",
+          "evidence": "diagnostics-export/final-closure/clean-install-proof.json",
+          "p0Risk": "LOW"
+        }
+      ],
+      "exitCriteria": [
+        "windowsReboot=true with evidence",
+        "childServiceIsolation=PROVEN or honest DEGRADED",
+        "clean-install-proof pass=true",
+        "P0 remains 0"
+      ]
+    },
+    {
+      "phase": "P2_HOST_SERVICES",
+      "name": "Optional Windows Service / Scheduler Integration",
+      "status": "NOT_STARTED",
+      "priority": "P2",
+      "prerequisites": ["P1_HOST_HARDENING exit criteria"],
+      "workItems": [
+        {
+          "id": "NA-P2-001",
+          "task": "ADR for Windows Service wrapper",
+          "options": ["NSSM", "WinSW", "Task Scheduler login trigger"],
+          "constraint": "Single orchestrator — no per-microservice Windows Services"
+        },
+        {
+          "id": "NA-P2-002",
+          "task": "Code signing pipeline",
+          "evidence": "Authenticode on Setup.exe + SCI-OS-X10.exe"
+        },
+        {
+          "id": "NA-P2-003",
+          "task": "Graceful shutdown hardening",
+          "closes": "packaging signoff shutdown=false"
+        },
+        {
+          "id": "NA-P2-004",
+          "task": "Host capability mining CLI",
+          "description": "Separate from meta-recovery — mines registry, services, reboot state, shortcuts"
+        }
+      ],
+      "exitCriteria": [
+        "Optional unattended start documented and proven",
+        "Signed binaries or honest NOT_AVAILABLE label",
+        "P0 remains 0"
+      ]
+    },
+    {
+      "phase": "P3_NATIVE_SHELL",
+      "name": "Native Window Host (Optional)",
+      "status": "DEFERRED",
+      "priority": "P3",
+      "backlogRef": "TASK-ELE-001, TASK-OS-001",
+      "description": "Optional native window chrome around existing HTTP Shell — not a second launcher/boot SM.",
+      "options": [
+        "Minimal Win32 WebView2 host pointing at :4000",
+        "Electron shell as optional wrapper only",
+        "Keep browser handoff as default"
+      ],
+      "constraints": [
+        "ADR-SHELL-001: Shell remains AppHost authority",
+        "Must not require system Node",
+        "Must preserve golden path without native host"
+      ]
+    },
+    {
+      "phase": "P3_FULL_OS_ENVIRONMENT",
+      "name": "Full OS Environment Expansion",
+      "status": "DEFERRED",
+      "priority": "P3",
+      "backlogRef": "TASK-OS-001",
+      "items": [
+        "Update manager / delta patches",
+        "Multi-monitor workspace persistence",
+        "AI-as-OS-service host integration",
+        "Session restore across reboot"
+      ]
+    }
+  ],
+  "autonomyMaturityModel": {
+    "L0": "Dev-only — pnpm, repo, system Node allowed",
+    "L1": "Packaged folder — manual dist launch",
+    "L2": "LOCALAPPDATA installed user launch (CURRENT PROVEN)",
+    "L3": "Reboot-surviving user launch (EXTERNAL_BLOCKER)",
+    "L4": "Clean-machine Setup-only install (MISSING)",
+    "L5": "Optional service/scheduler unattended start (ABSENT)",
+    "L6": "Signed + auto-update host (ABSENT)",
+    "L7": "Native shell + full OS environment (P3 DEFERRED)"
+  },
+  "governance": {
+    "founderGates": [
+      "No Windows Service implementation without ADR + P1 host hardening complete",
+      "No Electron rewrite of AppHost",
+      "No auto-deploy of host changes",
+      "Every phase requires diagnostics-export evidence before READY claims"
+    ],
+    "protectedBaseline": "pkg_1787074480539 / 8a0125a1 / P0=0"
+  }
+}

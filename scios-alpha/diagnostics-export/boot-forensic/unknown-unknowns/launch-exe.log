@@ -1,0 +1,18 @@
+{"app":"SCI OS ×10","packaged":true,"bootId":"boot_msqi91yu_d6npey","root":"C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10","node":"C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10\\runtime\\node\\node.exe","label":"ALPHA_NON_PRODUCTION"}
+{"bootId":"boot_msqi91yu_d6npey","event":"SHELL_HANDOFF","url":"http://127.0.0.1:4000/","status":"HOME_OPENED"}
+{
+  "correlationId": "5f39e45b-0768-4ad9-b2e1-7a1742eabdcb",
+  "mode": "normal",
+  "verdict": "DEGRADED",
+  "nextAction": "Core cockpit usable; optional PG/Redis/Electron/Docker limited — see warnings",
+  "cockpit": "http://127.0.0.1:4000/",
+  "diagnostics": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10\\diagnostics-export\\startup-report.json",
+  "supportBundle": null,
+  "blockers": [],
+  "warnings": [
+    "default.yaml missing",
+    "DATABASE_URL not set — ALPHA in-process mode (no durable DB)",
+    "REDIS_URL not set — queue workers disabled",
+    "Docker: CLI_MISSING"
+  ]
+}

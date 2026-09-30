@@ -1,0 +1,29 @@
+{
+  "schema": "sci-os-b010-requirements/v1",
+  "contract": "sci-os-persistence-contract/v1",
+  "stores": {
+    "LOCAL": "PASS",
+    "POSTGRES": "READY or BLOCKED_WITH_EXTERNAL_DEPENDENCY"
+  },
+  "tables": [
+    "sci_migrations",
+    "sci_jobs",
+    "sci_job_attempts",
+    "sci_evidence",
+    "sci_lineage",
+    "sci_domain_state",
+    "sci_experience_specs"
+  ],
+  "endpoints": [
+    "GET /v1/persistence/health"
+  ],
+  "capabilities": [
+    "postgresql adapter",
+    "migrations",
+    "repository interfaces",
+    "transaction boundaries",
+    "consistency checks",
+    "backup export",
+    "fallback local primary"
+  ]
+}

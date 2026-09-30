@@ -1,0 +1,100 @@
+{
+  "schema": "sci-os-master-execution-box/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "ready": false,
+  "autoTrade": false,
+  "durable": false,
+  "execution": false,
+  "pgDriver": "ABSENT",
+  "catalog": {
+    "schema": "sci-os-profession-blueprint/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "honesty": {
+      "autoTrade": false,
+      "ready": false,
+      "durable": false,
+      "execution": false,
+      "pgDriver": "ABSENT",
+      "calibratedLive": false,
+      "inventedSops": false,
+      "liveDomainData": false,
+      "secondShell": false,
+      "roles200Validated": false
+    },
+    "rolesSeeded": 200,
+    "familyOverlays": 21,
+    "familiesJson": 21,
+    "archetypesDefined": 9,
+    "specialistInheritOnly": 65,
+    "namedRoles": 135,
+    "roles200Validated": false,
+    "inventedSops": false,
+    "ohlcFamilies": [
+      "market_portfolio_risk",
+      "market_intelligence"
+    ],
+    "skippedFamilies": [
+      "physical_security",
+      "cloud_infra"
+    ],
+    "engine": {
+      "prediction": "POST /v1/ecl/engine/prediction",
+      "risk": "POST /v1/ecl/engine/risk-eval",
+      "decision": "POST /v1/ecl/engine/decision",
+      "sim": "POST /v1/ecl/engine/execution-sim",
+      "lineage": "GET /v1/ecl/engine/lineage",
+      "evidence": "GET /v1/ecl/engine/evidence",
+      "compute": "POST /v1/ecl/engine/cockpit-compute"
+    },
+    "note": "Compose Template ⊕ FAM ⊕ INST. Compile stays on 9 archetypes. Not 200 apps. Not READY."
+  },
+  "familyUxCount": 21,
+  "heroCount": 200,
+  "roles200Validated": false,
+  "inventedSops": false,
+  "checklist": {
+    "legend": "PASS = observed in this package · UNKNOWN = not observable here, resolve via verifier",
+    "verifier": "scripts/tests/master-execution-box-verify.cjs",
+    "backend": {
+      "professionBlueprintV1": "PASS",
+      "inst200": "PASS",
+      "fam21": "PASS",
+      "familyUxV3": "PASS",
+      "heroV3": "PASS",
+      "missionPanels": "PASS",
+      "ledgerActor": "PASS",
+      "engineRoutes": {
+        "prediction": "POST /v1/ecl/engine/prediction",
+        "risk": "POST /v1/ecl/engine/risk-eval",
+        "decision": "POST /v1/ecl/engine/decision",
+        "sim": "POST /v1/ecl/engine/execution-sim",
+        "lineage": "GET /v1/ecl/engine/lineage",
+        "evidence": "GET /v1/ecl/engine/evidence",
+        "compute": "POST /v1/ecl/engine/cockpit-compute"
+      },
+      "engineRoutesWired": "UNKNOWN",
+      "dataFabricObjects": "UNKNOWN",
+      "lineageHash": "UNKNOWN",
+      "evidenceChain": "UNKNOWN"
+    },
+    "frontend": {
+      "tokens": "UNKNOWN",
+      "primitivesSci": "UNKNOWN",
+      "analyze12col": "UNKNOWN",
+      "ribbonStateMachine": "UNKNOWN",
+      "missionPanels": "UNKNOWN",
+      "truthGraph": "UNKNOWN",
+      "familyUxV3": "UNKNOWN",
+      "heroV3": "UNKNOWN",
+      "i18nHonesty": "UNKNOWN"
+    }
+  },
+  "skipped": {
+    "hospitality": "SKIPPED_RESEARCH_REQUIRED",
+    "healthcare": "SKIPPED_RESEARCH_REQUIRED",
+    "fam11": "physical_security",
+    "fam18": "cloud_infra",
+    "fam20": "STUB"
+  },
+  "note": "Wired compose. Not READY. Not 200 apps. No boot. No flag-flip."
+}

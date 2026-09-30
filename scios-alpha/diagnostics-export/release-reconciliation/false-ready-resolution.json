@@ -1,0 +1,31 @@
+{
+  "at": "2026-08-12T21:28:10.142Z",
+  "schema": "sci-os-false-ready-resolution/v1",
+  "priorHighCount": 2,
+  "findings": [
+    {
+      "file": "apps/prediction-engine/app/main.py",
+      "function": "healthz",
+      "prior": "return {\"status\": \"ok\"}",
+      "affectsFirstReleaseBoot": false,
+      "affectsGw1": false,
+      "reason": "OPTIONAL FastAPI engine — first-release GW1 uses embedded vertical-slice prediction, not this process",
+      "affectsRiskGovernanceWorkerShellKernel": false,
+      "resolution": "FIXED — measurable modelLoaded predicate; labeled OPTIONAL_OFF_PATH",
+      "classification": "FALSE_POSITIVE_FOR_RELEASE_PATH"
+    },
+    {
+      "file": "apps/risk-engine/app/main.py",
+      "function": "healthz",
+      "prior": "return {\"status\": \"ok\"}",
+      "affectsFirstReleaseBoot": false,
+      "affectsGw1": false,
+      "reason": "OPTIONAL FastAPI engine — first-release GW1 uses embedded risk/governance in vertical-slice",
+      "affectsRiskGovernanceWorkerShellKernel": false,
+      "resolution": "FIXED — measurable limitsLoaded predicate; labeled OPTIONAL_OFF_PATH",
+      "classification": "FALSE_POSITIVE_FOR_RELEASE_PATH"
+    }
+  ],
+  "highRemainingOnCanonicalReleasePath": 0,
+  "note": "Canonical release path readiness is control-plane /readyz + cockpit — not optional FastAPI /healthz"
+}

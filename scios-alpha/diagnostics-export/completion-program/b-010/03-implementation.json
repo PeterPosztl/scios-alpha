@@ -1,0 +1,19 @@
+{
+  "authority": "packages/vertical-slice/src/persistence/",
+  "routes": [
+    "GET /v1/persistence/health",
+    "GET /v1/system/persistence-matrix"
+  ],
+  "tables": [
+    "sci_migrations",
+    "sci_jobs",
+    "sci_job_attempts",
+    "sci_evidence",
+    "sci_lineage",
+    "sci_domain_state",
+    "sci_experience_specs"
+  ],
+  "localTruth": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\data",
+  "postgres": "BLOCKED_WITH_EXTERNAL_DEPENDENCY",
+  "verdict": "B_010_PERSISTENCE_BLOCKED_WITH_EVIDENCE"
+}

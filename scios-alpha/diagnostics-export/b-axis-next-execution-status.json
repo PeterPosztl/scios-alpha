@@ -1,0 +1,64 @@
+﻿{
+  "schema": "sci-os-b-axis-next-execution-status/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "axis": "B_FULL_VISION",
+  "generatedAt": "2026-09-09T12:00:00+02:00",
+  "b1": "READY",
+  "b1Evidence": {
+    "dockerClientVersion": "29.7.2",
+    "dockerServerVersion": "29.7.2",
+    "wslDistro": "docker-desktop",
+    "wslState": "Running",
+    "wslVersion": 2,
+    "resolvedBy": "wsl --update; wsl --shutdown; Docker Desktop engine restart",
+    "note": "Docker Desktop self-updated 28.3.3 -> 29.7.2 mid-session. The new engine started with an empty data store (containers=0 images=0 volumes=0); all previously running containers, images and volumes are gone, including the out-of-tree GalaxusMetaOS stack."
+  },
+  "b2": "READY",
+  "b2Evidence": {
+    "composeProject": "scios-alpha-beta",
+    "composeFiles": [
+      "infra/docker/docker-compose.infra.beta.yml",
+      "infra/docker/docker-compose.otel.yml"
+    ],
+    "postgres": {
+      "container": "scios-beta-postgres",
+      "image": "postgres:16",
+      "hostPort": 5462,
+      "health": "healthy",
+      "functionalProbe": "psql -U scios -d scios -tAc \"select current_user||'@'||current_database()\"",
+      "functionalResult": "PG_OK scios@scios"
+    },
+    "redis": {
+      "container": "scios-beta-redis",
+      "image": "redis:7",
+      "hostPort": 6399,
+      "health": "healthy",
+      "functionalProbe": "redis-cli PING",
+      "functionalResult": "PONG"
+    },
+    "portRemapRationale": "Canonical infra/docker/docker-compose.infra.yml binds 5432/6379, which the out-of-tree GalaxusMetaOS compose project also claims with restart: unless-stopped. B-axis uses 5462/6399 via docker-compose.infra.beta.yml so the two projects can coexist. Compose appends (not replaces) `ports` on file merge, so a standalone file is used rather than an override."
+  },
+  "b4": "READY_INFRA",
+  "b4Evidence": {
+    "otelCollector": {
+      "container": "scios-alpha-beta-otel-collector-1",
+      "image": "otel/opentelemetry-collector-contrib:0.111.0",
+      "grpcPort": 4317,
+      "httpPort": 4318,
+      "startupLog": "Everything is ready. Begin running and processing data."
+    },
+    "tlsCerts": {
+      "dir": "%LOCALAPPDATA%\\SCI OS X10\\dev-tls",
+      "files": ["dev-cert.pem (1115 B)", "dev-cert.pfx (2678 B)", "dev-key.pem (1704 B)"],
+      "matchesOverlayPaths": true
+    },
+    "caveat": "Infra side only. TLS/OTel READY for the SCI OS control plane still requires the process to be started with the overlay env and /v1/tls/health + /v1/otel/health to report READY."
+  },
+  "b3": "BLOCKED_HUMAN_REQUIRED",
+  "b3Blocker": "OIDC_ISSUER / OIDC_CLIENT_ID / OIDC_CLIENT_SECRET / AUTH_MODE are still REPLACE_WITH_* placeholders in config/packaged.beta.overlay.json. Real IdP registration and secrets must be supplied by a human and must never be committed.",
+  "executed": ["B1", "B2", "B4-infra"],
+  "pending": ["B3", "B5", "B6", "B7"],
+  "mode": "IN_PROGRESS",
+  "alphaCleanCoreIntact": true,
+  "rollbackToAlpha": "Overlay is session-scoped and was not merged into packaged.json. Restart SCI OS x10 to return to ALPHA-clean; optionally: docker compose -p scios-alpha-beta -f infra/docker/docker-compose.infra.beta.yml -f infra/docker/docker-compose.otel.yml down"
+}

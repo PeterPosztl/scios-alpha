@@ -28,6 +28,27 @@ export const BASELINE_NON_PRODUCTION_MODELS: ModelMeta[] = [
     inputFeatures: ["momentum", "volatility", "liquidity"],
     outputType: "distribution",
   },
+  {
+    modelId: "dil-probability-alpha",
+    version: "0.1.0",
+    type: "ml",
+    inputFeatures: ["implied_price", "volume", "liquidity", "whale_prints"],
+    outputType: "distribution",
+  },
+  {
+    modelId: "dil-edge-alpha",
+    version: "0.1.0",
+    type: "ml",
+    inputFeatures: ["model_probability", "implied_probability"],
+    outputType: "point",
+  },
+  {
+    modelId: "dil-risk-kelly-alpha",
+    version: "0.1.0",
+    type: "ml",
+    inputFeatures: ["edge", "bankroll", "drawdown", "horizon"],
+    outputType: "point",
+  },
 ];
 
 export class InMemoryModelRegistry {

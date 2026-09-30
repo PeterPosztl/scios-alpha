@@ -1,0 +1,32 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "risks": [
+    {
+      "id": "sec.localhost_open_api",
+      "impact": "Local process can invoke Analyze without auth",
+      "reason": "ALPHA local-development profile",
+      "mitigation": "Loopback bind; single-user; document",
+      "owner": "platform",
+      "future": "Auth before multi-user BETA",
+      "acceptedForAlpha": true
+    },
+    {
+      "id": "sec.supply_chain_pnpm",
+      "impact": "Dependency compromise",
+      "reason": "Standard JS supply chain",
+      "mitigation": "lockfile; avoid random deps",
+      "owner": "platform",
+      "future": "SBOM in packaging wave",
+      "acceptedForAlpha": true
+    },
+    {
+      "id": "sec.prompt_injection",
+      "impact": "AI assist misuse if added loosely",
+      "reason": "AI not primary shell yet",
+      "mitigation": "AI must not override risk/gov",
+      "owner": "ai",
+      "future": "Red-team when copilots mount",
+      "acceptedForAlpha": true
+    }
+  ]
+}

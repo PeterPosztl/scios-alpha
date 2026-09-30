@@ -1,0 +1,17 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "gaps": [
+    {
+      "id": "AUTH_LOCAL_DEV",
+      "severity": "P2",
+      "expectedForAlpha": true
+    },
+    {
+      "id": "BIND_ALL_INTERFACES",
+      "severity": "CLOSED",
+      "state": "DEFAULT_127_0_0_1",
+      "override": "SCIOS_BIND"
+    }
+  ]
+}

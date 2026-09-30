@@ -1,0 +1,32 @@
+{
+  "schema": "sci-os-completion-audit/product-kernel/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "overallMaturity": "PARTIAL",
+  "packages/product-kernel": {
+    "srcFiles": 7,
+    "status": "SOURCE_EXISTS",
+    "capabilities": ["capability-registry.js", "discipline/maturity.js"],
+    "runtimeConnected": true,
+    "note": "Registered in boot path but not deeply exercised"
+  },
+  "packages/vertical-slice": {
+    "srcFiles": 14,
+    "status": "SOURCE_EXISTS",
+    "note": "Most complete non-infra package; provides slice framework"
+  },
+  "packages/os-environment": {
+    "srcFiles": 4,
+    "status": "RUNTIME_CONNECTED",
+    "note": "Environment detection, profile loading"
+  },
+  "packages/workspace-composer": {
+    "srcFiles": 1,
+    "status": "SOURCE_EXISTS",
+    "note": "Minimal stub"
+  },
+  "components": 42,
+  "actions": 46,
+  "rolesArchetypes": 7,
+  "rolesSeeded": 200,
+  "detectorHits": 165
+}

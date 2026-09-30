@@ -1,0 +1,25 @@
+{
+  "at": "2026-08-13T12:39:24.586Z",
+  "buildId": "enterprise-discipline-2026-08-13",
+  "schema": "sci-os-release-governor/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "inputs": {
+    "reliabilityStatus": "UNKNOWN_UNTIL_MEASURED",
+    "knownP0StructuralGaps": 0,
+    "knownP1ProductGaps": 0,
+    "sloErrorBudgetsExhausted": false,
+    "evaluationRegressions": 0,
+    "uxDeadEnds": 0,
+    "disconnectedMandatoryCapabilities": 0,
+    "evidenceFreshnessOk": true,
+    "technicalDebtNotes": [
+      "monolithic shell",
+      "enterprise PG lineage P2",
+      "packaged GW1 external validation"
+    ],
+    "externalValidationOpen": 1
+  },
+  "policy": "If structural/reliability debt exceeds policy, prioritize closure before expansion",
+  "verdict": "ALLOW_INTERNAL_ONLY_EXTERNAL_VALIDATION_PENDING",
+  "blockUnrelatedFeatureExpansion": false
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "sci-os-final-completion/10-performance-diagnostic/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T10:13:14.945Z",
+  "title": "Measured performance",
+  "sources": [
+    "final-completion/installed-restart-reliability.json",
+    "installed startup-report.json"
+  ],
+  "note": "Only measured values are recorded. No performance number is estimated or invented.",
+  "installedBootToProductSurfaceMs": [
+    3119,
+    3094,
+    3106
+  ],
+  "installedBootSamples": 3,
+  "orchestratorReportedDurationMs": 4649,
+  "unmeasured": [
+    "UI frame rate / 120 FPS target",
+    "large-graph render latency",
+    "sustained multi-user throughput",
+    "cold-start on constrained hardware"
+  ],
+  "unmeasuredClassification": "UNKNOWN — no executable measurement exists for these."
+}

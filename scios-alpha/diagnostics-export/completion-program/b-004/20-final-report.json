@@ -1,7 +1,7 @@
 {
   "schema": "sci-os-b004-hard-gate/v1",
-  "at": "2026-08-29T18:01:08.702Z",
-  "cp": "http://127.0.0.1:3002",
+  "at": "2026-09-30T10:08:39.654Z",
+  "cp": "http://127.0.0.1:3000",
   "steps": {
     "persistenceMatrixRoute": "PASS",
     "verticalSliceDurable": "PASS",

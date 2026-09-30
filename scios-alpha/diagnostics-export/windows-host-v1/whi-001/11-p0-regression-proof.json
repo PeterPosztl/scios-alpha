@@ -1,0 +1,15 @@
+{
+  "schema": "sci-os-whi-001-p0-regression/v1",
+  "at": "2026-08-18T19:16:30.000Z",
+  "installedBuildId": "pkg_1787080434560",
+  "testRelease": "PASS",
+  "whi001Tests": "PASS",
+  "goldenPath": {
+    "note": "package-sync-prove hardcodes prior buildId; live GW1 run succeeded",
+    "runId": "run_5fd98a04-18b9-4601-8c83-6579da20618e",
+    "buildId": "pkg_1787080434560"
+  },
+  "p0Before": 0,
+  "p0After": 0,
+  "status": "PASS"
+}

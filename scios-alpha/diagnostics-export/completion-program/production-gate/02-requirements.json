@@ -1,0 +1,28 @@
+{
+  "schema": "sci-os-production-gate-requirements/v1",
+  "domains": [
+    "installation durability",
+    "upgrade durability",
+    "rollback durability",
+    "persistence fallback correctness",
+    "job lifecycle durability under load",
+    "pipeline durability under load",
+    "cockpit durability under load",
+    "system health durability under load",
+    "governance durability (FD-001)",
+    "external dependency honesty (PG, OIDC)",
+    "installed E2E production suite"
+  ],
+  "productionPrerequisites": [
+    "BETA_GATE_READY",
+    "FD-001 OIDC",
+    "FD-007 deployment model",
+    "TLS termination",
+    "enterprise RBAC",
+    "P1 = 0"
+  ],
+  "tokens": [
+    "PRODUCTION_GATE_READY",
+    "PRODUCTION_GATE_BLOCKED_WITH_EVIDENCE"
+  ]
+}

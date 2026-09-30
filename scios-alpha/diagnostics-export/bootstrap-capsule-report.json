@@ -1,13 +1,15 @@
 {
-  "at": "2026-08-12T13:07:36.338Z",
+  "at": "2026-09-23T19:48:00.884Z",
   "capsule": "BootstrapCapsule",
   "manifestId": "SCI_OS_X10",
   "mode": "FULL_SYSTEM",
   "profile": "local-foundation",
   "root": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+  "packaged": false,
   "node": {
     "usable": true,
-    "version": "24.13.1"
+    "version": "24.13.1",
+    "source": "system"
   },
   "ports": {
     "backend": 3000,

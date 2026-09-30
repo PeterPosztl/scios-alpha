@@ -1,0 +1,198 @@
+{
+  "schema": "sci-os-external-source-registry/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "hierarchy": {
+    "T1": "official_standards_docs_apis_design_systems_sdks",
+    "T2": "peer_reviewed_or_established_oss_maintainer_docs",
+    "T3": "vendor_engineering_pubs_conference",
+    "T4": "high_quality_practitioner",
+    "T5": "community_discovery_leads_only"
+  },
+  "sources": [
+    {
+      "id": "w3c-wcag",
+      "tier": "T1",
+      "kind": "standard",
+      "title": "WCAG accessibility guidelines",
+      "url": "https://www.w3.org/WAI/standards-guidelines/wcag/",
+      "domains": [
+        "accessibility",
+        "ux"
+      ]
+    },
+    {
+      "id": "opentelemetry",
+      "tier": "T1",
+      "kind": "standard",
+      "title": "OpenTelemetry",
+      "url": "https://opentelemetry.io/docs/",
+      "domains": [
+        "observability"
+      ]
+    },
+    {
+      "id": "iso-31000",
+      "tier": "T1",
+      "kind": "standard",
+      "title": "ISO 31000 Risk Management (public overview)",
+      "url": "https://www.iso.org/iso-31000-risk-management.html",
+      "domains": [
+        "risk",
+        "governance"
+      ]
+    },
+    {
+      "id": "nist-ai-rmf",
+      "tier": "T1",
+      "kind": "standard",
+      "title": "NIST AI Risk Management Framework",
+      "url": "https://www.nist.gov/itl/ai-risk-management-framework",
+      "domains": [
+        "ai",
+        "governance",
+        "risk"
+      ]
+    },
+    {
+      "id": "fluent2",
+      "tier": "T1",
+      "kind": "design_system",
+      "title": "Microsoft Fluent 2",
+      "url": "https://fluent2.microsoft.design/",
+      "domains": [
+        "design",
+        "density",
+        "desktop"
+      ]
+    },
+    {
+      "id": "carbon",
+      "tier": "T1",
+      "kind": "design_system",
+      "title": "IBM Carbon Design System",
+      "url": "https://carbondesignsystem.com/",
+      "domains": [
+        "design",
+        "data",
+        "enterprise"
+      ]
+    },
+    {
+      "id": "material3",
+      "tier": "T1",
+      "kind": "design_system",
+      "title": "Material Design 3",
+      "url": "https://m3.material.io/",
+      "domains": [
+        "design"
+      ]
+    },
+    {
+      "id": "elastic-eui",
+      "tier": "T1",
+      "kind": "design_system",
+      "title": "Elastic UI (EUI)",
+      "url": "https://eui.elastic.co/",
+      "domains": [
+        "design",
+        "security",
+        "observability"
+      ]
+    },
+    {
+      "id": "atlassian-ads",
+      "tier": "T1",
+      "kind": "design_system",
+      "title": "Atlassian Design System",
+      "url": "https://atlassian.design/",
+      "domains": [
+        "design",
+        "workflow"
+      ]
+    },
+    {
+      "id": "spectrum",
+      "tier": "T1",
+      "kind": "design_system",
+      "title": "Adobe Spectrum",
+      "url": "https://spectrum.adobe.com/",
+      "domains": [
+        "design"
+      ]
+    },
+    {
+      "id": "lightning",
+      "tier": "T1",
+      "kind": "design_system",
+      "title": "Salesforce Lightning Design System",
+      "url": "https://www.lightningdesignsystem.com/",
+      "domains": [
+        "design",
+        "crm"
+      ]
+    },
+    {
+      "id": "neo4j-bloom-docs",
+      "tier": "T1",
+      "kind": "product_docs",
+      "title": "Neo4j Bloom / graph exploration (public docs)",
+      "url": "https://neo4j.com/docs/bloom-user-guide/current/",
+      "domains": [
+        "graph"
+      ]
+    },
+    {
+      "id": "otel-semconv",
+      "tier": "T1",
+      "kind": "standard",
+      "title": "OpenTelemetry Semantic Conventions",
+      "url": "https://opentelemetry.io/docs/specs/semconv/",
+      "domains": [
+        "observability",
+        "telemetry"
+      ]
+    },
+    {
+      "id": "duckdb-docs",
+      "tier": "T2",
+      "kind": "oss",
+      "title": "DuckDB documentation",
+      "url": "https://duckdb.org/docs/",
+      "domains": [
+        "analytics"
+      ]
+    },
+    {
+      "id": "apache-iceberg",
+      "tier": "T2",
+      "kind": "oss",
+      "title": "Apache Iceberg",
+      "url": "https://iceberg.apache.org/",
+      "domains": [
+        "data"
+      ]
+    },
+    {
+      "id": "feast-docs",
+      "tier": "T2",
+      "kind": "oss",
+      "title": "Feast feature store",
+      "url": "https://docs.feast.dev/",
+      "domains": [
+        "ml",
+        "features"
+      ]
+    },
+    {
+      "id": "sci-prior-ux-benchmark",
+      "tier": "T4",
+      "kind": "internal_prior_art",
+      "title": "SCI OS prior UX competitive benchmark (public-refs method)",
+      "path": "diagnostics-export/ux-competitive-benchmark.json",
+      "domains": [
+        "ux",
+        "benchmark"
+      ]
+    }
+  ]
+}

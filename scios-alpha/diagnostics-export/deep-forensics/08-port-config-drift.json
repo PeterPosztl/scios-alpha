@@ -1,0 +1,25 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "canonical": {
+    "backend": 3000,
+    "cockpit": 4000,
+    "recoveryShell": 5299,
+    "postgres": 5432,
+    "redis": 6379
+  },
+  "serverDefault": "3000",
+  "readmeLegacyMarked": true,
+  "ports": {
+    "3000": "CURRENT control-plane",
+    "4000": "CURRENT shell",
+    "5200": "LEGACY rejected default",
+    "5201": "OPTIONAL prediction-engine",
+    "5202": "OPTIONAL risk-engine",
+    "5210": "OPTIONAL execution-simulator",
+    "5230": "LEGACY mock-api / rejected shell",
+    "5299": "CURRENT recovery shell",
+    "5432": "OPTIONAL postgres",
+    "6379": "OPTIONAL redis"
+  }
+}

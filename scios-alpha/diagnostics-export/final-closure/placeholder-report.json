@@ -1,0 +1,142 @@
+{
+  "at": "2026-08-12T20:22:33.425Z",
+  "count": 27,
+  "findings": [
+    {
+      "file": "apps/cockpit-ui/src/index.js",
+      "pattern": "placeholder",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "dev/generator.cjs",
+      "pattern": "TODO",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "dev/generator.cjs",
+      "pattern": "FIXME",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "dev/generator.cjs",
+      "pattern": "placeholder",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "dev/generator.cjs",
+      "pattern": "stub_literal",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "dev/generator.py",
+      "pattern": "TODO",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "dev/generator.py",
+      "pattern": "FIXME",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "dev/generator.py",
+      "pattern": "placeholder",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "dev/generator.py",
+      "pattern": "stub_literal",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "installer/scripts/convergence/lib.cjs",
+      "pattern": "placeholder",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "installer/scripts/startup/ensure-redis.cjs",
+      "pattern": "stub_literal",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "packages/capability-closure/src/index.js",
+      "pattern": "stub_literal",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "packages/meta-recovery/src/repair.ts",
+      "pattern": "placeholder",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "packages/probability-engine/probability_engine.py",
+      "pattern": "stub_literal",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "packages/product-kernel/src/capability-registry.js",
+      "pattern": "stub_literal",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "packages/product-kernel/src/export-artifacts.js",
+      "pattern": "placeholder",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "packages/product-kernel/src/index.js",
+      "pattern": "stub_literal",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "packages/system-closure/src/cli.js",
+      "pattern": "TODO",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "packages/system-closure/src/cli.js",
+      "pattern": "FIXME",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "packages/system-closure/src/cli.js",
+      "pattern": "placeholder",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "packages/system-closure/src/cli.js",
+      "pattern": "stub_literal",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "packages/system-closure/src/final-closure.js",
+      "pattern": "TODO",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "packages/system-closure/src/final-closure.js",
+      "pattern": "FIXME",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "packages/system-closure/src/final-closure.js",
+      "pattern": "placeholder",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "packages/system-closure/src/final-closure.js",
+      "pattern": "stub_literal",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "packages/validation-engine/validation_engine.py",
+      "pattern": "stub_literal",
+      "classification": "REVIEW"
+    },
+    {
+      "file": "scripts/gate-scaffold.mjs",
+      "pattern": "stub_literal",
+      "classification": "REVIEW"
+    }
+  ],
+  "note": "REVIEW ≠ automatic FAIL; required runtime placeholders tracked separately"
+}

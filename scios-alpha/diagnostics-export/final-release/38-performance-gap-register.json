@@ -1,0 +1,21 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "measured": {
+    "note": "No load-test numbers claimed",
+    "multiGw1_n3": true
+  },
+  "untested": [
+    "large graph",
+    "large table virtualization",
+    "high concurrency users",
+    "long-running workers under Redis",
+    "installer duration"
+  ],
+  "gaps": [
+    {
+      "id": "perf.untested_scale",
+      "state": "UNTESTED",
+      "evidence": "none"
+    }
+  ]
+}

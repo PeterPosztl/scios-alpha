@@ -1,0 +1,17 @@
+{
+  "at": "2026-08-13T10:46:30.000Z",
+  "schema": "sci-os-10-first-release-verdict/v1",
+  "verdict": "FIRST RELEASE — NOT READY",
+  "pass": false,
+  "blockingPredicate": "GW1",
+  "bootFileTimeUtcChanged": true,
+  "rebootDetectorEnvironmentBlocker": false,
+  "counts": {
+    "FIRST_RELEASE_INTERNAL_P0": 0,
+    "FIRST_RELEASE_INTERNAL_P1": 1,
+    "PENDING_MANDATORY_VALIDATION": 1
+  },
+  "taskPkg003": "OPEN",
+  "optionalInfrastructure": "OPTIONAL_INFRA_DEGRADED",
+  "p2P3FullVision": "NOT_REOPENED"
+}

@@ -1,0 +1,67 @@
+{
+  "schema": "sci-os-full-blueprint-activation-feedback/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T17:38:12.000Z",
+  "identity": "ENTERPRISE_GRADE_ALPHA",
+  "ready": false,
+  "holeless": false,
+  "autoTrade": false,
+  "autoApply": false,
+  "secondWorkflowEngine": false,
+  "secondShell": false,
+  "parallelOS": false,
+  "oneBoot": "start-sci-os.cjs",
+  "oneShell": "apps/cockpit-ui :4000",
+  "mode": "FULL_BLUEPRINT_ACTIVATION_AND_INTEGRATION",
+  "scan": {
+    "existingEncoded": {
+      "ldaRuntime": "ABSENT",
+      "knowledgeGraphEngine": "ABSENT",
+      "workflowDslCompiler": "ABSENT",
+      "kafkaEventStore": "ABSENT",
+      "multiRegion": false
+    },
+    "analogsFound": {
+      "lda": "DIL AI proposals + GOVERNANCE > AGENT; Cursor is implementer outside the product",
+      "knowledgeGraph": "packages/data-fabric ontology Wave-1 + GW1 lineage + professional-domain-registry 200 RESEARCH_REQUIRED seeds",
+      "workflowDsl": "GW1 VERTICAL_SLICE_STAGES + CF11 TRANSITION_MATRIX",
+      "distributedOs": "local-foundation single node; optional PG/Redis OPTIONAL_INFRA_DEGRADED; local-durable run index"
+    },
+    "hiddenModulesEnabledAsLiveRuntimes": false,
+    "secondOS": false,
+    "secondShell": false,
+    "unexpectedLiveFeeds": false
+  },
+  "mapped": {
+    "LDA.core": { "status": "ABSENT", "enabled": false, "autoPatch": false },
+    "KG.core": { "status": "PARTIAL", "nationalGraph": false, "causalQueryEngine": "ABSENT" },
+    "DSL.core": { "status": "ABSENT", "secondEngine": false },
+    "Dist.core": { "status": "ABSENT", "kafka": "ABSENT", "multiRegion": false }
+  },
+  "appliedThisPass": [
+    "BLUEPRINT_HOOKS prepared=true enabled=false",
+    "GET /v1/ecl/blueprints persisted:false",
+    "Engineering Agent Studio / KG Explorer / Workflow Studio / Distributed OS views",
+    "Lineage Explorer GW1 session graph overlay",
+    "Intelligence Domain Intelligence jump",
+    "Work → Workflow Studio / Dev Assistant jumps",
+    "Command palette entries"
+  ],
+  "refused": {
+    "ldaAutoPatch": "GOVERNANCE > AGENT — Cursor remains implementer; SCI OS does not auto-apply diffs",
+    "secondWorkflowEngine": "PCT-VERTICAL-SLICE-STAGES + GAP-0006 — GW1 is the only live workflow",
+    "kafkaBoot": "oneBoot_oneShell · local-foundation",
+    "nationalKgReady": "200 role seeds are RESEARCH_REQUIRED, not expert ontologies",
+    "readyClaim": false,
+    "autoTrade": false
+  },
+  "tests": {
+    "cockpit": "10/10",
+    "eclDil": "10/10",
+    "smoke": "ok",
+    "autoTrade": false,
+    "autoApply": false
+  },
+  "buildLog": "diagnostics-export/full-blueprint-activation-build-log.json",
+  "honesty": "Blueprints are inventoried and composed into the existing Shell as honesty studios. They are not live LDA/KG/DSL/distributed runtimes. ALPHA_NON_PRODUCTION. Not READY."
+}

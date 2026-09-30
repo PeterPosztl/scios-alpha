@@ -78,6 +78,12 @@ export type ExecutionOutcome = {
 
 export type Lineage = {
   lineageId: string;
+  /**
+   * Hash-chain tip. The store computes it and sci_lineage.tip_hash persists it,
+   * so the view must carry it: without a tip, a consumer cannot reference the
+   * chain state without rewalking every node.
+   */
+  tipHash: string | null;
   nodes: Array<{ id: string; type: string; meta?: Record<string, unknown> }>;
   edges: Array<{ from: string; to: string; type?: string }>;
 };

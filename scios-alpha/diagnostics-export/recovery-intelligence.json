@@ -1,0 +1,15 @@
+{
+  "schema": "sci-os-recovery-intelligence-boot/v1",
+  "at": "2026-09-23T19:48:25.613Z",
+  "suppressed": false,
+  "incidents": [],
+  "aligned": true,
+  "snapshot": {
+    "schema": "sci-os-recovery-intelligence/v1",
+    "slice": "WHI-010",
+    "at": "2026-09-23T19:48:25.614Z",
+    "incidents": [],
+    "budget": {},
+    "activeFlights": []
+  }
+}

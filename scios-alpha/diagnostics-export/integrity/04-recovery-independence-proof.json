@@ -1,0 +1,10 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "repairPrefersBundled": true,
+  "metaPackagedBranch": true,
+  "metaDevStillPnpm": true,
+  "cascadePrefersBundled": true,
+  "status": "PARTIAL",
+  "note": "PACKAGED path prefers bundled Node; DEVELOPMENT Meta-Recovery may use pnpm"
+}

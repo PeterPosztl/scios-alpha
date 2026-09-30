@@ -1,0 +1,13 @@
+{
+  "authority": "apps/control-plane-api/src/osSession.ts",
+  "orchestrator": "apps/control-plane-api/src/jobEngine.ts",
+  "lifecycle": "apps/control-plane-api/src/jobLifecycleContract.ts",
+  "health": "apps/control-plane-api/src/jobLifecycle.ts",
+  "routes": [
+    "GET /v1/jobs/health",
+    "GET /v1/jobs",
+    "GET /v1/jobs/:id",
+    "GET /v1/os/job-engine/status",
+    "POST /v1/os/jobs/:id/start|complete|fail|retry|cancel|recover"
+  ]
+}

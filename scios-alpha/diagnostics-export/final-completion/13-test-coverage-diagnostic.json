@@ -1,0 +1,74 @@
+{
+  "schema": "sci-os-final-completion/13-test-coverage-diagnostic/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T10:13:14.945Z",
+  "title": "Test layers actually executed",
+  "sources": [
+    "package.json scripts",
+    "final-completion/app-typecheck-gate.json"
+  ],
+  "releaseSuiteSteps": 34,
+  "releaseSuiteScripts": [
+    "node scripts/tests/cockpit-generated-script.cjs",
+    "node scripts/tests/boot-lock-orphan-recovery.cjs",
+    "node scripts/tests/installed-restart-reliability.cjs",
+    "node scripts/tests/app-typecheck-gate.cjs",
+    "node scripts/tests/cockpit-birth-test.cjs",
+    "node scripts/tests/exit-contract.test.cjs",
+    "node scripts/tests/correlation-ids.cjs",
+    "node scripts/tests/runtime-security-path.cjs",
+    "node scripts/tests/privacy-safe-logs.cjs",
+    "node scripts/tests/first-release-resilience.cjs",
+    "node scripts/tests/cockpit-output-encoding.cjs",
+    "node scripts/tests/default-yaml-optional.cjs",
+    "node scripts/tests/action-chain-honesty.cjs",
+    "node scripts/tests/completion-wiring.cjs",
+    "node scripts/tests/block2-experience-proof.cjs",
+    "node scripts/tests/experience-compiler-matrix.cjs",
+    "node scripts/tests/alpha-product-convergence.cjs",
+    "node scripts/tests/cf11-job-states.cjs",
+    "node scripts/tests/cf11-b002-hard-gate.cjs",
+    "node scripts/tests/cf14-policy-unit.cjs",
+    "node scripts/tests/cf14-policy-enforcement.cjs",
+    "node scripts/tests/cf14-b003-hard-gate.cjs",
+    "node scripts/tests/b004-persistence-hard-gate.cjs",
+    "node scripts/tests/cf28-b005-hard-gate.cjs",
+    "node scripts/tests/job-engine-b005-hard-gate.cjs",
+    "node scripts/tests/whi-001-job-object.cjs",
+    "node scripts/tests/whi-011-host-digital-twin.cjs",
+    "node scripts/tests/whi-010-recovery-intelligence.cjs",
+    "node scripts/tests/whi-004-host-event-provider.cjs",
+    "node scripts/tests/b006-cockpit-ui-hard-gate.cjs",
+    "node scripts/tests/b007-p1-root-closure.cjs",
+    "node scripts/tests/b008-experience-compiler-hard-gate.cjs",
+    "node scripts/tests/b009-background-system-hard-gate.cjs",
+    "node scripts/tests/b010-persistence-hard-gate.cjs"
+  ],
+  "appTypecheck": {
+    "token": "APP_TYPECHECK_GATE_PASS",
+    "apps": [
+      {
+        "app": "control-plane-api",
+        "errors": 0
+      },
+      {
+        "app": "execution-simulator",
+        "errors": 0
+      },
+      {
+        "app": "mock-api",
+        "errors": 0
+      }
+    ]
+  },
+  "packageDeclarationDrift": "PASS",
+  "distinction": "Source-level PASS is not treated as installed PASS. Installed proof comes from alpha-final-gate and installed-restart-reliability.",
+  "knownUngatedSuites": [
+    {
+      "script": "apps/control-plane-api smoke:ecl-dil",
+      "state": "NOT_GATED",
+      "observed": "1 failing assertion (engine infra claimed pg driver)",
+      "classification": "NON_BLOCKING_TECH_DEBT"
+    }
+  ]
+}

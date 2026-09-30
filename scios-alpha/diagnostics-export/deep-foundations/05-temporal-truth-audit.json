@@ -1,0 +1,13 @@
+{
+  "at": "2026-08-13T13:09:39.331Z",
+  "buildId": "deep-foundations-2026-08-13",
+  "current": {
+    "eventTime": "PRESENT on normalized events",
+    "validFrom": "PRESENT",
+    "observationTime": "PARTIAL/ABSENT as first-class",
+    "ingestTime": "PRESENT as ingestionTime",
+    "asOfQuery": "ABSENT — cannot fully answer WHAT DID SCI KNOW AT T"
+  },
+  "futureDataLeakageControls": "PARTIAL — PIT features exist; formal as-of store DEFER",
+  "classification": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER"
+}

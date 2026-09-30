@@ -1,0 +1,107 @@
+{
+  "at": "2026-08-12T17:14:38.329Z",
+  "subsystems": [
+    {
+      "id": "BOOTSTRAP",
+      "status": "WORKING",
+      "maturity": "L5",
+      "evidence": "bootstrap-capsule.cjs"
+    },
+    {
+      "id": "RUNTIME",
+      "status": "WORKING",
+      "maturity": "L5",
+      "evidence": "readyz"
+    },
+    {
+      "id": "INFRASTRUCTURE",
+      "status": "DEGRADED",
+      "maturity": "L3",
+      "evidence": "PG/Redis optional down"
+    },
+    {
+      "id": "BACKEND",
+      "status": "WORKING",
+      "maturity": "L6",
+      "evidence": "healthz"
+    },
+    {
+      "id": "WORKERS",
+      "status": "WORKING",
+      "maturity": "L5",
+      "evidence": "worker-smoke"
+    },
+    {
+      "id": "DATA",
+      "status": "PARTIAL",
+      "maturity": "L5",
+      "evidence": "vertical-slice"
+    },
+    {
+      "id": "PREDICTION",
+      "status": "WORKING",
+      "maturity": "L6",
+      "evidence": "09-prediction-proof"
+    },
+    {
+      "id": "RISK",
+      "status": "WORKING",
+      "maturity": "L6",
+      "evidence": "10-risk-proof"
+    },
+    {
+      "id": "GOVERNANCE",
+      "status": "WORKING",
+      "maturity": "L6",
+      "evidence": "11-governance-proof"
+    },
+    {
+      "id": "SIMULATION",
+      "status": "WORKING",
+      "maturity": "L6",
+      "evidence": "12-execution-proof"
+    },
+    {
+      "id": "LINEAGE",
+      "status": "WORKING",
+      "maturity": "L6",
+      "evidence": "13-lineage-proof"
+    },
+    {
+      "id": "PRODUCT_KERNEL",
+      "status": "PARTIAL",
+      "maturity": "L4",
+      "evidence": "14-product-kernel-proof"
+    },
+    {
+      "id": "UX",
+      "status": "WORKING",
+      "maturity": "L7",
+      "evidence": "24-ux-proof"
+    },
+    {
+      "id": "RECOVERY",
+      "status": "PARTIAL",
+      "maturity": "L3",
+      "evidence": "16-recovery-proof"
+    },
+    {
+      "id": "SECURITY",
+      "status": "PARTIAL",
+      "maturity": "L3",
+      "evidence": "17-security-proof"
+    },
+    {
+      "id": "PACKAGING",
+      "status": "FAILED",
+      "maturity": "L1",
+      "evidence": "18-packaging-proof"
+    },
+    {
+      "id": "INSTALLER",
+      "status": "FAILED",
+      "maturity": "L1",
+      "evidence": "19-clean-install-proof"
+    }
+  ]
+}

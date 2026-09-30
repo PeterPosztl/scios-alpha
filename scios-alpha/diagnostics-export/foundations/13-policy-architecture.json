@@ -1,0 +1,16 @@
+{
+  "at": "2026-08-13T14:31:11.804Z",
+  "buildId": "foundations-2026-08-13",
+  "schema": "sci-os-policy-architecture/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "status": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+  "separation": {
+    "POLICY_DECISION": "what is allowed (governance-engine / policy version)",
+    "POLICY_ENFORCEMENT": "hard gate at action execution — UI hide is not enforcement"
+  },
+  "rule": "Every consequential ACTION_EXECUTED must pass enforcement point",
+  "current": {
+    "decision": "PARTIAL — governanceDecide in vertical-slice",
+    "enforcement": "PARTIAL — action-gate + can() RBAC; not all UI actions gated"
+  }
+}

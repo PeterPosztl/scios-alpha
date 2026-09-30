@@ -1,0 +1,115 @@
+{
+  "at": "2026-08-12T15:57:08.055Z",
+  "schema": "sci-os-ux-usability-proof/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "cockpitPort": 4000,
+  "verdict": "PARTIAL",
+  "counts": {
+    "pass": 7,
+    "fail": 4,
+    "unknown": 1
+  },
+  "workflowTarget": "Graph → Timeline → Evidence → Dossier → Client Portal → Executive",
+  "alphaWorkflowObserved": [
+    "Dashboard",
+    "Vertical Slice",
+    "Lineage",
+    "Risk",
+    "Execution",
+    "System Health"
+  ],
+  "fasterClearerWorkflowRules": [
+    "One primary action per view",
+    "Deep links with case + selection",
+    "Breadcrumb Case > View",
+    "CoPilot suggestions accept-only",
+    "Evidence always shows provenance when available"
+  ],
+  "checks": [
+    {
+      "id": "benchmark_artifact",
+      "pass": true,
+      "status": "PASS",
+      "detail": "diagnostics-export/ux-competitive-benchmark.json",
+      "weight": 1
+    },
+    {
+      "id": "design_system_doc",
+      "pass": true,
+      "status": "PASS",
+      "detail": "SCI-OS-DESIGN-SYSTEM.md reachable from workspace",
+      "weight": 1
+    },
+    {
+      "id": "ux_flow_doc",
+      "pass": true,
+      "status": "PASS",
+      "detail": "SCI-OS-UX-FLOW-SYSTEM.md reachable",
+      "weight": 1
+    },
+    {
+      "id": "cockpit_healthz",
+      "pass": false,
+      "status": "FAIL",
+      "detail": "GET :4000/healthz → 0",
+      "weight": 1
+    },
+    {
+      "id": "cockpit_html_200",
+      "pass": false,
+      "status": "FAIL",
+      "detail": "GET :4000/ → 0",
+      "weight": 1
+    },
+    {
+      "id": "design_tokens_present",
+      "pass": true,
+      "status": "PASS",
+      "detail": "--navy:yes --snow:yes --fog:yes --red:yes",
+      "weight": 1
+    },
+    {
+      "id": "single_primary_action_slice",
+      "pass": true,
+      "status": "PASS",
+      "detail": "Vertical slice has one primary Run CTA",
+      "weight": 1
+    },
+    {
+      "id": "verdict_unknown_default",
+      "pass": true,
+      "status": "PASS",
+      "detail": "Readiness badge defaults to UNKNOWN (honesty)",
+      "weight": 1
+    },
+    {
+      "id": "alpha_nav_surfaces",
+      "pass": true,
+      "status": "PASS",
+      "detail": "found 6/6: Dashboard, Vertical Slice, Lineage, Risk, Execution, System Health",
+      "weight": 1
+    },
+    {
+      "id": "canonical_forensic_flow_nav",
+      "pass": false,
+      "status": "FAIL",
+      "detail": "ALPHA cockpit does not yet expose full Graph→…→Executive nav (found labels: Graph). Status forced FAIL vs contract — not UNKNOWN.",
+      "weight": 2
+    },
+    {
+      "id": "no_gradient_policy_deviation",
+      "pass": false,
+      "status": "FAIL",
+      "detail": "Design System prefers flat Swiss surfaces; ALPHA still uses gradient (deviation noted)",
+      "weight": 1
+    },
+    {
+      "id": "human_usability_lab",
+      "pass": null,
+      "status": "UNKNOWN",
+      "detail": "No moderated user study artifact present — remains UNKNOWN",
+      "weight": 1
+    }
+  ],
+  "note": "PARTIAL expected in ALPHA. Canonical forensic flow nav not yet in cockpit — do not claim enterprise UX READY."
+}

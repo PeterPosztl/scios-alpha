@@ -1,0 +1,16 @@
+{
+  "at": "2026-08-12T18:41:30.000Z",
+  "ok": true,
+  "setupExe": "dist/release/SCI-OS-X10-Setup.exe",
+  "payloadDir": "dist/release/payload",
+  "launcherExe": "dist/SCI-OS-X10/SCI-OS-X10.exe",
+  "cmdLauncher": "SCI OS X10.cmd",
+  "installViaSetupProof": {
+    "dir": "dist/install-via-setup",
+    "ok": true,
+    "shortcutsCreated": true
+  },
+  "usage": "Distribute dist/release/ with SCI-OS-X10-Setup.exe + payload/ together. Run Setup.exe → Start Menu / Desktop shortcut.",
+  "noSystemNode": true,
+  "noPnpm": true
+}

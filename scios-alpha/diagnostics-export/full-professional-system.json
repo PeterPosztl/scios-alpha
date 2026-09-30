@@ -1,0 +1,111 @@
+{
+  "schema": "sci-os-full-professional-system/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T18:56:50.000Z",
+  "mode": "FULL_PROFESSIONAL_SYSTEM_SAFE",
+  "ready": false,
+  "holeless": false,
+  "autoTrade": false,
+  "enabled": false,
+  "enabledFull": false,
+  "fullProfessionalSystem": true,
+  "simulationOnly": true,
+  "executionMode": "SIMULATION_ONLY",
+  "persisted": false,
+  "oneBoot": true,
+  "oneShell": true,
+  "liveDomainData": false,
+  "unexpectedLiveFeeds": false,
+  "liveCertifiedFeeds": 0,
+  "live": {
+    "controlPlane": { "port": 3000, "readyz": true, "executionMode": "SIMULATION_ONLY" },
+    "shell": { "port": 4000, "ok": true, "rolesView": true, "controlUrl": "http://127.0.0.1:3000" },
+    "boot": "start-sci-os.cjs",
+    "pair": "one Control Plane + one Shell after pnpm sci:stop"
+  },
+  "roleCatalog": {
+    "endpoint": "GET /v1/ecl/professional",
+    "alias": "GET /v1/ecl/roles",
+    "catalogs": 16,
+    "allDomains": "PARTIAL",
+    "mappedPartial": ["AllDomains", "Finance", "Cybersecurity", "Government", "LegalCompliance", "IT_Technology", "ExecutiveIntelligence"],
+    "stub": ["Procurement", "SupplyChain"],
+    "absentResearchRequired": ["Hospitality", "ProjectManagement", "Consulting", "Healthcare", "Marketing", "Sales", "RealEstate"],
+    "registry": {
+      "package": "@scios/professional-domain-registry",
+      "families": 21,
+      "archetypes": 9,
+      "rolesSeeded": 200,
+      "rolesFullySpecified": 9,
+      "rolesResearchRequired": 200
+    }
+  },
+  "professionalLayer": {
+    "ExperienceCompiler": "PARTIAL",
+    "WorkspaceSpecEngine": "PARTIAL",
+    "JTBDEngine": "PARTIAL",
+    "CapabilityEngine": "PARTIAL",
+    "PolicyEngine": "PARTIAL",
+    "RiskEngine.Professional": "PARTIAL",
+    "EvidenceEngine.Professional": "PARTIAL",
+    "LineageEngine.Professional": "PARTIAL",
+    "shellView": "roles",
+    "compile": "9 archetypes only via GET /v1/experience/compile"
+  },
+  "domainSandboxes": {
+    "count": 16,
+    "includesAllDomains": true,
+    "mode": "* = SIMULATION_ONLY",
+    "liveData": 0,
+    "certified": 0
+  },
+  "blueprints": {
+    "enabled": false,
+    "autoApply": false,
+    "safeActivation": true,
+    "wiredIntoOs": true,
+    "lda": { "status": "ABSENT", "autoPatch": false },
+    "knowledgeGraph": { "status": "PARTIAL", "nationalGraph": false },
+    "workflowDsl": { "status": "ABSENT", "secondEngine": false },
+    "distributedOs": { "status": "ABSENT", "kafka": "ABSENT" },
+    "shellViews": ["agent", "kg", "workflow", "dist"]
+  },
+  "osRealism": {
+    "WorkflowEngine.RealisticMode": "PARTIAL",
+    "EventBus.RealisticMode": "PARTIAL",
+    "SystemHealth.RealisticMode": "PARTIAL",
+    "AuditEngine.RealisticMode": "PARTIAL",
+    "raft": false,
+    "monteCarlo": false
+  },
+  "deployment": {
+    "registered": 36,
+    "enabledRuntimes": false,
+    "secondWorkflowEngine": false,
+    "secondShell": false,
+    "parallelOS": false
+  },
+  "validation": {
+    "simulationOnly": true,
+    "persistedFalseUntilLedgerReady": true,
+    "noAutoTrade": true,
+    "oneBootOneShell": true,
+    "auditIntegrity": "GET persisted=false",
+    "noUnexpectedLiveFeeds": true
+  },
+  "tests": {
+    "eclDil": { "pass": 15, "fail": 0 },
+    "cockpitUi": { "pass": 11, "fail": 0 },
+    "smokeEclDil": { "ok": true, "fails": [], "autoTrade": false }
+  },
+  "refused": {
+    "twoHundredDashboards": "one adaptive UX, not 200 pages",
+    "inventedSops": "RESEARCH_REQUIRED stays RESEARCH_REQUIRED",
+    "ldaRuntime": "GOVERNANCE > AGENT",
+    "secondWorkflowEngine": "GAP-0006",
+    "kafka": "InMemoryEventBus ≠ Kafka",
+    "liveDomainFeeds": "sandbox liveData=false",
+    "ready": false
+  },
+  "note": "Full professional system on analogs. 200 seeds / 9 archetypes. Unmapped domains RESEARCH_REQUIRED. Not 16 live products. Not READY."
+}

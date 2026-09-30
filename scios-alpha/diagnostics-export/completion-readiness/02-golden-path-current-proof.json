@@ -1,0 +1,28 @@
+{
+  "schema": "sci-os-completion-audit/golden-path/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "goldenPathProofFile": "NOT_FOUND",
+  "startupProof": {
+    "exists": true,
+    "at": "2026-08-04T16:33:11.327Z",
+    "note": "Old startup proof (15 days stale)"
+  },
+  "startupReport": {
+    "exists": true,
+    "verdict": "DEGRADED",
+    "at": "2026-08-12T20:50:12.113Z",
+    "note": "DEGRADED = optional infra (PG/Redis) absent; core HTTP/UI path works"
+  },
+  "goldenPathSteps": {
+    "install": "PROVEN",
+    "boot": "PROVEN",
+    "controlPlaneStart": "PROVEN",
+    "cockpitServe": "PROVEN",
+    "homePageRender": "PARTIAL",
+    "searchFunction": "ABSENT",
+    "entityView": "ABSENT",
+    "evidenceLineage": "PARTIAL",
+    "shutdown": "PROVEN"
+  },
+  "overallGoldenPath": "PARTIAL"
+}

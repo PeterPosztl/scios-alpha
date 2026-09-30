@@ -1,0 +1,20 @@
+{
+  "schema": "sci-os-beta-gate-requirements/v1",
+  "domains": [
+    "persistence durability (local)",
+    "PG adapter correctness",
+    "fallback correctness",
+    "recovery correctness",
+    "migration correctness",
+    "job lifecycle durability",
+    "pipeline durability",
+    "cockpit durability",
+    "system health durability",
+    "governance durability (FD-001 OIDC honest)",
+    "installed E2E durability suite"
+  ],
+  "tokens": [
+    "BETA_GATE_READY",
+    "BETA_GATE_BLOCKED_WITH_EVIDENCE"
+  ]
+}

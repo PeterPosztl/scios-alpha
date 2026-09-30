@@ -1,0 +1,18 @@
+{
+  "schema": "sci-os-completion-audit/security/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "overallMaturity": "PARTIAL",
+  "authMode": "local-development",
+  "oidc": "ABSENT",
+  "rbac": "ABSENT",
+  "apiKeyAuth": "ABSENT",
+  "rateLimiting": "ABSENT",
+  "cors": "PARTIAL",
+  "csp": "ABSENT",
+  "inputValidation": "PARTIAL",
+  "secretManagement": "PARTIAL",
+  "logRedaction": "PROVEN",
+  "htmlSanitization": "PROVEN",
+  "processContainment": "PROVEN",
+  "note": "Security posture is ALPHA-grade: local-development auth only. WHI-001/004 provide process/event security. No OIDC, no RBAC, no API keys."
+}

@@ -1,0 +1,22 @@
+{
+  "backend": {
+    "command": "pnpm",
+    "args": ["run", "backend"],
+    "note": "package.json script \"backend\" → control-plane-api"
+  },
+  "cockpit": {
+    "command": "pnpm",
+    "args": ["run", "cockpit"],
+    "note": "package.json script \"cockpit\" → cockpit-ui"
+  },
+  "mock-api": {
+    "command": "pnpm",
+    "args": ["run", "mock:start"],
+    "note": "developer mock API :5230"
+  },
+  "sci:start": {
+    "command": "pnpm",
+    "args": ["sci:start", "--", "--no-open"],
+    "note": "canonical orchestrator — prefer pnpm sci:start directly"
+  }
+}

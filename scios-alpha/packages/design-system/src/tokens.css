@@ -1,0 +1,65 @@
+/**
+ * SCI OS ×10 — Design tokens (CSS)
+ * Source of truth for visual genome. Shell may embed equivalents until imported.
+ */
+:root {
+  --sci-snow: #F7F8FA;
+  --sci-fog: #E8ECF0;
+  --sci-graphite: #2C333A;
+  --sci-navy: #0B1F33;
+  --sci-red: #C8102E;
+  --sci-ice: #D6E4F0;
+  --sci-ok: #1B7A4E;
+  --sci-warn: #B45309;
+  --sci-unknown: #5C6770;
+  --sci-info: #1F4E79;
+  --sci-surface: #ffffff;
+  --sci-surface-muted: #fafbfc;
+  --sci-border: var(--sci-fog);
+  --sci-font: "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+  --sci-radius: 0;
+  --sci-space-1: 0.25rem;
+  --sci-space-2: 0.5rem;
+  --sci-space-3: 0.75rem;
+  --sci-space-4: 1rem;
+  --sci-space-5: 1.5rem;
+  --sci-space-6: 2rem;
+  --sci-space-8: 3rem;
+  --sci-type-display: 1.75rem;
+  --sci-type-title: 1.15rem;
+  --sci-type-body: 1rem;
+  --sci-type-meta: 0.75rem;
+  --sci-type-overline: 0.65rem;
+  --sci-grid-gutter: 0.75rem;
+  --sci-elev-1: 0 1px 0 rgba(11,31,51,0.06);
+  --sci-elev-2: 0 8px 24px rgba(11,31,51,0.08);
+  --sci-elev-3: 0 18px 50px rgba(11,31,51,0.18);
+  --sci-motion: 180ms;
+  --sci-motion-micro: 150ms;
+  --sci-motion-macro: 300ms;
+  --sci-motion-critical: 0ms;
+  --sci-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --sci-focus: 2px solid var(--sci-navy);
+  --sci-rhythm-12: 0.75rem;
+  --sci-rhythm-24: 1.5rem;
+  --sci-rhythm-48: 3rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --sci-motion: 0;
+    --sci-motion-micro: 0;
+    --sci-motion-macro: 0;
+    --sci-motion-critical: 0;
+  }
+}
+
+[data-density="COMFORTABLE"] {
+  --sci-density-scale: 1.15;
+}
+[data-density="STANDARD"] {
+  --sci-density-scale: 1;
+}
+[data-density="EXPERT"] {
+  --sci-density-scale: 0.9;
+}

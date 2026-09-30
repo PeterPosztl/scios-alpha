@@ -1,0 +1,47 @@
+{
+  "schema": "sci-os-product-foundation-signoff/v1",
+  "at": "2026-08-12T20:22:33.324Z",
+  "label": "ALPHA_NON_PRODUCTION",
+  "verdict": "PRODUCT_KERNEL_DEGRADED",
+  "reasons": [
+    "Product kernel registries exportable",
+    "Universal shell / clean-install packaging still incomplete",
+    "File export ≠ FOUNDATION PRODUCT READY"
+  ],
+  "snapshot": {
+    "schema": "sci-os-product-kernel-snapshot/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "at": "2026-08-12T20:22:33.308Z",
+    "capabilitySummary": {
+      "total": 15,
+      "counts": {
+        "WORKING": 0,
+        "PARTIAL": 8,
+        "STUB": 3,
+        "DISCONNECTED": 0,
+        "MISSING": 0,
+        "DEPRECATED": 0,
+        "UNPROVEN": 4
+      }
+    },
+    "workflowCounts": {
+      "total": 7,
+      "partial": 5,
+      "missing": 2
+    },
+    "roles": {
+      "archetypes": 7,
+      "seeded": 200
+    },
+    "p0Protected": true,
+    "shellStatus": "PARTIAL_HOME_SEARCH_ENTITY",
+    "goldenWorkflow1": "PARTIAL_home_search_entity_analyze"
+  },
+  "readyRequires": [
+    "kernel operational",
+    "P0 preserved",
+    "GW#1 complete with live data",
+    "E2E proof PASS",
+    "no fake/static results"
+  ]
+}

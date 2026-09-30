@@ -1,0 +1,25 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "architecture": "MONOLITHIC_HTTP_TEMPLATE",
+  "source": "apps/cockpit-ui/src/index.js",
+  "lines": 643,
+  "componentSystem": false,
+  "designTokens": "ABSENT_AS_SYSTEM",
+  "routing": "in-page showView (no URL router)",
+  "state": "module-level JS variables",
+  "apiClient": "fetch helpers inline",
+  "viewsPresent": [
+    "home",
+    "search",
+    "entities",
+    "slice/analyze",
+    "evidence",
+    "engineering",
+    "system"
+  ],
+  "professionalVsTechnical": true,
+  "requiredPrimitivesStatus": "NOT_COMPONENTIZED — monolithic embeds several surfaces",
+  "recommendation": "Do not invent 200 pages; extract Product Experience Layer only after activation wiring — structural P1, not speculative greenfield",
+  "speculativeUxRebuildInThisProgram": false
+}

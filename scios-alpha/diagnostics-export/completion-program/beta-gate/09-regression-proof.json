@@ -1,0 +1,15 @@
+{
+  "at": "2026-09-30T10:08:37.864Z",
+  "durabilitySuite": {
+    "b004-persistence-hard-gate.cjs": "PASS",
+    "b006-cockpit-ui-hard-gate.cjs": "PASS",
+    "b008-experience-compiler-hard-gate.cjs": "PASS",
+    "b009-background-system-hard-gate.cjs": "PASS",
+    "b010-persistence-hard-gate.cjs": "PASS"
+  },
+  "blockers": [
+    "PERSISTENCE.PG_EXTERNAL_INSTANCE_FD002",
+    "FD-001 OIDC provider selection"
+  ],
+  "status": "PASS"
+}

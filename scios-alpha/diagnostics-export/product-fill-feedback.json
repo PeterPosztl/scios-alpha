@@ -1,0 +1,42 @@
+{
+  "schema": "sci-os-product-fill-feedback/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T15:55:00.000Z",
+  "identity": "ENTERPRISE_GRADE_ALPHA",
+  "ready": false,
+  "holeless": false,
+  "autoTrade": false,
+  "humanUsableAlpha": true,
+  "mode": "PRODUCT_FILL_AND_CUSTOMIZATION",
+  "oneBoot": "start-sci-os.cjs",
+  "oneShell": "apps/cockpit-ui :4000",
+  "scan": {
+    "missingBefore": [
+      "no hu-HU/de-DE/en-US packs",
+      "density CSS unused (no settings apply)",
+      "no Settings view",
+      "lineage/risk/sim empty copy was thin"
+    ],
+    "enterpriseMissingNotAlphaGate": ["OIDC", "OTLP SDK", "durable ledger", "live feeds", "live calibration engine"],
+    "secondOS": false,
+    "secondShell": false
+  },
+  "appliedThisPass": [
+    "I18N-EN-HU-DE",
+    "LANGUAGE-SWITCHER-HEADER",
+    "SETTINGS-USER-SYSTEM-THEME-LOCALE-DATASOURCE",
+    "DENSITY-DISCLOSURE-REDUCED-MOTION-APPLY",
+    "CONTENT-FILL-CHROME-AND-EMPTY-STATES",
+    "DATASOURCE-CANNOT-ENABLE-LIVE"
+  ],
+  "refused": {
+    "oidcEnable": "ABSENT — Settings System tab shows placeholder",
+    "liveFeedFromUi": "dataSourceIntent forced simulated_alpha",
+    "vendorTheme": "SCI tokens only",
+    "readyClaim": false,
+    "autoTrade": false
+  },
+  "tests": { "i18n": "3/3", "autoTrade": false },
+  "buildLog": "diagnostics-export/product-fill-build-log.json",
+  "honesty": "Language and settings are local session chrome on the existing Shell. Not OIDC. Not READY. Live feeds cannot be turned on from Settings."
+}

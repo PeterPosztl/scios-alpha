@@ -1,0 +1,59 @@
+{
+  "schema": "sci-os-full-professional-system-build-log/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T18:56:50.000Z",
+  "ready": false,
+  "autoTrade": false,
+  "steps": [
+    {
+      "id": "role-catalog",
+      "result": "MOUNTED",
+      "detail": "16 catalogs including AllDomains. 200 seeds, 9 archetypes fully specified. Hospitality/Healthcare/PM/Consulting/Marketing/Sales/RealEstate ABSENT RESEARCH_REQUIRED."
+    },
+    {
+      "id": "professional-layer",
+      "result": "MOUNTED",
+      "detail": "ExperienceCompiler/WorkspaceSpec/JTBD/Capability/Policy/Risk/Evidence/Lineage PARTIAL analogs. Shell #roles selector. Compile stays on 9 archetypes."
+    },
+    {
+      "id": "domain-sandboxes",
+      "result": "PASS",
+      "detail": "16 sandboxes including AllDomains. mode=* SIMULATION_ONLY. liveData=0."
+    },
+    {
+      "id": "blueprints",
+      "result": "INSPECTION_ONLY",
+      "detail": "enabled=false autoApply=false. LDA auto-patch refused. Kafka ABSENT. Agent/KG/Workflow/Dist studios remain in Engineering."
+    },
+    {
+      "id": "os-realism",
+      "result": "MOUNTED",
+      "detail": "Workflow/EventBus/SystemHealth/Audit PARTIAL. raft=false monteCarlo=false."
+    },
+    {
+      "id": "deployment",
+      "result": "PASS",
+      "detail": "36 modules registered. enabledRuntimes=false. oneBoot=true oneShell=true."
+    },
+    {
+      "id": "safety",
+      "result": "PASS",
+      "detail": "simulationOnly persisted=false autoTrade=false liveCertified=0 unexpectedLive=false."
+    },
+    {
+      "id": "restart",
+      "result": "PASS",
+      "detail": "pnpm sci:stop then Control Plane :3000 (readyz true SIMULATION_ONLY) and Shell :4000 (healthz ok, #roles inlined)."
+    },
+    {
+      "id": "tests",
+      "result": "PASS",
+      "detail": "ecl-dil 15/15, cockpit 11/11, smoke ok fails=[]"
+    },
+    {
+      "id": "exports",
+      "result": "PASS",
+      "detail": "diagnostics-export/full-professional-system.json + full-professional-system-build-log.json"
+    }
+  ]
+}

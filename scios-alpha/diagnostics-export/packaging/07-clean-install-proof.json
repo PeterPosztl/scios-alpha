@@ -1,0 +1,11 @@
+{
+  "at": "2026-08-12T18:40:32.631Z",
+  "pass": true,
+  "installDir": "C:/Users/peter/AppData/Local/SCI OS X10",
+  "testerConstraints": {
+    "noTerminalRequiredForEndUser": true,
+    "noSystemNodeInstall": true,
+    "noPnpm": true,
+    "note": "This proof agent used automation; end-user path is Setup.exe → shortcut"
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "at": "2026-08-13T13:00:49.933Z",
+  "buildId": "ux-dna-2026-08-13",
+  "contracts": [
+    {
+      "schema": "sci-os-experience-contract/v1",
+      "contractId": "exp.gw1.market_analysis",
+      "version": "1.0.0-alpha",
+      "role": "arch.market_analyst",
+      "intent": "Analyze instrument with risk/gov and evidence",
+      "entry": "Home|Search|Entity|Analyze",
+      "objects": [
+        "Entity"
+      ],
+      "requiredCapabilities": [
+        "vertical-slice.foundation",
+        "control-plane-api",
+        "cockpit.professional-view"
+      ],
+      "requiredPanels": [
+        "Situation",
+        "ExpectedOutcome",
+        "Risk",
+        "Decision",
+        "Simulation",
+        "TrustCapsule",
+        "Approval",
+        "Evidence"
+      ],
+      "requiredActions": [
+        "analyze",
+        "openLineage",
+        "approval.*"
+      ],
+      "permissions": [
+        "analyze",
+        "view_evidence"
+      ],
+      "states": {
+        "loading": "REQUIRED",
+        "empty": "REQUIRED",
+        "partial": "REQUIRED",
+        "degraded": "REQUIRED",
+        "error": "REQUIRED",
+        "completion": "REQUIRED"
+      },
+      "risk": "REQUIRED",
+      "governance": "REQUIRED",
+      "evidence": "REACHABLE",
+      "exitCondition": "user navigates or completes decision",
+      "expectedOutcome": "Governed simulation decision with evidence reachable",
+      "label": "ALPHA_NON_PRODUCTION"
+    }
+  ],
+  "coverage": {
+    "gw1": "DEFINED",
+    "otherRoles": "ARCHITECTURALLY_SUPPORTED_VIA_GRAMMAR"
+  },
+  "roleLenses": {
+    "schema": "sci-os-same-object-different-lens/v1",
+    "objectType": "Entity",
+    "invariant": "Underlying truth unchanged; lens changes priority/presentation/actions/terminology",
+    "lenses": [
+      {
+        "role": "Executive",
+        "priority": [
+          "attention",
+          "risk",
+          "decision"
+        ],
+        "presentation": "sparse L1–L5",
+        "actions": [
+          "FIND",
+          "UNDERSTAND",
+          "DECIDE"
+        ],
+        "terminology": {
+          "entity": "entity",
+          "case": "case"
+        }
+      },
+      {
+        "role": "Cyber Analyst",
+        "priority": [
+          "investigate",
+          "evidence",
+          "graph",
+          "decision"
+        ],
+        "presentation": "standard professional density",
+        "actions": [
+          "FIND",
+          "UNDERSTAND",
+          "DECIDE"
+        ],
+        "terminology": {
+          "entity": "asset/identity",
+          "case": "incident"
+        }
+      },
+      {
+        "role": "Fraud Investigator",
+        "priority": [
+          "investigate",
+          "evidence",
+          "graph",
+          "decision"
+        ],
+        "presentation": "standard professional density",
+        "actions": [
+          "FIND",
+          "UNDERSTAND",
+          "DECIDE"
+        ],
+        "terminology": {
+          "entity": "party/account",
+          "case": "case"
+        }
+      },
+      {
+        "role": "Compliance",
+        "priority": [
+          "attention",
+          "work",
+          "next_action"
+        ],
+        "presentation": "standard professional density",
+        "actions": [
+          "REVIEW",
+          "AUDIT",
+          "ESCALATE"
+        ],
+        "terminology": {
+          "entity": "entity",
+          "case": "case"
+        }
+      },
+      {
+        "role": "Finance/Risk",
+        "priority": [
+          "risk",
+          "uncertainty",
+          "decision",
+          "evidence"
+        ],
+        "presentation": "standard professional density",
+        "actions": [
+          "ASSESS",
+          "PREDICT",
+          "SIMULATE",
+          "APPROVE"
+        ],
+        "terminology": {
+          "entity": "entity",
+          "case": "case"
+        }
+      },
+      {
+        "role": "Project Manager",
+        "priority": [
+          "attention",
+          "work",
+          "next_action"
+        ],
+        "presentation": "standard professional density",
+        "actions": [
+          "FIND",
+          "UNDERSTAND",
+          "DECIDE"
+        ],
+        "terminology": {
+          "entity": "entity",
+          "case": "case"
+        }
+      },
+      {
+        "role": "Operations",
+        "priority": [
+          "attention",
+          "work",
+          "next_action"
+        ],
+        "presentation": "standard professional density",
+        "actions": [
+          "FIND",
+          "UNDERSTAND",
+          "DECIDE"
+        ],
+        "terminology": {
+          "entity": "entity",
+          "case": "case"
+        }
+      }
+    ]
+  }
+}

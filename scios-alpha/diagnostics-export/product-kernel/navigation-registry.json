@@ -1,0 +1,23 @@
+{
+  "primary": [
+    "Home",
+    "Work",
+    "Cases",
+    "Entities",
+    "Intelligence",
+    "Prediction",
+    "Risk",
+    "Simulation",
+    "Decisions",
+    "Evidence",
+    "Reports"
+  ],
+  "secondary": [
+    "System",
+    "Engineering",
+    "Recovery",
+    "Governance",
+    "Administration"
+  ],
+  "note": "Shell nav contract — full shell ABSENT; cockpit implements subset"
+}

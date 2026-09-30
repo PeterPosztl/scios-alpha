@@ -1,0 +1,55 @@
+{
+  "schema": "sci-os-workspace-activation-wave-log/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T20:38:25.055Z",
+  "ready": false,
+  "roles200Activated": false,
+  "autoTrade": false,
+  "steps": [
+    {
+      "id": "restart-pair",
+      "result": "PASS",
+      "detail": "sci:stop then one Control Plane :3000 SIMULATION_ONLY + one Shell apps/cockpit-ui :4000. Bundled Node v20.18.1. No second boot."
+    },
+    {
+      "id": "live-probe",
+      "result": "PASS",
+      "detail": "GET /v1/ecl/professional/activate HTTP 200. persisted=false autoTrade=false ready=false roles200Activated=false sessionActivation=true enabledFull=false. Audit length 1→1."
+    },
+    {
+      "id": "activate-roles",
+      "result": "PARTIAL",
+      "detail": "RoleCatalog.AllDomains / ExperienceCompiler / WorkspaceSpecEngine ACTIVATED_SIMULATION. JTBDEngine ACTIVATED_ANALOG. 9/200 session-mounted. 191 seeds UNKNOWN."
+    },
+    {
+      "id": "activate-sandboxes",
+      "result": "ACTIVATED_SIMULATION",
+      "detail": "Sandbox.AllDomains + Sandbox.mode ACTIVATED_SIMULATION. * = SIMULATION_ONLY liveData=false. 7 unmapped domains SKIPPED_RESEARCH_REQUIRED."
+    },
+    {
+      "id": "activate-blueprints",
+      "result": "REFUSED",
+      "detail": "LDA REFUSED (autoPatch=false). KG ACTIVATED_ANALOG. WorkflowDSL.Core and DistributedArchitecture.Core SKIPPED_UNKNOWN."
+    },
+    {
+      "id": "activate-pipelines",
+      "result": "PARTIAL",
+      "detail": "PolicyEngine and RiskEngine.Professional ACTIVATED_SIMULATION. Capability/Evidence/Lineage ACTIVATED_ANALOG. liveBlocked=9/9."
+    },
+    {
+      "id": "activate-os",
+      "result": "ACTIVATED_ANALOG",
+      "detail": "Workflow/EventBus/SystemHealth/Audit RealisticMode analogs session-mounted. No Kafka/Raft."
+    },
+    {
+      "id": "safety",
+      "result": "PASS_CONSTRAINT",
+      "detail": "readyz SIMULATION_ONLY. noAutoTrade. persisted=false until ledger. liveCertified=0. oneBootOneShell. SCI_DIL_FEED unset."
+    },
+    {
+      "id": "exports",
+      "result": "PASS",
+      "detail": "diagnostics-export/workspace-activation-wave.json + workspace-activation-wave-log.json written from live probe."
+    }
+  ]
+}

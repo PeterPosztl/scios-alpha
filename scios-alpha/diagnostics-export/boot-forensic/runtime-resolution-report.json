@@ -1,0 +1,13 @@
+{
+  "at": "2026-08-12T19:30:44.475Z",
+  "bootId": "8e3af5b1-882b-4fdf-ac2a-a299c28d83cf",
+  "bundledNode": "C:/Users/peter/Desktop/SCI/scios-alpha/dist/SCI-OS-X10/runtime/node/node.exe",
+  "version": "v20.18.1",
+  "exitCode": 0,
+  "mustNotUse": [
+    "system node",
+    "pnpm",
+    "tsx",
+    "ts-node"
+  ]
+}

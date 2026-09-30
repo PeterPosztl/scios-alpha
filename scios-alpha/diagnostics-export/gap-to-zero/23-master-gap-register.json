@@ -1,0 +1,61 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "gaps": [
+    {
+      "gapId": "GZ-EXT-PACKAGED-GW1",
+      "domain": "release",
+      "severity": "P0_EXTERNAL_VALIDATION",
+      "structural": false,
+      "description": "Packaged reboot GW1/appRoot fresh evidence requires LOCALAPPDATA certify after Windows reboot",
+      "currentState": "OPEN",
+      "targetState": "PASS via REBOOT-CERTIFY-AFTER + prove-reboot",
+      "status": "OPEN",
+      "releaseImpact": "FIRST_RELEASE EXTERNAL_VALIDATION_ONLY",
+      "fix": "Start packaged app from LOCALAPPDATA, run REBOOT-CERTIFY-AFTER.cmd, then pnpm package:prove-reboot",
+      "verification": "diagnostics-export/reboot-certification/10-first-release-verdict.json READY"
+    },
+    {
+      "gapId": "GZ-P1-DURABLE-STATE",
+      "domain": "data",
+      "severity": "P1",
+      "description": "Analyses/lineage local durable for first-release continuity",
+      "status": "CLOSED",
+      "currentState": "LOCAL_FILE + localStorage",
+      "targetState": "LOCAL_DURABLE first-release; PG later",
+      "evidence": "packages/vertical-slice/src/local-durable.ts + cockpit SESSION_KEY"
+    },
+    {
+      "gapId": "GZ-P1-UX-2026-DEPTH",
+      "domain": "UX",
+      "severity": "P1",
+      "description": "Approval card + AI context panel on GW1 professional path",
+      "status": "CLOSED",
+      "currentState": "FIRST_RELEASE_PATTERNS_PRESENT",
+      "residualAsP2": "Experience Layer extraction; governed generative UI schema renderer"
+    },
+    {
+      "gapId": "GZ-P1-BIND-AUTH",
+      "domain": "security",
+      "severity": "P1",
+      "description": "Default bind localhost; auth remains local-development (P2 expected)",
+      "status": "CLOSED",
+      "currentState": "DEFAULT_127_0_0_1",
+      "residualAsP2": "AUTH_LOCAL_DEV / OIDC"
+    },
+    {
+      "gapId": "GZ-P2-TYPES-NODE",
+      "domain": "architecture",
+      "severity": "P2",
+      "description": "@types/node 22 vs runtime 20",
+      "status": "OPEN"
+    },
+    {
+      "gapId": "GZ-P2-ENTERPRISE-PG-LINEAGE",
+      "domain": "data",
+      "severity": "P2",
+      "description": "Enterprise durable lineage / fabric beyond local file store",
+      "status": "OPEN"
+    }
+  ]
+}

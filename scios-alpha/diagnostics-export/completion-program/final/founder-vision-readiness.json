@@ -1,0 +1,78 @@
+{
+  "schema": "sci-os-founder-vision-readiness/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-29T18:17:38.102Z",
+  "buildId": "pkg_1788026654253",
+  "checkpoint": "873e537f",
+  "verdict": "FOUNDER_VISION_BLOCKED_WITH_EVIDENCE",
+  "token": "FOUNDER_VISION_BLOCKED_WITH_EVIDENCE",
+  "domains": {
+    "professionalDomains": {
+      "status": "PARTIAL",
+      "families": 21,
+      "archetypesFullySpecified": 8,
+      "rolesSeeded": 200,
+      "rolesResearchRequired": "~192",
+      "runtimeConnected": true,
+      "note": "8 archetype workspaces proven; 200+ seeds RESEARCH_REQUIRED"
+    },
+    "experienceCompiler": {
+      "status": "PARTIAL",
+      "authority": "packages/professional-domain-registry/src/experience-compiler.js",
+      "runtimeMount": "RUNTIME_CONNECTED",
+      "pipelineWave": "B-008 not closed",
+      "ghostDirDeprecated": true
+    },
+    "advancedIntelligence": {
+      "status": "SCAFFOLD",
+      "metaIntelligence": "packages/meta-intelligence (capability registry alpha)",
+      "metaRecovery": "packages/meta-recovery (WHI-010 proven)",
+      "experimentTracker": "scaffold"
+    },
+    "marketData": {
+      "status": "ABSENT",
+      "liveProviders": "NONE",
+      "blocker": "FD-006 REAL_DATA_PLANE provider credentials",
+      "alphaTruth": "deterministic/sample only"
+    },
+    "graphKnowledgeLayer": {
+      "status": "SCAFFOLD",
+      "evidenceGraph": "packages/meta-intelligence/src/evidence-graph.ts",
+      "entityGraphProduction": "NOT_READY",
+      "externalGraphDb": "EXT-GRAPH-DB not connected"
+    },
+    "aiLlm": {
+      "status": "BLOCKED",
+      "copilot": "NOT_IMPLEMENTED",
+      "blocker": "FD-005 AI CoPilot",
+      "aiCopilotProfiles": "declared in experience compiler only"
+    },
+    "modelScience": {
+      "status": "HONEST_NON_PRODUCTION",
+      "validation": "NOT_VALIDATED labels enforced",
+      "cf28Wave": "B-005 not closed",
+      "stubs": [
+        "validation-engine",
+        "probability-engine"
+      ]
+    },
+    "governance": {
+      "status": "ALPHA_PROVEN",
+      "cf14": "B_003_POLICY_DECISION_READY",
+      "enterpriseRbac": "NOT_READY",
+      "oidc": "FD-001 open"
+    },
+    "autonomousWorkflows": {
+      "status": "NOT_READY",
+      "jobEngine": "CF11 + partial jobEngine.ts",
+      "selfEvolution": "propose-only scaffold",
+      "scaleOut": "300+ capability scale-out not started"
+    }
+  },
+  "visionBlockers": [
+    "REAL_DATA_PLANE provider credentials FD-006",
+    "AI CoPilot FD-005",
+    "300+ capability scale-out"
+  ],
+  "maturityEstimate": "~15-20% of full Founder Vision"
+}

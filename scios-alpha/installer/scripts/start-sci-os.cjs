@@ -217,10 +217,19 @@ async function main() {
 
   let lock = { ok: true };
   if (args.mode !== "safe") {
+    // An orchestrator can outlive its own servers. Pair the recorded lock owner
+    // with observed API-port liveness so a hung owner cannot block boot forever.
+    const instanceServing =
+      apiPortState.state === "SCI_OS_HEALTHY"
+        ? true
+        : apiPortState.state === "FREE"
+          ? false
+          : null;
     lock = acquireProcessLock(appRoot, {
       runtimeMode: config.redactedConfig.runtimeMode,
       apiPort,
       mode: args.mode,
+      instanceServing,
     });
     if (lock.repairedStaleLock) {
       repairActions.push({
@@ -229,6 +238,18 @@ async function main() {
         result: "ok",
         residualRisk: "none",
       });
+    }
+    if (lock.reclaimedOrphanLock) {
+      repairActions.push({
+        problem: `orphaned process lock (${lock.reclaimedOrphanReason})`,
+        action: "reclaim_orphaned_lock",
+        result: "ok",
+        orphanPid: lock.reclaimedOrphanPid,
+        residualRisk: "orphaned owner process remains; not serving",
+      });
+      warnings.push(
+        `Reclaimed orphaned startup lock from pid ${lock.reclaimedOrphanPid} (${lock.reclaimedOrphanReason})`
+      );
     }
     if (!lock.ok) {
       blockers.push("PROCESS_LOCKED");
@@ -410,9 +431,17 @@ async function main() {
           },
         });
       } else {
-        const pnpmBin = process.platform === "win32" ? "pnpm.cmd" : "pnpm";
-        await supervisor.start(name, pnpmBin, ["--filter", filterPkg, "start"], {
+        // DEVELOPMENT: contract Node → package cwd. Avoid pnpm.cmd (Windows Node 20+ EINVAL).
+        const isCp = name === "control-plane";
+        const svcCwd = isCp
+          ? path.join(appRoot, "apps", "control-plane-api")
+          : path.join(appRoot, "apps", "cockpit-ui");
+        const nodeArgs = isCp
+          ? ["--import", "tsx", "src/server.ts"]
+          : ["src/index.js"];
+        await supervisor.start(name, node.path, nodeArgs, {
           shell: false,
+          cwd: svcCwd,
           detached: !args.serve,
           expectedPort: port,
           env,
@@ -421,7 +450,7 @@ async function main() {
       const wait = await supervisor.waitHealthy(
         name,
         `http://127.0.0.1:${port}/healthz`,
-        25000
+        60000
       );
       if (!wait.ok) {
         blockers.push(wait.failureClass || "HEALTH_TIMEOUT");
@@ -445,7 +474,7 @@ async function main() {
     }
 
     txBoot.begin("START_EXPERIENCE", { cockpitPort });
-    if (!blockers.includes("BACKEND_CRASHED") && !blockers.includes("HEALTH_TIMEOUT")) {
+    if (!blockers.includes("BACKEND_CRASHED")) {
       await ensureService(
         "cockpit",
         cockpitPort,
@@ -554,7 +583,7 @@ async function main() {
         {
           cwd: appRoot,
           encoding: "utf8",
-          shell: false,
+          shell: process.platform === "win32",
           windowsHide: true,
         }
       );

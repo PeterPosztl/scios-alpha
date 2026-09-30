@@ -1,0 +1,53 @@
+{
+  "schema": "sci-os-final-completion/01-runtime-diagnostic/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T10:13:14.945Z",
+  "title": "Live installed runtime probes",
+  "sources": [
+    "GET /healthz",
+    "GET /readyz",
+    "GET /v1/system/startup-readiness",
+    "GET :4000/",
+    "GET :4000/healthz",
+    "installed startup-report.json"
+  ],
+  "runtimeObserved": true,
+  "controlPlane": {
+    "healthz": 200,
+    "verdict": "DEGRADED",
+    "ready": true,
+    "degraded": true,
+    "degradedReasons": [
+      "POSTGRES_NOT_CONFIGURED_OPTIONAL",
+      "REDIS_NOT_CONFIGURED_OPTIONAL"
+    ],
+    "readyz": 200
+  },
+  "startupReadiness": {
+    "http": 200,
+    "overall": "DEGRADED"
+  },
+  "shell": {
+    "root": 200,
+    "healthz": 200,
+    "professionalUx": {
+      "contract": "sci-os-professional-ux/v1",
+      "sourceId": "apps/cockpit-ui/src/professional-ux.js"
+    }
+  },
+  "lastInstalledBoot": {
+    "verdict": "DEGRADED",
+    "blockers": [],
+    "repairActions": 0,
+    "warnings": 3,
+    "timestamp": "2026-09-30T10:13:01.543Z",
+    "durationMs": 4649
+  },
+  "lastShutdown": {
+    "restartable": true,
+    "orphanFree": true,
+    "lockReleased": {
+      "released": false
+    }
+  }
+}

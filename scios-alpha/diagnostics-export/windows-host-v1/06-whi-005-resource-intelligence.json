@@ -1,0 +1,60 @@
+{
+  "schema": "sci-os-whi-005-proof/v1",
+  "status": "PASS",
+  "resources": {
+    "schema": "sci-os-host-result/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "ok": true,
+    "platform": "win32",
+    "capability": "resource-intelligence",
+    "observedAt": "2026-08-18T18:53:48.714Z",
+    "source": "installer/scripts/host",
+    "mode": "SHADOW",
+    "data": {
+      "schema": "sci-os-resource-intelligence/v1",
+      "thresholds": {
+        "memPressured": 0.12,
+        "memCritical": 0.04,
+        "diskPressuredBytes": 2147483648,
+        "diskCriticalBytes": 268435456,
+        "cpuPressured": 0.85,
+        "cpuCritical": 0.97
+      },
+      "note": "Conservative ALPHA thresholds — not production SLOs",
+      "memory": {
+        "total": 16883044352,
+        "free": 6159142912,
+        "freeRatio": 0.3648123397407515,
+        "level": "HEALTHY"
+      },
+      "disk": {
+        "freeBytes": 208600805376,
+        "level": "HEALTHY"
+      },
+      "cpu": {
+        "estimate": 0,
+        "level": "HEALTHY",
+        "note": "loadavg/ncpus on win may be 0 — UNKNOWN not FAIL"
+      },
+      "process": {
+        "rss": 34734080,
+        "pid": 8868
+      },
+      "overall": "HEALTHY",
+      "schedulerInputs": {
+        "canRunHeavyBackgroundWork": true,
+        "canRunNormalBackgroundWork": true,
+        "resourcePressure": false
+      },
+      "readinessNote": "PRESSURED must not equal NOT READY; CRITICAL disk may degrade optional update only"
+    },
+    "degraded": false,
+    "error": null,
+    "evidence": null
+  },
+  "synthetic": {
+    "healthy": "HEALTHY",
+    "pressured": "PRESSURED",
+    "critical": "CRITICAL"
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "schema": "sci-os-full-system-deployment/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T18:02:00.000Z",
+  "identity": "ENTERPRISE_GRADE_ALPHA",
+  "ready": false,
+  "holeless": false,
+  "autoTrade": false,
+  "enabledRuntimes": false,
+  "autoApply": false,
+  "secondWorkflowEngine": false,
+  "secondShell": false,
+  "parallelOS": false,
+  "oneBoot": true,
+  "oneShell": true,
+  "simulationOnly": true,
+  "executionMode": "SIMULATION_ONLY",
+  "persisted": false,
+  "liveCertifiedFeeds": 0,
+  "boot": "start-sci-os.cjs",
+  "controlPlane": "http://127.0.0.1:3000",
+  "shell": "http://127.0.0.1:4000",
+  "mode": "FULL_SYSTEM_DEPLOYMENT_AND_PRODUCT_ACTIVATION",
+  "interpretation": {
+    "deploy": "Compose into the existing Control Plane + Shell. No second OS, boot, listen(), or workflow-engine HTTP app.",
+    "activateBlueprints": "inspectionUnlocked=true, enabled=false, autoApply=false. Studios are honesty maps onto live analogs.",
+    "integrateRealData": "Feed registry of 12 types. Default simulated_alpha. SCI_DIL_FEED remains unset."
+  },
+  "live": {
+    "readyz": { "ready": true, "live": true, "executionMode": "SIMULATION_ONLY", "profile": "local-foundation" },
+    "ports": { "controlPlane": 3000, "shell": 4000, "secondListener": false },
+    "deployment": {
+      "endpoint": "GET /v1/ecl/deployment",
+      "persisted": false,
+      "registered": 21,
+      "composed": 11,
+      "partial": 7,
+      "absent": 3,
+      "enabledRuntimes": false
+    },
+    "feeds": {
+      "endpoint": "GET /v1/ecl/feeds",
+      "registered": 12,
+      "liveCertified": 0,
+      "enabledLive": false,
+      "actual": "simulated_alpha",
+      "liveAdapter": "ABSENT"
+    },
+    "blueprints": {
+      "endpoint": "GET /v1/ecl/blueprints",
+      "enabled": false,
+      "autoApply": false,
+      "inspectionUnlocked": true,
+      "lda": "ABSENT",
+      "knowledgeGraph": "PARTIAL",
+      "workflowDsl": "ABSENT",
+      "distributedOs": "ABSENT",
+      "kafka": "ABSENT"
+    },
+    "shellSource": {
+      "renderFeedRegistry": true,
+      "renderDeploymentInventory": true,
+      "osModuleWorkflowStudio": true
+    }
+  },
+  "modules": {
+    "os": {
+      "ControlPlane": "COMPOSED",
+      "Shell": "COMPOSED",
+      "OSModule": "PARTIAL",
+      "WorkflowEngine": "PARTIAL",
+      "EventBus": "PARTIAL",
+      "ConsensusEngine": "ABSENT"
+    },
+    "cockpit": {
+      "Intelligence": "COMPOSED",
+      "Decisions": "COMPOSED",
+      "Evidence": "COMPOSED",
+      "Reporting": "COMPOSED",
+      "RiskGov": "COMPOSED",
+      "SystemHealth": "COMPOSED",
+      "TechnicalCockpit": "COMPOSED"
+    },
+    "blueprints": {
+      "AgentSystem": { "status": "PARTIAL", "enabled": false, "autoPatch": false },
+      "KnowledgeGraph": { "status": "PARTIAL", "enabled": false, "nationalGraph": false },
+      "WorkflowDSL": { "status": "ABSENT", "enabled": false, "secondEngine": false },
+      "DistributedArchitecture": { "status": "ABSENT", "enabled": false, "kafka": "ABSENT" }
+    },
+    "feeds": {
+      "DataFeedEngine": "PARTIAL",
+      "InstrumentAdapterLayer": "PARTIAL",
+      "FeedRegistry": "COMPOSED",
+      "FeedHealthMonitor": "COMPOSED"
+    }
+  },
+  "validation": {
+    "simulationOnly": true,
+    "persistedFalseUntilLedgerReady": true,
+    "noAutoTrade": true,
+    "oneBootOneShell": true,
+    "noReadyClaim": true
+  },
+  "refused": {
+    "ldaAutoPatch": "GOVERNANCE > AGENT",
+    "secondWorkflowEngine": "GAP-0006",
+    "kafkaBoot": "oneBoot_oneShell",
+    "nationalKgReady": "no evidence ⇒ UNKNOWN",
+    "liveCertifiedFeeds": "SCI_DIL_FEED unset; liveCertified=0",
+    "raftConsensus": "governance analog ≠ Raft",
+    "ready": false
+  },
+  "browser": {
+    "systemHealthFeedRegistry": "12 types · simulated 2 · stub 5 · absent 5 · liveCertified 0",
+    "intelligenceFeedBanner": "FEED SIMULATED_ALPHA · LIVE ADAPTER ABSENT · NO AUTO-TRADE",
+    "architectureDeployment": "registered 21 · composed 11 · partial 7 · absent 3",
+    "workflowStudio": "Workflow DSL ABSENT enabled=false; OSModule.Workflow PARTIAL; OSModule.EventBus PARTIAL"
+  },
+  "tests": {
+    "eclDil": { "pass": 13, "fail": 0 },
+    "cockpitUi": { "pass": 11, "fail": 0 },
+    "smokeEclDil": { "ok": true, "fails": [], "autoTrade": false }
+  },
+  "note": "ALPHA_NON_PRODUCTION compose. Not READY. Not holeless. Not enterprise GO. Human remains decision maker."
+}

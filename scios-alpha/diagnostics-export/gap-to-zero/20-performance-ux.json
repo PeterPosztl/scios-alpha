@@ -1,0 +1,11 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "measured": false,
+  "targets": {
+    "startupToHomeMs": "measure_on_packaged_run",
+    "searchLatencyMs": "measure",
+    "analyzeFeedback": "pipeline stages visible"
+  },
+  "longRunning": "stage indicators in Analyze present"
+}

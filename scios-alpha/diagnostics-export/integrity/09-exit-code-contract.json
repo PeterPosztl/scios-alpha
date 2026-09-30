@@ -1,0 +1,11 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "contract": {
+    "0": "requested mode reached (READY or accepted OPTIONAL_INFRA_DEGRADED)",
+    "1": "legacy alias for NO_GO in some paths — prefer 2/3",
+    "2": "INTERNAL_NO_GO",
+    "3": "EXTERNAL_BLOCKER / RUNTIME_MISSING"
+  },
+  "startSciDegradedExits0": true
+}

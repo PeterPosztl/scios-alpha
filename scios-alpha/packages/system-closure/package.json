@@ -1,0 +1,19 @@
+{
+  "name": "@scios/system-closure",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "SCI OS ×10 System Closure Engine — truth, hunters, maturity, gates. ALPHA_NON_PRODUCTION.",
+  "main": "./src/index.js",
+  "scripts": {
+    "run": "node src/cli.js",
+    "scan": "node src/cli.js --scan",
+    "p0": "node src/cli.js --p0",
+    "final": "node src/final-closure.js",
+    "integrity": "node ../../scripts/integrity-run.cjs",
+    "startup-reconcile": "node src/startup-reconciliation.cjs",
+    "continuous": "node src/continuous-closure-engine.js",
+    "engine": "node src/continuous-closure-engine.js"
+  },
+  "label": "ALPHA_NON_PRODUCTION"
+}

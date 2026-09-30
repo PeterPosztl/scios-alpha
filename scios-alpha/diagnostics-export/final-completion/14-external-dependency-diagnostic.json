@@ -1,0 +1,46 @@
+{
+  "schema": "sci-os-final-completion/14-external-dependency-diagnostic/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T10:13:14.945Z",
+  "title": "External dependencies",
+  "sources": [
+    "process environment",
+    "completion-program/beta-gate/11-final-gate.json"
+  ],
+  "rule": "External dependencies are never faked or simulated as present.",
+  "dependencies": [
+    {
+      "id": "POSTGRES",
+      "required": "BETA",
+      "present": false,
+      "state": "OPTIONAL_PROVIDER_UNAVAILABLE",
+      "blocker": "PERSISTENCE.PG_EXTERNAL_INSTANCE_FD002"
+    },
+    {
+      "id": "REDIS",
+      "required": "PRODUCTION",
+      "present": false,
+      "state": "OPTIONAL_PROVIDER_UNAVAILABLE"
+    },
+    {
+      "id": "OIDC_PROVIDER",
+      "required": "BETA",
+      "present": false,
+      "state": "ABSENT",
+      "blocker": "FD-001 founder decision"
+    },
+    {
+      "id": "TLS_TERMINATION",
+      "required": "PRODUCTION",
+      "present": false,
+      "state": "ABSENT"
+    },
+    {
+      "id": "LIVE_MARKET_DATA",
+      "required": "VISION_ONLY",
+      "present": false,
+      "state": "ABSENT",
+      "note": "Reference workflow is labelled ALPHA SAMPLE / NON-LIVE / NOT INVESTMENT ADVICE."
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "at": "2026-08-12T19:49:36.070Z",
+  "bootId": "uu_msqi6dlm_ac8b47",
+  "requiredAtRuntime": [
+    "backend/server.cjs",
+    "cockpit/index.mjs",
+    "runtime/node/node.exe",
+    "installer/scripts/start-sci-os.cjs",
+    "SCI OS X10.cmd"
+  ],
+  "present": [
+    {
+      "rel": "backend/server.cjs",
+      "sha256": "8424589d65a4cd0037cb17bd538724b7bd6269452613573928dfbb41f7f79e71"
+    },
+    {
+      "rel": "cockpit/index.mjs",
+      "sha256": "ef803b5f8eb6c125180d1361197b2af4711b655daa363adad0e64624b46065e3"
+    },
+    {
+      "rel": "runtime/node/node.exe",
+      "sha256": "06c1dec1b428927d6ff01c8f5882f119ec13b61ac77483760aa7fba215c72cf5"
+    },
+    {
+      "rel": "installer/scripts/start-sci-os.cjs",
+      "sha256": "924144c0c53c171edc5c0ea2543ea42e3f7b11869564215401eba418ae813a59"
+    },
+    {
+      "rel": "SCI OS X10.cmd",
+      "sha256": "2aad68d819e6f55a827fb2063cf53d82c4ef94e06f2f828460919f05a23a0f81"
+    }
+  ],
+  "missing": [],
+  "inventory": {
+    "SCI-OS-X10.exe": true,
+    "SCI OS X10.exe": true,
+    "backend/server.cjs": true,
+    "cockpit/index.mjs": true,
+    "cockpit/index.js": true,
+    "cockpit/package.json": true,
+    "config/packaged.json": true,
+    "runtime/node/node.exe": true
+  },
+  "hashDrift": [
+    {
+      "rel": "installer/scripts/start-sci-os.cjs",
+      "status": "DRIFT",
+      "expected": "45475c2f3b32fd14a1ca03228c97dc3d6d5550fbd7b52e848c8ef986170ca3d3",
+      "actual": "924144c0c53c171edc5c0ea2543ea42e3f7b11869564215401eba418ae813a59"
+    },
+    {
+      "rel": "SCI OS X10.cmd",
+      "status": "DRIFT",
+      "expected": "6fda022042ac75b49eb9b171d852d74fa7eaa805aa436bc297e314e6c622d036",
+      "actual": "2aad68d819e6f55a827fb2063cf53d82c4ef94e06f2f828460919f05a23a0f81"
+    }
+  ],
+  "pass": true
+}

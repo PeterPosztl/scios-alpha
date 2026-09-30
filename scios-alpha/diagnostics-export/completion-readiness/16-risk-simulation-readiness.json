@@ -1,0 +1,10 @@
+{
+  "schema": "sci-os-completion-audit/risk-simulation/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "overallMaturity": "SOURCE_EXISTS",
+  "apps/risk-engine": { "status": "SOURCE_EXISTS", "scripts": 3, "deps": 0, "note": "App exists, 0 deps" },
+  "apps/execution-simulator": { "status": "SOURCE_EXISTS", "scripts": 2, "deps": 3, "note": "Has some real deps" },
+  "simulation": "SOURCE_EXISTS",
+  "riskModels": "ABSENT",
+  "note": "Risk and simulation apps exist as scaffolds but no proven risk calculations or simulation runs."
+}

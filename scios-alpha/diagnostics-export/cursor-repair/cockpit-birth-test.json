@@ -1,0 +1,75 @@
+{
+  "schema": "sci-os-cockpit-birth-test/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T09:59:15.543Z",
+  "steps": [
+    {
+      "name": "HOME_API",
+      "ok": true,
+      "status": 200,
+      "hasAttention": true,
+      "hasSections": true
+    },
+    {
+      "name": "READYZ",
+      "ok": true,
+      "status": 200,
+      "ready": true,
+      "verdict": "DEGRADED"
+    },
+    {
+      "name": "COCKPIT_HTML",
+      "ok": true,
+      "status": 200
+    },
+    {
+      "name": "GENERATED_BROWSER_SCRIPT",
+      "ok": true,
+      "scriptCount": 1,
+      "error": null
+    },
+    {
+      "name": "COCKPIT_HEALTHZ",
+      "ok": true,
+      "body": {
+        "ok": true,
+        "shell": true,
+        "service": "@scios/cockpit-ui",
+        "controlUrl": "http://127.0.0.1:3000",
+        "ux": "4.0-experience",
+        "professionalUx": {
+          "contract": "sci-os-professional-ux/v1",
+          "sourceId": "apps/cockpit-ui/src/professional-ux.js"
+        }
+      }
+    },
+    {
+      "name": "BOOTSTRAP_PRESENT",
+      "ok": true
+    },
+    {
+      "name": "API_HELPER_PRESENT",
+      "ok": true
+    },
+    {
+      "name": "INITIAL_LOADING_MARKER",
+      "ok": true,
+      "note": "Static HTML may contain Loading home… until JS runs — expected"
+    },
+    {
+      "name": "SEARCH_AAPL",
+      "ok": true,
+      "status": 200
+    }
+  ],
+  "status": "PASS",
+  "cockpitReady": {
+    "COCKPIT_SERVER_READY": true,
+    "GENERATED_HTML_VALID": true,
+    "GENERATED_BROWSER_SCRIPT_VALID": true,
+    "HOME_API_VALID": true,
+    "UI_HYDRATED": "UNKNOWN_NEEDS_BROWSER_E2E",
+    "note": "COCKPIT_READY requires UI_HYDRATED browser proof as next infra"
+  },
+  "failed": []
+}

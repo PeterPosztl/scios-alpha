@@ -1,0 +1,41 @@
+{
+  "schema": "sci-os-workspace-map/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "profiles": {
+    "fraud_investigation": [
+      "CaseHeader",
+      "EntityGraph",
+      "TransactionTimeline",
+      "EvidencePanel",
+      "RiskPanel",
+      "DecisionPanel",
+      "ReportBuilder"
+    ],
+    "soc_ops": [
+      "IncidentHeader",
+      "AlertTimeline",
+      "AssetGraph",
+      "DetectionEvidence",
+      "ResponseActions"
+    ],
+    "portfolio_risk": [
+      "PortfolioHeader",
+      "ExposureMap",
+      "ScenarioPanel",
+      "DecisionQueue"
+    ],
+    "market_analysis": [
+      "ContextHeader",
+      "PredictionPanel",
+      "RiskPanel",
+      "DecisionPanel",
+      "SimulationPanel",
+      "LineagePanel",
+      "EvidencePanel"
+    ],
+    "eng_ops": [
+      "SystemHealthPanel",
+      "EngineeringVerticalSlice"
+    ]
+  }
+}

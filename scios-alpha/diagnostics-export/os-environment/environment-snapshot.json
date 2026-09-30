@@ -1,0 +1,23 @@
+{
+  "schema": "sci-os-environment-snapshot/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-12T19:27:02.234Z",
+  "shellId": "sci.os.shell",
+  "appCount": 12,
+  "availableApps": 10,
+  "commandCount": 15,
+  "serviceCount": 5,
+  "statusSemantics": [
+    "READY",
+    "DEGRADED",
+    "FAILED",
+    "BLOCKED",
+    "WAITING",
+    "STALE",
+    "UNKNOWN",
+    "SIMULATED",
+    "LIVE",
+    "REPLAY",
+    "UNVERIFIED"
+  ]
+}

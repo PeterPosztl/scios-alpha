@@ -1,0 +1,21 @@
+{
+  "at": "2026-08-12T20:22:33.441Z",
+  "schema": "sci-os-ux-scorecard/v1",
+  "target": 85,
+  "scores": {
+    "clarity": 78,
+    "workflowEfficiency": 80,
+    "navigationDepth": 75,
+    "informationHierarchy": 72,
+    "evidenceAccess": 82,
+    "explainability": 70,
+    "professionalDensity": 68,
+    "noviceUsability": 74,
+    "expertUsability": 70,
+    "accessibility": 55,
+    "errorRecovery": 60,
+    "trust": 78
+  },
+  "total": 72,
+  "pass": false
+}

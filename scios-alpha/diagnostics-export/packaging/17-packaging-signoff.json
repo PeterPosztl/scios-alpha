@@ -1,0 +1,41 @@
+{
+  "at": "2026-08-12T18:40:47.666Z",
+  "schema": "sci-os-packaging-signoff/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "verdict": "P0 PACKAGING EXTERNAL BLOCKER",
+  "closed": false,
+  "gates": {
+    "setupGenerated": true,
+    "bundledRuntime": true,
+    "noSystemNodeRequired": true,
+    "noPnpmRuntime": true,
+    "cleanInstall": true,
+    "firstLaunch": true,
+    "gw1Packaged": true,
+    "riskNegative": true,
+    "shutdown": false,
+    "secondLaunch": true,
+    "windowsReboot": false,
+    "postRebootGw1": false
+  },
+  "blockers": {
+    "ERR-PKG-001": "CLOSED",
+    "ERR-LAUNCH-001": "CLOSED",
+    "ERR-REBOOT-001": "EXTERNAL_BLOCKER"
+  },
+  "evidence": {
+    "setupExe": "dist/release/SCI-OS-X10-Setup.exe",
+    "appExe": "dist/SCI-OS-X10/SCI-OS-X10.exe",
+    "firstLaunch": "08-first-launch-proof.json",
+    "gw1": "09-golden-workflow-packaged-proof.json",
+    "riskNegative": "10-risk-negative-packaged-proof.json",
+    "secondLaunch": "12-second-launch-proof.json",
+    "reboot": "13-reboot-proof.json"
+  },
+  "next": [
+    "HOST ACTION: Restart Windows → click Desktop/Start Menu 'SCI OS X10' only (no Cursor/terminal) → then from a post-boot session run package:prove-reboot OR manually confirm Home+GW1",
+    "Code signing for Setup.exe / EXE (currently NOT_AVAILABLE — release limitation)",
+    "Improve graceful shutdown so ports always release without residual processes"
+  ],
+  "note": "CLOSED requires Windows reboot proof. Cold-start simulation PASS ≠ host reboot."
+}

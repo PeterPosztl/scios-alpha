@@ -1,0 +1,14 @@
+{
+  "schema": "sci-os-completion-audit/observability/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "overallMaturity": "PARTIAL",
+  "packages/observability": { "srcFiles": 3, "status": "SOURCE_EXISTS" },
+  "logging": "PARTIAL",
+  "metrics": "ABSENT",
+  "tracing": "ABSENT",
+  "healthEndpoints": "RUNTIME_CONNECTED",
+  "diagnosticsExport": "PROVEN",
+  "startupReport": "PROVEN",
+  "closureEngine": "PROVEN",
+  "note": "Strong diagnostics/closure infrastructure. No OpenTelemetry, no Prometheus, no structured tracing."
+}

@@ -1,0 +1,40 @@
+{
+  "at": "2026-08-13T14:31:11.827Z",
+  "buildId": "foundations-2026-08-13",
+  "schema": "sci-os-desired-actual-reconcile/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "desiredSummary": {
+    "packaged": false,
+    "apiPort": 3000,
+    "shellPort": 4000,
+    "userLaunchTarget": "SHELL"
+  },
+  "actualSummary": {
+    "nodeUsable": true,
+    "coreReady": false,
+    "shellReady": false,
+    "homeReady": false,
+    "claimedReady": false
+  },
+  "passes": [
+    "SHELL_PORT_NE_CP",
+    "NODE_USABLE",
+    "NO_FALSE_READY_CLAIM"
+  ],
+  "gaps": [
+    {
+      "id": "CORE_NOT_READY",
+      "severity": "P0"
+    },
+    {
+      "id": "SHELL_NOT_READY",
+      "severity": "P0"
+    },
+    {
+      "id": "HOME_NOT_READY",
+      "severity": "P0"
+    }
+  ],
+  "ok": false,
+  "controller": "reconcileDesiredActual — extend start-sci-os; not a second boot"
+}

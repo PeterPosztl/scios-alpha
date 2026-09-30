@@ -15,7 +15,40 @@ import {
 } from "node:fs";
 import { join } from "node:path";
 
-const sessions = new Map<string, Record<string, unknown>>();
+export interface SessionRecentEntry {
+  id?: string | undefined;
+  title?: string | undefined;
+  at: string;
+}
+
+export interface SessionRecent {
+  entities: SessionRecentEntry[];
+  analyses: SessionRecentEntry[];
+  searches: SessionRecentEntry[];
+}
+
+/**
+ * Session shape is declared explicitly because `recent` is read as
+ * `session.recent.entities` by callers. A persisted session file written by an
+ * older schema can omit `recent`, so normalizeRecent() must run after any merge.
+ */
+export interface OsSession extends Record<string, unknown> {
+  sessionId: string;
+  schemaVersion: string;
+  recent: SessionRecent;
+  updatedAt: string;
+}
+
+function normalizeRecent(value: unknown): SessionRecent {
+  const v = (value && typeof value === "object" ? value : {}) as Partial<SessionRecent>;
+  return {
+    entities: Array.isArray(v.entities) ? v.entities : [],
+    analyses: Array.isArray(v.analyses) ? v.analyses : [],
+    searches: Array.isArray(v.searches) ? v.searches : [],
+  };
+}
+
+const sessions = new Map<string, OsSession>();
 const jobs = new Map<string, Record<string, unknown>>();
 const notifications: Record<string, unknown>[] = [];
 let jobsHydrated = false;
@@ -198,7 +231,11 @@ export function validateJobTransition(from: string, to: string) {
   return { ok: true };
 }
 
-function validateDependencies(deps: unknown) {
+type DependencyValidation =
+  | { ok: true; deps: string[]; code?: undefined }
+  | { ok: false; code: string; deps?: undefined };
+
+function validateDependencies(deps: unknown): DependencyValidation {
   if (deps == null) return { ok: true, deps: [] as string[] };
   if (!Array.isArray(deps)) return { ok: false, code: "INVALID_DEPENDENCIES" };
   const seen = new Set<string>();
@@ -255,7 +292,7 @@ export function getOrCreateSession(sessionId?: string) {
   const id = sessionId || "default";
   if (sessions.has(id)) return sessions.get(id)!;
   const p = sessionPath(id);
-  let s: Record<string, unknown> = {
+  let s: OsSession = {
     sessionId: id,
     schemaVersion: "sci-os-session/v1",
     role: "arch.market_analyst",
@@ -278,7 +315,8 @@ export function getOrCreateSession(sessionId?: string) {
   };
   if (existsSync(p)) {
     try {
-      s = { ...s, ...JSON.parse(readFileSync(p, "utf8")) };
+      const persisted = JSON.parse(readFileSync(p, "utf8")) as Record<string, unknown>;
+      s = { ...s, ...persisted, sessionId: id, recent: normalizeRecent(persisted.recent ?? s.recent) };
     } catch {
       /* keep default */
     }
@@ -287,7 +325,7 @@ export function getOrCreateSession(sessionId?: string) {
   return s;
 }
 
-export function saveSession(session: Record<string, unknown>) {
+export function saveSession(session: OsSession) {
   session.updatedAt = new Date().toISOString();
   sessions.set(String(session.sessionId), session);
   writeFileSync(sessionPath(String(session.sessionId)), JSON.stringify(session, null, 2));
@@ -355,6 +393,11 @@ export function createJob(input: Record<string, unknown> = {}, meta: Record<stri
           roleId: "arch.market_analyst",
           origin: meta.origin || "system",
         },
+    lifecycleState: "SUBMITTED",
+    correlationId: `corr_${randomUUID()}`,
+    retryPending: false,
+    retryExhausted: false,
+    recoveryInfo: null,
     createdAt: now,
     updatedAt: now,
     createdBy: actor?.actorId || input.createdBy || "local-dev-user",
@@ -382,6 +425,13 @@ const PATCH_ALLOWED = new Set([
   "currentAttempt",
   "expectedVersion",
   "reason",
+  "lifecycleState",
+  "correlationId",
+  "retryPending",
+  "retryExhausted",
+  "recoveryInfo",
+  "startedAt",
+  "completedAt",
 ]);
 
 export function filterJobPatch(patch: Record<string, unknown>) {
@@ -438,6 +488,13 @@ export function updateJob(
   if ("currentStage" in patch) j.currentStage = patch.currentStage;
   if (patch.attempts != null) j.attempts = patch.attempts;
   if (patch.currentAttempt != null) j.currentAttempt = patch.currentAttempt;
+  if (patch.lifecycleState != null) j.lifecycleState = patch.lifecycleState;
+  if (patch.correlationId != null) j.correlationId = patch.correlationId;
+  if (patch.retryPending != null) j.retryPending = patch.retryPending;
+  if (patch.retryExhausted != null) j.retryExhausted = patch.retryExhausted;
+  if ("recoveryInfo" in patch) j.recoveryInfo = patch.recoveryInfo;
+  if (patch.startedAt != null) j.startedAt = patch.startedAt;
+  if (patch.completedAt != null) j.completedAt = patch.completedAt;
 
   j.updatedAt = new Date().toISOString();
   jobs.set(jobId, j);
@@ -501,6 +558,7 @@ export function shellManifest() {
     session: "GET/PUT /v1/os/session",
     jobs: "GET/POST /v1/os/jobs, PATCH /v1/os/jobs/:id, POST /v1/os/jobs/:id/{start,complete,fail,retry,cancel,recover}",
     jobEngine: "GET /v1/os/job-engine/status, POST /v1/os/job-engine/reconcile-stale",
+    jobsHealth: "GET /v1/jobs/health",
     notifications: "GET /v1/os/notifications",
     jobStates: JOB_STATES,
     jobTerminalStates: JOB_TERMINAL_STATES,
@@ -509,14 +567,28 @@ export function shellManifest() {
 }
 
 /** Recovery boundary: WHI-010 must not mutate job semantics — reconcile marker only */
-export function reconcileInterruptedJob(jobId: string) {
+/**
+ * `reconciled` must be present on every branch: callers gate boot-recovery
+ * reporting on it, so omitting it on the transition path silently under-reports
+ * reconciled jobs.
+ */
+export function reconcileInterruptedJob(jobId: string): {
+  job: Record<string, unknown> | null;
+  reconciled: boolean;
+  error: string | null;
+} {
   const j = getJob(jobId);
-  if (!j || j.state !== "RUNNING") return { job: j, reconciled: false };
-  return updateJob(
+  if (!j || j.state !== "RUNNING") return { job: j ?? null, reconciled: false, error: null };
+  const out = updateJob(
     jobId,
     { state: "BLOCKED", expectedVersion: j.stateVersion, reason: "runtime_interrupted" },
     { origin: "recovery-reconcile", reason: "WHI-010 boundary — job layer owns semantics" }
   );
+  return {
+    job: out.job ?? null,
+    reconciled: Boolean(out.job && !out.error),
+    error: out.error ?? null,
+  };
 }
 
 export function jobIdempotencyDigest(key: string) {

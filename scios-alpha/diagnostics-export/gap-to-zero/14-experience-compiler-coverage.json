@@ -1,0 +1,7 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "package": "packages/professional-domain-registry",
+  "gw1CompileRoute": "GET /v1/experience/compile",
+  "coverage": "PARTIAL"
+}

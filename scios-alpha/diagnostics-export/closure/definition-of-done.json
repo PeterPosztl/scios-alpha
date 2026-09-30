@@ -1,0 +1,36 @@
+{
+  "schema": "sci-os-definition-of-done/v1",
+  "note": "File existence ≠ done. Each checkbox needs evidence.",
+  "capabilities": [
+    {
+      "id": "Independent Risk Gate",
+      "criteria": [
+        "INPUT_CONTRACT",
+        "REAL_IMPLEMENTATION",
+        "INDEPENDENT_FROM_PREDICTION",
+        "LIMITS_ENFORCED",
+        "KILL_BLOCK_PATH_TESTED",
+        "LINEAGE",
+        "GOVERNANCE_RECEIVES",
+        "UX_REAL_RESULT",
+        "UNIT",
+        "INTEGRATION",
+        "NEGATIVE",
+        "RUNTIME_PROOF"
+      ]
+    },
+    {
+      "id": "vertical-slice.foundation",
+      "criteria": [
+        "PIT_FEATURES",
+        "PREDICTION_ENVELOPE",
+        "RISK_DECISION",
+        "GOVERNANCE_DECISION",
+        "SIM_EXECUTION",
+        "LINEAGE_LINKS",
+        "RUNTIME_PROOF",
+        "COCKPIT_DISPLAY"
+      ]
+    }
+  ]
+}

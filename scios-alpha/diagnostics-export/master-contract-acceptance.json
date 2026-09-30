@@ -1,0 +1,11 @@
+{
+  "at": "2026-08-12T14:21:30.000Z",
+  "contract": "docs/enterprise/MASTER_CONTRACT_2026.json",
+  "directive": "2026 GLOBAL COMPLETION DIRECTIVE",
+  "enterpriseVerdict": "ENTERPRISE_NO_GO",
+  "alphaVerdict": "ALPHA_GO_FOUNDATION_SLICE",
+  "massStubsGenerated": false,
+  "reason": "Master contract locked as inventory + wave plan. Constitution forbids mass ABSENT module stubs. Foundation vertical slice remains the proven path.",
+  "nextWave": "1b-ontology-completion",
+  "label": "ALPHA_NON_PRODUCTION"
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "../installer/schemas/golden-boot-manifest.schema.json",
+  "version": "0.1.0",
+  "buildSHA": "c226d7489cf7f445f226930de752e382361021fd",
+  "canonicalBootstrap": "installer/scripts/bootstrap-capsule.cjs",
+  "canonicalOrchestrator": "installer/scripts/start-sci-os.cjs",
+  "services": [
+    {
+      "name": "backend",
+      "entry": "apps/control-plane-api/src/server.ts",
+      "args": [],
+      "healthEndpoint": "http://127.0.0.1:3000/healthz",
+      "readyEndpoint": "http://127.0.0.1:3000/readyz",
+      "expectedStatus": "READY",
+      "spawnedBy": "start-sci-os.cjs"
+    },
+    {
+      "name": "worker",
+      "entry": "embedded-foundation-worker",
+      "args": [],
+      "healthEndpoint": "http://127.0.0.1:3000/v1/foundation/worker-smoke",
+      "expectedStatus": "READY",
+      "spawnedBy": "control-plane-api (in-process)"
+    },
+    {
+      "name": "cockpit",
+      "entry": "apps/cockpit-ui/src/index.js",
+      "args": [],
+      "healthEndpoint": "http://127.0.0.1:4000/healthz",
+      "expectedStatus": "READY",
+      "spawnedBy": "start-sci-os.cjs"
+    }
+  ],
+  "ports": {
+    "backend": 3000,
+    "cockpit": 4000,
+    "recoveryShell": 5299,
+    "postgres": 5432,
+    "redis": 6379
+  },
+  "healthChecks": [
+    "http://127.0.0.1:3000/healthz",
+    "http://127.0.0.1:3000/readyz",
+    "http://127.0.0.1:4000/healthz"
+  ],
+  "acceptance": {
+    "autonomousStartupRequires": [
+      "two_consecutive_clean_one_click_startups",
+      "worker_smoke_pass",
+      "readiness_check",
+      "orderly_shutdown"
+    ]
+  },
+  "fileHashes": {
+    "apps/control-plane-api/src/server.ts": "sha256:56e969ceb7e257ce5f276de2c23bcb8064a346e8dcfd4fc84ffa7a25a219f70b",
+    "apps/cockpit-ui/src/index.js": "sha256:743efacfadde7dc80facda70a0cf902665d7d0ede19d3712350d51062e2fa6ce",
+    "installer/golden-boot.manifest.json": "sha256:9dc3628d94dd41b05d6a44a2bb6eeda3fc57897e5072143c67f0182b00164e5b",
+    "installer/scripts/bootstrap-capsule.cjs": "sha256:467126f9599ee89e9b89edcac1879896d2340163a6fe73c0204291a2273c74a8",
+    "installer/scripts/start-sci-os.cjs": "sha256:3139bc9ebb8dd4b8f2f2345e46d3398d94cd53bbd358d101e502f60d691f9c12",
+    "sci-os.manifest.json": "sha256:c64df3ac1570ca9146ddac806a9b15abe0a24dddafe30edf6db8421fe6ed88e1",
+    "installer/schemas/golden-boot-manifest.schema.json": "sha256:d9b65855b341c8d49f8008393ab229d27c2c54cd3de4fdd6d4a4e6b8b2f0441a",
+    "package.json": "sha256:25c24fd1b178da20f164bb2f2e68c45108762cbadb8eeaa2fc265323a677b15f",
+    "pnpm-lock.yaml": "sha256:ff921db8e9e94f260e79021b8ad856ead7b6152d8233a8c79d4d1fc9c7def3c6"
+  },
+  "note": "Aligned with sci-os.manifest.json. Capsule delegates to installer/scripts/bootstrap-capsule.cjs — not a second orchestrator.",
+  "generatedAt": "2026-08-12T15:35:54.847Z",
+  "label": "ALPHA_NON_PRODUCTION"
+}

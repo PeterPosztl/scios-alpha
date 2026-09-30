@@ -1,0 +1,23 @@
+{
+  "alpha": {
+    "proof": "diagnostics-export/completion-program/alpha-final/11-final-gate.json",
+    "token": "ALPHA_FINAL_GATE_FAIL",
+    "targetA": "READY",
+    "liveChecksFailed": [
+      "lineageLinkage",
+      "degradedModeHonest",
+      "cockpitPanels"
+    ],
+    "integrity": "PASS_WITH_LIVE_GAPS"
+  },
+  "beta": {
+    "proof": "diagnostics-export/completion-program/beta-gate/11-final-gate.json",
+    "token": "BETA_GATE_BLOCKED_WITH_EVIDENCE",
+    "integrity": "PASS"
+  },
+  "production": {
+    "proof": "diagnostics-export/completion-program/production-gate/11-final-gate.json",
+    "token": "PRODUCTION_GATE_BLOCKED_WITH_EVIDENCE",
+    "integrity": "PASS"
+  }
+}

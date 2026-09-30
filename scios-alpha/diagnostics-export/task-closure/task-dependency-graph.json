@@ -1,0 +1,50 @@
+{
+  "schema": "sci-os-task-dependency-dag/v1",
+  "edges": [
+    {
+      "from": "TASK-PKG-001",
+      "to": "TASK-PKG-002",
+      "type": "enables"
+    },
+    {
+      "from": "TASK-PKG-002",
+      "to": "TASK-BOOT-002",
+      "type": "enables"
+    },
+    {
+      "from": "TASK-BOOT-002",
+      "to": "TASK-UX-001",
+      "type": "enables"
+    },
+    {
+      "from": "TASK-UX-001",
+      "to": "TASK-PROD-001",
+      "type": "supports"
+    },
+    {
+      "from": "TASK-BOOT-002",
+      "to": "TASK-PKG-003",
+      "type": "prerequisite_for_reboot_cert"
+    },
+    {
+      "from": "TASK-PKG-003",
+      "to": "FIRST_RELEASE_READY",
+      "type": "external_gate"
+    },
+    {
+      "from": "TASK-SEC-001",
+      "to": "SIGNED_RELEASE",
+      "type": "external_gate"
+    }
+  ],
+  "releasePath": [
+    "Bundled runtime",
+    "Packaged launcher",
+    "Supervisor startup",
+    "Packaged backend",
+    "Shell hand-off",
+    "Clean install",
+    "Second start",
+    "Reboot proof (EXTERNAL)"
+  ]
+}

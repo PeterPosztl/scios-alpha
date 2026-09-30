@@ -173,8 +173,132 @@
       "waveId": "B-007",
       "target": "B",
       "title": "P1 root closure",
-      "status": "QUEUED",
-      "startedAt": null
+      "status": "COMPLETE",
+      "startedAt": "2026-08-29T21:00:00.000Z",
+      "completedAt": "2026-08-29T21:30:00.000Z",
+      "buildId": "pkg_1788030533349",
+      "verdict": "B_007_P1_ROOT_CLOSURE_READY",
+      "scope": ["P1.root_closure", "engineering defect fixes", "92-root classification"],
+      "gates": {
+        "classification": "PASS",
+        "engineeringFixes": "PASS",
+        "b006Regression": "PASS"
+      },
+      "proof": "diagnostics-export/completion-program/b-007/11-final-gate.json",
+      "p1Audit": {
+        "rawRegisterCount": 92,
+        "engineeringOpen": 0,
+        "obsoleteClosed": 14,
+        "documentedNonEngineering": 74
+      }
+    },
+    {
+      "waveId": "B-008",
+      "target": "B",
+      "title": "Experience Compiler pipeline",
+      "status": "COMPLETE",
+      "startedAt": "2026-08-29T19:00:00.000Z",
+      "completedAt": "2026-08-29T19:48:00.000Z",
+      "buildId": "pkg_1788031848758",
+      "verdict": "B_008_EXPERIENCE_COMPILER_READY",
+      "scope": [
+        "compiler-pipeline.js",
+        "hydration modules",
+        "experience-spec schema",
+        "GET /v1/compiler/health",
+        "cockpit integration"
+      ],
+      "gates": {
+        "sourceTests": "PASS",
+        "package": "PASS",
+        "install": "PASS",
+        "installedE2e": "PASS",
+        "b005Regression": "PASS",
+        "b006Regression": "PASS",
+        "b007Regression": "PASS"
+      },
+      "proof": "diagnostics-export/completion-program/b-008/11-final-gate.json"
+    },
+    {
+      "waveId": "B-009",
+      "target": "B",
+      "title": "Background system completion",
+      "status": "COMPLETE",
+      "startedAt": "2026-08-29T20:00:00.000Z",
+      "completedAt": "2026-08-29T20:30:00.000Z",
+      "buildId": "pkg_1788035260070",
+      "verdict": "B_009_BACKGROUND_SYSTEM_READY",
+      "scope": [
+        "job lifecycle contract",
+        "GET /v1/jobs/health",
+        "boot recovery + stale reconcile",
+        "concurrency locks",
+        "job center integration"
+      ],
+      "gates": {
+        "sourceTests": "PASS",
+        "package": "PASS",
+        "install": "PASS",
+        "installedE2e": "PASS",
+        "b005Regression": "PASS",
+        "b006Regression": "PASS",
+        "b007Regression": "PASS",
+        "b008Regression": "PASS"
+      },
+      "proof": "diagnostics-export/completion-program/b-009/11-final-gate.json"
+    },
+    {
+      "waveId": "B-010",
+      "target": "B",
+      "title": "Persistence Beta gate (FD-002)",
+      "status": "COMPLETE",
+      "startedAt": "2026-08-29T21:30:00.000Z",
+      "completedAt": "2026-08-29T21:38:00.000Z",
+      "buildId": "pkg_1788039377707",
+      "verdict": "B_010_PERSISTENCE_BLOCKED_WITH_EVIDENCE",
+      "scope": [
+        "postgresql adapter",
+        "migrations",
+        "repository interfaces",
+        "GET /v1/persistence/health",
+        "local primary fallback",
+        "backup export"
+      ],
+      "gates": {
+        "sourceTests": "PASS",
+        "package": "PASS",
+        "install": "PASS",
+        "installedE2e": "PASS",
+        "b004Regression": "PASS",
+        "b009Regression": "PASS",
+        "b008Regression": "PASS"
+      },
+      "proof": "diagnostics-export/completion-program/b-010/11-final-gate.json",
+      "note": "PG adapter implemented; READY when DATABASE_URL connects — external instance required"
+    },
+    {
+      "waveId": "FOUNDER-VISION-GATE",
+      "target": "D",
+      "title": "SCI OS ×10 Completion Program finalization",
+      "status": "COMPLETE",
+      "startedAt": "2026-08-29T21:54:00.000Z",
+      "completedAt": "2026-08-29T21:54:28.374Z",
+      "buildId": "pkg_1788039377707",
+      "gitSha": "46b03f18",
+      "verdict": "FOUNDER_VISION_GATE_COMPLETE",
+      "scope": [
+        "waves B-001..B-010 audit",
+        "alpha/beta/production gate integrity",
+        "external dependency honesty",
+        "live system snapshots"
+      ],
+      "gates": {
+        "waveAudit": "PASS",
+        "alphaGate": "PASS_WITH_LIVE_GAPS",
+        "betaGate": "BETA_GATE_BLOCKED_WITH_EVIDENCE",
+        "productionGate": "PRODUCTION_GATE_BLOCKED_WITH_EVIDENCE"
+      },
+      "proof": "diagnostics-export/completion-program/final/11-founder-vision-gate.json"
     }
   ]
 }

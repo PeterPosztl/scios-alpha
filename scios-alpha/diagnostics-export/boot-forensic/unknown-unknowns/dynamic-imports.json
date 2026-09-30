@@ -1,0 +1,7 @@
+{
+  "at": "2026-08-12T19:49:36.087Z",
+  "bootId": "uu_msqi6dlm_ac8b47",
+  "findingCount": 0,
+  "findings": [],
+  "note": "Static scan; backend is single esbuild CJS bundle — dynamic plugin discovery should be absent."
+}

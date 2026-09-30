@@ -1,7 +1,7 @@
 {
   "signedOffBy": "MetaRecoveryController",
-  "verdict": "SYSTEM_DEGRADED",
-  "correlationId": "meta_065fb1e3",
+  "verdict": "EXTERNAL_BLOCKER_PROVEN",
+  "correlationId": "meta_0c648320",
   "evidencePaths": [
     "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\meta-recovery\\system-inventory.json",
     "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\meta-recovery\\capability-inventory.json",

@@ -1,0 +1,9 @@
+{
+  "at": "2026-08-12T20:33:12.840Z",
+  "userFacingTarget": "http://127.0.0.1:4000/",
+  "controlPlaneInternal": "http://127.0.0.1:3000/",
+  "controlPlaneRootIsNotUi": true,
+  "shellHomeOk": true,
+  "openBrowserOwner": "installer/scripts/start-sci-os.cjs → desktop.url = cockpitPort from config/manifest",
+  "pass": true
+}

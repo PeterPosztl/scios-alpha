@@ -1,0 +1,21 @@
+{
+  "schema": "sci-os-epistemic-object-model/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "status": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+  "kinds": [
+    "FACT",
+    "OBSERVATION",
+    "ASSUMPTION",
+    "HYPOTHESIS",
+    "INFERENCE",
+    "PREDICTION",
+    "SCENARIO",
+    "DECISION",
+    "OUTCOME"
+  ],
+  "implementation": "packages/data-fabric/src/epistemic.ts",
+  "rule": "Every non-factual intelligence result must expose epistemic type",
+  "stageMappingPresent": true,
+  "uiExposure": "PARTIAL — Trust Capsule; not all cards tagged",
+  "ifIgnoredLaterCost": ["UX rewrite", "users treat predictions as facts"]
+}

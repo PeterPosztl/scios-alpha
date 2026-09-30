@@ -1,0 +1,81 @@
+{
+  "schema": "sci-os-cockpit-generated-script-test/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T09:57:48.783Z",
+  "invariant": [
+    "SERVER_JS_VALID",
+    "GENERATED_BROWSER_JS_VALID",
+    "COCKPIT_SERVER_READY",
+    "GENERATED_HTML_VALID",
+    "HOME_API_VALID",
+    "UI_HYDRATED_REQUIRES_BROWSER"
+  ],
+  "source": {
+    "label": "source",
+    "entry": "apps/cockpit-ui/src/index.js",
+    "port": 49335,
+    "htmlStatus": 200,
+    "healthStatus": 200,
+    "healthOk": true,
+    "generatedScript": {
+      "ok": true,
+      "count": 1,
+      "bytes": 283392
+    },
+    "hasLoadingHome": true,
+    "hasBootstrapUi": true,
+    "hasApiHelper": true,
+    "hasStrayCmdkClosure": false
+  },
+  "packaged": {
+    "label": "packaged",
+    "entry": "dist/SCI-OS-X10/cockpit/index.mjs",
+    "port": 49338,
+    "htmlStatus": 200,
+    "healthStatus": 200,
+    "healthOk": true,
+    "generatedScript": {
+      "ok": true,
+      "count": 1,
+      "bytes": 276940
+    },
+    "hasLoadingHome": true,
+    "hasBootstrapUi": true,
+    "hasApiHelper": true,
+    "hasStrayCmdkClosure": false
+  },
+  "controlPlane": {
+    "base": "http://127.0.0.1:3000",
+    "home": {
+      "status": 200,
+      "ok": true,
+      "hasHeadline": true,
+      "hasAttention": true,
+      "hasSections": true
+    },
+    "readyz": {
+      "status": 200,
+      "ok": true,
+      "ready": true,
+      "verdict": "DEGRADED"
+    }
+  },
+  "status": "PASS",
+  "pass": true,
+  "notes": {
+    "homeApiLive": {
+      "status": 200,
+      "ok": true,
+      "hasHeadline": true,
+      "hasAttention": true,
+      "hasSections": true
+    },
+    "readyzLive": {
+      "status": 200,
+      "ok": true,
+      "ready": true,
+      "verdict": "DEGRADED"
+    },
+    "uiHydration": "Requires browser E2E — HTTP+script syntax proven here; Loading home clear is next infra task if Playwright absent"
+  }
+}

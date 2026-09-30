@@ -1,0 +1,62 @@
+{
+  "at": "2026-08-13T12:52:42.652Z",
+  "buildId": "crown-architecture-2026-08-13",
+  "schema": "sci-os-dual-digital-twin/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "extends": [
+    "@scios/meta-recovery StartupDigitalTwin",
+    "product-kernel registries"
+  ],
+  "enterpriseTwin": {
+    "purpose": "Business/intelligence reality",
+    "nodes": [
+      "Entity",
+      "Case",
+      "Event",
+      "Prediction",
+      "RiskAssessment",
+      "Decision",
+      "Outcome",
+      "Evidence"
+    ],
+    "relationships": [
+      "ABOUT",
+      "GATES",
+      "DECIDES",
+      "EVIDENCES",
+      "LINEAGE_OF"
+    ],
+    "workflows": [
+      "gw1.market_prediction_analysis"
+    ],
+    "status": "PARTIAL",
+    "store": "data-fabric ontology + vertical-slice runs (local durable)"
+  },
+  "sciSystemTwin": {
+    "purpose": "Platform self-model",
+    "nodes": [
+      "Service",
+      "Package",
+      "Capability",
+      "Model",
+      "Agent",
+      "Policy",
+      "Dependency",
+      "Health",
+      "Release"
+    ],
+    "relationships": [
+      "depends_on",
+      "provides",
+      "binds_action"
+    ],
+    "status": "PARTIAL",
+    "store": "meta-recovery inventory + product-kernel capability graph + integrity engine"
+  },
+  "portsExpected": {
+    "controlPlane": 3000,
+    "shell": 4000,
+    "recovery": 5299
+  },
+  "note": "No second graph system — twin is a view over existing registries/evidence"
+}

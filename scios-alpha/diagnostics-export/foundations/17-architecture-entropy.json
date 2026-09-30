@@ -1,0 +1,15 @@
+{
+  "at": "2026-08-13T14:31:11.804Z",
+  "buildId": "foundations-2026-08-13",
+  "metrics": {
+    "packageCount": 16,
+    "scriptCount": 23,
+    "productMemoryContracts": 9,
+    "duplicateAuthoritiesKnown": 0,
+    "staleUxTruthRisk": "MITIGATED_2026-08-13",
+    "atomAiRejected": true,
+    "hardcodedLegacyPortsInCockpit": false
+  },
+  "trigger": "Consolidate before expansion when entropy rises",
+  "class": "IMPLEMENT_NOW_P1_MONITOR"
+}

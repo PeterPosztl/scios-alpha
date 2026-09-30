@@ -1,27 +1,38 @@
 {
   "attempts": [
     {
-      "repairId": "repair_541f1385",
+      "repairId": "repair_16163e63",
       "recipeId": "recipe.accept_alpha_no_db",
-      "at": "2026-07-16T23:55:37.007Z",
+      "at": "2026-08-12T15:26:38.046Z",
       "dryRun": false,
       "result": "success",
       "detail": "documented_degraded_capability",
       "changedResources": []
     },
     {
-      "repairId": "repair_399177b6",
+      "repairId": "repair_5afe1541",
+      "recipeId": "recipe.start_control_plane",
+      "at": "2026-08-12T15:26:53.538Z",
+      "dryRun": false,
+      "result": "success",
+      "detail": "sci:repair exit=0; health_ok=true",
+      "changedResources": [
+        "processes"
+      ]
+    },
+    {
+      "repairId": "repair_d1fb440b",
       "recipeId": "recipe.document_missing_electron",
-      "at": "2026-07-16T23:55:37.015Z",
+      "at": "2026-08-12T15:26:53.541Z",
       "dryRun": false,
       "result": "success",
       "detail": "documented_degraded_capability",
       "changedResources": []
     },
     {
-      "repairId": "repair_b7151523",
+      "repairId": "repair_666033fe",
       "recipeId": "recipe.document_missing_workers",
-      "at": "2026-07-16T23:55:37.017Z",
+      "at": "2026-08-12T15:26:53.543Z",
       "dryRun": false,
       "result": "success",
       "detail": "documented_degraded_capability",

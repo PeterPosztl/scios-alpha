@@ -1,0 +1,10 @@
+{
+  "at": "2026-08-12T15:42:32.203Z",
+  "branch": null,
+  "apply": false,
+  "commitRequested": false,
+  "testCmd": "pnpm gate:scaffold",
+  "testExit": 0,
+  "label": "ALPHA_NON_PRODUCTION",
+  "constitution": "propose-only; never auto-deploy"
+}

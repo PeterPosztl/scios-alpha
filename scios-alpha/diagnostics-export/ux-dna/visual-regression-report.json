@@ -1,0 +1,47 @@
+{
+  "at": "2026-08-13T13:00:49.933Z",
+  "buildId": "ux-dna-2026-08-13",
+  "mode": "structural_affordance",
+  "pixelPerfect": false,
+  "checks": [
+    {
+      "id": "nav_present",
+      "pass": true
+    },
+    {
+      "id": "professional_mode",
+      "pass": true
+    },
+    {
+      "id": "risk_affordance",
+      "pass": true
+    },
+    {
+      "id": "evidence_affordance",
+      "pass": true
+    },
+    {
+      "id": "trust_capsule",
+      "pass": true
+    },
+    {
+      "id": "approval_proposal",
+      "pass": true
+    },
+    {
+      "id": "tokens_sci_navy",
+      "pass": true
+    },
+    {
+      "id": "no_purple_theme",
+      "pass": true
+    },
+    {
+      "id": "screenshot_baselines",
+      "pass": false,
+      "class": "PENDING_LIVE_CAPTURE",
+      "note": "Structural baselines locked; PNG capture when Shell live"
+    }
+  ],
+  "passStructural": true
+}

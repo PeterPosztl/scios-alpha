@@ -1,0 +1,942 @@
+{
+  "schema": "sci-os-architecture-graph/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-19T20:26:37.373Z",
+  "graphs": {
+    "boot": true,
+    "process": true,
+    "package": true,
+    "import": true,
+    "capability": true,
+    "action": true,
+    "policy": true,
+    "role": true,
+    "experience": true,
+    "evidence": true
+  },
+  "nodes": [
+    {
+      "id": "boot:bootstrap-capsule",
+      "kind": "boot"
+    },
+    {
+      "id": "boot:start-sci-os",
+      "kind": "boot"
+    },
+    {
+      "id": "boot:supervisor",
+      "kind": "boot"
+    },
+    {
+      "id": "proc:control-plane",
+      "kind": "process"
+    },
+    {
+      "id": "proc:cockpit",
+      "kind": "process"
+    },
+    {
+      "id": "proc:recovery",
+      "kind": "process"
+    },
+    {
+      "id": "app:cockpit-ui",
+      "kind": "app",
+      "root": "apps/cockpit-ui"
+    },
+    {
+      "id": "app:control-plane-api",
+      "kind": "app",
+      "root": "apps/control-plane-api"
+    },
+    {
+      "id": "app:execution-simulator",
+      "kind": "app",
+      "root": "apps/execution-simulator"
+    },
+    {
+      "id": "app:meta-recovery-control-plane",
+      "kind": "app",
+      "root": "apps/meta-recovery-control-plane"
+    },
+    {
+      "id": "app:mock-api",
+      "kind": "app",
+      "root": "apps/mock-api"
+    },
+    {
+      "id": "app:prediction-engine",
+      "kind": "app",
+      "root": "apps/prediction-engine"
+    },
+    {
+      "id": "app:risk-engine",
+      "kind": "app",
+      "root": "apps/risk-engine"
+    },
+    {
+      "id": "pkg:alpha-loop",
+      "kind": "package",
+      "root": "packages/alpha-loop"
+    },
+    {
+      "id": "pkg:capability-closure",
+      "kind": "package",
+      "root": "packages/capability-closure"
+    },
+    {
+      "id": "pkg:data-fabric",
+      "kind": "package",
+      "root": "packages/data-fabric"
+    },
+    {
+      "id": "pkg:design-system",
+      "kind": "package",
+      "root": "packages/design-system"
+    },
+    {
+      "id": "pkg:experience-compiler",
+      "kind": "package",
+      "root": "packages/experience-compiler"
+    },
+    {
+      "id": "pkg:experiment-tracker",
+      "kind": "package",
+      "root": "packages/experiment-tracker"
+    },
+    {
+      "id": "pkg:external-intelligence",
+      "kind": "package",
+      "root": "packages/external-intelligence"
+    },
+    {
+      "id": "pkg:feature-store",
+      "kind": "package",
+      "root": "packages/feature-store"
+    },
+    {
+      "id": "pkg:governance-engine",
+      "kind": "package",
+      "root": "packages/governance-engine"
+    },
+    {
+      "id": "pkg:meta-intelligence",
+      "kind": "package",
+      "root": "packages/meta-intelligence"
+    },
+    {
+      "id": "pkg:meta-recovery",
+      "kind": "package",
+      "root": "packages/meta-recovery"
+    },
+    {
+      "id": "pkg:model-registry",
+      "kind": "package",
+      "root": "packages/model-registry"
+    },
+    {
+      "id": "pkg:observability",
+      "kind": "package",
+      "root": "packages/observability"
+    },
+    {
+      "id": "pkg:os-environment",
+      "kind": "package",
+      "root": "packages/os-environment"
+    },
+    {
+      "id": "pkg:portfolio-engine",
+      "kind": "package",
+      "root": "packages/portfolio-engine"
+    },
+    {
+      "id": "pkg:probability-engine",
+      "kind": "package",
+      "root": "packages/probability-engine"
+    },
+    {
+      "id": "pkg:product-kernel",
+      "kind": "package",
+      "root": "packages/product-kernel"
+    },
+    {
+      "id": "pkg:professional-domain-registry",
+      "kind": "package",
+      "root": "packages/professional-domain-registry"
+    },
+    {
+      "id": "pkg:system-closure",
+      "kind": "package",
+      "root": "packages/system-closure"
+    },
+    {
+      "id": "pkg:validation-engine",
+      "kind": "package",
+      "root": "packages/validation-engine"
+    },
+    {
+      "id": "pkg:vertical-slice",
+      "kind": "package",
+      "root": "packages/vertical-slice"
+    },
+    {
+      "id": "pkg:workspace-composer",
+      "kind": "package",
+      "root": "packages/workspace-composer"
+    },
+    {
+      "id": "CAP.scaffold.workspace",
+      "kind": "capability",
+      "baseline": "ALPHA"
+    },
+    {
+      "id": "CAP.data-fabric.domain",
+      "kind": "capability",
+      "baseline": "ALPHA"
+    },
+    {
+      "id": "CAP.alpha-loop.baseline",
+      "kind": "capability",
+      "baseline": "ALPHA"
+    },
+    {
+      "id": "CAP.prediction-engine.fastapi",
+      "kind": "capability",
+      "baseline": "STUB"
+    },
+    {
+      "id": "CAP.risk-engine.fastapi",
+      "kind": "capability",
+      "baseline": "STUB"
+    },
+    {
+      "id": "CAP.execution-simulator",
+      "kind": "capability",
+      "baseline": "STUB"
+    },
+    {
+      "id": "CAP.control-plane-api",
+      "kind": "capability",
+      "baseline": "ALPHA"
+    },
+    {
+      "id": "CAP.meta.capability-registry",
+      "kind": "capability",
+      "baseline": "ALPHA"
+    },
+    {
+      "id": "CAP.ontology.wave1",
+      "kind": "capability",
+      "baseline": "ALPHA"
+    },
+    {
+      "id": "CAP.ledger.wave1",
+      "kind": "capability",
+      "baseline": "ALPHA"
+    },
+    {
+      "id": "CAP.master-contract.doc",
+      "kind": "capability",
+      "baseline": "ALPHA"
+    },
+    {
+      "id": "CAP.enterprise.modules.sections-49-83",
+      "kind": "capability",
+      "baseline": "ABSENT"
+    },
+    {
+      "id": "CAP.vertical-slice.foundation",
+      "kind": "capability",
+      "baseline": "ALPHA"
+    },
+    {
+      "id": "action:GET /healthz",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /readyz",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/models",
+      "kind": "route"
+    },
+    {
+      "id": "action:POST /v1/foundation/worker-smoke",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/system/snapshot",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/flow",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/meta",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/slice/runs",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/governance/can",
+      "kind": "route"
+    },
+    {
+      "id": "action:POST /v1/governance/evaluate",
+      "kind": "route"
+    },
+    {
+      "id": "action:POST /demo/predict-and-simulate",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/experience/compile",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/home",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/search",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/os/shell",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/os/session",
+      "kind": "route"
+    },
+    {
+      "id": "action:PUT /v1/os/session",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/integrity/summary",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/product/context",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/kernel/projection",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/domain-registry/compiled",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/kernel/status",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/discipline/status",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/intent/compile",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/os/jobs",
+      "kind": "route"
+    },
+    {
+      "id": "action:POST /v1/os/jobs",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/os/notifications",
+      "kind": "route"
+    },
+    {
+      "id": "action:POST /v1/os/recent",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /api/system/health",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/system/health",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /api/system/startup-readiness",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/system/startup-readiness",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/product/readiness",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /api/vertical-slice/run",
+      "kind": "route"
+    },
+    {
+      "id": "action:GET /v1/slice/run",
+      "kind": "route"
+    },
+    {
+      "id": "action:open_command_palette",
+      "kind": "ui_action"
+    },
+    {
+      "id": "action:open_jobs",
+      "kind": "ui_action"
+    },
+    {
+      "id": "action:open_notifications",
+      "kind": "ui_action"
+    },
+    {
+      "id": "action:nav_home",
+      "kind": "ui_action"
+    },
+    {
+      "id": "action:act.explain",
+      "kind": "ui_action"
+    },
+    {
+      "id": "action:act.scenario",
+      "kind": "ui_action"
+    },
+    {
+      "id": "action:act.compare",
+      "kind": "ui_action"
+    },
+    {
+      "id": "action:act.evidence",
+      "kind": "ui_action"
+    },
+    {
+      "id": "action:act.lineage",
+      "kind": "ui_action"
+    },
+    {
+      "id": "action:act.tech",
+      "kind": "ui_action"
+    },
+    {
+      "id": "action:act.local_review.approve",
+      "kind": "ui_action"
+    },
+    {
+      "id": "action:act.local_review.reject",
+      "kind": "ui_action"
+    },
+    {
+      "id": "action:act.local_review.hold",
+      "kind": "ui_action"
+    },
+    {
+      "id": "action:workflow:gw1",
+      "kind": "workflow"
+    },
+    {
+      "id": "action:boot:start-sci-os",
+      "kind": "boot"
+    },
+    {
+      "id": "action:boot:repair",
+      "kind": "boot"
+    },
+    {
+      "id": "policy:governance",
+      "kind": "policy"
+    },
+    {
+      "id": "evidence:lineage",
+      "kind": "evidence"
+    },
+    {
+      "id": "role:arch.soc_analyst",
+      "kind": "role"
+    },
+    {
+      "id": "role:arch.fraud_investigator",
+      "kind": "role"
+    },
+    {
+      "id": "role:arch.fin_risk_analyst",
+      "kind": "role"
+    },
+    {
+      "id": "role:arch.osint_analyst",
+      "kind": "role"
+    },
+    {
+      "id": "role:arch.executive",
+      "kind": "role"
+    },
+    {
+      "id": "role:arch.auditor",
+      "kind": "role"
+    },
+    {
+      "id": "role:arch.market_analyst",
+      "kind": "role"
+    },
+    {
+      "id": "role:arch.eng_operator",
+      "kind": "role"
+    },
+    {
+      "id": "exp:compiler",
+      "kind": "experience",
+      "authority": "@scios/professional-domain-registry/compiler"
+    }
+  ],
+  "edges": [
+    {
+      "from": "boot:bootstrap-capsule",
+      "to": "boot:start-sci-os",
+      "relation": "hands_off"
+    },
+    {
+      "from": "boot:start-sci-os",
+      "to": "boot:supervisor",
+      "relation": "starts"
+    },
+    {
+      "from": "boot:supervisor",
+      "to": "proc:control-plane",
+      "relation": "spawns"
+    },
+    {
+      "from": "boot:supervisor",
+      "to": "proc:cockpit",
+      "relation": "spawns"
+    },
+    {
+      "from": "boot:supervisor",
+      "to": "proc:recovery",
+      "relation": "spawns_optional"
+    },
+    {
+      "from": "app:cockpit-ui",
+      "to": "pkg:design-system",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "app:control-plane-api",
+      "to": "pkg:data-fabric",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "app:control-plane-api",
+      "to": "pkg:feature-store",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "app:control-plane-api",
+      "to": "pkg:observability",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "app:control-plane-api",
+      "to": "pkg:governance-engine",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "app:control-plane-api",
+      "to": "pkg:model-registry",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "app:control-plane-api",
+      "to": "pkg:meta-intelligence",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "app:control-plane-api",
+      "to": "pkg:vertical-slice",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "app:control-plane-api",
+      "to": "pkg:product-kernel",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "app:control-plane-api",
+      "to": "pkg:professional-domain-registry",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "app:execution-simulator",
+      "to": "pkg:data-fabric",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "app:execution-simulator",
+      "to": "pkg:observability",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "app:mock-api",
+      "to": "pkg:vertical-slice",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "pkg:feature-store",
+      "to": "pkg:data-fabric",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "pkg:governance-engine",
+      "to": "pkg:data-fabric",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "pkg:meta-recovery",
+      "to": "pkg:observability",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "pkg:model-registry",
+      "to": "pkg:data-fabric",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "pkg:product-kernel",
+      "to": "pkg:professional-domain-registry",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "pkg:vertical-slice",
+      "to": "pkg:data-fabric",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "pkg:vertical-slice",
+      "to": "pkg:feature-store",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "pkg:vertical-slice",
+      "to": "pkg:governance-engine",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "pkg:vertical-slice",
+      "to": "pkg:observability",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "pkg:workspace-composer",
+      "to": "pkg:professional-domain-registry",
+      "relation": "depends_on",
+      "version": "workspace:*"
+    },
+    {
+      "from": "pkg:product-kernel",
+      "to": "CAP.scaffold.workspace",
+      "relation": "registers"
+    },
+    {
+      "from": "pkg:product-kernel",
+      "to": "CAP.data-fabric.domain",
+      "relation": "registers"
+    },
+    {
+      "from": "pkg:product-kernel",
+      "to": "CAP.alpha-loop.baseline",
+      "relation": "registers"
+    },
+    {
+      "from": "pkg:product-kernel",
+      "to": "CAP.prediction-engine.fastapi",
+      "relation": "registers"
+    },
+    {
+      "from": "pkg:product-kernel",
+      "to": "CAP.risk-engine.fastapi",
+      "relation": "registers"
+    },
+    {
+      "from": "pkg:product-kernel",
+      "to": "CAP.execution-simulator",
+      "relation": "registers"
+    },
+    {
+      "from": "pkg:product-kernel",
+      "to": "CAP.control-plane-api",
+      "relation": "registers"
+    },
+    {
+      "from": "pkg:product-kernel",
+      "to": "CAP.meta.capability-registry",
+      "relation": "registers"
+    },
+    {
+      "from": "pkg:product-kernel",
+      "to": "CAP.ontology.wave1",
+      "relation": "registers"
+    },
+    {
+      "from": "pkg:product-kernel",
+      "to": "CAP.ledger.wave1",
+      "relation": "registers"
+    },
+    {
+      "from": "pkg:product-kernel",
+      "to": "CAP.master-contract.doc",
+      "relation": "registers"
+    },
+    {
+      "from": "pkg:product-kernel",
+      "to": "CAP.enterprise.modules.sections-49-83",
+      "relation": "registers"
+    },
+    {
+      "from": "pkg:product-kernel",
+      "to": "CAP.vertical-slice.foundation",
+      "relation": "registers"
+    },
+    {
+      "from": "action:GET /v1/slice/runs",
+      "to": "policy:governance",
+      "relation": "requires"
+    },
+    {
+      "from": "action:GET /v1/slice/runs",
+      "to": "evidence:lineage",
+      "relation": "should_emit"
+    },
+    {
+      "from": "action:GET /v1/governance/can",
+      "to": "policy:governance",
+      "relation": "requires"
+    },
+    {
+      "from": "action:GET /v1/governance/can",
+      "to": "evidence:lineage",
+      "relation": "should_emit"
+    },
+    {
+      "from": "action:POST /v1/governance/evaluate",
+      "to": "policy:governance",
+      "relation": "requires"
+    },
+    {
+      "from": "action:POST /v1/governance/evaluate",
+      "to": "evidence:lineage",
+      "relation": "should_emit"
+    },
+    {
+      "from": "action:GET /v1/os/session",
+      "to": "policy:governance",
+      "relation": "requires"
+    },
+    {
+      "from": "action:GET /v1/os/session",
+      "to": "evidence:lineage",
+      "relation": "should_emit"
+    },
+    {
+      "from": "action:PUT /v1/os/session",
+      "to": "policy:governance",
+      "relation": "requires"
+    },
+    {
+      "from": "action:PUT /v1/os/session",
+      "to": "evidence:lineage",
+      "relation": "should_emit"
+    },
+    {
+      "from": "action:GET /api/vertical-slice/run",
+      "to": "policy:governance",
+      "relation": "requires"
+    },
+    {
+      "from": "action:GET /api/vertical-slice/run",
+      "to": "evidence:lineage",
+      "relation": "should_emit"
+    },
+    {
+      "from": "action:GET /v1/slice/run",
+      "to": "policy:governance",
+      "relation": "requires"
+    },
+    {
+      "from": "action:GET /v1/slice/run",
+      "to": "evidence:lineage",
+      "relation": "should_emit"
+    },
+    {
+      "from": "action:open_command_palette",
+      "to": "policy:governance",
+      "relation": "requires"
+    },
+    {
+      "from": "action:open_command_palette",
+      "to": "evidence:lineage",
+      "relation": "should_emit"
+    },
+    {
+      "from": "action:open_jobs",
+      "to": "policy:governance",
+      "relation": "requires"
+    },
+    {
+      "from": "action:open_jobs",
+      "to": "evidence:lineage",
+      "relation": "should_emit"
+    },
+    {
+      "from": "action:open_notifications",
+      "to": "policy:governance",
+      "relation": "requires"
+    },
+    {
+      "from": "action:open_notifications",
+      "to": "evidence:lineage",
+      "relation": "should_emit"
+    },
+    {
+      "from": "action:nav_home",
+      "to": "policy:governance",
+      "relation": "requires"
+    },
+    {
+      "from": "action:nav_home",
+      "to": "evidence:lineage",
+      "relation": "should_emit"
+    },
+    {
+      "from": "action:workflow:gw1",
+      "to": "policy:governance",
+      "relation": "requires"
+    },
+    {
+      "from": "action:workflow:gw1",
+      "to": "evidence:lineage",
+      "relation": "should_emit"
+    },
+    {
+      "from": "action:boot:start-sci-os",
+      "to": "policy:governance",
+      "relation": "requires"
+    },
+    {
+      "from": "action:boot:start-sci-os",
+      "to": "evidence:lineage",
+      "relation": "should_emit"
+    },
+    {
+      "from": "action:boot:repair",
+      "to": "policy:governance",
+      "relation": "requires"
+    },
+    {
+      "from": "action:boot:repair",
+      "to": "evidence:lineage",
+      "relation": "should_emit"
+    },
+    {
+      "from": "role:arch.soc_analyst",
+      "to": "exp:compiler",
+      "relation": "compiles_via"
+    },
+    {
+      "from": "role:arch.fraud_investigator",
+      "to": "exp:compiler",
+      "relation": "compiles_via"
+    },
+    {
+      "from": "role:arch.fin_risk_analyst",
+      "to": "exp:compiler",
+      "relation": "compiles_via"
+    },
+    {
+      "from": "role:arch.osint_analyst",
+      "to": "exp:compiler",
+      "relation": "compiles_via"
+    },
+    {
+      "from": "role:arch.executive",
+      "to": "exp:compiler",
+      "relation": "compiles_via"
+    },
+    {
+      "from": "role:arch.auditor",
+      "to": "exp:compiler",
+      "relation": "compiles_via"
+    },
+    {
+      "from": "role:arch.market_analyst",
+      "to": "exp:compiler",
+      "relation": "compiles_via"
+    },
+    {
+      "from": "role:arch.eng_operator",
+      "to": "exp:compiler",
+      "relation": "compiles_via"
+    },
+    {
+      "from": "exp:compiler",
+      "to": "app:cockpit-ui",
+      "relation": "renders_in"
+    }
+  ],
+  "brokenEdges": [],
+  "duplicateAuthorities": [
+    {
+      "concept": "ExperienceCompiler",
+      "canonical": "pkg:professional-domain-registry",
+      "duplicate": "pkg:experience-compiler",
+      "status": "DEPRECATED_DIR"
+    }
+  ],
+  "cycles": [],
+  "note": "Broken edge ≠ auto-bug; classify before repair",
+  "identity": {
+    "schema": "sci-os-closure-identity/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "runId": "closure_mt0jl4vl_81a556",
+    "at": "2026-08-19T20:26:36.658Z",
+    "gitSha": "dcfdd3145ea6e9aa3e06a3120fefcf697779e41d",
+    "treeHash": "852a8fcf35081aca07d9a9028722a992d8693ce590585e3634aa94fecc851b61",
+    "buildId": "pkg_1787170915142",
+    "packageHash": "3d16f5cb7318161840e7e913d4aac83503cce3d4b313fbe37d7244eeedd0828a",
+    "manifestHash": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701",
+    "runtimeVersion": "v20.18.1",
+    "profile": "local-foundation",
+    "note": "Stale evidence must not close current issues — compare runId/treeHash/gitSha"
+  }
+}

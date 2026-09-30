@@ -1,0 +1,56 @@
+{
+  "schema": "sci-os-product-memory-architectural-decisions/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "decisions": [
+    {
+      "decisionId": "ADR-BOOT-001",
+      "decision": "Single canonical boot: bootstrap-capsule → start-sci-os with transactional stages",
+      "reason": "Conflicting boot authorities caused truth drift and false READY",
+      "founderIntent": "ONE CANONICAL BOOT",
+      "alternativesRejected": ["Parallel Meta-OS boot", "ATOM-AI as product boot", "Vite-only SPA boot claiming Shell"],
+      "dependencies": ["installer/scripts/start-sci-os.cjs", "transactional-boot.cjs"],
+      "allowedEvolution": "Add stages/observability; do not fork second orchestrator",
+      "acceptanceCriteria": ["VERIFY_HOME before browser", "packaged prefers bundled Node"]
+    },
+    {
+      "decisionId": "ADR-PORTS-001",
+      "decision": "Control Plane :3000, Shell :4000",
+      "reason": "Stabilize product URLs; retire 5200/5230 as canonical",
+      "founderIntent": "One coherent product surface",
+      "alternativesRejected": ["5200/5230 as primary", "Random port per install without contract"],
+      "dependencies": ["sci-os.manifest.json", "cockpit CONTROL_URL"],
+      "allowedEvolution": "Env override with documented defaults",
+      "acceptanceCriteria": ["SHELL_PORT != CONTROL_PLANE_PORT invariant"]
+    },
+    {
+      "decisionId": "ADR-ROLE-001",
+      "decision": "200+ professions via Role Registry + Experience Compiler composition",
+      "reason": "Avoid 200 duplicated applications",
+      "founderIntent": "Scale by composition",
+      "alternativesRejected": ["Hardcoded app per role", "Separate microservice UI per domain"],
+      "dependencies": ["professional-domain-registry", "product-kernel"],
+      "allowedEvolution": "More role data/config; new shared primitives",
+      "acceptanceCriteria": ["No new role ships as a separate app"]
+    },
+    {
+      "decisionId": "ADR-ACTION-001",
+      "decision": "Consequential actions use Action contract + risk/governance + idempotency",
+      "reason": "Prevent unsafe retries and policy bypass",
+      "founderIntent": "GOVERNANCE > AGENT",
+      "alternativesRejected": ["UI calling arbitrary internal functions", "Silent side effects"],
+      "dependencies": ["vertical-slice action-gate", "discipline/action-execution"],
+      "allowedEvolution": "Durable idempotency store",
+      "acceptanceCriteria": ["Same-process retry does not duplicate side effect"]
+    },
+    {
+      "decisionId": "ADR-SHELL-001",
+      "decision": "Shell (cockpit-ui) IS AppHost for first release",
+      "reason": "Avoid second host framework before boot/Home proven",
+      "founderIntent": "One product experience",
+      "alternativesRejected": ["Rewrite to React/Vite before boot P0 closed", "Separate AppHost package claiming authority"],
+      "dependencies": ["apps/cockpit-ui"],
+      "allowedEvolution": "Extract design-system tokens; componentize gradually",
+      "acceptanceCriteria": ["Home reachable; professional default not raw JSON"]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "at": "2026-08-19T22:42:28.460Z",
+  "fixes": [
+    {
+      "id": "system_closure_engine_bootstrap",
+      "description": "Added @scios/system-closure scanners + closure artifact pipeline",
+      "type": "tooling"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schema": "sci-os-b007-requirements/v1",
+  "phases": [
+    "classify 92 P1",
+    "fix genuine engineering",
+    "document non-engineering",
+    "update controller"
+  ],
+  "categories": [
+    "genuine defect",
+    "intentional limitation",
+    "external dependency",
+    "duplicate/root child",
+    "obsolete finding",
+    "deferred founder decision",
+    "documentation/evidence gap",
+    "test gap",
+    "production-only concern",
+    "Alpha/Beta/Production irrelevant item"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "at": "2026-08-12T19:30:47.503Z",
+  "bootId": "8e3af5b1-882b-4fdf-ac2a-a299c28d83cf",
+  "cmdPassesNoOpen": true,
+  "cmdOpensBrowserOnlyAfterProcessExit": true,
+  "exeOpensBrowserOnlyAfterProcessExit": true,
+  "startSciOsOpensBrowserWhen": "args.open && health.ready",
+  "primaryHypothesis": "Packaged launcher passes --no-open and only opens Home after process exit; --serve never exits → HOME never visible"
+}

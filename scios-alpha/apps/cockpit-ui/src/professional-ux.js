@@ -12,6 +12,7 @@ export const ARCHETYPE_ROLES = [
   { roleId: "arch.osint_analyst", label: "OSINT analyst" },
   { roleId: "arch.executive", label: "Enterprise executive" },
   { roleId: "arch.auditor", label: "Auditor / compliance" },
+  { roleId: "arch.prediction_decision_analyst", label: "Prediction & Decision Analyst" },
   { roleId: "arch.eng_operator", label: "Engineering operator" },
 ];
 
@@ -36,34 +37,50 @@ export function rolePresentationHint(roleId) {
     "arch.osint_analyst": "Entity network and source-quality framing.",
     "arch.executive": "Exception queue and decision summaries — minimal disclosure default.",
     "arch.auditor": "Policy, approval, and lineage audit trail emphasis.",
+    "arch.prediction_decision_analyst": "Home → Intelligence → Decisions → Evidence. Edge, risk, scenario, proposals — human decides. No auto-trade.",
     "arch.eng_operator": "Health, jobs, and diagnostics — technical detail available in Engineering.",
   };
   return map[roleId] || "Professional workspace for " + roleId;
+}
+
+export function professionalRoleLabel(roleId) {
+  const hit = ARCHETYPE_ROLES.find((r) => r.roleId === roleId);
+  return (hit && hit.label) || roleId || "—";
 }
 
 export function renderContextHeader(state) {
   const bar = document.getElementById("contextHeaderBar");
   if (!bar) return;
   const s = state || {};
+  const roleLabel = s.roleLabel || professionalRoleLabel(s.roleId);
   const rows = [
-    ["Execution", s.executionMode || "UNKNOWN"],
+    ["Product", s.product || "SCI OS ×10"],
+    ["Maturity", s.maturity || "ALPHA_NON_PRODUCTION"],
+    ["View", s.view || "—"],
+    ["Mode", s.executionMode || "UNKNOWN"],
+    ["Feeds", s.feeds || "simulated_alpha"],
     ["Control plane", s.cpReachable ? s.cpVerdict || "REACHABLE" : "UNREACHABLE"],
     ["Experience", s.compilerStatus || "UNKNOWN"],
-    ["Role", s.roleId || "—"],
+    ["Pipeline", s.compilerPipeline || (s.compilerVersion ? "B-008" : "—")],
     ["Cockpit", s.cockpitVerdict || "UNKNOWN"],
   ];
   clearNode(bar);
   const title = document.createElement("p");
   title.className = "ctx-title";
-  title.textContent = "System context";
+  title.textContent = "Professional role";
   bar.appendChild(title);
+  appendEl(bar, "p", "ctx-role", roleLabel);
   const grid = document.createElement("div");
   grid.className = "ctx-grid";
   rows.forEach(([k, v]) => {
     const cell = document.createElement("div");
     cell.className = "ctx-cell";
     const tone =
-      /UNREACHABLE|NOT READY|FAILED|DEGRADED/i.test(String(v)) ? "warn" : /READY|PASS|RUNTIME/i.test(String(v)) ? "ok" : "";
+      /UNREACHABLE|NOT READY|FAILED|DEGRADED/i.test(String(v))
+        ? "warn"
+        : /ALPHA_LIVE|RUNTIME|REACHABLE/i.test(String(v))
+          ? "ok"
+          : "";
     if (tone) cell.classList.add(tone);
     appendEl(cell, "span", "ctx-k", k);
     appendEl(cell, "span", "ctx-v", String(v));
@@ -112,25 +129,58 @@ export function renderSystemDashboard(bundle) {
   const health = b.health || {};
   const readiness = b.readiness || {};
   const persistence = b.persistence || {};
+  const persistenceHealth = b.persistenceHealth || {};
   const validation = b.validation || {};
   const jobs = b.jobs || {};
   const engine = b.jobEngine || {};
+  const hooksPayload = b.enterpriseHooks || {};
+  const hooksData = hooksPayload.data || hooksPayload;
+  const hooksActual = hooksData.actual || {};
+  const hooksEnabled = hooksData.enabled;
+  const feedReg = hooksData.feedRegistry || {};
+  const feedHealth = feedReg.health || {};
+  const feedRegLabel =
+    typeof feedHealth.registered === "number"
+      ? feedHealth.registered +
+        " types · simulated " +
+        (feedHealth.simulated || 0) +
+        " · stub " +
+        (feedHealth.stub || 0) +
+        " · absent " +
+        (feedHealth.absent || 0) +
+        " · liveCertified " +
+        (typeof feedHealth.liveCertified === "number" ? feedHealth.liveCertified : "UNKNOWN")
+      : "UNKNOWN";
 
   renderKvPanel(healthRoot, "System health", [
     ["Verdict", b.verdict || "UNKNOWN"],
-    ["Ready", ready.ready === true ? "YES" : ready.ready === false ? "NO" : "UNKNOWN"],
+    ["Foundation core", ready.ready === true ? "CORE_READY (ALPHA — not enterprise GO)" : ready.ready === false ? "NO" : "UNKNOWN"],
     ["Profile", ready.profile || "—"],
     ["Risk control", ready.riskControl || "—"],
     ["Execution mode", b.executionMode || ready.executionMode || "SIMULATION_ONLY"],
     ["Optional infra", ready.optionalInfra || "—"],
     ["Health service", health.status || health.optionalError || (health.ok === true ? "OK" : "UNKNOWN")],
-    ["Startup readiness", readiness.ready === true ? "READY" : readiness.optionalError || readiness.status || "UNKNOWN"],
+    ["Startup readiness", readiness.ready === true ? "CORE_READY (Home reachable — not enterprise GO)" : readiness.optionalError || readiness.status || "UNKNOWN"],
+    ["Auto-trade", "false"],
+    ["Boot", hooksActual.boot || "start-sci-os.cjs"],
+    ["OIDC", hooksActual.oidc || hooksData.oidc || "ABSENT"],
+    ["OTLP", hooksActual.otlp || hooksData.otlp || "ABSENT"],
+    ["ECL ledger", hooksActual.ledger || hooksData.ledger || "in-memory"],
+    ["Live feeds", hooksActual.liveFeeds || "ABSENT"],
+    ["Feed registry", feedRegLabel],
+    ["Feeds live enabled", feedReg.enabledLive === true ? "true" : "false"],
+    ["Feeds persisted", feedReg.persisted === true ? "true" : "false"],
+    ["Feed simulation", feedReg.simulationOnly === true ? "SIMULATION_ONLY" : ready.executionMode || "SIMULATION_ONLY"],
+    ["Live calibration", hooksActual.liveCalibration || "UNKNOWN"],
+    ["Enterprise hooks", hooksEnabled === false ? "PREPARED · enabled=false" : hooksData.optionalError ? "UNKNOWN — " + hooksData.optionalError : "UNKNOWN"],
   ]);
 
   renderKvPanel(readyRoot, "Readiness", [
     ["Control plane", b.cpReachable ? "REACHABLE" : "UNREACHABLE"],
     ["Degraded", b.degraded ? "YES — partial diagnostics failed" : "NO"],
     ["Experience compiler", b.compilerStatus || "UNKNOWN"],
+    ["Compiler pipeline", b.compilerPipeline || b.compilerHealth?.pipelineModule || "—"],
+    ["Compiler version", b.compilerVersion || b.compilerHealth?.compilerVersion || "—"],
     ["Pipeline", flow.arrow ? "canonical flow mounted" : "foundation only"],
     ["Stages", (flow.stages || []).length ? (flow.stages || []).join(" → ") : "—"],
   ]);
@@ -177,9 +227,12 @@ export function renderSystemDashboard(bundle) {
   if (persistRoot) {
     const states = persistence.states || persistence.json?.states || {};
     renderKvPanel(persistRoot, "Persistence matrix", [
-      ["PostgreSQL", states.postgres || persistence.postgres || "PROFILE_DISABLED"],
-      ["Jobs", states.jobs || "local-durable"],
-      ["Vertical slice", states.verticalSliceRuns || "—"],
+      ["Local", persistenceHealth.local?.status || "PASS"],
+      ["PostgreSQL", persistenceHealth.postgres?.status || states.postgres?.classification || "PROFILE_DISABLED"],
+      ["Verdict", persistenceHealth.verdict || "—"],
+      ["Fallback", persistenceHealth.fallback?.mode || "LOCAL_PRIMARY"],
+      ["Jobs", states.jobs?.classification || "local-durable"],
+      ["Vertical slice", states.verticalSliceRuns?.classification || "—"],
       ["Label", persistence.label || "ALPHA_NON_PRODUCTION"],
     ]);
   }
@@ -207,10 +260,19 @@ export function renderJobCenter(payload) {
   clearNode(root);
   const jobs = (payload && payload.jobs) || [];
   const engine = payload && payload.engine;
+  const health = payload && payload.health;
 
   if (summary) {
+    const healthLine =
+      health && health.schema
+        ? health.schema +
+          " · " +
+          (health.status || "—") +
+          (health.lifecycle ? " · " + health.lifecycle.total + " lifecycle" : "")
+        : "";
     summary.textContent =
       (engine && engine.schema ? engine.schema + " · " : "") +
+      (healthLine ? healthLine + " · " : "") +
       jobs.length +
       " job(s) · max concurrent " +
       ((engine && engine.maxConcurrent) || "—");
@@ -224,19 +286,28 @@ export function renderJobCenter(payload) {
   jobs.slice(0, 20).forEach((j) => {
     const card = document.createElement("div");
     card.className = "job-card";
-    const state = j.state || j.actualState || "UNKNOWN";
-    const tone = /COMPLETED/.test(state) ? "ok" : /FAILED|CANCELLED/.test(state) ? "err" : /RUNNING/.test(state) ? "warn" : "";
+    const lifecycle = j.lifecycleState || j.state || j.actualState || "UNKNOWN";
+    const cf11 = j.cf11State || j.actualState || j.state || "UNKNOWN";
+    const tone = /COMPLETED|RECOVERED/.test(lifecycle)
+      ? "ok"
+      : /FAILED|CANCELLED|RETRY_EXHAUSTED/.test(lifecycle)
+        ? "err"
+        : /RUNNING|STARTED/.test(lifecycle)
+          ? "warn"
+          : "";
     appendEl(card, "p", "level", "JOB · " + (j.jobType || j.type || "analysis"));
     const head = document.createElement("div");
     head.className = "job-head";
     appendEl(head, "h3", null, j.title || j.jobId || "Job");
     const badge = document.createElement("span");
     badge.className = "job-state " + tone;
-    badge.textContent = state;
+    badge.textContent = lifecycle;
     head.appendChild(badge);
     card.appendChild(head);
     const meta = [
+      ["CF11", cf11],
       ["Job ID", j.jobId],
+      ["Correlation", j.correlationId || "—"],
       ["Attempts", (j.currentAttempt || 1) + " / " + (j.maxAttempts || "—")],
       ["Progress", j.progress != null ? j.progress + "%" : "—"],
       ["Updated", j.updatedAt || "—"],
@@ -248,6 +319,12 @@ export function renderJobCenter(payload) {
       appendEl(dl, "dd", null, v == null ? "—" : String(v));
     });
     card.appendChild(dl);
+    if (j.recoveryInfo) {
+      const rec = document.createElement("p");
+      rec.className = "hint";
+      rec.textContent = "Recovery: " + JSON.stringify(j.recoveryInfo);
+      card.appendChild(rec);
+    }
     if (j.error) {
       const err = document.createElement("p");
       err.className = "hint truth-warn";
@@ -324,6 +401,7 @@ export function setAnalyzePanelsState(mode, message) {
     "modSimulationPanel",
     "modEvidencePanel",
     "modLineagePanel",
+    "modOpsIntel",
   ];
   ids.forEach((id) => {
     const el = document.getElementById(id);
@@ -350,13 +428,27 @@ export function showEngPanel(panelId) {
   });
 }
 
+/**
+ * Provenance of the professional workspace renderer shipped to the browser.
+ * The functions below are serialized with toString(), which loses every trace of
+ * the module they came from once the cockpit is bundled. The served HTML must be
+ * able to state which UX source produced it.
+ */
+export const PROFESSIONAL_UX_SOURCE_ID = "apps/cockpit-ui/src/professional-ux.js";
+export const PROFESSIONAL_UX_CONTRACT = "sci-os-professional-ux/v1";
+
 export const PROFESSIONAL_UX_BROWSER_SOURCE =
-  "const ARCHETYPE_ROLES = " +
+  "const PROFESSIONAL_UX_SOURCE_ID = " +
+  JSON.stringify(PROFESSIONAL_UX_SOURCE_ID) +
+  ";\nconst PROFESSIONAL_UX_CONTRACT = " +
+  JSON.stringify(PROFESSIONAL_UX_CONTRACT) +
+  ";\nconst ARCHETYPE_ROLES = " +
   JSON.stringify(ARCHETYPE_ROLES) +
   ";\n" +
   [
     populateRoleSelect,
     rolePresentationHint,
+    professionalRoleLabel,
     renderContextHeader,
     renderKvPanel,
     renderSystemDashboard,

@@ -55,6 +55,11 @@ describe("vertical slice E2E", () => {
     }
 
     expect(a.decision.action).toMatch(/APPROVE|DENY|HOLD/);
+    expect(a.decision.role).toBe("arch.market_analyst");
+    expect(a.decision.subjectActorId).toBe("actor:arch.market_analyst");
+    expect(a.decision.serviceActorId).toBe("svc:vertical-slice-simulator");
+    expect(a.actorContext?.actorId).toBe(a.decision.subjectActorId);
+    expect(a.actorContext?.roleId).toBe("arch.market_analyst");
     expect(a.execution?.fillPrice).toBe(b.execution?.fillPrice);
     expect(a.outcome.realizedPnl).toBe(b.outcome.realizedPnl);
     expect(a.prediction.pointEstimate).toBe(b.prediction.pointEstimate);
@@ -97,5 +102,20 @@ describe("vertical slice E2E", () => {
       if (prev === undefined) delete process.env.SCIOS_KILL_SWITCH;
       else process.env.SCIOS_KILL_SWITCH = prev;
     }
+  });
+
+  it("records end-user actor separately from simulator service actor", async () => {
+    const r = await runVerticalSlice({
+      instrumentId: "AAPL",
+      size: 10,
+      seed: 42,
+      eventTime: "2026-07-16T12:00:00.000Z",
+      roleId: "arch.market_analyst",
+      actor: "actor:arch.market_analyst",
+    });
+    expect(r.decision.role).toBe("arch.market_analyst");
+    expect(r.decision.subjectActorId).toBe("actor:arch.market_analyst");
+    expect(r.decision.serviceRole).toBe("operator");
+    expect(r.decision.subjectActorId).not.toBe(r.decision.serviceActorId);
   });
 });

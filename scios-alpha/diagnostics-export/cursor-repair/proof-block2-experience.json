@@ -1,0 +1,100 @@
+{
+  "schema": "sci-os-block2-experience-proof/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T09:59:16.693Z",
+  "pdr": {
+    "label": "ALPHA_NON_PRODUCTION",
+    "families": 21,
+    "archetypes": 9,
+    "rolesSeeded": 200,
+    "rolesFullySpecified": 9,
+    "rolesResearchRequired": 200,
+    "grammarObjects": 22,
+    "loadMode": "static_json_import",
+    "note": "No 200 pages generated. Compose remaining roles onto validated workspace primitives."
+  },
+  "roleCounts": {
+    "developmentFullySpecified": 9,
+    "rolesSeeded": 200,
+    "kernelArchetypes": 9,
+    "equal": true
+  },
+  "compositions": {
+    "arch.market_analyst": {
+      "profile": "market_analysis",
+      "modules": [
+        "ContextHeader",
+        "PredictionPanel",
+        "UncertaintyPanel",
+        "RiskPanel",
+        "DecisionPanel",
+        "SimulationPanel",
+        "LineagePanel",
+        "EvidencePanel"
+      ],
+      "density": "compact",
+      "actorRole": "arch.market_analyst"
+    },
+    "arch.fraud_investigator": {
+      "profile": "fraud_investigation",
+      "modules": [
+        "CaseHeader",
+        "EntityGraph",
+        "TransactionTimeline",
+        "RiskPanel",
+        "EvidencePanel",
+        "DecisionPanel",
+        "ReportBuilder"
+      ],
+      "density": "compact",
+      "actorRole": "arch.fraud_investigator"
+    },
+    "arch.soc_analyst": {
+      "profile": "soc_ops",
+      "modules": [
+        "IncidentHeader",
+        "AlertTimeline",
+        "AssetGraph",
+        "DetectionEvidence",
+        "ResponseActions"
+      ],
+      "density": "compact",
+      "actorRole": "arch.soc_analyst"
+    }
+  },
+  "compositionsDistinct": true,
+  "ghostCompilerDeprecated": true,
+  "live": {
+    "ok": true,
+    "compositions": {
+      "arch.market_analyst": [
+        "ContextHeader",
+        "PredictionPanel",
+        "UncertaintyPanel",
+        "RiskPanel",
+        "DecisionPanel",
+        "SimulationPanel",
+        "LineagePanel",
+        "EvidencePanel"
+      ],
+      "arch.fraud_investigator": [
+        "CaseHeader",
+        "EntityGraph",
+        "TransactionTimeline",
+        "RiskPanel",
+        "EvidencePanel",
+        "DecisionPanel",
+        "ReportBuilder"
+      ],
+      "arch.soc_analyst": [
+        "IncidentHeader",
+        "AlertTimeline",
+        "AssetGraph",
+        "DetectionEvidence",
+        "ResponseActions"
+      ]
+    }
+  },
+  "issues": [],
+  "status": "PASS"
+}

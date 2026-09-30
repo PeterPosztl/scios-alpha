@@ -1,0 +1,35 @@
+{
+  "at": "2026-08-13T10:59:47.013Z",
+  "schema": "sci-os-05-runtime-profile-activation/v1",
+  "buildId": "truth-recon-2026-08-13-c226d748",
+  "profile": "local-foundation",
+  "EXECUTION_MODE": "SIMULATION_ONLY",
+  "AUTH_MODE": "local-development",
+  "ENABLED_CAPABILITIES": [
+    "control-plane",
+    "shell-home",
+    "search",
+    "entity",
+    "vertical-slice-gw1",
+    "embedded-risk-governance",
+    "in-memory-lineage",
+    "foundation-worker-smoke"
+  ],
+  "DISABLED_CAPABILITIES": [
+    "oidc-production-auth",
+    "live-money-execution",
+    "bullmq-queue-workers",
+    "electron-desktop"
+  ],
+  "DEGRADED_CAPABILITIES": [
+    "postgres-durable-ledgers",
+    "redis-queues",
+    "external-fastapi-engines"
+  ],
+  "UNAVAILABLE_CAPABILITIES": [
+    "hsm-keys",
+    "otel-saas",
+    "gw2-7"
+  ],
+  "note": "Do not hide Home/GW1 behind obsolete profile; do not enable enterprise auth merely for UI size"
+}

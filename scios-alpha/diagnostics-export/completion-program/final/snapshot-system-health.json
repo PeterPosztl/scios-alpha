@@ -1,0 +1,34 @@
+{
+  "healthz": {
+    "status": 200,
+    "ok": true
+  },
+  "flow": {
+    "status": 200,
+    "ok": true
+  },
+  "compilerHealth": {
+    "status": 200,
+    "ok": true
+  },
+  "jobsHealth": {
+    "status": 200,
+    "ok": true
+  },
+  "persistenceHealth": {
+    "status": 200,
+    "ok": true
+  },
+  "persistenceMatrix": {
+    "status": 200,
+    "ok": true
+  },
+  "systemHealth": {
+    "status": 200,
+    "ok": true
+  },
+  "startupReadiness": {
+    "status": 503,
+    "ok": false
+  }
+}

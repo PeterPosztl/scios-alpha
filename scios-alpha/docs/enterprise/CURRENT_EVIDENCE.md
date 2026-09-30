@@ -28,6 +28,13 @@
 | Deep forensics | `diagnostics-export/deep-forensics/` | Structural forensics |
 | Truth reconciliation | `diagnostics-export/truth-reconciliation/` | Authority / docs / runtime reconciliation |
 | Reboot boot differential | `diagnostics-export/reboot-certification/02-post-reboot-system-proof.json` | Windows reboot FileTimeUtc differential **PASS** |
+| ECL/DIL ALPHA slice | `diagnostics-export/ecl-dil-alpha-proof.json` | Simulated ECL/DIL APIs + unit tests — **ALPHA, not READY, no auto-trade** |
+| System coherence | `diagnostics-export/system-coherence-state.json` | Unified identity ENTERPRISE_GRADE_ALPHA — **not READY**; one boot / one Shell |
+| DIL simulated track-record | `diagnostics-export/track-record-alpha.json` | Seeded closed-loop Brier/edge/hypo PnL — **live calibration UNKNOWN, not READY** |
+| DIL calibration report | `diagnostics-export/calibration-alpha-report.json` | Same simulated ADEQUATE_ALPHA numbers — **not live proof** |
+| Infra honesty | `diagnostics-export/infra-alpha-state.json` | OIDC/OTLP SDK/ECL durable ledger **ABSENT or PARTIAL** — P2, not ALPHA GO |
+| Cursor feedback | `diagnostics-export/cursor-feedback.json` | ALPHA-safe glue; 1000 GAP catalog mapped ≠ executed — **not READY** |
+| Cursor build log | `diagnostics-export/cursor-build-log.json` | From/to of max-build stop; OIDC/OTLP/ledger remain placeholders |
 
 Regenerate gap/integrity as needed:
 

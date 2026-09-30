@@ -1,0 +1,4 @@
+{
+  "pass": false,
+  "note": "Services down at prove time — ensure GW1 was run after reboot before shutdown, or leave SCI OS running when proving"
+}

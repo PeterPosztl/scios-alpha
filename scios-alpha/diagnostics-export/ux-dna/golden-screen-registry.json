@@ -1,0 +1,76 @@
+{
+  "at": "2026-08-13T13:00:49.933Z",
+  "buildId": "ux-dna-2026-08-13",
+  "screens": [
+    {
+      "screenId": "Home",
+      "baseline": "docs/ux/reference-experience/home.json",
+      "screenshotBaseline": "docs/ux/reference-experience/screenshots/home.png",
+      "compareMode": "structural+affordance",
+      "pixelPerfectRequired": false
+    },
+    {
+      "screenId": "Search",
+      "baseline": "docs/ux/reference-experience/search.json",
+      "screenshotBaseline": "docs/ux/reference-experience/screenshots/search.png",
+      "compareMode": "structural+affordance",
+      "pixelPerfectRequired": false
+    },
+    {
+      "screenId": "Entity360",
+      "baseline": "docs/ux/reference-experience/entity360.json",
+      "screenshotBaseline": "docs/ux/reference-experience/screenshots/entity360.png",
+      "compareMode": "structural+affordance",
+      "pixelPerfectRequired": false
+    },
+    {
+      "screenId": "Analysis",
+      "baseline": "docs/ux/reference-experience/analysis.json",
+      "screenshotBaseline": "docs/ux/reference-experience/screenshots/analysis.png",
+      "compareMode": "structural+affordance",
+      "pixelPerfectRequired": false
+    },
+    {
+      "screenId": "Risk",
+      "baseline": "docs/ux/reference-experience/risk.json",
+      "screenshotBaseline": "docs/ux/reference-experience/screenshots/risk.png",
+      "compareMode": "structural+affordance",
+      "pixelPerfectRequired": false
+    },
+    {
+      "screenId": "Governance",
+      "baseline": "docs/ux/reference-experience/governance.json",
+      "screenshotBaseline": "docs/ux/reference-experience/screenshots/governance.png",
+      "compareMode": "structural+affordance",
+      "pixelPerfectRequired": false
+    },
+    {
+      "screenId": "Graph",
+      "baseline": "docs/ux/reference-experience/graph.json",
+      "screenshotBaseline": "docs/ux/reference-experience/screenshots/graph.png",
+      "compareMode": "structural+affordance",
+      "pixelPerfectRequired": false
+    },
+    {
+      "screenId": "Timeline",
+      "baseline": "docs/ux/reference-experience/timeline.json",
+      "screenshotBaseline": "docs/ux/reference-experience/screenshots/timeline.png",
+      "compareMode": "structural+affordance",
+      "pixelPerfectRequired": false
+    },
+    {
+      "screenId": "Evidence",
+      "baseline": "docs/ux/reference-experience/evidence.json",
+      "screenshotBaseline": "docs/ux/reference-experience/screenshots/evidence.png",
+      "compareMode": "structural+affordance",
+      "pixelPerfectRequired": false
+    },
+    {
+      "screenId": "System",
+      "baseline": "docs/ux/reference-experience/system.json",
+      "screenshotBaseline": "docs/ux/reference-experience/screenshots/system.png",
+      "compareMode": "structural+affordance",
+      "pixelPerfectRequired": false
+    }
+  ]
+}

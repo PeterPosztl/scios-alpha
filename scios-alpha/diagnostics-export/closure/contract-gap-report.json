@@ -1,0 +1,18 @@
+{
+  "at": "2026-08-19T22:42:28.459Z",
+  "note": "Unified config/contract fabric still partial across packages",
+  "gaps": [
+    {
+      "id": "canonical_config_system",
+      "status": "PARTIAL"
+    },
+    {
+      "id": "event_fabric_durable",
+      "status": "PARTIAL_LOCAL"
+    },
+    {
+      "id": "evidence_envelope_universal",
+      "status": "PARTIAL"
+    }
+  ]
+}

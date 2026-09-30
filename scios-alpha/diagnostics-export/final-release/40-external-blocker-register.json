@@ -1,0 +1,33 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "blockers": [
+    {
+      "id": "ext.docker_engine",
+      "required": "Docker Desktop engine running (optional infra)",
+      "why": "PG/Redis compose path",
+      "who": "machine owner",
+      "minimumAction": "Start Docker or accept DEGRADED",
+      "resumes": "ensure-postgres/redis probes",
+      "blocksFirstRelease": false
+    },
+    {
+      "id": "ext.market_api_credentials",
+      "required": "Licensed market data API keys if live feeds desired",
+      "why": "Live quotes beyond simulated foundation",
+      "who": "product owner",
+      "minimumAction": "Provide keys + ToS approval",
+      "resumes": "MarketDataPort adapter",
+      "blocksFirstRelease": false
+    },
+    {
+      "id": "ext.code_signing_cert",
+      "required": "Windows code-signing certificate for Setup.exe",
+      "why": "Trusted installer UX",
+      "who": "org admin",
+      "minimumAction": "Issue cert or SmartScreen mitigation plan",
+      "resumes": "Signed installer distribution",
+      "blocksFirstRelease": true,
+      "note": "Unsigned Setup may still ship for private ALPHA with warning"
+    }
+  ]
+}

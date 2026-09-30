@@ -1,0 +1,584 @@
+{
+  "schema": "sci-os-final-completion/03-capability-maturity-matrix/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T10:13:14.945Z",
+  "title": "Capability maturity derived from executed gates",
+  "sources": [
+    "completion-program/alpha-final/11-final-gate.json",
+    "completion-program/beta-gate/11-final-gate.json",
+    "completion-program/production-gate/11-final-gate.json"
+  ],
+  "classificationVocabulary": [
+    "PROVEN",
+    "PARTIAL",
+    "DISCONNECTED",
+    "PROFILE_DISABLED",
+    "OPTIONAL_PROVIDER_UNAVAILABLE",
+    "ARCHITECTURE_ONLY",
+    "ABSENT",
+    "DEFERRED",
+    "UNKNOWN"
+  ],
+  "rule": "Maturity is only raised by executable evidence. Implementation presence alone stays PARTIAL.",
+  "totals": {
+    "alphaFinal": {
+      "PASS": 28,
+      "FAIL": 0,
+      "SKIP": 0,
+      "OTHER": 0
+    },
+    "betaGate": {
+      "PASS": 22,
+      "FAIL": 0,
+      "SKIP": 1,
+      "OTHER": 2
+    },
+    "productionGate": {
+      "PASS": 16,
+      "FAIL": 0,
+      "SKIP": 0,
+      "OTHER": 8
+    }
+  },
+  "capabilities": [
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "installedBoot",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "healthz",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "pipelineFlow",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "pipelineE2E",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "evidenceLinkage",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "lineageLinkage",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "riskDecision",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "governanceDecision",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "compilerHealth",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "experienceCompile",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "jobEngineHealth",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "persistenceHealth",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "persistenceMatrixHonesty",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "systemHealth",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "startupReadiness",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "degradedModeHonest",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "cockpitHttp",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "cockpitPanels",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "cockpitPersistenceRef",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "cockpitCompilerRef",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "regression_b006-cockpit-ui-hard-gate",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "regression_b008-experience-compiler-hard-gate",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "regression_b009-background-system-hard-gate",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "regression_b010-persistence-hard-gate",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "regression_b004-persistence-hard-gate",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "installed_b008-installed-e2e",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "installed_b009-installed-e2e",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "ALPHA_FOUNDATION",
+      "capability": "installed_b010-installed-e2e",
+      "gate": "alpha-final",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "pipelineDurability",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "localPersistenceDurability",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "fallbackCorrectness",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "backupExport",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "pgAdapter",
+      "gate": "beta-gate",
+      "result": "BLOCKED_WITH_EVIDENCE",
+      "maturity": "PARTIAL"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "migrationCorrectness",
+      "gate": "beta-gate",
+      "result": "SKIP_NO_PG",
+      "maturity": "OPTIONAL_PROVIDER_UNAVAILABLE"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "jobCreate",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "jobLifecycleDurability",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "jobIdempotency",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "jobEngineHealth",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "recoveryCorrectness",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "systemHealthDurability",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "startupReadiness",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "governanceOidc",
+      "gate": "beta-gate",
+      "result": "BLOCKED_WITH_EVIDENCE",
+      "maturity": "PARTIAL"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "governanceDurability",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "cockpitDurability",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "persistenceMatrixHonesty",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "suite_b004-persistence-hard-gate",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "suite_b006-cockpit-ui-hard-gate",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "suite_b008-experience-compiler-hard-gate",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "suite_b009-background-system-hard-gate",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "suite_b010-persistence-hard-gate",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "installed_b008-installed-e2e",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "installed_b009-installed-e2e",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "BETA_READINESS",
+      "capability": "installed_b010-installed-e2e",
+      "gate": "beta-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "installationDurability",
+      "gate": "production-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "upgradeDurability",
+      "gate": "production-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "rollbackDurability",
+      "gate": "production-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "persistenceFallback",
+      "gate": "production-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "pgProduction",
+      "gate": "production-gate",
+      "result": "BLOCKED_WITH_EVIDENCE",
+      "maturity": "PARTIAL"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "jobLifecycleUnderLoad",
+      "gate": "production-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "pipelineUnderLoad",
+      "gate": "production-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "cockpitUnderLoad",
+      "gate": "production-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "systemHealthUnderLoad",
+      "gate": "production-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "systemHealthEndpoint",
+      "gate": "production-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "governanceOidc",
+      "gate": "production-gate",
+      "result": "BLOCKED_WITH_EVIDENCE",
+      "maturity": "PARTIAL"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "governanceInProcess",
+      "gate": "production-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "betaGatePrerequisite",
+      "gate": "production-gate",
+      "result": "BLOCKED_WITH_EVIDENCE",
+      "maturity": "PARTIAL"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "betaGateToken",
+      "gate": "production-gate",
+      "result": "BETA_GATE_BLOCKED_WITH_EVIDENCE",
+      "maturity": "PARTIAL"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "betaGateEvidence",
+      "gate": "production-gate",
+      "result": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\completion-program\\beta-gate\\11-final-gate.json",
+      "maturity": "PARTIAL"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "tlsProduction",
+      "gate": "production-gate",
+      "result": "BLOCKED_WITH_EVIDENCE",
+      "maturity": "PARTIAL"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "deploymentModel",
+      "gate": "production-gate",
+      "result": "PARTIAL",
+      "maturity": "PARTIAL"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "p1Zero",
+      "gate": "production-gate",
+      "result": "BLOCKED_WITH_EVIDENCE",
+      "maturity": "PARTIAL"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "enterpriseObservability",
+      "gate": "production-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "suite_b009-background-system-hard-gate",
+      "gate": "production-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "suite_b010-persistence-hard-gate",
+      "gate": "production-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "suite_whi-010-recovery-intelligence",
+      "gate": "production-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "suite_beta-gate",
+      "gate": "production-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    },
+    {
+      "domain": "PRODUCTION_ELIGIBILITY",
+      "capability": "suite_b008-installed-e2e",
+      "gate": "production-gate",
+      "result": "PASS",
+      "maturity": "PROVEN"
+    }
+  ]
+}

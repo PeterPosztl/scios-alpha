@@ -1,0 +1,26 @@
+{
+  "schema": "sci-os-b009-background-system-hard-gate/v1",
+  "at": "2026-09-30T10:08:40.268Z",
+  "cp": "http://127.0.0.1:3000",
+  "steps": {
+    "jobsHealth": "PASS",
+    "engineStatus": "PASS",
+    "jobCreate": "PASS",
+    "correlationId": "PASS",
+    "canonicalLifecycle": "PASS",
+    "duplicateSubmission": "PASS",
+    "jobStart": "PASS",
+    "lifecycleRunning": "PASS",
+    "jobComplete": "PASS",
+    "retryBoundary": "PASS",
+    "retryExhaustedLifecycle": "PASS",
+    "recovery": "PASS",
+    "recoveredLifecycle": "PASS",
+    "persistence": "PASS",
+    "staleReconcile": "PASS",
+    "observability": "PASS",
+    "b005Regression": "PASS",
+    "b008Regression": "PASS"
+  },
+  "status": "PASS"
+}

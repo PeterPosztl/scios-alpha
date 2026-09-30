@@ -1,0 +1,18 @@
+---
+description: Agent harness — load Product Memory before protected SCI OS changes
+alwaysApply: true
+---
+
+# Agent harness (SCI OS ×10)
+
+Cursor is an **implementer**, not architecture authority.
+
+Before protected architecture/UX/boot/contract changes:
+
+1. Load `product-memory/agent-harness.json` and required files listed there.
+2. Load Founder / Design / Current System Truth / Current Evidence.
+3. Follow: CURRENT STATE → EXPECTED CONTRACT → IMPACT GRAPH → MINIMAL PATCH → TARGETED TEST → INDEPENDENT VERIFY → KEEP/ROLLBACK.
+4. Run trajectory guardian mentally: do individual OK steps collectively violate founder intent, protected contracts, policy, or release scope?
+5. Prefer `pnpm agent:harness` and `pnpm foundations:audit` when touching foundations.
+
+Do **not** invent parallel boot/OS. Do **not** implement every audit finding — classify first.

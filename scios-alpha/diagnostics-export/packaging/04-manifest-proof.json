@@ -1,0 +1,87 @@
+{
+  "at": "2026-09-30T10:01:10.234Z",
+  "ok": true,
+  "manifest": {
+    "schema": "sci-os-golden-boot-packaged/v1",
+    "applicationVersion": "0.1.0-alpha",
+    "buildId": "pkg_1790762466624",
+    "gitSha": "46b03f18b40cca539e8b581e57db407f505d1b6b",
+    "runtimeMode": "PACKAGED",
+    "installRoot": ".",
+    "runtimeNode": "runtime/node/node.exe",
+    "backendEntry": "backend/server.cjs",
+    "recoveryEntry": "recovery/server.cjs",
+    "workerEntries": [
+      "embedded-foundation-worker"
+    ],
+    "cockpitAssets": "cockpit/index.mjs",
+    "requiredFiles": [
+      "backend/server.cjs",
+      "cockpit/index.mjs",
+      "recovery/server.cjs",
+      "runtime/node/node.exe",
+      "installer/scripts/start-sci-os.cjs",
+      "installer/scripts/startup/transactional-boot.cjs",
+      "installer/scripts/startup/desired-state.cjs",
+      "installer/scripts/startup/runtime-services.cjs",
+      "SCI OS X10.cmd"
+    ],
+    "requiredFileHashes": {
+      "backend/server.cjs": "eb2288e66fe84218f3d2a07adb0ae61e45ea1eca11629d3932f636ea75255c68",
+      "cockpit/index.mjs": "52ce596c90b300cd182c0496c2bd14512bbdabab024735fbd4a5f2093c96d3b3",
+      "recovery/server.cjs": "79558d02b335bb2aaf0417d627a91137c12f47439aa551f9c69c594a8ef315db",
+      "runtime/node/node.exe": "06c1dec1b428927d6ff01c8f5882f119ec13b61ac77483760aa7fba215c72cf5",
+      "installer/scripts/start-sci-os.cjs": "8d044fc2480fbffc2aa1e18f490a7ede0da36f824884a9200892efc0ba805a6d",
+      "installer/scripts/startup/transactional-boot.cjs": "7cbd022fcf278346b719cd9473e58d374529f4009e162b773db040ed43e3aa4b",
+      "installer/scripts/startup/desired-state.cjs": "ce00b97ecde915fdf4a5f86ae45bf7279b0165cd0c9f2e11e09c40933ee70fbf",
+      "installer/scripts/startup/runtime-services.cjs": "35fd80a72d62b6693070f5644a9c0f9cb3e2434932e18eeb94bae97abbd69cb7",
+      "SCI OS X10.cmd": "1a07644374a09b93bb3f1b27c554eda5e1ec49708cff5032074782846917b91c"
+    },
+    "servicePorts": {
+      "backend": 3000,
+      "cockpit": 4000,
+      "recoveryShell": 5299
+    },
+    "startupOrder": [
+      "runtime",
+      "backend",
+      "workers",
+      "cockpit",
+      "readiness",
+      "ui"
+    ],
+    "shutdownOrder": [
+      "cockpit",
+      "backend",
+      "workers"
+    ],
+    "healthChecks": [
+      "http://127.0.0.1:3000/healthz",
+      "http://127.0.0.1:3000/readyz",
+      "http://127.0.0.1:4000/healthz"
+    ],
+    "readinessChecks": [
+      "worker-smoke",
+      "vertical-slice-http"
+    ],
+    "migrationVersion": "alpha-0",
+    "requiredCapabilities": [
+      "control-plane-api",
+      "vertical-slice.foundation",
+      "cockpit.professional-view"
+    ],
+    "optionalCapabilities": [
+      "postgresql",
+      "redis",
+      "electron-desktop"
+    ],
+    "label": "ALPHA_NON_PRODUCTION",
+    "buildIdentity": {
+      "buildId": "pkg_1790762466624",
+      "treeHash": "9af5bb0a963c4f630eff9a51744a8cf75e008a07b8120aab7cf69e929046bfd2",
+      "packageHash": "3f05cd5025a8fcb9e07a515d90dd89d29a371c51c843e480620324207fc5e3d9",
+      "lockfileHash": "1a105e1f59ee30ffee081a321963277cc5f1b0d50217a260e3ab9bf18fdbf490",
+      "manifestHash": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701"
+    }
+  }
+}

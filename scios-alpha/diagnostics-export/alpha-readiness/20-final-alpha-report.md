@@ -12,7 +12,7 @@
 | Home / Search / Entity | PASS |
 | Market Analyst + AAPL | PASS (8 panels) |
 | P0 | 0 |
-| P1 (remaining, non-Alpha) | 91 |
+| P1 (remaining, non-Alpha) | 92 |
 | E2E | LIVE_PASS |
 
 **USABLE_LOCAL_ALPHA_READY**

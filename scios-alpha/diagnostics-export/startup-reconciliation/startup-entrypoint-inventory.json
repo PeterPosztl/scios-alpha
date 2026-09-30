@@ -1,0 +1,982 @@
+{
+  "at": "2026-08-12T20:33:12.799Z",
+  "schema": "sci-os-startup-entrypoint-inventory/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "root": "C:/Users/peter/Desktop/SCI/scios-alpha",
+  "count": 108,
+  "entries": [
+    {
+      "path": "bootstrap/boot-manifest.json",
+      "hash": "b527014ac9586da4cab8e1fbff5a4f6bd59690419323548e8fda607be4f414b6",
+      "size": 2799,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "bootstrap/bootstrap-capsule.js",
+      "hash": "eed6189626d323cc0b7e09859aac088588dd872846e8deaffe6a6a083c67dd78",
+      "size": 6273,
+      "classification": "COMPATIBILITY_WRAPPER",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "build/golden-boot.manifest.json",
+      "hash": "d18f4312dcad53ae3f83856935bc0aedbdc8e6656b7812c2485eabfb490fd010",
+      "size": 2798,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/cache/node-v20.18.1-win-x64/corepack.cmd",
+      "hash": "920630a1d1ec47aedea7345e3c868ecdc07e191373497bbf47fbbf5942fbad4f",
+      "size": 218,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/cache/node-v20.18.1-win-x64/install_tools.bat",
+      "hash": "7f34f73126f62888c7354fea6ec4ed48679824e8972ae47f650b520055b8a975",
+      "size": 3094,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/cache/node-v20.18.1-win-x64/nodevars.bat",
+      "hash": "a2b020e2f641524c6fd1b8ebbcd9ee03c7dc44009f2b78e701e773ad048be9a5",
+      "size": 702,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/cache/node-v20.18.1-win-x64/npm.cmd",
+      "hash": "21b46c69ad6e2f231f02a9e120f4ba6c8e75fef5a45637103002eab99f888ab8",
+      "size": 538,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/cache/node-v20.18.1-win-x64/npx.cmd",
+      "hash": "4dd3574f4396fc3b45c52b6ac80fd52be2dd2660d2a153b4cc807dbbfeefa7a0",
+      "size": 538,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-alt/SCI OS X10/bootstrap/bootstrap-capsule.js",
+      "hash": "eed6189626d323cc0b7e09859aac088588dd872846e8deaffe6a6a083c67dd78",
+      "size": 6273,
+      "classification": "COMPATIBILITY_WRAPPER",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-alt/SCI OS X10/installer/golden-boot.manifest.json",
+      "hash": "ca3a951146f685ef4a635b10fccb10de13f3355c4417899fedc656c714457c20",
+      "size": 1913,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-alt/SCI OS X10/installer/scripts/bootstrap-capsule.cjs",
+      "hash": "467126f9599ee89e9b89edcac1879896d2340163a6fe73c0204291a2273c74a8",
+      "size": 3604,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-alt/SCI OS X10/installer/scripts/convergence/lib.cjs",
+      "hash": "8f5c7ce991ffb04c98813dee25bef9f00fe3b32177e0cddf6411108156b88ccd",
+      "size": 12964,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-alt/SCI OS X10/installer/scripts/convergence/stop.cjs",
+      "hash": "df644b5b4533144d47c0e72bed77497796892b42711c62ea3b05f83acc50b18d",
+      "size": 5774,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-alt/SCI OS X10/installer/scripts/start-sci-os.cjs",
+      "hash": "45475c2f3b32fd14a1ca03228c97dc3d6d5550fbd7b52e848c8ef986170ca3d3",
+      "size": 20511,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-alt/SCI OS X10/installer/scripts/startup/packaged-mode.cjs",
+      "hash": "81220ecb5c94dde55201ad3fde6a7b94e0f9f034053da96946f4ae150aa525dc",
+      "size": 1154,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-alt/SCI OS X10/installer/scripts/startup/process-supervisor.cjs",
+      "hash": "f9214d1defa12ea7e9f8bbbb462b4180b5e19fbcb030175825bf7cff8c9ff3c0",
+      "size": 2657,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-alt/SCI OS X10/installer/scripts/startup/resolve-runtime-entries.cjs",
+      "hash": "1bdb55421e3e3c11bb6db7e725d24956f61a67776adfe169ac54d4d4cbcfa90f",
+      "size": 2050,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-alt/SCI OS X10/runtime/node/corepack.cmd",
+      "hash": "920630a1d1ec47aedea7345e3c868ecdc07e191373497bbf47fbbf5942fbad4f",
+      "size": 218,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-alt/SCI OS X10/runtime/node/install_tools.bat",
+      "hash": "7f34f73126f62888c7354fea6ec4ed48679824e8972ae47f650b520055b8a975",
+      "size": 3094,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-alt/SCI OS X10/runtime/node/nodevars.bat",
+      "hash": "a2b020e2f641524c6fd1b8ebbcd9ee03c7dc44009f2b78e701e773ad048be9a5",
+      "size": 702,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-alt/SCI OS X10/runtime/node/npm.cmd",
+      "hash": "21b46c69ad6e2f231f02a9e120f4ba6c8e75fef5a45637103002eab99f888ab8",
+      "size": 538,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-alt/SCI OS X10/runtime/node/npx.cmd",
+      "hash": "4dd3574f4396fc3b45c52b6ac80fd52be2dd2660d2a153b4cc807dbbfeefa7a0",
+      "size": 538,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-alt/SCI OS X10/SCI OS X10.cmd",
+      "hash": "6fda022042ac75b49eb9b171d852d74fa7eaa805aa436bc297e314e6c622d036",
+      "size": 608,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-alt/SCI OS X10/SCI-OS-X10.cmd",
+      "hash": "6fda022042ac75b49eb9b171d852d74fa7eaa805aa436bc297e314e6c622d036",
+      "size": 608,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-via-setup/bootstrap/bootstrap-capsule.js",
+      "hash": "eed6189626d323cc0b7e09859aac088588dd872846e8deaffe6a6a083c67dd78",
+      "size": 6273,
+      "classification": "COMPATIBILITY_WRAPPER",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-via-setup/installer/golden-boot.manifest.json",
+      "hash": "ca3a951146f685ef4a635b10fccb10de13f3355c4417899fedc656c714457c20",
+      "size": 1913,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-via-setup/installer/scripts/bootstrap-capsule.cjs",
+      "hash": "467126f9599ee89e9b89edcac1879896d2340163a6fe73c0204291a2273c74a8",
+      "size": 3604,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-via-setup/installer/scripts/convergence/lib.cjs",
+      "hash": "8f5c7ce991ffb04c98813dee25bef9f00fe3b32177e0cddf6411108156b88ccd",
+      "size": 12964,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-via-setup/installer/scripts/convergence/stop.cjs",
+      "hash": "df644b5b4533144d47c0e72bed77497796892b42711c62ea3b05f83acc50b18d",
+      "size": 5774,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-via-setup/installer/scripts/start-sci-os.cjs",
+      "hash": "1c56e2c196a0b99d3ec8c4220f665e639456d0c5a2a33a84dcb05c8520a7ea0c",
+      "size": 22411,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-via-setup/installer/scripts/startup/packaged-mode.cjs",
+      "hash": "81220ecb5c94dde55201ad3fde6a7b94e0f9f034053da96946f4ae150aa525dc",
+      "size": 1154,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-via-setup/installer/scripts/startup/process-supervisor.cjs",
+      "hash": "f9214d1defa12ea7e9f8bbbb462b4180b5e19fbcb030175825bf7cff8c9ff3c0",
+      "size": 2657,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-via-setup/installer/scripts/startup/resolve-runtime-entries.cjs",
+      "hash": "1bdb55421e3e3c11bb6db7e725d24956f61a67776adfe169ac54d4d4cbcfa90f",
+      "size": 2050,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-via-setup/installer/scripts/startup/shell-readiness.cjs",
+      "hash": "66481969b11da81b70a14cf607018938de6b8be43c75162734b9b45e8f0b16ea",
+      "size": 3565,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-via-setup/runtime/node/corepack.cmd",
+      "hash": "920630a1d1ec47aedea7345e3c868ecdc07e191373497bbf47fbbf5942fbad4f",
+      "size": 218,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-via-setup/runtime/node/install_tools.bat",
+      "hash": "7f34f73126f62888c7354fea6ec4ed48679824e8972ae47f650b520055b8a975",
+      "size": 3094,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-via-setup/runtime/node/nodevars.bat",
+      "hash": "a2b020e2f641524c6fd1b8ebbcd9ee03c7dc44009f2b78e701e773ad048be9a5",
+      "size": 702,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-via-setup/runtime/node/npm.cmd",
+      "hash": "21b46c69ad6e2f231f02a9e120f4ba6c8e75fef5a45637103002eab99f888ab8",
+      "size": 538,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-via-setup/runtime/node/npx.cmd",
+      "hash": "4dd3574f4396fc3b45c52b6ac80fd52be2dd2660d2a153b4cc807dbbfeefa7a0",
+      "size": 538,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-via-setup/SCI OS X10.cmd",
+      "hash": "6fda022042ac75b49eb9b171d852d74fa7eaa805aa436bc297e314e6c622d036",
+      "size": 608,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-via-setup/SCI-OS-X10.cmd",
+      "hash": "6fda022042ac75b49eb9b171d852d74fa7eaa805aa436bc297e314e6c622d036",
+      "size": 608,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/install-via-setup/Uninstall.cmd",
+      "hash": "33cbb26df9c7d693d901458842a573e892e42a4e3c1a539a21dda5a79be202c7",
+      "size": 323,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/release/payload/bootstrap/bootstrap-capsule.js",
+      "hash": "eed6189626d323cc0b7e09859aac088588dd872846e8deaffe6a6a083c67dd78",
+      "size": 6273,
+      "classification": "COMPATIBILITY_WRAPPER",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/release/payload/installer/golden-boot.manifest.json",
+      "hash": "ca3a951146f685ef4a635b10fccb10de13f3355c4417899fedc656c714457c20",
+      "size": 1913,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/release/payload/installer/scripts/bootstrap-capsule.cjs",
+      "hash": "467126f9599ee89e9b89edcac1879896d2340163a6fe73c0204291a2273c74a8",
+      "size": 3604,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/release/payload/installer/scripts/convergence/lib.cjs",
+      "hash": "8f5c7ce991ffb04c98813dee25bef9f00fe3b32177e0cddf6411108156b88ccd",
+      "size": 12964,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/release/payload/installer/scripts/convergence/stop.cjs",
+      "hash": "df644b5b4533144d47c0e72bed77497796892b42711c62ea3b05f83acc50b18d",
+      "size": 5774,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/release/payload/installer/scripts/start-sci-os.cjs",
+      "hash": "924144c0c53c171edc5c0ea2543ea42e3f7b11869564215401eba418ae813a59",
+      "size": 20957,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/release/payload/installer/scripts/startup/packaged-mode.cjs",
+      "hash": "81220ecb5c94dde55201ad3fde6a7b94e0f9f034053da96946f4ae150aa525dc",
+      "size": 1154,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/release/payload/installer/scripts/startup/process-supervisor.cjs",
+      "hash": "f9214d1defa12ea7e9f8bbbb462b4180b5e19fbcb030175825bf7cff8c9ff3c0",
+      "size": 2657,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/release/payload/installer/scripts/startup/resolve-runtime-entries.cjs",
+      "hash": "1bdb55421e3e3c11bb6db7e725d24956f61a67776adfe169ac54d4d4cbcfa90f",
+      "size": 2050,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/release/payload/runtime/node/corepack.cmd",
+      "hash": "920630a1d1ec47aedea7345e3c868ecdc07e191373497bbf47fbbf5942fbad4f",
+      "size": 218,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/release/payload/runtime/node/install_tools.bat",
+      "hash": "7f34f73126f62888c7354fea6ec4ed48679824e8972ae47f650b520055b8a975",
+      "size": 3094,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/release/payload/runtime/node/nodevars.bat",
+      "hash": "a2b020e2f641524c6fd1b8ebbcd9ee03c7dc44009f2b78e701e773ad048be9a5",
+      "size": 702,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/release/payload/runtime/node/npm.cmd",
+      "hash": "21b46c69ad6e2f231f02a9e120f4ba6c8e75fef5a45637103002eab99f888ab8",
+      "size": 538,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/release/payload/runtime/node/npx.cmd",
+      "hash": "4dd3574f4396fc3b45c52b6ac80fd52be2dd2660d2a153b4cc807dbbfeefa7a0",
+      "size": 538,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/release/payload/SCI OS X10.cmd",
+      "hash": "2aad68d819e6f55a827fb2063cf53d82c4ef94e06f2f828460919f05a23a0f81",
+      "size": 539,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/release/payload/SCI-OS-X10.cmd",
+      "hash": "2aad68d819e6f55a827fb2063cf53d82c4ef94e06f2f828460919f05a23a0f81",
+      "size": 539,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/SCI-OS-X10/bootstrap/bootstrap-capsule.js",
+      "hash": "eed6189626d323cc0b7e09859aac088588dd872846e8deaffe6a6a083c67dd78",
+      "size": 6273,
+      "classification": "COMPATIBILITY_WRAPPER",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/SCI-OS-X10/installer/golden-boot.manifest.json",
+      "hash": "ca3a951146f685ef4a635b10fccb10de13f3355c4417899fedc656c714457c20",
+      "size": 1913,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/SCI-OS-X10/installer/scripts/bootstrap-capsule.cjs",
+      "hash": "467126f9599ee89e9b89edcac1879896d2340163a6fe73c0204291a2273c74a8",
+      "size": 3604,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/SCI-OS-X10/installer/scripts/convergence/lib.cjs",
+      "hash": "8f5c7ce991ffb04c98813dee25bef9f00fe3b32177e0cddf6411108156b88ccd",
+      "size": 12964,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/SCI-OS-X10/installer/scripts/convergence/stop.cjs",
+      "hash": "df644b5b4533144d47c0e72bed77497796892b42711c62ea3b05f83acc50b18d",
+      "size": 5774,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/SCI-OS-X10/installer/scripts/start-sci-os.cjs",
+      "hash": "1c56e2c196a0b99d3ec8c4220f665e639456d0c5a2a33a84dcb05c8520a7ea0c",
+      "size": 22411,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/SCI-OS-X10/installer/scripts/startup/packaged-mode.cjs",
+      "hash": "4ebb45a7cb0b9cae444874915825eee0e62294b123627e373548d80452efacae",
+      "size": 1310,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/SCI-OS-X10/installer/scripts/startup/process-supervisor.cjs",
+      "hash": "f9214d1defa12ea7e9f8bbbb462b4180b5e19fbcb030175825bf7cff8c9ff3c0",
+      "size": 2657,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/SCI-OS-X10/installer/scripts/startup/resolve-runtime-entries.cjs",
+      "hash": "1bdb55421e3e3c11bb6db7e725d24956f61a67776adfe169ac54d4d4cbcfa90f",
+      "size": 2050,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/SCI-OS-X10/installer/scripts/startup/shell-readiness.cjs",
+      "hash": "66481969b11da81b70a14cf607018938de6b8be43c75162734b9b45e8f0b16ea",
+      "size": 3565,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/SCI-OS-X10/runtime/node/corepack.cmd",
+      "hash": "920630a1d1ec47aedea7345e3c868ecdc07e191373497bbf47fbbf5942fbad4f",
+      "size": 218,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/SCI-OS-X10/runtime/node/install_tools.bat",
+      "hash": "7f34f73126f62888c7354fea6ec4ed48679824e8972ae47f650b520055b8a975",
+      "size": 3094,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/SCI-OS-X10/runtime/node/nodevars.bat",
+      "hash": "a2b020e2f641524c6fd1b8ebbcd9ee03c7dc44009f2b78e701e773ad048be9a5",
+      "size": 702,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/SCI-OS-X10/runtime/node/npm.cmd",
+      "hash": "21b46c69ad6e2f231f02a9e120f4ba6c8e75fef5a45637103002eab99f888ab8",
+      "size": 538,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/SCI-OS-X10/runtime/node/npx.cmd",
+      "hash": "4dd3574f4396fc3b45c52b6ac80fd52be2dd2660d2a153b4cc807dbbfeefa7a0",
+      "size": 538,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/SCI-OS-X10/SCI OS X10.cmd",
+      "hash": "2aad68d819e6f55a827fb2063cf53d82c4ef94e06f2f828460919f05a23a0f81",
+      "size": 539,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/SCI-OS-X10/SCI-OS-X10.cmd",
+      "hash": "2aad68d819e6f55a827fb2063cf53d82c4ef94e06f2f828460919f05a23a0f81",
+      "size": 539,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "dist/uu-pkg-probe/probe-entry.cjs",
+      "hash": "36ad471367316edd569bc1c53490204de303a4fa326e8111739525428f3f3001",
+      "size": 1775,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "installer/golden-boot.manifest.json",
+      "hash": "35a6176df2b62063dae3c698336fcc52f70d25381cf51cec31aa539d548facff",
+      "size": 1684,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "installer/scripts/bootstrap-capsule.cjs",
+      "hash": "059885ec054ea9f3b9d286c91ee355167d72abfda64c972bba32c2a4eaafa7a1",
+      "size": 3939,
+      "classification": "CURRENT_CANONICAL",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "installer/scripts/bootstrap-kernel.cjs",
+      "hash": "992930ab1989c35e04f42389a0c2119baa4bf93e091cfe5bac485c6ade943790",
+      "size": 2432,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "installer/scripts/convergence/convergence-gate.cjs",
+      "hash": "194609fc7efcef2fdfd2f5c8b8db33be460602f79fb8d77e1298f879778a6552",
+      "size": 11961,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "installer/scripts/convergence/lib.cjs",
+      "hash": "86f7b0e239c63161e625c450277e9de47334ca4083eb1ad0287256332fce2f64",
+      "size": 13291,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "installer/scripts/convergence/stop.cjs",
+      "hash": "df644b5b4533144d47c0e72bed77497796892b42711c62ea3b05f83acc50b18d",
+      "size": 5774,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "installer/scripts/prove-sci-os-startup.cjs",
+      "hash": "378ff3288905473b9aeebfe3ef965c4447a03f1d632cbffdb29f7759eca6a59f",
+      "size": 891,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "installer/scripts/repair-sci-os.cjs",
+      "hash": "ab7636e2ef00fd8055dbf22c5d7c9d62d9ad0cb76417e5f579ea9ca3559acfa0",
+      "size": 4180,
+      "classification": "RECOVERY",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "installer/scripts/sci-os-x10-launcher.cjs",
+      "hash": "2ee936963cca21b3b8134d2d94404f6fe132a840026a954664c8f8505864fb39",
+      "size": 7756,
+      "classification": "COMPATIBILITY_WRAPPER",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "installer/scripts/start-sci-os-safe-mode.cjs",
+      "hash": "fed46bbc37058bbd7ef17634f1e72ed3ce9fa4a04072dafce2a46012630cc19f",
+      "size": 496,
+      "classification": "RECOVERY",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "installer/scripts/start-sci-os.cjs",
+      "hash": "cf3d488279d6d7ea8bcaa0cabff3cb41fd9daabbf921de2c80f1d6ae9103297b",
+      "size": 16474,
+      "classification": "CURRENT_CANONICAL",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "installer/scripts/startup/packaged-mode.cjs",
+      "hash": "005197c7cc1488d2ad63bb798d17ae5509b5ca37e3e1dfb73a17d6b344ed43e8",
+      "size": 1276,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "installer/scripts/startup/process-supervisor.cjs",
+      "hash": "f9214d1defa12ea7e9f8bbbb462b4180b5e19fbcb030175825bf7cff8c9ff3c0",
+      "size": 2657,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "installer/scripts/startup/resolve-runtime-entries.cjs",
+      "hash": "efdfb2c09039ac43170047eaab92098c5cf1ac9985e4765b562e77c5915263b3",
+      "size": 1818,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "installer/scripts/startup/shell-readiness.cjs",
+      "hash": "ca090697c270d5b3a06a17d604c411ca120e334bc1c0a9179f242a56f8a3edd7",
+      "size": 2725,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "package.json",
+      "hash": "a8c1120c66140a159607c378d1e0cad58cbe34e5e67ef1b096965a012a219787",
+      "size": 8731,
+      "classification": "CURRENT_CANONICAL",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "packages/system-closure/src/startup-reconciliation.cjs",
+      "hash": "f892a9f185bbd35cefe605c6f8144400ab17576e378ff9b2b8d1956c99e55767",
+      "size": 19835,
+      "classification": "LEGACY_META_OS_OUT_OF_TREE",
+      "mentionsMetaOs": true,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": true
+    },
+    {
+      "path": "SCI OS ×10.bat",
+      "hash": "4f1f65c8fb52702a90471041eb42f5cadd7f819f4caedd2610a0ab70385aac8b",
+      "size": 869,
+      "classification": "COMPATIBILITY_WRAPPER",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "SCI-OS-Meta-Recovery.bat",
+      "hash": "3c6b93a06889e5076e9d2400be3a320c27bf75a09fa8cc25176f11347487d96a",
+      "size": 586,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "SCI-OS-Repair.bat",
+      "hash": "d453eceac028dbb02e5b707539f76d0c3ecce4a64426dbaccd71568701d54871",
+      "size": 244,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "SCI-OS-Safe-Mode.bat",
+      "hash": "d066cbe8094a5c653af9857bfe3fc8ea563a8d3b6f87a9c6d7a6e485b2e0690b",
+      "size": 193,
+      "classification": "RECOVERY",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "SCI-OS-Start.bat",
+      "hash": "89dd15bf97eaa16e13162b180ac305bf6928a44da448fd419c1e4b2113d000c3",
+      "size": 708,
+      "classification": "CURRENT_CANONICAL",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "sci-os.manifest.json",
+      "hash": "c64df3ac1570ca9146ddac806a9b15abe0a24dddafe30edf6db8421fe6ed88e1",
+      "size": 1709,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "scripts/boot/index.mjs",
+      "hash": "02bef61bd8328431f9433be7e706e695cf2d97b6ae12e41e09f1419566fb3298",
+      "size": 9142,
+      "classification": "LEAF_ALPHA_BOOT_NOT_USER_PRIMARY",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "scripts/generate-golden-boot-manifest.js",
+      "hash": "965065d9d0cb305d460e1240f9c2546330bb6d95a916bf6096d3743d04d5f2ba",
+      "size": 4246,
+      "classification": "RELATED",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "scripts/package/build-launcher-exe.cjs",
+      "hash": "c929cc6b096850712abd0deb9c8aec819e60e29addd7ce6e1a58f63c729e753b",
+      "size": 1098,
+      "classification": "PACKAGED_CANONICAL",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "scripts/package/launcher-entry.cjs",
+      "hash": "0ca9d8b88beff389a114bdda44ec82dbcec8b4234c1c374b1dda55caa36a77c2",
+      "size": 2740,
+      "classification": "PACKAGED_CANONICAL",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "scripts/package/prove-reboot.cjs",
+      "hash": "ac8bc437e6c88511a65427207e1397c844f1fbf2ce7c537c78cee4fd4731828d",
+      "size": 3784,
+      "classification": "PACKAGED_CANONICAL",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "scripts/package/setup-entry.cjs",
+      "hash": "ef654e4093bfc1f50a562b904dd47824a777cac8cf789b075c80e43c003fa222",
+      "size": 4762,
+      "classification": "PACKAGED_CANONICAL",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "scripts/pkg-entry.cjs",
+      "hash": "e759d9404f7ab2f05c6bc21b77f921a2a879dc017fc8bc7fc011ceb3d3d459c9",
+      "size": 1271,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "supervisor/supervisor.js",
+      "hash": "21f140ce9e0b83ed372e95f887a53ba34e4c3732f3a640555f61652ba6bdfa35",
+      "size": 5475,
+      "classification": "UNKNOWN",
+      "mentionsMetaOs": false,
+      "mentionsSciOs": true,
+      "silentSystemNodeFallback": false
+    },
+    {
+      "path": "qmis-orion-os-x10/GalaxusMetaOS/start-meta-os.bat",
+      "hash": "b14327b9bcc85e3b18a637616ee4781a75935ef714e4586a319d9f31a5093ac9",
+      "size": 643,
+      "classification": "LEGACY_META_OS_OUT_OF_TREE",
+      "mentionsMetaOs": true,
+      "mentionsSciOs": false,
+      "silentSystemNodeFallback": true,
+      "note": "GalaxusMetaOS — NOT on SCI OS ×10 (scios-alpha) production boot chain"
+    }
+  ]
+}

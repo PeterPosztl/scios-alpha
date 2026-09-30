@@ -1,0 +1,28 @@
+{
+  "at": "2026-08-13T10:59:47.013Z",
+  "schema": "sci-os-07-process-spawn-safety-proof/v1",
+  "buildId": "truth-recon-2026-08-13-c226d748",
+  "issue": "DEP0190 shell:true with args",
+  "locations": [
+    {
+      "file": "installer/scripts/start-sci-os.cjs",
+      "use": "supervisor.start pnpm --filter",
+      "fix": "shell:false + pnpm.cmd on win32"
+    },
+    {
+      "file": "installer/scripts/start-sci-os.cjs",
+      "use": "vertical-slice smoke pnpm",
+      "fix": "shell:false + pnpm.cmd"
+    },
+    {
+      "file": "installer/scripts/bootstrap-capsule.cjs",
+      "use": "recovery shell spawn shell:true",
+      "fix": "shell:false; prefer compiled/js entry"
+    }
+  ],
+  "spacePathRegression": {
+    "required": true,
+    "note": "Install root 'SCI OS X10' contains spaces — must use arg arrays"
+  },
+  "status": "FIXED_IN_RECONCILIATION"
+}

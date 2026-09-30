@@ -1,0 +1,26 @@
+{
+  "at": "2026-08-12T19:42:55.977Z",
+  "blockers": [
+    {
+      "id": "ERR-PKG-001",
+      "status": "CLOSED",
+      "detail": "Setup.exe / packaged layout present"
+    },
+    {
+      "id": "ERR-LAUNCH-001",
+      "status": "CLOSED",
+      "detail": "Bundled Node first-launch proven"
+    },
+    {
+      "id": "ERR-REBOOT-001",
+      "status": "EXTERNAL_BLOCKER",
+      "detail": "Host Windows reboot not certified"
+    },
+    {
+      "id": "ERR-SIGN-001",
+      "status": "EXTERNAL_BLOCKER",
+      "detail": "Code signing infrastructure unavailable (do not fabricate)"
+    }
+  ],
+  "decision": "EXTERNAL_BLOCKER_ONLY"
+}

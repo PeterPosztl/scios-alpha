@@ -1,0 +1,55 @@
+{
+  "schema": "sci-os-deep-workspace-validation-log/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T20:22:10.217Z",
+  "ready": false,
+  "roles200Validated": false,
+  "autoTrade": false,
+  "steps": [
+    {
+      "id": "restart-control-plane",
+      "result": "PASS",
+      "detail": "sci:stop then one Control Plane :3000 SIMULATION_ONLY (tsx src/server.ts) + one Shell apps/cockpit-ui :4000. Bundled Node v20.18.1. No second boot."
+    },
+    {
+      "id": "live-probe",
+      "result": "PASS",
+      "detail": "GET /v1/ecl/professional/validate/deep HTTP 200. persisted=false autoTrade=false ready=false roles200Validated=false. Audit length 1→1 (GET did not mutate)."
+    },
+    {
+      "id": "validate-roles",
+      "result": "PARTIAL",
+      "detail": "RoleCatalog.AllDomains / ExperienceCompiler / WorkspaceSpecEngine / JTBDEngine all .deep PARTIAL. probes=9/200 liveLeak=false. RUNTIME_MOUNTED ≠ product READY."
+    },
+    {
+      "id": "validate-sandboxes",
+      "result": "PARTIAL",
+      "detail": "Sandbox.AllDomains.deep PARTIAL. 16 sandboxes, 7 ABSENT, mode=* SIMULATION_ONLY, liveData=0."
+    },
+    {
+      "id": "validate-blueprints",
+      "result": "PASS_CONSTRAINT",
+      "detail": "LDA.deep PASS_CONSTRAINT (REFUSED, autoPatch=false). KG.deep PARTIAL. WorkflowDSL.Core.deep UNKNOWN. DistributedArchitecture.Core.deep UNKNOWN."
+    },
+    {
+      "id": "validate-pipelines",
+      "result": "PARTIAL",
+      "detail": "PolicyEngine.deep PASS_CONSTRAINT (liveBlocked=9/9). Capability UNVALIDATED=9/9 PARTIAL. Risk SIMULATION_ONLY PARTIAL. Evidence PARTIAL. Lineage PARTIAL analog (live hash still UNKNOWN)."
+    },
+    {
+      "id": "validate-os",
+      "result": "PARTIAL",
+      "detail": "Workflow/EventBus/SystemHealth/Audit .deep PARTIAL analogs. deployment 36 enabledRuntimes=false. No Kafka/Raft."
+    },
+    {
+      "id": "safety",
+      "result": "PASS_CONSTRAINT",
+      "detail": "readyz executionMode=SIMULATION_ONLY. noAutoTrade. persisted=false until ledger. liveCertified=0 unexpectedLive=false. liveAdapter=ABSENT. oneBootOneShell. SCI_DIL_FEED unset."
+    },
+    {
+      "id": "exports",
+      "result": "PASS",
+      "detail": "diagnostics-export/deep-workspace-validation.json + deep-workspace-validation-log.json written from live probe."
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "at": "2026-08-13T10:59:47.013Z",
+  "schema": "sci-os-13-readiness-semantics/v1",
+  "buildId": "truth-recon-2026-08-13-c226d748",
+  "states": {
+    "BOOTSTRAP_READY": "capsule resolved node + handed off to orchestrator",
+    "CORE_READY": "control-plane + shell healthz; home reachable",
+    "CAPABILITY_READY": "first-release capabilities activated (Home/Search/Entity/GW1)",
+    "OPTIONAL_INFRA_DEGRADED": "Docker/PG/Redis absent — not first-release failure",
+    "FULL_PROFILE_READY": "enterprise infra + durable stores — NOT first-release"
+  },
+  "exitCodes": {
+    "0": "accepted requested mode reached (READY or OPTIONAL_INFRA_DEGRADED / CORE_READY)",
+    "1": "legacy alias — prefer 2/3 going forward",
+    "2": "internal NO_GO",
+    "3": "external / runtime missing blocker (bootstrap RUNTIME_MISSING)"
+  },
+  "note": "start-sci-os already exits 0 for DEGRADED when blockers empty",
+  "firstReleaseDependsOn": [
+    "CORE_READY",
+    "CAPABILITY_READY",
+    "packaged reboot certification when claimed"
+  ],
+  "firstReleaseDoesNotRequire": [
+    "FULL_PROFILE_READY",
+    "Postgres",
+    "Redis"
+  ]
+}

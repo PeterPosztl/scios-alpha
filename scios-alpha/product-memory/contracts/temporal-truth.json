@@ -1,0 +1,15 @@
+{
+  "schema": "sci-os-temporal-truth/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "status": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+  "axes": ["eventTime", "validFrom/validTo", "observationTime", "ingestionTime", "systemTime"],
+  "requiredQuestion": "WHAT DID SCI KNOW AT TIME T?",
+  "current": {
+    "bitemporalRecord": "PRESENT packages/data-fabric domain BitemporalRecordSchema",
+    "normalizedEvent": "eventTime + ingestionTime + validFrom PARTIAL",
+    "asOfFeatures": "PRESENT asOf on PIT features",
+    "pointInTimeQueryApi": "ABSENT",
+    "futureDataLeakGuards": "PARTIAL — PIT features; not universally enforced"
+  },
+  "ifIgnoredLaterCost": ["evidence loss", "incorrect backtests", "retraining contamination"]
+}

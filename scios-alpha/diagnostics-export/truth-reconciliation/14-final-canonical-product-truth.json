@@ -1,0 +1,38 @@
+{
+  "at": "2026-08-13T10:59:47.013Z",
+  "schema": "sci-os-14-final-canonical-product-truth/v1",
+  "buildId": "truth-recon-2026-08-13-c226d748",
+  "PRODUCT": "SCI OS ×10",
+  "RUNTIME": "Node 20.18.1 family",
+  "CONTROL_PLANE": "http://127.0.0.1:3000/",
+  "SHELL": "http://127.0.0.1:4000/",
+  "PRODUCT_ENTRY_DEV": "pnpm sci:start | SCI-OS-Start.bat",
+  "PRODUCT_ENTRY_PACKAGED": "%LOCALAPPDATA%/SCI OS X10/app/SCI-OS-X10.cmd",
+  "BOOTSTRAP": "installer/scripts/bootstrap-capsule.cjs",
+  "SUPERVISOR": "installer/scripts/startup/process-supervisor.cjs",
+  "PROFILE": "local-foundation",
+  "FIRST_RELEASE_CAPABILITIES": [
+    "install-click-start",
+    "home",
+    "search",
+    "entity",
+    "gw1-analyze",
+    "evidence-lineage-view",
+    "clean-shutdown",
+    "bundled-node-20.18.1"
+  ],
+  "FULL_VISION_CAPABILITIES": [
+    "GW2-7",
+    "OIDC",
+    "durable-event-fabric",
+    "300+ capabilities",
+    "200 roles",
+    "enterprise-production-deploy"
+  ],
+  "CURRENT_EVIDENCE": "diagnostics-export/current-evidence-index.json",
+  "rejectedParallel": [
+    "ATOM-AI as canonical product",
+    "sci-os-10 parallel trees",
+    "Meta OS as SCI boot"
+  ]
+}

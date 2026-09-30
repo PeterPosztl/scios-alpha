@@ -1,0 +1,14 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "architecture": "MONOLITHIC_TECHNICAL_COCKPIT_WITH_PROFESSIONAL_MODE",
+  "source": "apps/cockpit-ui/src/index.js",
+  "lines": 643,
+  "hasProfessionalMode": true,
+  "hasTechnicalMode": true,
+  "gw1FlowPresent": true,
+  "componentSystem": false,
+  "speculativeFullRedesignThisPass": false,
+  "verdict": "DEGRADED",
+  "note": "GW1 professional UX exists inside monolith; full Experience Layer is P2"
+}

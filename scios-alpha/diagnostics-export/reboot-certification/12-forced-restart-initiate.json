@@ -1,0 +1,12 @@
+{
+  "at": "2026-08-12T22:03:27.868Z",
+  "schema": "sci-os-forced-restart-initiate/v1",
+  "reason": "User requested shutdown.exe /r /f for reboot certification after soft Restart left LastBootUpTime unchanged",
+  "command": "shutdown.exe /r /f /t 20",
+  "windowsBootIdentityBeforeForce": {
+    "lastBootUpTime": "2026-08-12T13:00:34.2830420+02:00",
+    "lastBootFileTimeUtc": "134310060342830420"
+  },
+  "frozenCompareTo": "2026-08-12T13:00:34.2830420+02:00",
+  "postRestart": "After login launch ONLY %LOCALAPPDATA%\\\\SCI OS X10\\\\app\\\\SCI-OS-X10.cmd then REBOOT-CERTIFY-AFTER.cmd then prove-reboot"
+}

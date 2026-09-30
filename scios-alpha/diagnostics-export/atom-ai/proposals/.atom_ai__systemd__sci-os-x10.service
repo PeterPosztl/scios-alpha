@@ -1,0 +1,20 @@
+# <AUTO_GENERATED>
+# ALPHA_NON_PRODUCTION — PROPOSAL ONLY. Do not enable without human review.
+# Canonical SCI OS start: pnpm sci:start (installer/scripts/bootstrap-capsule.cjs)
+# This unit is a Linux ops sample, not the Windows/ALPHA primary path.
+
+[Unit]
+Description=SCI OS ×10 (Atom AI kit proposal) — wraps canonical sci:start
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/sci-os-x10
+ExecStart=/usr/bin/pnpm sci:start -- --no-open
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
+# service_name=sci-os-x10.service

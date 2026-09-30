@@ -1,0 +1,20 @@
+{
+  "at": "2026-08-12T18:40:47.664Z",
+  "pass": false,
+  "status": "PENDING_HOST_REBOOT",
+  "coldStartGw1": {
+    "pass": true,
+    "steps": {
+      "home": true,
+      "searchAapl": true,
+      "entity360": true,
+      "analyze": true,
+      "prediction": true,
+      "risk": true,
+      "governance": true,
+      "simulation": true,
+      "lineage": true
+    },
+    "runId": "run_fe4419e7-ac6b-43db-9353-4cb23d160f6b"
+  }
+}

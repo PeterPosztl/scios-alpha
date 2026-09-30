@@ -2,8 +2,19 @@ import { createServer } from "node:http";
 import { sciTokens } from "@scios/design-system";
 import { SAFE_DOM_BROWSER_SOURCE } from "./safe-dom.js";
 import { PRIMITIVES_BROWSER_SOURCE } from "./components/primitives.js";
-import { PROFESSIONAL_UX_BROWSER_SOURCE } from "./professional-ux.js";
+import {
+  PROFESSIONAL_UX_BROWSER_SOURCE,
+  PROFESSIONAL_UX_CONTRACT,
+  PROFESSIONAL_UX_SOURCE_ID,
+} from "./professional-ux.js";
 import { WORKSPACE_RENDERER_BROWSER_SOURCE } from "./workspace/WorkspaceRenderer.js";
+import { ECL_DIL_CONSOLE_BROWSER_SOURCE } from "./ecl-dil-console.js";
+import { I18N_BROWSER_SOURCE } from "./i18n.js";
+import { PRODUCT_SETTINGS_BROWSER_SOURCE } from "./product-settings.js";
+import { SCI_CHARTS_BROWSER_SOURCE } from "./sci-charts.js";
+import { ANALYTICS_DETECTIVE_BROWSER_SOURCE } from "./analytics-detective.js";
+import { BLUEPRINT_STUDIO_BROWSER_SOURCE } from "./blueprint-studio.js";
+import { HERO_V3_BROWSER_SOURCE } from "./hero-v3.js";
 
 const PORT = Number(process.env.PORT ?? process.env.SCIOS_COCKPIT_PORT ?? 4000);
 const BIND = process.env.SCIOS_BIND ?? "127.0.0.1";
@@ -16,11 +27,19 @@ const TOKEN_CSS = `
     :root {
       --snow:${T.color.snow}; --fog:${T.color.fog}; --graphite:${T.color.graphite}; --navy:${T.color.navy};
       --ice:${T.color.ice}; --red:${T.color.red}; --ok:${T.color.ok}; --warn:${T.color.warn};
+      --sci-unknown:${T.color.unknown}; --sci-info:${T.color.info};
       --sci-space-1:${T.space[1]}; --sci-space-2:${T.space[2]}; --sci-space-3:${T.space[3]}; --sci-space-4:${T.space[4]};
+      --sci-space-5:${T.space[5]}; --sci-space-6:${T.space[6]}; --sci-space-8:${T.space[8]};
       --sci-radius:${T.radius}; --sci-font:${T.typography.fontFamily};
       --sci-surface:${T.color.surface}; --sci-surface-muted:${T.color.surfaceMuted}; --sci-border:var(--fog);
       --sci-focus:${T.focus};
       --sci-brand-size:${T.typography.brandSize};
+      --sci-type-display:${T.typography.display}; --sci-type-title:${T.typography.title};
+      --sci-type-meta:${T.typography.meta}; --sci-type-overline:${T.typography.overline};
+      --sci-elev-1:${T.elevation[1]}; --sci-elev-2:${T.elevation[2]}; --sci-elev-3:${T.elevation[3]};
+      --sci-motion:${T.motion.duration}; --sci-motion-micro:${T.motion.micro}; --sci-motion-macro:${T.motion.macro};
+      --sci-motion-critical:${T.motion.critical}; --sci-ease:${T.motion.easing};
+      --sci-grid-gutter:${T.grid.gutter};
     }`;
 
 const HTML = `<!DOCTYPE html>
@@ -62,7 +81,7 @@ ${TOKEN_CSS}
     .ai-panel h3 { margin:0 0 0.35rem; font-size:0.95rem; }
     .ai-panel ul { margin:0.4rem 0 0; padding-left:1.1rem; color:var(--graphite); font-size:0.9rem; }
     .ai-panel .ctx { font-size:0.75rem; color:var(--graphite); margin-top:0.6rem; }
-    .shell-tools { display:flex; gap:0.35rem; align-items:center; }
+    .shell-tools select { font:inherit; border:1px solid var(--fog); padding:0.4rem 0.45rem; background:#fff; }
     header { display:flex; justify-content:space-between; align-items:center; gap:1rem;
       padding:0.9rem 1.5rem; border-bottom:1px solid var(--fog); background:rgba(255,255,255,0.92); backdrop-filter:blur(8px); }
     .brand { display:flex; flex-direction:column; gap:0.1rem; }
@@ -74,11 +93,13 @@ ${TOKEN_CSS}
     .badge.ok { color:var(--ok); } .badge.warn { color:var(--warn); } .badge.err { color:var(--red); }
     nav.primary { display:flex; gap:0.15rem; padding:0.35rem 1.5rem; background:#fff; border-bottom:1px solid var(--fog); flex-wrap:wrap; }
     nav.primary button, nav.eng button { border:0; background:transparent; padding:0.5rem 0.75rem; cursor:pointer; font-size:0.78rem;
-      letter-spacing:0.04em; text-transform:uppercase; color:var(--graphite); }
+      letter-spacing:0.04em; text-transform:uppercase; color:var(--graphite);
+      transition: background var(--sci-motion) var(--sci-ease), color var(--sci-motion) var(--sci-ease); }
+    nav.primary button:hover, nav.eng button:hover { background:var(--ice); color:var(--navy); }
     nav.primary button.on { color:var(--navy); border-bottom:2px solid var(--navy); font-weight:600; }
     nav.eng { display:flex; gap:0.15rem; padding:0.25rem 1.5rem; background:#fafbfc; border-bottom:1px solid var(--fog); flex-wrap:wrap; }
     nav.eng button.on { color:var(--navy); border-bottom:2px solid var(--graphite); }
-    main { max-width:1180px; margin:0 auto; padding:1.1rem 1.5rem 3rem; }
+    main { max-width:1180px; margin:0 auto; padding:3rem 1.5rem; }
     .view { display:none; } .view.on { display:block; }
     .homeHeadline { font-size:1.55rem; font-weight:650; letter-spacing:-0.02em; margin:0 0 0.35rem; }
     .sub { color:var(--graphite); margin:0 0 1rem; font-size:0.9rem; }
@@ -107,9 +128,40 @@ ${TOKEN_CSS}
     .mode { display:flex; gap:0.35rem; margin:0 0 0.85rem; }
     .mode button { border:1px solid var(--fog); background:#fff; padding:0.4rem 0.7rem; cursor:pointer; font-size:0.75rem; color:var(--graphite); }
     .mode button.on { border-color:var(--navy); color:var(--navy); font-weight:600; }
-    .pro-grid { display:grid; gap:0.65rem; }
-    .pro-card { background:#fff; border:1px solid var(--fog); padding:0.85rem 1rem; }
-    .pro-card[data-exp-hidden="1"] { display:none; }
+    .pro-grid { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:12px; max-width:1180px; }
+    .pro-card[data-span="12"], .sci-span-12 { grid-column:1 / -1; }
+    .pro-card[data-span="6"] { grid-column:span 6; }
+    @media (max-width:900px) { .pro-card[data-span="6"] { grid-column:1 / -1; } }
+    .hero-v3-head { margin:0 0 1.5rem; transition:opacity var(--sci-motion-macro) var(--sci-ease); }
+    .sci-decision-gate { border:1px solid var(--fog); border-left:2px solid var(--warn); background:var(--sci-surface); padding:0.75rem; }
+    .sci-lineage-node { font-size:0.8rem; padding:0.35rem 0; border-bottom:1px solid var(--fog); }
+    .sci-button { font:inherit; padding:0.45rem 0.85rem; border:1px solid var(--fog); background:#fff; cursor:pointer; }
+    .sci-button.primary { background:var(--navy); color:#fff; border-color:var(--navy); }
+    .sci-button:disabled { opacity:0.45; cursor:not-allowed; }
+    .sci-token { display:inline-block; font-size:0.65rem; letter-spacing:0.05em; text-transform:uppercase;
+      border:1px solid var(--sci-border); padding:0.15rem 0.4rem; color:var(--sci-unknown); background:var(--sci-surface); }
+    .sci-token[data-tone="unknown"] { color:var(--sci-unknown); }
+    .sci-token[data-tone="degraded"] { color:var(--warn); border-color:var(--warn); }
+    .sci-token[data-tone="unverified"] { color:var(--sci-unknown); }
+    .sci-token[data-tone="simulated"] { color:var(--navy); border-color:var(--ice); }
+    .sci-token[data-tone="critical"] { color:var(--red); border-color:var(--red); transition-duration:var(--sci-motion-critical); }
+    .sci-token[data-tone="proposal"] { color:var(--warn); border-color:var(--warn); }
+    .sci-ribbon { display:flex; flex-wrap:wrap; gap:0.35rem; margin:0 0 var(--sci-space-5, 1.5rem); }
+    .sci-ribbon-step { font-size:0.62rem; letter-spacing:0.04em; text-transform:uppercase; border:1px solid var(--fog);
+      background:var(--sci-surface); color:var(--graphite); padding:0.3rem 0.45rem; cursor:default; }
+    .sci-ribbon-step[data-status="current"] { border-left:2px solid var(--ice); color:var(--navy); transition:border-color var(--sci-motion-micro) var(--sci-ease); }
+    .sci-ribbon-step[data-status="unknown"] { color:var(--sci-unknown); }
+    .sci-ribbon-step[data-status="degraded"] { color:var(--warn); }
+    .sci-ribbon-step[data-status="critical"] { color:var(--red); border-color:var(--red); transition-duration:var(--sci-motion-critical); }
+    .sci-ribbon-step[data-status="locked"] { opacity:0.45; }
+    .sci-ribbon-step[data-emphasis="1"] { font-weight:650; }
+    .sci-sim-badge { font-size:0.65rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--navy); border:1px solid var(--ice); padding:0.15rem 0.4rem; }
+    /* SCI panel: Snow surface, Fog border, Ice edge. Not a dark vendor clone. */
+    .pro-card { background:var(--sci-surface); border:1px solid var(--sci-border); border-left:2px solid var(--ice);
+      padding:0.75rem; box-shadow:var(--sci-elev-1); }
+    .view.on .pro-card { animation: sci-enter var(--sci-motion) var(--sci-ease); }
+    @keyframes sci-enter { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+    .pro-card[data-exp-hidden="1"] { display:none; animation:none; }
     .pro-card.partial-mod { border-style:dashed; opacity:0.92; }
     .pro-card h3 { margin:0 0 0.35rem; font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--graphite); }
     .pro-card .val { font-size:1.05rem; font-weight:600; color:var(--navy); }
@@ -140,6 +192,7 @@ ${TOKEN_CSS}
     .context-bar .ctx-cell { display:flex; gap:0.35rem; align-items:baseline; font-size:0.78rem; }
     .context-bar .ctx-k { color:var(--graphite); text-transform:uppercase; letter-spacing:0.04em; font-size:0.65rem; }
     .context-bar .ctx-v { font-weight:600; color:var(--navy); }
+    .context-bar .ctx-role { margin:0 0 0.45rem; font-size:1rem; font-weight:600; color:var(--navy); letter-spacing:-0.02em; }
     .context-bar .ctx-cell.warn .ctx-v { color:var(--warn); }
     .context-bar .ctx-cell.ok .ctx-v { color:var(--ok); }
     .context-bar .ctx-note { margin:0.35rem 0 0; font-size:0.75rem; color:var(--warn); }
@@ -169,21 +222,79 @@ ${TOKEN_CSS}
       header { flex-wrap:wrap; }
       .searchwrap { max-width:none; width:100%; order:3; }
     }
+    .sci-callout { background:var(--sci-surface); border:1px solid var(--fog); padding:0.85rem 1rem; margin:0 0 0.85rem; box-shadow:var(--sci-elev-1); }
+    .sci-metrics { display:grid; grid-template-columns:repeat(12,1fr); gap:var(--sci-grid-gutter); margin:0 0 1rem; }
+    .sci-metrics > * { grid-column: span 3; }
+    .dil-toolbar, .guardrail-bar { display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; margin:0 0 0.85rem; }
+    .guardrail-bar { padding:0.65rem 0.85rem; border:1px solid var(--fog); background:#fff; }
+    .guardrail-bar.ok { border-color:#c8e6d4; }
+    .guardrail-bar.breach { border-color:#f0c9c9; background:#fff8f8; }
+    .dil-toolbar button.on, .dil-toolbar .ghost.on { border-color:var(--navy); color:var(--navy); font-weight:600; }
+    .dil-maps { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; margin:0 0 0.85rem; }
+    .heat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:0.4rem; }
+    .heat-cell { border:1px solid var(--fog); background:#fff; padding:0.55rem 0.5rem; font:inherit; font-size:0.78rem; text-align:left; cursor:pointer; }
+    .heat-cell.heat-lo { background:#f4faf6; }
+    .heat-cell.heat-mid { background:#fff8eb; }
+    .heat-cell.heat-hi { background:#fff3f3; }
+    .sci-table { display:grid; gap:0; border:1px solid var(--fog); }
+    .sci-row { display:grid; grid-template-columns:2fr 0.8fr 0.7fr 0.7fr 1fr 1fr 0.7fr 0.7fr 0.9fr; gap:0.35rem; padding:0.45rem 0.55rem; font-size:0.78rem; border-top:1px solid var(--fog); }
+    .sci-row.head { font-size:0.65rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--graphite); border-top:0; background:var(--sci-surface-muted); }
+    .sci-row:focus { outline:var(--sci-focus); }
+    .sci-chip { font-size:0.65rem; letter-spacing:0.06em; text-transform:uppercase; padding:0.15rem 0.4rem; border:1px solid var(--fog); }
+    .sci-chip.warn { color:var(--warn); border-color:#f0d9a8; }
+    .sci-chip.ok { color:var(--ok); } .sci-chip.error { color:var(--red); } .sci-chip.unknown { color:var(--sci-unknown); }
+    .error-state { border:1px solid var(--red); color:var(--navy); }
+    .dil-toolbar select { font:inherit; border:1px solid var(--fog); padding:0.35rem 0.45rem; background:#fff; }
+    .dil-toolbar input { font:inherit; border:1px solid var(--fog); padding:0.35rem 0.45rem; background:#fff; }
+    .sci-chart { width:100%; max-width:100%; height:auto; display:block; }
+    .sci-chart-row { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:0.75rem; margin:0.75rem 0; }
+    .sci-chart-card { min-height:8rem; }
+    @media (prefers-reduced-motion: reduce) {
+      .heat-cell, .sci-row, button.go, nav.primary button, nav.eng button { transition: none; }
+      .view.on .pro-card { animation: none; }
+      .sci-ribbon-step { transition: none; }
+    }
+    body[data-reduced-motion="1"] * { transition: none !important; animation: none !important; }
+    .settings-tabs { display:flex; flex-wrap:wrap; gap:0.35rem; margin:0 0 0.85rem; }
+    .settings-card-row { display:flex; flex-wrap:wrap; gap:0.35rem; align-items:center; margin:0.35rem 0; }
+    .settings-card-row span { flex:1; font-size:0.85rem; }
+    body[data-theme="SCI_HIGH_CONTRAST"] { --sci-border: var(--navy); }
+    body[data-theme="SCI_HIGH_CONTRAST"] .card,
+    body[data-theme="SCI_HIGH_CONTRAST"] .pro-card { border-width: 2px; }
+    body[data-theme="SCI_FOG"] { background: var(--fog); }
+    body[data-layout="COMPACT"] main { max-width: 960px; }
+    body[data-layout="COMPACT"] .grid { gap: 0.45rem; }
+    body[data-layout="WIDE"] main { max-width: 1400px; }
+    body[data-notify-alerts="0"] #btnNotes { opacity: 0.55; }
+    .settings-tabs + .pro-card select, .settings-tabs + .pro-card label { display:block; margin:0.45rem 0; }
+    .rec-panel { border-left:3px solid var(--ice); }
+    @media (max-width:960px) {
+      .sci-metrics > * { grid-column: span 6; }
+      .dil-maps { grid-template-columns:1fr; }
+      .sci-row, .sci-row.head { grid-template-columns:1fr 1fr; }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="brand">
     <h1>SCI OS ×10</h1>
-      <p id="flow">Forensic intelligence OS</p>
+      <p id="flow" data-i18n="product.tag">Enterprise intelligence OS · ALPHA</p>
     </div>
     <div class="searchwrap">
-      <input id="globalSearch" type="search" placeholder="Search anything… e.g. AAPL" aria-label="Global search" />
+      <input id="globalSearch" type="search" placeholder="Search anything… e.g. AAPL" aria-label="Global search" data-i18n-placeholder="hdr.search" data-i18n-aria="hdr.search" />
     </div>
     <div class="shell-tools">
-      <button type="button" class="ghost" id="btnCmd" data-action-id="open_command_palette" title="Command palette (Ctrl+K)">Command</button>
-      <button type="button" class="ghost" id="btnJobs" data-action-id="open_jobs">Jobs</button>
-      <button type="button" class="ghost" id="btnNotes" data-action-id="open_notifications">Alerts</button>
+      <button type="button" class="ghost" id="btnCmd" data-action-id="open_command_palette" title="Command palette (Ctrl+K)" data-i18n="hdr.command">Command</button>
+      <button type="button" class="ghost" id="btnJobs" data-action-id="open_jobs" data-i18n="hdr.jobs">Jobs</button>
+      <button type="button" class="ghost" id="btnNotes" data-action-id="open_notifications" data-i18n="hdr.alerts">Alerts</button>
+      <label class="sr-only" for="langSelect" data-i18n="hdr.language">Language</label>
+      <select id="langSelect" aria-label="Language" data-i18n-aria="hdr.language">
+        <option value="en-US">en-US</option>
+        <option value="hu-HU">hu-HU</option>
+        <option value="de-DE">de-DE</option>
+      </select>
+      <button type="button" class="ghost" id="btnSettings" data-action-id="open_settings" data-i18n="nav.settings">Settings</button>
       <div id="verdict" class="badge warn">UNKNOWN</div>
     </div>
   </header>
@@ -191,23 +302,33 @@ ${TOKEN_CSS}
   <div id="cmdk" class="cmdk" role="dialog" aria-modal="true" aria-label="Command palette">
     <div class="cmdk-box">
       <label class="sr-only" for="cmdkInput">Command</label>
-      <input id="cmdkInput" type="search" placeholder="Go to… search, analyze, evidence, system" autocomplete="off" />
+      <input id="cmdkInput" type="search" placeholder="Go to… intelligence, reporting, decisions, work, evidence" autocomplete="off" />
       <div class="cmdk-list" id="cmdkList"></div>
     </div>
   </div>
   <nav class="primary" aria-label="Primary">
-    <button class="on" data-v="home" data-action-id="nav_home">Home</button>
-    <button data-v="work">Work</button>
-    <button data-v="entities">Entities</button>
-    <button data-v="slice">Analyze</button>
-    <button data-v="decisions">Decisions</button>
-    <button data-v="evidence">Evidence</button>
-    <button data-v="system">System</button>
-    <button data-v="engineering">Engineering</button>
+    <button class="on" data-v="home" data-action-id="nav_home" data-i18n="nav.home">Home</button>
+    <button data-v="work" data-i18n="nav.work">Work</button>
+    <button data-v="entities" data-i18n="nav.entities">Entities</button>
+    <button data-v="roles" data-i18n="nav.roles">Roles</button>
+    <button data-v="slice" data-i18n="nav.analyze">Analyze</button>
+    <button data-v="decisions" data-i18n="nav.decisions">Decisions</button>
+    <button data-v="dil" data-i18n="nav.intelligence">Intelligence</button>
+    <button data-v="ecl" data-i18n="nav.reporting">Reporting</button>
+    <button data-v="analysis" data-i18n="nav.analysis">Analysis</button>
+    <button data-v="detective" data-i18n="nav.detective">Detective</button>
+    <button data-v="evidence" data-i18n="nav.evidence">Evidence</button>
+    <button data-v="system" data-i18n="nav.system">System</button>
+    <button data-v="settings" data-i18n="nav.settings">Settings</button>
+    <button data-v="engineering" data-i18n="nav.engineering">Engineering</button>
   </nav>
   <nav class="eng" id="engNav" hidden aria-label="Engineering">
     <button data-eng="dash">Technical cockpit</button>
     <button data-eng="lineage">Lineage Explorer</button>
+    <button data-eng="kg" data-i18n="eng.kg">KG Explorer</button>
+    <button data-eng="agent" data-i18n="eng.agent">Agent Studio</button>
+    <button data-eng="workflow" data-i18n="eng.workflow">Workflow Studio</button>
+    <button data-eng="dist" data-i18n="eng.distributed">Distributed OS</button>
     <button data-eng="risk">Risk / Gov Studio</button>
     <button data-eng="exec">Execution Monitor</button>
     <button data-eng="health">System Health</button>
@@ -216,8 +337,8 @@ ${TOKEN_CSS}
     <div class="banner" id="banner"></div>
 
     <div class="view on" id="home">
-      <h2 class="homeHeadline" id="homeHeadline">What needs your attention?</h2>
-      <p class="sub" id="homeSub">Loading home…</p>
+      <h2 class="homeHeadline" id="homeHeadline" data-i18n="home.headline">What needs your attention?</h2>
+      <p class="sub" id="homeSub" data-i18n="home.loading">Loading home…</p>
       <div class="role-bar">
         <label for="roleSelect">Professional role</label>
         <select id="roleSelect" aria-label="Professional role"></select>
@@ -229,9 +350,13 @@ ${TOKEN_CSS}
       <div class="grid" id="homeGrid"></div>
     </div>
 
-    <div class="view" id="work">
-      <h2 class="homeHeadline">My Work</h2>
-      <p class="sub">Open analyses, tasks, and saved context.</p>
+    <div class="view" id="dil">
+      <h2 class="homeHeadline" data-i18n="work.headline">My Work</h2>
+      <p class="sub" data-i18n="work.sub">Open analyses, tasks, and saved context.</p>
+      <div class="actions">
+        <button type="button" class="ghost" id="workWorkflowBtn" data-i18n="eng.workflow">Workflow Studio</button>
+        <button type="button" class="ghost" id="workAgentBtn" data-i18n="eng.devAssistant">Dev Assistant</button>
+      </div>
       <div class="grid" id="workGrid"></div>
     </div>
 
@@ -246,6 +371,12 @@ ${TOKEN_CSS}
       <div class="tabs" id="entTabs"></div>
       <div class="grid" id="entGrid"></div>
       <p class="empty" id="entEmpty">NO ENTITY SELECTED — search AAPL, then open the entity.</p>
+    </div>
+
+    <div class="view" id="roles">
+      <h2 class="homeHeadline" data-i18n="roles.headline">Professional workspace</h2>
+      <p class="sub" data-i18n="roles.sub">200 role seeds, 9 archetypes, domain sandboxes. SIMULATION_ONLY. Compile stays on archetypes. Not 200 apps. Not READY.</p>
+      <div id="rolesRoot" aria-live="polite"></div>
     </div>
 
     <div class="view" id="slice">
@@ -297,15 +428,28 @@ ${TOKEN_CSS}
       <div class="pro on" id="proView">
         <p class="exp-meta" id="expComposeMeta">Experience modules bind to panels below.</p>
         <div class="exp-compose" id="expComposeSlice"></div>
+        <div class="hero-v3-head" id="heroV3Head">
+          <p class="level" id="heroOverline">Family · ALPHA_NON_PRODUCTION</p>
+          <h2 class="homeHeadline" id="heroTitle">Analyze</h2>
+          <div id="heroTokens"></div>
+          <p class="sci-chip" id="heroQueue"></p>
+        </div>
+        <div class="sci-ribbon" id="sciRibbon" role="list" aria-label="Vertical slice workflow"></div>
         <div class="pro-grid" id="proGrid">
-          <div class="pro-card" data-exp-module="ContextHeader" id="modContextHeader"><p class="level">L1 · What happened?</p><h3>Situation</h3><div class="val" id="proWhat">NO ANALYSIS YET</div><p class="hint empty" id="proWhatHint">Run an analysis to generate prediction, risk and decision information.</p></div>
-          <div class="pro-card" data-exp-module="PredictionPanel" id="modPredictionPanel"><p class="level">L2–L3 · Meaning & next</p><h3>Expected outcome</h3><div class="val" id="proCertain">—</div><p class="hint" id="proCertainHint"></p><p class="model-truth" id="predModelTruth">MODEL · FOUNDATION · ALPHA · UNVALIDATED</p></div>
-          <div class="pro-card" data-exp-module="UncertaintyPanel" id="modUncertaintyPanel"><p class="level">L3 · Uncertainty</p><h3>Confidence & calibration</h3><div class="val" id="proUncertainty">—</div><p class="hint" id="proUncertaintyHint">No calibration object — treat as NON-PRODUCTION science.</p><p class="model-truth" id="uncertaintyModelTruth">MODEL · FOUNDATION · ALPHA · UNVALIDATED</p></div>
-          <div class="pro-card" data-exp-module="RiskPanel" id="modRiskPanel"><p class="level">L4 · Risks</p><h3>What is the risk?</h3><div class="val" id="proRisk">—</div><p class="hint" id="proRiskHint"></p><p class="model-truth" id="riskModelTruth">MODEL · FOUNDATION · ALPHA · UNVALIDATED</p></div>
-          <div class="pro-card" data-exp-module="DecisionPanel" id="modDecisionPanel"><p class="level">L5 · Action</p><h3>Recommended next step</h3><div class="val" id="proDecision">—</div><p class="hint" id="proDecisionHint"></p></div>
-          <div class="pro-card" data-exp-module="SimulationPanel" id="modSimulationPanel"><p class="level">L5 · Simulation</p><h3>Simulation outcome</h3><div class="val" id="proExec">—</div><p class="hint" id="proExecHint">SIMULATION_ONLY — no live money.</p></div>
-          <div class="pro-card" data-exp-module="EvidencePanel" id="modEvidencePanel"><p class="level">L6–L7 · Why / Evidence</p><h3>Evidence</h3><div class="val" id="proEvidence">—</div><p class="hint">Open Technical / Evidence or Full Lineage for provenance.</p></div>
-          <div class="pro-card" data-exp-module="LineagePanel" id="modLineagePanel"><p class="level">L7 · Lineage</p><h3>Lineage integrity</h3><div class="val" id="proLineage">—</div><p class="hint" id="proLineageHint">Hash recompute + prevHash when verified by Control Plane.</p></div>
+          <div class="pro-card" data-span="12" data-exp-module="ContextHeader" id="modContextHeader"><p class="level">L1 · What happened?</p><h3>Situation</h3><div class="val" id="proWhat">NO ANALYSIS YET</div><p class="hint empty" id="proWhatHint">Run an analysis to generate prediction, risk and decision information.</p></div>
+          <div class="pro-card" data-span="6" data-exp-module="PredictionPanel" id="modPredictionPanel"><p class="level">1–6 · Forecast</p><h3>Expected outcome</h3><div class="val" id="proCertain">—</div><p class="hint" id="proCertainHint"></p><p class="model-truth" id="predModelTruth">MODEL · FOUNDATION · ALPHA · UNVALIDATED</p><div id="predProfessionHost"></div></div>
+          <div class="pro-card" data-span="6" data-exp-module="UncertaintyPanel" id="modUncertaintyPanel"><p class="level">7–12 · Horizon</p><h3>Confidence & calibration</h3><div class="val" id="proUncertainty">—</div><p class="hint" id="proUncertaintyHint">No calibration object — treat as NON-PRODUCTION science.</p><p class="model-truth" id="uncertaintyModelTruth">MODEL · FOUNDATION · ALPHA · UNVALIDATED</p></div>
+          <div class="pro-card" data-span="6" data-exp-module="RiskPanel" id="modRiskPanel"><p class="level">1–6 · Threat gate</p><h3>What is the risk?</h3><div class="val" id="proRisk">—</div><p class="hint" id="proRiskHint"></p><p class="model-truth" id="riskModelTruth">MODEL · FOUNDATION · ALPHA · UNVALIDATED</p><div id="riskProfessionHost"></div></div>
+          <div class="pro-card" data-span="6" data-exp-module="DecisionPanel" id="modDecisionPanel"><p class="level">7–12 · Governance</p><h3>Recommended next step</h3><div class="val" id="proDecision">—</div><p class="hint" id="proDecisionHint"></p></div>
+          <div class="pro-card" data-span="6" data-exp-module="SimulationPanel" id="modSimulationPanel"><p class="level">1–6 · Simulator</p><h3>Simulation outcome</h3><div class="val" id="proExec">—</div><p class="hint" id="proExecHint">SIMULATION_ONLY — no live money.</p></div>
+          <div class="pro-card" data-span="6" data-exp-module="EvidencePanel" id="modEvidencePanel"><p class="level">7–12 · Proof timeline</p><h3>Evidence</h3><div class="val" id="proEvidence">—</div><p class="hint">Open Technical / Evidence or Full Lineage for provenance. Empty ≠ PASS.</p><div id="evidenceProfessionHost"></div></div>
+          <div class="pro-card" data-span="12" data-exp-module="LineagePanel" id="modLineagePanel"><p class="level">1–12 · Chain-of-Truth</p><h3>Lineage integrity</h3><div class="val" id="proLineage">—</div><p class="hint" id="proLineageHint">Hash recompute + prevHash when verified by Control Plane.</p><div id="lineageProfessionHost"></div></div>
+          <div class="pro-card" data-span="12" data-exp-module="OpsIntel" id="modOpsIntel"><p class="level">1–12 · Ops Intel</p><h3>Family queue</h3><div class="val" id="proOpsIntel">UNKNOWN</div><p class="hint" id="proOpsIntelHint">No family overlay bound yet.</p></div>
+        </div>
+        <div class="pro-grid" id="heroAux">
+          <div class="pro-card" data-span="6" id="heroCharts"></div>
+          <div class="pro-card" data-span="6" id="heroDecisionGate"></div>
+          <div class="pro-card" data-span="12" id="heroTruthGraph"></div>
         </div>
         <div class="pro-grid" id="partialModuleHost"></div>
       </div>
@@ -321,18 +465,46 @@ ${TOKEN_CSS}
       </div>
     </div>
 
+    <div class="view" id="dil">
+      <h2 class="homeHeadline" data-i18n="dil.headline">Decision Intelligence</h2>
+      <p class="sub" data-i18n="dil.sub">Where is the edge — and what size fits the bankroll? Simulated Polymarket/Kalshi. Agent proposes; you decide.</p>
+      <div id="dilRoot" aria-live="polite"></div>
+      <div id="dilProfessionHost" class="pro-card"></div>
+    </div>
+
+    <div class="view" id="ecl">
+      <h2 class="homeHeadline" data-i18n="ecl.headline">ECL Reporting</h2>
+      <p class="sub" data-i18n="ecl.sub">Where do PnL and risk stand today? Simulated book. ALPHA_NON_PRODUCTION.</p>
+      <div id="eclRoot" aria-live="polite"></div>
+    </div>
+
+    <div class="view" id="analysis">
+      <h2 class="homeHeadline" data-i18n="analysis.headline">Analysis workbench</h2>
+      <p class="sub" data-i18n="analysis.sub">Instrument drilldown, scenario compare, risk exposure, decision impact. Simulated. Not a live book.</p>
+      <div id="analysisRoot" aria-live="polite"></div>
+    </div>
+
+    <div class="view" id="detective">
+      <h2 class="homeHeadline" data-i18n="detective.headline">Who decided — and why?</h2>
+      <p class="sub" data-i18n="detective.sub">Timeline, evidence chain, filters (user, instrument, time, risk). Session audit. Not enterprise SIEM.</p>
+      <div id="detectiveRoot" aria-live="polite"></div>
+    </div>
+
     <div class="view" id="decisions">
-      <h2 class="homeHeadline">Decisions</h2>
-      <p class="sub">Governance and risk outcomes from recent analyses.</p>
+      <h2 class="homeHeadline" data-i18n="decisions.headline">Decisions</h2>
+      <p class="sub" data-i18n="decisions.sub">DIL proposals (human accept/reject writes audit only — no trade) and GW1 analysis outcomes.</p>
       <div class="card" id="decisionsProRoot"></div>
+      <div id="decisionsProfessionHost" class="pro-card"></div>
+      <div id="dilDecisionsRoot"></div>
       <details class="card" style="margin-top:0.75rem"><summary>Technical JSON</summary><pre id="decisionsPre">Run Analyze to populate decisions.</pre></details>
     </div>
 
     <div class="view" id="evidence">
-      <h2 class="homeHeadline">Evidence</h2>
-      <p class="sub">Lineage and provenance for the latest analysis.</p>
+      <h2 class="homeHeadline" data-i18n="evidence.headline">Evidence</h2>
+      <p class="sub" data-i18n="evidence.sub">Lineage and provenance for the latest analysis.</p>
       <div class="card" id="evidenceProRoot"></div>
-      <details class="card" style="margin-top:0.75rem"><summary>Technical JSON</summary><pre id="lineagePre">Run a slice first.</pre></details>
+      <div id="dilEvidenceRoot"></div>
+      <details class="card" style="margin-top:0.75rem"><summary>Technical JSON</summary><pre id="lineagePre" data-i18n="fill.evidenceJson">Run a slice first.</pre></details>
     </div>
 
     <div class="view" id="jobs">
@@ -345,8 +517,8 @@ ${TOKEN_CSS}
     </div>
 
     <div class="view" id="system">
-      <h2 class="homeHeadline">System</h2>
-      <p class="sub">Readiness and foundation status — derived from live control plane APIs.</p>
+      <h2 class="homeHeadline" data-i18n="system.headline">System</h2>
+      <p class="sub" data-i18n="system.sub">Readiness and foundation status — derived from live control plane APIs.</p>
       <div class="grid">
         <div class="card" id="sysHealthRoot"></div>
         <div class="card" id="sysReadinessRoot"></div>
@@ -354,17 +526,37 @@ ${TOKEN_CSS}
         <div class="card" id="sysPersistenceRoot"></div>
         <div class="card" id="sysValidationRoot"></div>
         <div class="card" id="sysRunsRoot"></div>
+        <div class="card" id="sysArchRoot"></div>
         <div class="card"><h2>Pipeline</h2><div class="pipe" id="dashPipe"></div></div>
       </div>
     </div>
 
+    <div class="view" id="settings">
+      <h2 class="homeHeadline" data-i18n="settings.headline">Settings</h2>
+      <p class="sub" data-i18n="settings.sub">Local session preferences. Not an OIDC profile. Not durable enterprise config.</p>
+      <div id="settingsRoot"></div>
+    </div>
+
     <div class="view" id="engineering">
-      <p class="sub">Technical / Evidence view — engineering surfaces preserved.</p>
+      <p class="sub" data-i18n="eng.sub">Technical / Evidence view — engineering surfaces preserved.</p>
       <div id="engPanel">
         <div class="eng-section" data-eng-panel="dash"><div class="card"><h2>Technical cockpit</h2><pre id="engDash">Open sub-views above.</pre></div></div>
-        <div class="eng-section" data-eng-panel="risk" hidden><div class="card"><h2>Risk / Gov</h2><pre id="riskStudio">—</pre></div></div>
-        <div class="eng-section" data-eng-panel="exec" hidden><div class="card"><h2>Execution</h2><pre id="execMon">SIMULATION_ONLY — no live money.</pre></div></div>
-        <div class="eng-section" data-eng-panel="lineage" hidden><div class="card"><h2>Lineage Explorer</h2><pre id="engLineagePre">Run Analyze to populate lineage JSON.</pre></div></div>
+        <div class="eng-section" data-eng-panel="risk" hidden>
+          <div class="card" id="riskStudioPro"></div>
+          <div class="card"><h2>GW1 Risk / Gov JSON</h2><pre id="riskStudio" data-i18n="fill.riskEmpty">—</pre></div>
+        </div>
+        <div class="eng-section" data-eng-panel="exec" hidden>
+          <div class="card" id="execMonPro"></div>
+          <div class="card"><h2>GW1 execution JSON</h2><pre id="execMon" data-i18n="fill.simEmpty">SIMULATION_ONLY — no live money.</pre></div>
+        </div>
+        <div class="eng-section" data-eng-panel="lineage" hidden>
+          <div class="card" id="kgLineageRoot"></div>
+          <div class="card"><h2>Lineage Explorer</h2><pre id="engLineagePre" data-i18n="fill.lineageEmpty">Run Analyze to populate lineage JSON.</pre></div>
+        </div>
+        <div class="eng-section" data-eng-panel="kg" hidden><div class="card" id="kgStudioRoot"></div></div>
+        <div class="eng-section" data-eng-panel="agent" hidden><div class="card" id="agentStudioRoot"></div></div>
+        <div class="eng-section" data-eng-panel="workflow" hidden><div class="card" id="workflowStudioRoot"></div></div>
+        <div class="eng-section" data-eng-panel="dist" hidden><div class="card" id="distOsRoot"></div></div>
         <div class="eng-section" data-eng-panel="health" hidden><div class="card"><h2>Health snapshot</h2><pre id="healthPre">—</pre></div></div>
       </div>
     </div>
@@ -383,12 +575,53 @@ ${TOKEN_CSS}
     let approvalState = "idle";
     let lastCompiled = null;
     let currentRoleId = "arch.market_analyst";
+    let inspectedCatalogId = null;
+    let lastProfessionExpansion = null;
+    let lastOsBlueprints = null;
+    let lastPrecisionUpgrade = null;
+    let lastCyberBridge = null;
+    let lastActivationReview = null;
+    let lastEnterprisePrep = null;
+    let lastAutomationPrep = null;
+    let lastVisibilityPrep = null;
+    let lastVisibilityActivation = null;
+    let lastVisibilityDeep = null;
+    let lastExplainabilityPrep = null;
+    let lastExplainVisibility = null;
+    let lastDigitalWorkspaceCompute = null;
+    let lastActivationPass = null;
+    function paintDomainAnalogs() {
+      paintProfessionPanelAnalogs(lastProfessionExpansion, inspectedCatalogId, {
+        osBlueprints: lastOsBlueprints,
+        roleId: currentRoleId,
+      });
+      if (lastPrecisionUpgrade) paintPrecisionOverlay(lastPrecisionUpgrade);
+      if (lastCyberBridge) paintCyberBridgeOverlay(lastCyberBridge);
+      if (lastActivationReview) paintActivationReviewOverlay(lastActivationReview);
+      if (lastEnterprisePrep) paintEnterprisePrepOverlay(lastEnterprisePrep);
+      if (lastAutomationPrep) paintAutomationPrepOverlay(lastAutomationPrep);
+      if (lastVisibilityPrep) paintVisibilityPrepOverlay(lastVisibilityPrep);
+      if (lastVisibilityActivation) paintVisibilityActivationOverlay(lastVisibilityActivation);
+      if (lastVisibilityDeep) paintVisibilityDeepOverlay(lastVisibilityDeep);
+      if (lastExplainabilityPrep) paintExplainabilityPrepOverlay(lastExplainabilityPrep);
+      if (lastExplainVisibility) paintExplainVisibilityOverlay(lastExplainVisibility);
+      if (lastDigitalWorkspaceCompute) paintDigitalWorkspaceComputeOverlay(lastDigitalWorkspaceCompute);
+      if (lastActivationPass) paintActivationPassOverlay(lastActivationPass);
+    }
+    let lastHeroV3 = null;
     let actorEnvelope = null;
     let lastSystemBundle = null;
 ${SAFE_DOM_BROWSER_SOURCE}
 ${PRIMITIVES_BROWSER_SOURCE}
 ${PROFESSIONAL_UX_BROWSER_SOURCE}
 ${WORKSPACE_RENDERER_BROWSER_SOURCE}
+${ECL_DIL_CONSOLE_BROWSER_SOURCE}
+${I18N_BROWSER_SOURCE}
+${PRODUCT_SETTINGS_BROWSER_SOURCE}
+${SCI_CHARTS_BROWSER_SOURCE}
+${ANALYTICS_DETECTIVE_BROWSER_SOURCE}
+${BLUEPRINT_STUDIO_BROWSER_SOURCE}
+${HERO_V3_BROWSER_SOURCE}
 
     const KNOWN_MODULES = [
       "ContextHeader",
@@ -399,6 +632,7 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
       "SimulationPanel",
       "EvidencePanel",
       "LineagePanel",
+      "OpsIntel",
     ];
 
     function loadSession() {
@@ -412,8 +646,47 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
       const next = { ...loadSession(), ...patch, updatedAt: new Date().toISOString() };
       try {
         localStorage.setItem(SESSION_KEY, JSON.stringify(next));
-      } catch (_) {}
+      } catch (_) {
+        /* localStorage blocked (private mode) — session remains in-memory */
+      }
       return next;
+    }
+
+    let settingsTab = "user";
+    let productPrefs = mergeProductPrefs(loadSession());
+    function commitProductPrefs(patch) {
+      productPrefs = applyProductPrefs(saveSession(mergeProductPrefs({ ...productPrefs, ...patch })));
+      const lang = document.getElementById("langSelect");
+      if (lang) lang.value = productPrefs.locale;
+      applyChromeI18n(productPrefs.locale);
+      if (document.getElementById("settings") && document.getElementById("settings").classList.contains("on")) {
+        paintSettings();
+      }
+      const homeEl = document.getElementById("home");
+      if (homeEl && homeEl.classList.contains("on") && typeof loadHome === "function") {
+        loadHome().catch(function (err) {
+          const homeSub = document.getElementById("homeSub");
+          if (homeSub) {
+            homeSub.textContent =
+              "Home reload failed after preference change — UNKNOWN: " +
+              String((err && err.message) || err);
+          }
+        });
+      }
+      return productPrefs;
+    }
+    function paintSettings() {
+      renderProductSettings(document.getElementById("settingsRoot"), {
+        locale: productPrefs.locale,
+        prefs: productPrefs,
+        tab: settingsTab,
+        infra: lastSystemBundle && lastSystemBundle.enterpriseHooks,
+        onTab: (id) => {
+          settingsTab = id;
+          paintSettings();
+        },
+        onChange: (patch) => commitProductPrefs(patch),
+      });
     }
 
     async function api(path, options) {
@@ -499,8 +772,24 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
       }
       const st = document.getElementById("expStatus");
       if (st) {
-        st.textContent = "EXPERIENCE · " + (compiled.compilerStatus || "UNKNOWN");
-        st.className = "badge ok";
+        const status = compiled.compilerStatus || "UNKNOWN";
+        st.textContent = "EXPERIENCE · " + status;
+        st.className =
+          "badge " + (/DEGRADED|UNKNOWN|UNREACHABLE/i.test(status) ? "warn" : "ok");
+      }
+      if (compiled.experienceSpec && compiled.experienceSpec.roleHints) {
+        const hint = compiled.experienceSpec.roleHints.presentation;
+        const roleHintEl = document.getElementById("roleHint");
+        if (roleHintEl && hint) roleHintEl.textContent = hint;
+      }
+      if (compiled.degraded && compiled.degradedReasons && compiled.degradedReasons.length) {
+        const banner = document.getElementById("banner");
+        if (banner) {
+          banner.style.display = "block";
+          banner.textContent =
+            "Experience compiler DEGRADED — " +
+            compiled.degradedReasons.slice(0, 3).join("; ");
+        }
       }
       return result;
     }
@@ -539,13 +828,829 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
       "Simulation",
     ];
 
-    function showView(id) {
+    let dilHorizon = "24h";
+    const VIEW_LABELS = {
+      home: "Home",
+      work: "Work",
+      slice: "Analyze",
+      dil: "Intelligence",
+      ecl: "Reporting",
+      analysis: "Analysis",
+      detective: "Detective",
+      evidence: "Evidence",
+      decisions: "Decisions",
+      system: "System",
+      settings: "Settings",
+      engineering: "Engineering",
+      entities: "Search",
+      roles: "Roles",
+      searchResults: "Search",
+    };
+    function paintContext(viewId, extra) {
+      extra = extra || {};
+      const known = lastSystemBundle != null;
+      const b = lastSystemBundle || {};
+      renderContextHeader({
+        product: "SCI OS ×10",
+        maturity: "ALPHA_NON_PRODUCTION",
+        view: t(productPrefs.locale, ({
+          home: "nav.home",
+          work: "nav.work",
+          slice: "nav.analyze",
+          dil: "nav.intelligence",
+          ecl: "nav.reporting",
+          analysis: "nav.analysis",
+          detective: "nav.detective",
+          evidence: "nav.evidence",
+          decisions: "nav.decisions",
+          system: "nav.system",
+          settings: "nav.settings",
+          engineering: "nav.engineering",
+          entities: "nav.entities",
+          roles: "nav.roles",
+          searchResults: "nav.entities",
+        })[viewId] || "") || VIEW_LABELS[viewId] || viewId || "—",
+        executionMode: b.executionMode || "SIMULATION_ONLY",
+        feeds: extra.feeds || b.feedsLabel || "simulated_alpha",
+        cpReachable: known ? b.cpReachable !== false : false,
+        cpVerdict: b.verdict || (known ? "UNKNOWN" : "UNKNOWN"),
+        compilerStatus: b.compilerStatus || "UNKNOWN",
+        compilerPipeline: b.compilerPipeline,
+        compilerVersion: b.compilerVersion,
+        roleId: currentRoleId,
+        cockpitVerdict:
+          extra.cockpitVerdict ||
+          (known ? (b.degraded ? "DEGRADED" : b.cpReachable === false ? "UNREACHABLE" : "ALPHA_LIVE") : "UNKNOWN"),
+        degradedNote: extra.degradedNote,
+      });
+    }
+    function showView(id, source) {
+      if (!id || !document.getElementById(id)) return;
       document.querySelectorAll("main .view").forEach((v) => v.classList.toggle("on", v.id === id));
       document.querySelectorAll("nav.primary button").forEach((b) => {
         b.classList.toggle("on", b.dataset.v === id || (id === "searchResults" && b.dataset.v === "entities"));
       });
       const eng = document.getElementById("engNav");
       eng.hidden = id !== "engineering";
+      paintContext(id);
+      if (source !== "hash") {
+        const next = "#" + id;
+        if (location.hash !== next) history.replaceState(null, "", next);
+      }
+      if (id === "dil") loadDilConsole(dilHorizon);
+      if (id === "ecl") loadEclConsole();
+      if (id === "analysis") loadAnalysisWorkbench();
+      if (id === "detective") loadDetectiveWorkbench();
+      if (id === "system") loadEclDilArchitecture();
+      if (id === "evidence") loadDilEvidence();
+      if (id === "decisions") loadDilDecisions();
+      if (id === "engineering") {
+        loadTechEclDil();
+        loadBlueprintStudios();
+      }
+      if (id === "settings") paintSettings();
+      if (id === "roles") loadProfessionalWorkspace();
+    }
+    function applyHashView() {
+      const id = (location.hash || "").replace(/^#/, "");
+      if (id && document.getElementById(id)) showView(id, "hash");
+    }
+    window.addEventListener("hashchange", applyHashView);
+
+    async function loadProfessionalWorkspace() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      clearNode(root);
+      createLoadingState(root, "Loading professional catalog…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional").then((r) => {
+          if (!r.ok) throw new Error("professional HTTP " + r.status);
+          return r.json();
+        });
+        const data = payload.data || payload;
+        lastProfessionExpansion = data.moduleExpansion || null;
+        lastOsBlueprints = data.osBlueprints || null;
+        lastPrecisionUpgrade = data.precisionUpgrade || null;
+        lastCyberBridge = data.cyberBridge || null;
+        lastActivationReview = data.activationReview || null;
+        lastEnterprisePrep = data.enterprisePrep || null;
+        lastAutomationPrep = data.automationPrep || null;
+        lastVisibilityPrep = data.visibilityPrep || null;
+        lastVisibilityActivation = data.visibilityActivation || null;
+        lastVisibilityDeep = data.visibilityDeep || null;
+        lastExplainabilityPrep = data.explainabilityPrep || null;
+        lastExplainVisibility = data.explainVisibility || null;
+        lastDigitalWorkspaceCompute = data.digitalWorkspaceCompute || null;
+        lastActivationPass = data.activationPass || null;
+        renderProfessionalWorkspace(root, payload, {
+          inspectedCatalogId: inspectedCatalogId,
+          onSelectCatalog: (id) => {
+            inspectedCatalogId = id;
+            const hit = (data.catalogs || []).find((c) => c.id === id);
+            const next = hit && hit.analogArchetypes && hit.analogArchetypes[0];
+            if (next) {
+              currentRoleId = next;
+              const sel = document.getElementById("roleSelect");
+              if (sel) populateRoleSelect(sel, currentRoleId);
+              const rh = document.getElementById("roleHint");
+              if (rh) rh.textContent = rolePresentationHint(currentRoleId);
+              saveSession({ roleId: currentRoleId, inspectedCatalogId: id });
+            } else {
+              saveSession({ inspectedCatalogId: id });
+            }
+            paintDomainAnalogs();
+          },
+          onCompile: () => loadProfessionalCompile(),
+          onValidate: () => loadWorkspaceValidation(),
+          onDeepValidate: () => loadDeepWorkspaceValidation(),
+          onActivate: () => loadWorkspaceActivation(),
+          onStabilize: () => loadWorkspaceStabilization(),
+          onDigitalActivate: () => loadDigitalActivation(),
+          onPrecisionUpgrade: () => loadPrecisionUpgrade(),
+          onCyberBridge: () => loadCyberBridge(),
+          onActivationReview: () => loadActivationReview(),
+          onEnterprisePrep: () => loadEnterprisePrep(),
+          onAutomationPrep: () => loadAutomationPrep(),
+          onVisibilityPrep: () => loadVisibilityPrep(),
+          onVisibilityActivation: () => loadVisibilityActivation(),
+          onVisibilityDeep: () => loadVisibilityDeep(),
+          onExplainabilityPrep: () => loadExplainabilityPrep(),
+          onExplainVisibility: () => loadExplainVisibility(),
+          onDigitalWorkspaceCompute: () => loadDigitalWorkspaceCompute(),
+          onActivationPass: () => loadActivationPass(),
+        });
+        paintDomainAnalogs();
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "PROFESSIONAL CATALOG UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadProfessionalCompile() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      createLoadingState(root, "Compiling professional workspace (SAFE)…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional/compile").then((r) => {
+          if (!r.ok) throw new Error("professional compile HTTP " + r.status);
+          return r.json();
+        });
+        clearNode(root);
+        renderProfessionalCompile(root, payload);
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "COMPILE UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadWorkspaceValidation() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      createLoadingState(root, "Validating professional workspace (SAFE)…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional/validate").then((r) => {
+          if (!r.ok) throw new Error("professional validate HTTP " + r.status);
+          return r.json();
+        });
+        clearNode(root);
+        renderWorkspaceValidation(root, payload);
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "VALIDATE UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadDeepWorkspaceValidation() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      createLoadingState(root, "Deep-validating professional workspace (SAFE)…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional/validate/deep").then((r) => {
+          if (!r.ok) throw new Error("professional deep validate HTTP " + r.status);
+          return r.json();
+        });
+        clearNode(root);
+        renderWorkspaceValidation(root, payload);
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "DEEP VALIDATE UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadWorkspaceActivation() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      createLoadingState(root, "Activating professional workspace (SAFE)…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional/activate").then((r) => {
+          if (!r.ok) throw new Error("professional activate HTTP " + r.status);
+          return r.json();
+        });
+        clearNode(root);
+        renderWorkspaceActivation(root, payload);
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "ACTIVATE UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadWorkspaceStabilization() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      createLoadingState(root, "Stabilizing professional workspace (SAFE)…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional/stabilize").then((r) => {
+          if (!r.ok) throw new Error("professional stabilize HTTP " + r.status);
+          return r.json();
+        });
+        clearNode(root);
+        renderWorkspaceStabilization(root, payload);
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "STABILIZE UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadDigitalActivation() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      createLoadingState(root, "Digital activation inspect (SAFE)…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional/digital-activation").then((r) => {
+          if (!r.ok) throw new Error("professional digital-activation HTTP " + r.status);
+          return r.json();
+        });
+        clearNode(root);
+        renderDigitalActivation(root, payload);
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "DIGITAL ACTIVATION UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadPrecisionUpgrade() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      createLoadingState(root, "Precision upgrade inspect (SAFE)…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional/precision-upgrade").then((r) => {
+          if (!r.ok) throw new Error("professional precision-upgrade HTTP " + r.status);
+          return r.json();
+        });
+        lastPrecisionUpgrade = (payload && payload.data) || payload;
+        clearNode(root);
+        renderPrecisionUpgrade(root, payload);
+        paintDomainAnalogs();
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "PRECISION UPGRADE UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadCyberBridge() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      createLoadingState(root, "Cyber research + investment bridge inspect (SAFE)…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional/cyber-bridge").then((r) => {
+          if (!r.ok) throw new Error("professional cyber-bridge HTTP " + r.status);
+          return r.json();
+        });
+        lastCyberBridge = (payload && payload.data) || payload;
+        clearNode(root);
+        renderCyberResearchBridge(root, payload);
+        paintDomainAnalogs();
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "CYBER BRIDGE UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadActivationReview() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      createLoadingState(root, "Activation review inspect (SAFE)…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional/activation-review").then((r) => {
+          if (!r.ok) throw new Error("professional activation-review HTTP " + r.status);
+          return r.json();
+        });
+        lastActivationReview = (payload && payload.data) || payload;
+        clearNode(root);
+        renderActivationReview(root, payload);
+        paintDomainAnalogs();
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "ACTIVATION REVIEW UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadEnterprisePrep() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      createLoadingState(root, "Enterprise prep inspect (SAFE)…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional/enterprise-prep").then((r) => {
+          if (!r.ok) throw new Error("professional enterprise-prep HTTP " + r.status);
+          return r.json();
+        });
+        lastEnterprisePrep = (payload && payload.data) || payload;
+        clearNode(root);
+        renderEnterprisePrep(root, payload);
+        paintDomainAnalogs();
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "ENTERPRISE PREP UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadAutomationPrep() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      createLoadingState(root, "Automation prep inspect (SAFE)…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional/automation-prep").then((r) => {
+          if (!r.ok) throw new Error("professional automation-prep HTTP " + r.status);
+          return r.json();
+        });
+        lastAutomationPrep = (payload && payload.data) || payload;
+        clearNode(root);
+        renderAutomationPrep(root, payload);
+        paintDomainAnalogs();
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "AUTOMATION PREP UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadVisibilityPrep() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      createLoadingState(root, "Visibility prep inspect (SAFE)…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional/visibility-prep").then((r) => {
+          if (!r.ok) throw new Error("professional visibility-prep HTTP " + r.status);
+          return r.json();
+        });
+        lastVisibilityPrep = (payload && payload.data) || payload;
+        clearNode(root);
+        renderVisibilityPrep(root, payload);
+        paintDomainAnalogs();
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "VISIBILITY PREP UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadVisibilityActivation() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      createLoadingState(root, "Visibility episodes inspect (SAFE)…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional/visibility-activation").then((r) => {
+          if (!r.ok) throw new Error("professional visibility-activation HTTP " + r.status);
+          return r.json();
+        });
+        lastVisibilityActivation = (payload && payload.data) || payload;
+        clearNode(root);
+        renderVisibilityActivation(root, payload);
+        paintDomainAnalogs();
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "VISIBILITY EPISODES UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadVisibilityDeep() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      createLoadingState(root, "Visibility deep inspect (SAFE)…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional/visibility-deep").then((r) => {
+          if (!r.ok) throw new Error("professional visibility-deep HTTP " + r.status);
+          return r.json();
+        });
+        lastVisibilityDeep = (payload && payload.data) || payload;
+        clearNode(root);
+        renderVisibilityDeep(root, payload);
+        paintDomainAnalogs();
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "VISIBILITY DEEP UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadExplainabilityPrep() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      createLoadingState(root, "Explainability prep inspect (SAFE)…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional/explainability-prep").then((r) => {
+          if (!r.ok) throw new Error("professional explainability-prep HTTP " + r.status);
+          return r.json();
+        });
+        lastExplainabilityPrep = (payload && payload.data) || payload;
+        clearNode(root);
+        renderExplainabilityPrep(root, payload);
+        paintDomainAnalogs();
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "EXPLAINABILITY PREP UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadExplainVisibility() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      createLoadingState(root, "Explain+visibility inspect (SAFE)…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional/explain-visibility").then((r) => {
+          if (!r.ok) throw new Error("professional explain-visibility HTTP " + r.status);
+          return r.json();
+        });
+        lastExplainVisibility = (payload && payload.data) || payload;
+        clearNode(root);
+        renderExplainVisibility(root, payload);
+        paintDomainAnalogs();
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "EXPLAIN+VISIBILITY UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadDigitalWorkspaceCompute() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      createLoadingState(root, "Digital KG+desks inspect (SAFE)…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional/digital-workspace-compute").then((r) => {
+          if (!r.ok) throw new Error("professional digital-workspace-compute HTTP " + r.status);
+          return r.json();
+        });
+        lastDigitalWorkspaceCompute = (payload && payload.data) || payload;
+        clearNode(root);
+        renderDigitalWorkspaceCompute(root, payload);
+        paintDomainAnalogs();
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "DIGITAL KG+DESKS UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadActivationPass() {
+      const root = document.getElementById("rolesRoot");
+      if (!root) return;
+      createLoadingState(root, "Master suite inspect (SAFE)…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/professional/activation-pass").then((r) => {
+          if (!r.ok) throw new Error("professional activation-pass HTTP " + r.status);
+          return r.json();
+        });
+        lastActivationPass = (payload && payload.data) || payload;
+        clearNode(root);
+        renderActivationPass(root, payload);
+        paintDomainAnalogs();
+      } catch (err) {
+        clearNode(root);
+        createEmptyState(root, "MASTER SUITE UNREACHABLE — " + (err && err.message ? err.message : "UNKNOWN"));
+      }
+    }
+
+    async function loadDilConsole(horizon) {
+      dilHorizon = horizon || dilHorizon || "24h";
+      const root = document.getElementById("dilRoot");
+      if (!root) return;
+      clearNode(root);
+      createLoadingState(root, "Loading decision intelligence…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/dil/workspace?horizon=" + encodeURIComponent(dilHorizon)).then((r) => {
+          if (!r.ok) throw new Error("DIL workspace HTTP " + r.status);
+          return r.json();
+        });
+        renderDilConsole(root, payload, {
+          onHorizon: (h) => loadDilConsole(h),
+          onPropose: async (marketId) => {
+            const pr = await fetch(CONTROL + "/v1/ai/proposals", {
+              method: "POST",
+              headers: { "content-type": "application/json" },
+              body: JSON.stringify({ marketId: marketId, horizon: dilHorizon }),
+            });
+            if (!pr.ok) throw new Error("proposal HTTP " + pr.status);
+            await loadDilConsole(dilHorizon);
+          },
+          onOpenDecisions: () => showView("decisions"),
+        });
+        const dilData = payload.data || payload;
+        renderDilAnalytics(root, {
+          rows: dilData.rows,
+          calibration: dilData.calibration,
+          trackRecord: dilData.trackRecord,
+          onOpenAnalysis: () => showView("analysis"),
+          onOpenDetective: () => showView("detective"),
+        });
+        const di = appendEl(root, "div", "actions");
+        const kgBtn = appendEl(di, "button", "ghost", "Domain Intelligence");
+        kgBtn.type = "button";
+        kgBtn.setAttribute("data-action-id", "dil.open_kg");
+        kgBtn.onclick = () => {
+          showEngPanel("kg");
+          showView("engineering");
+        };
+      } catch (err) {
+        clearNode(root);
+        const msg = String(err && err.message ? err.message : err);
+        if (/fetch|network|ECONNREFUSED/i.test(msg)) {
+          createErrorState(root, "OFFLINE — Control Plane unreachable. Start SCI OS, then reopen Intelligence.");
+        } else createErrorState(root, "ERROR — " + msg);
+      }
+    }
+
+    async function loadEclConsole() {
+      const root = document.getElementById("eclRoot");
+      if (!root) return;
+      clearNode(root);
+      createLoadingState(root, "Loading ECL reporting…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/workspace").then((r) => {
+          if (!r.ok) throw new Error("ECL workspace HTTP " + r.status);
+          return r.json();
+        });
+        renderEclConsole(root, payload);
+        const eclData = payload.data || payload;
+        renderEclAnalytics(root, {
+          snapshot: eclData.snapshot,
+          onOpenAnalysis: () => showView("analysis"),
+        });
+      } catch (err) {
+        clearNode(root);
+        const msg = String(err && err.message ? err.message : err);
+        if (/fetch|network|ECONNREFUSED/i.test(msg)) {
+          createErrorState(root, "OFFLINE — Control Plane unreachable. Start SCI OS, then reopen Reporting.");
+        } else createErrorState(root, "ERROR — " + msg);
+      }
+    }
+
+    async function loadAnalysisWorkbench() {
+      const root = document.getElementById("analysisRoot");
+      if (!root) return;
+      clearNode(root);
+      createLoadingState(root, "Loading analysis workbench…");
+      try {
+        const [dilRes, eclRes] = await Promise.all([
+          fetch(CONTROL + "/v1/dil/workspace?horizon=" + encodeURIComponent(dilHorizon || "24h")),
+          fetch(CONTROL + "/v1/ecl/workspace"),
+        ]);
+        if (!dilRes.ok) throw new Error("DIL workspace HTTP " + dilRes.status);
+        if (!eclRes.ok) throw new Error("ECL workspace HTTP " + eclRes.status);
+        const dil = await dilRes.json();
+        const ecl = await eclRes.json();
+        renderAnalysisWorkbench(
+          root,
+          {
+            dil: dil.data || dil,
+            ecl: ecl.data || ecl,
+            lastGw1: lastData || {},
+          },
+          {
+            onOpenIntelligence: () => showView("dil"),
+            onOpenReporting: () => showView("ecl"),
+            onOpenDetective: () => showView("detective"),
+          }
+        );
+      } catch (err) {
+        clearNode(root);
+        const msg = String(err && err.message ? err.message : err);
+        if (/fetch|network|ECONNREFUSED/i.test(msg)) {
+          createErrorState(root, "OFFLINE — Control Plane unreachable. Start SCI OS, then reopen Analysis.");
+        } else createErrorState(root, "ERROR — " + msg);
+      }
+    }
+
+    async function loadDetectiveWorkbench() {
+      const root = document.getElementById("detectiveRoot");
+      if (!root) return;
+      clearNode(root);
+      createLoadingState(root, "Loading detective timeline…");
+      try {
+        const [auditRes, snapRes] = await Promise.all([
+          fetch(CONTROL + "/v1/ecl/audit"),
+          fetch(CONTROL + "/v1/system/snapshot"),
+        ]);
+        if (!auditRes.ok) throw new Error("audit HTTP " + auditRes.status);
+        const payload = await auditRes.json();
+        const snap = snapRes.ok ? await snapRes.json() : {};
+        renderDetectiveWorkbench(
+          root,
+          {
+            events: payload.data || payload || [],
+            gw1Runs: snap.runs || (snap.data && snap.data.runs) || [],
+          },
+          {
+            onOpenEvidence: () => showView("evidence"),
+            onOpenDecisions: () => showView("decisions"),
+            onOpenRisk: () => {
+              showView("engineering");
+              showEngPanel("risk");
+            },
+          }
+        );
+      } catch (err) {
+        clearNode(root);
+        const msg = String(err && err.message ? err.message : err);
+        if (/fetch|network|ECONNREFUSED/i.test(msg)) {
+          createErrorState(root, "OFFLINE — detective audit unavailable.");
+        } else createErrorState(root, "ERROR — " + msg);
+      }
+    }
+
+    async function loadEclDilArchitecture() {
+      const root = document.getElementById("sysArchRoot");
+      if (!root) return;
+      clearNode(root);
+      createLoadingState(root, "Loading architecture…");
+      try {
+        const payload = await fetch(CONTROL + "/v1/ecl/architecture").then((r) => (r.ok ? r.json() : null));
+        if (payload) renderEclDilArchitecture(root, payload);
+        else {
+          clearNode(root);
+          createErrorState(root, "UNKNOWN — ECL/DIL architecture endpoint not available");
+        }
+      } catch (err) {
+        clearNode(root);
+        createErrorState(root, "OFFLINE — architecture overview unavailable");
+      }
+    }
+
+    async function loadDilEvidence() {
+      const root = document.getElementById("dilEvidenceRoot");
+      if (!root) return;
+      clearNode(root);
+      createLoadingState(root, "Loading audit evidence…");
+      try {
+        const [auditRes, snapRes, feedRes] = await Promise.all([
+          fetch(CONTROL + "/v1/ecl/audit"),
+          fetch(CONTROL + "/v1/system/snapshot"),
+          fetch(CONTROL + "/v1/ecl/feeds"),
+        ]);
+        if (!auditRes.ok) throw new Error("audit HTTP " + auditRes.status);
+        const payload = await auditRes.json();
+        const snap = snapRes.ok ? await snapRes.json() : {};
+        const feeds = feedRes.ok ? await feedRes.json() : {};
+        const feedRegistry = (feeds.data && feeds.data.registry) || feeds.registry;
+        clearNode(root);
+        renderDilEvidenceTail(root, payload, {
+          onOpenDecisions: () => showView("decisions"),
+          onOpenDetective: () => showView("detective"),
+          gw1Runs: snap.runs || snap.data?.runs || [],
+          feedRegistry: feedRegistry,
+        });
+      } catch (err) {
+        clearNode(root);
+        const msg = String(err && err.message ? err.message : err);
+        if (/fetch|network|ECONNREFUSED/i.test(msg)) {
+          createErrorState(root, "OFFLINE — DIL audit unavailable.");
+        } else createErrorState(root, "ERROR — " + msg);
+      }
+    }
+
+    async function loadDilDecisions() {
+      const root = document.getElementById("dilDecisionsRoot");
+      if (!root) return;
+      clearNode(root);
+      createLoadingState(root, "Loading proposals…");
+      try {
+        const [propRes, calRes, feedRes] = await Promise.all([
+          fetch(CONTROL + "/v1/ai/proposals"),
+          fetch(CONTROL + "/v1/dil/calibration"),
+          fetch(CONTROL + "/v1/ecl/feeds"),
+        ]);
+        if (!propRes.ok) throw new Error("proposals HTTP " + propRes.status);
+        const payload = await propRes.json();
+        const feeds = feedRes.ok ? await feedRes.json() : {};
+        const feedRegistry = (feeds.data && feeds.data.registry) || feeds.registry;
+        clearNode(root);
+        if (calRes.ok) {
+          const cal = await calRes.json();
+          renderCalibrationPanel(root, cal.data || cal);
+        } else {
+          appendEl(root, "p", "empty", "UNKNOWN — calibration HTTP " + calRes.status + " (live remains UNKNOWN).");
+        }
+        renderDilDecisionList(root, payload, {
+          onReview: async (proposalId, decision) => {
+            const rr = await fetch(
+              CONTROL + "/v1/ai/proposals/" + encodeURIComponent(proposalId) + "/review",
+              {
+                method: "POST",
+                headers: { "content-type": "application/json" },
+                body: JSON.stringify({ decision: decision, note: "cockpit human review" }),
+              }
+            );
+            if (!rr.ok) throw new Error("review HTTP " + rr.status);
+            const body = await rr.json();
+            if (body.autoTrade !== false || (body.data && body.data.executed !== false)) {
+              throw new Error("review must not execute or auto-trade");
+            }
+            await loadDilDecisions();
+          },
+          onOpenEvidence: () => showView("evidence"),
+          onOpenIntelligence: () => showView("dil"),
+          onOpenDetective: () => showView("detective"),
+          feedRegistry: feedRegistry,
+        });
+      } catch (err) {
+        clearNode(root);
+        const msg = String(err && err.message ? err.message : err);
+        if (/fetch|network|ECONNREFUSED/i.test(msg)) {
+          createErrorState(root, "OFFLINE — proposals unavailable.");
+        } else createErrorState(root, "ERROR — " + msg);
+      }
+    }
+
+    async function loadTechEclDil() {
+      const risk = document.getElementById("riskStudioPro");
+      const exec = document.getElementById("execMonPro");
+      try {
+        const [gRes, snapRes, feedRes] = await Promise.all([
+          fetch(CONTROL + "/v1/ecl/guardrail"),
+          fetch(CONTROL + "/v1/ecl/snapshot"),
+          fetch(CONTROL + "/v1/ecl/feeds"),
+        ]);
+        const g = gRes.ok ? await gRes.json() : null;
+        const snap = snapRes.ok ? await snapRes.json() : null;
+        const feeds = feedRes.ok ? await feedRes.json() : {};
+        const feedRegistry = (feeds.data && feeds.data.registry) || feeds.registry;
+        if (g) {
+          const gData = g.data || g;
+          renderTechRiskGov(risk, Object.assign({}, g, { data: Object.assign({}, gData, { feedRegistry: feedRegistry }) }));
+          renderRiskAnalytics(risk, {
+            limits: gData.limits,
+            dailyLoss: gData.dailyLoss,
+            concentration: gData.concentration,
+            onOpenDetective: () => showView("detective"),
+          });
+        }
+        else if (risk) {
+          clearNode(risk);
+          createErrorState(risk, "UNKNOWN — ECL guardrail HTTP " + gRes.status);
+        }
+        if (snap) renderTechExecMonitor(exec, snap);
+        else if (exec) {
+          clearNode(exec);
+          createErrorState(exec, "UNKNOWN — ECL snapshot HTTP " + snapRes.status);
+        }
+      } catch (err) {
+        const msg = String(err && err.message ? err.message : err);
+        const offline = /fetch|network|ECONNREFUSED/i.test(msg);
+        if (risk) {
+          clearNode(risk);
+          createErrorState(risk, offline ? "OFFLINE — ECL guardrail unavailable" : "ERROR — " + msg);
+        }
+        if (exec) {
+          clearNode(exec);
+          createErrorState(exec, offline ? "OFFLINE — ECL snapshot unavailable" : "ERROR — " + msg);
+        }
+      }
+    }
+
+    async function loadBlueprintStudios() {
+      const agentRoot = document.getElementById("agentStudioRoot");
+      const kgRoot = document.getElementById("kgStudioRoot");
+      const wfRoot = document.getElementById("workflowStudioRoot");
+      const distRoot = document.getElementById("distOsRoot");
+      const linKg = document.getElementById("kgLineageRoot");
+      try {
+        const res = await fetch(CONTROL + "/v1/ecl/blueprints");
+        if (!res.ok) throw new Error("blueprints HTTP " + res.status);
+        const payload = await res.json();
+        const data = payload.data || payload;
+        const gw1Nodes = kgNodesFromGw1(lastData);
+        const gw1Edges = kgEdgesFromNodes(gw1Nodes);
+        const bundle = {
+          data: Object.assign({}, data, {
+            gw1Nodes: gw1Nodes,
+            gw1Edges: gw1Edges,
+            system: {
+              boot: (data.liveAnalog && data.liveAnalog.boot) || "start-sci-os.cjs",
+              shell: (data.liveAnalog && data.liveAnalog.shell) || "apps/cockpit-ui :4000",
+              controlPlane: ":3000",
+              profile: (lastSystemBundle && lastSystemBundle.ready && lastSystemBundle.ready.profile) || "local-foundation",
+            },
+          }),
+        };
+        if (agentRoot) renderAgentStudio(agentRoot, bundle);
+        if (kgRoot) renderKgExplorer(kgRoot, bundle);
+        if (wfRoot) renderWorkflowStudio(wfRoot, bundle);
+        if (distRoot) renderDistributedOsView(distRoot, bundle);
+        if (linKg) renderKgExplorer(linKg, bundle);
+      } catch (err) {
+        const msg = String(err && err.message ? err.message : err);
+        const offline = /fetch|network|ECONNREFUSED/i.test(msg);
+        [agentRoot, kgRoot, wfRoot, distRoot, linKg].forEach((el) => {
+          if (!el) return;
+          clearNode(el);
+          createErrorState(el, offline ? "OFFLINE — blueprint inventory unavailable" : "ERROR — " + msg);
+        });
+      }
     }
 
     document.querySelectorAll("nav.primary button").forEach((b) => {
@@ -677,6 +1782,47 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
       document.getElementById("approvalStatus").style.color = "";
     }
 
+    function paintSciRibbon(opts) {
+      const host = document.getElementById("sciRibbon");
+      if (!host) return;
+      const stages = [
+        "raw_event",
+        "normalized_event",
+        "pit_feature",
+        "baseline_prediction",
+        "calibration_uncertainty",
+        "independent_risk_gate",
+        "governance_decision",
+        "deterministic_execution",
+        "outcome",
+        "immutable_lineage",
+        "cockpit_view",
+      ];
+      const hasAnalysis = !!(opts && opts.hasAnalysis);
+      const kill = !!(opts && opts.killSwitch);
+      const currentIndex = hasAnalysis ? stages.length - 1 : -1;
+      host.replaceChildren();
+      stages.forEach((id, i) => {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = "sci-ribbon-step";
+        b.setAttribute("role", "listitem");
+        b.dataset.stage = id;
+        b.disabled = true;
+        b.textContent = id.replace(/_/g, " ");
+        let status = "unknown";
+        if (hasAnalysis) {
+          if (id === "independent_risk_gate" && kill) status = "critical";
+          else if (opts && opts.degraded && id === "calibration_uncertainty") status = "degraded";
+          else if (i <= currentIndex) status = "current";
+          else status = "unknown";
+        }
+        b.dataset.status = status;
+        if (opts && opts.emphasis && id === opts.emphasis) b.dataset.emphasis = "1";
+        host.appendChild(b);
+      });
+    }
+
     function renderProfessional(data) {
       if (lastCompiled) applyCompiledExperience(lastCompiled);
       const pred = data.predictionEnvelope || {};
@@ -782,13 +1928,66 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
       show("decisionsPre", { risk: data.riskDecision, governance: data.governanceDecision, status: data.status });
       show("riskStudio", { risk: data.riskDecision, governance: data.governanceDecision, status: data.status });
       show("execMon", data.executionOutcome);
+      paintSciRibbon({
+        hasAnalysis: true,
+        killSwitch: risk.killSwitchActive === true,
+        emphasis: lastHeroV3 && lastHeroV3.ribbon && lastHeroV3.ribbon.emphasis,
+        degraded: pred.calibration && pred.calibration.status === "degraded",
+      });
+      const bandHost = document.getElementById("predProfessionHost");
+      if (bandHost && typeof createSciPredictionBand === "function") {
+        const existing = bandHost.querySelector(".sci-prediction-band");
+        if (existing) existing.remove();
+        if (predictionBandVisible(pred)) createSciPredictionBand(bandHost, pred);
+        else createSciToken(bandHost, "unknown", "ABSTAIN");
+      }
+      const riskHost = document.getElementById("riskProfessionHost");
+      if (riskHost && typeof createSciRiskMatrix === "function") {
+        const existingRisk = riskHost.querySelector(".sci-risk-matrix");
+        if (existingRisk) existingRisk.remove();
+        createSciRiskMatrix(riskHost, risk);
+      }
+      if (typeof applyHeroV3 === "function" && lastHeroV3) {
+        applyHeroV3(lastHeroV3);
+        const graph = document.getElementById("heroTruthGraph");
+        if (graph && typeof createSciToken === "function") {
+          graph.replaceChildren();
+          truthGraphSlots({
+            ohlcAllowed: lastHeroV3.ohlc === true,
+            lineageVerified: data.lineageVerified === true,
+            evidence: data.lineage && data.lineage.nodes,
+            ontology: data.lineage && data.lineage.nodes,
+          }).forEach((slot) => {
+            createSciToken(graph, slot.present ? slot.tone : "unknown", slot.id + (slot.present ? "" : " · UNKNOWN"));
+          });
+        }
+      }
+    }
+
+    async function bindHeroV3(roleId) {
+      try {
+        const payload = await api("/v1/ecl/professional/hero?roleId=" + encodeURIComponent(roleId || currentRoleId));
+        lastHeroV3 = payload.data || payload;
+        if (typeof applyHeroV3 === "function") applyHeroV3(lastHeroV3);
+        const what = document.getElementById("proWhat");
+        const hasAnalysis = !!(what && /analysis complete/.test(what.textContent || ""));
+        paintSciRibbon({
+          hasAnalysis,
+          emphasis: lastHeroV3 && lastHeroV3.ribbon && lastHeroV3.ribbon.emphasis,
+        });
+      } catch (e) {
+        lastHeroV3 = null;
+        if (typeof applyHeroV3 === "function") applyHeroV3(null);
+      }
     }
 
     async function loadHome() {
       const homeSub = document.getElementById("homeSub");
+      paintSciRibbon();
       try {
         const roleSel = document.getElementById("roleSelect");
         if (roleSel && roleSel.value) currentRoleId = roleSel.value;
+        bindHeroV3(currentRoleId);
         const [homeResult, compilerResult] = await Promise.allSettled([
           api("/v1/home").then(assertHomeContract),
           api(
@@ -808,8 +2007,7 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
         }
 
         const home = homeResult.value;
-        document.getElementById("homeHeadline").textContent =
-          home.headline || "What needs your attention?";
+        document.getElementById("homeHeadline").textContent = t(productPrefs.locale, "home.headline");
         const a = home.attention || {};
         homeSub.textContent =
           (a.recentAnalyses || 0) + " recent analyses · " +
@@ -819,7 +2017,7 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
         const cw = document.getElementById("compiledWorkspace");
         if (compilerResult.status === "fulfilled") {
           const compiled = compilerResult.value;
-          if (compiled && (compiled.compilerStatus === "RUNTIME_MOUNTED" || compiled.output)) {
+          if (compiled && (compiled.compilerStatus === "RUNTIME_MOUNTED" || compiled.compilerStatus === "DEGRADED" || compiled.output)) {
             applyCompiledExperience(compiled);
             const banner = document.getElementById("banner");
             if (
@@ -849,14 +2047,44 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
         }
 
         const s = home.sections || {};
-        const cells = [
-          { t: "My Work", body: (s.myWork || []).map((w) => w.title || w.workspaceId).join(", ") || "Home workspace" },
-          { t: "Analyses", body: (s.analyses || []).slice(0, 5).map((x) => (x.instrumentId || "?") + " · " + (x.status || "")).join("\\n") || "NO ANALYSIS YET — open Analyze." },
-          { t: "Risks", body: (s.risks || []).length ? (s.risks.length + " rejected paths") : "No rejected risks in session" },
-          { t: "Cases", body: "No open cases in this ALPHA session" },
-          { t: "Decisions", body: (s.pendingDecisions || []).length + " pending" },
-          { t: "System Status", body: (s.systemStatus && (s.systemStatus.verdict || s.systemStatus.ready)) ? String(s.systemStatus.verdict || s.systemStatus.ready) : "Open System view for live health" },
-        ];
+        const cardBodies = {
+          work: (s.myWork || []).map((w) => w.title || w.workspaceId).join(", ") || t(productPrefs.locale, "work.headline"),
+          analyses: (s.analyses || []).slice(0, 5).map((x) => (x.instrumentId || "?") + " · " + (x.status || "")).join("\\n") || t(productPrefs.locale, "fill.evidenceJson"),
+          intelligence: t(productPrefs.locale, "dil.sub"),
+          reporting: t(productPrefs.locale, "ecl.sub"),
+          analysis: t(productPrefs.locale, "analysis.sub"),
+          detective: t(productPrefs.locale, "detective.sub"),
+          decisions: t(productPrefs.locale, "decisions.sub"),
+          evidence: t(productPrefs.locale, "evidence.sub"),
+          risks: (s.risks || []).length ? (s.risks.length + " rejected paths") : t(productPrefs.locale, "home.card.risks"),
+          system: lastSystemBundle
+            ? (lastSystemBundle.degraded ? "DEGRADED" : lastSystemBundle.cpReachable === false ? "UNREACHABLE" : "ALPHA_LIVE") +
+              " · " +
+              (lastSystemBundle.executionMode || "SIMULATION_ONLY") +
+              " · not enterprise READY"
+            : t(productPrefs.locale, "system.sub"),
+        };
+        const cardViews = {
+          work: "work",
+          analyses: "slice",
+          intelligence: "dil",
+          reporting: "ecl",
+          analysis: "analysis",
+          detective: "detective",
+          decisions: "decisions",
+          evidence: "evidence",
+          risks: "detective",
+          system: "system",
+        };
+        const prefsNow = mergeProductPrefs(productPrefs);
+        const cells = prefsNow.homeCardOrder
+          .filter((id) => prefsNow.homeHiddenCards.indexOf(id) < 0)
+          .map((id) => ({
+            id: id,
+            t: t(productPrefs.locale, "home.card." + id),
+            body: cardBodies[id] || "",
+            view: cardViews[id],
+          }));
         const grid = document.getElementById("homeGrid");
         clearNode(grid);
         cells.forEach((c) => {
@@ -867,6 +2095,13 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
           body.style.fontSize = "0.9rem";
           body.style.whiteSpace = "pre-wrap";
           body.style.fontWeight = "500";
+          if (c.view) {
+            d.style.cursor = "pointer";
+            d.setAttribute("role", "button");
+            d.tabIndex = 0;
+            d.onclick = () => showView(c.view);
+            d.onkeydown = (ev) => { if (ev.key === "Enter") showView(c.view); };
+          }
           grid.appendChild(d);
         });
         const wg = document.getElementById("workGrid");
@@ -886,7 +2121,7 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
           empty.appendChild(document.createElement("br"));
           empty.appendChild(
             document.createTextNode(
-              "Run Analyze to generate prediction, risk and decision information."
+              "Run Analyze (GW1) or open Intelligence for prediction-market proposals. Human decides; no auto-trade."
             )
           );
           wg.appendChild(empty);
@@ -898,12 +2133,7 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
             String(e && e.message ? e.message : e);
         }
         showExperienceDegraded("home_unreachable");
-        renderContextHeader({
-          executionMode: "SIMULATION_ONLY",
-          cpReachable: false,
-          cpVerdict: "UNREACHABLE",
-          compilerStatus: "DEGRADED",
-          roleId: currentRoleId,
+        paintContext("home", {
           cockpitVerdict: "DEGRADED",
           degradedNote: "Experience Compiler unreachable — core Home remains available.",
         });
@@ -1015,11 +2245,24 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
       { id: "home", label: "Go Home", meta: "nav", run: () => showView("home") },
       { id: "search", label: "Search AAPL", meta: "search", run: () => { document.getElementById("globalSearch").value = "AAPL"; doSearch("AAPL"); } },
       { id: "analyze", label: "Analyze AAPL (GW1)", meta: "workflow", run: () => { showView("slice"); document.getElementById("instrumentId").value = "AAPL"; } },
+      { id: "dil", label: "Intelligence", meta: "nav", run: () => showView("dil") },
+      { id: "ecl", label: "Reporting", meta: "nav", run: () => showView("ecl") },
+      { id: "analysis", label: "Analysis workbench", meta: "nav", run: () => showView("analysis") },
+      { id: "detective", label: "Detective timeline", meta: "nav", run: () => showView("detective") },
+      { id: "decisions", label: "Decisions", meta: "nav", run: () => showView("decisions") },
+      { id: "work", label: "My Work", meta: "nav", run: () => showView("work") },
+      { id: "roles", label: "Professional workspace", meta: "nav", run: () => showView("roles") },
       { id: "evidence", label: "Open Evidence", meta: "nav", run: () => showView("evidence") },
+      { id: "calibration", label: "Calibration / track record", meta: "nav", run: () => showView("dil") },
+      { id: "settings", label: "Settings / language", meta: "nav", run: () => showView("settings") },
       { id: "system", label: "System status", meta: "nav", run: () => showView("system") },
       { id: "jobs", label: "Job Center", meta: "ops", run: () => openJobs() },
       { id: "notes", label: "Notifications", meta: "ops", run: () => openNotes() },
       { id: "tech", label: "Technical View", meta: "eng", run: () => showView("engineering") },
+      { id: "agent", label: "Agent Studio / Dev Assistant", meta: "eng", run: () => { showEngPanel("agent"); showView("engineering"); } },
+      { id: "kg", label: "Knowledge Graph Explorer", meta: "eng", run: () => { showEngPanel("kg"); showView("engineering"); } },
+      { id: "workflow", label: "Workflow Studio", meta: "eng", run: () => { showEngPanel("workflow"); showView("engineering"); } },
+      { id: "dist", label: "Distributed OS View", meta: "eng", run: () => { showEngPanel("dist"); showView("engineering"); } },
     ];
     function closeCmdk() {
       document.getElementById("cmdk").classList.remove("on");
@@ -1050,13 +2293,22 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
         createLoadingState(root, "Loading jobs…");
       }
       try {
-        const [jobsRes, engineRes] = await Promise.allSettled([
+        const [jobsRes, engineRes, healthRes] = await Promise.allSettled([
           fetch(CONTROL + "/v1/os/jobs").then((r) => r.json()),
           fetch(CONTROL + "/v1/os/job-engine/status").then((r) => r.json()),
+          fetch(CONTROL + "/v1/jobs/health").then((r) => (r.ok ? r.json() : null)),
         ]);
         const jobs = jobsRes.status === "fulfilled" ? jobsRes.value : { jobs: [] };
         const engine = engineRes.status === "fulfilled" ? engineRes.value : null;
-        renderJobCenter({ jobs: jobs.jobs || [], engine });
+        const health = healthRes.status === "fulfilled" ? healthRes.value : null;
+        const merged = (jobs.canonical || jobs.jobs || []).map((c, i) => {
+          const raw = (jobs.jobs || [])[i];
+          if (raw && c && c.jobId === raw.jobId) {
+            return { ...raw, lifecycleState: c.state, cf11State: c.cf11State, correlationId: c.correlationId };
+          }
+          return c || raw;
+        });
+        renderJobCenter({ jobs: merged.length ? merged : jobs.jobs || [], engine, health });
       } catch (err) {
         if (root) {
           clearNode(root);
@@ -1082,6 +2334,27 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
     if (btnCmd) btnCmd.onclick = openCmdk;
     if (btnJobs) btnJobs.onclick = openJobs;
     if (btnNotes) btnNotes.onclick = openNotes;
+    const btnSettings = document.getElementById("btnSettings");
+    if (btnSettings) btnSettings.onclick = () => showView("settings");
+    const workWorkflowBtn = document.getElementById("workWorkflowBtn");
+    if (workWorkflowBtn) {
+      workWorkflowBtn.onclick = () => {
+        showEngPanel("workflow");
+        showView("engineering");
+      };
+    }
+    const workAgentBtn = document.getElementById("workAgentBtn");
+    if (workAgentBtn) {
+      workAgentBtn.onclick = () => {
+        showEngPanel("agent");
+        showView("engineering");
+      };
+    }
+    const langSelect = document.getElementById("langSelect");
+    if (langSelect) {
+      langSelect.value = productPrefs.locale;
+      langSelect.onchange = () => commitProductPrefs({ locale: langSelect.value });
+    }
     const cmdkEl = document.getElementById("cmdk");
     if (cmdkEl) {
       cmdkEl.addEventListener("click", (e) => {
@@ -1120,7 +2393,8 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
         document.getElementById("status").textContent = "Run Scenario: adjust horizon/size and Analyze again (same pipeline).";
       }
       if (act === "compare") {
-        document.getElementById("status").textContent = "Compare: open another entity from Search (ALPHA — side-by-side pending).";
+        showView("analysis");
+        document.getElementById("status").textContent = "Compare: Analysis scenario tab (ALPHA — not Monte Carlo).";
       }
     });
 
@@ -1134,11 +2408,14 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
           api("/api/system/health"),
           api("/api/system/startup-readiness"),
           fetch(CONTROL + "/v1/system/persistence-matrix").then((r) => (r.ok ? r.json() : { optionalError: "HTTP " + r.status })),
+          fetch(CONTROL + "/v1/persistence/health").then((r) => (r.ok ? r.json() : { optionalError: "HTTP " + r.status })),
           fetch(CONTROL + "/v1/models/validation").then((r) => (r.ok ? r.json() : { optionalError: "HTTP " + r.status })),
           fetch(CONTROL + "/v1/os/jobs").then((r) => (r.ok ? r.json() : { jobs: [] })),
           fetch(CONTROL + "/v1/os/job-engine/status").then((r) => (r.ok ? r.json() : null)),
+          fetch(CONTROL + "/v1/compiler/health").then((r) => (r.ok ? r.json() : { optionalError: "HTTP " + r.status })),
+          fetch(CONTROL + "/v1/ecl/infra").then((r) => (r.ok ? r.json() : { optionalError: "HTTP " + r.status })),
         ]);
-        const [readyR, snapR, flowR, healthR, readinessR, persistR, validationR, jobsR, engineR] = settled;
+        const [readyR, snapR, flowR, healthR, readinessR, persistR, persistenceHealthR, validationR, jobsR, engineR, compilerHealthR, infraR] = settled;
         if (readyR.status !== "fulfilled") {
           throw readyR.reason || new Error("readyz_failed");
         }
@@ -1151,9 +2428,17 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
             ? readinessR.value
             : { optionalError: String(readinessR.reason) };
         const persistence = persistR.status === "fulfilled" ? persistR.value : { optionalError: String(persistR.reason) };
+        const persistenceHealth =
+          persistenceHealthR.status === "fulfilled"
+            ? persistenceHealthR.value
+            : { optionalError: String(persistenceHealthR.reason) };
         const validation = validationR.status === "fulfilled" ? validationR.value : { optionalError: String(validationR.reason) };
         const jobs = jobsR.status === "fulfilled" ? jobsR.value : { jobs: [] };
         const jobEngine = engineR.status === "fulfilled" ? engineR.value : null;
+        const compilerHealth =
+          compilerHealthR.status === "fulfilled" ? compilerHealthR.value : { optionalError: String(compilerHealthR.reason) };
+        const enterpriseHooks =
+          infraR && infraR.status === "fulfilled" ? infraR.value : { optionalError: String(infraR && infraR.reason) };
 
         document.getElementById("flow").textContent =
           "SCI OS · " + (flow.arrow ? "pipeline live" : "foundation");
@@ -1170,10 +2455,10 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
           verdict.textContent = "DEGRADED";
           verdict.className = "badge warn";
         } else if (ok) {
-          verdict.textContent = "CORE READY (ALPHA)";
+          verdict.textContent = "CORE LIVE (ALPHA)";
           verdict.className = "badge ok";
         } else {
-          verdict.textContent = "NOT READY";
+          verdict.textContent = "UNREACHABLE";
           verdict.className = "badge err";
         }
 
@@ -1199,9 +2484,14 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
           health,
           readiness,
           persistence,
+          persistenceHealth,
           validation,
           jobs,
           jobEngine,
+          compilerHealth,
+          enterpriseHooks,
+          compilerPipeline: compilerHealth.pipelineModule || null,
+          compilerVersion: compilerHealth.compilerVersion || (lastCompiled && lastCompiled.compilerVersion) || null,
           verdict: verdict.textContent,
           degraded,
           cpReachable: true,
@@ -1209,13 +2499,9 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
           compilerStatus,
         };
         renderSystemDashboard(lastSystemBundle);
-        renderContextHeader({
-          executionMode: lastSystemBundle.executionMode,
-          cpReachable: true,
-          cpVerdict: verdict.textContent,
-          compilerStatus,
-          roleId: currentRoleId,
-          cockpitVerdict: ok ? (degraded ? "DEGRADED" : "READY") : "NOT READY",
+        renderSystemHealthCharts(document.getElementById("sysHealthRoot"), lastSystemBundle);
+        paintContext("home", {
+          cockpitVerdict: ok ? (degraded ? "DEGRADED" : "ALPHA_LIVE") : "UNREACHABLE",
           degradedNote: degraded
             ? "Optional diagnostics degraded — Experience Compiler or auxiliary endpoints may be unreachable."
             : optionalFail.length
@@ -1224,6 +2510,7 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
         });
         show("healthPre", { health, readiness, snapshot: snap, optionalFail, persistence, validation });
         show("engDash", { ready, runs: snap.runs, flow });
+        loadEclDilArchitecture();
         return { ok, degraded, verdict: verdict.textContent };
       } catch (e) {
         verdict.textContent = "UNREACHABLE";
@@ -1231,13 +2518,9 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
         document.getElementById("banner").style.display = "block";
         document.getElementById("banner").textContent =
           "Control plane unreachable at " + CONTROL + " — Recovery Shell available if configured";
-        renderContextHeader({
-          executionMode: "SIMULATION_ONLY",
-          cpReachable: false,
-          cpVerdict: "UNREACHABLE",
-          compilerStatus: "UNREACHABLE",
-          roleId: currentRoleId,
-          cockpitVerdict: "DEGRADED",
+        lastSystemBundle = { cpReachable: false, degraded: true, verdict: "UNREACHABLE", executionMode: "SIMULATION_ONLY", compilerStatus: "UNREACHABLE" };
+        paintContext("home", {
+          cockpitVerdict: "UNREACHABLE",
           degradedNote: "Control plane unreachable — professional panels show last known or empty state only.",
         });
         const sysHealth = document.getElementById("sysHealthRoot");
@@ -1252,6 +2535,8 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
     async function bootstrapUi() {
       const verdict = document.getElementById("verdict");
       const homeSub = document.getElementById("homeSub");
+      applyProductPrefs(productPrefs);
+      applyChromeI18n(productPrefs.locale);
       try {
         verdict.textContent = "CONNECTING";
         verdict.className = "badge warn";
@@ -1302,6 +2587,7 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
     (function initRole() {
       const s = loadSession();
       if (s.roleId) currentRoleId = s.roleId;
+      if (s.inspectedCatalogId) inspectedCatalogId = s.inspectedCatalogId;
       const sel = document.getElementById("roleSelect");
       const rh = document.getElementById("roleHint");
       if (sel) {
@@ -1311,6 +2597,8 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
           currentRoleId = sel.value;
           if (rh) rh.textContent = rolePresentationHint(currentRoleId);
           saveSession({ roleId: currentRoleId });
+          paintDomainAnalogs();
+          bindHeroV3(currentRoleId);
           try {
             const compiled = await fetchCompiledExperience(currentRoleId);
             applyCompiledExperience(compiled);
@@ -1324,8 +2612,25 @@ ${WORKSPACE_RENDERER_BROWSER_SOURCE}
           }
         };
       }
+      fetch(CONTROL + "/v1/ecl/professional")
+        .then((r) => (r.ok ? r.json() : null))
+        .then((payload) => {
+          if (!payload) return;
+          const data = payload.data || payload;
+          lastProfessionExpansion = data.moduleExpansion || lastProfessionExpansion;
+          lastOsBlueprints = data.osBlueprints || lastOsBlueprints;
+          lastPrecisionUpgrade = data.precisionUpgrade || lastPrecisionUpgrade;
+          lastCyberBridge = data.cyberBridge || lastCyberBridge;
+          lastActivationReview = data.activationReview || lastActivationReview;
+          lastEnterprisePrep = data.enterprisePrep || lastEnterprisePrep;
+          paintDomainAnalogs();
+        })
+        .catch(() => paintDomainAnalogs());
+      paintDomainAnalogs();
     })();
-    bootstrapUi();
+    bootstrapUi().then(function () {
+      applyHashView();
+    });
     renderDecisionProfessional(null);
     renderEvidenceProfessional(null);
     setInterval(refresh, 8000);
@@ -1463,6 +2768,11 @@ const server = createServer((req, res) => {
         service: "@scios/cockpit-ui",
         controlUrl: CONTROL_URL,
         ux: "4.0-experience",
+        // Machine-checkable renderer provenance; bundling erases it from the HTML.
+        professionalUx: {
+          contract: PROFESSIONAL_UX_CONTRACT,
+          sourceId: PROFESSIONAL_UX_SOURCE_ID,
+        },
       })
     );
     return;

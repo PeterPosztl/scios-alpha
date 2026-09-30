@@ -1,0 +1,26 @@
+{
+  "schema": "sci-os-semantic-type-system/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "status": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+  "implementation": "packages/data-fabric/src/semantic-types.ts",
+  "types": [
+    "Money",
+    "Currency",
+    "Probability",
+    "Percentage",
+    "Confidence",
+    "Risk",
+    "Instant",
+    "LocalDate",
+    "TimeZone",
+    "Duration",
+    "TimeWindow",
+    "EntityId",
+    "EvidenceId",
+    "PolicyVersion",
+    "ModelVersion",
+    "TemporalAxes"
+  ],
+  "migrationPolicy": "Adapters required; no mass primitive rewrite",
+  "ifIgnoredLaterCost": ["data migration", "API break", "silent float money bugs"]
+}

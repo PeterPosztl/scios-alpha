@@ -1,0 +1,19 @@
+{
+  "schema": "sci-os-host-v1-privacy/v1",
+  "status": "PASS",
+  "observes": [
+    "SCI-owned processes",
+    "SCI runtime state",
+    "coarse host resources",
+    "allowlisted Windows host signals"
+  ],
+  "doesNotObserve": [
+    "browser history",
+    "clipboard",
+    "screen",
+    "camera",
+    "microphone",
+    "unrelated documents",
+    "other application content"
+  ]
+}

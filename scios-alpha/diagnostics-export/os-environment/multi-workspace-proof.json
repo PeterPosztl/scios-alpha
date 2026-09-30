@@ -1,0 +1,18 @@
+{
+  "at": "2026-08-12T19:27:02.357Z",
+  "pass": true,
+  "workspaces": [
+    {
+      "workspaceId": "ws_home",
+      "title": "Home",
+      "appId": "app.home",
+      "objectId": null
+    },
+    {
+      "workspaceId": "ws_aapl",
+      "title": "AAPL Analysis",
+      "appId": "app.analyze",
+      "objectId": "AAPL"
+    }
+  ]
+}

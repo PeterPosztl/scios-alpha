@@ -1,0 +1,54 @@
+{
+  "schema": "sci-os-workspace-registry/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "templates": [
+    {
+      "id": "ws.home",
+      "panels": [
+        "Attention",
+        "RecentWork",
+        "SystemGlance"
+      ]
+    },
+    {
+      "id": "ws.entity360",
+      "panels": [
+        "Overview",
+        "Predictions",
+        "Risk",
+        "Evidence"
+      ]
+    },
+    {
+      "id": "ws.market_analysis",
+      "panels": [
+        "ContextBar",
+        "ProfessionalResult",
+        "PipelineProgress",
+        "EvidenceDrawer",
+        "TechnicalView"
+      ]
+    },
+    {
+      "id": "ws.system",
+      "panels": [
+        "StatusCenter",
+        "Engineering"
+      ]
+    },
+    {
+      "id": "ws.recovery",
+      "panels": [
+        "RecoveryActions",
+        "Diagnostics"
+      ]
+    }
+  ],
+  "features": {
+    "tabs": true,
+    "splitViews": "PARTIAL",
+    "sessionRestore": true,
+    "pin": true,
+    "compare": "PARTIAL"
+  }
+}

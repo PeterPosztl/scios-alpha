@@ -1,0 +1,11 @@
+{
+  "at": "2026-08-12T17:14:38.329Z",
+  "test": "governance_follows_risk_reject",
+  "govVerdict": "REJECT",
+  "policyFields": {
+    "policyId": "alpha_execution_submit_v1",
+    "reason": "risk:max_position_exceeded; max_exposure_exceeded"
+  },
+  "pass": true,
+  "note": "Negative path: risk REJECT must prevent execution"
+}

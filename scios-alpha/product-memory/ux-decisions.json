@@ -1,0 +1,56 @@
+{
+  "schema": "sci-os-product-memory-ux-decisions/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "decisions": [
+    {
+      "decisionId": "UXD-PRO-001",
+      "decision": "Professional View is default on Analyze; Technical/JSON is opt-in",
+      "reason": "Primary UX must not begin with raw envelopes",
+      "founderIntent": "Professional not developer-centric",
+      "alternativesRejected": ["JSON-first cockpit", "Remove technical view entirely"],
+      "dependencies": ["apps/cockpit-ui renderProfessional", "modePro"],
+      "allowedEvolution": "Richer progressive layers; governed generative UI schemas",
+      "acceptanceCriteria": ["modePro on by default", "JSON only in techView"]
+    },
+    {
+      "decisionId": "UXD-DISC-001",
+      "decision": "Progressive disclosure L1–L9 / Attention→Evidence hierarchy",
+      "reason": "High density without dumping all layers",
+      "founderIntent": "Decision-first + evidence on demand",
+      "alternativesRejected": ["Single flat dashboard of everything", "Hide evidence behind engineering only"],
+      "dependencies": ["pro-card levels", "Trust Capsule", "approval card"],
+      "allowedEvolution": "Tune labels; add collapse/expand",
+      "acceptanceCriteria": ["Evidence reachable without leaving professional path"]
+    },
+    {
+      "decisionId": "UXD-COLOR-001",
+      "decision": "SCI Swiss palette: Snow, Fog, Graphite, Deep Navy, Swiss Red, Ice Blue",
+      "reason": "Preserve SCI visual identity (not vendor clones)",
+      "founderIntent": "SCI professional UX language",
+      "alternativesRejected": ["Purple-indigo AI cliché", "Palantir/ServiceNow skin", "Warm cream+terracotta default AI look"],
+      "dependencies": ["packages/design-system tokens", "cockpit :root"],
+      "allowedEvolution": "Token file as single source; density modes",
+      "acceptanceCriteria": ["No new hardcoded palette bypassing tokens without decision record"]
+    },
+    {
+      "decisionId": "UXD-APPROVAL-001",
+      "decision": "AI/governance recommendations visually distinct from completed actions (proposal badge)",
+      "reason": "Prevent false sense of execution",
+      "founderIntent": "Safe action experience",
+      "alternativesRejected": ["Auto-execute on recommend", "Green check implying done"],
+      "dependencies": ["approvalCard"],
+      "allowedEvolution": "Richer impact preview",
+      "acceptanceCriteria": ["Proposal badge present; Approve disabled when policy rejects"]
+    },
+    {
+      "decisionId": "UXD-BOOT-FIRST-001",
+      "decision": "Do not redesign UX to hide boot failures — BOOT P0 before cosmetic redesign",
+      "reason": "Startup defects must not be papered over",
+      "founderIntent": "Evidence > claim",
+      "alternativesRejected": ["Splash-only polish while Home unreachable"],
+      "dependencies": ["transactional boot", "VERIFY_HOME"],
+      "allowedEvolution": "Baseline capture after Home reliable",
+      "acceptanceCriteria": ["Home verify before browser handoff"]
+    }
+  ]
+}

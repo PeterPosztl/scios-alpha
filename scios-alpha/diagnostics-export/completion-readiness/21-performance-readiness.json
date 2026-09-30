@@ -1,0 +1,13 @@
+{
+  "schema": "sci-os-completion-audit/performance/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "overallMaturity": "PARTIAL",
+  "benchmarks": "PARTIAL",
+  "latencyProbe": "SOURCE_EXISTS",
+  "performanceProbe": "SOURCE_EXISTS",
+  "caching": "ABSENT",
+  "webgl": "ABSENT",
+  "wasm": "ABSENT",
+  "loadTesting": "ABSENT",
+  "note": "p0-latency-probe.cjs and performance-probe.cjs exist. No WebGL/WASM, no caching layer, no load tests."
+}

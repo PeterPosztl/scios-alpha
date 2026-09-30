@@ -1,0 +1,74 @@
+{
+  "at": "2026-08-13T12:52:42.652Z",
+  "buildId": "crown-architecture-2026-08-13",
+  "schema": "sci-os-autonomic-closure-loop/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "autonomousPromotionToProduction": false,
+  "stages": [
+    "OBSERVE",
+    "GAP",
+    "ROOT_CAUSE",
+    "BLAST_RADIUS",
+    "PROPOSE",
+    "SANDBOX",
+    "TEST",
+    "PROFESSIONAL_EVAL",
+    "INDEPENDENT_VERIFY",
+    "APPROVAL",
+    "DEPLOY",
+    "MONITOR",
+    "ROLLBACK"
+  ],
+  "bindings": {
+    "OBSERVE": [
+      "integrity:run",
+      "gap:zero",
+      "enterprise:discipline",
+      "startup-report"
+    ],
+    "GAP": [
+      "gap-to-zero register",
+      "system-closure"
+    ],
+    "ROOT_CAUSE": [
+      "24-root-cause-priority",
+      "deep-forensics"
+    ],
+    "BLAST_RADIUS": [
+      "discipline/impact.js",
+      "change-impact-*.json"
+    ],
+    "PROPOSE": [
+      "meta-intelligence SelfEvolutionController (propose-only)"
+    ],
+    "SANDBOX": [
+      "local-foundation SIMULATION_ONLY"
+    ],
+    "TEST": [
+      "vertical-slice smoke",
+      "gates"
+    ],
+    "PROFESSIONAL_EVAL": [
+      "discipline/evaluation.js"
+    ],
+    "INDEPENDENT_VERIFY": [
+      "integrity engine",
+      "invariant mesh"
+    ],
+    "APPROVAL": [
+      "human",
+      "release governor"
+    ],
+    "DEPLOY": [
+      "packaged install — not auto"
+    ],
+    "MONITOR": [
+      "SLO registry",
+      "transactional boot"
+    ],
+    "ROLLBACK": [
+      "meta-recovery",
+      "process-supervisor stop"
+    ]
+  }
+}

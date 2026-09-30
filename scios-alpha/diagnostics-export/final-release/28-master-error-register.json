@@ -1,0 +1,465 @@
+{
+  "schema": "sci-os-master-error-register/v1",
+  "at": "2026-08-12T17:20:05.222Z",
+  "label": "ALPHA_NON_PRODUCTION",
+  "liveSummary": {
+    "p0CoreUp": true,
+    "gw1": true,
+    "riskRejectBlocks": true,
+    "multiGw1": true
+  },
+  "counts": {
+    "CRITICAL": 2,
+    "HIGH": 2,
+    "MEDIUM": 6,
+    "LOW": 2,
+    "releaseBlocking": 4
+  },
+  "errors": [
+    {
+      "errorId": "ERR-PKG-001",
+      "title": "No Setup.exe / bundled runtime for normal-user install",
+      "severity": "CRITICAL",
+      "confidence": "VERIFIED",
+      "category": "packaging",
+      "component": "installer/packaging",
+      "symptom": "Clean Windows user cannot install SCI OS without developer tools",
+      "actualFailure": "dist/SCI-OS-X10.exe and Setup.exe absent; bat requires preinstalled Node",
+      "rootCause": "Packaging wave never produced an installer that embeds Node and application assets; launch scripts still assume a checked-out monorepo with Node on PATH",
+      "trigger": "First-launch dry run / clean machine acceptance",
+      "reproductionSteps": [
+        "Use a machine/profile without Node in PATH",
+        "Attempt SCI OS ×10.bat or look for Setup.exe",
+        "Observe failure or missing installer"
+      ],
+      "affectedCapabilities": [
+        "bootstrap.user",
+        "packaging",
+        "first_launch"
+      ],
+      "affectedWorkflows": [
+        "clean_install",
+        "reboot_launch"
+      ],
+      "userImpact": "Cannot reach HOME without developer intervention",
+      "dataImpact": "None",
+      "securityImpact": "Elevated — users may be guided to install Node insecurely",
+      "recoveryImpact": "Recovery UI unreachable if app never installs",
+      "evidence": [
+        "diagnostics-export/final-release/18-packaging-proof.json",
+        "diagnostics-export/final-release/19-clean-install-proof.json",
+        "SCI OS ×10.bat (where node)"
+      ],
+      "recommendedFix": "Build Setup.exe / SCI-OS-X10.exe with bundled Node 18 LTS + app assets; shortcut launches supervisor without pnpm",
+      "verificationTest": "Clean Windows profile: install → icon → READY → GW1 without terminal",
+      "workaround": "Developer: pnpm sci:start or SCI-OS-Start.bat with Node installed",
+      "releaseBlocking": true,
+      "priority": "P0"
+    },
+    {
+      "errorId": "ERR-LAUNCH-001",
+      "title": "Normal launch path depends on Node and optionally pnpm",
+      "severity": "CRITICAL",
+      "confidence": "VERIFIED",
+      "category": "bootstrap",
+      "component": "SCI OS ×10.bat / bootstrap-capsule",
+      "symptom": "Bat exits if node missing; cascade still development-oriented",
+      "actualFailure": "Zero-manual-setup runtime not achieved",
+      "rootCause": "Same as ERR-PKG-001 — bootstrap nucleus not packaged as self-contained runtime",
+      "trigger": "Launch without Node",
+      "reproductionSteps": [
+        "Remove Node from PATH",
+        "Run SCI OS ×10.bat"
+      ],
+      "affectedCapabilities": [
+        "one_click_start"
+      ],
+      "affectedWorkflows": [
+        "first_launch",
+        "reboot_launch"
+      ],
+      "userImpact": "Blocked at bootstrap",
+      "dataImpact": "None",
+      "securityImpact": "LOW",
+      "recoveryImpact": "HIGH",
+      "evidence": [
+        "SCI OS ×10.bat lines 5-9",
+        "28a-forensic-live-probe.json"
+      ],
+      "recommendedFix": "Ship embedded runtime; bat/exe must not require system Node",
+      "verificationTest": "PATH without node; icon start succeeds",
+      "workaround": "Install Node 20+ manually",
+      "releaseBlocking": true,
+      "priority": "P0"
+    },
+    {
+      "errorId": "ERR-REBOOT-001",
+      "title": "Windows reboot acceptance not proven",
+      "severity": "HIGH",
+      "confidence": "VERIFIED",
+      "category": "reliability",
+      "component": "packaging/persistence",
+      "symptom": "No evidence that after reboot icon→READY works",
+      "actualFailure": "21-reboot-proof.json status NOT_RUN",
+      "rootCause": "Cannot certify reboot until packaged install exists",
+      "trigger": "Windows restart",
+      "reproductionSteps": [
+        "N/A — test not runnable without package"
+      ],
+      "affectedCapabilities": [
+        "reboot_persistence"
+      ],
+      "affectedWorkflows": [
+        "second_start",
+        "reboot"
+      ],
+      "userImpact": "Unknown whether product survives reboot",
+      "dataImpact": "Work-state persistence unproven",
+      "securityImpact": "LOW",
+      "recoveryImpact": "MEDIUM",
+      "evidence": [
+        "diagnostics-export/final-release/21-reboot-proof.json"
+      ],
+      "recommendedFix": "After Setup.exe, run reboot certification gate",
+      "verificationTest": "Reboot → icon → READY → prior context",
+      "workaround": "Manual sci:start after reboot (dev)",
+      "releaseBlocking": true,
+      "priority": "P0"
+    },
+    {
+      "errorId": "ERR-INFRA-001",
+      "title": "Postgres/Redis optional infra down → DEGRADED startup",
+      "severity": "MEDIUM",
+      "confidence": "VERIFIED",
+      "category": "infrastructure",
+      "component": "Docker/PG/Redis",
+      "symptom": "Startup report DEGRADED; Docker ENGINE_STOPPED",
+      "actualFailure": "SELECT 1 / Redis PING not available; queues disabled",
+      "rootCause": "local-foundation treats PG/Redis as optional; Docker engine not running on this machine",
+      "trigger": "sci:start with Docker stopped",
+      "reproductionSteps": [
+        "Stop Docker",
+        "pnpm sci:start",
+        "Read startup-report.json"
+      ],
+      "affectedCapabilities": [
+        "durable_queue",
+        "postgres_persistence"
+      ],
+      "affectedWorkflows": [
+        "gw7_recovery",
+        "multi_worker"
+      ],
+      "userImpact": "Core GW1 still works; durable infra features unavailable",
+      "dataImpact": "In-memory / non-durable paths",
+      "securityImpact": "LOW",
+      "recoveryImpact": "MEDIUM",
+      "evidence": [
+        "diagnostics-export/startup-report.json",
+        "Docker: ENGINE_STOPPED; Redis configured but unreachable — queues disabled; No pg client bundled in ALPHA startup — cannot fake SELECT 1"
+      ],
+      "recommendedFix": "For packaged ALPHA: either bundle local native PG/Redis or clearly document DEGRADED without them; never false READY",
+      "verificationTest": "Start with/without Docker; verdict matches evidence",
+      "workaround": "Continue DEGRADED for core loops",
+      "releaseBlocking": false,
+      "priority": "P1"
+    },
+    {
+      "errorId": "ERR-REC-001",
+      "title": "Full recovery fault-injection matrix not re-certified",
+      "severity": "HIGH",
+      "confidence": "VERIFIED",
+      "category": "recovery",
+      "component": "meta-recovery",
+      "symptom": "Recovery coverage PARTIAL in release proofs",
+      "actualFailure": "Controlled kill of backend/worker/redis/db not fully evidenced this pass",
+      "rootCause": "Certification focused on GW1/P0; recovery matrix deferred",
+      "trigger": "Process kill / infra loss",
+      "reproductionSteps": [
+        "See 16-recovery-proof.json"
+      ],
+      "affectedCapabilities": [
+        "auto_recover",
+        "safe_mode"
+      ],
+      "affectedWorkflows": [
+        "gw7"
+      ],
+      "userImpact": "Unknown behavior under some faults",
+      "dataImpact": "UNKNOWN under unrehearsed faults",
+      "securityImpact": "MEDIUM if repair disables controls (must never)",
+      "recoveryImpact": "HIGH",
+      "evidence": [
+        "diagnostics-export/final-release/16-recovery-proof.json"
+      ],
+      "recommendedFix": "Run bounded fault matrix; record AUTO_RECOVERED|DEGRADED|SAFE_MODE|EXTERNAL",
+      "verificationTest": "Fault inject backend/worker; assert no false READY",
+      "workaround": "Manual sci:repair / safe mode bats",
+      "releaseBlocking": true,
+      "priority": "P1"
+    },
+    {
+      "errorId": "ERR-SCI-001",
+      "title": "Calibration / scientific validity still UNPROVEN",
+      "severity": "MEDIUM",
+      "confidence": "VERIFIED",
+      "category": "scientific",
+      "component": "prediction",
+      "symptom": "UI may show point estimate without calibration proof",
+      "actualFailure": "No CALIBRATED claim allowed; labels ALPHA_NON_PRODUCTION",
+      "rootCause": "Baseline logistic path lacks published calibration benchmark artifacts for release",
+      "trigger": "Professional result display",
+      "reproductionSteps": [
+        "Run Analyze AAPL",
+        "Inspect calibration fields"
+      ],
+      "affectedCapabilities": [
+        "prediction.calibration"
+      ],
+      "affectedWorkflows": [
+        "gw1"
+      ],
+      "userImpact": "Must treat confidence as NON-PRODUCTION",
+      "dataImpact": "None",
+      "securityImpact": "LOW",
+      "recoveryImpact": "NONE",
+      "evidence": [
+        "09-prediction-proof.json",
+        "34-scientific-gap-register.json"
+      ],
+      "recommendedFix": "Add calibration reliability diagram + dataset hash evidence before claiming calibrated",
+      "verificationTest": "scientific-proof gate",
+      "workaround": "Keep UNPROVEN labels in UX",
+      "releaseBlocking": false,
+      "priority": "P2"
+    },
+    {
+      "errorId": "ERR-AUTH-001",
+      "title": "Local-foundation API unauthenticated on localhost",
+      "severity": "MEDIUM",
+      "confidence": "VERIFIED",
+      "category": "security",
+      "component": "control-plane-api",
+      "symptom": "Anyone on localhost can call slice/run and search",
+      "actualFailure": "AUTH_MODE=local-development; OIDC disabled",
+      "rootCause": "ALPHA local profile intentionally open for developer iteration",
+      "trigger": "Local network access to :3000",
+      "reproductionSteps": [
+        "curl POST /api/vertical-slice/run without auth"
+      ],
+      "affectedCapabilities": [
+        "authorization"
+      ],
+      "affectedWorkflows": [
+        "all"
+      ],
+      "userImpact": "Acceptable only for single-user local ALPHA",
+      "dataImpact": "Local data exposure on shared machines",
+      "securityImpact": "HIGH if exposed beyond localhost / multi-user",
+      "recoveryImpact": "LOW",
+      "evidence": [
+        "05-effective-config-redacted.json",
+        "17-security-proof.json"
+      ],
+      "recommendedFix": "Bind loopback + document; add auth before multi-user/BETA",
+      "verificationTest": "Unauthorized request denied in hardened profile",
+      "workaround": "Firewall; single-user machine",
+      "releaseBlocking": false,
+      "priority": "P1"
+    },
+    {
+      "errorId": "ERR-UX-001",
+      "title": "Command palette / keyboard expert mode not runtime-mounted",
+      "severity": "LOW",
+      "confidence": "VERIFIED",
+      "category": "ux",
+      "component": "cockpit-ui",
+      "symptom": "Experts lack global command execution UI",
+      "actualFailure": "CommandRegistry exists; palette CANDIDATE only",
+      "rootCause": "Prioritized Home/Search/Entity/Analyze over palette",
+      "trigger": "Expert dense use",
+      "reproductionSteps": [
+        "Open cockpit",
+        "Look for Ctrl+K palette — absent"
+      ],
+      "affectedCapabilities": [
+        "command_palette"
+      ],
+      "affectedWorkflows": [
+        "expert_mode"
+      ],
+      "userImpact": "Slower expert workflows",
+      "dataImpact": "None",
+      "securityImpact": "NONE",
+      "recoveryImpact": "NONE",
+      "evidence": [
+        "external-intelligence ux-pattern command_palette CANDIDATE"
+      ],
+      "recommendedFix": "Mount thin palette on ActionRegistry",
+      "verificationTest": "Keyboard analyze/open lineage",
+      "workaround": "Nav buttons",
+      "releaseBlocking": false,
+      "priority": "P2"
+    },
+    {
+      "errorId": "ERR-UX-002",
+      "title": "Entity360 graph/timeline tabs are shell-level not deep investigation UX",
+      "severity": "MEDIUM",
+      "confidence": "VERIFIED",
+      "category": "ux",
+      "component": "Entity360",
+      "symptom": "Tabs show JSON summaries; no interactive graph/timeline",
+      "actualFailure": "Entity360 API + tabs exist; GraphRenderer/Timeline not integrated",
+      "rootCause": "CODE_EXISTS_BUT_DISCONNECTED / UX_MISSING for graph primitives",
+      "trigger": "Open Entity360 Relationships/Timeline",
+      "reproductionSteps": [
+        "Search AAPL",
+        "Open Entity360",
+        "Click Relationships"
+      ],
+      "affectedCapabilities": [
+        "EntityGraph",
+        "Timeline"
+      ],
+      "affectedWorkflows": [
+        "gw2",
+        "gw3",
+        "gw4"
+      ],
+      "userImpact": "Investigation workflows incomplete",
+      "dataImpact": "None",
+      "securityImpact": "NONE",
+      "recoveryImpact": "NONE",
+      "evidence": [
+        "live /v1/entities/AAPL",
+        "cockpit entity view"
+      ],
+      "recommendedFix": "Add GraphRendererPort adapter + filtered EntityGraph; Timeline grammar",
+      "verificationTest": "Expand/filter graph on AAPL without spaghetti",
+      "workaround": "Technical lineage JSON",
+      "releaseBlocking": false,
+      "priority": "P2"
+    },
+    {
+      "errorId": "ERR-ROLE-001",
+      "title": "200 professional roles mostly CONFIGURED_ONLY",
+      "severity": "LOW",
+      "confidence": "VERIFIED",
+      "category": "roles",
+      "component": "professional-domain-registry",
+      "symptom": "Seeds RESEARCH_REQUIRED; only GW1 market path E2E proven",
+      "actualFailure": "Role framework ≠ end-to-end proven roles",
+      "rootCause": "By design ALPHA boundary; Experience Compiler dry-run",
+      "trigger": "Assume 200 dashboards",
+      "reproductionSteps": [
+        "Read roles-seed.json status fields"
+      ],
+      "affectedCapabilities": [
+        "role_expansion"
+      ],
+      "affectedWorkflows": [
+        "gw2-gw7"
+      ],
+      "userImpact": "Only market analysis path is product-usable",
+      "dataImpact": "None",
+      "securityImpact": "NONE",
+      "recoveryImpact": "NONE",
+      "evidence": [
+        "32-professional-role-coverage.json"
+      ],
+      "recommendedFix": "Compose roles from shared primitives after packaging",
+      "verificationTest": "Per-role E2E for golden workflows 2–7",
+      "workaround": "Use archetypes + GW1",
+      "releaseBlocking": false,
+      "priority": "P3"
+    },
+    {
+      "errorId": "ERR-RACE-001",
+      "title": "Intermittent failure surface untested beyond 3 consecutive GW1 runs",
+      "severity": "MEDIUM",
+      "confidence": "POSSIBLE",
+      "category": "reliability",
+      "component": "startup/workflow",
+      "symptom": "Single-pass success historically; limited multi-run sample",
+      "actualFailure": "No long soak / port-race / duplicate-worker stress in this forensic pass",
+      "rootCause": "TEST_MISSING for race/soak; 3 consecutive GW1 runs passed in this scan",
+      "trigger": "Rapid restart, port conflict, concurrent Analyze",
+      "reproductionSteps": [
+        "Repeat sci:restart under load — not fully automated here"
+      ],
+      "affectedCapabilities": [
+        "supervisor",
+        "ports"
+      ],
+      "affectedWorkflows": [
+        "startup"
+      ],
+      "userImpact": "Unknown flake rate",
+      "dataImpact": "UNKNOWN",
+      "securityImpact": "LOW",
+      "recoveryImpact": "MEDIUM",
+      "evidence": [
+        [
+          {
+            "i": 0,
+            "status": 200,
+            "runId": "run_ebb436a8-6afb-4e2a-922b-21f09597cb6c",
+            "ok": true
+          },
+          {
+            "i": 1,
+            "status": 200,
+            "runId": "run_ade86f48-964d-417e-8d26-66c22cb062ba",
+            "ok": true
+          },
+          {
+            "i": 2,
+            "status": 200,
+            "runId": "run_43d9d7a3-bc8f-4d7f-a42b-53f8969665c4",
+            "ok": true
+          }
+        ],
+        "prior dual-startup-evidence.json"
+      ],
+      "recommendedFix": "Add soak gate: N starts + M concurrent slices; assert no port steal",
+      "verificationTest": "ci:startup-convergence-gate + concurrent slice",
+      "workaround": "sci:stop before start",
+      "releaseBlocking": false,
+      "priority": "P1"
+    },
+    {
+      "errorId": "ERR-CFG-001",
+      "title": "Typed unified configuration still PARTIAL",
+      "severity": "MEDIUM",
+      "confidence": "STRONGLY_INFERRED",
+      "category": "configuration",
+      "component": "config",
+      "symptom": "Env vars + golden-boot + .env coexist",
+      "actualFailure": "No single schema-validated effective-config consumed by all packages",
+      "rootCause": "CONFIG_MISSING unification — historical incremental env growth",
+      "trigger": "Divergent REDIS_URL / PORT between processes",
+      "reproductionSteps": [
+        "Compare process env of supervisor children"
+      ],
+      "affectedCapabilities": [
+        "config"
+      ],
+      "affectedWorkflows": [
+        "startup",
+        "recovery"
+      ],
+      "userImpact": "Risk of DEGRADED/misconfig",
+      "dataImpact": "LOW",
+      "securityImpact": "MEDIUM if secrets duplicated",
+      "recoveryImpact": "HIGH if repair uses different config",
+      "evidence": [
+        "05-effective-config-redacted.json"
+      ],
+      "recommendedFix": "One EffectiveConfig loader with hash in readiness",
+      "verificationTest": "Mismatched env → fail closed with clear message",
+      "workaround": "Golden boot ports 3000/4000 convention",
+      "releaseBlocking": false,
+      "priority": "P2"
+    }
+  ]
+}

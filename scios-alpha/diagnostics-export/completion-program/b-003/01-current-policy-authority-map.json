@@ -1,6 +1,6 @@
 {
   "schema": "sci-os-b003-policy-authority-map/v1",
-  "at": "2026-08-19T22:07:52.680Z",
+  "at": "2026-09-30T10:08:40.753Z",
   "policyEvaluator": "packages/governance-engine/src/policy-enforcement.ts",
   "permissionMatrix": "packages/governance-engine/src/index.ts",
   "actorContext": "packages/product-kernel/src/actor-context.js",

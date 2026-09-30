@@ -1,0 +1,17 @@
+# SCI OS ×10 — PREPARED_DISABLED preview recompute (not in canonical boot).
+# Does not start trades. Not wired into start-sci-os.cjs / SCI-OS-Start.bat.
+[Unit]
+Description=SCI OS ECL preview book recompute (PREPARED_DISABLED)
+After=network.target
+
+[Service]
+Type=simple
+Environment=CONTROL_URL=http://127.0.0.1:3000
+Environment=SCIOS_DAEMON=1
+ExecStart=/usr/bin/env node apps/sci-cli/sci-daemon.cjs --service
+Restart=no
+User=nobody
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

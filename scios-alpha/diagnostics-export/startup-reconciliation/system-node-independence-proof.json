@@ -1,0 +1,10 @@
+{
+  "at": "2026-08-12T20:33:12.844Z",
+  "bundledNodePresent": false,
+  "bundledNodePath": "C:/Users/peter/Desktop/SCI/scios-alpha/runtime/node/node.exe",
+  "packagedCmdForbidsSystemFallback": true,
+  "resolveNodePackagedForbidsSystemFallback": true,
+  "developmentAllowsSystemNode": true,
+  "testWithoutSystemNode": "BLOCKED_NO_BUNDLED_RUNTIME_IN_REPO",
+  "note": "Repo layout has no bundled runtime/ — PACKAGED proof requires dist/SCI-OS-X10 build"
+}

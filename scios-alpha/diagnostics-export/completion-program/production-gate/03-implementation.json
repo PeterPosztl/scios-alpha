@@ -1,0 +1,113 @@
+{
+  "at": "2026-09-30T10:08:15.244Z",
+  "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
+  "dataRoot": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\data",
+  "atomicInstall": "scripts/package/atomic-install.cjs",
+  "rollbackArtifact": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.last",
+  "loadResults": {
+    "pipeLoad": {
+      "ok": 3,
+      "total": 3,
+      "results": [
+        {
+          "status": "fulfilled",
+          "value": true
+        },
+        {
+          "status": "fulfilled",
+          "value": true
+        },
+        {
+          "status": "fulfilled",
+          "value": true
+        }
+      ]
+    },
+    "cockpitLoad": {
+      "ok": 8,
+      "total": 8,
+      "results": [
+        {
+          "status": "fulfilled",
+          "value": true
+        },
+        {
+          "status": "fulfilled",
+          "value": true
+        },
+        {
+          "status": "fulfilled",
+          "value": true
+        },
+        {
+          "status": "fulfilled",
+          "value": true
+        },
+        {
+          "status": "fulfilled",
+          "value": true
+        },
+        {
+          "status": "fulfilled",
+          "value": true
+        },
+        {
+          "status": "fulfilled",
+          "value": true
+        },
+        {
+          "status": "fulfilled",
+          "value": true
+        }
+      ]
+    },
+    "healthLoad": {
+      "ok": 10,
+      "total": 10,
+      "results": [
+        {
+          "status": "fulfilled",
+          "value": true
+        },
+        {
+          "status": "fulfilled",
+          "value": true
+        },
+        {
+          "status": "fulfilled",
+          "value": true
+        },
+        {
+          "status": "fulfilled",
+          "value": true
+        },
+        {
+          "status": "fulfilled",
+          "value": true
+        },
+        {
+          "status": "fulfilled",
+          "value": true
+        },
+        {
+          "status": "fulfilled",
+          "value": true
+        },
+        {
+          "status": "fulfilled",
+          "value": true
+        },
+        {
+          "status": "fulfilled",
+          "value": true
+        },
+        {
+          "status": "fulfilled",
+          "value": true
+        }
+      ]
+    },
+    "jobsCompleted": 4,
+    "jobIds": 4
+  }
+}

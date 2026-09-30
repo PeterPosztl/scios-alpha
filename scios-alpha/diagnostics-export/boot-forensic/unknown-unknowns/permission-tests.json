@@ -1,0 +1,38 @@
+{
+  "at": "2026-08-12T19:49:36.107Z",
+  "bootId": "uu_msqi6dlm_ac8b47",
+  "elevated": false,
+  "username": "peter",
+  "results": [
+    {
+      "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10\\diagnostics-export",
+      "class": "LOG",
+      "writableExpected": true,
+      "writable": true,
+      "status": "OK"
+    },
+    {
+      "path": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10\\config",
+      "class": "READ_ONLY_APP",
+      "writableExpected": false,
+      "writable": true,
+      "status": "OK",
+      "note": "Install dir writable by current user (typical for per-user install) — OK if not requiring elevation"
+    },
+    {
+      "path": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10",
+      "class": "USER_DATA",
+      "writableExpected": true,
+      "writable": true,
+      "status": "OK"
+    },
+    {
+      "path": "C:\\Users\\peter\\AppData\\Local\\Temp",
+      "class": "TEMP",
+      "writableExpected": true,
+      "writable": true,
+      "status": "OK"
+    }
+  ],
+  "pass": true
+}

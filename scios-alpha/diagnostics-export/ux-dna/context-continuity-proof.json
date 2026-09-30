@@ -1,0 +1,32 @@
+{
+  "at": "2026-08-13T13:00:49.933Z",
+  "buildId": "ux-dna-2026-08-13",
+  "envelope": {
+    "schema": "sci-os-workspace-context-envelope/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "user": "local-dev",
+    "role": "arch.market_analyst",
+    "workspace": "ws.analysis_gw1",
+    "jobToBeDone": "Analyze entity and decide simulation",
+    "currentObject": {
+      "type": "Entity",
+      "id": "AAPL"
+    },
+    "case": null,
+    "selection": null,
+    "timeRange": null,
+    "filters": {},
+    "workflowState": "ready",
+    "permissions": [
+      "analyze",
+      "view_evidence"
+    ],
+    "openEvidence": [],
+    "AIContext": "aiContextPanel",
+    "unsavedState": null,
+    "note": "Experience Compiler and AI must consume the same envelope — no dual contexts"
+  },
+  "singleContextRule": true,
+  "shellSessionKey": true,
+  "experienceCompilerConsumesRole": true
+}

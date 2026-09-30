@@ -1,0 +1,10 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "base": "NodeNext (tsconfig.base.json)",
+  "root": "commonjs/node (legacy src/)",
+  "typesNode": "^22.10.0",
+  "runtimeFamily": "20.18.x",
+  "risk": "@types/node 22 may expose APIs unavailable on Node 20 — avoid Node22-only APIs",
+  "status": "DEGRADED"
+}

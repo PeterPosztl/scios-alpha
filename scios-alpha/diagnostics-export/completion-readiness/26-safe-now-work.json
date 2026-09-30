@@ -1,0 +1,16 @@
+{
+  "schema": "sci-os-completion-audit/safe-now-work/v1",
+  "auditAt": "2026-08-19T16:15:00Z",
+  "safeAutonomousWork": [
+    "WHI-005 through WHI-009 (remaining host slices — blueprinted, safe, no founder decision needed)",
+    "P2 closure batch work (184 root causes, classified, safe to fix incrementally)",
+    "P3 closure batch work (46 root causes)",
+    "Remove empty package directories (experience-compiler, probability-engine, external-intelligence, portfolio-engine) or add minimal stubs",
+    "Add vitest/jest test framework alongside existing proof harness",
+    "Implement job lifecycle states (CF11 controls) — P1 but autonomous",
+    "Implement model validation (CF28 controls) — P1 but autonomous",
+    "Fresh startup proof generation on current HEAD",
+    "Fresh golden path proof generation on current installed build",
+    "Performance probe and latency probe execution"
+  ]
+}

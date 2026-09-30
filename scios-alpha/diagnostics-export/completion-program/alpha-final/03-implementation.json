@@ -1,0 +1,68 @@
+{
+  "authority": {
+    "pipeline": "packages/vertical-slice",
+    "compiler": "packages/professional-domain-registry/compiler-pipeline",
+    "jobs": "apps/control-plane-api/src/jobEngine.ts",
+    "persistence": "packages/vertical-slice/src/persistence",
+    "cockpit": "apps/cockpit-ui/src"
+  },
+  "endpoints": [
+    "GET /healthz",
+    "GET /v1/flow",
+    "POST /v1/slice/run",
+    "GET /v1/compiler/health",
+    "GET /v1/experience/compile",
+    "GET /v1/jobs/health",
+    "GET /v1/persistence/health",
+    "GET /v1/system/persistence-matrix",
+    "GET /api/system/health",
+    "GET /v1/system/startup-readiness"
+  ],
+  "proofs": {
+    "productSurface": {
+      "controlPlane": true,
+      "readiness": true,
+      "shell": true,
+      "overall": "DEGRADED",
+      "ok": true,
+      "waitedMs": 17
+    },
+    "flow": {
+      "stages": [
+        "raw_event",
+        "normalized_event",
+        "pit_feature",
+        "baseline_prediction",
+        "calibration_uncertainty",
+        "independent_risk_gate",
+        "governance_decision",
+        "deterministic_execution",
+        "outcome",
+        "immutable_lineage",
+        "cockpit_view"
+      ],
+      "arrow": "raw_event → normalized_event → pit_feature → baseline_prediction → calibration_uncertainty → independent_risk_gate → governance_decision → deterministic_execution → outcome → immutable_lineage → cockpit_view"
+    },
+    "pipeline": {
+      "status": 200,
+      "runId": "run_aeeb2291-fc56-4e3d-9762-e55804304f46",
+      "persistenceState": "PERSISTED"
+    },
+    "compiler": {
+      "pipelineModule": "PRESENT",
+      "compilerVersion": "sci-os-compiler-pipeline/v1.0.0-b008"
+    },
+    "experience": {
+      "compilerStatus": "DEGRADED",
+      "hasSpec": true
+    },
+    "startup": {
+      "overall": "DEGRADED",
+      "score": 180
+    },
+    "cockpitProfessionalUx": {
+      "contract": "sci-os-professional-ux/v1",
+      "sourceId": "apps/cockpit-ui/src/professional-ux.js"
+    }
+  }
+}

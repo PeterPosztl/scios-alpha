@@ -1,0 +1,30 @@
+{
+  "name": "@scios/ecl-dil",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Enterprise Control Layer + Decision Intelligence Layer. ALPHA_NON_PRODUCTION. Proposals only — no auto-trade.",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "import": "./src/index.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "node --import tsx --test src/ecl-dil.test.ts src/feed-registry.test.ts src/deployment-inventory.test.ts src/realistic-sim.test.ts src/role-professional.test.ts src/professional-compile.test.ts src/workspace-validation.test.ts src/deep-workspace-validation.test.ts src/workspace-activation.test.ts src/workspace-stabilization.test.ts src/profession-module-expansion.test.ts src/os-blueprint-integration.test.ts src/digital-activation.test.ts src/precision-upgrade.test.ts src/cyber-research-bridge.test.ts src/activation-review.test.ts src/enterprise-prep.test.ts src/automation-prep.test.ts src/visibility-prep.test.ts src/visibility-activation.test.ts src/visibility-deep.test.ts src/explainability-prep.test.ts src/explain-visibility.test.ts src/digital-workspace-compute.test.ts src/activation-pass.test.ts src/engine-audit.test.ts src/engine-suite.test.ts src/engine-suite-v2.test.ts src/ecl-ledger-dao.test.ts src/durable-adapter.test.ts src/phase-core.test.ts src/phase-core-contracts.test.ts src/audit-engine-core.test.ts src/limit-engine-core.test.ts src/ledger-core.test.ts src/domain-fabric.test.ts src/kg-fabric.test.ts src/scenario-fabric.test.ts src/causal-fabric.test.ts src/governance-fabric.test.ts src/infra-fabric.test.ts src/security-fabric.test.ts src/os-fabric.test.ts src/cursor-runbook.test.ts src/profession-blueprint.test.ts",
+    "export:track-record": "tsx src/export-track-record.ts"
+  },
+  "dependencies": {
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  },
+  "label": "ALPHA_NON_PRODUCTION"
+}

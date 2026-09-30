@@ -19,4 +19,9 @@ export {
 
 export * from "./ontology.js";
 export * from "./ledger.js";
+export * from "./sql-client.js";
+export * from "./postgres-canonical-ledger.js";
 export * from "./pipeline-contracts.js";
+export * from "./epistemic.js";
+export * from "./semantic-types.js";
+export * from "./world-connector.js";

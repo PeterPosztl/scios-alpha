@@ -47,11 +47,38 @@ function httpGet(url, timeoutMs = 2500) {
   });
 }
 
-function listSciosAlphaProcesses() {
+/**
+ * Discover SCI OS processes belonging to one installation.
+ *
+ * appRoot is required to see an installed instance: installed command lines
+ * carry the install path ("SCI OS X10\app"), never the dev folder name, so a
+ * 'scios-alpha' filter alone is blind to every packaged process and leaves
+ * orphans behind after shutdown.
+ */
+function listSciosAlphaProcesses(appRoot) {
   if (process.platform !== "win32") return [];
+  const needles = ["scios-alpha"];
+  if (appRoot) {
+    needles.push(path.resolve(appRoot));
+    // Installed launcher chains also appear under the install parent directory.
+    needles.push(path.dirname(path.resolve(appRoot)));
+  }
+  const literals = [...new Set(needles)]
+    .map((n) => "'" + String(n).replace(/'/g, "''") + "'")
+    .join(",");
   const ps = `
+$needles = @(${literals})
 Get-CimInstance Win32_Process |
-  Where-Object { $_.CommandLine -match 'scios-alpha' } |
+  Where-Object {
+    $cmd = $_.CommandLine
+    $exe = $_.ExecutablePath
+    if (-not $cmd -and -not $exe) { return $false }
+    foreach ($n in $needles) {
+      if ($cmd -and $cmd.IndexOf($n, [System.StringComparison]::OrdinalIgnoreCase) -ge 0) { return $true }
+      if ($exe -and $exe.IndexOf($n, [System.StringComparison]::OrdinalIgnoreCase) -ge 0) { return $true }
+    }
+    return $false
+  } |
   Select-Object ProcessId,ParentProcessId,ExecutablePath,CommandLine |
   ConvertTo-Json -Compress
 `;
@@ -62,7 +89,7 @@ Get-CimInstance Win32_Process |
   if (r.status !== 0 || !r.stdout) return [];
   try {
     const parsed = JSON.parse(r.stdout);
-    return Array.isArray(parsed) ? parsed : [parsed];
+    return (Array.isArray(parsed) ? parsed : [parsed]).filter(Boolean);
   } catch {
     return [];
   }
@@ -80,6 +107,9 @@ function classifyProcess(p, portsByPid) {
     component = "startup-orchestrator";
   else if (cmd.includes("meta-recovery")) component = "meta-recovery";
   else if (cmd.includes("esbuild")) component = "esbuild-helper";
+  else if (cmd.includes("job-object-keeper")) component = "host-job-keeper";
+  else if (/SCI-OS-X10\.(exe|cmd)|SCI OS X10\.(exe|cmd)/i.test(cmd))
+    component = "installed-launcher";
   else if (cmd.includes("nodemon") || cmd.includes("tsx")) component = "node-helper";
 
   const ports = portsByPid[String(p.ProcessId)] || [];
@@ -139,7 +169,7 @@ function canonicalPath(appRoot) {
     selections: {
       repositoryRoot: {
         selected: appRoot,
-        evidence: "resolve-app-root + package.json name scios-alpha",
+        evidence: "resolve-app-root + package.json name sci-os-x10|scios-alpha",
         rejected: ["sci-os-10", "sci-os-x10-ccu-supra"],
         owner: "bootstrap-kernel",
         healthProbe: null,
@@ -157,9 +187,9 @@ function canonicalPath(appRoot) {
         owner: "root",
       },
       nodeRuntime: {
-        selected: "system node >=20",
-        evidence: "resolve-node-runtime",
-        rejected: ["electron as node"],
+        selected: "bundled Node (PACKAGED) or system Node contract-checked (DEVELOPMENT)",
+        evidence: "resolve-node-runtime.cjs",
+        rejected: ["silent system Node in PACKAGED", "electron as node"],
         owner: "bootstrap-kernel",
       },
       backendEntry: {
@@ -168,37 +198,37 @@ function canonicalPath(appRoot) {
         rejected: ["src/master.ts", "packages/alpha-loop"],
         aliases: ["pnpm --filter @scios/control-plane-api start"],
         owner: "process-supervisor",
-        healthProbe: "http://127.0.0.1:5200/healthz",
-        readinessProbe: "http://127.0.0.1:5200/readyz",
+        healthProbe: "http://127.0.0.1:3000/healthz",
+        readinessProbe: "http://127.0.0.1:3000/readyz",
       },
       workerEntry: {
         selected: "embedded-foundation-worker (control-plane)",
         evidence: "no BullMQ package; local-foundation uses in-process smoke worker",
         rejected: ["external FastAPI engines as required"],
         owner: "control-plane-api",
-        healthProbe: "http://127.0.0.1:5200/readyz",
+        healthProbe: "http://127.0.0.1:3000/readyz",
       },
       riskControlEntry: {
         selected: "packages/governance-engine (embedded)",
         evidence: "control-plane imports @scios/governance-engine",
         rejected: ["external production governance SaaS"],
         owner: "control-plane-api",
-        healthProbe: "http://127.0.0.1:5200/readyz",
+        healthProbe: "http://127.0.0.1:3000/readyz",
       },
       cockpitEntry: {
         selected: "apps/cockpit-ui/src/index.js",
         evidence: "resolve-runtime-entries",
-        rejected: ["Vite on :4000 from other trees"],
+        rejected: ["Vite on :4000 from other trees", "control-plane / as UI"],
         aliases: ["pnpm --filter @scios/cockpit-ui start"],
         owner: "process-supervisor",
-        healthProbe: "http://127.0.0.1:5230/healthz",
+        healthProbe: "http://127.0.0.1:4000/healthz",
       },
       desktopEntry: {
-        selected: "HTTP cockpit open via start-sci-os (Electron ABSENT)",
-        evidence: "no apps/desktop",
-        rejected: ["Electron placeholder"],
+        selected: "HTTP Shell open via start-sci-os → cockpitUrl :4000",
+        evidence: "no apps/desktop; userFacingUrl = cockpit",
+        rejected: ["Electron placeholder", "open control-plane :3000 as product UI"],
         owner: "start-sci-os",
-        healthProbe: "http://127.0.0.1:5230/",
+        healthProbe: "http://127.0.0.1:4000/",
       },
       configLoader: {
         selected: "installer/scripts/startup/validate-config.cjs",
@@ -244,9 +274,11 @@ function canonicalPath(appRoot) {
         owner: "control-plane-api",
       },
       ports: {
-        api: 5200,
-        cockpit: 5230,
-        note: "Do not use :3000/:4000 — those belong to other SCI trees on this machine",
+        api: 3000,
+        cockpit: 4000,
+        note: "Canonical from sci-os.manifest.json — user opens :4000 Shell; :3000 is Control Plane API only",
+        optionalEngines: { prediction: 5201, risk: 5202, execution: 5210 },
+        legacyRejectedDefaults: [5200, 5230],
       },
     },
     optionalFrozen: [

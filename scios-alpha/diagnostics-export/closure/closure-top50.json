@@ -1,0 +1,1034 @@
+{
+  "identity": {
+    "schema": "sci-os-closure-identity/v1",
+    "label": "ALPHA_NON_PRODUCTION",
+    "runId": "closure_mt0jl4vl_81a556",
+    "at": "2026-08-19T20:26:36.658Z",
+    "gitSha": "dcfdd3145ea6e9aa3e06a3120fefcf697779e41d",
+    "treeHash": "852a8fcf35081aca07d9a9028722a992d8693ce590585e3634aa94fecc851b61",
+    "buildId": "pkg_1787170915142",
+    "packageHash": "3d16f5cb7318161840e7e913d4aac83503cce3d4b313fbe37d7244eeedd0828a",
+    "manifestHash": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701",
+    "runtimeVersion": "v20.18.1",
+    "profile": "local-foundation",
+    "note": "Stale evidence must not close current issues — compare runId/treeHash/gitSha"
+  },
+  "top50RootCauses": [
+    {
+      "rank": 1,
+      "rootCauseId": "ACTION_CHAIN.POST_/v1/governance/evaluate",
+      "title": "Action chain incomplete: POST /v1/governance/evaluate",
+      "severity": "P1",
+      "type": "WIRING",
+      "affectedCount": 540,
+      "recommendedFix": "Close chain steps: risk,policy,idempotency"
+    },
+    {
+      "rank": 2,
+      "rootCauseId": "CTRL.CF28.validation",
+      "title": "Model validation",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 8,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 3,
+      "rootCauseId": "CTRL.CF11.job-states",
+      "title": "Job states",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 4,
+      "rootCauseId": "CTRL.CF11.idempotency",
+      "title": "Job idempotency",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 5,
+      "rootCauseId": "CTRL.CF11.progress",
+      "title": "Job progress",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 6,
+      "rootCauseId": "CTRL.CF11.job-evidence",
+      "title": "Job evidence",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 7,
+      "rootCauseId": "CTRL.CF14.policy-decision",
+      "title": "Policy decision",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 8,
+      "rootCauseId": "CTRL.CF14.policy-enforcement",
+      "title": "Policy enforcement point",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 9,
+      "rootCauseId": "CTRL.CF14.policy-version",
+      "title": "Policy version",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 10,
+      "rootCauseId": "CTRL.CF14.policy-evidence",
+      "title": "Policy evidence",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 11,
+      "rootCauseId": "CTRL.CF14.deny-reason",
+      "title": "Deny reason",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 12,
+      "rootCauseId": "CTRL.CF14.policy-test",
+      "title": "Policy test",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 13,
+      "rootCauseId": "CTRL.CF15.risk-taxonomy",
+      "title": "Risk taxonomy",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 14,
+      "rootCauseId": "CTRL.CF15.risk-score",
+      "title": "Risk score",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 15,
+      "rootCauseId": "CTRL.CF15.risk-confidence",
+      "title": "Risk confidence",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 16,
+      "rootCauseId": "CTRL.CF15.risk-source",
+      "title": "Risk source",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 17,
+      "rootCauseId": "CTRL.CF15.risk-threshold",
+      "title": "Risk threshold",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 18,
+      "rootCauseId": "CTRL.CF15.risk-veto",
+      "title": "Risk veto",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 19,
+      "rootCauseId": "CTRL.CF20.race-conditions",
+      "title": "Race condition controls",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 20,
+      "rootCauseId": "CTRL.CF20.duplicate-execution",
+      "title": "Duplicate execution prevention",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 21,
+      "rootCauseId": "CTRL.CF23.reproducible-build",
+      "title": "Reproducible build",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 22,
+      "rootCauseId": "CTRL.CF23.release-manifest",
+      "title": "Release manifest",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 23,
+      "rootCauseId": "CTRL.CF23.rollback",
+      "title": "Release rollback",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 24,
+      "rootCauseId": "CTRL.CF23.upgrade",
+      "title": "Upgrade path",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 25,
+      "rootCauseId": "CTRL.CF27.no-bypass-permission",
+      "title": "AI cannot bypass permission",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 26,
+      "rootCauseId": "CTRL.CF27.no-bypass-policy",
+      "title": "AI cannot bypass policy",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 27,
+      "rootCauseId": "CTRL.CF27.source-attribution",
+      "title": "Source attribution",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 28,
+      "rootCauseId": "CTRL.CF27.human-approval",
+      "title": "Human approval where required",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 29,
+      "rootCauseId": "CTRL.CF29.target-definition",
+      "title": "Prediction target definition",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 30,
+      "rootCauseId": "CTRL.CF29.time-horizon",
+      "title": "Time horizon",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 31,
+      "rootCauseId": "CTRL.CF29.confidence-intervals",
+      "title": "Confidence intervals",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 7,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 32,
+      "rootCauseId": "CTRL.CF02.approval-gates",
+      "title": "Approval gates",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 6,
+      "recommendedFix": "Implement DecisionAction API or keep LOCAL REVIEW STATE labeling forever until done."
+    },
+    {
+      "rank": 33,
+      "rootCauseId": "CTRL.CF02.privileged-actions",
+      "title": "Privileged actions",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 6,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 34,
+      "rootCauseId": "CTRL.CF39.runbooks",
+      "title": "Runbooks",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 6,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 35,
+      "rootCauseId": "CTRL.CF39.health-dashboard",
+      "title": "Health dashboard",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 6,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 36,
+      "rootCauseId": "CTRL.CF39.upgrade-mode",
+      "title": "Upgrade mode",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 6,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 37,
+      "rootCauseId": "CTRL.CF04.schema-versioning",
+      "title": "Schema versioning",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 5,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 38,
+      "rootCauseId": "CTRL.CF04.unknown-field-policy",
+      "title": "Unknown field policy",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 5,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 39,
+      "rootCauseId": "CTRL.CF04.null-semantics",
+      "title": "Null semantics",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 5,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 40,
+      "rootCauseId": "CTRL.CF04.time-zones",
+      "title": "Time zones",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 5,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 41,
+      "rootCauseId": "CTRL.CF32.decision-object",
+      "title": "Decision object",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 5,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 42,
+      "rootCauseId": "CTRL.CF32.criteria",
+      "title": "Decision criteria",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 5,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 43,
+      "rootCauseId": "CTRL.CF32.recommendation",
+      "title": "Recommendation",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 5,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 44,
+      "rootCauseId": "CTRL.CF32.confidence",
+      "title": "Decision confidence",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 5,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 45,
+      "rootCauseId": "CTRL.CF32.risk",
+      "title": "Decision risk",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 5,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 46,
+      "rootCauseId": "CTRL.CF32.approval",
+      "title": "Decision approval",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 5,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 47,
+      "rootCauseId": "CTRL.CF32.chosen-action",
+      "title": "Chosen action",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 5,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 48,
+      "rootCauseId": "CTRL.CF32.outcome",
+      "title": "Decision outcome link",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 5,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 49,
+      "rootCauseId": "CTRL.CF37.progressive-disclosure",
+      "title": "Progressive disclosure",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 5,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    },
+    {
+      "rank": 50,
+      "rootCauseId": "CTRL.CF37.no-internal-port-leakage",
+      "title": "No internal port leakage",
+      "severity": "P1",
+      "type": "GAP",
+      "affectedCount": 5,
+      "recommendedFix": "Classify only — do not auto-implement; schedule by severity."
+    }
+  ],
+  "top50MissingCapabilities": [
+    {
+      "rank": 1,
+      "controlId": "CAP.prediction-engine.fastapi",
+      "title": "Capability: prediction-engine.fastapi",
+      "baselineStatus": "STUB",
+      "severityHint": "P2"
+    },
+    {
+      "rank": 2,
+      "controlId": "CAP.risk-engine.fastapi",
+      "title": "Capability: risk-engine.fastapi",
+      "baselineStatus": "STUB",
+      "severityHint": "P2"
+    },
+    {
+      "rank": 3,
+      "controlId": "CAP.execution-simulator",
+      "title": "Capability: execution-simulator",
+      "baselineStatus": "STUB",
+      "severityHint": "P2"
+    },
+    {
+      "rank": 4,
+      "controlId": "CAP.enterprise.modules.sections-49-83",
+      "title": "Capability: enterprise.modules.sections-49-83",
+      "baselineStatus": "ABSENT",
+      "severityHint": "P1"
+    }
+  ],
+  "top50EnterpriseGaps": [
+    {
+      "rank": 1,
+      "controlId": "CF02.approval-gates",
+      "title": "Approval gates",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 2,
+      "controlId": "CF27.human-approval",
+      "title": "Human approval where required",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 3,
+      "controlId": "CF37.no-dead-end-controls",
+      "title": "No dead-end controls",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 4,
+      "controlId": "CF37.role-relevance",
+      "title": "Role relevance",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 5,
+      "controlId": "CF02.privileged-actions",
+      "title": "Privileged actions",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 6,
+      "controlId": "CF04.null-semantics",
+      "title": "Null semantics",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 7,
+      "controlId": "CF04.schema-versioning",
+      "title": "Schema versioning",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 8,
+      "controlId": "CF04.time-zones",
+      "title": "Time zones",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 9,
+      "controlId": "CF04.unknown-field-policy",
+      "title": "Unknown field policy",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 10,
+      "controlId": "CF06.aliasing",
+      "title": "Aliasing",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 11,
+      "controlId": "CF06.canonical-entity-ids",
+      "title": "Canonical entity IDs",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 12,
+      "controlId": "CF08.actions",
+      "title": "Entity360 actions",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 13,
+      "controlId": "CF08.evidence",
+      "title": "Entity360 evidence",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 14,
+      "controlId": "CF08.history",
+      "title": "Entity360 history",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 15,
+      "controlId": "CF08.risk",
+      "title": "Entity360 risk",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 16,
+      "controlId": "CF11.idempotency",
+      "title": "Job idempotency",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 17,
+      "controlId": "CF11.job-evidence",
+      "title": "Job evidence",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 18,
+      "controlId": "CF11.job-states",
+      "title": "Job states",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 19,
+      "controlId": "CF11.progress",
+      "title": "Job progress",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 20,
+      "controlId": "CF14.deny-reason",
+      "title": "Deny reason",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 21,
+      "controlId": "CF14.policy-decision",
+      "title": "Policy decision",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 22,
+      "controlId": "CF14.policy-enforcement",
+      "title": "Policy enforcement point",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 23,
+      "controlId": "CF14.policy-evidence",
+      "title": "Policy evidence",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 24,
+      "controlId": "CF14.policy-test",
+      "title": "Policy test",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 25,
+      "controlId": "CF14.policy-version",
+      "title": "Policy version",
+      "status": "PARTIAL",
+      "severity": "P1"
+    },
+    {
+      "rank": 26,
+      "controlId": "CF01.service-identity",
+      "title": "Service identity",
+      "status": "PARTIAL",
+      "severity": "P2"
+    },
+    {
+      "rank": 27,
+      "controlId": "CF01.machine-identity",
+      "title": "Machine identity",
+      "status": "ABSENT",
+      "severity": "P2"
+    },
+    {
+      "rank": 28,
+      "controlId": "CF01.api-client-identity",
+      "title": "API client identity",
+      "status": "ABSENT",
+      "severity": "P2"
+    },
+    {
+      "rank": 29,
+      "controlId": "CF01.permission-inheritance",
+      "title": "Permission inheritance",
+      "status": "ABSENT",
+      "severity": "P2"
+    },
+    {
+      "rank": 30,
+      "controlId": "CF01.impersonation-controls",
+      "title": "Impersonation controls",
+      "status": "ABSENT",
+      "severity": "P2"
+    },
+    {
+      "rank": 31,
+      "controlId": "CF01.service-to-service-identity",
+      "title": "Service-to-service identity",
+      "status": "ABSENT",
+      "severity": "P2"
+    },
+    {
+      "rank": 32,
+      "controlId": "CF01.credential-lifecycle",
+      "title": "Credential lifecycle",
+      "status": "DEFERRED",
+      "severity": "P2"
+    },
+    {
+      "rank": 33,
+      "controlId": "CF02.abac",
+      "title": "ABAC",
+      "status": "DEFERRED",
+      "severity": "P2"
+    },
+    {
+      "rank": 34,
+      "controlId": "CF02.resource-permissions",
+      "title": "Resource permissions",
+      "status": "PARTIAL",
+      "severity": "P2"
+    },
+    {
+      "rank": 35,
+      "controlId": "CF02.purpose-based-access",
+      "title": "Purpose-based access",
+      "status": "ABSENT",
+      "severity": "P2"
+    },
+    {
+      "rank": 36,
+      "controlId": "CF02.break-glass",
+      "title": "Break-glass access",
+      "status": "ABSENT",
+      "severity": "P2"
+    },
+    {
+      "rank": 37,
+      "controlId": "CF03.organization-model",
+      "title": "Organization model",
+      "status": "DEFERRED",
+      "severity": "P2"
+    },
+    {
+      "rank": 38,
+      "controlId": "CF03.tenant-boundary",
+      "title": "Tenant boundary",
+      "status": "DEFERRED",
+      "severity": "P2"
+    },
+    {
+      "rank": 39,
+      "controlId": "CF03.workspace-isolation",
+      "title": "Workspace isolation",
+      "status": "PARTIAL",
+      "severity": "P2"
+    },
+    {
+      "rank": 40,
+      "controlId": "CF03.data-isolation",
+      "title": "Data isolation",
+      "status": "DEFERRED",
+      "severity": "P2"
+    },
+    {
+      "rank": 41,
+      "controlId": "CF03.cache-isolation",
+      "title": "Cache isolation",
+      "status": "DEFERRED",
+      "severity": "P2"
+    },
+    {
+      "rank": 42,
+      "controlId": "CF03.job-isolation",
+      "title": "Job isolation",
+      "status": "DEFERRED",
+      "severity": "P2"
+    },
+    {
+      "rank": 43,
+      "controlId": "CF03.evidence-isolation",
+      "title": "Evidence isolation",
+      "status": "DEFERRED",
+      "severity": "P2"
+    },
+    {
+      "rank": 44,
+      "controlId": "CF03.cross-tenant-leakage-prevention",
+      "title": "Cross-tenant leakage prevention",
+      "status": "DEFERRED",
+      "severity": "P2"
+    },
+    {
+      "rank": 45,
+      "controlId": "CF04.schema-registry",
+      "title": "Schema registry",
+      "status": "ABSENT",
+      "severity": "P2"
+    },
+    {
+      "rank": 46,
+      "controlId": "CF04.compatibility",
+      "title": "Compatibility",
+      "status": "PARTIAL",
+      "severity": "P2"
+    },
+    {
+      "rank": 47,
+      "controlId": "CF04.migration-rules",
+      "title": "Migration rules",
+      "status": "PROFILE_DISABLED",
+      "severity": "P2"
+    },
+    {
+      "rank": 48,
+      "controlId": "CF04.semantic-types",
+      "title": "Semantic types",
+      "status": "PARTIAL",
+      "severity": "P2"
+    },
+    {
+      "rank": 49,
+      "controlId": "CF04.currency",
+      "title": "Currency",
+      "status": "ABSENT",
+      "severity": "P2"
+    },
+    {
+      "rank": 50,
+      "controlId": "CF04.data-classification",
+      "title": "Data classification",
+      "status": "ABSENT",
+      "severity": "P2"
+    }
+  ],
+  "top50TestGaps": [
+    {
+      "rank": 1,
+      "controlId": "RT.boot.orchestrator-exists",
+      "title": "Boot orchestrator present",
+      "severityHint": "P0"
+    },
+    {
+      "rank": 2,
+      "controlId": "RT.boot.bootstrap-exists",
+      "title": "Bootstrap capsule present",
+      "severityHint": "P0"
+    },
+    {
+      "rank": 3,
+      "controlId": "RT.boot.supervisor-exists",
+      "title": "Process supervisor present",
+      "severityHint": "P0"
+    },
+    {
+      "rank": 4,
+      "controlId": "RT.packaged.no-apps-src",
+      "title": "Packaged must not resolve apps/**/src",
+      "severityHint": "P0"
+    },
+    {
+      "rank": 5,
+      "controlId": "RT.packaged.bundled-node",
+      "title": "Packaged uses bundled Node 20.18.x",
+      "severityHint": "P0"
+    },
+    {
+      "rank": 6,
+      "controlId": "RT.packaged.backend-artifact",
+      "title": "backend/server.cjs present",
+      "severityHint": "P0"
+    },
+    {
+      "rank": 7,
+      "controlId": "RT.packaged.cockpit-artifact",
+      "title": "cockpit/index.mjs present",
+      "severityHint": "P0"
+    },
+    {
+      "rank": 8,
+      "controlId": "RT.home.http-200",
+      "title": "Home HTTP 200",
+      "severityHint": "P0"
+    },
+    {
+      "rank": 9,
+      "controlId": "RT.gw1.slice-run",
+      "title": "GW1 vertical-slice run",
+      "severityHint": "P0"
+    },
+    {
+      "rank": 10,
+      "controlId": "RT.lineage.verify",
+      "title": "Lineage hash verify",
+      "severityHint": "P0"
+    },
+    {
+      "rank": 11,
+      "controlId": "RT.shutdown.clean",
+      "title": "Clean shutdown / process tree",
+      "severityHint": "P0"
+    },
+    {
+      "rank": 12,
+      "controlId": "RT.readiness.no-404-ready",
+      "title": "404 must not mean READY",
+      "severityHint": "P0"
+    },
+    {
+      "rank": 13,
+      "controlId": "PIPE.stage.raw_event",
+      "title": "Pipeline stage wired: raw_event",
+      "severityHint": "P1"
+    },
+    {
+      "rank": 14,
+      "controlId": "PIPE.stage.normalized_event",
+      "title": "Pipeline stage wired: normalized_event",
+      "severityHint": "P1"
+    },
+    {
+      "rank": 15,
+      "controlId": "PIPE.stage.pit_feature",
+      "title": "Pipeline stage wired: pit_feature",
+      "severityHint": "P1"
+    },
+    {
+      "rank": 16,
+      "controlId": "PIPE.stage.baseline_prediction",
+      "title": "Pipeline stage wired: baseline_prediction",
+      "severityHint": "P1"
+    },
+    {
+      "rank": 17,
+      "controlId": "PIPE.stage.calibration_uncertainty",
+      "title": "Pipeline stage wired: calibration_uncertainty",
+      "severityHint": "P1"
+    },
+    {
+      "rank": 18,
+      "controlId": "PIPE.stage.independent_risk_gate",
+      "title": "Pipeline stage wired: independent_risk_gate",
+      "severityHint": "P1"
+    },
+    {
+      "rank": 19,
+      "controlId": "PIPE.stage.governance_decision",
+      "title": "Pipeline stage wired: governance_decision",
+      "severityHint": "P1"
+    },
+    {
+      "rank": 20,
+      "controlId": "PIPE.stage.deterministic_execution",
+      "title": "Pipeline stage wired: deterministic_execution",
+      "severityHint": "P1"
+    },
+    {
+      "rank": 21,
+      "controlId": "PIPE.stage.outcome",
+      "title": "Pipeline stage wired: outcome",
+      "severityHint": "P1"
+    },
+    {
+      "rank": 22,
+      "controlId": "PIPE.stage.immutable_lineage",
+      "title": "Pipeline stage wired: immutable_lineage",
+      "severityHint": "P1"
+    },
+    {
+      "rank": 23,
+      "controlId": "PIPE.stage.cockpit_view",
+      "title": "Pipeline stage wired: cockpit_view",
+      "severityHint": "P1"
+    },
+    {
+      "rank": 24,
+      "controlId": "DET.route_without_test",
+      "title": "Static detector: route_without_test",
+      "severityHint": "P1"
+    }
+  ],
+  "top50RuntimeBuildGaps": [
+    {
+      "rank": 1,
+      "rootCauseId": "CTRL.CF23.reproducible-build",
+      "title": "Reproducible build",
+      "severity": "P1",
+      "affectedCount": 7
+    },
+    {
+      "rank": 2,
+      "rootCauseId": "DETACHED_PROCESS",
+      "title": "DETACHED PROCESS",
+      "severity": "P1",
+      "affectedCount": 3
+    },
+    {
+      "rank": 3,
+      "rootCauseId": "CTRL.CF23.signed-artifact",
+      "title": "Signed artifact",
+      "severity": "P2",
+      "affectedCount": 7
+    },
+    {
+      "rank": 4,
+      "rootCauseId": "IMPORT_META_ESM_OK",
+      "title": "IMPORT META ESM OK",
+      "severity": "P3",
+      "affectedCount": 12
+    }
+  ],
+  "instanceStatusCounts": {
+    "PASS": 8912,
+    "DEFERRED": 372,
+    "PARTIAL": 4090,
+    "FAIL": 1674,
+    "NOT_APPLICABLE": 2689,
+    "UNKNOWN": 5783
+  }
+}

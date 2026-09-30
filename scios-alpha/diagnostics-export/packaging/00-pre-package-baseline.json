@@ -1,0 +1,136 @@
+{
+  "at": "2026-08-12T18:17:43.687Z",
+  "schema": "sci-os-pre-package-baseline/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "purpose": "ROLLBACK_BASELINE",
+  "appRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
+  "gitSha": "c226d7489cf7f445f226930de752e382361021fd",
+  "nodeVersion": "v24.13.1",
+  "pnpmVersion": "9.14.0",
+  "packageManager": "pnpm@9.15.0",
+  "lockfiles": {
+    "pnpm-lock.yaml": "ff921db8e9e94f260e79021b8ad856ead7b6152d8233a8c79d4d1fc9c7def3c6",
+    "package.json": "c2fadba36645cce4d8d309eea42d69807cb0070deb267ac779ad987a58cd5943"
+  },
+  "manifests": {
+    "sci-os.manifest.json": "c64df3ac1570ca9146ddac806a9b15abe0a24dddafe30edf6db8421fe6ed88e1",
+    "installer/golden-boot.manifest.json": "35a6176df2b62063dae3c698336fcc52f70d25381cf51cec31aa539d548facff"
+  },
+  "proofs": {
+    "p0": {
+      "at": "2026-08-12T18:14:07.529Z",
+      "apiPort": 3000,
+      "cockpitPort": 4000,
+      "api": {
+        "healthz": 200,
+        "readyz": 200,
+        "body": {
+          "ready": true,
+          "live": true,
+          "profile": "local-foundation",
+          "executionMode": "SIMULATION_ONLY",
+          "authMode": "local-development",
+          "telemetryMode": "local",
+          "governanceMode": "embedded-foundation",
+          "riskControl": true,
+          "foundationWorker": true,
+          "components": {
+            "riskControl": true,
+            "foundationWorker": true,
+            "database": "configured",
+            "redis": "configured",
+            "oidc": "disabled_local_development",
+            "otel": "local",
+            "hsm": "simulation_local_key_provider"
+          },
+          "foundationWorkerDetail": {
+            "name": "foundation-smoke-worker",
+            "online": true,
+            "lastHeartbeatAt": "2026-08-12T18:14:07.366Z",
+            "lastJobId": "smoke_1786558447366",
+            "lastJobStatus": "completed",
+            "jobsCompleted": 1,
+            "heartbeatAgeMs": 159
+          },
+          "labels": {
+            "productionClaims": false,
+            "simulationOnly": true
+          }
+        }
+      },
+      "cockpit": {
+        "healthz": 200,
+        "body": {
+          "ok": true,
+          "service": "@scios/cockpit-ui",
+          "controlUrl": "http://127.0.0.1:3000",
+          "ux": "3.0-home",
+          "views": [
+            "home",
+            "search",
+            "entity360",
+            "analyze",
+            "evidence",
+            "engineering"
+          ]
+        }
+      },
+      "verticalSlice": {
+        "status": 200,
+        "runId": "run_20a07f87-c4af-4d9e-a5ca-65cd1e78752b",
+        "hasPrediction": true,
+        "hasRisk": true,
+        "hasGov": true,
+        "hasExec": true,
+        "hasLineage": true,
+        "statusField": "APPROVE"
+      },
+      "workerSmoke": {
+        "jobId": "smoke_1786558447526",
+        "status": "completed",
+        "acknowledged": true,
+        "persisted": true,
+        "duplicate": false,
+        "worker": "foundation-smoke-worker",
+        "at": "2026-08-12T18:14:07.526Z"
+      },
+      "p0Pass": true
+    },
+    "gw1": {
+      "id": "golden_workflow_1_aapl_analysis",
+      "at": "2026-08-12T18:14:07.512Z",
+      "pass": true,
+      "steps": {
+        "homeApi": true,
+        "searchAapl": true,
+        "entity360": true,
+        "analyzeHttp": true,
+        "prediction": true,
+        "risk": true,
+        "governance": true,
+        "simulation": true,
+        "lineage": true,
+        "lineageNodes": true,
+        "professionalHome": true,
+        "entity360Ui": true,
+        "professionalResult": true,
+        "technicalView": true,
+        "pipelineProgress": true,
+        "emptyStates": true,
+        "riskRejectBlocksExecution": true
+      },
+      "runId": "run_f3144d23-4e33-4600-a1df-6c89f8044153",
+      "negativePath": {
+        "runId": "run_8fc57359-2fc6-49bf-9ff5-3f110661e056",
+        "status": "REJECT",
+        "riskBlocked": true,
+        "execBlocked": true
+      },
+      "maturity": "L7_RUNTIME_PARTIAL",
+      "note": "GW1 product path live; clean-install/reboot still separate gates"
+    },
+    "finalSignoff": "SCI OS FOUNDATION PRODUCT — DEGRADED"
+  },
+  "runtimeProfile": "local-foundation",
+  "freezeNote": "Do not change vertical-slice/risk/governance unless packaging compatibility requires minimal fix"
+}

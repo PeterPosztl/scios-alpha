@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://scios.local/schemas/sci-os-job-lifecycle/v1",
+  "title": "SCI OS Background Job Lifecycle",
+  "type": "object",
+  "required": [
+    "schema",
+    "jobId",
+    "actor",
+    "context",
+    "state",
+    "currentAttempt",
+    "maxAttempts",
+    "timestamps",
+    "evidence",
+    "lineage",
+    "degraded",
+    "recoveryInfo"
+  ],
+  "properties": {
+    "schema": { "const": "sci-os-job-lifecycle/v1" },
+    "jobId": { "type": "string" },
+    "actor": { "type": "object" },
+    "context": { "type": "object" },
+    "state": {
+      "enum": [
+        "SUBMITTED",
+        "STARTED",
+        "RUNNING",
+        "COMPLETED",
+        "FAILED",
+        "RETRY_PENDING",
+        "RETRY_EXHAUSTED",
+        "CANCELLED",
+        "RECOVERED"
+      ]
+    },
+    "cf11State": { "type": "string" },
+    "currentAttempt": { "type": "number" },
+    "maxAttempts": { "type": "number" },
+    "timestamps": { "type": "object" },
+    "evidence": { "type": "object" },
+    "lineage": { "type": "object" },
+    "degraded": { "type": "boolean" },
+    "recoveryInfo": { "type": ["object", "null"] },
+    "correlationId": { "type": ["string", "null"] }
+  }
+}

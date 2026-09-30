@@ -1,0 +1,15 @@
+{
+  "at": "2026-08-13T13:09:39.331Z",
+  "buildId": "deep-foundations-2026-08-13",
+  "metrics": {
+    "packageCount": 22,
+    "scriptFileCount": 42,
+    "productMemoryContracts": 5,
+    "duplicateAuthoritiesKnown": 0,
+    "staleUxTruthWasFixed": true,
+    "atomStubsStillPresent": 0,
+    "legacyPortsInDocsRisk": "monitor"
+  },
+  "triggersConsolidationBeforeExpansion": true,
+  "finishingGovernor": "FIX_BEFORE_EXPAND"
+}

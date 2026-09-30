@@ -1,0 +1,31 @@
+{
+  "schema": "sci-os-final-completion/11-reliability-diagnostic/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T10:13:14.945Z",
+  "title": "Reliability and restart behaviour",
+  "sources": [
+    "final-completion/installed-restart-reliability.json",
+    "final-completion/boot-lock-orphan-recovery.json",
+    "installed shutdown-report.json"
+  ],
+  "restartReliability": {
+    "token": "INSTALLED_RESTART_RELIABILITY_PASS",
+    "cycles": 3,
+    "status": "PASS",
+    "failedCycles": []
+  },
+  "lockOrphanRecovery": {
+    "status": "PASS",
+    "cases": 9
+  },
+  "cleanShutdown": {
+    "restartable": true,
+    "orphanFree": true
+  },
+  "fixedRootCauses": [
+    "Startup lock treated a live-but-idle owner as valid, so a hung orchestrator permanently blocked boot with PROCESS_LOCKED.",
+    "Shutdown resolved its app root from the caller cwd, releasing the wrong lock.",
+    "Shutdown did not verify process exit.",
+    "Process discovery matched only the dev folder name, never installed command lines."
+  ]
+}

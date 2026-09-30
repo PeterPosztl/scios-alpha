@@ -1,0 +1,1422 @@
+{
+  "at": "2026-08-13T11:38:29.100Z",
+  "buildId": "gap-to-zero-2026-08-13",
+  "schema": "sci-os-role-registry/v1",
+  "architecture": "ROLE+JTBD+OBJECT+WORKFLOW+POLICY→EXPERIENCE_COMPILER→WORKSPACE",
+  "not": "200 hardcoded applications",
+  "families": [
+    {
+      "id": "cyber_ops",
+      "name": "Cybersecurity Operations",
+      "sharedCapabilities": [
+        "Alert",
+        "Incident",
+        "Asset",
+        "Timeline",
+        "Evidence",
+        "Task"
+      ]
+    },
+    {
+      "id": "threat_intel",
+      "name": "Threat Intelligence",
+      "sharedCapabilities": [
+        "Entity",
+        "Relationship",
+        "Report",
+        "Evidence"
+      ]
+    },
+    {
+      "id": "digital_forensics",
+      "name": "Digital Forensics",
+      "sharedCapabilities": [
+        "Evidence",
+        "Timeline",
+        "Case",
+        "Report",
+        "Lineage"
+      ]
+    },
+    {
+      "id": "investigation_case",
+      "name": "Investigation & Case Intelligence",
+      "sharedCapabilities": [
+        "Case",
+        "Entity",
+        "Investigation",
+        "Evidence",
+        "Decision"
+      ]
+    },
+    {
+      "id": "fraud_fincrime",
+      "name": "Fraud & Financial Crime",
+      "sharedCapabilities": [
+        "Alert",
+        "Transaction",
+        "Entity",
+        "Case",
+        "Risk",
+        "Report"
+      ]
+    },
+    {
+      "id": "aml_kyc",
+      "name": "AML / KYC / Compliance",
+      "sharedCapabilities": [
+        "Case",
+        "Policy",
+        "Approval",
+        "Evidence",
+        "Report"
+      ]
+    },
+    {
+      "id": "fin_intel",
+      "name": "Financial Intelligence",
+      "sharedCapabilities": [
+        "Entity",
+        "Transaction",
+        "Relationship",
+        "Report"
+      ]
+    },
+    {
+      "id": "market_portfolio_risk",
+      "name": "Market & Portfolio Risk",
+      "sharedCapabilities": [
+        "Risk",
+        "Scenario",
+        "Simulation",
+        "Prediction",
+        "Decision"
+      ]
+    },
+    {
+      "id": "enterprise_risk",
+      "name": "Enterprise Risk",
+      "sharedCapabilities": [
+        "Risk",
+        "Policy",
+        "Decision",
+        "Report"
+      ]
+    },
+    {
+      "id": "corporate_security",
+      "name": "Corporate Security",
+      "sharedCapabilities": [
+        "Incident",
+        "Asset",
+        "Case",
+        "Task"
+      ]
+    },
+    {
+      "id": "physical_security",
+      "name": "Physical Security",
+      "sharedCapabilities": [
+        "Incident",
+        "Asset",
+        "Timeline",
+        "Task"
+      ]
+    },
+    {
+      "id": "crisis_emergency",
+      "name": "Crisis & Emergency Operations",
+      "sharedCapabilities": [
+        "Incident",
+        "Task",
+        "Decision",
+        "Report"
+      ]
+    },
+    {
+      "id": "intel_analysis",
+      "name": "Intelligence Analysis",
+      "sharedCapabilities": [
+        "Entity",
+        "Relationship",
+        "Hypothesis",
+        "Report",
+        "Evidence"
+      ]
+    },
+    {
+      "id": "osint_geoint",
+      "name": "OSINT / GEOINT / Network Analysis",
+      "sharedCapabilities": [
+        "Entity",
+        "Relationship",
+        "Timeline",
+        "Evidence"
+      ]
+    },
+    {
+      "id": "data_analytics",
+      "name": "Data & Analytics",
+      "sharedCapabilities": [
+        "Report",
+        "Model",
+        "Prediction"
+      ]
+    },
+    {
+      "id": "ai_ml_gov",
+      "name": "AI / ML / Model Governance",
+      "sharedCapabilities": [
+        "Model",
+        "Prediction",
+        "Policy",
+        "Approval",
+        "Evidence"
+      ]
+    },
+    {
+      "id": "eng_platform",
+      "name": "Engineering & Platform Operations",
+      "sharedCapabilities": [
+        "Asset",
+        "Incident",
+        "Task",
+        "Report"
+      ]
+    },
+    {
+      "id": "cloud_infra",
+      "name": "Cloud / Infrastructure",
+      "sharedCapabilities": [
+        "Asset",
+        "Incident",
+        "Timeline"
+      ]
+    },
+    {
+      "id": "gov_audit_legal",
+      "name": "Governance / Audit / Legal Control",
+      "sharedCapabilities": [
+        "Policy",
+        "Approval",
+        "Evidence",
+        "Report",
+        "Decision"
+      ]
+    },
+    {
+      "id": "supply_ops_risk",
+      "name": "Supply Chain / Logistics / Operational Risk",
+      "sharedCapabilities": [
+        "Asset",
+        "Risk",
+        "Scenario",
+        "Report"
+      ]
+    }
+  ],
+  "archetypeCount": 7,
+  "roleCount": 200,
+  "roles": [
+    {
+      "roleId": "role.cyber_ops.soc_analyst",
+      "domainFamily": "cyber_ops",
+      "status": "PARTIAL",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "roleId": "role.cyber_ops.incident_responder",
+      "domainFamily": "cyber_ops",
+      "status": "PARTIAL",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "roleId": "role.cyber_ops.detection_engineer",
+      "domainFamily": "cyber_ops",
+      "status": "PARTIAL",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "roleId": "role.cyber_ops.threat_hunter",
+      "domainFamily": "cyber_ops",
+      "status": "PARTIAL",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "roleId": "role.cyber_ops.security_engineer",
+      "domainFamily": "cyber_ops",
+      "status": "PARTIAL",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "roleId": "role.cyber_ops.siem_analyst",
+      "domainFamily": "cyber_ops",
+      "status": "PARTIAL",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "roleId": "role.cyber_ops.soc_manager",
+      "domainFamily": "cyber_ops",
+      "status": "PARTIAL",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "roleId": "role.cyber_ops.ir_lead",
+      "domainFamily": "cyber_ops",
+      "status": "PARTIAL",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "roleId": "role.cyber_ops.malware_triage_analyst",
+      "domainFamily": "cyber_ops",
+      "status": "PARTIAL",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "roleId": "role.cyber_ops.vulnerability_analyst",
+      "domainFamily": "cyber_ops",
+      "status": "PARTIAL",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "roleId": "role.cyber_ops.purple_team_analyst",
+      "domainFamily": "cyber_ops",
+      "status": "PARTIAL",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "roleId": "role.cyber_ops.blue_team_analyst",
+      "domainFamily": "cyber_ops",
+      "status": "PARTIAL",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "roleId": "role.cyber_ops.security_operations_specialist",
+      "domainFamily": "cyber_ops",
+      "status": "PARTIAL",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "roleId": "role.cyber_ops.alert_triage_specialist",
+      "domainFamily": "cyber_ops",
+      "status": "PARTIAL",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "roleId": "role.cyber_ops.containment_specialist",
+      "domainFamily": "cyber_ops",
+      "status": "PARTIAL",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "roleId": "role.threat_intel.threat_intelligence_analyst",
+      "domainFamily": "threat_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.threat_intel.cti_researcher",
+      "domainFamily": "threat_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.threat_intel.ioc_analyst",
+      "domainFamily": "threat_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.threat_intel.threat_reporter",
+      "domainFamily": "threat_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.threat_intel.intel_fusion_analyst",
+      "domainFamily": "threat_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.threat_intel.apt_tracker",
+      "domainFamily": "threat_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.threat_intel.threat_landscape_analyst",
+      "domainFamily": "threat_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.threat_intel.collection_manager",
+      "domainFamily": "threat_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.threat_intel.intel_brief_writer",
+      "domainFamily": "threat_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.digital_forensics.digital_forensics_examiner",
+      "domainFamily": "digital_forensics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.digital_forensics.dfir_specialist",
+      "domainFamily": "digital_forensics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.digital_forensics.mobile_forensics_analyst",
+      "domainFamily": "digital_forensics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.digital_forensics.disk_forensics_analyst",
+      "domainFamily": "digital_forensics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.digital_forensics.memory_forensics_analyst",
+      "domainFamily": "digital_forensics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.digital_forensics.forensic_report_writer",
+      "domainFamily": "digital_forensics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.digital_forensics.ediscovery_specialist",
+      "domainFamily": "digital_forensics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.digital_forensics.chain_of_custody_officer",
+      "domainFamily": "digital_forensics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.investigation_case.case_investigator",
+      "domainFamily": "investigation_case",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.investigation_case.corporate_investigator",
+      "domainFamily": "investigation_case",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.investigation_case.case_manager",
+      "domainFamily": "investigation_case",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.investigation_case.investigation_lead",
+      "domainFamily": "investigation_case",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.investigation_case.field_investigator",
+      "domainFamily": "investigation_case",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.investigation_case.interview_specialist",
+      "domainFamily": "investigation_case",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.investigation_case.case_intake_analyst",
+      "domainFamily": "investigation_case",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.fraud_fincrime.fraud_investigator",
+      "domainFamily": "fraud_fincrime",
+      "status": "PARTIAL",
+      "archetype": "arch.fraud_investigator"
+    },
+    {
+      "roleId": "role.fraud_fincrime.fraud_analyst",
+      "domainFamily": "fraud_fincrime",
+      "status": "PARTIAL",
+      "archetype": "arch.fraud_investigator"
+    },
+    {
+      "roleId": "role.fraud_fincrime.payment_fraud_specialist",
+      "domainFamily": "fraud_fincrime",
+      "status": "PARTIAL",
+      "archetype": "arch.fraud_investigator"
+    },
+    {
+      "roleId": "role.fraud_fincrime.card_fraud_analyst",
+      "domainFamily": "fraud_fincrime",
+      "status": "PARTIAL",
+      "archetype": "arch.fraud_investigator"
+    },
+    {
+      "roleId": "role.fraud_fincrime.account_takeover_analyst",
+      "domainFamily": "fraud_fincrime",
+      "status": "PARTIAL",
+      "archetype": "arch.fraud_investigator"
+    },
+    {
+      "roleId": "role.fraud_fincrime.fraud_ops_lead",
+      "domainFamily": "fraud_fincrime",
+      "status": "PARTIAL",
+      "archetype": "arch.fraud_investigator"
+    },
+    {
+      "roleId": "role.fraud_fincrime.transaction_monitoring_analyst",
+      "domainFamily": "fraud_fincrime",
+      "status": "PARTIAL",
+      "archetype": "arch.fraud_investigator"
+    },
+    {
+      "roleId": "role.fraud_fincrime.chargeback_specialist",
+      "domainFamily": "fraud_fincrime",
+      "status": "PARTIAL",
+      "archetype": "arch.fraud_investigator"
+    },
+    {
+      "roleId": "role.aml_kyc.aml_analyst",
+      "domainFamily": "aml_kyc",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.aml_kyc.kyc_analyst",
+      "domainFamily": "aml_kyc",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.aml_kyc.sanctions_analyst",
+      "domainFamily": "aml_kyc",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.aml_kyc.compliance_officer",
+      "domainFamily": "aml_kyc",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.aml_kyc.cdd_specialist",
+      "domainFamily": "aml_kyc",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.aml_kyc.edd_specialist",
+      "domainFamily": "aml_kyc",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.aml_kyc.sar_writer",
+      "domainFamily": "aml_kyc",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.aml_kyc.aml_quality_assurance",
+      "domainFamily": "aml_kyc",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.fin_intel.financial_intelligence_analyst",
+      "domainFamily": "fin_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.fin_intel.transaction_graph_analyst",
+      "domainFamily": "fin_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.fin_intel.asset_recovery_specialist",
+      "domainFamily": "fin_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.fin_intel.beneficial_ownership_analyst",
+      "domainFamily": "fin_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.fin_intel.trade_finance_analyst",
+      "domainFamily": "fin_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.market_portfolio_risk.market_risk_analyst",
+      "domainFamily": "market_portfolio_risk",
+      "status": "PARTIAL",
+      "archetype": "arch.fin_risk_analyst"
+    },
+    {
+      "roleId": "role.market_portfolio_risk.portfolio_risk_analyst",
+      "domainFamily": "market_portfolio_risk",
+      "status": "PARTIAL",
+      "archetype": "arch.fin_risk_analyst"
+    },
+    {
+      "roleId": "role.market_portfolio_risk.credit_risk_analyst",
+      "domainFamily": "market_portfolio_risk",
+      "status": "PARTIAL",
+      "archetype": "arch.fin_risk_analyst"
+    },
+    {
+      "roleId": "role.market_portfolio_risk.liquidity_risk_analyst",
+      "domainFamily": "market_portfolio_risk",
+      "status": "PARTIAL",
+      "archetype": "arch.fin_risk_analyst"
+    },
+    {
+      "roleId": "role.market_portfolio_risk.risk_modeler",
+      "domainFamily": "market_portfolio_risk",
+      "status": "PARTIAL",
+      "archetype": "arch.fin_risk_analyst"
+    },
+    {
+      "roleId": "role.market_portfolio_risk.limit_monitoring_analyst",
+      "domainFamily": "market_portfolio_risk",
+      "status": "PARTIAL",
+      "archetype": "arch.fin_risk_analyst"
+    },
+    {
+      "roleId": "role.market_portfolio_risk.var_analyst",
+      "domainFamily": "market_portfolio_risk",
+      "status": "PARTIAL",
+      "archetype": "arch.fin_risk_analyst"
+    },
+    {
+      "roleId": "role.market_portfolio_risk.stress_testing_analyst",
+      "domainFamily": "market_portfolio_risk",
+      "status": "PARTIAL",
+      "archetype": "arch.fin_risk_analyst"
+    },
+    {
+      "roleId": "role.enterprise_risk.enterprise_risk_manager",
+      "domainFamily": "enterprise_risk",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.executive"
+    },
+    {
+      "roleId": "role.enterprise_risk.operational_risk_analyst",
+      "domainFamily": "enterprise_risk",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.executive"
+    },
+    {
+      "roleId": "role.enterprise_risk.vendor_risk_analyst",
+      "domainFamily": "enterprise_risk",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.executive"
+    },
+    {
+      "roleId": "role.enterprise_risk.risk_committee_analyst",
+      "domainFamily": "enterprise_risk",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.executive"
+    },
+    {
+      "roleId": "role.enterprise_risk.risk_reporting_officer",
+      "domainFamily": "enterprise_risk",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.executive"
+    },
+    {
+      "roleId": "role.corporate_security.corporate_security_manager",
+      "domainFamily": "corporate_security",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.corporate_security.personnel_security_officer",
+      "domainFamily": "corporate_security",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.corporate_security.insider_threat_analyst",
+      "domainFamily": "corporate_security",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.corporate_security.executive_protection_planner",
+      "domainFamily": "corporate_security",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.corporate_security.security_awareness_lead",
+      "domainFamily": "corporate_security",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.physical_security.physical_security_officer",
+      "domainFamily": "physical_security",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.physical_security.access_control_analyst",
+      "domainFamily": "physical_security",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.physical_security.cctv_operator",
+      "domainFamily": "physical_security",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.physical_security.facility_security_manager",
+      "domainFamily": "physical_security",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.physical_security.guard_force_coordinator",
+      "domainFamily": "physical_security",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.crisis_emergency.crisis_manager",
+      "domainFamily": "crisis_emergency",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.crisis_emergency.emergency_operations_analyst",
+      "domainFamily": "crisis_emergency",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.crisis_emergency.business_continuity_manager",
+      "domainFamily": "crisis_emergency",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.crisis_emergency.disaster_recovery_coordinator",
+      "domainFamily": "crisis_emergency",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.crisis_emergency.situation_room_analyst",
+      "domainFamily": "crisis_emergency",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.intel_analysis.intelligence_analyst",
+      "domainFamily": "intel_analysis",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.intel_analysis.all_source_analyst",
+      "domainFamily": "intel_analysis",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.intel_analysis.strategic_assessor",
+      "domainFamily": "intel_analysis",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.intel_analysis.indications_watch_officer",
+      "domainFamily": "intel_analysis",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.intel_analysis.targeting_analyst",
+      "domainFamily": "intel_analysis",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.osint_geoint.osint_analyst",
+      "domainFamily": "osint_geoint",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.osint_analyst"
+    },
+    {
+      "roleId": "role.osint_geoint.geoint_analyst",
+      "domainFamily": "osint_geoint",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.osint_analyst"
+    },
+    {
+      "roleId": "role.osint_geoint.social_network_analyst",
+      "domainFamily": "osint_geoint",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.osint_analyst"
+    },
+    {
+      "roleId": "role.osint_geoint.imagery_analyst",
+      "domainFamily": "osint_geoint",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.osint_analyst"
+    },
+    {
+      "roleId": "role.osint_geoint.open_source_collector",
+      "domainFamily": "osint_geoint",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.osint_analyst"
+    },
+    {
+      "roleId": "role.osint_geoint.link_analysis_specialist",
+      "domainFamily": "osint_geoint",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.osint_analyst"
+    },
+    {
+      "roleId": "role.data_analytics.data_analyst",
+      "domainFamily": "data_analytics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.data_analytics.bi_analyst",
+      "domainFamily": "data_analytics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.data_analytics.analytics_engineer",
+      "domainFamily": "data_analytics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.data_analytics.metrics_analyst",
+      "domainFamily": "data_analytics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.data_analytics.experiment_analyst",
+      "domainFamily": "data_analytics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.ai_ml_gov.ml_engineer",
+      "domainFamily": "ai_ml_gov",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.ai_ml_gov.model_risk_officer",
+      "domainFamily": "ai_ml_gov",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.ai_ml_gov.ai_governance_officer",
+      "domainFamily": "ai_ml_gov",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.ai_ml_gov.model_validator",
+      "domainFamily": "ai_ml_gov",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.ai_ml_gov.prompt_safety_analyst",
+      "domainFamily": "ai_ml_gov",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.ai_ml_gov.mlops_engineer",
+      "domainFamily": "ai_ml_gov",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.eng_platform.platform_engineer",
+      "domainFamily": "eng_platform",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.eng_operator"
+    },
+    {
+      "roleId": "role.eng_platform.sre",
+      "domainFamily": "eng_platform",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.eng_operator"
+    },
+    {
+      "roleId": "role.eng_platform.devops_engineer",
+      "domainFamily": "eng_platform",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.eng_operator"
+    },
+    {
+      "roleId": "role.eng_platform.release_manager",
+      "domainFamily": "eng_platform",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.eng_operator"
+    },
+    {
+      "roleId": "role.eng_platform.observability_engineer",
+      "domainFamily": "eng_platform",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.eng_operator"
+    },
+    {
+      "roleId": "role.eng_platform.on_call_operator",
+      "domainFamily": "eng_platform",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.eng_operator"
+    },
+    {
+      "roleId": "role.eng_platform.qa_engineer",
+      "domainFamily": "eng_platform",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.eng_operator"
+    },
+    {
+      "roleId": "role.cloud_infra.cloud_architect",
+      "domainFamily": "cloud_infra",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.cloud_infra.cloud_security_engineer",
+      "domainFamily": "cloud_infra",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.cloud_infra.kubernetes_operator",
+      "domainFamily": "cloud_infra",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.cloud_infra.network_engineer",
+      "domainFamily": "cloud_infra",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.cloud_infra.database_administrator",
+      "domainFamily": "cloud_infra",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.cloud_infra.storage_engineer",
+      "domainFamily": "cloud_infra",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.gov_audit_legal.internal_auditor",
+      "domainFamily": "gov_audit_legal",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.auditor"
+    },
+    {
+      "roleId": "role.gov_audit_legal.external_audit_liaison",
+      "domainFamily": "gov_audit_legal",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.auditor"
+    },
+    {
+      "roleId": "role.gov_audit_legal.compliance_auditor",
+      "domainFamily": "gov_audit_legal",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.auditor"
+    },
+    {
+      "roleId": "role.gov_audit_legal.legal_counsel_ops",
+      "domainFamily": "gov_audit_legal",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.auditor"
+    },
+    {
+      "roleId": "role.gov_audit_legal.policy_analyst",
+      "domainFamily": "gov_audit_legal",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.auditor"
+    },
+    {
+      "roleId": "role.gov_audit_legal.control_tester",
+      "domainFamily": "gov_audit_legal",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.auditor"
+    },
+    {
+      "roleId": "role.gov_audit_legal.records_officer",
+      "domainFamily": "gov_audit_legal",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.auditor"
+    },
+    {
+      "roleId": "role.supply_ops_risk.supply_chain_risk_analyst",
+      "domainFamily": "supply_ops_risk",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.supply_ops_risk.logistics_risk_analyst",
+      "domainFamily": "supply_ops_risk",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.supply_ops_risk.vendor_ops_analyst",
+      "domainFamily": "supply_ops_risk",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.supply_ops_risk.procurement_risk_officer",
+      "domainFamily": "supply_ops_risk",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.supply_ops_risk.inventory_risk_analyst",
+      "domainFamily": "supply_ops_risk",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.ai_ml_gov.specialist_136",
+      "domainFamily": "ai_ml_gov",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.eng_platform.specialist_137",
+      "domainFamily": "eng_platform",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.eng_operator"
+    },
+    {
+      "roleId": "role.cloud_infra.specialist_138",
+      "domainFamily": "cloud_infra",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.gov_audit_legal.specialist_139",
+      "domainFamily": "gov_audit_legal",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.auditor"
+    },
+    {
+      "roleId": "role.supply_ops_risk.specialist_140",
+      "domainFamily": "supply_ops_risk",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.cyber_ops.specialist_141",
+      "domainFamily": "cyber_ops",
+      "status": "PARTIAL",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "roleId": "role.threat_intel.specialist_142",
+      "domainFamily": "threat_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.digital_forensics.specialist_143",
+      "domainFamily": "digital_forensics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.investigation_case.specialist_144",
+      "domainFamily": "investigation_case",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.fraud_fincrime.specialist_145",
+      "domainFamily": "fraud_fincrime",
+      "status": "PARTIAL",
+      "archetype": "arch.fraud_investigator"
+    },
+    {
+      "roleId": "role.aml_kyc.specialist_146",
+      "domainFamily": "aml_kyc",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.fin_intel.specialist_147",
+      "domainFamily": "fin_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.market_portfolio_risk.specialist_148",
+      "domainFamily": "market_portfolio_risk",
+      "status": "PARTIAL",
+      "archetype": "arch.fin_risk_analyst"
+    },
+    {
+      "roleId": "role.enterprise_risk.specialist_149",
+      "domainFamily": "enterprise_risk",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.executive"
+    },
+    {
+      "roleId": "role.corporate_security.specialist_150",
+      "domainFamily": "corporate_security",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.physical_security.specialist_151",
+      "domainFamily": "physical_security",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.crisis_emergency.specialist_152",
+      "domainFamily": "crisis_emergency",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.intel_analysis.specialist_153",
+      "domainFamily": "intel_analysis",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.osint_geoint.specialist_154",
+      "domainFamily": "osint_geoint",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.osint_analyst"
+    },
+    {
+      "roleId": "role.data_analytics.specialist_155",
+      "domainFamily": "data_analytics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.ai_ml_gov.specialist_156",
+      "domainFamily": "ai_ml_gov",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.eng_platform.specialist_157",
+      "domainFamily": "eng_platform",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.eng_operator"
+    },
+    {
+      "roleId": "role.cloud_infra.specialist_158",
+      "domainFamily": "cloud_infra",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.gov_audit_legal.specialist_159",
+      "domainFamily": "gov_audit_legal",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.auditor"
+    },
+    {
+      "roleId": "role.supply_ops_risk.specialist_160",
+      "domainFamily": "supply_ops_risk",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.cyber_ops.specialist_161",
+      "domainFamily": "cyber_ops",
+      "status": "PARTIAL",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "roleId": "role.threat_intel.specialist_162",
+      "domainFamily": "threat_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.digital_forensics.specialist_163",
+      "domainFamily": "digital_forensics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.investigation_case.specialist_164",
+      "domainFamily": "investigation_case",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.fraud_fincrime.specialist_165",
+      "domainFamily": "fraud_fincrime",
+      "status": "PARTIAL",
+      "archetype": "arch.fraud_investigator"
+    },
+    {
+      "roleId": "role.aml_kyc.specialist_166",
+      "domainFamily": "aml_kyc",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.fin_intel.specialist_167",
+      "domainFamily": "fin_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.market_portfolio_risk.specialist_168",
+      "domainFamily": "market_portfolio_risk",
+      "status": "PARTIAL",
+      "archetype": "arch.fin_risk_analyst"
+    },
+    {
+      "roleId": "role.enterprise_risk.specialist_169",
+      "domainFamily": "enterprise_risk",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.executive"
+    },
+    {
+      "roleId": "role.corporate_security.specialist_170",
+      "domainFamily": "corporate_security",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.physical_security.specialist_171",
+      "domainFamily": "physical_security",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.crisis_emergency.specialist_172",
+      "domainFamily": "crisis_emergency",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.intel_analysis.specialist_173",
+      "domainFamily": "intel_analysis",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.osint_geoint.specialist_174",
+      "domainFamily": "osint_geoint",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.osint_analyst"
+    },
+    {
+      "roleId": "role.data_analytics.specialist_175",
+      "domainFamily": "data_analytics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.ai_ml_gov.specialist_176",
+      "domainFamily": "ai_ml_gov",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.eng_platform.specialist_177",
+      "domainFamily": "eng_platform",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.eng_operator"
+    },
+    {
+      "roleId": "role.cloud_infra.specialist_178",
+      "domainFamily": "cloud_infra",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.gov_audit_legal.specialist_179",
+      "domainFamily": "gov_audit_legal",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.auditor"
+    },
+    {
+      "roleId": "role.supply_ops_risk.specialist_180",
+      "domainFamily": "supply_ops_risk",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.cyber_ops.specialist_181",
+      "domainFamily": "cyber_ops",
+      "status": "PARTIAL",
+      "archetype": "arch.soc_analyst"
+    },
+    {
+      "roleId": "role.threat_intel.specialist_182",
+      "domainFamily": "threat_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.digital_forensics.specialist_183",
+      "domainFamily": "digital_forensics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.investigation_case.specialist_184",
+      "domainFamily": "investigation_case",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.fraud_fincrime.specialist_185",
+      "domainFamily": "fraud_fincrime",
+      "status": "PARTIAL",
+      "archetype": "arch.fraud_investigator"
+    },
+    {
+      "roleId": "role.aml_kyc.specialist_186",
+      "domainFamily": "aml_kyc",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.fin_intel.specialist_187",
+      "domainFamily": "fin_intel",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.market_portfolio_risk.specialist_188",
+      "domainFamily": "market_portfolio_risk",
+      "status": "PARTIAL",
+      "archetype": "arch.fin_risk_analyst"
+    },
+    {
+      "roleId": "role.enterprise_risk.specialist_189",
+      "domainFamily": "enterprise_risk",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.executive"
+    },
+    {
+      "roleId": "role.corporate_security.specialist_190",
+      "domainFamily": "corporate_security",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.physical_security.specialist_191",
+      "domainFamily": "physical_security",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.crisis_emergency.specialist_192",
+      "domainFamily": "crisis_emergency",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.intel_analysis.specialist_193",
+      "domainFamily": "intel_analysis",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.osint_geoint.specialist_194",
+      "domainFamily": "osint_geoint",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.osint_analyst"
+    },
+    {
+      "roleId": "role.data_analytics.specialist_195",
+      "domainFamily": "data_analytics",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.ai_ml_gov.specialist_196",
+      "domainFamily": "ai_ml_gov",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.eng_platform.specialist_197",
+      "domainFamily": "eng_platform",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.eng_operator"
+    },
+    {
+      "roleId": "role.cloud_infra.specialist_198",
+      "domainFamily": "cloud_infra",
+      "status": "FUTURE",
+      "archetype": null
+    },
+    {
+      "roleId": "role.gov_audit_legal.specialist_199",
+      "domainFamily": "gov_audit_legal",
+      "status": "ARCHITECTURALLY_SUPPORTED",
+      "archetype": "arch.auditor"
+    },
+    {
+      "roleId": "role.supply_ops_risk.specialist_200",
+      "domainFamily": "supply_ops_risk",
+      "status": "FUTURE",
+      "archetype": null
+    }
+  ]
+}

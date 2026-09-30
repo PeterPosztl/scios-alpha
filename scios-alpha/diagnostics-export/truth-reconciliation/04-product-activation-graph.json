@@ -1,0 +1,85 @@
+{
+  "at": "2026-08-13T10:59:47.013Z",
+  "schema": "sci-os-04-product-activation-graph/v1",
+  "buildId": "truth-recon-2026-08-13-c226d748",
+  "profile": "local-foundation",
+  "graph": [
+    {
+      "capability": "home",
+      "exists": true,
+      "registered": true,
+      "activated": true,
+      "routable": true,
+      "visible": true,
+      "authorized": "local-development",
+      "runtimeProven": "PARTIAL",
+      "path": "Shell → GET /v1/home"
+    },
+    {
+      "capability": "search",
+      "exists": true,
+      "registered": true,
+      "activated": true,
+      "routable": true,
+      "visible": true,
+      "authorized": "local-development",
+      "runtimeProven": "PARTIAL",
+      "path": "Shell → GET /v1/search"
+    },
+    {
+      "capability": "entity360",
+      "exists": true,
+      "registered": true,
+      "activated": true,
+      "routable": true,
+      "visible": true,
+      "authorized": "local-development",
+      "runtimeProven": "PARTIAL",
+      "path": "Shell → GET /v1/entities/:id"
+    },
+    {
+      "capability": "gw1_analyze",
+      "exists": true,
+      "registered": true,
+      "activated": true,
+      "routable": true,
+      "visible": true,
+      "authorized": "local-development",
+      "runtimeProven": "UNPROVEN_FOR_PACKAGED_REBOOT_CLOSE",
+      "path": "Shell Analyze → POST /api/vertical-slice/run → Evidence/Lineage"
+    },
+    {
+      "capability": "experience_compiler_gw1",
+      "exists": true,
+      "registered": "PARTIAL",
+      "activated": true,
+      "routable": true,
+      "visible": true,
+      "authorized": "local-development",
+      "runtimeProven": "PARTIAL",
+      "path": "GET /v1/experience/compile (inline + package)",
+      "note": "Package not sole authority; inline compile also present"
+    },
+    {
+      "capability": "product_kernel_package",
+      "exists": true,
+      "registered": true,
+      "activated": false,
+      "routable": false,
+      "visible": false,
+      "class": "DISCONNECTED",
+      "note": "kernel:export exists; HTTP product routes do not import @scios/product-kernel"
+    },
+    {
+      "capability": "bullmq_workers",
+      "exists": false,
+      "class": "PROFILE_DISABLED",
+      "reason": "local-foundation / no Redis required"
+    },
+    {
+      "capability": "oidc",
+      "exists": false,
+      "class": "FULL_VISION_P2"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schema": "sci-os-b009-final-gate/v1",
+  "at": "2026-08-29T20:29:37.679Z",
+  "wave": "B-009",
+  "token": "B_009_BACKGROUND_SYSTEM_READY",
+  "buildId": "pkg_1788035260070",
+  "gitSha": "46b03f18",
+  "steps": {
+    "sourceTests": "PASS",
+    "package": "PASS",
+    "install": "PASS",
+    "installedE2e": "PASS",
+    "regression": "PASS",
+    "cockpit-generated-script.cjs": "PASS",
+    "b009-background-system-hard-gate.cjs": "PASS",
+    "job-engine-b005-hard-gate.cjs": "PASS",
+    "b008-experience-compiler-hard-gate.cjs": "PASS",
+    "b006-cockpit-ui-hard-gate.cjs": "PASS",
+    "b007-p1-root-closure.cjs": "PASS",
+    "cf28-b005-hard-gate.cjs": "PASS"
+  },
+  "status": "PASS"
+}

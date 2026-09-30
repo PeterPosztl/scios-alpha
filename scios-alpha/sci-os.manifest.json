@@ -37,24 +37,47 @@
     "cockpit_view"
   ],
   "ux": [
-    "dashboard",
-    "vertical_slice",
-    "lineage_explorer",
-    "risk_gov_studio",
-    "execution_monitor",
+    "home",
+    "search",
+    "entity_workspace",
+    "analyze_gw1",
+    "professional_view",
+    "technical_view",
+    "evidence",
+    "lineage",
+    "engineering",
     "system_health"
   ],
+  "productSurfaces": {
+    "apphost": "apps/cockpit-ui (Shell is AppHost)",
+    "experienceCompiler": "GET /v1/experience/compile + packages/professional-domain-registry",
+    "firstReleasePath": [
+      "home",
+      "search",
+      "entity",
+      "analyze_gw1",
+      "evidence",
+      "lineage"
+    ]
+  },
   "readiness": {
-    "READY_requires": [
+    "BOOTSTRAP_READY": ["runtime.node usable", "manifest valid"],
+    "CORE_READY": ["backend healthz", "cockpit healthz", "shell handoff :4000"],
+    "CAPABILITY_READY_firstRelease": [
+      "GET /v1/home",
+      "GET /v1/search",
+      "GET /v1/entities/:id",
+      "POST /api/vertical-slice/run",
+      "evidence+lineage viewable"
+    ],
+    "FULL_PROFILE_READY_requires": [
       "infra.postgres HEALTHY",
       "infra.redis HEALTHY",
-      "backend READY",
-      "worker smoke PASS",
-      "cockpit 200",
       "startup-proof PASS",
       "signoff PASS"
     ],
-    "DEGRADED_allowed_when": "core backend+cockpit up; optional infra down; no risk bypass"
+    "OPTIONAL_INFRA_DEGRADED_allowed_when": "CORE_READY; Postgres/Redis/Docker absent; no risk bypass; ALPHA_NON_PRODUCTION",
+    "READY_alias_note": "Manifest historical READY meant FULL_PROFILE_READY — not first-release CORE_READY"
   },
   "rejectedParallel": [
     "sci-os-10",

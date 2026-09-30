@@ -1,0 +1,19 @@
+{
+  "schema": "sci-os-org-actor-model/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "status": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+  "note": "Prepare multi-org/user evolution without reopening OIDC now",
+  "concepts": {
+    "organization": { "fields": ["orgId", "name", "status"], "status": "CONTRACT" },
+    "user": { "fields": ["userId", "orgId", "displayName"], "status": "CONTRACT" },
+    "team": { "fields": ["teamId", "orgId", "memberUserIds"], "status": "CONTRACT" },
+    "actor": {
+      "fields": ["actorId", "kind:user|agent|system", "orgId"],
+      "status": "CONTRACT"
+    },
+    "role": { "fields": ["roleId", "orgId?", "bindings"], "status": "PARTIAL_EXISTING" },
+    "workspace": { "fields": ["workspaceId", "orgId", "roleLens"], "status": "PARTIAL_EXISTING" }
+  },
+  "explicitlyDeferred": ["OIDC", "SSO", "enterprise IdP"],
+  "migrationRiskIfIgnored": "HIGH — user/org foreign keys and evidence attribution"
+}

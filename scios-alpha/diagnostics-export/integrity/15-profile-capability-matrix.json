@@ -1,0 +1,58 @@
+{
+  "at": "2026-08-13T11:21:11.706Z",
+  "buildId": "integrity-2026-08-13-c226d748",
+  "profiles": {
+    "LOCAL_FOUNDATION": {
+      "enabled": [
+        "home",
+        "search",
+        "entity",
+        "gw1",
+        "embedded-risk",
+        "sim"
+      ],
+      "disabled": [
+        "oidc",
+        "bullmq",
+        "live-money",
+        "electron"
+      ],
+      "optional": [
+        "postgres",
+        "redis",
+        "docker"
+      ]
+    },
+    "FIRST_RELEASE": {
+      "required": [
+        "core cp+shell",
+        "home",
+        "gw1",
+        "evidence view",
+        "bundled node"
+      ]
+    },
+    "SAFE": {
+      "enabled": [
+        "diagnostics"
+      ],
+      "disabled": [
+        "writes"
+      ]
+    },
+    "RECOVERY": {
+      "enabled": [
+        "repair",
+        "safe",
+        "recovery-shell"
+      ]
+    },
+    "FUTURE_ENTERPRISE": {
+      "enabled": [
+        "oidc",
+        "durable-fabric",
+        "gw2-7"
+      ]
+    }
+  }
+}

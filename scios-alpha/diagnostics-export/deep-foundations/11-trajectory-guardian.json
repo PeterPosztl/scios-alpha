@@ -1,0 +1,23 @@
+{
+  "at": "2026-08-13T13:09:39.331Z",
+  "buildId": "deep-foundations-2026-08-13",
+  "observe": [
+    "goal",
+    "actions",
+    "tools",
+    "files",
+    "contracts",
+    "policyImpact",
+    "direction"
+  ],
+  "detectCollectiveViolationOf": [
+    "user intent",
+    "Founder Constitution",
+    "protected contracts",
+    "policy",
+    "release scope"
+  ],
+  "status": "LOCK_CONTRACT_NOW_IMPLEMENT_LATER",
+  "agentHarness": "product-memory/agent-harness.json",
+  "cursorRule": ".cursor/rules/10-agent-harness.mdc"
+}

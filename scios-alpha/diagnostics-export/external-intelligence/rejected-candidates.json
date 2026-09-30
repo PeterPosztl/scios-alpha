@@ -1,0 +1,150 @@
+{
+  "at": "2026-08-12T17:07:05.680Z",
+  "catalog": [
+    {
+      "id": "rej.pixel_copy",
+      "idea": "Pixel-perfect competitor screens",
+      "reason": "IP + trademark + brittle UX"
+    },
+    {
+      "id": "rej.dashboard_per_role",
+      "idea": "200 role-specific dashboards",
+      "reason": "Fragments OS; use Experience Compiler"
+    },
+    {
+      "id": "rej.kafka_default",
+      "idea": "Kafka / mesh by default",
+      "reason": "Overengineering vs foundation needs"
+    },
+    {
+      "id": "rej.chatbot_os",
+      "idea": "Chatbot as primary shell",
+      "reason": "Breaks evidence/governance/risk chain"
+    },
+    {
+      "id": "rej.fake_confidence",
+      "idea": "Single green confidence badge",
+      "reason": "Mixes calibration, risk, data quality, health"
+    },
+    {
+      "id": "rej.uncontrolled_plugins",
+      "idea": "Open plugin marketplace without capability declarations",
+      "reason": "Security + evidence bypass risk"
+    },
+    {
+      "id": "rej.oss_museum",
+      "idea": "Install every GitHub star",
+      "reason": "Dependency museum; no verified gap"
+    }
+  ],
+  "ossSkipped": [
+    {
+      "id": "oss.duckdb",
+      "name": "DuckDB",
+      "category": "analytics",
+      "gap": "Local analytical queries without heavy infra",
+      "license": "MIT",
+      "windows": true,
+      "scores": {
+        "capabilityFit": 7,
+        "architectureFit": 6,
+        "license": 9,
+        "security": 7,
+        "maintenance": 9,
+        "maturity": 9,
+        "documentation": 9,
+        "testing": 8,
+        "dependencyWeight": 6,
+        "performance": 9,
+        "portability": 8,
+        "longTermRisk": 4
+      },
+      "decision": "SKIP",
+      "reason": "No verified critical gap vs current in-memory foundation; would add packaging weight before one-click packaging solved"
+    },
+    {
+      "id": "oss.opentelemetry-js",
+      "name": "OpenTelemetry JS",
+      "category": "observability",
+      "gap": "Standard telemetry",
+      "license": "Apache-2.0",
+      "windows": true,
+      "scores": {
+        "capabilityFit": 7,
+        "architectureFit": 8,
+        "license": 9,
+        "security": 8,
+        "maintenance": 9,
+        "maturity": 9,
+        "documentation": 9,
+        "testing": 8,
+        "dependencyWeight": 5,
+        "performance": 7,
+        "portability": 9,
+        "longTermRisk": 3
+      },
+      "decision": "SKIP",
+      "reason": "Local-foundation telemetry mode sufficient; adopt when packaging/ops wave needs standards interchange"
+    }
+  ],
+  "apiSkipped": [
+    {
+      "id": "api.market_data_generic",
+      "provider": "Multiple (Polygon, Alpha Vantage, exchange feeds)",
+      "purpose": "Instrument quotes / bars for market analysis",
+      "terms": "Vendor-specific; check redistribution",
+      "auth": "API key typical",
+      "cost": "Freemium→paid",
+      "rateLimits": "Strict on free tiers",
+      "dataQuality": "VENDOR_DEPENDENT",
+      "freshness": "NEAR_REALTIME_TO_DELAYED",
+      "legal": "No silent production use without terms review",
+      "fallback": "Deterministic simulated market path (current ALPHA)",
+      "domainRoles": [
+        "arch.market_analyst",
+        "arch.risk_manager"
+      ],
+      "adapter": "MarketDataPort",
+      "decision": "SKIP_FOR_NOW",
+      "reason": "GW1 uses foundation vertical-slice; external market API is optional enrichment after packaging"
+    },
+    {
+      "id": "api.otx_alienvault",
+      "provider": "AlienVault OTX",
+      "purpose": "Threat intel pulses / IOCs",
+      "terms": "Public API ToS",
+      "auth": "API key",
+      "cost": "Free tier",
+      "rateLimits": "Yes",
+      "dataQuality": "CROWD_PLUS_VENDOR",
+      "freshness": "VARIABLE",
+      "legal": "Review attribution/ToS",
+      "fallback": "Manual IOC attach",
+      "domainRoles": [
+        "arch.soc_analyst"
+      ],
+      "adapter": "ThreatIntelPort",
+      "decision": "SKIP_FOR_NOW",
+      "reason": "GW3 cyber workflow not yet E2E"
+    },
+    {
+      "id": "api.open_meteo",
+      "provider": "Open-Meteo",
+      "purpose": "Weather for supply-chain / ops context",
+      "terms": "Open; attribution",
+      "auth": "None for basic",
+      "cost": "Free",
+      "rateLimits": "Fair use",
+      "dataQuality": "GOOD_FOR_WEATHER",
+      "freshness": "HOURLY",
+      "legal": "Check commercial terms",
+      "fallback": "Omit weather context",
+      "domainRoles": [
+        "supply_chain_RESEARCH"
+      ],
+      "adapter": "WeatherPort",
+      "decision": "SKIP",
+      "reason": "Not a current golden-workflow blocker"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "sci-os-b007-implementation/v1",
+  "at": "2026-08-29T21:30:00.000Z",
+  "engineeringFixes": [
+    {
+      "rootCauseId": "SWALLOWED_CATCH",
+      "file": "apps/cockpit-ui/src/index.js",
+      "change": "localStorage catch documents private-mode fallback"
+    },
+    {
+      "rootCauseId": "SHELL_TRUE_PROCESS_SPAWN",
+      "file": "packages/meta-recovery/src/inventory.ts",
+      "change": "pnpm/docker spawn without shell:true"
+    },
+    {
+      "rootCauseId": "SOURCE_TREE_FS_DEPENDENCY",
+      "file": "scripts/tests/final-completion-gate.cjs",
+      "change": "PDR archetypes via @scios/professional-domain-registry/archetypes export"
+    },
+    {
+      "rootCauseId": "GHOST_EXPERIENCE_COMPILER_DIR",
+      "file": "packages/system-closure/src/continuous-closure-engine.js",
+      "change": "README-only ghost dir no longer flagged"
+    }
+  ],
+  "detectorUpdates": [
+    {
+      "rootCauseId": "DETACHED_PROCESS",
+      "file": "packages/system-closure/src/continuous-closure-engine.js",
+      "change": "Skip installer/E2E harness detached spawn patterns"
+    }
+  ],
+  "tests": [
+    "scripts/tests/b007-p1-root-closure.cjs",
+    "scripts/tests/b007-hard-gate.cjs"
+  ]
+}

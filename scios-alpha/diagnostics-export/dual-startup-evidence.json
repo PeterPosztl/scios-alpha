@@ -1,0 +1,350 @@
+{
+  "schema": "sci-os-dual-startup/v1",
+  "at": "2026-08-12T15:37:27.153Z",
+  "autonomous": true,
+  "verdict": "STARTUP_CONVERGED_DEGRADED",
+  "readiness": "DEGRADED",
+  "first": {
+    "start": {
+      "correlationId": "e4ddc0cb-d3cd-4e8c-be58-aff0111e549a",
+      "mode": "normal",
+      "verdict": "DEGRADED",
+      "nextAction": "Core cockpit usable; optional PG/Redis/Electron/Docker limited — see warnings",
+      "cockpit": "http://127.0.0.1:4000/",
+      "diagnostics": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\startup-report.json",
+      "supportBundle": null,
+      "blockers": [],
+      "warnings": [
+        "Docker: ENGINE_STOPPED",
+        "Redis configured but unreachable — queues disabled",
+        "No pg client bundled in ALPHA startup — cannot fake SELECT 1"
+      ]
+    },
+    "proof": {
+      "verdict": "STARTUP_CONVERGED_DEGRADED",
+      "readiness": "DEGRADED",
+      "reused": [
+        "control-plane:3000",
+        "cockpit:4000"
+      ],
+      "stopped": [],
+      "workerProof": true,
+      "backend": true,
+      "readyz": true,
+      "cockpit": true
+    },
+    "live": {
+      "backendHealth": true,
+      "backendReady": true,
+      "cockpitHealth": true,
+      "workerSmoke": true,
+      "raw": {
+        "hz": 200,
+        "rz": 200,
+        "ck": 200,
+        "smoke": {
+          "status": 200,
+          "body": "{\"jobId\":\"smoke_1786549011898\",\"status\":\"completed\",\"acknowledged\":true,\"persisted\":true,\"duplicate\":false,\"worker\":\"foundation-smoke-worker\",\"at\":\"2026-08-12T15:36:51.898Z\"}"
+        }
+      }
+    }
+  },
+  "second": {
+    "start": {
+      "correlationId": "5a4f3a8b-cf84-47f3-8568-bf5eef2d5522",
+      "mode": "normal",
+      "verdict": "DEGRADED",
+      "nextAction": "Core cockpit usable; optional PG/Redis/Electron/Docker limited — see warnings",
+      "cockpit": "http://127.0.0.1:4000/",
+      "diagnostics": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\startup-report.json",
+      "supportBundle": null,
+      "blockers": [],
+      "warnings": [
+        "Docker: ENGINE_STOPPED",
+        "Redis configured but unreachable — queues disabled",
+        "No pg client bundled in ALPHA startup — cannot fake SELECT 1"
+      ]
+    },
+    "proof": {
+      "verdict": "STARTUP_CONVERGED_DEGRADED",
+      "readiness": "DEGRADED",
+      "reused": [
+        "control-plane:3000",
+        "cockpit:4000"
+      ],
+      "stopped": [],
+      "workerProof": true,
+      "backend": true,
+      "readyz": true,
+      "cockpit": true
+    },
+    "live": {
+      "backendHealth": true,
+      "backendReady": true,
+      "cockpitHealth": true,
+      "workerSmoke": true,
+      "raw": {
+        "hz": 200,
+        "rz": 200,
+        "ck": 200,
+        "smoke": {
+          "status": 200,
+          "body": "{\"jobId\":\"smoke_1786549037440\",\"status\":\"completed\",\"acknowledged\":true,\"persisted\":true,\"duplicate\":false,\"worker\":\"foundation-smoke-worker\",\"at\":\"2026-08-12T15:37:17.440Z\"}"
+        }
+      }
+    }
+  },
+  "shutdowns": {
+    "mid": {
+      "backendHealth": false,
+      "backendReady": false,
+      "cockpitHealth": false,
+      "workerSmoke": false,
+      "raw": {
+        "hz": 0,
+        "rz": 0,
+        "ck": 0,
+        "smoke": {
+          "status": 0,
+          "error": "connect ECONNREFUSED 127.0.0.1:3000"
+        }
+      }
+    },
+    "final": {
+      "backendHealth": false,
+      "backendReady": false,
+      "cockpitHealth": false,
+      "workerSmoke": false,
+      "raw": {
+        "hz": 0,
+        "rz": 0,
+        "ck": 0,
+        "smoke": {
+          "status": 0,
+          "error": "connect ECONNREFUSED 127.0.0.1:3000"
+        }
+      }
+    }
+  },
+  "steps": [
+    {
+      "step": "clean_state_stop",
+      "exit": 0
+    },
+    {
+      "step": "first_one_click_start",
+      "exit": 0,
+      "verdict": "DEGRADED",
+      "stdoutTail": "e\": \"normal\",\n  \"verdict\": \"DEGRADED\",\n  \"nextAction\": \"Core cockpit usable; optional PG/Redis/Electron/Docker limited — see warnings\",\n  \"cockpit\": \"http://127.0.0.1:4000/\",\n  \"diagnostics\": \"C:\\\\Users\\\\peter\\\\Desktop\\\\SCI\\\\scios-alpha\\\\diagnostics-export\\\\startup-report.json\",\n  \"supportBundle\": null,\n  \"blockers\": [],\n  \"warnings\": [\n    \"Docker: ENGINE_STOPPED\",\n    \"Redis configured but unreachable — queues disabled\",\n    \"No pg client bundled in ALPHA startup — cannot fake SELECT 1\"\n  ]\n}\n"
+    },
+    {
+      "step": "first_proof",
+      "exit": 0,
+      "verdict": "STARTUP_CONVERGED_DEGRADED",
+      "workerProof": true,
+      "stdoutTail": "{\n  \"verdict\": \"STARTUP_CONVERGED_DEGRADED\",\n  \"readiness\": \"DEGRADED\",\n  \"reused\": [\n    \"control-plane:3000\",\n    \"cockpit:4000\"\n  ],\n  \"stopped\": [],\n  \"workerProof\": true,\n  \"backend\": true,\n  \"readyz\": true,\n  \"cockpit\": true\n}\n"
+    },
+    {
+      "step": "first_live_snapshot",
+      "exit": 0,
+      "backendHealth": true,
+      "backendReady": true,
+      "cockpitHealth": true,
+      "workerSmoke": true,
+      "raw": {
+        "hz": 200,
+        "rz": 200,
+        "ck": 200,
+        "smoke": {
+          "status": 200,
+          "body": "{\"jobId\":\"smoke_1786549011898\",\"status\":\"completed\",\"acknowledged\":true,\"persisted\":true,\"duplicate\":false,\"worker\":\"foundation-smoke-worker\",\"at\":\"2026-08-12T15:36:51.898Z\"}"
+        }
+      },
+      "ports": {
+        "api": 3000,
+        "cockpit": 4000
+      }
+    },
+    {
+      "step": "mid_shutdown",
+      "exit": 0
+    },
+    {
+      "step": "mid_shutdown_verify",
+      "exit": 0,
+      "down": {
+        "api": true,
+        "cockpit": true
+      }
+    },
+    {
+      "step": "second_one_click_start",
+      "exit": 0,
+      "verdict": "DEGRADED",
+      "stdoutTail": "e\": \"normal\",\n  \"verdict\": \"DEGRADED\",\n  \"nextAction\": \"Core cockpit usable; optional PG/Redis/Electron/Docker limited — see warnings\",\n  \"cockpit\": \"http://127.0.0.1:4000/\",\n  \"diagnostics\": \"C:\\\\Users\\\\peter\\\\Desktop\\\\SCI\\\\scios-alpha\\\\diagnostics-export\\\\startup-report.json\",\n  \"supportBundle\": null,\n  \"blockers\": [],\n  \"warnings\": [\n    \"Docker: ENGINE_STOPPED\",\n    \"Redis configured but unreachable — queues disabled\",\n    \"No pg client bundled in ALPHA startup — cannot fake SELECT 1\"\n  ]\n}\n"
+    },
+    {
+      "step": "second_proof",
+      "exit": 0,
+      "verdict": "STARTUP_CONVERGED_DEGRADED",
+      "workerProof": true,
+      "stdoutTail": "{\n  \"verdict\": \"STARTUP_CONVERGED_DEGRADED\",\n  \"readiness\": \"DEGRADED\",\n  \"reused\": [\n    \"control-plane:3000\",\n    \"cockpit:4000\"\n  ],\n  \"stopped\": [],\n  \"workerProof\": true,\n  \"backend\": true,\n  \"readyz\": true,\n  \"cockpit\": true\n}\n"
+    },
+    {
+      "step": "second_live_snapshot",
+      "exit": 0,
+      "backendHealth": true,
+      "backendReady": true,
+      "cockpitHealth": true,
+      "workerSmoke": true,
+      "raw": {
+        "hz": 200,
+        "rz": 200,
+        "ck": 200,
+        "smoke": {
+          "status": 200,
+          "body": "{\"jobId\":\"smoke_1786549037440\",\"status\":\"completed\",\"acknowledged\":true,\"persisted\":true,\"duplicate\":false,\"worker\":\"foundation-smoke-worker\",\"at\":\"2026-08-12T15:37:17.440Z\"}"
+        }
+      },
+      "ports": {
+        "api": 3000,
+        "cockpit": 4000
+      }
+    },
+    {
+      "step": "final_shutdown",
+      "exit": 0
+    },
+    {
+      "step": "final_shutdown_verify",
+      "exit": 0,
+      "down": {
+        "api": true,
+        "cockpit": true
+      }
+    }
+  ],
+  "scorecard": {
+    "at": "2026-08-12T15:37:27.151Z",
+    "display": "160/160",
+    "earned": 160,
+    "max": 160,
+    "rows": [
+      {
+        "id": "clean_state",
+        "pass": true,
+        "points": 10,
+        "max": 10,
+        "detail": "stopExit=0"
+      },
+      {
+        "id": "one_click_entry_exists",
+        "pass": true,
+        "points": 10,
+        "max": 10,
+        "detail": "installer/scripts/bootstrap-capsule.cjs"
+      },
+      {
+        "id": "first_one_click_start",
+        "pass": true,
+        "points": 10,
+        "max": 10,
+        "detail": "exit=0 live={\"hz\":200,\"rz\":200,\"ck\":200,\"smoke\":{\"status\":200,\"body\":\"{\\\"jobId\\\":\\\"smoke_1786549011898\\\",\\\"status\\\":\\\"completed\\\",\\\"acknowledged\\\":true,\\\"persisted\\\":true,\\\"duplicate\\\":false,\\\"worker\\\":\\\"foundation-smoke-worker\\\",\\\"at\\\":\\\"2026-08-12T15:36:51.898Z\\\"}\"}}"
+      },
+      {
+        "id": "backend_health",
+        "pass": true,
+        "points": 10,
+        "max": 10,
+        "detail": "status=200"
+      },
+      {
+        "id": "backend_readyz",
+        "pass": true,
+        "points": 10,
+        "max": 10,
+        "detail": "status=200"
+      },
+      {
+        "id": "worker_smoke",
+        "pass": true,
+        "points": 10,
+        "max": 10,
+        "detail": "status=200"
+      },
+      {
+        "id": "cockpit_health",
+        "pass": true,
+        "points": 10,
+        "max": 10,
+        "detail": "status=200"
+      },
+      {
+        "id": "startup_proof_written",
+        "pass": true,
+        "points": 10,
+        "max": 10,
+        "detail": "diagnostics-export/convergence/startup-convergence-proof.json"
+      },
+      {
+        "id": "shutdown_api_down",
+        "pass": true,
+        "points": 10,
+        "max": 10,
+        "detail": "mid_api=0"
+      },
+      {
+        "id": "shutdown_cockpit_down",
+        "pass": true,
+        "points": 10,
+        "max": 10,
+        "detail": "mid_ck=0"
+      },
+      {
+        "id": "second_one_click_start",
+        "pass": true,
+        "points": 10,
+        "max": 10,
+        "detail": "exit=0 live={\"hz\":200,\"rz\":200,\"ck\":200,\"smoke\":{\"status\":200,\"body\":\"{\\\"jobId\\\":\\\"smoke_1786549037440\\\",\\\"status\\\":\\\"completed\\\",\\\"acknowledged\\\":true,\\\"persisted\\\":true,\\\"duplicate\\\":false,\\\"worker\\\":\\\"foundation-smoke-worker\\\",\\\"at\\\":\\\"2026-08-12T15:37:17.440Z\\\"}\"}}"
+      },
+      {
+        "id": "second_backend_ready",
+        "pass": true,
+        "points": 10,
+        "max": 10,
+        "detail": "healthz=200 readyz=200"
+      },
+      {
+        "id": "second_worker_smoke",
+        "pass": true,
+        "points": 10,
+        "max": 10,
+        "detail": "status=200"
+      },
+      {
+        "id": "second_cockpit_200",
+        "pass": true,
+        "points": 10,
+        "max": 10,
+        "detail": "healthz=200"
+      },
+      {
+        "id": "final_orderly_shutdown",
+        "pass": true,
+        "points": 10,
+        "max": 10,
+        "detail": "api=0 cockpit=0"
+      },
+      {
+        "id": "dual_consecutive_autonomous",
+        "pass": true,
+        "points": 10,
+        "max": 10,
+        "detail": "readiness=DEGRADED"
+      }
+    ],
+    "verdict": "PASS",
+    "label": "ALPHA_NON_PRODUCTION",
+    "note": "PASS = two consecutive clean one-click startups + worker smoke + readiness probe + orderly shutdown. Infra may still be DEGRADED."
+  }
+}

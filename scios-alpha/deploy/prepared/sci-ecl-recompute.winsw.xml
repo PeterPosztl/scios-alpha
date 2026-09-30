@@ -1,0 +1,11 @@
+<!-- PREPARED_DISABLED Windows service skeleton. Not installed by SCI-OS-Start.bat. autoTrade=false. -->
+<service>
+  <id>sci-ecl-recompute</id>
+  <name>SCI OS ECL preview recompute (PREPARED_DISABLED)</name>
+  <description>HTTP recompute of pnl/risk/ledger. Does not execute trades. Not product READY.</description>
+  <executable>node</executable>
+  <arguments>apps/sci-cli/sci-daemon.cjs --service</arguments>
+  <env name="SCIOS_DAEMON" value="1"/>
+  <env name="CONTROL_URL" value="http://127.0.0.1:3000"/>
+  <stoptimeout>5sec</stoptimeout>
+</service>

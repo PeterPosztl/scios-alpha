@@ -1,0 +1,48 @@
+{
+  "schema": "sci-os-product-memory-protected-contracts/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "note": "Future AI/code generation MUST read product-memory/ before changing these",
+  "contracts": [
+    {
+      "id": "PCT-BOOT",
+      "surface": "installer/scripts/start-sci-os.cjs + transactional-boot",
+      "protection": "No second orchestrator; VERIFY_HOME before openBrowser"
+    },
+    {
+      "id": "PCT-PORTS",
+      "surface": "sci-os.manifest.json ports 3000/4000",
+      "protection": "No silent revert to 5200/5230 as canonical"
+    },
+    {
+      "id": "PCT-PREDICTION-ENVELOPE",
+      "surface": "data-fabric PredictionEnvelopeSchema",
+      "protection": "Additive Zod only; adapters for breaks"
+    },
+    {
+      "id": "PCT-RISK-ENVELOPE",
+      "surface": "data-fabric RiskDecisionEnvelopeSchema",
+      "protection": "Independent risk path retained"
+    },
+    {
+      "id": "PCT-VERTICAL-SLICE-STAGES",
+      "surface": "VERTICAL_SLICE_STAGES",
+      "protection": "Canonical GW1 spine"
+    },
+    {
+      "id": "PCT-PROFESSIONAL-DEFAULT",
+      "surface": "cockpit Professional mode",
+      "protection": "Raw JSON not primary Professional View"
+    },
+    {
+      "id": "PCT-ROLE-COMPOSITION",
+      "surface": "professional-domain-registry",
+      "protection": "No 200 separate apps"
+    },
+    {
+      "id": "PCT-DESIGN-TOKENS",
+      "surface": "packages/design-system + cockpit CSS variables",
+      "protection": "SCI palette; no vendor skin swap without UX decision record"
+    }
+  ],
+  "related": ["docs/enterprise/PROTECTED_CONTRACTS.md", "product-memory/ux-decisions.json"]
+}

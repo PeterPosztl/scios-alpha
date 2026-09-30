@@ -1,0 +1,26 @@
+{
+  "at": "2026-08-13T12:52:42.652Z",
+  "buildId": "crown-architecture-2026-08-13",
+  "schema": "sci-os-trust-capsule/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "runId": "sample",
+  "professional": {
+    "sourceFreshness": "2026-08-13T12:52:42.652Z",
+    "evidenceCoverage": "1 lineage nodes",
+    "modelVersion": "baseline-logistic@1.0.0",
+    "uncertainty": {
+      "abstain": false,
+      "interval": null,
+      "calibration": {
+        "status": "NON_PRODUCTION"
+      }
+    },
+    "calibrationValidationStatus": "NON_PRODUCTION",
+    "risk": "APPROVE",
+    "policy": "embedded-foundation/v1",
+    "lineageAvailability": true
+  },
+  "forensicExpandOnDemand": true,
+  "note": "Professional default is concise; Technical View holds full forensic detail",
+  "shellHasTrustCapsule": true
+}

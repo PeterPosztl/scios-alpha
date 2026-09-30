@@ -1,0 +1,54 @@
+{
+  "schema": "sci-os-product-memory-rejected-patterns/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "rejected": [
+    {
+      "id": "REJ-COPY-VENDOR-UI",
+      "pattern": "Copy Palantir / ServiceNow / Microsoft / Apple UI or branding",
+      "reason": "Violates SCI identity; legal/IP risk",
+      "allowedInstead": "Adopt principles only via Benchmark Pattern Translator"
+    },
+    {
+      "id": "REJ-200-APPS",
+      "pattern": "One application per profession",
+      "reason": "Unmaintainable; contradicts composition model",
+      "allowedInstead": "Role + JTBD → Experience Compiler"
+    },
+    {
+      "id": "REJ-JSON-PRIMARY",
+      "pattern": "Raw JSON as default professional surface",
+      "reason": "Developer cockpit anti-pattern",
+      "allowedInstead": "Professional cards + Trust Capsule; Technical on demand"
+    },
+    {
+      "id": "REJ-FALSE-READY",
+      "pattern": "Single READY flag collapsing boot/data/science/UX",
+      "reason": "No false simplicity",
+      "allowedInstead": "Dimensional statuses BOOT/CORE/CAPABILITY/RISK/POLICY/UX"
+    },
+    {
+      "id": "REJ-AGENT-SWARM",
+      "pattern": "Uncontrolled multi-agent autonomous execution",
+      "reason": "GOVERNANCE > AGENT",
+      "allowedInstead": "Governed tools + human approval"
+    },
+    {
+      "id": "REJ-REDESIGN-BEFORE-BOOT",
+      "pattern": "Full visual redesign while Home/boot unreliable",
+      "reason": "Hides P0 defects",
+      "allowedInstead": "BOOT → HOME → baseline capture → normalize"
+    },
+    {
+      "id": "REJ-PURPLE-AI-THEME",
+      "pattern": "Generic purple-indigo AI marketing theme",
+      "reason": "Erases SCI Swiss identity",
+      "allowedInstead": "Snow/Fog/Navy/Ice/Red tokens"
+    },
+    {
+      "id": "REJ-HARDCODE-SERVICE-IN-UI",
+      "pattern": "Hardcode microservice names/ports into professional copy",
+      "reason": "Users must not navigate internal services",
+      "allowedInstead": "Product language + System dimensional status"
+    }
+  ]
+}

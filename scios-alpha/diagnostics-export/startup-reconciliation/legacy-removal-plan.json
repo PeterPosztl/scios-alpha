@@ -1,0 +1,22 @@
+{
+  "at": "2026-08-12T20:33:12.843Z",
+  "doNotDeleteYet": [
+    {
+      "path": "qmis-orion-os-x10/GalaxusMetaOS/start-meta-os.bat",
+      "action": "DEPRECATE_DOCUMENT — out of SCI OS product tree"
+    },
+    {
+      "path": "scripts/boot/index.mjs",
+      "action": "KEEP as leaf alpha boot — not user primary"
+    },
+    {
+      "path": "SCI OS ×10.bat",
+      "action": "KEEP as compatibility cascade wrapper"
+    }
+  ],
+  "removedFromSciOsBootChain": [
+    "start-meta-os.cjs (never wired in scios-alpha)",
+    "silent system Node fallback in PACKAGED mode (code path hardened)",
+    "validate-config defaults 5200/5230 (replaced by manifest 3000/4000)"
+  ]
+}

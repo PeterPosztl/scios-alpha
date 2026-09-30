@@ -1,0 +1,14 @@
+{
+  "schema": "sci-os-host-v1-security/v1",
+  "status": "PASS",
+  "checks": {
+    "noArbitraryCommandEndpoint": true,
+    "noArbitraryPowerShellApi": true,
+    "noUnrestrictedEventLogIngest": true,
+    "noAdminRequiredForOrdinaryOperation": true,
+    "noArbitraryProcessControl": true,
+    "noNewExternalTcpListener": true,
+    "noSecretsInEvidence": true,
+    "jobObjectNoGlobalSystemModification": true
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "hypotheses": [
+    {
+      "id": 1,
+      "claim": ".nvmrc still 18.20.0 vs engines >=20.18<21",
+      "verdict": "DISPROVED_FIXED",
+      "evidence": {
+        "nvmrc": "20.18.1",
+        "engines": {
+          "node": ">=20.18.0 <21",
+          "pnpm": ">=8.0.0"
+        }
+      }
+    },
+    {
+      "id": 2,
+      "claim": "SCI-OS-Start.bat instructs Node 18.20.x",
+      "verdict": "DISPROVED_FIXED",
+      "evidence": {
+        "mentions2018": true
+      }
+    },
+    {
+      "id": 3,
+      "claim": "engine-strict=false",
+      "verdict": "DISPROVED_FIXED",
+      "evidence": {
+        "npmrc": "engine-strict=true\nauto-install-peers=true\nstrict-peer-dependencies=false"
+      }
+    },
+    {
+      "id": 4,
+      "claim": "SCI OS ×10.bat depends on system Node only",
+      "verdict": "DISPROVED_FIXED",
+      "evidence": {
+        "hasWhereNode": true,
+        "hasBundled": true
+      }
+    },
+    {
+      "id": 5,
+      "claim": "Repair/Safe depend on system Node only",
+      "verdict": "DISPROVED_FIXED_PREFERS_BUNDLED",
+      "evidence": {
+        "repairPrefersBundled": true
+      }
+    },
+    {
+      "id": 6,
+      "claim": "Meta-Recovery requires system Node+pnpm always",
+      "verdict": "PARTIAL_FIXED_DEV_STILL_PNPM"
+    },
+    {
+      "id": 7,
+      "claim": "Many competing startup entrypoints",
+      "verdict": "PROVED_CLASSIFIED",
+      "note": "Multiple entries remain; must converge on start-sci-os — see 04"
+    },
+    {
+      "id": 8,
+      "claim": "README documents 5200/5230",
+      "verdict": "DISPROVED_FIXED_MARKED_LEGACY"
+    },
+    {
+      "id": 9,
+      "claim": "AGENTS Wave-0 only world",
+      "verdict": "DISPROVED_FIXED"
+    },
+    {
+      "id": 10,
+      "claim": "manifest UX older than Home/AppHost",
+      "verdict": "DISPROVED_FIXED",
+      "evidence": {
+        "ux": [
+          "home",
+          "search",
+          "entity_workspace",
+          "analyze_gw1",
+          "professional_view",
+          "technical_view",
+          "evidence",
+          "lineage",
+          "engineering",
+          "system_health"
+        ]
+      }
+    },
+    {
+      "id": 11,
+      "claim": "READY mixes PG/Redis mandatory with DEGRADED",
+      "verdict": "DISPROVED_FIXED_SEMANTICS"
+    },
+    {
+      "id": 12,
+      "claim": "DEGRADED with blockers=[] exits 1",
+      "verdict": "DISPROVED_POLICY_EXIT0_FOR_DEGRADED"
+    },
+    {
+      "id": 13,
+      "claim": "shell:true DEP0190 in start-sci-os pnpm spawn",
+      "verdict": "DISPROVED_FIXED_PRIMARY"
+    },
+    {
+      "id": 14,
+      "claim": "root build packages-only",
+      "verdict": "PROVED",
+      "evidence": {
+        "build": "pnpm -r --filter \"./packages/**\" run build"
+      }
+    },
+    {
+      "id": 15,
+      "claim": "root test data-fabric+vertical-slice only",
+      "verdict": "PROVED"
+    },
+    {
+      "id": 16,
+      "claim": "kernel/closure/domain packages missing from workspace/lock",
+      "verdict": "PROVED_PARTIAL",
+      "evidence": {
+        "disk": {
+          "productKernel": true,
+          "domainRegistry": true,
+          "systemClosure": true
+        },
+        "lockImporters": {
+          "productKernel": true,
+          "domainRegistry": true,
+          "systemClosure": true
+        }
+      }
+    },
+    {
+      "id": 17,
+      "claim": "ATOM-AI scripts remain active",
+      "verdict": "DISPROVED_FIXED_STALE_EXIT2"
+    },
+    {
+      "id": 18,
+      "claim": "auto-fill/auto-finish callable",
+      "verdict": "PROVED_OFF_PATH"
+    },
+    {
+      "id": 19,
+      "claim": "pkg bootstrap path differs from installer capsule",
+      "verdict": "PROVED_BUT_DELEGATES",
+      "evidence": {
+        "pkgAsset": "bootstrap/bootstrap-capsule.js",
+        "delegatesTo": "installer/scripts/bootstrap-capsule.cjs"
+      }
+    },
+    {
+      "id": 20,
+      "claim": "tsconfig.base NodeNext vs root CommonJS",
+      "verdict": "PROVED",
+      "evidence": {
+        "base": "NodeNext",
+        "root": "commonjs/node",
+        "note": "Root tsconfig targets legacy src/; packages use base — dual module graph"
+      }
+    },
+    {
+      "id": 21,
+      "claim": "@types/node major differs from runtime major",
+      "verdict": "PROVED",
+      "evidence": {
+        "typesNode": "^22.10.0",
+        "runtimeFamily": "20.18.x"
+      }
+    },
+    {
+      "id": 22,
+      "claim": "cockpit monolithic",
+      "verdict": "PROVED",
+      "evidence": {
+        "filesInSrc": 1,
+        "lines": 643,
+        "react": false,
+        "doctype": true
+      }
+    },
+    {
+      "id": 23,
+      "claim": "local-foundation disables substantial capability",
+      "verdict": "PROVED_INTENTIONAL_PARTIAL",
+      "note": "BullMQ/OIDC/Electron/FastAPI engines off; Home/GW1 on"
+    },
+    {
+      "id": 24,
+      "claim": "old diagnostics contaminate gates",
+      "verdict": "PROVED_RISK_MITIGATED_BY_INDEX",
+      "note": "current-evidence-index + STALE_FOR_CURRENT_GATE classification"
+    }
+  ],
+  "remainingConflicts": [
+    {
+      "fact": "startup entrypoints",
+      "owners": [
+        "SCI-OS-Start.bat",
+        "SCI OS ×10.bat",
+        "pnpm sci:start",
+        "pnpm start",
+        "pnpm boot:*",
+        "packaged SCI-OS-X10.cmd"
+      ],
+      "resolution": "All must hand off to start-sci-os.cjs"
+    },
+    {
+      "fact": "product-kernel runtime authority",
+      "owners": [
+        "packages/product-kernel",
+        "apps/control-plane-api inline product.ts"
+      ],
+      "resolution": "Inline currently authoritative for HTTP; package DISCONNECTED"
+    }
+  ]
+}

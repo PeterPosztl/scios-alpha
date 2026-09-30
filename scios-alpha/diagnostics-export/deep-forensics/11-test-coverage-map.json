@@ -1,0 +1,25 @@
+{
+  "at": "2026-08-13T11:13:24.501Z",
+  "buildId": "deep-forensics-2026-08-13-c226d748",
+  "layers": {
+    "UNIT": [
+      "data-fabric",
+      "vertical-slice"
+    ],
+    "CONTRACT": [
+      "gate:contracts",
+      "gate:scaffold"
+    ],
+    "INTEGRATION": "PARTIAL",
+    "RUNTIME": [
+      "sci:proof",
+      "convergence"
+    ],
+    "PRODUCT_E2E": "MISSING_AS_AUTOMATED_GATE",
+    "PACKAGED_E2E": "package:prove-reboot (GW1 evidence gap)",
+    "RECOVERY": "PARTIAL",
+    "REBOOT": "TASK-PKG-003 OPEN"
+  },
+  "rootTestMasquerade": true,
+  "note": "pnpm test must not be treated as whole-product proof"
+}

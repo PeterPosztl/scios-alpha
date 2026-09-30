@@ -1,0 +1,74 @@
+{
+  "at": "2026-08-12T20:22:33.449Z",
+  "schema": "sci-os-final-product-signoff/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "verdict": "SCI OS FOUNDATION PRODUCT — DEGRADED",
+  "gates": {
+    "p0StillPasses": true,
+    "canonicalStartup": true,
+    "productKernel": true,
+    "objectModel": true,
+    "capabilityRegistry": true,
+    "workflowRegistry": true,
+    "actionRegistry": true,
+    "evidenceModel": true,
+    "noRequiredPlaceholders": true,
+    "riskCannotBypass": true,
+    "governanceCannotBypass": true,
+    "pitTests": "PARTIAL",
+    "simulationReal": true,
+    "lineageComplete": true,
+    "professionalUxRealBackend": true,
+    "goldenWorkflow1E2E": true,
+    "errorLoadingEmptyStates": true,
+    "bootstrapSupervisor": "PARTIAL_DEVELOPER_START",
+    "noTerminalForEndUser": false,
+    "noCriticalSecurityBlocker": true
+  },
+  "readyGatesFailed": [
+    "clean_one_click",
+    "ux_scorecard"
+  ],
+  "p0Pass": true,
+  "goldenWorkflow1": {
+    "id": "golden_workflow_1_aapl_analysis",
+    "at": "2026-08-12T20:22:33.438Z",
+    "pass": true,
+    "steps": {
+      "homeApi": true,
+      "searchAapl": true,
+      "entity360": true,
+      "analyzeHttp": true,
+      "prediction": true,
+      "risk": true,
+      "governance": true,
+      "simulation": true,
+      "lineage": true,
+      "lineageNodes": true,
+      "professionalHome": true,
+      "entity360Ui": true,
+      "professionalResult": true,
+      "technicalView": true,
+      "pipelineProgress": true,
+      "emptyStates": true,
+      "riskRejectBlocksExecution": true
+    },
+    "runId": "run_9180190d-3afb-4908-a261-eb6308ba3917",
+    "negativePath": {
+      "runId": "run_bce31cc7-f88d-439a-a7f4-9856e5bac25a",
+      "status": "REJECT",
+      "riskBlocked": true,
+      "execBlocked": true
+    },
+    "maturity": "L7_RUNTIME_PARTIAL",
+    "note": "GW1 product path live; clean-install/reboot still separate gates"
+  },
+  "uxTotal": 72,
+  "nextBlockers": [
+    "Package Setup.exe / SCI OS ×10.exe with bundled runtimes; prove clean-install-proof",
+    "Reboot acceptance with persisted work state",
+    "UX scorecard ≥ 85 with measured rubric",
+    "Golden workflows 2–7 end-to-end"
+  ],
+  "note": "Artifact generation ≠ READY. One-click clean-machine path still MISSING. P0+GW1 product path may be DEGRADED-ready."
+}

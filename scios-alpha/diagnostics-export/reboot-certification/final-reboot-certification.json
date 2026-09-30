@@ -1,0 +1,9 @@
+{
+  "at": "2026-08-12T20:43:48.000Z",
+  "schema": "sci-os-reboot-certification-gate/v1",
+  "phase": "AWAITING_HOST_REBOOT",
+  "preRebootReady": true,
+  "postRebootArtifacts": "NOT_YET — generate only after Windows reboot + SCI-OS-X10.cmd + REBOOT-CERTIFY-AFTER.cmd",
+  "verdict": "POST-REBOOT INTERNAL BLOCKER — AWAITING_HOST_REBOOT",
+  "note": "FULL PRODUCT BOOT — READY cannot be issued from a developer session. Host reboot is mandatory."
+}

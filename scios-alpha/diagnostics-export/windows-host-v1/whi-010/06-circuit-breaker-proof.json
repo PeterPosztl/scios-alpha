@@ -8,7 +8,7 @@
   "budgetState": {
     "cockpit|SCI_PROCESS_MISSING": {
       "attempts": 2,
-      "lastAttempt": 1787144884757,
+      "lastAttempt": 1790762916093,
       "circuitOpen": true,
       "successes": 0,
       "failures": 2

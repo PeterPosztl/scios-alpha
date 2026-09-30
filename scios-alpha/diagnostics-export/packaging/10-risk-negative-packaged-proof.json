@@ -1,0 +1,9 @@
+{
+  "at": "2026-08-12T18:40:40.768Z",
+  "pass": true,
+  "status": "REJECT",
+  "riskBlocked": true,
+  "execBlocked": true,
+  "runId": "run_30c4117f-1ad7-4402-8368-608da5fd7d27",
+  "mode": "PACKAGED"
+}

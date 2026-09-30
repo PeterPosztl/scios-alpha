@@ -1,0 +1,81 @@
+{
+  "schema": "sci-os-block2-gw1-birth/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-13T19:04:18.501Z",
+  "base": "http://127.0.0.1:3000",
+  "steps": [
+    {
+      "name": "HOME",
+      "ok": true,
+      "status": 200,
+      "headline": "What needs your attention?"
+    },
+    {
+      "name": "EXPERIENCE_COMPILE",
+      "ok": true,
+      "status": 200,
+      "profile": "market_analysis",
+      "modules": [
+        "ContextHeader",
+        "PredictionPanel",
+        "RiskPanel",
+        "DecisionPanel",
+        "SimulationPanel",
+        "LineagePanel",
+        "EvidencePanel"
+      ],
+      "actorRole": "arch.market_analyst"
+    },
+    {
+      "name": "SEARCH_AAPL",
+      "ok": true,
+      "status": 200
+    },
+    {
+      "name": "ENTITY",
+      "ok": true,
+      "status": 200,
+      "entityId": "Entity:AAPL",
+      "title": "AAPL — Apple Inc."
+    },
+    {
+      "name": "ANALYZE",
+      "ok": true,
+      "status": 200,
+      "runId": "run_828d82d3-3c35-4640-bc6f-399445ac9db6",
+      "statusOut": "APPROVE",
+      "science": null
+    },
+    {
+      "name": "RESULT_UNCERTAINTY_RISK_GOV",
+      "ok": true,
+      "prediction": 0.4442065333611533,
+      "risk": "APPROVE",
+      "governance": "APPROVE",
+      "modelTruth": "UNKNOWN"
+    },
+    {
+      "name": "SIMULATION",
+      "ok": true,
+      "executionId": "ord_392d599b-faf8-4040-a242-8ac8adb75708",
+      "simulated": true
+    },
+    {
+      "name": "EVIDENCE_LINEAGE",
+      "ok": true,
+      "status": 200,
+      "lineageVerified": true,
+      "nodeCount": 11
+    },
+    {
+      "name": "SESSION_PATCH_ALLOWLIST",
+      "ok": true,
+      "status": 200,
+      "version": 1
+    }
+  ],
+  "primaryDeadEndCount": 0,
+  "deadEnds": [],
+  "issues": [],
+  "status": "PASS"
+}

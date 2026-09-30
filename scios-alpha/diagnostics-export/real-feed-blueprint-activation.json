@@ -1,0 +1,88 @@
+{
+  "schema": "sci-os-real-feed-blueprint-activation/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T18:11:30.000Z",
+  "mode": "SAFE_MODE",
+  "ready": false,
+  "holeless": false,
+  "autoTrade": false,
+  "enabledRuntimes": false,
+  "autoApply": false,
+  "simulationOnly": true,
+  "executionMode": "SIMULATION_ONLY",
+  "persisted": false,
+  "oneBoot": true,
+  "oneShell": true,
+  "unexpectedLiveFeeds": false,
+  "liveCertifiedFeeds": 0,
+  "blueprints": {
+    "safeActivation": true,
+    "wiredIntoOs": true,
+    "inspectionUnlocked": true,
+    "enabled": false,
+    "AgentSystem.LDA": { "status": "ABSENT", "enabled": false, "autoPatch": false, "analog": "DIL proposals + Cursor outside product" },
+    "KnowledgeGraph.Core": { "status": "PARTIAL", "enabled": false, "nationalGraph": false, "roleSeeds": 200 },
+    "WorkflowDSL.Core": { "status": "ABSENT", "enabled": false, "secondEngine": false, "analog": "GW1 + CF11" },
+    "DistributedArchitecture.Core": { "status": "ABSENT", "enabled": false, "kafka": "ABSENT" },
+    "shellViews": ["agent", "kg", "workflow", "dist"]
+  },
+  "feeds": {
+    "engine": "DataFeedEngine",
+    "registered": 13,
+    "mode": "SIMULATION_ONLY",
+    "enabledLive": false,
+    "liveCertified": 0,
+    "ids": [
+      "prediction.kalshi",
+      "prediction.polymarket",
+      "market.spot",
+      "market.orderbook",
+      "market.depth",
+      "market.ohlc",
+      "macro.gdp",
+      "macro.cpi",
+      "macro.rates",
+      "news.economic",
+      "news.political",
+      "risk.credit",
+      "risk.geopolitical"
+    ],
+    "consumers": {
+      "Intelligence": ["prediction.kalshi", "prediction.polymarket", "market.spot", "macro.gdp", "news.economic"],
+      "CausalEngine": ["prediction.kalshi", "macro.cpi", "risk.geopolitical"],
+      "SSE": ["prediction.polymarket", "market.ohlc"],
+      "Reporting": ["prediction.kalshi", "prediction.polymarket"],
+      "RiskGov": ["risk.credit", "risk.geopolitical"],
+      "SystemHealth": ["FeedHealthMonitor"]
+    },
+    "honesty": {
+      "orderbook": "ABSENT",
+      "ohlc": "ABSENT",
+      "gdp": "ABSENT",
+      "cpi": "STUB not BLS",
+      "causalGraph": "typed analog, not do-calculus",
+      "sse": "horizon compare, not Monte Carlo"
+    }
+  },
+  "validation": {
+    "simulationOnly": true,
+    "persistedFalseUntilLedgerReady": true,
+    "noAutoTrade": true,
+    "oneBootOneShell": true,
+    "noUnexpectedLiveFeeds": true,
+    "auditIntegrity": "GET persisted=false; human review writes audit only"
+  },
+  "tests": {
+    "eclDil": { "pass": 13, "fail": 0 },
+    "cockpitUi": { "pass": 11, "fail": 0 },
+    "smokeEclDil": { "ok": true, "fails": [], "autoTrade": false }
+  },
+  "refused": {
+    "ldaRuntime": "GOVERNANCE > AGENT",
+    "secondWorkflowEngine": "GAP-0006",
+    "kafka": "oneBoot_oneShell",
+    "sciDilFeedLive": "SCI_DIL_FEED remains unset",
+    "ready": false
+  },
+  "note": "SAFE MODE compose. Kalshi/Polymarket are simulated DIL snapshots, not venue sockets. CausalEngine/SSE consume registry analogs. Not READY."
+}

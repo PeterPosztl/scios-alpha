@@ -1,0 +1,36 @@
+{
+  "schema": "sci-os-standards-registry/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "standards": [
+    {
+      "id": "wcag21",
+      "title": "WCAG 2.1/2.2",
+      "decision": "ADOPT_PRINCIPLES",
+      "domain": "accessibility"
+    },
+    {
+      "id": "otel",
+      "title": "OpenTelemetry",
+      "decision": "ADOPT_WHEN_OPS_WAVE",
+      "domain": "telemetry"
+    },
+    {
+      "id": "nist_ai_rmf",
+      "title": "NIST AI RMF",
+      "decision": "ADAPT",
+      "domain": "ai_governance"
+    },
+    {
+      "id": "iso31000",
+      "title": "ISO 31000",
+      "decision": "ADAPT_LANGUAGE",
+      "domain": "risk"
+    },
+    {
+      "id": "spdx",
+      "title": "SPDX / SBOM",
+      "decision": "ADOPT_FOR_PACKAGING",
+      "domain": "supply_chain_security"
+    }
+  ]
+}

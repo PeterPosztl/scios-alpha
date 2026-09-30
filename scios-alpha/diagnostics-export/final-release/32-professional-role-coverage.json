@@ -1,0 +1,45 @@
+{
+  "at": "2026-08-12T17:20:05.222Z",
+  "note": "Seeds are not E2E proven. Archetypes mapped; GW1 proves market path.",
+  "summary": {
+    "FULLY_SUPPORTED": 0,
+    "PARTIALLY_SUPPORTED": 1,
+    "CONFIGURED_ONLY": 199,
+    "UNSUPPORTED": 0,
+    "note": "arch.market_analyst path PARTIALLY_SUPPORTED via GW1; count approximate"
+  },
+  "archetypes": [
+    {
+      "roleId": "arch.market_analyst",
+      "REGISTERED": true,
+      "MAPPED": true,
+      "WORKFLOW_AVAILABLE": true,
+      "CAPABILITIES_AVAILABLE": true,
+      "UX_AVAILABLE": true,
+      "PERMISSIONS_DEFINED": "PARTIAL",
+      "EVIDENCE_AVAILABLE": true,
+      "END_TO_END_PROVEN": true,
+      "class": "PARTIALLY_SUPPORTED"
+    },
+    {
+      "roleId": "arch.soc_analyst",
+      "class": "CONFIGURED_ONLY",
+      "END_TO_END_PROVEN": false
+    },
+    {
+      "roleId": "arch.fraud_investigator",
+      "class": "CONFIGURED_ONLY",
+      "END_TO_END_PROVEN": false
+    },
+    {
+      "roleId": "arch.risk_manager",
+      "class": "CONFIGURED_ONLY",
+      "END_TO_END_PROVEN": false
+    },
+    {
+      "roleId": "arch.platform_sre",
+      "class": "CONFIGURED_ONLY",
+      "END_TO_END_PROVEN": false
+    }
+  ]
+}

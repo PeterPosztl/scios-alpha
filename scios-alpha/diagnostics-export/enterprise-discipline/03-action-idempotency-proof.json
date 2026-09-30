@@ -1,0 +1,135 @@
+{
+  "at": "2026-08-13T12:39:24.586Z",
+  "buildId": "enterprise-discipline-2026-08-13",
+  "schema": "sci-os-action-idempotency-proof/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "invariant": "RETRYING THE SAME ACTION MUST NOT DUPLICATE ITS SIDE EFFECT",
+  "first": {
+    "executionState": "SUCCEEDED",
+    "sideEffectInvocations": 1
+  },
+  "scenarios": {
+    "network_retry": {
+      "schema": "sci-os-action-execution/v1",
+      "actionId": "analyze",
+      "actionType": "ANALYZE_SIMULATION",
+      "idempotencyKey": "proof-key-gw1-aapl-v1",
+      "actor": "proof-runner",
+      "role": "operator",
+      "objectId": "Entity:AAPL",
+      "expectedObjectVersion": "v1",
+      "policyVersion": "embedded-foundation/v1",
+      "riskDecision": null,
+      "requestedAt": "2026-08-13T12:39:24.704Z",
+      "executionState": "DUPLICATE_SUPPRESSED",
+      "effect": {
+        "outcome": "SUCCESS",
+        "runId": "run_proof_1",
+        "evidenceRefs": [
+          "ev_proof_1"
+        ]
+      },
+      "evidenceRefs": [
+        "ev_proof_1"
+      ],
+      "executionId": "exec_1208cc98-c8e8-40ab-a24b-2736721e628f",
+      "completedAt": "2026-08-13T12:39:24.706Z",
+      "sideEffectInvocations": 1,
+      "replay": true
+    },
+    "double_click": {
+      "schema": "sci-os-action-execution/v1",
+      "actionId": "analyze",
+      "actionType": "ANALYZE_SIMULATION",
+      "idempotencyKey": "proof-key-gw1-aapl-v1",
+      "actor": "proof-runner",
+      "role": "operator",
+      "objectId": "Entity:AAPL",
+      "expectedObjectVersion": "v1",
+      "policyVersion": "embedded-foundation/v1",
+      "riskDecision": null,
+      "requestedAt": "2026-08-13T12:39:24.704Z",
+      "executionState": "DUPLICATE_SUPPRESSED",
+      "effect": {
+        "outcome": "SUCCESS",
+        "runId": "run_proof_1",
+        "evidenceRefs": [
+          "ev_proof_1"
+        ]
+      },
+      "evidenceRefs": [
+        "ev_proof_1"
+      ],
+      "executionId": "exec_1208cc98-c8e8-40ab-a24b-2736721e628f",
+      "completedAt": "2026-08-13T12:39:24.706Z",
+      "sideEffectInvocations": 1,
+      "replay": true
+    },
+    "agent_retry": {
+      "schema": "sci-os-action-execution/v1",
+      "actionId": "analyze",
+      "actionType": "ANALYZE_SIMULATION",
+      "idempotencyKey": "proof-key-gw1-aapl-v1",
+      "actor": "proof-runner",
+      "role": "operator",
+      "objectId": "Entity:AAPL",
+      "expectedObjectVersion": "v1",
+      "policyVersion": "embedded-foundation/v1",
+      "riskDecision": null,
+      "requestedAt": "2026-08-13T12:39:24.704Z",
+      "executionState": "DUPLICATE_SUPPRESSED",
+      "effect": {
+        "outcome": "SUCCESS",
+        "runId": "run_proof_1",
+        "evidenceRefs": [
+          "ev_proof_1"
+        ]
+      },
+      "evidenceRefs": [
+        "ev_proof_1"
+      ],
+      "executionId": "exec_1208cc98-c8e8-40ab-a24b-2736721e628f",
+      "completedAt": "2026-08-13T12:39:24.706Z",
+      "sideEffectInvocations": 1,
+      "replay": true
+    },
+    "workflow_resume": {
+      "schema": "sci-os-action-execution/v1",
+      "actionId": "analyze",
+      "actionType": "ANALYZE_SIMULATION",
+      "idempotencyKey": "proof-key-gw1-aapl-v1",
+      "actor": "proof-runner",
+      "role": "operator",
+      "objectId": "Entity:AAPL",
+      "expectedObjectVersion": "v1",
+      "policyVersion": "embedded-foundation/v1",
+      "riskDecision": null,
+      "requestedAt": "2026-08-13T12:39:24.704Z",
+      "executionState": "DUPLICATE_SUPPRESSED",
+      "effect": {
+        "outcome": "SUCCESS",
+        "runId": "run_proof_1",
+        "evidenceRefs": [
+          "ev_proof_1"
+        ]
+      },
+      "evidenceRefs": [
+        "ev_proof_1"
+      ],
+      "executionId": "exec_1208cc98-c8e8-40ab-a24b-2736721e628f",
+      "completedAt": "2026-08-13T12:39:24.706Z",
+      "sideEffectInvocations": 1,
+      "replay": true
+    },
+    "process_restart_in_memory": {
+      "note": "In-memory store resets on process restart — durable key store PARTIAL (local-durable next)",
+      "sideEffectInvocations": 1,
+      "wouldDuplicateWithoutDurableStore": true
+    }
+  },
+  "sideEffectCount": 2,
+  "sameProcessPass": true,
+  "durableRestartPass": false,
+  "status": "PARTIAL_PASS",
+  "note": "Same-process retries PASS; cross-process durable idempotency still PARTIAL"
+}

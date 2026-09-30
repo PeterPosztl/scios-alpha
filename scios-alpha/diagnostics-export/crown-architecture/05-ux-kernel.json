@@ -1,0 +1,55 @@
+{
+  "at": "2026-08-13T12:52:42.652Z",
+  "buildId": "crown-architecture-2026-08-13",
+  "schema": "sci-os-ux-kernel/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "architecture": "MONOLITHIC_SHELL_EXTENDING_TOWARD_KERNEL",
+  "foundation": {
+    "designTokens": true,
+    "componentPrimitives": true,
+    "applicationShell": true,
+    "workspaceManager": true,
+    "objectRenderers": true,
+    "actionRenderers": true,
+    "evidenceRenderers": true,
+    "aiContextRenderers": true,
+    "experienceRenderer": true,
+    "trustCapsule": true
+  },
+  "professionalHierarchy": [
+    "ATTENTION",
+    "UNDERSTANDING",
+    "UNCERTAINTY",
+    "RISK",
+    "DECISION",
+    "ACTION",
+    "EVIDENCE"
+  ],
+  "rawJsonPolicy": "Technical View only",
+  "goldenFlow": [
+    "HOME",
+    "SEARCH",
+    "ENTITY360",
+    "ANALYSIS",
+    "UNCERTAINTY",
+    "RISK",
+    "GOVERNANCE",
+    "DECISION",
+    "SIMULATION_ACTION",
+    "EVIDENCE",
+    "LINEAGE"
+  ],
+  "goldenFlowPresent": {
+    "HOME": true,
+    "SEARCH": true,
+    "ENTITY360": true,
+    "ANALYSIS": true,
+    "UNCERTAINTY": true,
+    "RISK": true,
+    "GOVERNANCE": true,
+    "DECISION": true,
+    "SIMULATION_ACTION": true,
+    "EVIDENCE": true,
+    "LINEAGE": true
+  }
+}

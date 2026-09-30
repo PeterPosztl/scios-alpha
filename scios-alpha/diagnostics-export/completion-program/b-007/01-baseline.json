@@ -1,0 +1,8 @@
+{
+  "schema": "sci-os-b007-baseline/v1",
+  "at": "2026-08-29T19:19:26.176Z",
+  "checkpoint": "46b03f18",
+  "build": "pkg_1788030533349",
+  "p1Raw": 92,
+  "objective": "P1 root audit and engineering closure"
+}

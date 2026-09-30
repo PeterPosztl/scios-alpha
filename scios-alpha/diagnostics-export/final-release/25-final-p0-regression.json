@@ -1,0 +1,9 @@
+{
+  "at": "2026-08-12T17:14:39.587Z",
+  "healthz": 200,
+  "readyz": 200,
+  "ready": true,
+  "cockpit": 200,
+  "slice": 200,
+  "p0Pass": true
+}

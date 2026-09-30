@@ -1,0 +1,54 @@
+{
+  "schema": "sci-os-professional-workspace-compilation-log/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T19:36:40.000Z",
+  "ready": false,
+  "autoTrade": false,
+  "steps": [
+    {
+      "id": "compile-roles",
+      "result": "PASS",
+      "detail": "9 unique archetypes RUNTIME_MOUNTED via GET /v1/experience/compile. 7 catalogs SKIPPED_RESEARCH_REQUIRED. Procurement/SupplyChain analog-only. liveExecution=false."
+    },
+    {
+      "id": "compile-professional-layer",
+      "result": "COMPILED_ANALOG",
+      "detail": "ExperienceCompiler + WorkspaceSpec/JTBD/Capability/Policy/Risk/Evidence/Lineage dry-run analogs. Shell Compile workspace (SAFE) button."
+    },
+    {
+      "id": "compile-sandboxes",
+      "result": "PASS",
+      "detail": "Sandbox.AllDomains + 15 domains. mode=* SIMULATION_ONLY. liveData=0."
+    },
+    {
+      "id": "compile-blueprints",
+      "result": "PASS",
+      "detail": "LDA REFUSED autoPatch=false. KG COMPILED_ANALOG nationalGraph=false. WorkflowDSL and Distributed OS SKIPPED_ABSENT (no second engine, kafka ABSENT)."
+    },
+    {
+      "id": "compile-os",
+      "result": "COMPILED_ANALOG",
+      "detail": "Workflow/EventBus/SystemHealth/Audit PARTIAL analogs. raft=false monteCarlo=false."
+    },
+    {
+      "id": "safety",
+      "result": "PASS",
+      "detail": "persisted=false autoTrade=false liveCertified=0 compile GET did not mutate audit."
+    },
+    {
+      "id": "restart",
+      "result": "PASS",
+      "detail": "pnpm sci:stop then Control Plane :3000 and Shell :4000."
+    },
+    {
+      "id": "tests",
+      "result": "PASS",
+      "detail": "ecl-dil 17/17, cockpit 11/11, smoke ok fails=[]"
+    },
+    {
+      "id": "exports",
+      "result": "PASS",
+      "detail": "diagnostics-export/professional-workspace-compilation.json + professional-workspace-compilation-log.json"
+    }
+  ]
+}

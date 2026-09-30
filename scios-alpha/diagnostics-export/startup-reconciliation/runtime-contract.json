@@ -1,0 +1,22 @@
+{
+  "at": "2026-08-12T20:33:12.807Z",
+  "profiles": [
+    "DEVELOPMENT",
+    "PACKAGED",
+    "SAFE",
+    "RECOVERY"
+  ],
+  "sharedOrchestrator": "installer/scripts/start-sci-os.cjs",
+  "bootstrap": "installer/scripts/bootstrap-capsule.cjs",
+  "manifest": "sci-os.manifest.json",
+  "goldenBoot": "installer/golden-boot.manifest.json",
+  "portsCanonical": {
+    "backend": 3000,
+    "cockpit": 4000,
+    "recoveryShell": 5299,
+    "postgres": 5432,
+    "redis": 6379
+  },
+  "packagedNodeFallback": "FORBIDDEN",
+  "developmentNodeFallback": "ALLOWED_WITH_CONTRACT_CHECK"
+}

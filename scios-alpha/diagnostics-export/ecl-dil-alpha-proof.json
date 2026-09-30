@@ -1,0 +1,45 @@
+{
+  "schema": "sci-os-ecl-dil-alpha-proof/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T15:46:42.000Z",
+  "productionEligible": false,
+  "autoTrade": false,
+  "winRateClaim": null,
+  "ready": false,
+  "bootLock": "start-sci-os.cjs",
+  "ports": { "controlPlane": 3000, "shell": 4000 },
+  "tests": {
+    "unit": {
+      "command": "pnpm --filter @scios/ecl-dil test",
+      "pass": 9,
+      "fail": 0,
+      "exit": 0
+    },
+    "httpSmoke": {
+      "command": "pnpm --filter @scios/control-plane-api run smoke:ecl-dil",
+      "ok": true,
+      "fails": [],
+      "proposalAction": "wait",
+      "autoTrade": false,
+      "exit": 0
+    }
+  },
+  "wired": {
+    "package": "packages/ecl-dil",
+    "cpRoutes": ["/v1/ecl/*", "/v1/dil/*", "/v1/ai/proposals/*", "/v1/ecl/guardrail", "/v1/ecl/infra"],
+    "cockpitViews": ["dil", "ecl", "decisions", "evidence", "system/sysArchRoot", "system/sysHealthRoot"],
+    "role": "arch.prediction_decision_analyst",
+    "models": ["dil-probability-alpha", "dil-edge-alpha", "dil-risk-kelly-alpha"],
+    "enterpriseHooks": "prepared enabled=false"
+  },
+  "docs": [
+    "docs/enterprise/ecl-dil-architecture.md",
+    "docs/enterprise/ecl-dil-api.md",
+    "docs/enterprise/ecl-dil-risk-policy.md",
+    "docs/enterprise/ecl-dil-ui.md",
+    "docs/enterprise/ecl-dil-state.md",
+    "docs/enterprise/desktop-launch.md"
+  ],
+  "gapOverlay": "docs/enterprise/v1-command-box/ecl-dil-gap-overlay.json",
+  "honesty": "Simulated Polymarket/Kalshi snapshots. Weekly/monthly reports UNKNOWN. OIDC/OTLP/durable ledger/live calibration prepared placeholders, not enabled. Agent proposes only. Not READY."
+}

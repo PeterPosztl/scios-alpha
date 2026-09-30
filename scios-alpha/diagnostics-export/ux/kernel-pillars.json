@@ -1,0 +1,23 @@
+{
+  "schema": "sci-os-kernel-pillars/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "pillars": [
+    { "id": "prediction", "status": "PARTIAL", "caps": ["prediction-engine.fastapi", "vertical-slice.foundation"] },
+    { "id": "risk", "status": "PARTIAL", "caps": ["risk-engine.fastapi", "vertical-slice.foundation"] },
+    { "id": "recovery", "status": "PRESENT", "caps": [], "surfaces": ["sci:start", "meta-recovery"] },
+    { "id": "governance", "status": "PARTIAL", "caps": ["control-plane-api"], "packages": ["governance-engine"] },
+    { "id": "ai", "status": "CONTRACT", "caps": [] },
+    { "id": "ontology", "status": "ALPHA", "caps": ["ontology.wave1", "data-fabric.domain"] },
+    { "id": "engineering_intelligence", "status": "PARTIAL", "surfaces": ["meta-recovery", "diagnostics-export"] },
+    { "id": "professions_200", "status": "SEED", "rolesSeeded": 200, "archetypes": 7 },
+    { "id": "capabilities_300_plus", "status": "TARGET", "registryNow": 13, "target": "300+" },
+    { "id": "data", "status": "PARTIAL", "caps": ["data-fabric.domain", "vertical-slice.foundation"] },
+    { "id": "execution", "status": "SIMULATION_ONLY", "caps": ["execution-simulator"] },
+    { "id": "lineage_evidence", "status": "PARTIAL", "caps": ["vertical-slice.foundation", "ledger.wave1"] },
+    { "id": "ux", "status": "CONTRACT_SHELL_ABSENT", "docs": ["docs/ux/SCI_OS_UX_CORE.md", "docs/ux/PRODUCT_KERNEL.md"] }
+  ],
+  "productKernelVerdict": "PRODUCT_KERNEL_DEGRADED",
+  "oneApp": "/app",
+  "protectedP0": "apps/cockpit-ui + vertical-slice",
+  "doc": "docs/ux/KERNEL_PILLARS.md"
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "sci-os-cursor-repair-proof/packaged-home/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-13T17:17:32.784Z",
+  "chain": [
+    "bundled Node 20.18.1",
+    "start-sci-os.cjs --serve --packaged",
+    "backend/server.cjs",
+    "cockpit/index.mjs",
+    "VERIFY_HOME",
+    "Shell/Home HTTP"
+  ],
+  "http": {
+    "controlPlaneHealthz": { "url": "http://127.0.0.1:3000/healthz", "status": 200, "ok": true },
+    "shellHealthz": { "url": "http://127.0.0.1:4000/healthz", "status": 200, "ok": true, "shell": true },
+    "home": { "url": "http://127.0.0.1:4000/", "status": 200, "containsSciOs": true }
+  },
+  "startupVerdict": "DEGRADED",
+  "blockers": [],
+  "desiredStateOk": true,
+  "passes": [
+    "PACKAGED_BUNDLED_RUNTIME",
+    "PACKAGED_STAGED_DIST_OK",
+    "CORE_HEALTH",
+    "SHELL_READY",
+    "HOME_READY_IMPLIES_SHELL"
+  ],
+  "evidence": [
+    "dist/SCI-OS-X10/diagnostics-export/startup-report.json",
+    "dist/SCI-OS-X10/diagnostics-export/desired-state-reconcile.json",
+    "diagnostics-export/cursor-repair/package-closure.json"
+  ],
+  "readyClaim": false,
+  "note": "HOME proven on staged packaged layout. Optional infra absence keeps DEGRADED — not READY."
+}

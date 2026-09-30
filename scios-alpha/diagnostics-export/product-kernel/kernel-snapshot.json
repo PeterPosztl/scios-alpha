@@ -1,0 +1,29 @@
+{
+  "schema": "sci-os-product-kernel-snapshot/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-08-12T20:22:33.308Z",
+  "capabilitySummary": {
+    "total": 15,
+    "counts": {
+      "WORKING": 0,
+      "PARTIAL": 8,
+      "STUB": 3,
+      "DISCONNECTED": 0,
+      "MISSING": 0,
+      "DEPRECATED": 0,
+      "UNPROVEN": 4
+    }
+  },
+  "workflowCounts": {
+    "total": 7,
+    "partial": 5,
+    "missing": 2
+  },
+  "roles": {
+    "archetypes": 7,
+    "seeded": 200
+  },
+  "p0Protected": true,
+  "shellStatus": "PARTIAL_HOME_SEARCH_ENTITY",
+  "goldenWorkflow1": "PARTIAL_home_search_entity_analyze"
+}

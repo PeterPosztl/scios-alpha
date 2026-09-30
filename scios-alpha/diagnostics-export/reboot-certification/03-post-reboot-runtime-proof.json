@@ -1,0 +1,13 @@
+{
+  "at": "2026-08-13T10:46:25.136Z",
+  "launcher": "C:/Users/peter/AppData/Local/SCI OS X10/app/SCI-OS-X10.cmd",
+  "installRoot": "C:/Users/peter/AppData/Local/SCI OS X10/app",
+  "nodePath": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10\\runtime\\node\\node.exe",
+  "nodeVersion": "20.18.1",
+  "bundledNode20181": true,
+  "systemNode24Used": false,
+  "cursorRequired": false,
+  "pnpmRequiredToStart": false,
+  "source": "staged diagnostics-export/startup-report.json",
+  "pass": true
+}

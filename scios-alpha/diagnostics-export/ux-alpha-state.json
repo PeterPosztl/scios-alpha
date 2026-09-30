@@ -1,0 +1,25 @@
+{
+  "schema": "sci-os-ux-alpha-state/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-19T14:04:27.000Z",
+  "mode": "CONTINUOUS_ALPHA_DEV",
+  "stopCondition": "HUMAN_USABLE_ALPHA",
+  "ready": false,
+  "applied": [
+    "guardrail WARN vs ERROR",
+    "empty positions/signals/reports/audit/filter",
+    "aria-live / aria-busy / reduced-motion",
+    "proposal request loading + failure copy",
+    "offline copy on Intelligence/Reporting/Evidence/Decisions",
+    "CORE LIVE (ALPHA) header vs enterprise READY",
+    "workspace scenario + why-line on Intelligence",
+    "live adapter ABSENT honesty on DIL banner"
+  ],
+  "desktop": "docs/enterprise/desktop-launch.md",
+  "proposalsNotApplied": [
+    "WebGL heat maps",
+    "arrow-key table navigation",
+    "proposal-id deep link into audit JSON"
+  ],
+  "coherenceExport": "diagnostics-export/system-coherence-state.json"
+}
