@@ -362,10 +362,11 @@ export function applyChromeI18n(locale) {
   });
 }
 
+// Keep these names as a literal browser script. fn.toString() is minified by
+// esbuild in the packaged cockpit, which dropped global `t` and broke showView.
 export const I18N_BROWSER_SOURCE =
   "const SCI_LOCALES = " +
   JSON.stringify(SCI_LOCALES) +
   ";\nconst SCI_I18N = " +
   JSON.stringify(SCI_I18N) +
-  ";\n" +
-  [normalizeLocale, t, applyChromeI18n].map((fn) => fn.toString()).join("\n");
+  ";\nfunction normalizeLocale(code) {\n  if (SCI_LOCALES.indexOf(code) >= 0) return code;\n  return \"en-US\";\n}\nfunction t(locale, key) {\n  const loc = normalizeLocale(locale);\n  const pack = SCI_I18N[loc] || SCI_I18N[\"en-US\"];\n  if (pack[key] != null) return pack[key];\n  if (SCI_I18N[\"en-US\"][key] != null) return SCI_I18N[\"en-US\"][key];\n  return key;\n}\nfunction applyChromeI18n(locale) {\n  const loc = normalizeLocale(locale);\n  document.documentElement.lang = loc.slice(0, 2);\n  document.querySelectorAll(\"[data-i18n]\").forEach(function (el) {\n    const key = el.getAttribute(\"data-i18n\");\n    if (key) el.textContent = t(loc, key);\n  });\n  document.querySelectorAll(\"[data-i18n-placeholder]\").forEach(function (el) {\n    const key = el.getAttribute(\"data-i18n-placeholder\");\n    if (key) el.setAttribute(\"placeholder\", t(loc, key));\n  });\n  document.querySelectorAll(\"[data-i18n-aria]\").forEach(function (el) {\n    const key = el.getAttribute(\"data-i18n-aria\");\n    if (key) el.setAttribute(\"aria-label\", t(loc, key));\n  });\n}\n";

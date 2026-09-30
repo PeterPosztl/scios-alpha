@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { SCI_LOCALES, SCI_I18N, normalizeLocale, t } from "./i18n.js";
+import { SCI_LOCALES, SCI_I18N, normalizeLocale, t, I18N_BROWSER_SOURCE } from "./i18n.js";
 import { defaultProductPrefs, mergeProductPrefs } from "./product-settings.js";
 
 test("locales are en-US, hu-HU, de-DE and unknown falls back", () => {
@@ -11,6 +11,12 @@ test("locales are en-US, hu-HU, de-DE and unknown falls back", () => {
   assert.equal(t("de-DE", "nav.settings"), "Einstellungen");
   assert.equal(t("xx", "nav.home"), t("en-US", "nav.home"));
   assert.equal(t("en-US", "missing.key"), "missing.key");
+});
+
+test("browser i18n source declares global t so packaged showView can paintContext", () => {
+  assert.match(I18N_BROWSER_SOURCE, /function t\s*\(/);
+  assert.match(I18N_BROWSER_SOURCE, /function applyChromeI18n\s*\(/);
+  assert.match(I18N_BROWSER_SOURCE, /function normalizeLocale\s*\(/);
 });
 
 test("every locale pack covers en-US chrome keys", () => {
