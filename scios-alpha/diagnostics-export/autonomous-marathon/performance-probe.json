@@ -1,7 +1,7 @@
 {
   "schema": "sci-os-performance-probe/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-08-14T00:46:40.585Z",
+  "at": "2026-09-30T10:44:37.127Z",
   "cp": "http://127.0.0.1:3000",
   "status": "MEASURED",
   "note": "MEASURED != PASS SLO. First-release has no contracted latency SLO.",
@@ -9,27 +9,27 @@
     {
       "path": "/readyz",
       "status": 200,
-      "ms": 13
+      "ms": 12
     },
     {
       "path": "/v1/home",
       "status": 200,
-      "ms": 1
+      "ms": 3
     },
     {
       "path": "/v1/search?q=AAPL",
       "status": 200,
-      "ms": 2
+      "ms": 1
     },
     {
       "path": "/v1/entities/AAPL",
       "status": 200,
-      "ms": 1
+      "ms": 2
     },
     {
       "path": "POST /api/vertical-slice/run",
       "status": 200,
-      "ms": 7
+      "ms": 18
     }
   ]
 }

@@ -128,7 +128,7 @@
   ],
   "nextWave": "B-011",
   "nextExactAction": "Resolve GAP-PG-PROBE-NONDETERMINISM (durable-adapter pg probe varies by import path), then gate smoke:ecl-dil. Beta remains blocked on FD-001 (OIDC provider) and a reachable PostgreSQL (DATABASE_URL); production additionally on TLS termination and Target-C P1=0.",
-  "lastUpdatedAt": "2026-09-30T10:43:01.117Z",
+  "lastUpdatedAt": "2026-09-30T10:51:40.237Z",
   "p1Audit": {
     "rawRegisterCount": 92,
     "engineeringOpen": 0,
@@ -158,14 +158,14 @@
   "lastSuccessfulProofs": {
     "installedRestartReliability": "INSTALLED_RESTART_RELIABILITY_PASS",
     "installedBootToSurfaceMs": [
-      3126,
-      3050,
-      3092
+      3138,
+      3075,
+      3098
     ],
     "appTypecheckGate": "APP_TYPECHECK_GATE_PASS",
     "installedRuntimeVerdict": "DEGRADED",
     "sourceBuildPackageInstallSynchronized": true,
-    "at": "2026-09-30T10:43:01.118Z"
+    "at": "2026-09-30T10:51:40.238Z"
   },
   "externalAndFounderBlockers": [
     {
@@ -196,7 +196,7 @@
     {
       "id": "GAP-PERF-UNMEASURED",
       "impact": "PRODUCTION_BLOCKER",
-      "classification": "UNKNOWN"
+      "classification": "PARTIAL"
     }
   ],
   "registerCountsNote": "P0..P3 mirror the P1 register; they are not adjusted to produce a cleaner number. b-007 reports engineering-open P1 separately."

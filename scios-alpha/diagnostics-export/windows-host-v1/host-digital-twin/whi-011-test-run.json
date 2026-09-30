@@ -1,6 +1,6 @@
 {
   "schema": "sci-os-whi-011-test-run/v1",
-  "at": "2026-09-30T10:38:01.004Z",
+  "at": "2026-09-30T10:51:00.142Z",
   "canonicalSliceId": "WHI-011",
   "steps": [
     {
@@ -40,7 +40,7 @@
       "ok": true,
       "drift": [
         {
-          "driftId": "PROCESS_NOT_CONTAINED:5caf89",
+          "driftId": "PROCESS_NOT_CONTAINED:c19aff",
           "type": "PROCESS_NOT_CONTAINED",
           "severity": "P1",
           "expected": {
@@ -50,7 +50,7 @@
           "actual": {
             "jobAttached": false
           },
-          "observedAt": "2026-09-30T10:38:00.962Z",
+          "observedAt": "2026-09-30T10:51:00.085Z",
           "evidence": "ProcessSupervisor registered but Job Object attach false",
           "repairAuthority": "NONE_THIS_SLICE",
           "repairAllowed": false
@@ -62,7 +62,7 @@
       "ok": true,
       "drift": [
         {
-          "driftId": "PORT_FOREIGN_OWNER:49da59",
+          "driftId": "PORT_FOREIGN_OWNER:17a8f1",
           "type": "PORT_FOREIGN_OWNER",
           "severity": "P1",
           "expected": {
@@ -76,7 +76,7 @@
             "service": "fixture-foreign",
             "status": 200
           },
-          "observedAt": "2026-09-30T10:38:00.986Z",
+          "observedAt": "2026-09-30T10:51:00.118Z",
           "evidence": null,
           "repairAuthority": "NONE_THIS_SLICE",
           "repairAllowed": false
@@ -88,12 +88,12 @@
       "ok": true,
       "drift": [
         {
-          "driftId": "BUILD_MISMATCH:2a890f",
+          "driftId": "BUILD_MISMATCH:ffe4bd",
           "type": "BUILD_MISMATCH",
           "severity": "P1",
           "expected": "pkg_expected",
           "actual": "pkg_other",
-          "observedAt": "2026-09-30T10:38:00.988Z",
+          "observedAt": "2026-09-30T10:51:00.120Z",
           "evidence": null,
           "repairAuthority": "NONE_THIS_SLICE",
           "repairAllowed": false
@@ -105,7 +105,7 @@
       "ok": true,
       "drift": [
         {
-          "driftId": "STALE_OBSERVATION_REJECTED:97f57b",
+          "driftId": "STALE_OBSERVATION_REJECTED:3f5ca6",
           "type": "STALE_OBSERVATION_REJECTED",
           "severity": "P2",
           "expected": {
@@ -114,7 +114,7 @@
           "actual": {
             "runId": "old-run"
           },
-          "observedAt": "2026-09-30T10:38:00.988Z",
+          "observedAt": "2026-09-30T10:51:00.121Z",
           "evidence": "prior observation runId mismatch — not merged into actual",
           "repairAuthority": "NONE_THIS_SLICE",
           "repairAllowed": false

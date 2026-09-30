@@ -3,12 +3,12 @@
   "status": "PASS",
   "drift": [
     {
-      "driftId": "BUILD_MISMATCH:2a890f",
+      "driftId": "BUILD_MISMATCH:ffe4bd",
       "type": "BUILD_MISMATCH",
       "severity": "P1",
       "expected": "pkg_expected",
       "actual": "pkg_other",
-      "observedAt": "2026-09-30T10:38:00.988Z",
+      "observedAt": "2026-09-30T10:51:00.120Z",
       "evidence": null,
       "repairAuthority": "NONE_THIS_SLICE",
       "repairAllowed": false

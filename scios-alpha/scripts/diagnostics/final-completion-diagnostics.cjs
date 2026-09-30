@@ -118,6 +118,7 @@ async function main() {
   const lockTest = readJson(path.join(OUT, "boot-lock-orphan-recovery.json"));
   const typeGate = readJson(path.join(OUT, "app-typecheck-gate.json"));
   const pkgTypes = readJson(path.join(OUT, "package-types.json"));
+  const perf = readJson(path.join(OUT, "performance-baseline.json"));
 
   const cpHealth = await get(CP + "/healthz");
   const cpReady = await get(CP + "/readyz");
@@ -421,15 +422,28 @@ async function main() {
         "final-completion/installed-restart-reliability.json",
         "installed startup-report.json",
       ]),
-      note: "Only measured values are recorded. No performance number is estimated or invented.",
+      note: "Only measured values are recorded. No performance number is estimated or invented, and no target is asserted because none is declared.",
       installedBootToProductSurfaceMs: restart?.readyMsSamples ?? "UNKNOWN",
       installedBootSamples: restart?.results?.length ?? 0,
       orchestratorReportedDurationMs: startupReport?.durationMs ?? "UNKNOWN",
-      unmeasured: [
-        "UI frame rate / 120 FPS target",
-        "large-graph render latency",
-        "sustained multi-user throughput",
-        "cold-start on constrained hardware",
+      apiLatencyBaseline: perf
+        ? {
+            token: perf.token,
+            method: perf.method,
+            environment: perf.environment,
+            targets: (perf.targets || []).map((t) => ({
+              id: t.id,
+              status: t.status,
+              p50Ms: t.p50Ms ?? null,
+              p95Ms: t.p95Ms ?? null,
+              p99Ms: t.p99Ms ?? null,
+            })),
+          }
+        : "UNKNOWN",
+      unmeasured: perf?.unmeasured ?? [
+        { id: "ui.frameRate", state: "UNKNOWN" },
+        { id: "ui.largeGraphRender", state: "UNKNOWN" },
+        { id: "api.concurrentThroughput", state: "UNKNOWN" },
       ],
       unmeasuredClassification: "UNKNOWN — no executable measurement exists for these.",
     })
@@ -650,10 +664,14 @@ async function main() {
         },
         {
           id: "GAP-PERF-UNMEASURED",
-          finding: "UI frame rate, large-graph latency and multi-user throughput have no measurement.",
+          finding:
+            "API surface latency is now measured (warmed, 30 samples per target, hrtime, p50/p95/p99) and gated. UI frame rate, large-graph render latency and concurrent throughput remain unmeasured, and no performance target is declared for any surface.",
           impact: "PRODUCTION_BLOCKER",
-          classification: "UNKNOWN",
-          nextAction: "Build measurement harnesses before claiming any performance target.",
+          classification: "PARTIAL",
+          measured: (perf?.targets || []).filter((t) => t.status === "MEASURED").map((t) => t.id),
+          stillUnmeasured: (perf?.unmeasured || []).map((u) => u.id),
+          nextAction:
+            "Declare performance budgets (founder decision), then instrument the renderer and a concurrency harness. Until budgets exist the baseline records values without asserting a target.",
         },
       ],
     })

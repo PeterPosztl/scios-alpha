@@ -4,13 +4,13 @@
   "mode": "SYNTHETIC_FIXTURE",
   "incident": {
     "schema": "sci-os-recovery-intelligence/v1",
-    "incidentId": "inc_c968dc7fac53",
+    "incidentId": "inc_c7cb9cc8bf1c",
     "buildId": "pkg_test",
     "bootId": "boot_test",
     "runId": "run_test",
-    "detectedAt": "2026-09-30T10:41:01.027Z",
+    "detectedAt": "2026-09-30T10:51:00.445Z",
     "source": "host-digital-twin",
-    "hostTwinSnapshotRef": "2026-09-30T10:41:01.027Z",
+    "hostTwinSnapshotRef": "2026-09-30T10:51:00.445Z",
     "driftIds": [
       "CM:def"
     ],
@@ -20,7 +20,7 @@
     ],
     "ownershipEvidence": {
       "pass": true,
-      "pid": 21916,
+      "pid": 19236,
       "component": "cockpit"
     },
     "severity": "P1",
@@ -40,7 +40,7 @@
         "pid": 9999,
         "method": "supervisor_restart"
       },
-      "at": "2026-09-30T10:41:01.028Z"
+      "at": "2026-09-30T10:51:00.446Z"
     },
     "verification": {
       "ok": true,

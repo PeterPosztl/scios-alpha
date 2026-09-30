@@ -1,27 +1,27 @@
 {
   "schema": "sci-os-host-job-object-state/v1",
-  "at": "2026-09-30T10:37:47.214Z",
+  "at": "2026-09-30T10:50:47.668Z",
   "runContext": {
-    "bootId": "owner-loss-13192",
-    "runId": "owner-loss-13192",
+    "bootId": "owner-loss-1736",
+    "runId": "owner-loss-1736",
     "buildId": "fixture",
-    "orchestratorPid": 13192,
+    "orchestratorPid": 1736,
     "appRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
-    "startedAt": "2026-09-30T10:37:46.546Z",
+    "startedAt": "2026-09-30T10:50:45.778Z",
     "ports": {}
   },
   "job": {
     "status": "JOB_OBJECT_ACTIVE",
     "capability": "job-object",
-    "jobName": "SCI-OS-owner-loss-13192-13192",
-    "keeperPid": 22304,
+    "jobName": "SCI-OS-owner-loss-1736-1736",
+    "keeperPid": 14584,
     "assignedPids": [
-      17988
+      20040
     ],
     "assignLog": [
       {
-        "at": "2026-09-30T10:37:47.202Z",
-        "pid": 17988,
+        "at": "2026-09-30T10:50:47.643Z",
+        "pid": 20040,
         "ok": true
       }
     ],
@@ -30,8 +30,8 @@
   },
   "children": {
     "long-child": {
-      "pid": 17988,
-      "startedAt": "2026-09-30T10:37:47.169Z",
+      "pid": 20040,
+      "startedAt": "2026-09-30T10:50:47.568Z",
       "exitCode": null,
       "logFile": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\diagnostics-export\\proc-logs\\long-child.log",
       "restarts": 0,
@@ -40,14 +40,14 @@
       "ownership": {
         "schema": "sci-os-process-ownership/v1",
         "label": "ALPHA_NON_PRODUCTION",
-        "bootId": "owner-loss-13192",
-        "runId": "owner-loss-13192",
+        "bootId": "owner-loss-1736",
+        "runId": "owner-loss-1736",
         "buildId": "fixture",
         "role": "long-child",
         "component": "long-child",
-        "pid": 17988,
-        "parentPid": 13192,
-        "startedAt": "2026-09-30T10:37:47.169Z",
+        "pid": 20040,
+        "parentPid": 1736,
+        "startedAt": "2026-09-30T10:50:47.568Z",
         "executable": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\cache\\node-v20.18.1-win-x64\\node.exe",
         "args": [
           "-e",
@@ -61,5 +61,5 @@
   },
   "phase": "start",
   "service": "long-child",
-  "pid": 17988
+  "pid": 20040
 }

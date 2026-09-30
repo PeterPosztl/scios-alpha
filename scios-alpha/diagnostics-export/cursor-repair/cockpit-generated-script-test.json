@@ -1,7 +1,7 @@
 {
   "schema": "sci-os-cockpit-generated-script-test/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-09-30T10:36:04.785Z",
+  "at": "2026-09-30T10:47:43.167Z",
   "invariant": [
     "SERVER_JS_VALID",
     "GENERATED_BROWSER_JS_VALID",
@@ -13,7 +13,7 @@
   "source": {
     "label": "source",
     "entry": "apps/cockpit-ui/src/index.js",
-    "port": 58700,
+    "port": 55717,
     "htmlStatus": 200,
     "healthStatus": 200,
     "healthOk": true,
@@ -30,7 +30,7 @@
   "packaged": {
     "label": "packaged",
     "entry": "dist/SCI-OS-X10/cockpit/index.mjs",
-    "port": 58703,
+    "port": 55720,
     "htmlStatus": 200,
     "healthStatus": 200,
     "healthOk": true,

@@ -1,6 +1,6 @@
 {
   "schema": "sci-os-alpha-authority-map/v1",
-  "at": "2026-09-30T10:37:36.901Z",
+  "at": "2026-09-30T10:50:26.635Z",
   "PRODUCT_KERNEL_AUTHORITY": "@scios/product-kernel (packages/product-kernel/src/index.js)",
   "ROLE_REGISTRY_AUTHORITY": "@scios/professional-domain-registry (packages/professional-domain-registry/src/)",
   "EXPERIENCE_COMPILER_AUTHORITY": "@scios/professional-domain-registry/compiler (experience-compiler.js ONLY)",

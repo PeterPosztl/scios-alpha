@@ -1,7 +1,7 @@
 {
   "schema": "sci-os-cockpit-birth-test/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-09-30T10:37:35.599Z",
+  "at": "2026-09-30T10:50:22.081Z",
   "steps": [
     {
       "name": "HOME_API",

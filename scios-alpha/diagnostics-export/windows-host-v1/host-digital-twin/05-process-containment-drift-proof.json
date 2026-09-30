@@ -3,7 +3,7 @@
   "status": "PASS",
   "drift": [
     {
-      "driftId": "PROCESS_NOT_CONTAINED:5caf89",
+      "driftId": "PROCESS_NOT_CONTAINED:c19aff",
       "type": "PROCESS_NOT_CONTAINED",
       "severity": "P1",
       "expected": {
@@ -13,7 +13,7 @@
       "actual": {
         "jobAttached": false
       },
-      "observedAt": "2026-09-30T10:38:00.962Z",
+      "observedAt": "2026-09-30T10:51:00.085Z",
       "evidence": "ProcessSupervisor registered but Job Object attach false",
       "repairAuthority": "NONE_THIS_SLICE",
       "repairAllowed": false

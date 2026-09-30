@@ -1,7 +1,7 @@
 {
   "schema": "sci-os-final-completion/15-final-gap-register/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-09-30T10:43:00.817Z",
+  "at": "2026-09-30T10:47:25.776Z",
   "title": "Final gap register",
   "sources": [
     "this session's executed gates and tests",
@@ -130,10 +130,26 @@
     },
     {
       "id": "GAP-PERF-UNMEASURED",
-      "finding": "UI frame rate, large-graph latency and multi-user throughput have no measurement.",
+      "finding": "API surface latency is now measured (warmed, 30 samples per target, hrtime, p50/p95/p99) and gated. UI frame rate, large-graph render latency and concurrent throughput remain unmeasured, and no performance target is declared for any surface.",
       "impact": "PRODUCTION_BLOCKER",
-      "classification": "UNKNOWN",
-      "nextAction": "Build measurement harnesses before claiming any performance target."
+      "classification": "PARTIAL",
+      "measured": [
+        "cp.healthz",
+        "cp.startupReadiness",
+        "cp.home",
+        "cp.search",
+        "cp.entity",
+        "cp.jobsHealth",
+        "cp.engineInfra",
+        "shell.root"
+      ],
+      "stillUnmeasured": [
+        "ui.frameRate",
+        "ui.largeGraphRender",
+        "api.concurrentThroughput",
+        "persistence.postgresLatency"
+      ],
+      "nextAction": "Declare performance budgets (founder decision), then instrument the renderer and a concurrency harness. Until budgets exist the baseline records values without asserting a target."
     }
   ]
 }
