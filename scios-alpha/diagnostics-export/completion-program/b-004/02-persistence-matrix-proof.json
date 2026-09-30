@@ -3,7 +3,7 @@
   "matrix": {
     "schema": "sci-os-persistence-state-matrix/v1",
     "label": "ALPHA_NON_PRODUCTION",
-    "at": "2026-09-30T10:51:09.324Z",
+    "at": "2026-09-30T11:07:30.248Z",
     "authority": "packages/vertical-slice/src/persistence-matrix.ts",
     "postgresDeferred": "FD-002",
     "dataRoot": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\data",

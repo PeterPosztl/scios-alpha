@@ -1,18 +1,21 @@
 {
   "schema": "sci-os-final-completion/13-test-coverage-diagnostic/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-09-30T10:47:25.776Z",
+  "at": "2026-09-30T11:08:54.899Z",
   "title": "Test layers actually executed",
   "sources": [
     "package.json scripts",
     "final-completion/app-typecheck-gate.json"
   ],
-  "releaseSuiteSteps": 36,
+  "releaseSuiteSteps": 39,
   "releaseSuiteScripts": [
     "node scripts/tests/cockpit-generated-script.cjs",
     "node scripts/tests/boot-lock-orphan-recovery.cjs",
     "node scripts/tests/installed-restart-reliability.cjs",
     "node scripts/tests/performance-baseline.cjs",
+    "node scripts/tests/performance-concurrent.cjs",
+    "node scripts/tests/cf37-source-contract.cjs",
+    "node scripts/tests/cf37-context-continuity.cjs",
     "node scripts/tests/app-typecheck-gate.cjs",
     "pnpm --filter @scios/control-plane-api run smoke:ecl-dil",
     "node scripts/tests/cockpit-birth-test.cjs",

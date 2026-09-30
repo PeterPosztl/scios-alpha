@@ -343,6 +343,26 @@ function sessionWithActor(session: ReturnType<typeof getOrCreateSession> & {
   };
 }
 
+/**
+ * Session and workspace identity come from the server session, never from a
+ * client-supplied workspaceId. The actor envelope is what governance compares
+ * a client claim against, so a query-string identity would defeat that check.
+ * objectId and roleId stay request-driven because they are view parameters.
+ */
+function serverAuthoritativeProjectionInput(url: URL) {
+  const session = getOrCreateSession(url.searchParams.get("sessionId") || "default");
+  return {
+    roleId:
+      url.searchParams.get("roleId") ||
+      (typeof session.roleId === "string" ? session.roleId : undefined),
+    objectId: url.searchParams.get("objectId") || undefined,
+    workflowState: url.searchParams.get("workflowState") || undefined,
+    sessionId: String(session.sessionId),
+    workspaceId:
+      typeof session.activeWorkspaceId === "string" ? session.activeWorkspaceId : null,
+  };
+}
+
 function matrixRoleFor(professionalRoleId: string): Role {
   if (/admin|owner/i.test(professionalRoleId)) return "admin";
   if (/risk|compliance/i.test(professionalRoleId)) return "risk_officer";
@@ -358,13 +378,20 @@ export function compileProductExperience(input: {
   userId?: string | null;
   sessionId?: string | null;
 }) {
-  const roleId = input.roleId || "arch.market_analyst";
+  const session = getOrCreateSession(input.sessionId || "default");
+  const roleId =
+    input.roleId ||
+    (typeof session.roleId === "string" && session.roleId) ||
+    "arch.market_analyst";
+  const sessionId = String(session.sessionId);
+  const workspaceId =
+    typeof session.activeWorkspaceId === "string" ? session.activeWorkspaceId : null;
   const actor = buildActorContext({
     userId: input.userId || "local-dev-user",
     roleId,
     objectId: input.objectId || null,
-    workspaceId: null,
-    sessionId: input.sessionId || "default",
+    workspaceId,
+    sessionId,
     permission: {
       actionsAllowed: ["entity:read", "analyze", "evidence:read"],
       actionsDenied: ["live_execution"],
@@ -427,6 +454,8 @@ export function compileProductExperience(input: {
     roleId,
     objectId: input.objectId || undefined,
     workflowState: input.workflowState || undefined,
+    sessionId,
+    workspaceId,
   });
 
   let recentRuns: Array<Record<string, unknown>> = [];
@@ -622,36 +651,9 @@ export async function productRouter(opts: {
     return true;
   }
 
-  if (method === "GET" && path === "/v1/product/context") {
+  if (method === "GET" && (path === "/v1/product/context" || path === "/v1/kernel/projection")) {
     try {
-      const k = getKernel();
-      sendJson(
-        res,
-        200,
-        k.uiProjection({
-          roleId: url.searchParams.get("roleId") || undefined,
-          objectId: url.searchParams.get("objectId") || undefined,
-          workflowState: url.searchParams.get("workflowState") || undefined,
-        })
-      );
-    } catch (e) {
-      sendJson(res, 503, { ok: false, error: String((e as Error)?.message || e) });
-    }
-    return true;
-  }
-
-  if (method === "GET" && path === "/v1/kernel/projection") {
-    try {
-      const k = getKernel();
-      sendJson(
-        res,
-        200,
-        k.uiProjection({
-          roleId: url.searchParams.get("roleId") || undefined,
-          objectId: url.searchParams.get("objectId") || undefined,
-          workflowState: url.searchParams.get("workflowState") || undefined,
-        })
-      );
+      sendJson(res, 200, getKernel().uiProjection(serverAuthoritativeProjectionInput(url)));
     } catch (e) {
       sendJson(res, 503, { ok: false, error: String((e as Error)?.message || e) });
     }

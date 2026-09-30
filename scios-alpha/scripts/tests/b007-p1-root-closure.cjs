@@ -158,31 +158,31 @@ const CLASSIFICATION = {
     owner: "platform",
   },
   "CTRL.CF37.no-dead-end-controls": {
-    category: "documentation/evidence gap",
-    status: "DOCUMENTED",
-    why: "B-006 added loading/empty/error states; full nav audit not re-run",
-    safe: "Core flows Home→GW1→Evidence reachable",
+    category: "genuine defect",
+    status: "CLOSED",
+    wave: "FINAL-COMPLETION",
+    proof: "diagnostics-export/final-completion/cf37-context-continuity.json",
+    why: "Installed E2E: primary nav present and shell exposes loading/error/navigation states",
     milestone: "B",
-    dependency: "b006-cockpit-ui-hard-gate",
-    owner: "product-ux",
+    owner: "completion-program",
   },
   "CTRL.CF37.object-continuity": {
-    category: "documentation/evidence gap",
-    status: "DOCUMENTED",
-    why: "Context header preserves object; formal continuity test absent",
-    safe: "Entity→Analyze→Experience chain proven in alpha convergence",
+    category: "genuine defect",
+    status: "CLOSED",
+    wave: "FINAL-COMPLETION",
+    proof: "diagnostics-export/final-completion/cf37-context-continuity.json",
+    why: "Installed E2E: object recorded, survives across requests, carried in product-context actor envelope",
     milestone: "B",
-    dependency: "alpha-product-convergence",
-    owner: "product-ux",
+    owner: "completion-program",
   },
   "CTRL.CF37.context-preservation": {
-    category: "documentation/evidence gap",
-    status: "DOCUMENTED",
-    why: "Session actor envelope + context header; CF37 formal evidence pending",
-    safe: "Actor context proven B-001/B-003",
+    category: "genuine defect",
+    status: "CLOSED",
+    wave: "FINAL-COMPLETION",
+    proof: "diagnostics-export/final-completion/cf37-context-continuity.json",
+    why: "Server-authoritative session/workspace in actor envelope; client workspaceId cannot override",
     milestone: "B",
-    dependency: "batch_001_P1 actor-context-proof",
-    owner: "product-ux",
+    owner: "completion-program",
   },
   "DETACHED_PROCESS": {
     category: "intentional limitation",
@@ -436,6 +436,17 @@ function verifyEngineeringFixes() {
   checks.push({
     id: "detached_harness_skip",
     ok: /pat\.id === "detached_true"/.test(closure),
+  });
+  const product = fs.readFileSync(
+    path.join(ROOT, "apps/control-plane-api/src/routes/product.ts"),
+    "utf8"
+  );
+  checks.push({
+    id: "cf37_server_authoritative_projection",
+    ok:
+      /function serverAuthoritativeProjectionInput/.test(product) &&
+      /uiProjection\(serverAuthoritativeProjectionInput\(url\)\)/.test(product) &&
+      !/workspaceId:\s*url\.searchParams/.test(product),
   });
   return checks;
 }

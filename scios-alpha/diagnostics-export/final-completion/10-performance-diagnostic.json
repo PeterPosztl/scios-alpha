@@ -1,20 +1,22 @@
 {
   "schema": "sci-os-final-completion/10-performance-diagnostic/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-09-30T10:47:25.776Z",
+  "at": "2026-09-30T11:08:54.899Z",
   "title": "Measured performance",
   "sources": [
     "final-completion/installed-restart-reliability.json",
+    "final-completion/performance-baseline.json",
+    "final-completion/performance-concurrent.json",
     "installed startup-report.json"
   ],
   "note": "Only measured values are recorded. No performance number is estimated or invented, and no target is asserted because none is declared.",
   "installedBootToProductSurfaceMs": [
-    3126,
-    3050,
-    3092
+    4105,
+    3093,
+    3072
   ],
   "installedBootSamples": 3,
-  "orchestratorReportedDurationMs": 4713,
+  "orchestratorReportedDurationMs": 4800,
   "apiLatencyBaseline": {
     "token": "PERFORMANCE_BASELINE_MEASURED",
     "method": {
@@ -35,58 +37,104 @@
       {
         "id": "cp.healthz",
         "status": "MEASURED",
-        "p50Ms": 0.62,
-        "p95Ms": 0.986,
-        "p99Ms": 1.439
+        "p50Ms": 0.704,
+        "p95Ms": 0.933,
+        "p99Ms": 1.342
       },
       {
         "id": "cp.startupReadiness",
         "status": "MEASURED",
-        "p50Ms": 5.375,
-        "p95Ms": 7.966,
-        "p99Ms": 10.909
+        "p50Ms": 8.47,
+        "p95Ms": 15.692,
+        "p99Ms": 29.28
       },
       {
         "id": "cp.home",
         "status": "MEASURED",
-        "p50Ms": 2.033,
-        "p95Ms": 2.453,
-        "p99Ms": 2.507
+        "p50Ms": 1.851,
+        "p95Ms": 2.7,
+        "p99Ms": 2.912
       },
       {
         "id": "cp.search",
         "status": "MEASURED",
-        "p50Ms": 0.676,
-        "p95Ms": 0.93,
-        "p99Ms": 1.085
+        "p50Ms": 0.58,
+        "p95Ms": 0.718,
+        "p99Ms": 0.726
       },
       {
         "id": "cp.entity",
         "status": "MEASURED",
-        "p50Ms": 0.665,
-        "p95Ms": 0.9,
-        "p99Ms": 1.055
+        "p50Ms": 0.558,
+        "p95Ms": 1.037,
+        "p99Ms": 1.525
       },
       {
         "id": "cp.jobsHealth",
         "status": "MEASURED",
-        "p50Ms": 4.329,
-        "p95Ms": 4.902,
-        "p99Ms": 5.068
+        "p50Ms": 6.581,
+        "p95Ms": 51.578,
+        "p99Ms": 87.541
       },
       {
         "id": "cp.engineInfra",
         "status": "MEASURED",
-        "p50Ms": 1.101,
-        "p95Ms": 1.607,
-        "p99Ms": 1.782
+        "p50Ms": 1.086,
+        "p95Ms": 1.447,
+        "p99Ms": 1.635
       },
       {
         "id": "shell.root",
         "status": "MEASURED",
-        "p50Ms": 1.704,
-        "p95Ms": 2.476,
-        "p99Ms": 2.791
+        "p50Ms": 4.474,
+        "p95Ms": 7.346,
+        "p99Ms": 19.752
+      }
+    ]
+  },
+  "apiConcurrentThroughput": {
+    "token": "PERFORMANCE_CONCURRENT_MEASURED",
+    "method": {
+      "concurrency": 8,
+      "requestsPerTarget": 80,
+      "timer": "process.hrtime.bigint",
+      "transport": "loopback HTTP"
+    },
+    "targets": [
+      {
+        "id": "cp.healthz",
+        "status": "MEASURED",
+        "throughputRps": 2416.444,
+        "p95Ms": 8.862,
+        "errors": 0
+      },
+      {
+        "id": "cp.home",
+        "status": "MEASURED",
+        "throughputRps": 622.561,
+        "p95Ms": 16.722,
+        "errors": 0
+      },
+      {
+        "id": "cp.search",
+        "status": "MEASURED",
+        "throughputRps": 2548.225,
+        "p95Ms": 4.519,
+        "errors": 0
+      },
+      {
+        "id": "cp.productContext",
+        "status": "MEASURED",
+        "throughputRps": 3640.451,
+        "p95Ms": 3.042,
+        "errors": 0
+      },
+      {
+        "id": "shell.root",
+        "status": "MEASURED",
+        "throughputRps": 828.938,
+        "p95Ms": 13.206,
+        "errors": 0
       }
     ]
   },
@@ -99,11 +147,6 @@
     {
       "id": "ui.largeGraphRender",
       "reason": "no dataset fixture at scale",
-      "state": "UNKNOWN"
-    },
-    {
-      "id": "api.concurrentThroughput",
-      "reason": "single-connection probe only",
       "state": "UNKNOWN"
     },
     {

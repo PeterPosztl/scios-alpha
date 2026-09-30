@@ -1,7 +1,7 @@
 {
   "schema": "sci-os-app-typecheck-gate/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-09-30T10:48:52.037Z",
+  "at": "2026-09-30T11:06:34.602Z",
   "note": "Apps are not covered by `pnpm build` (packages only) and esbuild does not typecheck.",
   "apps": [
     {

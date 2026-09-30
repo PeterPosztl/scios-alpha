@@ -1,7 +1,7 @@
 {
-  "at": "2026-09-30T10:33:49.719Z",
+  "at": "2026-09-30T11:04:29.712Z",
   "appRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
-  "restartable": true,
+  "restartable": false,
   "appRootSource": "resolved",
   "order": [
     "graceful_request",
@@ -12,16 +12,18 @@
     "infra_left_running"
   ],
   "shutdownRequest": "CONVERGENCE_STOP",
-  "stopped": [],
+  "stopped": [
+    {
+      "pid": 19928,
+      "component": "@scios/control-plane-api",
+      "port": 3000,
+      "reason": "healthz_identity_proven"
+    }
+  ],
   "skipped": [
     {
       "pid": null,
       "component": "port:4000",
-      "reason": "identity_not_proven service=null"
-    },
-    {
-      "pid": null,
-      "component": "port:3000",
       "reason": "identity_not_proven service=null"
     },
     {
@@ -38,7 +40,7 @@
   "escalated": [],
   "afterStop": {
     "apiDown": true,
-    "cockpitDown": true,
+    "cockpitDown": false,
     "orphanProcesses": [],
     "orphanFree": true
   },

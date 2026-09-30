@@ -1,0 +1,19 @@
+{
+  "schema": "sci-os-cf37-source-contract/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T11:06:34.386Z",
+  "checks": {
+    "helperPresent": "PASS",
+    "contextUsesHelper": "PASS",
+    "compileResolvesSession": "PASS",
+    "compileDoesNotHardcodeNullWorkspace": "PASS",
+    "workspaceNotFromQuery": "PASS",
+    "helperReadsSessionWorkspace": "PASS",
+    "helperReadsSessionId": "PASS",
+    "actorEnvelopeCarriesSession": "PASS",
+    "actorEnvelopeCarriesWorkspace": "PASS"
+  },
+  "status": "PASS",
+  "token": "CF37_SOURCE_CONTRACT_PASS",
+  "failed": []
+}

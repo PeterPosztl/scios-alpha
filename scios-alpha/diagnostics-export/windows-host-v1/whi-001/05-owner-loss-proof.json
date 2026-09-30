@@ -1,11 +1,11 @@
 {
   "schema": "sci-os-whi-001-owner-loss/v1",
-  "at": "2026-09-30T10:50:59.813Z",
+  "at": "2026-09-30T11:07:26.372Z",
   "status": "PASS",
-  "orchestratorPid": 1736,
-  "childPid": 20040,
-  "keeperPid": 14584,
+  "orchestratorPid": 18100,
+  "childPid": 6476,
+  "keeperPid": 20372,
   "childGone": true,
   "keeperGone": true,
-  "orchOut": "FIXTURE_READY {\"orchestratorPid\":1736,\"childPid\":20040,\"keeperPid\":14584,\"jobStatus\":\"JOB_OBJECT_ACTIVE\",\"jobAttached\":true,\"at\":\"2026-09-30T10:50:47.669Z\"}"
+  "orchOut": "FIXTURE_READY {\"orchestratorPid\":18100,\"childPid\":6476,\"keeperPid\":20372,\"jobStatus\":\"JOB_OBJECT_ACTIVE\",\"jobAttached\":true,\"at\":\"2026-09-30T11:07:13.009Z\"}"
 }

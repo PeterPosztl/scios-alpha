@@ -9,7 +9,7 @@
     "identity": {
       "platform": "win32",
       "hostId": "b0c10e95b73f744e",
-      "observedAt": "2026-09-30T10:51:00.018Z"
+      "observedAt": "2026-09-30T11:07:26.524Z"
     },
     "runtime": {
       "buildId": "test-build",
@@ -24,10 +24,10 @@
     "processes": {
       "control-plane": {
         "role": "control-plane",
-        "pid": 12000,
-        "parentPid": 12000,
+        "pid": 22204,
+        "parentPid": 22204,
         "jobAttached": true,
-        "startedAt": "2026-09-30T10:51:00.017Z",
+        "startedAt": "2026-09-30T11:07:26.523Z",
         "expectedRunning": true,
         "actualRunning": true,
         "source": "process-supervisor",
@@ -35,10 +35,10 @@
       },
       "cockpit": {
         "role": "cockpit",
-        "pid": 12000,
-        "parentPid": 12000,
+        "pid": 22204,
+        "parentPid": 22204,
         "jobAttached": true,
-        "startedAt": "2026-09-30T10:51:00.017Z",
+        "startedAt": "2026-09-30T11:07:26.523Z",
         "expectedRunning": true,
         "actualRunning": true,
         "source": "process-supervisor",
@@ -70,7 +70,7 @@
     },
     "locks": {
       "present": true,
-      "ownerPid": 12000,
+      "ownerPid": 22204,
       "ownerAlive": true,
       "staleCandidate": false,
       "path": "lock"
@@ -78,12 +78,12 @@
     "resources": {
       "memory": {
         "total": 16883044352,
-        "free": 2131935232,
-        "freeRatio": 0.1262767062355935,
+        "free": 4959203328,
+        "freeRatio": 0.2937386898123337,
         "level": "HEALTHY"
       },
       "disk": {
-        "freeBytes": 164257062912,
+        "freeBytes": 163986272256,
         "level": "HEALTHY"
       },
       "cpu": {

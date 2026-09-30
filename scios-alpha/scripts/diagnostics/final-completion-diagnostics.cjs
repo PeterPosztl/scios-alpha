@@ -119,6 +119,8 @@ async function main() {
   const typeGate = readJson(path.join(OUT, "app-typecheck-gate.json"));
   const pkgTypes = readJson(path.join(OUT, "package-types.json"));
   const perf = readJson(path.join(OUT, "performance-baseline.json"));
+  const perfConcurrent = readJson(path.join(OUT, "performance-concurrent.json"));
+  const cf37 = readJson(path.join(OUT, "cf37-context-continuity.json"));
 
   const cpHealth = await get(CP + "/healthz");
   const cpReady = await get(CP + "/readyz");
@@ -349,7 +351,7 @@ async function main() {
       ]),
       authMode: "local-development",
       executionMode: "SIMULATION_ONLY",
-      serverAuthoritative: alpha?.checks?.policyDecision ?? alpha?.checks?.permissions ?? "UNKNOWN",
+      serverAuthoritative: cf37?.token === "CF37_CONTINUITY_PROVEN" ? "PASS" : alpha?.checks?.policyDecision ?? alpha?.checks?.permissions ?? "UNKNOWN",
       gateChecks: Object.fromEntries(secKeys.map((k) => [k, prod.checks[k]])),
       tlsTermination: "NOT_CONFIGURED",
       oidc: "ABSENT_FD001_PENDING",
@@ -420,6 +422,8 @@ async function main() {
     write("10-performance-diagnostic.json", {
       ...base("10-performance-diagnostic", "Measured performance", [
         "final-completion/installed-restart-reliability.json",
+        "final-completion/performance-baseline.json",
+        "final-completion/performance-concurrent.json",
         "installed startup-report.json",
       ]),
       note: "Only measured values are recorded. No performance number is estimated or invented, and no target is asserted because none is declared.",
@@ -440,11 +444,23 @@ async function main() {
             })),
           }
         : "UNKNOWN",
-      unmeasured: perf?.unmeasured ?? [
-        { id: "ui.frameRate", state: "UNKNOWN" },
-        { id: "ui.largeGraphRender", state: "UNKNOWN" },
-        { id: "api.concurrentThroughput", state: "UNKNOWN" },
-      ],
+      apiConcurrentThroughput: perfConcurrent
+        ? {
+            token: perfConcurrent.token,
+            method: perfConcurrent.method,
+            targets: (perfConcurrent.targets || []).map((t) => ({
+              id: t.id,
+              status: t.status,
+              throughputRps: t.throughputRps ?? null,
+              p95Ms: t.p95Ms ?? null,
+              errors: t.errors ?? null,
+            })),
+          }
+        : "UNKNOWN",
+      unmeasured: [
+        ...(perf?.unmeasured || []),
+        ...(perfConcurrent?.stillUnmeasured || []),
+      ].filter((u, i, arr) => arr.findIndex((x) => x.id === u.id) === i),
       unmeasuredClassification: "UNKNOWN — no executable measurement exists for these.",
     })
   );
@@ -629,6 +645,13 @@ async function main() {
           status: "PROVEN_FIXED",
           evidence: "Registered in package.json test:release; suite exits 0 with the harness reporting fails: []",
         },
+        {
+          id: "GAP-CF37-CONTEXT-IDENTITY",
+          finding: "/v1/product/context and /v1/kernel/projection forwarded only roleId/objectId/workflowState, so the actor envelope always reported sessionId=null and workspaceId=null. A client-supplied workspaceId had nothing authoritative to compare against.",
+          impact: "ALPHA_BLOCKER (governance identity)",
+          status: "PROVEN_FIXED",
+          evidence: "final-completion/cf37-source-contract.json, final-completion/cf37-context-continuity.json",
+        },
       ],
       openGaps: [
         {
@@ -665,13 +688,21 @@ async function main() {
         {
           id: "GAP-PERF-UNMEASURED",
           finding:
-            "API surface latency is now measured (warmed, 30 samples per target, hrtime, p50/p95/p99) and gated. UI frame rate, large-graph render latency and concurrent throughput remain unmeasured, and no performance target is declared for any surface.",
+            "API sequential latency and concurrent throughput are measured and gated. UI frame rate and large-graph render latency remain unmeasured, postgresLatency is OPTIONAL_PROVIDER_UNAVAILABLE, and no performance target is declared for any surface.",
           impact: "PRODUCTION_BLOCKER",
           classification: "PARTIAL",
-          measured: (perf?.targets || []).filter((t) => t.status === "MEASURED").map((t) => t.id),
-          stillUnmeasured: (perf?.unmeasured || []).map((u) => u.id),
+          measured: [
+            ...((perf?.targets || []).filter((t) => t.status === "MEASURED").map((t) => t.id)),
+            ...((perfConcurrent?.targets || []).filter((t) => t.status === "MEASURED").map((t) => `concurrent:${t.id}`)),
+          ],
+          stillUnmeasured: [
+            ...((perf?.unmeasured || []).map((u) => u.id)),
+            ...((perfConcurrent?.stillUnmeasured || []).map((u) => u.id)),
+          ]
+            .filter((id, i, arr) => arr.indexOf(id) === i)
+            .filter((id) => id !== "api.concurrentThroughput" || perfConcurrent?.token !== "PERFORMANCE_CONCURRENT_MEASURED"),
           nextAction:
-            "Declare performance budgets (founder decision), then instrument the renderer and a concurrency harness. Until budgets exist the baseline records values without asserting a target.",
+            "Declare performance budgets (founder decision), then instrument the renderer. Until budgets exist the harness records values without asserting a target.",
         },
       ],
     })

@@ -4,7 +4,7 @@
     "schema": "sci-os-product-context/v1",
     "legacySchema": "sci-os-kernel-ui-projection/v1",
     "label": "ALPHA_NON_PRODUCTION",
-    "at": "2026-09-30T10:50:27.435Z",
+    "at": "2026-09-30T11:07:02.800Z",
     "role": {
       "roleId": "arch.market_analyst",
       "mission": "Analyze instruments to produce defensible predictions with explicit uncertainty and lineage.",
@@ -110,7 +110,7 @@
   "snapshot": {
     "schema": "sci-os-product-kernel-snapshot/v1",
     "label": "ALPHA_NON_PRODUCTION",
-    "at": "2026-09-30T10:50:27.435Z",
+    "at": "2026-09-30T11:07:02.800Z",
     "capabilitySummary": {
       "total": 17,
       "counts": {

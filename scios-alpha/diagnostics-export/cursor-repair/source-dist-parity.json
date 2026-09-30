@@ -1,9 +1,9 @@
 {
   "schema": "sci-os-source-dist-parity/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-09-30T10:33:42.243Z",
-  "buildId": "pkg_1790764419463",
-  "gitSha": "bb9602bc47b5f2f6efb24b9e764e730fb10a4448",
+  "at": "2026-09-30T11:03:51.238Z",
+  "buildId": "pkg_1790766222256",
+  "gitSha": "88f01e0f7e38040c55671bf274f60c228d563f2b",
   "sourceRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
   "distRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10",
   "files": [
@@ -73,7 +73,7 @@
     }
   ],
   "artifacts": {
-    "backend": "cc97f67b8f73ee215769a00156e380d9caf17118462ddbdc51dbe7f3669d33a2",
+    "backend": "9ec7898f36cf05e835505a24590319c1e7321d49da6ccab57c406f084e09bb35",
     "cockpit": "52ce596c90b300cd182c0496c2bd14512bbdabab024735fbd4a5f2093c96d3b3",
     "recovery": "79558d02b335bb2aaf0417d627a91137c12f47439aa551f9c69c594a8ef315db",
     "node": "06c1dec1b428927d6ff01c8f5882f119ec13b61ac77483760aa7fba215c72cf5"

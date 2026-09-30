@@ -1,0 +1,76 @@
+{
+  "schema": "sci-os-cf37-context-continuity/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T11:06:34.490Z",
+  "registerEntries": [
+    "CTRL.CF37.object-continuity",
+    "CTRL.CF37.context-preservation",
+    "CTRL.CF37.no-dead-end-controls"
+  ],
+  "buildId": "pkg_1790766222256",
+  "checks": {
+    "objectRecorded": "PASS",
+    "objectSurvivesAcrossRequests": "PASS",
+    "contextCarriesObject": "PASS",
+    "contextCarriesSession": "PASS",
+    "contextCarriesWorkspace": "PASS",
+    "workspaceNotClientOverridable": "PASS",
+    "projectionAgreesWithContext": "PASS",
+    "shellPrimaryNavPresent": "PASS",
+    "shellExposesNonTerminalStates": "PASS"
+  },
+  "evidence": {
+    "objectRecorded": {
+      "expected": "AAPL",
+      "got": "AAPL"
+    },
+    "objectSurvivesAcrossRequests": {
+      "recentEntityIds": [
+        "AAPL",
+        "AAPL",
+        "AAPL",
+        "AAPL"
+      ]
+    },
+    "actorEnvelope": {
+      "objectId": "AAPL",
+      "sessionId": "default",
+      "workspaceId": "ws_home",
+      "roleId": "arch.market_analyst",
+      "sessionActiveWorkspaceId": "ws_home",
+      "sessionId_fromSessionEndpoint": "default"
+    },
+    "workspaceSpoofAttempt": {
+      "claimed": "ws_attacker",
+      "resolved": "ws_home",
+      "serverTruth": "ws_home"
+    },
+    "projectionActor": {
+      "sessionId": "default",
+      "workspaceId": "ws_home"
+    },
+    "primaryNav": [
+      "HOME",
+      "WORK",
+      "CASES",
+      "ENTITIES",
+      "ANALYZE",
+      "RISK",
+      "SIMULATE",
+      "REPORTS"
+    ],
+    "shellStates": {
+      "loading": true,
+      "empty": true,
+      "error": true,
+      "navigation": true
+    }
+  },
+  "status": "PASS",
+  "token": "CF37_CONTINUITY_PROVEN",
+  "closesRegisterEntries": [
+    "CTRL.CF37.object-continuity",
+    "CTRL.CF37.context-preservation",
+    "CTRL.CF37.no-dead-end-controls"
+  ]
+}

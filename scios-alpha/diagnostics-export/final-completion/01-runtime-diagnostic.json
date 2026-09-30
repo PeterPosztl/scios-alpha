@@ -1,7 +1,7 @@
 {
   "schema": "sci-os-final-completion/01-runtime-diagnostic/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-09-30T10:47:25.776Z",
+  "at": "2026-09-30T11:08:54.899Z",
   "title": "Live installed runtime probes",
   "sources": [
     "GET /healthz",
@@ -40,8 +40,8 @@
     "blockers": [],
     "repairActions": 0,
     "warnings": 3,
-    "timestamp": "2026-09-30T10:42:47.454Z",
-    "durationMs": 4713
+    "timestamp": "2026-09-30T11:06:30.697Z",
+    "durationMs": 4800
   },
   "lastShutdown": {
     "restartable": true,

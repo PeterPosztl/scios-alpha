@@ -1,6 +1,6 @@
 {
   "schema": "sci-os-whi-001-topology/v1",
-  "at": "2026-09-30T10:50:34.786Z",
+  "at": "2026-09-30T11:07:05.441Z",
   "bootAuthority": "installer/scripts/start-sci-os.cjs",
   "supervisor": "installer/scripts/startup/process-supervisor.cjs",
   "processes": [

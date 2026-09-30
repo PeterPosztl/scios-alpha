@@ -162,7 +162,6 @@ async function main() {
     unmeasured: [
       { id: "ui.frameRate", reason: "no instrumented renderer harness", state: "UNKNOWN" },
       { id: "ui.largeGraphRender", reason: "no dataset fixture at scale", state: "UNKNOWN" },
-      { id: "api.concurrentThroughput", reason: "single-connection probe only", state: "UNKNOWN" },
       { id: "persistence.postgresLatency", reason: "no PostgreSQL instance", state: "OPTIONAL_PROVIDER_UNAVAILABLE" },
     ],
     status: "UNKNOWN",

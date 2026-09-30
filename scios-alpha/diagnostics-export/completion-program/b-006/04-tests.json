@@ -1,6 +1,6 @@
 {
   "schema": "sci-os-b006-cockpit-ui-hard-gate/v1",
-  "at": "2026-09-30T10:51:05.653Z",
+  "at": "2026-09-30T11:07:29.058Z",
   "steps": {
     "eightPanels": "PASS",
     "contextHeaderBar": "PASS",

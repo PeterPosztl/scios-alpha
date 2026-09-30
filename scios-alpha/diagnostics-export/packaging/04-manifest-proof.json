@@ -1,11 +1,11 @@
 {
-  "at": "2026-09-30T10:33:42.822Z",
+  "at": "2026-09-30T11:03:53.039Z",
   "ok": true,
   "manifest": {
     "schema": "sci-os-golden-boot-packaged/v1",
     "applicationVersion": "0.1.0-alpha",
-    "buildId": "pkg_1790764419463",
-    "gitSha": "bb9602bc47b5f2f6efb24b9e764e730fb10a4448",
+    "buildId": "pkg_1790766222256",
+    "gitSha": "88f01e0f7e38040c55671bf274f60c228d563f2b",
     "runtimeMode": "PACKAGED",
     "installRoot": ".",
     "runtimeNode": "runtime/node/node.exe",
@@ -27,7 +27,7 @@
       "SCI OS X10.cmd"
     ],
     "requiredFileHashes": {
-      "backend/server.cjs": "cc97f67b8f73ee215769a00156e380d9caf17118462ddbdc51dbe7f3669d33a2",
+      "backend/server.cjs": "9ec7898f36cf05e835505a24590319c1e7321d49da6ccab57c406f084e09bb35",
       "cockpit/index.mjs": "52ce596c90b300cd182c0496c2bd14512bbdabab024735fbd4a5f2093c96d3b3",
       "recovery/server.cjs": "79558d02b335bb2aaf0417d627a91137c12f47439aa551f9c69c594a8ef315db",
       "runtime/node/node.exe": "06c1dec1b428927d6ff01c8f5882f119ec13b61ac77483760aa7fba215c72cf5",
@@ -77,9 +77,9 @@
     ],
     "label": "ALPHA_NON_PRODUCTION",
     "buildIdentity": {
-      "buildId": "pkg_1790764419463",
-      "treeHash": "39eb9f6d33becc3b0b2c8f270e66099126b6dffdc957e67940dbe56367ba08d2",
-      "packageHash": "da96ac528a745de26930d0ea5f74cc515bc834b92671b1abc0237ce61d2c51ab",
+      "buildId": "pkg_1790766222256",
+      "treeHash": "8f199f6e6ddd5ce809d23d5cac6768fb293441e040caba20399171e9c954e448",
+      "packageHash": "b01f6601827087a6f2a93f21883e76fb23a7f65f94ca1cd99b4084fb9fa46b69",
       "lockfileHash": "1a105e1f59ee30ffee081a321963277cc5f1b0d50217a260e3ab9bf18fdbf490",
       "manifestHash": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701"
     }

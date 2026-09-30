@@ -1,7 +1,7 @@
 {
   "schema": "sci-os-final-completion/06-security-diagnostic/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-09-30T10:47:25.776Z",
+  "at": "2026-09-30T11:08:54.899Z",
   "title": "Security posture",
   "sources": [
     "completion-program/production-gate/11-final-gate.json",
@@ -10,7 +10,7 @@
   ],
   "authMode": "local-development",
   "executionMode": "SIMULATION_ONLY",
-  "serverAuthoritative": "UNKNOWN",
+  "serverAuthoritative": "PASS",
   "gateChecks": {
     "governanceOidc": "BLOCKED_WITH_EVIDENCE",
     "tlsProduction": "BLOCKED_WITH_EVIDENCE"

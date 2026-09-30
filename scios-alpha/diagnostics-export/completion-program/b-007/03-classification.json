@@ -1,21 +1,21 @@
 {
   "schema": "sci-os-b007-p1-root-closure/v1",
-  "at": "2026-09-30T10:51:05.916Z",
+  "at": "2026-09-30T11:07:29.153Z",
   "wave": "B-007",
   "token": "B_007_P1_ROOT_CLOSURE_READY",
   "checkpoint": "46b03f18",
   "rawP1RegisterCount": 92,
   "classifiedCount": 92,
   "engineeringOpen": 0,
-  "engineeringClosed": 4,
+  "engineeringClosed": 7,
   "obsoleteClosed": 14,
   "byCategory": {
     "obsolete finding": 14,
     "production-only concern": 34,
     "deferred founder decision": 4,
     "intentional limitation": 29,
-    "documentation/evidence gap": 7,
-    "genuine defect": 4
+    "documentation/evidence gap": 4,
+    "genuine defect": 7
   },
   "classified": [
     {
@@ -520,13 +520,13 @@
     },
     {
       "id": "CTRL.CF37.no-dead-end-controls",
-      "category": "documentation/evidence gap",
-      "status": "DOCUMENTED",
-      "why": "B-006 added loading/empty/error states; full nav audit not re-run",
-      "safe": "Core flows Home→GW1→Evidence reachable",
+      "category": "genuine defect",
+      "status": "CLOSED",
+      "wave": "FINAL-COMPLETION",
+      "proof": "diagnostics-export/final-completion/cf37-context-continuity.json",
+      "why": "Installed E2E: primary nav present and shell exposes loading/error/navigation states",
       "milestone": "B",
-      "dependency": "b006-cockpit-ui-hard-gate",
-      "owner": "product-ux"
+      "owner": "completion-program"
     },
     {
       "id": "CTRL.CF37.role-relevance",
@@ -540,23 +540,23 @@
     },
     {
       "id": "CTRL.CF37.object-continuity",
-      "category": "documentation/evidence gap",
-      "status": "DOCUMENTED",
-      "why": "Context header preserves object; formal continuity test absent",
-      "safe": "Entity→Analyze→Experience chain proven in alpha convergence",
+      "category": "genuine defect",
+      "status": "CLOSED",
+      "wave": "FINAL-COMPLETION",
+      "proof": "diagnostics-export/final-completion/cf37-context-continuity.json",
+      "why": "Installed E2E: object recorded, survives across requests, carried in product-context actor envelope",
       "milestone": "B",
-      "dependency": "alpha-product-convergence",
-      "owner": "product-ux"
+      "owner": "completion-program"
     },
     {
       "id": "CTRL.CF37.context-preservation",
-      "category": "documentation/evidence gap",
-      "status": "DOCUMENTED",
-      "why": "Session actor envelope + context header; CF37 formal evidence pending",
-      "safe": "Actor context proven B-001/B-003",
+      "category": "genuine defect",
+      "status": "CLOSED",
+      "wave": "FINAL-COMPLETION",
+      "proof": "diagnostics-export/final-completion/cf37-context-continuity.json",
+      "why": "Server-authoritative session/workspace in actor envelope; client workspaceId cannot override",
       "milestone": "B",
-      "dependency": "batch_001_P1 actor-context-proof",
-      "owner": "product-ux"
+      "owner": "completion-program"
     },
     {
       "id": "CTRL.CF06.canonical-entity-ids",
@@ -959,6 +959,10 @@
     },
     {
       "id": "detached_harness_skip",
+      "ok": true
+    },
+    {
+      "id": "cf37_server_authoritative_projection",
       "ok": true
     }
   ],

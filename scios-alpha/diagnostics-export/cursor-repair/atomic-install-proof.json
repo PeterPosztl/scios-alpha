@@ -1,28 +1,85 @@
 {
   "schema": "sci-os-atomic-install/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-09-30T10:33:43.865Z",
+  "at": "2026-09-30T11:04:10.775Z",
   "source": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\dist\\SCI-OS-X10",
   "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
   "dataDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\data",
   "steps": [
     {
       "name": "preinstall_process_state",
-      "at": "2026-09-30T10:33:44.716Z",
-      "processes": []
+      "at": "2026-09-30T11:04:12.283Z",
+      "processes": [
+        {
+          "pid": 22060,
+          "parentPid": 17180,
+          "executable": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\SCI-OS-X10.exe",
+          "commandLine": "\"C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\SCI-OS-X10.exe\"",
+          "sciOwned": true
+        },
+        {
+          "pid": 15608,
+          "parentPid": 22060,
+          "executable": "C:\\WINDOWS\\system32\\cmd.exe",
+          "commandLine": "C:\\WINDOWS\\system32\\cmd.exe /c \"\"C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\SCI-OS-X10.cmd\"\"",
+          "sciOwned": true
+        },
+        {
+          "pid": 1128,
+          "parentPid": 15608,
+          "executable": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\runtime\\node\\node.exe",
+          "commandLine": "\"C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\runtime\\node\\node.exe\"  \"C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\installer\\scripts\\start-sci-os.cjs\" --serve --packaged",
+          "sciOwned": true
+        },
+        {
+          "pid": 19928,
+          "parentPid": 1128,
+          "executable": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\runtime\\node\\node.exe",
+          "commandLine": "\"C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\runtime\\node\\node.exe\" \"C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\backend\\server.cjs\"",
+          "sciOwned": true
+        },
+        {
+          "pid": 10652,
+          "parentPid": 1128,
+          "executable": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\runtime\\node\\node.exe",
+          "commandLine": "\"C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\runtime\\node\\node.exe\" \"C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\cockpit\\index.mjs\"",
+          "sciOwned": true
+        }
+      ]
     },
     {
       "name": "quiescence_gate",
-      "at": "2026-09-30T10:33:54.792Z",
+      "at": "2026-09-30T11:04:34.990Z",
       "quiescence": {
         "schema": "sci-os-install-quiescence/v1",
-        "at": "2026-09-30T10:33:44.717Z",
+        "at": "2026-09-30T11:04:12.283Z",
         "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
         "attempts": [
           {
             "attempt": 1,
             "delayMs": 500,
-            "stopped": [],
+            "stopped": [
+              {
+                "pid": 22060,
+                "component": "sci-local-app-process",
+                "executable": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\SCI-OS-X10.exe"
+              },
+              {
+                "pid": 15608,
+                "component": "sci-local-app-process",
+                "executable": "C:\\WINDOWS\\system32\\cmd.exe"
+              },
+              {
+                "pid": 1128,
+                "component": "orchestrator",
+                "executable": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\runtime\\node\\node.exe"
+              },
+              {
+                "pid": 10652,
+                "component": "cockpit",
+                "executable": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\runtime\\node\\node.exe"
+              }
+            ],
             "skipped": [],
             "portsDown": false,
             "remainingPids": []
@@ -34,24 +91,24 @@
     },
     {
       "name": "stage_copy",
-      "at": "2026-09-30T10:33:54.794Z",
+      "at": "2026-09-30T11:04:34.992Z",
       "staging": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.staging"
     },
     {
       "name": "stage_verify",
-      "at": "2026-09-30T10:33:56.334Z",
+      "at": "2026-09-30T11:04:36.468Z",
       "ok": true,
-      "buildId": "pkg_1790764419463"
+      "buildId": "pkg_1790766222256"
     },
     {
       "name": "backup_current",
-      "at": "2026-09-30T10:33:56.334Z",
-      "backup": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.1790764423865",
+      "at": "2026-09-30T11:04:36.468Z",
+      "backup": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.1790766250775",
       "operation": "rename installDir → backup"
     },
     {
       "name": "backup_rename",
-      "at": "2026-09-30T10:33:56.336Z",
+      "at": "2026-09-30T11:04:36.470Z",
       "ok": true,
       "attempts": [
         {
@@ -63,13 +120,13 @@
     },
     {
       "name": "promote_staging",
-      "at": "2026-09-30T10:33:56.336Z",
+      "at": "2026-09-30T11:04:36.470Z",
       "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
       "operation": "rename staging → installDir"
     },
     {
       "name": "promote_rename",
-      "at": "2026-09-30T10:33:56.337Z",
+      "at": "2026-09-30T11:04:36.471Z",
       "ok": true,
       "attempts": [
         {
@@ -81,19 +138,19 @@
     },
     {
       "name": "live_verify",
-      "at": "2026-09-30T10:33:56.681Z",
+      "at": "2026-09-30T11:04:36.763Z",
       "ok": true,
-      "buildId": "pkg_1790764419463"
+      "buildId": "pkg_1790766222256"
     },
     {
       "name": "retain_backup_last",
-      "at": "2026-09-30T10:33:56.819Z",
+      "at": "2026-09-30T11:04:36.857Z",
       "last": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app.backup.last",
       "attempt": 0
     },
     {
       "name": "shortcuts_localappdata",
-      "at": "2026-09-30T10:33:57.871Z",
+      "at": "2026-09-30T11:04:38.163Z",
       "startMenu": {
         "link": "C:\\Users\\peter\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\SCI OS X10.lnk",
         "target": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\SCI-OS-X10.exe",
@@ -120,7 +177,7 @@
     "quiescenceGate": true
   },
   "primaryEntry": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app\\SCI-OS-X10.exe",
-  "buildId": "pkg_1790764419463",
+  "buildId": "pkg_1790766222256",
   "shortcuts": {
     "startMenu": {
       "link": "C:\\Users\\peter\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\SCI OS X10.lnk",

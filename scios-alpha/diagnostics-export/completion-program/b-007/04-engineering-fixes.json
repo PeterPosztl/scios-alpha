@@ -1,5 +1,5 @@
 {
-  "at": "2026-09-30T10:51:05.916Z",
+  "at": "2026-09-30T11:07:29.153Z",
   "checks": [
     {
       "id": "swallowed_catch_absent",
@@ -19,6 +19,10 @@
     },
     {
       "id": "detached_harness_skip",
+      "ok": true
+    },
+    {
+      "id": "cf37_server_authoritative_projection",
       "ok": true
     }
   ],

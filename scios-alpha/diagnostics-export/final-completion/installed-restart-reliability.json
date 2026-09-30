@@ -1,10 +1,10 @@
 {
   "schema": "sci-os-installed-restart-reliability/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-09-30T10:47:44.354Z",
+  "at": "2026-09-30T11:05:27.874Z",
   "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
   "cycles": 3,
-  "buildId": "pkg_1790764419463",
+  "buildId": "pkg_1790766222256",
   "results": [
     {
       "cycle": 1,
@@ -27,9 +27,9 @@
         "shell": true,
         "overall": "DEGRADED",
         "ok": true,
-        "readyMs": 3138
+        "readyMs": 4105
       },
-      "readyMs": 3138,
+      "readyMs": 4105,
       "packagedEndpoints": [
         {
           "url": "cp/healthz",
@@ -75,10 +75,20 @@
           "url": "shell/healthz",
           "status": 200,
           "ok": true
+        },
+        {
+          "url": "cp/v1/product/context?objectId=AAPL&sessionId=default",
+          "status": 200,
+          "ok": true
+        },
+        {
+          "url": "cp/v1/kernel/projection?objectId=AAPL&sessionId=default",
+          "status": 200,
+          "ok": true
         }
       ],
       "startupVerdict": "DEGRADED",
-      "startupReportAt": "2026-09-30T10:47:55.354Z",
+      "startupReportAt": "2026-09-30T11:05:39.975Z",
       "stopExitCode": 0,
       "residualProcesses": [],
       "status": "PASS"
@@ -104,9 +114,9 @@
         "shell": true,
         "overall": "DEGRADED",
         "ok": true,
-        "readyMs": 3075
+        "readyMs": 3093
       },
-      "readyMs": 3075,
+      "readyMs": 3093,
       "packagedEndpoints": [
         {
           "url": "cp/healthz",
@@ -152,10 +162,20 @@
           "url": "shell/healthz",
           "status": 200,
           "ok": true
+        },
+        {
+          "url": "cp/v1/product/context?objectId=AAPL&sessionId=default",
+          "status": 200,
+          "ok": true
+        },
+        {
+          "url": "cp/v1/kernel/projection?objectId=AAPL&sessionId=default",
+          "status": 200,
+          "ok": true
         }
       ],
       "startupVerdict": "DEGRADED",
-      "startupReportAt": "2026-09-30T10:48:12.329Z",
+      "startupReportAt": "2026-09-30T11:05:58.245Z",
       "stopExitCode": 0,
       "residualProcesses": [],
       "status": "PASS"
@@ -181,9 +201,9 @@
         "shell": true,
         "overall": "DEGRADED",
         "ok": true,
-        "readyMs": 3098
+        "readyMs": 3072
       },
-      "readyMs": 3098,
+      "readyMs": 3072,
       "packagedEndpoints": [
         {
           "url": "cp/healthz",
@@ -229,10 +249,20 @@
           "url": "shell/healthz",
           "status": 200,
           "ok": true
+        },
+        {
+          "url": "cp/v1/product/context?objectId=AAPL&sessionId=default",
+          "status": 200,
+          "ok": true
+        },
+        {
+          "url": "cp/v1/kernel/projection?objectId=AAPL&sessionId=default",
+          "status": 200,
+          "ok": true
         }
       ],
       "startupVerdict": "DEGRADED",
-      "startupReportAt": "2026-09-30T10:48:28.377Z",
+      "startupReportAt": "2026-09-30T11:06:14.480Z",
       "stopExitCode": 0,
       "residualProcesses": [],
       "status": "PASS"
@@ -241,13 +271,13 @@
   "status": "PASS",
   "restoredRunning": {
     "ok": true,
-    "readyMs": 5087,
+    "readyMs": 3083,
     "overall": "DEGRADED"
   },
   "readyMsSamples": [
-    3138,
-    3075,
-    3098
+    4105,
+    3093,
+    3072
   ],
   "token": "INSTALLED_RESTART_RELIABILITY_PASS"
 }

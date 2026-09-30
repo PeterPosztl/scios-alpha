@@ -1,6 +1,6 @@
 {
   "schema": "sci-os-whi-001-helper-failure/v1",
-  "at": "2026-09-30T10:50:59.815Z",
+  "at": "2026-09-30T11:07:26.379Z",
   "status": "JOB_OBJECT_UNAVAILABLE",
   "fallback": "ProcessSupervisor taskkill tree remains",
   "pass": true

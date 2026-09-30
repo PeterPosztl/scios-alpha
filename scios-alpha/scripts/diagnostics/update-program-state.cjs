@@ -53,7 +53,7 @@ const before = {
 
 state.currentBuild = buildId;
 state.currentWave = "FINAL-COMPLETION";
-state.currentWaveTitle = "Installed boot/restart reliability + app typecheck closure";
+state.currentWaveTitle = "CF37 server-authoritative context identity + concurrent API throughput";
 state.lastUpdatedAt = new Date().toISOString();
 
 if (alpha?.token) {
@@ -102,7 +102,7 @@ state.openEngineeringGaps = (gapRegister?.openGaps || [])
   .map((g) => ({ id: g.id, impact: g.impact, classification: g.classification }));
 
 state.nextExactAction =
-  "Resolve GAP-PG-PROBE-NONDETERMINISM (durable-adapter pg probe varies by import path), then gate smoke:ecl-dil. " +
+  "CF37 context identity proven on installed runtime. Concurrent API throughput harness is gated. Remaining engineering: UI renderer instrumentation (frame rate / large-graph) requires a harness that does not yet exist. " +
   "Beta remains blocked on FD-001 (OIDC provider) and a reachable PostgreSQL (DATABASE_URL); production additionally on TLS termination and Target-C P1=0.";
 state.nextWave = "B-011";
 

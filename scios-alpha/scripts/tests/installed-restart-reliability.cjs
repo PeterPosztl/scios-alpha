@@ -107,6 +107,8 @@ const PACKAGED_ENDPOINTS = [
   CP + "/v1/os/job-engine/status",
   COCKPIT + "/",
   COCKPIT + "/healthz",
+  CP + "/v1/product/context?objectId=AAPL&sessionId=default",
+  CP + "/v1/kernel/projection?objectId=AAPL&sessionId=default",
 ];
 
 async function sweepPackagedEndpoints() {

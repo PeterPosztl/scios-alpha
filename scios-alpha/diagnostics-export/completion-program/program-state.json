@@ -5,9 +5,9 @@
   "currentTarget": "D",
   "currentTargetLabel": "FOUNDER_VISION_PROGRAM_COMPLETE",
   "currentWave": "FINAL-COMPLETION",
-  "currentWaveTitle": "Installed boot/restart reliability + app typecheck closure",
+  "currentWaveTitle": "CF37 server-authoritative context identity + concurrent API throughput",
   "currentBatch": "B-010-complete",
-  "currentBuild": "pkg_1790764419463",
+  "currentBuild": "pkg_1790766222256",
   "gitSha": "46b03f18",
   "runtimeVersion": "v20.18.1",
   "closureRunId": "closure_post_b010_install",
@@ -127,8 +127,8 @@
     }
   ],
   "nextWave": "B-011",
-  "nextExactAction": "Resolve GAP-PG-PROBE-NONDETERMINISM (durable-adapter pg probe varies by import path), then gate smoke:ecl-dil. Beta remains blocked on FD-001 (OIDC provider) and a reachable PostgreSQL (DATABASE_URL); production additionally on TLS termination and Target-C P1=0.",
-  "lastUpdatedAt": "2026-09-30T10:51:40.237Z",
+  "nextExactAction": "CF37 context identity proven on installed runtime. Concurrent API throughput harness is gated. Remaining engineering: UI renderer instrumentation (frame rate / large-graph) requires a harness that does not yet exist. Beta remains blocked on FD-001 (OIDC provider) and a reachable PostgreSQL (DATABASE_URL); production additionally on TLS termination and Target-C P1=0.",
+  "lastUpdatedAt": "2026-09-30T11:08:55.163Z",
   "p1Audit": {
     "rawRegisterCount": 92,
     "engineeringOpen": 0,
@@ -158,14 +158,14 @@
   "lastSuccessfulProofs": {
     "installedRestartReliability": "INSTALLED_RESTART_RELIABILITY_PASS",
     "installedBootToSurfaceMs": [
-      3138,
-      3075,
-      3098
+      4105,
+      3093,
+      3072
     ],
     "appTypecheckGate": "APP_TYPECHECK_GATE_PASS",
     "installedRuntimeVerdict": "DEGRADED",
     "sourceBuildPackageInstallSynchronized": true,
-    "at": "2026-09-30T10:51:40.238Z"
+    "at": "2026-09-30T11:08:55.164Z"
   },
   "externalAndFounderBlockers": [
     {

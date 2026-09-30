@@ -1,7 +1,7 @@
 {
   "schema": "sci-os-performance-baseline/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-09-30T10:48:50.291Z",
+  "at": "2026-09-30T11:08:53.733Z",
   "note": "Measured values only. No performance target is asserted because none is declared for this product.",
   "failureConditions": [
     "unreachable product surface",
@@ -22,7 +22,7 @@
     "cpuCount": 8,
     "totalMemBytes": 16883044352
   },
-  "buildId": "pkg_1790764419463",
+  "buildId": "pkg_1790766222256",
   "targets": [
     {
       "id": "cp.healthz",
@@ -32,12 +32,12 @@
         200
       ],
       "n": 30,
-      "minMs": 0.637,
-      "p50Ms": 1.082,
-      "p95Ms": 2.213,
-      "p99Ms": 2.351,
-      "maxMs": 2.351,
-      "meanMs": 1.178
+      "minMs": 0.491,
+      "p50Ms": 0.704,
+      "p95Ms": 0.933,
+      "p99Ms": 1.342,
+      "maxMs": 1.342,
+      "meanMs": 0.728
     },
     {
       "id": "cp.startupReadiness",
@@ -47,12 +47,12 @@
         200
       ],
       "n": 30,
-      "minMs": 7.3,
-      "p50Ms": 9.306,
-      "p95Ms": 17.799,
-      "p99Ms": 21.944,
-      "maxMs": 21.944,
-      "meanMs": 10.897
+      "minMs": 6.258,
+      "p50Ms": 8.47,
+      "p95Ms": 15.692,
+      "p99Ms": 29.28,
+      "maxMs": 29.28,
+      "meanMs": 9.814
     },
     {
       "id": "cp.home",
@@ -62,12 +62,12 @@
         200
       ],
       "n": 30,
-      "minMs": 3.285,
-      "p50Ms": 3.84,
-      "p95Ms": 5.698,
-      "p99Ms": 5.926,
-      "maxMs": 5.926,
-      "meanMs": 4.097
+      "minMs": 1.765,
+      "p50Ms": 1.851,
+      "p95Ms": 2.7,
+      "p99Ms": 2.912,
+      "maxMs": 2.912,
+      "meanMs": 1.997
     },
     {
       "id": "cp.search",
@@ -77,12 +77,12 @@
         200
       ],
       "n": 30,
-      "minMs": 1.354,
-      "p50Ms": 1.55,
-      "p95Ms": 1.951,
-      "p99Ms": 2.012,
-      "maxMs": 2.012,
-      "meanMs": 1.593
+      "minMs": 0.533,
+      "p50Ms": 0.58,
+      "p95Ms": 0.718,
+      "p99Ms": 0.726,
+      "maxMs": 0.726,
+      "meanMs": 0.6
     },
     {
       "id": "cp.entity",
@@ -92,12 +92,12 @@
         200
       ],
       "n": 30,
-      "minMs": 1.291,
-      "p50Ms": 1.518,
-      "p95Ms": 2.277,
-      "p99Ms": 2.296,
-      "maxMs": 2.296,
-      "meanMs": 1.628
+      "minMs": 0.453,
+      "p50Ms": 0.558,
+      "p95Ms": 1.037,
+      "p99Ms": 1.525,
+      "maxMs": 1.525,
+      "meanMs": 0.643
     },
     {
       "id": "cp.jobsHealth",
@@ -107,12 +107,12 @@
         200
       ],
       "n": 30,
-      "minMs": 9.718,
-      "p50Ms": 12.293,
-      "p95Ms": 23.659,
-      "p99Ms": 41.901,
-      "maxMs": 41.901,
-      "meanMs": 14.393
+      "minMs": 4.109,
+      "p50Ms": 6.581,
+      "p95Ms": 51.578,
+      "p99Ms": 87.541,
+      "maxMs": 87.541,
+      "meanMs": 11.416
     },
     {
       "id": "cp.engineInfra",
@@ -122,12 +122,12 @@
         200
       ],
       "n": 30,
-      "minMs": 2.218,
-      "p50Ms": 2.813,
-      "p95Ms": 4.85,
-      "p99Ms": 7.209,
-      "maxMs": 7.209,
-      "meanMs": 3.262
+      "minMs": 0.819,
+      "p50Ms": 1.086,
+      "p95Ms": 1.447,
+      "p99Ms": 1.635,
+      "maxMs": 1.635,
+      "meanMs": 1.079
     },
     {
       "id": "shell.root",
@@ -137,12 +137,12 @@
         200
       ],
       "n": 30,
-      "minMs": 3.562,
-      "p50Ms": 4.254,
-      "p95Ms": 9.673,
-      "p99Ms": 14.864,
-      "maxMs": 14.864,
-      "meanMs": 4.902
+      "minMs": 1.745,
+      "p50Ms": 4.474,
+      "p95Ms": 7.346,
+      "p99Ms": 19.752,
+      "maxMs": 19.752,
+      "meanMs": 4.738
     }
   ],
   "unmeasured": [
@@ -154,11 +154,6 @@
     {
       "id": "ui.largeGraphRender",
       "reason": "no dataset fixture at scale",
-      "state": "UNKNOWN"
-    },
-    {
-      "id": "api.concurrentThroughput",
-      "reason": "single-connection probe only",
       "state": "UNKNOWN"
     },
     {
@@ -182,12 +177,12 @@
         200
       ],
       "n": 30,
-      "minMs": 9.718,
-      "p50Ms": 12.293,
-      "p95Ms": 23.659,
-      "p99Ms": 41.901,
-      "maxMs": 41.901,
-      "meanMs": 14.393
+      "minMs": 4.109,
+      "p50Ms": 6.581,
+      "p95Ms": 51.578,
+      "p99Ms": 87.541,
+      "maxMs": 87.541,
+      "meanMs": 11.416
     }
   }
 }
