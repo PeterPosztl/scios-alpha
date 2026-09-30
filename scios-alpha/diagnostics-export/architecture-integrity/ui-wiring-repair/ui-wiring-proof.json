@@ -1,0 +1,68 @@
+{
+  "schema": "sci-os-ui-wiring-repair-proof/v1",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T13:31:23.611Z",
+  "file": "apps/cockpit-ui/src/index.js",
+  "source": {
+    "workIdCount": 1,
+    "dilIdCount": 1,
+    "workNavButton": true,
+    "intelligenceNavButton": true,
+    "showViewUsesGetElementById": true,
+    "navWiresDatasetV": true,
+    "workIdBeforeDilId": true
+  },
+  "runtime": {
+    "mechanism": "ephemeral_source_cockpit_http",
+    "port": 62413,
+    "http": 200,
+    "workIdCount": 1,
+    "dilIdCount": 1
+  },
+  "workNavigation": {
+    "independentOfIntelligence": true,
+    "navigationId": "work",
+    "getElementByIdFound": true,
+    "unique": true,
+    "noOp": false,
+    "activeViewId": "work",
+    "headlineMyWork": true,
+    "headlineIntelligence": false,
+    "resolve": {
+      "ok": true,
+      "reason": "unique_first_match",
+      "count": 1,
+      "resolvedViewId": "work",
+      "resolvedIsMyWork": true,
+      "resolvedIsIntelligence": false
+    },
+    "expected": "WORK_NAVIGATION_PASS",
+    "result": "WORK_NAVIGATION_PASS"
+  },
+  "intelligenceNavigation": {
+    "independentOfWork": true,
+    "navigationId": "dil",
+    "getElementByIdFound": true,
+    "unique": true,
+    "noOp": false,
+    "activeViewId": "dil",
+    "headlineMyWork": false,
+    "headlineIntelligence": true,
+    "resolve": {
+      "ok": true,
+      "reason": "unique_first_match",
+      "count": 1,
+      "resolvedViewId": "dil",
+      "resolvedIsMyWork": false,
+      "resolvedIsIntelligence": true
+    },
+    "expected": "INTELLIGENCE_NAVIGATION_PASS",
+    "result": "INTELLIGENCE_NAVIGATION_PASS"
+  },
+  "tokens": {
+    "WORK_NAVIGATION": "WORK_NAVIGATION_PASS",
+    "INTELLIGENCE_NAVIGATION": "INTELLIGENCE_NAVIGATION_PASS",
+    "DOM_ID_UNIQUENESS": "DOM_ID_UNIQUENESS_PASS"
+  },
+  "status": "PASS"
+}

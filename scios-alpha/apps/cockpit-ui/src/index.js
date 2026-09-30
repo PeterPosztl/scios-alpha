@@ -350,7 +350,7 @@ ${TOKEN_CSS}
       <div class="grid" id="homeGrid"></div>
     </div>
 
-    <div class="view" id="dil">
+    <div class="view" id="work">
       <h2 class="homeHeadline" data-i18n="work.headline">My Work</h2>
       <p class="sub" data-i18n="work.sub">Open analyses, tasks, and saved context.</p>
       <div class="actions">

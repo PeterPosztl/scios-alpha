@@ -1,0 +1,67 @@
+{
+  "repair": "UI_WORK_INTELLIGENCE_WIRING",
+  "baseline": "0f7d32c9",
+  "head": "0f7d32c992811f115cee20f13a56337ed6108d5c",
+  "branch": "main",
+  "scope": "MINIMAL_UI_WIRING_ONLY",
+  "label": "ALPHA_NON_PRODUCTION",
+  "at": "2026-09-30T13:32:20.000Z",
+  "packageIdentity": {
+    "name": "sci-os-x10",
+    "packageManager": "pnpm@9.15.0",
+    "node": "v20.18.1"
+  },
+  "workId": "work",
+  "intelligenceId": "dil",
+  "workNavigation": "PASS",
+  "intelligenceNavigation": "PASS",
+  "domIdUniqueness": "PASS",
+  "typecheck": "PASS",
+  "protectedSurfaces": "UNCHANGED",
+  "packagingRequired": false,
+  "packagingPerformed": false,
+  "forensicPackPreserved": true,
+  "rootCause": "Commit bb9602bc duplicated id=\"dil\" onto the My Work view. showView uses document.getElementById, so Work nav (data-v=\"work\") was a no-op and Intelligence nav resolved the first dil, which was My Work.",
+  "minimalChange": "Restore id=\"work\" on the My Work view pane. Leave Intelligence as the sole id=\"dil\". Navigation handlers already targeted data-v=\"work\" / data-v=\"dil\".",
+  "filesChanged": [
+    "apps/cockpit-ui/src/index.js",
+    "scripts/tests/ui-work-intelligence-wiring.cjs",
+    "diagnostics-export/architecture-integrity/ui-wiring-repair/ui-wiring-proof.json",
+    "diagnostics-export/architecture-integrity/ui-wiring-repair/ui-wiring-repair-report.json",
+    "diagnostics-export/architecture-integrity/ui-wiring-repair/ui-wiring-repair-summary.md"
+  ],
+  "testsRun": [
+    {
+      "command": "node scripts/tests/ui-work-intelligence-wiring.cjs",
+      "result": "PASS",
+      "tokens": [
+        "WORK_NAVIGATION_PASS",
+        "INTELLIGENCE_NAVIGATION_PASS",
+        "DOM_ID_UNIQUENESS_PASS"
+      ],
+      "runtime": {
+        "mechanism": "ephemeral_source_cockpit_http",
+        "port": 62413,
+        "http": 200,
+        "workIdCount": 1,
+        "dilIdCount": 1
+      }
+    },
+    {
+      "command": "node scripts/tests/b006-cockpit-ui-hard-gate.cjs",
+      "result": "PASS"
+    },
+    {
+      "command": "node scripts/tests/app-typecheck-gate.cjs",
+      "result": "PASS",
+      "token": "APP_TYPECHECK_GATE_PASS"
+    }
+  ],
+  "unexpectedChanges": [],
+  "git": {
+    "head": "0f7d32c992811f115cee20f13a56337ed6108d5c",
+    "productDiffStat": "scios-alpha/apps/cockpit-ui/src/index.js | 2 +-",
+    "productDiff": "My Work view id=\"dil\" -> id=\"work\""
+  },
+  "status": "PASS"
+}
