@@ -1512,6 +1512,174 @@
       "success": true,
       "buildId": "pkg_test",
       "recordedAt": "2026-09-30T10:08:36.259Z"
+    },
+    {
+      "incidentId": "inc_442f41117155",
+      "failureClass": "SCI_PROCESS_MISSING",
+      "component": "cockpit",
+      "action": "BOUNDED_RESTART",
+      "attempt": 1,
+      "success": true,
+      "buildId": "pkg_test",
+      "verification": {
+        "ok": true,
+        "health": 200,
+        "hostTwinAligned": true
+      },
+      "recordedAt": "2026-09-30T10:28:51.091Z"
+    },
+    {
+      "incidentId": "inc_3cf3cc029b52",
+      "failureClass": "SCI_PROCESS_MISSING",
+      "component": "cockpit",
+      "action": "BOUNDED_RESTART",
+      "attempt": 1,
+      "success": false,
+      "buildId": "pkg_test",
+      "recordedAt": "2026-09-30T10:28:51.103Z"
+    },
+    {
+      "incidentId": "inc_99b6da79254f",
+      "failureClass": "SCI_PROCESS_MISSING",
+      "component": "cockpit",
+      "action": "BOUNDED_RESTART",
+      "attempt": 1,
+      "success": false,
+      "buildId": "pkg_test",
+      "recordedAt": "2026-09-30T10:28:51.121Z"
+    },
+    {
+      "incidentId": "inc_5271066591ee",
+      "failureClass": "SCI_PROCESS_MISSING",
+      "component": "cockpit",
+      "action": "BOUNDED_RESTART",
+      "attempt": 1,
+      "success": true,
+      "buildId": "pkg_test",
+      "verification": {
+        "ok": true
+      },
+      "recordedAt": "2026-09-30T10:28:51.252Z"
+    },
+    {
+      "incidentId": "inc_2c6b84733f6c",
+      "failureClass": "STALE_SCI_LOCK",
+      "action": "CLEAR_STALE_LOCK",
+      "success": true,
+      "buildId": "pkg_test",
+      "recordedAt": "2026-09-30T10:28:51.265Z"
+    },
+    {
+      "incidentId": "inc_cce2fad4f7e9",
+      "failureClass": "SCI_PROCESS_MISSING",
+      "component": "cockpit",
+      "action": "BOUNDED_RESTART",
+      "attempt": 1,
+      "success": true,
+      "buildId": "pkg_test",
+      "verification": {
+        "ok": true,
+        "health": 200,
+        "hostTwinAligned": true
+      },
+      "recordedAt": "2026-09-30T10:38:01.215Z"
+    },
+    {
+      "incidentId": "inc_d42d487105aa",
+      "failureClass": "SCI_PROCESS_MISSING",
+      "component": "cockpit",
+      "action": "BOUNDED_RESTART",
+      "attempt": 1,
+      "success": false,
+      "buildId": "pkg_test",
+      "recordedAt": "2026-09-30T10:38:01.229Z"
+    },
+    {
+      "incidentId": "inc_c612913213e2",
+      "failureClass": "SCI_PROCESS_MISSING",
+      "component": "cockpit",
+      "action": "BOUNDED_RESTART",
+      "attempt": 1,
+      "success": false,
+      "buildId": "pkg_test",
+      "recordedAt": "2026-09-30T10:38:01.259Z"
+    },
+    {
+      "incidentId": "inc_4cf2b0ed1a81",
+      "failureClass": "SCI_PROCESS_MISSING",
+      "component": "cockpit",
+      "action": "BOUNDED_RESTART",
+      "attempt": 1,
+      "success": true,
+      "buildId": "pkg_test",
+      "verification": {
+        "ok": true
+      },
+      "recordedAt": "2026-09-30T10:38:01.379Z"
+    },
+    {
+      "incidentId": "inc_8cffa3fb1dda",
+      "failureClass": "STALE_SCI_LOCK",
+      "action": "CLEAR_STALE_LOCK",
+      "success": true,
+      "buildId": "pkg_test",
+      "recordedAt": "2026-09-30T10:38:01.411Z"
+    },
+    {
+      "incidentId": "inc_c968dc7fac53",
+      "failureClass": "SCI_PROCESS_MISSING",
+      "component": "cockpit",
+      "action": "BOUNDED_RESTART",
+      "attempt": 1,
+      "success": true,
+      "buildId": "pkg_test",
+      "verification": {
+        "ok": true,
+        "health": 200,
+        "hostTwinAligned": true
+      },
+      "recordedAt": "2026-09-30T10:41:01.029Z"
+    },
+    {
+      "incidentId": "inc_3f963e290e2e",
+      "failureClass": "SCI_PROCESS_MISSING",
+      "component": "cockpit",
+      "action": "BOUNDED_RESTART",
+      "attempt": 1,
+      "success": false,
+      "buildId": "pkg_test",
+      "recordedAt": "2026-09-30T10:41:01.061Z"
+    },
+    {
+      "incidentId": "inc_7ee07263d8d0",
+      "failureClass": "SCI_PROCESS_MISSING",
+      "component": "cockpit",
+      "action": "BOUNDED_RESTART",
+      "attempt": 1,
+      "success": false,
+      "buildId": "pkg_test",
+      "recordedAt": "2026-09-30T10:41:01.091Z"
+    },
+    {
+      "incidentId": "inc_32c24a2ab4ba",
+      "failureClass": "SCI_PROCESS_MISSING",
+      "component": "cockpit",
+      "action": "BOUNDED_RESTART",
+      "attempt": 1,
+      "success": true,
+      "buildId": "pkg_test",
+      "verification": {
+        "ok": true
+      },
+      "recordedAt": "2026-09-30T10:41:01.225Z"
+    },
+    {
+      "incidentId": "inc_e8df3acb2887",
+      "failureClass": "STALE_SCI_LOCK",
+      "action": "CLEAR_STALE_LOCK",
+      "success": true,
+      "buildId": "pkg_test",
+      "recordedAt": "2026-09-30T10:41:01.249Z"
     }
   ]
 }

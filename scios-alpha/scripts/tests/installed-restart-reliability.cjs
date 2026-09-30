@@ -90,6 +90,38 @@ Get-CimInstance Win32_Process |
   }
 }
 
+/**
+ * Endpoints swept against the packaged bundle.
+ *
+ * The in-process smoke harness runs the same code as ESM under tsx, so it
+ * cannot catch failures specific to the esbuild CommonJS bundle — an
+ * `import.meta.url` dereference that is fine under ESM returned 500 here.
+ */
+const PACKAGED_ENDPOINTS = [
+  CP + "/healthz",
+  CP + "/readyz",
+  CP + "/v1/system/startup-readiness",
+  CP + "/v1/ecl/engine/infra",
+  CP + "/v1/ecl/workspace",
+  CP + "/v1/jobs/health",
+  CP + "/v1/os/job-engine/status",
+  COCKPIT + "/",
+  COCKPIT + "/healthz",
+];
+
+async function sweepPackagedEndpoints() {
+  const results = [];
+  for (const url of PACKAGED_ENDPOINTS) {
+    const r = await get(url, 15000);
+    results.push({
+      url: url.replace(CP, "cp").replace(COCKPIT, "shell"),
+      status: r.status,
+      ok: r.status > 0 && r.status < 500,
+    });
+  }
+  return { results, allOk: results.every((r) => r.ok), failures: results.filter((r) => !r.ok) };
+}
+
 async function waitProductSurface(maxMs = 180000) {
   const started = Date.now();
   const deadline = started + maxMs;
@@ -186,6 +218,11 @@ async function main() {
     entry.checks.startupReadiness = surface.readiness ? "PASS" : "FAIL";
     entry.checks.shellReady = surface.shell ? "PASS" : "FAIL";
     entry.readyMs = surface.readyMs;
+
+    const sweep = await sweepPackagedEndpoints();
+    entry.packagedEndpoints = sweep.results;
+    entry.checks.packagedEndpointsNoServerError = sweep.allOk ? "PASS" : "FAIL";
+    if (!sweep.allOk) entry.packagedEndpointFailures = sweep.failures;
 
     const startup = await readStartupVerdict(cycleStartedAt);
     entry.startupVerdict = startup.verdict;

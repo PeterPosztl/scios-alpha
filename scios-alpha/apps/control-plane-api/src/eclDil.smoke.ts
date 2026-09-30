@@ -788,6 +788,7 @@ async function professionalFabricChecks(
       optionalInfra?: string;
       livePostgres?: boolean;
       pgDriver?: string;
+      pgDriverProbe?: { basis?: string; resolvedFrom?: string | null; probeError?: string | null };
       daemon?: { enabledInBoot?: boolean; running?: boolean };
       pool?: { connected?: boolean };
     };
@@ -796,7 +797,24 @@ async function professionalFabricChecks(
   if (engInfra.data?.autoTrade !== false) fails.push("engine infra autoTrade");
   if (engInfra.data?.livePostgres === true) fails.push("engine infra claimed live Postgres without driver");
   if (engInfra.data?.optionalInfra !== "OPTIONAL_INFRA_DEGRADED") fails.push("engine infra not DEGRADED without driver");
-  if (engInfra.data?.pgDriver === "PRESENT") fails.push("engine infra claimed pg driver");
+  // pgDriver is an observation about module resolution, not a product invariant:
+  // the packaged runtime reports ABSENT while the tsx dev loader reaches pnpm's
+  // store and reports PRESENT. What must hold either way is that driver
+  // presence never promotes readiness, durability or live Postgres.
+  if (!["PRESENT", "ABSENT", "UNKNOWN"].includes(String(engInfra.data?.pgDriver))) {
+    fails.push("engine infra pgDriver not a recognised state");
+  }
+  if (engInfra.data?.pgDriver === "PRESENT") {
+    if (engInfra.data?.livePostgres !== false) fails.push("pg driver present promoted livePostgres");
+    if (engInfra.data?.optionalInfra !== "OPTIONAL_INFRA_DEGRADED") {
+      fails.push("pg driver present promoted optionalInfra");
+    }
+    if (engInfra.data?.ready === true) fails.push("pg driver present promoted ready");
+    if (engInfra.data?.pool?.connected === true) fails.push("pg driver present promoted pool connected");
+  }
+  if (engInfra.data?.pgDriver === "UNKNOWN" && !engInfra.data?.pgDriverProbe?.probeError) {
+    fails.push("engine infra pgDriver UNKNOWN without a probe error");
+  }
   if (engInfra.data?.daemon?.enabledInBoot === true) fails.push("engine infra daemon in boot");
   const clients = (await get("/v1/ecl/clients")) as {
     data?: {

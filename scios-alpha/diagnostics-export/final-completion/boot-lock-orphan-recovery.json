@@ -1,7 +1,7 @@
 {
   "schema": "sci-os-boot-lock-orphan-recovery/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-09-30T09:57:49.874Z",
+  "at": "2026-09-30T10:36:05.912Z",
   "subject": "installer/scripts/startup/process-lock.cjs",
   "rootCause": "lock validity decided by PID liveness alone; hung owner blocked all later boots",
   "cases": [
@@ -17,7 +17,7 @@
       "name": "reclaimedLockOwnedByUs",
       "status": "PASS",
       "detail": {
-        "lockPid": 19024
+        "lockPid": 12316
       }
     },
     {
@@ -57,7 +57,7 @@
       "status": "PASS",
       "detail": {
         "released": false,
-        "ownerPid": 15920,
+        "ownerPid": 10740,
         "reason": "OWNER_ALIVE"
       }
     },
@@ -66,7 +66,7 @@
       "status": "PASS",
       "detail": {
         "released": true,
-        "ownerPid": 15920,
+        "ownerPid": 10740,
         "forced": true
       }
     },

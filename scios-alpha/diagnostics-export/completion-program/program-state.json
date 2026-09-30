@@ -7,7 +7,7 @@
   "currentWave": "FINAL-COMPLETION",
   "currentWaveTitle": "Installed boot/restart reliability + app typecheck closure",
   "currentBatch": "B-010-complete",
-  "currentBuild": "pkg_1790762466624",
+  "currentBuild": "pkg_1790764419463",
   "gitSha": "46b03f18",
   "runtimeVersion": "v20.18.1",
   "closureRunId": "closure_post_b010_install",
@@ -128,7 +128,7 @@
   ],
   "nextWave": "B-011",
   "nextExactAction": "Resolve GAP-PG-PROBE-NONDETERMINISM (durable-adapter pg probe varies by import path), then gate smoke:ecl-dil. Beta remains blocked on FD-001 (OIDC provider) and a reachable PostgreSQL (DATABASE_URL); production additionally on TLS termination and Target-C P1=0.",
-  "lastUpdatedAt": "2026-09-30T10:14:39.114Z",
+  "lastUpdatedAt": "2026-09-30T10:43:01.117Z",
   "p1Audit": {
     "rawRegisterCount": 92,
     "engineeringOpen": 0,
@@ -138,13 +138,13 @@
     "proof": "diagnostics-export/completion-program/master/03-p1-root-closure.json"
   },
   "betaGate": "BETA_GATE_BLOCKED_WITH_EVIDENCE",
-  "betaGateAt": "2026-09-30T10:08:37.864Z",
+  "betaGateAt": "2026-09-30T10:41:02.857Z",
   "betaGateProof": "diagnostics-export/completion-program/beta-gate/11-final-gate.json",
   "productionGate": "PRODUCTION_GATE_BLOCKED_WITH_EVIDENCE",
-  "productionGateAt": "2026-09-30T10:08:15.244Z",
+  "productionGateAt": "2026-09-30T10:40:40.565Z",
   "productionGateProof": "diagnostics-export/completion-program/production-gate/11-final-gate.json",
   "alphaFinalGate": "ALPHA_FINAL_GATE_READY",
-  "alphaFinalGateAt": "2026-09-30T10:05:46.167Z",
+  "alphaFinalGateAt": "2026-09-30T10:38:30.208Z",
   "alphaFinalGateProof": "diagnostics-export/completion-program/alpha-final/11-final-gate.json",
   "founderVisionGate": "FOUNDER_VISION_GATE_COMPLETE",
   "founderVisionGateAt": "2026-08-29T21:54:28.374Z",
@@ -158,14 +158,14 @@
   "lastSuccessfulProofs": {
     "installedRestartReliability": "INSTALLED_RESTART_RELIABILITY_PASS",
     "installedBootToSurfaceMs": [
-      3119,
-      3094,
-      3106
+      3126,
+      3050,
+      3092
     ],
     "appTypecheckGate": "APP_TYPECHECK_GATE_PASS",
     "installedRuntimeVerdict": "DEGRADED",
     "sourceBuildPackageInstallSynchronized": true,
-    "at": "2026-09-30T10:14:39.115Z"
+    "at": "2026-09-30T10:43:01.118Z"
   },
   "externalAndFounderBlockers": [
     {
@@ -188,16 +188,6 @@
     }
   ],
   "openEngineeringGaps": [
-    {
-      "id": "GAP-PG-PROBE-NONDETERMINISM",
-      "impact": "NON_BLOCKING_TECH_DEBT",
-      "classification": "PARTIAL"
-    },
-    {
-      "id": "GAP-SMOKE-UNGATED",
-      "impact": "NON_BLOCKING_TECH_DEBT",
-      "classification": "PARTIAL"
-    },
     {
       "id": "GAP-TARGET-C-P1",
       "impact": "PRODUCTION_BLOCKER",

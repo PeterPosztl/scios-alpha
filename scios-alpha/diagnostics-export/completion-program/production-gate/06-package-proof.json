@@ -1,7 +1,7 @@
 {
   "schema": "sci-os-production-gate-package-proof/v1",
-  "at": "2026-09-30T10:08:15.244Z",
-  "buildId": "pkg_1790762466624",
+  "at": "2026-09-30T10:40:40.565Z",
+  "buildId": "pkg_1790764419463",
   "distPresent": true,
   "status": "PASS"
 }

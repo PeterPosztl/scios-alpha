@@ -8,7 +8,7 @@
     "identity": {
       "platform": "win32",
       "hostId": "b0c10e95b73f744e",
-      "observedAt": "2026-09-30T09:59:40.804Z"
+      "observedAt": "2026-09-30T10:38:00.936Z"
     },
     "runtime": {
       "buildId": "test-build",
@@ -48,12 +48,12 @@
     "resources": {
       "memory": {
         "total": 16883044352,
-        "free": 4321722368,
-        "freeRatio": 0.25598003996761637,
+        "free": 5177896960,
+        "freeRatio": 0.3066921375105323,
         "level": "HEALTHY"
       },
       "disk": {
-        "freeBytes": 164226891776,
+        "freeBytes": 164315795456,
         "level": "HEALTHY"
       },
       "cpu": {

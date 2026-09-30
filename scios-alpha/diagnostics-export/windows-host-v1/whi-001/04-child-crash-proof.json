@@ -1,17 +1,17 @@
 {
   "schema": "sci-os-whi-001-child-crash/v1",
-  "at": "2026-09-30T09:59:26.374Z",
+  "at": "2026-09-30T10:37:46.431Z",
   "exitCode": 3,
   "jobStatus": {
     "status": "JOB_OBJECT_CLOSED",
     "capability": "job-object",
-    "jobName": "SCI-OS-whi-crash-179076-12272",
+    "jobName": "SCI-OS-whi-crash-179076-9120",
     "keeperPid": null,
     "assignedPids": [],
     "assignLog": [
       {
-        "at": "2026-09-30T09:59:24.734Z",
-        "pid": 14188,
+        "at": "2026-09-30T10:37:44.797Z",
+        "pid": 17636,
         "ok": true
       }
     ],

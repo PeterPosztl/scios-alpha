@@ -1,6 +1,6 @@
 {
   "schema": "sci-os-whi-001-scaffold-analysis/v1",
-  "at": "2026-09-30T09:59:19.773Z",
+  "at": "2026-09-30T10:37:39.671Z",
   "keeperPath": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha\\installer\\scripts\\host\\helpers\\job-object-keeper.ps1",
   "verdict": "REAL_JOB_OBJECT_READY",
   "usesCreateJobObject": true,

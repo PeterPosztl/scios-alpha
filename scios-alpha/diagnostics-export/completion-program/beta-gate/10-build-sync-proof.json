@@ -1,8 +1,8 @@
 {
   "schema": "sci-os-beta-gate-build-sync/v1",
-  "at": "2026-09-30T10:08:37.864Z",
-  "buildId": "pkg_1790762466624",
-  "gitSha": "46b03f18",
+  "at": "2026-09-30T10:41:02.857Z",
+  "buildId": "pkg_1790764419463",
+  "gitSha": "bb9602bc",
   "alphaFinalGate": "ALPHA_FINAL_GATE_READY",
   "status": "PASS"
 }

@@ -1,6 +1,6 @@
 {
   "schema": "sci-os-whi-001-test-run/v1",
-  "at": "2026-09-30T09:59:40.687Z",
+  "at": "2026-09-30T10:38:00.782Z",
   "platform": "win32",
   "steps": [
     {
@@ -13,7 +13,7 @@
     {
       "name": "OWNERSHIP_REGISTRATION",
       "ok": true,
-      "pid": 4216
+      "pid": 10020
     },
     {
       "name": "VALID_SCI_CHILD_ATTACH",
@@ -32,7 +32,7 @@
       "stop": [
         {
           "name": "whi-fixture",
-          "pid": 4216,
+          "pid": 10020,
           "gracefulAttempted": true,
           "ok": false,
           "status": 128,
@@ -40,14 +40,14 @@
         },
         {
           "name": "whi-fixture",
-          "pid": 4216,
+          "pid": 10020,
           "phase": "job_fallback",
           "ok": false,
           "status": 128,
           "method": "taskkill_tree"
         }
       ],
-      "pid": 4216
+      "pid": 10020
     },
     {
       "name": "CHILD_CRASH_DETECTED",
@@ -58,12 +58,12 @@
       "name": "OWNER_LOSS_CLEANUP",
       "ok": true,
       "status": "PASS",
-      "orchestratorPid": 20660,
-      "childPid": 8036,
-      "keeperPid": 12484,
+      "orchestratorPid": 13192,
+      "childPid": 17988,
+      "keeperPid": 22304,
       "childGone": true,
       "keeperGone": true,
-      "orchOut": "FIXTURE_READY {\"orchestratorPid\":20660,\"childPid\":8036,\"keeperPid\":12484,\"jobStatus\":\"JOB_OBJECT_ACTIVE\",\"jobAttached\":true,\"at\":\"2026-09-30T09:59:27.288Z\"}"
+      "orchOut": "FIXTURE_READY {\"orchestratorPid\":13192,\"childPid\":17988,\"keeperPid\":22304,\"jobStatus\":\"JOB_OBJECT_ACTIVE\",\"jobAttached\":true,\"at\":\"2026-09-30T10:37:47.214Z\"}"
     },
     {
       "name": "DUPLICATE_START_SAFE",

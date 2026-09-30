@@ -8,7 +8,7 @@
     "identity": {
       "platform": "win32",
       "hostId": "b0c10e95b73f744e",
-      "observedAt": "2026-09-30T09:59:40.856Z"
+      "observedAt": "2026-09-30T10:38:00.988Z"
     },
     "runtime": {
       "buildId": "x",
@@ -16,7 +16,7 @@
       "nodeVersion": "v20.18.1",
       "installRoot": "C:\\Users\\peter\\Desktop\\SCI\\scios-alpha",
       "runtimeMode": "development",
-      "bootId": "owner-loss-20660",
+      "bootId": "owner-loss-13192",
       "runId": "current-run",
       "correlationId": null
     },
@@ -45,12 +45,12 @@
     "resources": {
       "memory": {
         "total": 16883044352,
-        "free": 4321296384,
-        "freeRatio": 0.25595480849922014,
+        "free": 5177602048,
+        "freeRatio": 0.30667466957087336,
         "level": "HEALTHY"
       },
       "disk": {
-        "freeBytes": 164226891776,
+        "freeBytes": 164315795456,
         "level": "HEALTHY"
       },
       "cpu": {
@@ -133,7 +133,7 @@
     },
     "drift": [
       {
-        "driftId": "STALE_OBSERVATION_REJECTED:e86e48",
+        "driftId": "STALE_OBSERVATION_REJECTED:97f57b",
         "type": "STALE_OBSERVATION_REJECTED",
         "severity": "P2",
         "expected": {
@@ -142,7 +142,7 @@
         "actual": {
           "runId": "old-run"
         },
-        "observedAt": "2026-09-30T09:59:40.856Z",
+        "observedAt": "2026-09-30T10:38:00.988Z",
         "evidence": "prior observation runId mismatch — not merged into actual",
         "repairAuthority": "NONE_THIS_SLICE",
         "repairAllowed": false

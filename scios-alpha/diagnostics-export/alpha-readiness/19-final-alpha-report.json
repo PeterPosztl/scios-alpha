@@ -1,8 +1,8 @@
 {
   "schema": "sci-os-alpha-final-report/v1",
-  "at": "2026-09-30T09:59:17.442Z",
+  "at": "2026-09-30T10:37:37.372Z",
   "baselineBuild": "pkg_1787147143095",
-  "gitSha": "46b03f18",
+  "gitSha": "bb9602bc",
   "uiFramework": {
     "decision": "MODULAR_VANILLA_COMPONENT_SYSTEM",
     "deferred": "React+Vite → Target B",

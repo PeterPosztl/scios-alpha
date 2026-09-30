@@ -1,8 +1,8 @@
 {
   "schema": "sci-os-b010-installed-e2e/v1",
-  "at": "2026-09-30T10:09:13.855Z",
+  "at": "2026-09-30T10:41:38.147Z",
   "installDir": "C:\\Users\\peter\\AppData\\Local\\SCI OS X10\\app",
-  "buildId": "pkg_1790762466624",
+  "buildId": "pkg_1790764419463",
   "cases": {
     "installedExe": "PASS",
     "healthz": "PASS",

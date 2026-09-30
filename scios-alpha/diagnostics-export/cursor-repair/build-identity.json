@@ -1,13 +1,13 @@
 {
   "schema": "sci-os-build-identity/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "buildId": "pkg_1790762466624",
-  "gitSha": "46b03f18b40cca539e8b581e57db407f505d1b6b",
-  "timestamp": "2026-09-30T10:01:08.253Z",
+  "buildId": "pkg_1790764419463",
+  "gitSha": "bb9602bc47b5f2f6efb24b9e764e730fb10a4448",
+  "timestamp": "2026-09-30T10:33:41.050Z",
   "nodeRuntime": "20.18.1",
-  "treeHash": "9af5bb0a963c4f630eff9a51744a8cf75e008a07b8120aab7cf69e929046bfd2",
-  "packageHash": "3f05cd5025a8fcb9e07a515d90dd89d29a371c51c843e480620324207fc5e3d9",
+  "treeHash": "39eb9f6d33becc3b0b2c8f270e66099126b6dffdc957e67940dbe56367ba08d2",
+  "packageHash": "da96ac528a745de26930d0ea5f74cc515bc834b92671b1abc0237ce61d2c51ab",
   "lockfileHash": "1a105e1f59ee30ffee081a321963277cc5f1b0d50217a260e3ab9bf18fdbf490",
   "manifestHash": "c08c28ac652a3bdaf5ea5adff9072cd36fe1db25ea3a07b9a93a1994e79fa701",
-  "packagedManifestHash": "cccb2eb892dccdc878d1727497b4a24376c9500b9b675c9b57b701e15362dd2e"
+  "packagedManifestHash": "b15ae2c0ee38a24b80cf0a5f000c5c6b9842a6e2e9bc4e97fd35e8caf6c9f651"
 }

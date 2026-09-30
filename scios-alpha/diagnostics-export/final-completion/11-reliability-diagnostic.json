@@ -1,7 +1,7 @@
 {
   "schema": "sci-os-final-completion/11-reliability-diagnostic/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-09-30T10:13:14.945Z",
+  "at": "2026-09-30T10:43:00.817Z",
   "title": "Reliability and restart behaviour",
   "sources": [
     "final-completion/installed-restart-reliability.json",

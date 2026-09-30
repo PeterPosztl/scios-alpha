@@ -1,7 +1,7 @@
 {
   "schema": "sci-os-final-completion/00-system-inventory/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-09-30T10:13:14.945Z",
+  "at": "2026-09-30T10:43:00.817Z",
   "title": "Source/runtime inventory",
   "sources": [
     "package.json",
@@ -30,8 +30,8 @@
     "authMode": "local-development"
   },
   "git": {
-    "head": "46b03f18b40cca539e8b581e57db407f505d1b6b",
-    "uncommittedEntries": 624
+    "head": "bb9602bc47b5f2f6efb24b9e764e730fb10a4448",
+    "uncommittedEntries": 159
   },
   "workspaceCounts": {
     "apps": 8,

@@ -1,5 +1,5 @@
 {
-  "at": "2026-09-30T10:05:46.167Z",
+  "at": "2026-09-30T10:38:30.208Z",
   "regressions": {
     "b006-cockpit-ui-hard-gate.cjs": "PASS",
     "b008-experience-compiler-hard-gate.cjs": "PASS",

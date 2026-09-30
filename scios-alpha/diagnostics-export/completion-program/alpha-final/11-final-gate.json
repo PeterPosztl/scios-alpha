@@ -1,10 +1,10 @@
 {
   "schema": "sci-os-alpha-final-gate/v1",
-  "at": "2026-09-30T10:05:46.167Z",
+  "at": "2026-09-30T10:38:30.208Z",
   "gate": "ALPHA_FINAL_GATE",
   "token": "ALPHA_FINAL_GATE_READY",
-  "buildId": "pkg_1790762466624",
-  "gitSha": "46b03f18",
+  "buildId": "pkg_1790764419463",
+  "gitSha": "bb9602bc",
   "checks": {
     "installedBoot": "PASS",
     "healthz": "PASS",

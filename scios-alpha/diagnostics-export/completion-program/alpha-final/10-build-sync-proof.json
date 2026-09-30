@@ -1,9 +1,9 @@
 {
   "schema": "sci-os-alpha-final-build-sync-proof/v1",
-  "at": "2026-09-30T10:05:46.167Z",
-  "expectedBuildId": "pkg_1790762466624",
-  "installedBuildId": "pkg_1790762466624",
+  "at": "2026-09-30T10:38:30.208Z",
+  "expectedBuildId": "pkg_1790764419463",
+  "installedBuildId": "pkg_1790764419463",
   "synced": true,
-  "gitSha": "46b03f18",
+  "gitSha": "bb9602bc",
   "status": "PASS"
 }

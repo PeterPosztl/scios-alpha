@@ -1,8 +1,8 @@
 {
   "schema": "sci-os-alpha-convergence-final/v1",
-  "at": "2026-09-30T09:59:17.581Z",
+  "at": "2026-09-30T10:37:37.465Z",
   "baselineBuild": "pkg_1787147143095",
-  "newBuild": "pkg_1790759388491",
+  "newBuild": "pkg_1790764419463",
   "checkpoint": "ALPHA_PRODUCT_CONVERGENCE_A1_A6",
   "p0Before": 0,
   "p0After": 0,

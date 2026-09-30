@@ -1,7 +1,7 @@
 {
   "schema": "sci-os-final-completion/12-install-update-diagnostic/v1",
   "label": "ALPHA_NON_PRODUCTION",
-  "at": "2026-09-30T10:13:14.945Z",
+  "at": "2026-09-30T10:43:00.817Z",
   "title": "Install / update / rollback",
   "sources": [
     "final-completion/_raw-install.log",
@@ -9,7 +9,7 @@
     "completion-program/production-gate/11-final-gate.json"
   ],
   "atomicInstall": "OBSERVED",
-  "installedBuildId": "pkg_1790762466624",
+  "installedBuildId": "pkg_1790764419463",
   "bundledNodeOnly": "UNKNOWN",
   "rollback": "UNKNOWN",
   "update": "UNKNOWN",

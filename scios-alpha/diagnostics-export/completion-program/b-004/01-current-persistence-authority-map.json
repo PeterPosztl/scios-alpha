@@ -1,6 +1,6 @@
 {
   "schema": "sci-os-b004-persistence-authority-map/v1",
-  "at": "2026-09-30T10:08:39.655Z",
+  "at": "2026-09-30T10:41:04.643Z",
   "jobsAuthority": "apps/control-plane-api/src/osSession.ts",
   "verticalSliceAuthority": "packages/vertical-slice/src/local-durable.ts",
   "matrixAuthority": "packages/vertical-slice/src/persistence-matrix.ts",

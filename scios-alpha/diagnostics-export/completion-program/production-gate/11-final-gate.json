@@ -1,10 +1,10 @@
 {
   "schema": "sci-os-production-gate-final/v1",
-  "at": "2026-09-30T10:08:15.244Z",
+  "at": "2026-09-30T10:40:40.565Z",
   "gate": "PRODUCTION_GATE",
   "token": "PRODUCTION_GATE_BLOCKED_WITH_EVIDENCE",
-  "buildId": "pkg_1790762466624",
-  "gitSha": "46b03f18",
+  "buildId": "pkg_1790764419463",
+  "gitSha": "bb9602bc",
   "checks": {
     "installationDurability": "PASS",
     "upgradeDurability": "PASS",

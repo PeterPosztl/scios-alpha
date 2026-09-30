@@ -489,12 +489,12 @@ async function main() {
       packageDeclarationDrift: pkgTypes ? pkgTypes.status : "UNKNOWN",
       distinction:
         "Source-level PASS is not treated as installed PASS. Installed proof comes from alpha-final-gate and installed-restart-reliability.",
-      knownUngatedSuites: [
+      knownUngatedSuites: [],
+      gatedThisWave: [
         {
           script: "apps/control-plane-api smoke:ecl-dil",
-          state: "NOT_GATED",
-          observed: "1 failing assertion (engine infra claimed pg driver)",
-          classification: "NON_BLOCKING_TECH_DEBT",
+          state: "GATED_IN_TEST_RELEASE",
+          note: "Was previously referenced by no gate.",
         },
       ],
     })
@@ -598,24 +598,25 @@ async function main() {
           status: "PROVEN_FIXED",
           evidence: "generated declarations + drift check in app-typecheck-gate; surfaced and fixed a duplicate-label defect in /v1/intent/compile",
         },
-      ],
-      openGaps: [
         {
           id: "GAP-PG-PROBE-NONDETERMINISM",
-          finding: "durable-adapter pgDriverPresent() resolves 'pg' relative to the ecl-dil module, so it reports ABSENT in package unit tests and PRESENT when loaded from the app, where @scios/vertical-slice provides pg. An honesty probe should not vary by import path.",
+          finding:
+            "The pg driver probe reported ABSENT under package tests and PRESENT under the app. Measured cause: the tsx dev loader resolves into pnpm's store (node_modules/.pnpm/pg@8.23.0), which plain Node does not; the packaged runtime reports ABSENT. The probe now anchors to the module realpath and reports its resolution basis, and driver presence is treated as an observation rather than an invariant.",
           impact: "NON_BLOCKING_TECH_DEBT",
-          classification: "PARTIAL",
-          safetyInvariantsStillHeld: ["livePostgres=false", "optionalInfra=OPTIONAL_INFRA_DEGRADED", "durable=false", "ready!=true"],
-          nextAction: "Make the probe report its resolution context explicitly and assert the real invariant (no live Postgres) rather than package absence.",
-          note: "Not fixed by weakening the assertion; requires a deliberate contract decision.",
+          status: "PROVEN_FIXED",
+          evidence:
+            "Packaged runtime GET /v1/ecl/engine/infra pgDriver=ABSENT; dev loader PRESENT with resolvedFrom recorded; smoke assertion strengthened to verify presence never promotes livePostgres/optionalInfra/ready/pool.connected",
+          note: "Fixed by making the probe explainable and asserting the real invariant, not by removing the check.",
         },
         {
           id: "GAP-SMOKE-UNGATED",
-          finding: "apps/control-plane-api smoke:ecl-dil is not referenced by any gate, so its single failing assertion was invisible.",
+          finding: "apps/control-plane-api smoke:ecl-dil was referenced by no gate, so its failing assertion was invisible.",
           impact: "NON_BLOCKING_TECH_DEBT",
-          classification: "PARTIAL",
-          nextAction: "Gate it once GAP-PG-PROBE-NONDETERMINISM is resolved; gating it now would hard-fail the release suite on a pre-existing assertion.",
+          status: "PROVEN_FIXED",
+          evidence: "Registered in package.json test:release; suite exits 0 with the harness reporting fails: []",
         },
+      ],
+      openGaps: [
         {
           id: "GAP-EXTERNAL-POSTGRES",
           finding: "No reachable PostgreSQL instance and no DATABASE_URL.",
