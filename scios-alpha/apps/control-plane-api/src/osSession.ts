@@ -306,6 +306,27 @@ export function getOrCreateSession(sessionId?: string) {
         objectId: null,
         pinned: true,
       },
+      {
+        workspaceId: "ws_analyze_aapl",
+        title: "Analyze AAPL (simulated)",
+        appId: "app.analyze",
+        objectId: "AAPL",
+        pinned: true,
+      },
+      {
+        workspaceId: "ws_dil_fed",
+        title: "Intelligence · Fed cut (simulated)",
+        appId: "app.dil",
+        objectId: "pm-fed-cut-oct",
+        pinned: false,
+      },
+      {
+        workspaceId: "ws_ecl_book",
+        title: "Reporting · simulated book",
+        appId: "app.ecl",
+        objectId: "ecl-book",
+        pinned: false,
+      },
     ],
     activeWorkspaceId: "ws_home",
     recent: { entities: [], analyses: [], searches: [] },
@@ -533,7 +554,39 @@ export function pushNotification(n: Record<string, unknown>) {
   return item;
 }
 
+let simulatedAlphaNotificationsSeeded = false;
+
+function seedSimulatedAlphaNotifications() {
+  if (simulatedAlphaNotificationsSeeded) return;
+  simulatedAlphaNotificationsSeeded = true;
+  pushNotification({
+    type: "ATTENTION",
+    source: "simulated_alpha",
+    object: "Entity:AAPL",
+    severity: "info",
+    reason: "SIMULATED — AAPL is on the local catalog. Run Analyze for a GW1 slice. Not live market data.",
+    action: "analyze",
+  });
+  pushNotification({
+    type: "INTELLIGENCE",
+    source: "simulated_alpha",
+    object: "pm-fed-cut-oct",
+    severity: "info",
+    reason: "SIMULATED — 3 prediction-market rows are on Intelligence. Agent proposes; you decide. No auto-trade.",
+    action: "open_intelligence",
+  });
+  pushNotification({
+    type: "REPORTING",
+    source: "simulated_alpha",
+    object: "ecl-book",
+    severity: "info",
+    reason: "SIMULATED — ECL book has 3 instruments in-memory. Not a durable ledger.",
+    action: "open_reporting",
+  });
+}
+
 export function listNotifications() {
+  seedSimulatedAlphaNotifications();
   return notifications.slice(0, 40);
 }
 

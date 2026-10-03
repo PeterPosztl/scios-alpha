@@ -346,6 +346,7 @@ async function packageCockpit() {
     target: "node20",
     outfile: dst,
     sourcemap: false,
+    keepNames: true,
     logLevel: "warning",
     packages: "bundle",
   });

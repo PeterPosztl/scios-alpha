@@ -291,6 +291,26 @@ function buildHome(sessionId?: string) {
         status: r.status || "UNKNOWN",
         at: r.createdAt,
       })),
+      intelligence: [
+        {
+          id: "pm-fed-cut-oct",
+          title: "Fed cuts rates in October?",
+          status: "SIMULATED",
+          feed: "simulated_alpha",
+        },
+        {
+          id: "kx-cpi-hot",
+          title: "CPI prints hotter than consensus?",
+          status: "SIMULATED",
+          feed: "simulated_alpha",
+        },
+        {
+          id: "pm-btc-100k",
+          title: "BTC above 100k by year-end?",
+          status: "SIMULATED",
+          feed: "simulated_alpha",
+        },
+      ],
       cases: [],
       alerts: notifications.filter((n) => n.severity === "warn" || n.severity === "error"),
       risks: runs.filter((r) => String(r.status || "") === "REJECT").slice(-5),

@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node src/index.js",
     "start": "node src/index.js",
-    "test": "node --test src/i18n.test.js src/sci-charts.test.js src/analytics-detective.test.js src/blueprint-studio.test.js src/ecl-dil-console.test.js src/hero-v3.test.js"
+    "test": "node --test src/i18n.test.js src/safe-dom.test.js src/sci-charts.test.js src/analytics-detective.test.js src/blueprint-studio.test.js src/ecl-dil-console.test.js src/hero-v3.test.js"
   },
   "dependencies": {
     "@scios/design-system": "workspace:*"

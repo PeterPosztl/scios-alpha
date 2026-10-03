@@ -2050,7 +2050,7 @@ ${HERO_V3_BROWSER_SOURCE}
         const cardBodies = {
           work: (s.myWork || []).map((w) => w.title || w.workspaceId).join(", ") || t(productPrefs.locale, "work.headline"),
           analyses: (s.analyses || []).slice(0, 5).map((x) => (x.instrumentId || "?") + " · " + (x.status || "")).join("\\n") || t(productPrefs.locale, "fill.evidenceJson"),
-          intelligence: t(productPrefs.locale, "dil.sub"),
+          intelligence: (s.intelligence || []).map((x) => (x.title || x.id) + " · " + (x.status || "SIMULATED")).join("\\n") || t(productPrefs.locale, "dil.sub"),
           reporting: t(productPrefs.locale, "ecl.sub"),
           analysis: t(productPrefs.locale, "analysis.sub"),
           detective: t(productPrefs.locale, "detective.sub"),
